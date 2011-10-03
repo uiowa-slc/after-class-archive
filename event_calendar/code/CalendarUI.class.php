@@ -130,7 +130,7 @@ class LiveCalendarWidget extends ViewableData
   public function ShowMonthLink($month)
   {
     $default_view = $this->default_view ? "1" : "0";
-    return $this->Link('show')."/".$month."/".$this->anchor_start->format('Ymd')."/".$this->anchor_end->format('Ymd')."/".$this->calendar->class."/".$this->calendar->ID."/".$default_view;
+    return $this->Link('show')."/".$month."/".$this->anchor_start->format('Ymd')."/".$this->anchor_end->format('Ymd')."/".$this->calendar->data()->class."/".$this->calendar->ID."/".$default_view;
   }
   
   protected function getQuickMonthLink()
@@ -161,7 +161,7 @@ class LiveCalendarWidget extends ViewableData
   
   protected function getEventsFor($start, $end)
   {
-	  $events = $this->calendar->Events(null, $start, $end);
+	  $events = $this->calendar->data()->Events(null, $start, $end);
     $map = array();
 	  if($events) {
       foreach($events as $event) {

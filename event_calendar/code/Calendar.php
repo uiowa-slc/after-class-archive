@@ -6,7 +6,8 @@ class Calendar extends Page
 	static $db = array(
  		'DefaultEventDisplay' => 'Int',
 		'DefaultDateHeader' => 'Varchar(50)',
-		'OtherDatesCount' => 'Int'
+		'OtherDatesCount' => 'Int',
+		'RSSTitle' => 'Varchar(255)'
 	);
 	
 	static $has_many = array (
@@ -124,7 +125,8 @@ class Calendar extends Page
 		$announcements = _t('Calendar.Announcements','Announcements');
 		$f->addFieldToTab("Root.Content.$announcements", $table);
 		
-		$table = new DataObjectManager(
+		$tableClass = class_exists('DataObjectManager') ? 'DataObjectManager' : 'ComplexTableField';
+		$table = new $tableClass(
 			$this,
 			'Feeds',
 			'ICSFeed',
@@ -146,6 +148,8 @@ class Calendar extends Page
 				));
 			}
 		}
+		
+		$f->addFieldToTab("Root.Content.Main", new TextField('RSSTitle', _t('Calendar.RSSTITLE','Title of RSS Feed')),'Content');
 		$this->extend('updateCalendarFields',$f);
 		return $f;	
 	}
@@ -180,6 +184,8 @@ class Calendar extends Page
 		}
 		return $join;
 	}
+	
+	
 	
 	protected function getEventIds()
 	{
@@ -233,23 +239,35 @@ class Calendar extends Page
 			$this->getEventJoin()
 		);
 	}
-		
 
-	protected function getRecurringEvents($filter = null)
-	{
+	/**
+	 * Gets all recurring events attached to this calendar and any nested
+	 * calendars.
+	 *
+	 * @param  string $filter
+	 * @return DataObjectSet
+	 */
+	protected function getRecurringEvents($filter = null) {
+		$parents = array();
 
-		$where = "Recursion = 1 AND ParentID = {$this->ID}";
-		$where .= $filter !== null ? " AND " . $filter : "";
+		foreach ($this->getAllCalendars() as $calendar) {
+			$parents[] = $calendar->ID;
+		}
+
+		$where = sprintf(
+			'"Recursion" = 1 AND "ParentID" IN (%s)', implode(', ', $parents)
+		);
+
+		if ($filter) $where .= "AND $filter";
 
 		return DataObject::get(
 			$this->getEventClass(),
 			$where,
-			"`CalendarDateTime`.StartDate ASC",
-      $this->getDateJoin()
-		);
-		
+			'"CalendarDateTime"."StartDate" ASC',
+			$this->getDateJoin());
 	}
-	
+
+
 	protected function addRecurringEvents($recurring_events,$all_events)
 	{
 		$date_counter = $this->start_date;
@@ -413,16 +431,17 @@ class Calendar extends Page
 	{
 		$start_date = new sfDate();
 		$end_date = new sfDate();
+		$l = ($limit === null) ? "9999" : $limit;
 		$events = $this->Events(
 			$filter, 
 			$start_date->subtractMonth(Calendar::$defaultFutureMonths), 
 			$end_date->yesterday(), 
-			true, 
-			($limit === null ? $this->DefaultEventDisplay : $limit),
+			false, 
+			$l,
 			$announcement_filter
 		);
 		$events->sort('StartDate','DESC');
-		return $events;
+		return $events->getRange(0,$limit);
 	}
 	
 	public static function is_filtered()
@@ -523,7 +542,7 @@ class Calendar extends Page
 		$range = range(($dummy->subtractYear(3)->format('Y')), ($dummy->addYear(6)->format('Y')));
 		$year_map = array_combine($range, $range);
 		$f = new Form(
-			$this,
+			Controller::curr(),
 			"MonthJumpForm",
 			new FieldSet (
 				new DropdownField('Month','', CalendarUtil::getMonthsMap('%B'), $start_date->format('m')),
@@ -570,6 +589,7 @@ class Calendar_Controller extends Page_Controller
 		'view',
 		'rss',
 		'ics',
+		'ical',
 		'import',
 		'showevent',
 		'CalendarFilterForm'
@@ -629,7 +649,6 @@ class Calendar_Controller extends Page_Controller
 			$this->end_date = new sfDate($this->start_date->addMonth(Calendar::$defaultFutureMonths)->date());
 		}
 		$this->start_date->reset();
-
 	}
 	
 	public function view()
@@ -658,7 +677,18 @@ class Calendar_Controller extends Page_Controller
 		
 	}
 
-
+	/**
+	 * Send ical file of multiple upcoming events using ICSWriter
+	 *
+	 * @todo Support recurring events.
+	 * @see ICSWriter
+	 * @author Alex Hayes <alex.hayes@dimension27.com>
+	 */
+	public function ical() {
+		$writer = new ICSWriter($this->data(), Director::absoluteURL('/'));
+		$writer->sendDownload();
+	}
+	
 	// TO-DO: Account for recurring events.
 	public function ics()
 	{
@@ -679,7 +709,7 @@ class Calendar_Controller extends Page_Controller
 		}
 		if(is_numeric($id) && isset($this->urlParams['OtherID'])) {
 			if(!$feed) { 
-				$event = DataObject::get_by_id($announcement ? $this->getModel()->getEventDateTimeClass() : $this->getModel()->getEventClass(), $id);
+				$event = DataObject::get_by_id($announcement ? $this->data()->getEventDateTimeClass() : $this->data()->getEventClass(), $id);
 				$FILENAME = $announcement ? preg_replace("/[^a-zA-Z0-9s]/", "", $event->Title) : $event->URLSegment;
 			}
 			else
@@ -732,12 +762,13 @@ class Calendar_Controller extends Page_Controller
 	
 	public function rss() 
 	{
-		$events = $this->getModel()->UpcomingEvents(null,$this->DefaultEventDisplay);
+		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
 		foreach($events as $event) {
 			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
 			$event->Description = $event->EventContent();
 		}
-		$rss = new RSSFeed($events, $this->Link(), sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title), "", "Title", "Description");
+		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
+		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description");
 
 		if(is_int($rss->lastModified)) {
 			HTTP::register_modification_timestamp($rss->lastModified);
@@ -776,7 +807,7 @@ class Calendar_Controller extends Page_Controller
   					}
   					if(isset($event[$dt_start]) && isset($event[$dt_end])) {
   						list($start_date, $end_date, $start_time, $end_time) = CalendarUtil::date_info_from_ics($event[$dt_start], $event[$dt_end]);
-							$c = $this->getModel()->getEventDateTimeClass();
+							$c = $this->data()->getEventDateTimeClass();
 							$new_date = new $c();
 							$new_date->StartDate = $start_date;
 							$new_date->StartTime = $start_time;
@@ -844,14 +875,6 @@ class Calendar_Controller extends Page_Controller
 			break;
 		}
 	 }
-	 
-	public function getModel() 
-	{
-		$model_class = str_replace("_Controller", "", get_class($this));
-		return DataObject::get_by_id($model_class,$this->ID);	
-	}
-	
-	
 	public function Events($filter = null, $announcement_filter = null)
 	{
 		if(list($db_clauses,$event_filters,$datetime_filters) = Calendar::getFiltersForDB()) {
@@ -859,7 +882,7 @@ class Calendar_Controller extends Page_Controller
       if(!empty($datetime_filters))
         $announcement_filter = sizeof($datetime_filters) > 1 ? implode(" AND ", $datetime_filters) : $datetime_filters;
 		}
-		return $this->getModel()->Events($filter, $this->start_date, $this->end_date, ($this->view == "default"), null, $announcement_filter);
+		return $this->data()->Events($filter, $this->start_date, $this->end_date, ($this->view == "default"), null, $announcement_filter);
 	}
 		
 	public function CalendarWidget()
@@ -889,7 +912,7 @@ class Calendar_Controller extends Page_Controller
 		$form = new Form(
 			$this,
 			'CalendarFilterForm',
-			$this->getModel()->getFilterFields(),
+			$this->data()->getFilterFields(),
 			new FieldSet(
 				new FormAction('doCalendarFilter',_t('Calendar.FILTER','Filter'))
 			)
