@@ -28,3 +28,5 @@ ErrorDocument 500 /assets/error-500.html
 </IfModule>
 ### SILVERSTRIPE END ###
 php_value error_reporting 2147483647
+php_flag display_errors 1
+php_value error_reporting 8191
