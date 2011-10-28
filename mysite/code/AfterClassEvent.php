@@ -5,7 +5,7 @@ class AfterClassEvent extends CalendarEvent
 	
 	static $many_many = array (
 	
-		"EventCategories" => "EventCategory"
+		"Tags" => "Tag"
 
 	);
 
@@ -23,6 +23,8 @@ class AfterClassEvent extends CalendarEvent
 			array('Title' => 'Title'),
 			'getCMSFields_forPopup'
 		));
+		
+		$f->addFieldToTab("Root.Content.Tags", new TagField('Tags', 'My Tags', null, 'AfterClassEvent', 'Title'));
 		
 		return $f;
 	
