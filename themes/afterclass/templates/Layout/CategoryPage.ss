@@ -1,6 +1,12 @@
-	<section id="home_feature" class="feature">
-    	<img src="http://dummyimage.com/450x380" />
-    	<div class="event_text">
+<header id="secondary_header">
+	<% control Category %>
+		<h1>$Title</h1>
+		
+		
+		<section id="secondary_feature" class="feature clearfix">
+    	   	<img src="http://dummyimage.com/450x380" class="secondary_feature_image"/>
+    	   	<div class="event_group">
+    	   	<div class="event_text">
     		<h2>Featured Comedian <strong>Kenan Thompson</strong></h2>
     		<p class="event_details">Friday, August 26<br/>
         		10pm<br/>
@@ -22,113 +28,25 @@
          		vitae diam. Curabitur risus purus, accumsan in pulvinar vitae, sollicitudin pretium magna. Cras interdum orci a arcu auctor rhoncus. Curabitur
             	enim est, scelerisque nec gravida in, sodales eu ante.</p>
     
+			</div>
     </section>
-    
-    <section id="upcoming_events">
-    	<div id="upcoming_events_header">
-    		<h2>Upcoming Events</h2>
-        	<p class="description">Click on a date on our interactive calendar or scroll the list below for the latest event details.</p>
-        </div>
-        
-        <div id="calendar_widget">
-        	<!-- Place calendar widget here -->
-        </div>
-        
-        <div id="upcoming_event_list">
-        	<div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-            <div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="Place Alt Text" />
-                <h3>Event Title</h3>
-                <p>Date<br/>
-                	Day @ Time in Location<br/>
-                    Cost</p>
-            </div>
-       
-     
-        </div>
-    </section>
-    
- 
+		
+		
+		<section id="secondary_event_list">
+		<% control AfterClassEvents %>
+			
+			<div class="secondary_event odd">
+					<div class="event_date_tag">
+					<a href="#"><div class="event_date_box">Aug <strong>26</strong> Fri</div></a>
+					</div>
+					<a href="#"><img src="http://dummyimage.com/340x290"/>
+					<h2><strong>$Title</strong> @ Hubbard Park</h2></a>
+			</div>
+		
+		
+		<% end_control %>
+		</section>
+	<% end_control %>
+	</header>
+
+	

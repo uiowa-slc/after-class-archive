@@ -35,7 +35,19 @@
 <nav id="page_navigation">
 	<div class="container">
 	<ul class="clearfix">
-        <li><a href="#"><strong>Category</strong> The type of event</a>
+		<% control Menu(1) %>
+			<li>
+				<a href="Link"><strong>$Title</strong> $MenuTitle</a>
+				<% if Children %>
+				<ul>
+					<% control Children %>
+						<li><a href="$Link">$Title</a></li>
+					<% end_control %>
+				</ul>
+				<% end_if %>
+			</li>
+		<% end_control %>
+        <!--<li><a href="#"><strong>Category</strong> The type of event</a>
         	<ul>
             	<li><a href="/secondary.php">Movies</a></li>
                 <li><a href="#">Lectures</a></li>
@@ -58,7 +70,7 @@
             </ul>    
         </li>
         <li><a href="#"><strong>All Events</strong> Stay in the loop</a></li>
-        <li><a href="#"><strong>Contact</strong>Market your event</a></li>
+        <li><a href="#"><strong>Contact</strong>Market your event</a></li>-->
     </ul>
     </div>
 </nav>
