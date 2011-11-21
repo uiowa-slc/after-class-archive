@@ -1,4 +1,4 @@
-<section id="home_feature" class="feature">
+	<section id="home_feature" class="feature">
     	<img src="http://dummyimage.com/450x380" />
     	<div class="event_text">
     		<h2>Featured Comedian <strong>Kenan Thompson</strong></h2>
@@ -130,3 +130,5 @@
      
         </div>
     </section>
+    
+ 
