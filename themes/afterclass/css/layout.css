@@ -313,9 +313,8 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -6px;
   text-shadow: 4px 4px 8px #000000;
   filter: dropshadow(color=black, offx=4, offy=4);
-  background-image: url("../images/tigerhawk_scribble.png");
-  background-repeat: no-repeat;
-  background-position: 660px 40px; }
+  background: url("../images/tigerhawk_scribble.png") no-repeat center right;
+  }
 
 #page_header p {
   position: absolute;

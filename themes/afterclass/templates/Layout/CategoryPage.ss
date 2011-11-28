@@ -1,20 +1,21 @@
 <header id="secondary_header">
-	<% control Category %>
+	
 		<h1>$Title</h1>
 		
-		
+		<% if Featured %>
+		<!-- control Featured -->
 		<section id="secondary_feature" class="feature clearfix">
     	   	<img src="http://dummyimage.com/450x380" class="secondary_feature_image"/>
     	   	<div class="event_group">
     	   	<div class="event_text">
-    		<h2>Featured Comedian <strong>Kenan Thompson</strong></h2>
-    		<p class="event_details">Friday, August 26<br/>
+    			<h2>Featured Comedian <strong>Kenan Thompson</strong></h2>
+    			<p class="event_details">Friday, August 26<br/>
         		10pm<br/>
             	Hubbard Park<br/>
             	Free Admission</p>           
-       	</div>
+			</div>
        	
-       	<div class="event_date_tag">
+       		<div class="event_date_tag">
 			<a href="#"><div class="event_date_box">Aug <strong>26</strong> Fri</div></a>
             <ul>
             	<li class="share_facebook"><a href="#">Facebook</a></li>
@@ -22,28 +23,30 @@
                 <li class="share_twitter"><a href="#">Twitter</a></li>
                 <li class="share_email"><a href="#">Email</a></li>
             </ul>
-        </div>       
+        	</div>       
         
          	<p class="event_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse neque leo, ultrices nec mollis ornare, malesuada
          		vitae diam. Curabitur risus purus, accumsan in pulvinar vitae, sollicitudin pretium magna. Cras interdum orci a arcu auctor rhoncus. Curabitur
             	enim est, scelerisque nec gravida in, sodales eu ante.</p>
     
 			</div>
-    </section>
+    	</section>
+    	<!-- end_control -->
+    <% end_if %>
 		
-		
+	<% control Category %>
 		<section id="secondary_event_list">
 		<% control AfterClassEvents %>
-			
+			<% if Title %>
 			<div class="secondary_event odd">
 					<div class="event_date_tag">
-					<a href="#"><div class="event_date_box">Aug <strong>26</strong> Fri</div></a>
+					<a href="$Link"><div class="event_date_box">Aug <strong>26</strong> Fri</div></a>
 					</div>
-					<a href="#"><img src="http://dummyimage.com/340x290"/>
+					<a href="$Link"><img src="http://dummyimage.com/340x290"/>
 					<h2><strong>$Title</strong> @ Hubbard Park</h2></a>
 			</div>
 		
-		
+			<% end_if %>
 		<% end_control %>
 		</section>
 	<% end_control %>
