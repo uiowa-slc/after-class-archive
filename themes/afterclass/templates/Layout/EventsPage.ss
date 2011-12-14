@@ -1,28 +1,46 @@
 <section id="home_feature" class="feature">
-    	<img src="http://dummyimage.com/450x380" />
-    	<div class="event_text">
-    		<h2>Featured Comedian <strong>Kenan Thompson</strong></h2>
-    		<p class="event_details">Friday, August 26<br/>
-        		10pm<br/>
-            	Hubbard Park<br/>
-            	Free Admission</p>           
-       	</div>
-       	
-       	<div class="event_date_tag">
-			<a href="#"><div class="event_date_box">Aug <strong>26</strong> Fri</div></a>
+<% control Page(all-events) %>
+	<% control Children %>
+	<% if Featured %>
+		<div class="homefeatureitem">
+			<a href="$Link"><img src="$Image.LargeImage.URL" /></a>
+			<div class="event_text">
+				<h2>Featured Event <strong>$Title</strong></h2>
+				<p class="event_details">
+				<% control DateTimes %>
+				<% if First %>
+				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
+        		$StartTime.nice<br/>
+        		<% end_if %>
+        		<% end_control %>
+            	$Location<br/>
+            	$Cost</p>
+			</div>
+			
+			<div class="event_date_tag">
+			<a href="#">
+			<% control DateTimes %>
+			<% if First %>
+			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+			<% end_if %>
+        	<% end_control %>
+        	</a>
+        	
             <ul>
             	<li class="share_facebook"><a href="#">Facebook</a></li>
                 <li class="share_rss"><a href="#">RSS</a></li>
                 <li class="share_twitter"><a href="#">Twitter</a></li>
                 <li class="share_email"><a href="#">Email</a></li>
             </ul>
-        </div>       
+        	</div>
         
-         	<p class="event_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse neque leo, ultrices nec mollis ornare, malesuada
-         		vitae diam. Curabitur risus purus, accumsan in pulvinar vitae, sollicitudin pretium magna. Cras interdum orci a arcu auctor rhoncus. Curabitur
-            	enim est, scelerisque nec gravida in, sodales eu ante.</p>
-    
-    </section>
+        <p class="event_description">$Content</p>
+		
+		</div>
+	<% end_if %>
+	<% end_control %>
+<% end_control %>
+</section>
     
     <section id="upcoming_events">
     	<!--<div id="upcoming_events_header">-->
@@ -35,14 +53,23 @@
         <!--</div>-->
         
         <div id="upcoming_event_list">
-        	<% control Events %>
+        	<% control Page(all-events) %>
+        	<% control Children %>
         		<div class="event">
-            	<img src="http://dummyimage.com/130x110" width="130" height="110" alt="$Title" />
-                <h3>$Title</h3>
-                <p>$Date.format(M j), $Date.format(Y)<br/>
-                	$Date.format(l) @ $Time in $Location<br/>
-                    $Cost</p>
+            	<a href="$Link"><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /></a>
+                <h3><a href="$Link">$Title</a></h3>
+                
+                <p>
+                <% control DateTimes %>
+				<% if First %>$StartDate.format(M j), $StartDate.format(Y)<br/>
+                	$StartDate.format(l) @ $StartTime.nice<% end_if %>
+                <% end_control %>
+                in $Location<br/>
+                $Cost
+                </p>
+                
             	</div>
+            <% end_control %>
         	<% end_control %>
         </div>
     </section>

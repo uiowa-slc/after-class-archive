@@ -402,9 +402,17 @@ h1, h2, h3, h4, h5, h6 {
   float: left;
   margin-right: 20px;
   margin-bottom: 200px;
-  color: #555555; }
-  #home_feature .event_text {
-    width: 354px; }
+  color: #555555;
+}
+#home_feature .event_text {
+  width: 354px;
+}
+#home_feature .homefeatureitem {
+  display: none;
+}
+#home_feature div:first-of-type {
+  display: block;
+}
 
 #upcoming_events {
   width: 430px;
@@ -450,19 +458,25 @@ h1, h2, h3, h4, h5, h6 {
       /* IE6-9 */
       background: linear-gradient(top, #ffde68 0%, #ffd026 100%);
       /* W3C */
-      overflow: auto;
+      overflow: hidden;
+      height: 110px;
       margin-bottom: 20px;
       border-top: 1px solid #a0a0a0;
-      border-bottom: 1px solid #a0a0a0; }
+      border-bottom: 1px solid #a0a0a0;
+    }
       #upcoming_events #upcoming_event_list .event img {
         float: left;
         margin-right: 20px; }
-      #upcoming_events #upcoming_event_list .event h3 {
+      #upcoming_events #upcoming_event_list .event h3 a {
+        text-decoration: none;
         text-transform: uppercase;
         color: #a0a0a0;
         font-size: 22px;
-        margin: 20px 0 0 0;
-        padding: 0; }
+      }
+      #upcoming_events #upcoming_event_list .event h3 {
+        margin: 10px 0 0 0;
+        padding: 0;
+      }
       #upcoming_events #upcoming_event_list .event p {
         margin: 0;
         padding: 0; }
@@ -551,8 +565,9 @@ h1, h2, h3, h4, h5, h6 {
       #secondary_event_list .secondary_event .event_date_tag .event_date_box {
         margin: 0px;
         width: 93px; }
-  #secondary_event_list .secondary_event.odd {
-    margin-right: 30px; }
+#secondary_event_list .secondary_event {
+  margin: 5px;
+}
 
 .feature h2 {
   font-family: 'Open Sans', sans-serif;

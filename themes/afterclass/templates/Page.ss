@@ -37,13 +37,15 @@
 	<ul class="clearfix">
 		<% control Menu(1) %>
 			<li>
-				<a href="Link"><strong>$Title</strong> $MenuTitle</a>
 				<% if Children %>
+				<a href="#" onclick="javascript:return false;"><strong>$Title</strong> $MenuTitle</a>
 				<ul>
 					<% control Children %>
 						<li><a href="$Link">$Title</a></li>
 					<% end_control %>
 				</ul>
+				<% else %>
+				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
 				<% end_if %>
 			</li>
 		<% end_control %>
