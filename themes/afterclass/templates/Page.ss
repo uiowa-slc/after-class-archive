@@ -49,30 +49,6 @@
 				<% end_if %>
 			</li>
 		<% end_control %>
-        <!--<li><a href="#"><strong>Category</strong> The type of event</a>
-        	<ul>
-            	<li><a href="/secondary.php">Movies</a></li>
-                <li><a href="#">Lectures</a></li>
-                <li><a href="#">Concerts</a></li>
-                <li><a href="#">Campus Events</a></li>
-            </ul>
-        </li>
-        <li><a href="#"><strong>Sponsor</strong> Who puts it on</a>
-        	<ul>
-            	<li><a href="#">Bijou</a></li>
-                <li><a href="#">CAB</a></li>
-                <li><a href="#">SCOPE</a></li>
-            </ul>        	
-        </li>
-        <li><a href="#"><strong>Venue</strong> Where it takes place</a>
-            <ul>
-            	<li><a href="#">Englert</a></li>
-                <li><a href="#">Hubbard Park</a></li>
-                <li><a href="#">IMU</a></li>
-            </ul>    
-        </li>
-        <li><a href="#"><strong>All Events</strong> Stay in the loop</a></li>
-        <li><a href="#"><strong>Contact</strong>Market your event</a></li>-->
     </ul>
     </div>
 </nav>

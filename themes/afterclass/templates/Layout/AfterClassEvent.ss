@@ -1,55 +1,88 @@
-<% require css(event_calendar/css/calendar.css) %>
-<% require javascript(event_calendar/javascript/calendar_core.js) %>
+<!--<header id="detail_header"><h1>Movies</h1></header>-->
 
-<div id="primaryContent" class="clearfix">
-    <div class="innerpad">
-		<div id="calendar-sidebar">
-			<h3><% _t('BROWSECALENDAR','Browse the Calendar') %></h3>
-			<div id="monthNav">
-				<p><% _t('USECALENDAR','Use the calendar below to navigate dates') %></p>
-				$CalendarWidget
-				<h4><% _t('FILTERCALENDAR','Fitler calendar') %>:</h4>
-				$CalendarFilterForm
-			</div>
-		</div>
-		<div id="calendar-main">
-			<div id="topHeading" class="clearfix">
-				<span class="back"><a href="$CalendarBackLink"><% _t('BACKTO','Back to') %> $Parent.Title</a></span>
-				<span class="feed"><a href="$RSSLink"><% _t('SUBSCRIBE','Subscribe to the Calendar') %></a></span>
-				<h2>$Parent.Title</h2>
-			</div>
-			
-			<% if Level(2) %>
-				<% include BreadCrumbs %>
+<section id="detail_feature" class="feature clearfix">
+    	   	<img src="$Image.LargeImage.URL" class="detail_feature_image"/>
+    	   	<div class="event_group">
+    	   	<div class="event_text">
+    		<h2><strong>$Title</strong></h2>
+    		<p class="event_details">
+    			<% control UpcomingDates %>
+				<% if First %>
+				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
+        		$StartTime.nice<br/>
+        		<% end_if %>
+        		<% end_control %>
+            	$Location<br/>
+            	$Cost</p>           
+       	</div>
+       	
+       	<div class="event_date_tag">
+       		<a href="#">
+       		<% control UpcomingDates %>
+			<% if First %>
+			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
 			<% end_if %>
-			<div class="vevent">
-				<% if OtherDates %>
-				<div id="additionalDates">
-					<h4><% _t('ADDITIONALDATES','Additional Dates') %></h4>
-					<dl class="date clearfix">
-					<% control OtherDates %>
-						<dt><a href="$Link" title="$Event.Title">$_Dates</a></dt>
-							
-					<% end_control %> 
-					</dl>
-				</div>
-				<% end_if %>
-				<h3 class="summary">$Title</h3>
-				
-				<% control CurrentDate %>
-				<h4><a href="$ICSLink" title="Add to Calendar">$_Dates</a></h4>
-				
-				<% if StartTime %>
-				<ul id="times">
-					<li>$_Times</li>	
-				</ul>
-				<% end_if %>		
-				<% end_control %>
-				
-				$Content
-				$Form
-				$PageComments
+        	<% end_control %>
+       		</a>
+            <ul>
+            	<li class="share_facebook"><a href="#">Facebook</a></li>
+                <li class="share_rss"><a href="#">RSS</a></li>
+                <li class="share_twitter"><a href="#">Twitter</a></li>
+                <li class="share_email"><a href="#">Email</a></li>
+            </ul>
+        </div>       
+    
 			</div>
-		</div>
+		<!--<div id="detail_carousel">
+			<div class="carousel_thumb">
+			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
+			</div>
+			<div class="carousel_thumb">
+			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
+			</div>
+			<div class="carousel_thumb">
+			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
+			</div>
+			<div class="carousel_thumb_last">
+			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
+			</div>
+		</div>-->
+		
+    </section>
+
+
+<section id="detail_event_description">
+	<h2>Event Description</h2>
+	$Content
+	<h2>Event Times</h2>
+	
+	<p></p><% control DateAndTime %><% if First %>
+	    <% else %>, 
+	    <% end_if %>$StartDate.format(M). $StartDate.format(d) at $StartTime.nice<% end_control %></p>
+	
+	<h2>Map of Location</h2>
+	<img src="http://dummyimage.com/840x450" class="detail_map"/>
+</section>
+
+
+<section id="detail_related_events">
+	<h2>Related Events</h2>
+	<div class="related_event">
+		<a href="#"><img src="http://dummyimage.com/201x170"/>
+		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
 	</div>
-</div>
+	<div class="related_event">
+		<a href="#"><img src="http://dummyimage.com/201x170"/>
+		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
+	</div>
+	<div class="related_event">
+		<a href="#"><img src="http://dummyimage.com/201x170"/>
+		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
+	</div>
+	<div class="related_event">
+		<a href="#"><img src="http://dummyimage.com/201x170"/>
+		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
+	</div>
+</section>
+
+

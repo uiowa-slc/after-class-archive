@@ -13,7 +13,7 @@
     			<h2>Featured Event <strong>$Title</strong></h2>
     			<p class="event_details">
     			
-    			<% control DateTimes %>
+    			<% control UpcomingDates %>
 				<% if First %>
 				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
         		$StartTime.nice<br/>
@@ -26,7 +26,7 @@
        	
        		<div class="event_date_tag">
        		
-			<a href="#"><% control DateTimes %>
+			<a href="#"><% control UpcomingDates %>
 			<% if First %>
 			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div></a>
 			<% end_if %>
@@ -57,7 +57,7 @@
 					<div class="event_date_tag">
 					
 					<a href="$Link">
-					<% control DateTimes %>
+					<% control UpcomingDates %>
 						<% if First %>
 						<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 						<% end_if %>
