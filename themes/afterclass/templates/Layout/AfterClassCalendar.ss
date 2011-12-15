@@ -1,93 +1,76 @@
-<% require css(event_calendar/css/calendar.css) %>
-<% require javascript(event_calendar/javascript/calendar_core.js) %>
-
-<% if Tag %>
-Pulling events tagged with: $Tag.Title
-<br />
-Tagged:
-	<% control TaggedEvents %>
+<header id="secondary_header">
 	
-	$Title <br />
-	<% end_control %>
+		<h1>$Title</h1>
 		
-
-<% end_if %>
-
-<!-- Primary Content added to fit BHG framework-->
-<div id="primaryContent" class="clearfix">
-    <div class="innerpad">
-     
-   
-<div id="calendar-sidebar">
-			<h3><% _t('BROWSECALENDAR','Browse the Calendar') %></h3>
-
-	<div id="monthNav">
-		<p><% _t('USECALENDAR','Use the calendar below to navigate dates') %></p>
-		$CalendarWidget
-		$MonthNavigator
-		$CalendarFilterForm
-	</div>
-</div>
-<div id="calendar-main">
-	 <div id="topHeading" class="clearfix">
-		<span class="feed"><a href="$RSSLink"><% _t('SUBSCRIBE','Subscribe to the Calendar') %></a></span>
-	<h2>$Title</h2>
-	$Content
-	</div>
-<div id="dateHeader">
-		<% if DateHeader %>
-			<h3>$DateHeader</h3>
-		<% end_if %>
-	</div>
-
-<% if Events %>
-	<div id="events">
-		<% control Events %>
-			<div class="vevent clearfix">
-				<div class="dates">$_Dates</div>
-				<div class="details">
-					<h3 class="summary"><% if Announcement %>$EventTitle<% else %><a href="$Link">$EventTitle</a><% end_if %></h3>
-					<dl>
-					<% if AllDay %>
-						<dt><% _t('ALLDAY','All Day') %></dt>
-					<% else %>
-						<% if StartTime %>
-						<dt><% _t('TIME','Time') %>:&nbsp;</dt>
-								<dd>$_Times</dd>
-						<% end_if %>
-					<% end_if %>
-					</dl>
-						<div class="description">
-								<% if Announcement %>
-									$Content
-								<% else %>
-									<% control Event %>$Content.LimitWordCount(60)<% end_control %> <a href="$Link"><% _t('MORE','more...') %></a>
-								<% end_if %>
-								<% if OtherDates %>
-								<h4><% _t('SEEALSO','See also') %>:</h4>
-								<ul>
-								<% control OtherDates %>
-							 		<li><a href="$Link" title="$Event.Title">$_Dates</a>
-										<% if StartTime %>
-											<ul>
-												<li>$_Times</li>
-											</ul>
-										<% end_if %>
-									</li>
-								<% end_control %>
-								</ul>
-								<% end_if %>
-						</div>
-				</div>
-				<ul class="utility">
-					<li><a class="btn add" href="$ICSLink"><% _t('ADD','Add to Calendar') %></a></li>
-				</ul>
+		<% control Category %>
+		<% control AfterClassEvents %>
+		<% if Featured %>
+		<!-- control Featured -->
+		<section id="secondary_feature" class="feature clearfix">
+    	   	<img src="$Image.LargeImage.URL" class="secondary_feature_image"/>
+    	   	<div class="event_group">
+    	   	<div class="event_text">
+    			<h2>Featured Event <strong>$Title</strong></h2>
+    			<p class="event_details">
+    			
+    			<% control UpcomingDates %>
+				<% if First %>
+				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
+        		$StartTime.nice<br/>
+    			<% end_if %>
+    			<% end_control %>
+    			
+            	$Location<br/>
+            	$Cost</p>           
 			</div>
+       	
+       		<div class="event_date_tag">
+       		
+			<a href="#"><% control UpcomingDates %>
+			<% if First %>
+			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div></a>
+			<% end_if %>
+        	<% end_control %></a>
+        	
+            <ul>
+            	<li class="share_facebook"><a href="#">Facebook</a></li>
+                <li class="share_rss"><a href="#">RSS</a></li>
+                <li class="share_twitter"><a href="#">Twitter</a></li>
+                <li class="share_email"><a href="#">Email</a></li>
+            </ul>
+        	</div>       
+        
+         	<p class="event_description">$Content</p>
+    
+			</div>
+    	</section>
+    	<!-- end_control -->
+    	<% end_if %>
+    	<% end_control %>
+    	<% end_control %>
+		
+	<% control Category %>
+		<section id="secondary_event_list">
+		<% control AfterClassEvents %>
+			<% if Title %>
+			<div class="secondary_event">
+					<div class="event_date_tag">
+					
+					<a href="$Link">
+					<% control UpcomingDates %>
+						<% if First %>
+						<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
+						<% end_if %>
+					<% end_control %>
+					</a>
+					
+					</div>
+					<a href="$Link"><img src="$Image.MediumImage.URL"/><!--http://dummyimage.com/340x290-->
+					<h2><strong>$Title</strong> @ $Location</h2></a>
+			</div>
+		
+			<% end_if %>
 		<% end_control %>
-	</div>
-<% else %>
-<% _t('NOEVENTS','There are no events') %>.
-<% end_if %>
-</div>
-</div>
-</div>
+		</section>
+	<% end_control %>
+</header>

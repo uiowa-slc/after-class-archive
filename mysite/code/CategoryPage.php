@@ -6,7 +6,8 @@ class CategoryPage extends Page {
 	public static $has_one = array(
 	);
 	public function Category() {
-		return DataObject::get_one('Category',"Title = '$this->Title'");
+		#return DataObject::get('Category',"Title = '$this->Title'");
+		return DataObject::get_one('Category',"Title = 'CAB'");
 	}
 }
 class CategoryPage_Controller extends Page_Controller {

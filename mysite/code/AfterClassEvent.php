@@ -3,7 +3,10 @@
 class AfterClassEvent extends CalendarEvent {
 	static $many_many = array (
 		//"Tags" => "Tag",
-		"Categories" => "Category"
+		//"Categories" => "Category",
+		"Sponsors" => "Sponsor",
+		"Venues" => "Venue",
+		"Eventtypes" => "Eventtype"
 	);
 	public static $db = array(
 	'Title' => 'Text',
@@ -36,7 +39,7 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Content.') );
 		$f->addFieldToTab('Root.Content.Main', new ImageField('Image'));
 		
-		$categoriesTablefield = new ManyManyComplexTableField(
+		/*$categoriesTablefield1 = new ManyManyComplexTableField(
         	$this,
         	'Categories',
         	'Category',
@@ -45,8 +48,45 @@ class AfterClassEvent extends CalendarEvent {
         	),
         	'getCMSFields_forPopup'
       	);
-		$categoriesTablefield->setAddTitle( 'A Category' );
-		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield );
+		$categoriesTablefield1->setAddTitle( 'Category' );
+		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield1 );*/
+		
+		
+		$categoriesTablefield2 = new ManyManyComplexTableField(
+        	$this,
+        	'Sponsors',
+        	'Sponsor',
+        	array(
+       		'Title' => 'Title'
+        	),
+        	'getCMSFields_forPopup'
+      	);
+		$categoriesTablefield2->setAddTitle( 'Sponsor' );
+		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield2 );
+		
+		$categoriesTablefield3 = new ManyManyComplexTableField(
+        	$this,
+        	'Venues',
+        	'Venue',
+        	array(
+       		'Title' => 'Title'
+        	),
+        	'getCMSFields_forPopup'
+      	);
+		$categoriesTablefield3->setAddTitle( 'Venue' );
+		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield3 );
+		
+		$categoriesTablefield4 = new ManyManyComplexTableField(
+        	$this,
+        	'Eventtypes',
+        	'Eventtype',
+        	array(
+       		'Title' => 'Title'
+        	),
+        	'getCMSFields_forPopup'
+      	);
+		$categoriesTablefield4->setAddTitle( 'Event Type' );
+		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield4 );
 		
 		return $f;
 	}
