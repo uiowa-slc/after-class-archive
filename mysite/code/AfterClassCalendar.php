@@ -7,6 +7,13 @@ class AfterClassCalendar extends Calendar {
 	static $allowed_children = array (
 	'AfterClassEvent'
 	);
+	
+	public function UEvents() {
+		$e = DataObject::get("AfterClassEvent")->toArray();;
+		CalendarUtil::date_sort($e);
+		return $e;
+	}
+	
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {

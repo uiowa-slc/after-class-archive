@@ -1,6 +1,8 @@
+<% if Events %>
+
 <section id="home_feature" class="feature">
-<% control Page(events) %>
-	<% control Children %>
+	<% control Events %>
+	<% control Event %>
 	<% if Featured %>
 		<div class="homefeatureitem">
 			<a href="$Link"><img src="$Image.LargeImage.URL" /></a>
@@ -39,7 +41,7 @@
 		</div>
 	<% end_if %>
 	<% end_control %>
-<% end_control %>
+	<% end_control %>
 </section>
     
     <section id="upcoming_events">
@@ -53,23 +55,23 @@
         <!--</div>-->
         
         <div id="upcoming_event_list">
-        	<% control Page(events) %>
-        	<% control Children %>
+        	<% control Events %>
+			<% control Event %>
         		<div class="event">
             	<a href="$Link"><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /></a>
                 <h3><a href="$Link">$Title</a></h3>
-                
-                <p>
-                <% control UpcomingDates %>
-				<% if First %>$StartDate.format(M j), $StartDate.format(Y)<br/>
-                	$StartDate.format(l) @ $StartTime.nice<% end_if %>
-                <% end_control %>
+            <% end_control %>
+            	<p>
+                $StartDate.format(M j), $StartDate.format(Y)<br/>
+                $StartDate.format(l) @ $StartTime.nice
+                <% control Event %>
                 in $Location<br/>
                 $Cost
+                <% end_control %>
                 </p>
                 
             	</div>
             <% end_control %>
-        	<% end_control %>
         </div>
     </section>
+<% end_if %>

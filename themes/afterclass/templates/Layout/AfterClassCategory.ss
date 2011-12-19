@@ -1,10 +1,11 @@
 <header id="secondary_header">
+		<!-- Category, Events, Event -->
 		<% control Category %>
 		<h1>$Title</h1>
-		
-		<% control AfterClassEvents %>
+		<% control Events %>
+		<% control Event %>
 		<% if Featured %>
-		<!-- control Featured -->
+		<!-- If Featured -->
 		<section id="secondary_feature" class="feature clearfix">
     	   	<img src="$Image.LargeImage.URL" class="secondary_feature_image"/>
     	   	<div class="event_group">
@@ -43,32 +44,28 @@
     
 			</div>
     	</section>
-    	<!-- end_control -->
+    	<!-- End If Featured -->
     	<% end_if %>
     	<% end_control %>
     	<% end_control %>
+    	<% end_control %>
+    	<!-- Category, Events, Event -->
 		
 	<% control Category %>
 		<section id="secondary_event_list">
-		<% control AfterClassEvents %>
-			<% if Title %>
-			<div class="secondary_event">
-					<div class="event_date_tag">
-					
-					<a href="$Link">
-					<% control UpcomingDates %>
-						<% if First %>
-						<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
-						<% end_if %>
-					<% end_control %>
-					</a>
-					
-					</div>
-					<a href="$Link"><img src="$Image.MediumImage.URL"/><!--http://dummyimage.com/340x290-->
-					<h2><strong>$Title</strong> @ $Location</h2></a>
-			</div>
 		
-			<% end_if %>
+		<% control Events %>
+			<div class="secondary_event">
+			
+					<div class="event_date_tag"><a href="$Link">
+						<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
+					</a></div>
+					
+					<% control Event %>
+						<a href="$Link"><img src="$Image.MediumImage.URL"/><!--http://dummyimage.com/340x290-->
+						<h2><strong>$Title</strong> @ $Location</h2></a>
+					<% end_control %>
+			</div>
 		<% end_control %>
 		</section>
 	<% end_control %>
