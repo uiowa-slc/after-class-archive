@@ -34,7 +34,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		$Data = array(
 	      'Category' => $Category
 	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCalendar', 'Calendar', 'Page'));
+ 		return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  	}
  	
  	/*function tag() {
