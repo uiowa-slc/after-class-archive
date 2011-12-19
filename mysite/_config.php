@@ -24,3 +24,4 @@ i18n::set_locale('en_US');
 
 // enable nested URLs for this site (e.g. page/sub-page/)
 SiteTree::enable_nested_urls();
+Director::set_environment_type("dev");

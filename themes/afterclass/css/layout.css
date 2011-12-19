@@ -297,9 +297,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #1a1a1b; }
 
 #page_header {
-  height: 439px;
+  height: 220px;
   background-image: url("../images/afterclass_illustration.jpg");
-  background-position: center top; }
+  background-position: top center;
+  }
 
 #page_header h1.big_header {
   position: absolute;
@@ -314,6 +315,12 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 4px 4px 8px #000000;
   filter: dropshadow(color=black, offx=4, offy=4);
   background: url("../images/tigerhawk_scribble.png") no-repeat center right;
+  }
+  
+  #page_header h1.big_header a {
+  	color: #ffd026;
+  	text-decoration: none;
+  
   }
 
 #page_header p {
@@ -459,7 +466,7 @@ h1, h2, h3, h4, h5, h6 {
       background: linear-gradient(top, #ffde68 0%, #ffd026 100%);
       /* W3C */
       overflow: hidden;
-      height: 110px;
+      min-height: 110px;
       margin-bottom: 20px;
       border-top: 1px solid #a0a0a0;
       border-bottom: 1px solid #a0a0a0;
