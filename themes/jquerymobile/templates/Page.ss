@@ -15,11 +15,11 @@
 <body>
 	<div data-role="page">
 		<div data-role="header">
-			<a href="$Page(home).AbsoluteLink" data-role="button" 
+			<a href="{$BaseHref}/home/" data-role="button" 
 				data-icon="home" data-iconpos="notext">
 				Home
 			</a>
-			<h1><a href="$Page(home).AbsoluteLink">$SiteConfig.Title</a></h1>
+			<h1>$SiteConfig.Title</h1>
 			<%-- See Navigation_manypages.ss for handling more than half a dozen toplevel pages --%>
 			<% include Navigation %>
 		</div>

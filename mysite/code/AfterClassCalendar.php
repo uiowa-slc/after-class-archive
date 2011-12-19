@@ -37,7 +37,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		return $this->customise($Data)->renderWith(array('AfterClassCalendar', 'Calendar', 'Page'));
  	}
  	
- 	function tag() {
+ 	/*function tag() {
 	 	if($Tag = $this->getCurrentTag()) {
 	            $Data = array(
 	                'Tag' => $Tag,
@@ -50,7 +50,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	        } else { //Product not found
 	            return $this->httpError(404, 'Sorry that product could not be found');
 	        }
- 	}
+ 	}*/
  	public function init() {
 		RSSFeed::linkToFeed($this->Link() . "rss", "RSS Feed of this calendar");
 		$this->parseURL();
