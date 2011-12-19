@@ -36,18 +36,50 @@
 	<div class="container">
 	<ul class="clearfix">
 		<% control Menu(1) %>
+			<% if First %>
 			<li>
-				<% if Children %>
-				<a href="#" onclick="javascript:return false;"><strong>$Title</strong> $MenuTitle</a>
-				<ul>
-					<% control Children %>
-						<li><a href="$Link">$Title</a></li>
-					<% end_control %>
-				</ul>
-				<% else %>
 				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
-				<% end_if %>
 			</li>
+			<% else %>
+			<% end_if %>
+		<% end_control %>
+		<li>
+			<a href="#" onclick="javascript:return false;"><strong>Category</strong> The type of event</a>
+			<ul>
+				<% control getEventtypes %>
+					<% if Showmenu %>
+					<li><a href="all-events/categories/$Title">$Title</a></li>
+					<% end_if %>
+				<% end_control %>
+			</ul>
+		</li>
+		<li>
+			<a href="#" onclick="javascript:return false;"><strong>Sponsor</strong> Who puts it on</a>
+			<ul>
+				<% control getSponsors %>
+					<% if Showmenu %>
+					<li><a href="all-events/categories/$Title">$Title</a></li>
+					<% end_if %>
+				<% end_control %>
+			</ul>
+		</li>
+		<li>
+			<a href="#" onclick="javascript:return false;"><strong>Venue</strong> Where it takes place</a>
+			<ul>
+				<% control getVenues %>
+					<% if Showmenu %>
+					<li><a href="all-events/categories/$Title">$Title</a></li>
+					<% end_if %>
+				<% end_control %>
+			</ul>
+		</li>
+		<% control Menu(1) %>
+			<% if First %>
+			<% else %>
+			<li>
+				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
+			</li>
+			<% end_if %>
 		<% end_control %>
     </ul>
     </div>

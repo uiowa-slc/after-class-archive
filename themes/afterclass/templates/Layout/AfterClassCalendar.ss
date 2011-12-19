@@ -1,8 +1,7 @@
 <header id="secondary_header">
-	
+		<% control Category %>
 		<h1>$Title</h1>
 		
-		<% control Category %>
 		<% control AfterClassEvents %>
 		<% if Featured %>
 		<!-- control Featured -->

@@ -6,6 +6,15 @@ class Page extends SiteTree {
 
 	public static $has_one = array(
 	);
+	public function getEventtypes() {
+		return DataObject::get('Eventtype');
+	}
+	public function getVenues() {
+		return DataObject::get('Venue');
+	}
+	public function getSponsors() {
+		return DataObject::get('Sponsor');
+	}
 
 }
 class Page_Controller extends ContentController {
