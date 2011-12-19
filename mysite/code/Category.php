@@ -20,7 +20,11 @@ class Category extends DataObject {
 		// Get the calendar
 		$calendar = DataObject::get_one("AfterClassCalendar");
 		// Get the events from the calendar
-		return $calendar->Events($filter);
+		if (empty($ids)) {
+			return false;
+		} else {
+			return $calendar->Events($filter);
+		}
 	}
 	
 }

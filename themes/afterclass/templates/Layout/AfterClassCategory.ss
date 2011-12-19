@@ -2,6 +2,7 @@
 		<!-- Category, Events, Event -->
 		<% control Category %>
 		<h1>$Title</h1>
+		<% if Events %>
 		<% control Events %>
 		<% control Event %>
 		<% if Featured %>
@@ -48,12 +49,13 @@
     	<% end_if %>
     	<% end_control %>
     	<% end_control %>
+    	<% end_if %>
     	<% end_control %>
     	<!-- Category, Events, Event -->
 		
 	<% control Category %>
 		<section id="secondary_event_list">
-		
+		<% if Events %>
 		<% control Events %>
 			<div class="secondary_event">
 			
@@ -67,6 +69,7 @@
 					<% end_control %>
 			</div>
 		<% end_control %>
+		<% end_if %>
 		</section>
 	<% end_control %>
 </header>
