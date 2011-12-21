@@ -9,7 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>After Class - The Best of UI's Culture, Concerts and Nightlife</title>
-	<meta name="description" content="Iowa City Movies, Concerts, Lectures, and Campus Events">
+	<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events">
 	<meta name="author" content="IMU Marketing &amp; Design">
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -89,7 +89,9 @@
 	<div class="container clearfix">
 	$Layout
 	
-    $Form
+    <div>
+	$Form
+	</div>
 	
    </div>
 </div>

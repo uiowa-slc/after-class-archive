@@ -6,19 +6,17 @@
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
-    			<% control UpcomingDates %>
-				<% if First %>
-				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
-        		$StartTime.nice<br/>
-        		<% end_if %>
-        		<% end_control %>
+    		
+    			<% control DateAndTime %>$StartDate.format(M). $StartDate.format(d) at $StartTime.nice<br /><% end_control %>
+    			
+    			<br />
             	$Location<br/>
             	$Cost</p>           
        	</div>
        	
        	<div class="event_date_tag">
        		<a href="#">
-       		<% control UpcomingDates %>
+       		<% control DateAndTime %>
 			<% if First %>
 			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
 			<% end_if %>
@@ -54,11 +52,6 @@
 <section id="detail_event_description">
 	<h2>Event Description</h2>
 	$Content
-	<h2>Event Times</h2>
-	
-	<p></p><% control DateAndTime %><% if First %>
-	    <% else %>, 
-	    <% end_if %>$StartDate.format(M). $StartDate.format(d) at $StartTime.nice<% end_control %></p>
 	
 	<h2>Map of Location</h2>
 	<img src="http://dummyimage.com/840x450" class="detail_map"/>

@@ -852,3 +852,16 @@ h1, h2, h3, h4, h5, h6 {
 
   h2, h3 {
     page-break-after: avoid; } }
+.text label, .date label, .checkboxset >label, .Actions input {
+  display: block;
+  margin: 10px 0px 0px 0px;
+}
+.checkboxsetfield {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.checkboxsetfield li {
+  margin: 0px;
+  padding: 5px 0px 0px 0px;
+}
