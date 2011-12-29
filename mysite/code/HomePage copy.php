@@ -1,23 +1,13 @@
 <?php
-class Page extends SiteTree {
+class HomePage extends Page {
 
 	public static $db = array(
 	);
-
 	public static $has_one = array(
 	);
-	public function getEventtypes() {
-		return DataObject::get('Eventtype');
-	}
-	public function getVenues() {
-		return DataObject::get('Venue');
-	}
-	public function getSponsors() {
-		return DataObject::get('Sponsor');
-	}
 
 }
-class Page_Controller extends ContentController {
+class HomePage_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -43,5 +33,8 @@ class Page_Controller extends ContentController {
 		// Note: you should use SS template require tags inside your templates 
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
+		Requirements::themedCSS('layout'); 
+		Requirements::themedCSS('typography'); 
+		Requirements::themedCSS('form'); 
 	}
 }
