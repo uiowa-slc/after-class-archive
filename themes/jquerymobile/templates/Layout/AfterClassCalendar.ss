@@ -81,11 +81,22 @@
 	<% end_control %>
 	
 	<% else %> <!-- else if there isn't any category category -->
-	
-	<% control UpcomingEvents %>
-	
-	
+	<div class="events">
+	<% control Events %>
+		<% control Event %>
+		<div class="event">
+			<% control Image %>
+				<img src="$CroppedImage(100,100).URL" alt="$Title" />
+			<% end_control %>
+				<div class="event-description">
+					<p>$Title - $Location</p>
+					<p>$Cost</p>
+				</div>
+				<div class="clear"></div>
+		</div>
+		<% end_control %>	
 	<% end_control %>
+	</div>
 		
-	<% end_if %>
+	<% end_if %> <!--end if there's a category to filter with -->
 </header>
