@@ -10,7 +10,20 @@
       
       </ul>
     </article>
+
 <script>
+var markerArray = [];
+var infoWindow = null;
+function makeMarker(options){
+   var pushPin = new google.maps.Marker({map:map});
+   pushPin.setOptions(options);
+   google.maps.event.addListener(pushPin, 'click', function(){
+     infoWindow.setOptions(options);
+     infoWindow.open(map, pushPin);
+   });
+   markerArray.push(pushPin);
+   return pushPin;
+}
 function success(position) {
   var s = document.querySelector('#status');
   
@@ -24,60 +37,72 @@ function success(position) {
   
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcanvas';
-  mapcanvas.style.height = '200px';
-  mapcanvas.style.width = '300px';
-    
+  mapcanvas.style.height = '240px';
+  mapcanvas.style.width = '320px';
   document.querySelector('article').appendChild(mapcanvas);
+  
   
   var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var myOptions = {
-    zoom: 15,
+    zoom: 13,
     center: myLatlng,
+    panControl: true,
     mapTypeControl: false,
     navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  //google.maps.event.addListener(map, 'click', function(){
+  //  infoWindow.close();
+  //});
   
-  var marker = new google.maps.Marker({
-      position: myLatlng, 
-      map: map, 
-      title:"You are here!"
+/*makeMarker({
+   position: myLatlng,
+   title: 'Title',
+   content: '<div><h1>Lorem ipsum</h1>Lorem ipsum dolor sit amet<div>'
+});*/
+
+  infowindow = new google.maps.InfoWindow({
+  content: "holding..."
   });
+  <% control Venues %>
   
-  //geo-coding to convert our addresses to usable longitude/latitude
-  
+  //geo-coding to convert our addresses to usable longitude/latitude  
   var geocoder;
   geocoder = new google.maps.Geocoder();
+  var address = "$Address";
   
-  var address = "221 East Washington Street, Iowa City, IA 52240";
-  alert (address);
-  
-   geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
         //map.setCenter(results[0].geometry.location);
-        var geomarker = new google.maps.Marker({
+
+		var testLatLng = new google.maps.LatLng(41.661736, -91.540017);
+		var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
         });
+		google.maps.event.addListener(marker, 'click', function () {
+		infowindow.setContent("<a href='$Title'>$Title</a><br />");
+		infowindow.open(map, this);
+		});
+		
+		//makeMarker({
+		//   position: results[0].geometry.location,
+		//   title: 'Title',
+		//   content: '<div><h1>Lorem ipsum</h1>Lorem ipsum dolor sit amet<div>'
+		//});
+        
+        /*var geomarker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });*/
+        
+        
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
+        //alert("Geocode was not successful for the following reason: " + status);
       }
     });
-
   
-
-  var testLatLng = new google.maps.LatLng(41.661736, -91.540017);
-  
-  var marker1 = new google.maps.Marker({
-  		position: testLatLng,
-  		map: map,
-  		title: "TITLEEEE!!"
-  	});
-  
-  
-  <% control Venues %>
-
   <% end_control %>
   
 }
