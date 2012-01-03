@@ -1,5 +1,5 @@
 <?php
-class HomePage extends Page {
+class NearMePage extends Page {
 
 	public static $db = array(
 	);
@@ -7,7 +7,7 @@ class HomePage extends Page {
 	);
 
 }
-class HomePage_Controller extends Page_Controller {
+class NearMePage_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -30,11 +30,5 @@ class HomePage_Controller extends Page_Controller {
 	public function init() {
 		parent::init();
 
-		// Note: you should use SS template require tags inside your templates 
-		// instead of putting Requirements calls here.  However these are 
-		// included so that our older themes still work
-		Requirements::themedCSS('layout'); 
-		Requirements::themedCSS('typography'); 
-		Requirements::themedCSS('form'); 
 	}
 }
