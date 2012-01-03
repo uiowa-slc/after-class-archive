@@ -1,9 +1,9 @@
-<% if Events %>
-
 <section id="home_feature" class="feature">
-	<% control Events %>
+	<% if FeaturedEvents %>
+	<% control FeaturedEvents %>
+	<% if First %>
 	<% control Event %>
-	<% if Featured %>
+		
 		<div class="homefeatureitem">
 			<a href="$Link"><img src="$Image.LargeImage.URL" /></a>
 			<div class="event_text">
@@ -39,21 +39,27 @@
         <p class="event_description">$Content</p>
 		
 		</div>
+		
+	<% end_control %>
 	<% end_if %>
 	<% end_control %>
-	<% end_control %>
+	<% else %>
+	<div class="homefeatureitem">
+		<a href="$Link"><img src="http://hulk.imu.uiowa.edu/afterclass_dev/assets/book.png?r=42253" /></a>
+		<div class="event_text">
+			<h2>Study Break <strong>Nothing big today.</strong></h2>
+				
+		</div>
+	</div>
+	<% end_if %>
 </section>
     
-    <section id="upcoming_events">
+<section id="upcoming_events">
+	<h2>Upcoming Events</h2>
+	<% if Events %>
     	<!--<div id="upcoming_events_header">-->
-    		<h2>Upcoming Events</h2>
-        	<p class="description"><!--Click on a date on our interactive calendar or scroll the list below for the latest event details.-->Scroll the list below for the latest event details.</p>
+        <p class="description"><!--Click on a date on our interactive calendar or scroll the list below for the latest event details.-->Scroll the list below for the latest event details.</p>
         <!--</div>-->
-        
-        <!--<div id="calendar_widget">
-        	<!-- Place calendar widget here -->
-        <!--</div>-->
-        
         <div id="upcoming_event_list">
         	<% control Events %>
 			<% control Event %>
@@ -73,5 +79,7 @@
             	</div>
             <% end_control %>
         </div>
-    </section>
-<% end_if %>
+	<% else %>
+		No events currently listed.
+	<% end_if %>
+</section>

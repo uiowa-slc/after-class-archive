@@ -14,6 +14,26 @@ class AfterClassCalendar extends Calendar {
 		return $e;
 	}
 	
+	public function AllFeaturedEvents() {
+	    return DataObject::get("AfterClassEvent","Featured IS TRUE");
+	}
+	
+	function FeaturedEvents() {
+		$ids = array();
+		// Get IDs of all featured events.
+		$ids = array_merge($ids,$this->AllFeaturedEvents()->column('ID'));
+		// Setup filter
+		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
+		// Get the calendar
+		$calendar = DataObject::get_one("AfterClassCalendar");
+		// Get the events from the calendar
+		if (empty($ids)) {
+			return false;
+		} else {
+			return $calendar->Events($filter);
+		}
+	}
+	
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {

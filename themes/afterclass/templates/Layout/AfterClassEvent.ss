@@ -50,11 +50,63 @@
 
 
 <section id="detail_event_description">
+	
+	<div id="detail_event_description_info">
 	<h2>Event Description</h2>
 	$Content
+	</div>
+	<div id="detail_event_description_map">
+	<h2>Map</h2>
+	<div id="map_canvas" style="width: 100%; height: 100%"></div>
 	
-	<h2>Map of Location</h2>
-	<img src="http://dummyimage.com/840x450" class="detail_map"/>
+	</div>
+	
+	
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
+</script>
+<script type="text/javascript">
+  var place = null;
+  
+  function GetLocation(address) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': address }, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        //ParseLocation(results[0].geometry.location);
+        return results[0].geometry.location;
+      } else {
+        alert('error: ' + status);
+      }
+    });
+  }
+  function initialize() {
+    //var thelocation = GetLocation("Iowa Memorial Union, Iowa City, IA");
+    //var latlng = new google.maps.LatLng(41.6626698, -91.5383739);
+    //alert(thelocation.lat().toString().substr(0, 12));
+    //var latlng = new google.maps.LatLng(thelocation.lat(),thelocation.lng());
+    var place = null;
+    
+    <% control Venues %>
+    var address = "IMU, Iowa City, IA";
+    <% end_control %>
+    
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': address }, function (results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      place = results[0].geometry.location;
+      
+      var myOptions = {
+      zoom: 16,
+      center: place,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+      
+    }
+    });
+  }
+  window.onload = initialize();
+</script>
+	
 </section>
 
 

@@ -698,7 +698,9 @@ h1, h2, h3, h4, h5, h6 {
 #detail_event_description {
   border-top: 1px solid #555555;
   border-bottom: 1px solid #555555;
-  color: #555555; }
+  color: #555555;
+  min-height: 400px;
+}
   #detail_event_description h2 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -865,3 +867,32 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px;
   padding: 5px 0px 0px 0px;
 }
+#detail_event_description_info {
+  float: left;
+  width: 500px;
+}
+#detail_event_description_map {
+  float: left;
+  height: 300px;
+  width: 400px;
+}
+#map_canvas {
+  height: 100%;
+  width: 100%;
+}
+<script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=SET_TO_TRUE_OR_FALSE">
+</script>
+<script type="text/javascript">
+  function initialize() {
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+  }
+
+</script>

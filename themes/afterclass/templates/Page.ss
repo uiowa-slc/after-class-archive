@@ -5,6 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<base href="http://hulk.imu.uiowa.edu/afterclass_dev/" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
+	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -35,14 +38,15 @@
 <nav id="page_navigation">
 	<div class="container">
 	<ul class="clearfix">
-		<% control Menu(1) %>
+		<!--% control Menu(1) %>
 			<% if First %>
 			<li>
 				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
 			</li>
 			<% else %>
 			<% end_if %>
-		<% end_control %>
+		<% end_control %-->
+		<li><a href="/afterclass_dev/"><strong>Home</strong> Complete event list</a></li>
 		<li>
 			<a href="#" onclick="javascript:return false;"><strong>Category</strong> The type of event</a>
 			<ul>
