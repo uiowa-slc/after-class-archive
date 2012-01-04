@@ -65,17 +65,19 @@
 			<% control Event %>
         		<div class="event">
             	<a href="$Link"><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /></a>
-                <h3><a href="$Link">$Title</a></h3>
-            <% end_control %>
-            	<p>
-                $StartDate.format(M j), $StartDate.format(Y)<br/>
-                $StartDate.format(l) @ $StartTime.nice
-                <% control Event %>
-                in $Location<br/>
-                $Cost
-                <% end_control %>
-                </p>
-                
+            	<div class="event_text">
+            		<h3><a href="$Link">$Title</a></h3>         	
+            
+		            <% end_control %>
+		            	<p>
+		                $StartDate.format(M j), $StartDate.format(Y)<br/>
+		                $StartDate.format(l) @ $StartTime.nice
+		                <% control Event %>
+		                in $Location<br/>
+		                $Cost
+		                <% end_control %>
+		                </p>
+	           	</div>  
             	</div>
             <% end_control %>
         </div>

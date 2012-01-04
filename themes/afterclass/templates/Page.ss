@@ -25,10 +25,7 @@
 <body>
 
 
-
-<div id="student_life_header">
-	Hi
-</div>
+<% include StudentLifeBar %>
 <header id="page_header">
 	<div class="container">
 		<h1 class="big_header"><a href="$BaseHref">After Class</a></h1>
