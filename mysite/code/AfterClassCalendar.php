@@ -17,6 +17,16 @@ class AfterClassCalendar extends Calendar {
 	public function AllFeaturedEvents() {
 	    return DataObject::get("AfterClassEvent","Featured IS TRUE");
 	}
+	public function Eventtype() {
+	    return DataObject::get("Eventtype");
+	}
+	public function Sponsor() {
+	    return DataObject::get("Sponsor");
+	}
+	public function Venue() {
+	    return DataObject::get("Venue");
+	}
+	
 	
 	function FeaturedEvents() {
 		$ids = array();
@@ -62,6 +72,27 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	      'Category' => $Category
 	    );
  		return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+ 	}
+ 	function category() {
+ 	    $Category = DataObject::get("Eventtype");
+ 		$Data = array(
+	      'Category' => $Category
+	    );
+ 		return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	}
+ 	function sponsor() {
+ 	    $Category = DataObject::get("Sponsor");
+ 		$Data = array(
+	      'Category' => $Category
+	    );
+ 		return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	}
+ 	function venue() {
+ 	    $Category = DataObject::get("Venue");
+ 		$Data = array(
+	      'Category' => $Category
+	    );
+ 		return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  	}
  	
  	/*function tag() {

@@ -45,7 +45,7 @@
 		<% end_control %-->
 		<li><a href="/afterclass_dev/"><strong>Home</strong> Complete event list</a></li>
 		<li>
-			<a href="#" onclick="javascript:return false;"><strong>Category</strong> The type of event</a>
+			<a href="events/category/"><strong>Category</strong> The type of event</a>
 			<ul>
 				<% control getEventtypes %>
 					<% if Showmenu %>
@@ -55,7 +55,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="#" onclick="javascript:return false;"><strong>Sponsor</strong> Who puts it on</a>
+			<a href="events/sponsor/"><strong>Sponsor</strong> Who puts it on</a>
 			<ul>
 				<% control getSponsors %>
 					<% if Showmenu %>
@@ -65,7 +65,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="#" onclick="javascript:return false;"><strong>Venue</strong> Where it takes place</a>
+			<a href="events/venue/"><strong>Venue</strong> Where it takes place</a>
 			<ul>
 				<% control getVenues %>
 					<% if Showmenu %>
