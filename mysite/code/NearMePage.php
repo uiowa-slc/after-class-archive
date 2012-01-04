@@ -5,7 +5,7 @@ class NearMePage extends Page {
 	);
 	public static $has_one = array(
 	);
-
+	
 }
 class NearMePage_Controller extends Page_Controller {
 
