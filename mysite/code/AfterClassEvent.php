@@ -18,6 +18,32 @@ class AfterClassEvent extends CalendarEvent {
 		'Image' => 'SizedImage'
 	);
 	
+	function RelatedEvents() {
+		$ids = array();
+		
+		// Get IDs of all events in these categories.
+		foreach($this->Sponsors() as $category) {
+		  $ids = array_merge($ids,$category->AfterClassEvents()->column('ID'));
+		}
+		foreach($this->Venues() as $category) {
+		  $ids = array_merge($ids,$category->AfterClassEvents()->column('ID'));
+		}
+		foreach($this->Eventtypes() as $category) {
+		  $ids = array_merge($ids,$category->AfterClassEvents()->column('ID'));
+		}
+		
+		// Setup filter
+		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
+		// Get the calendar
+		$calendar = DataObject::get_one("AfterClassCalendar");
+		// Get the events from the calendar
+		if (empty($ids)) {
+			return false;
+		} else {
+			return $calendar->Events($filter,null,null,null,'4');
+		}
+	}
+	
 	/*static $db = array (
 		'Recursion' => 'Boolean',
 		'CustomRecursionType' => 'Int',

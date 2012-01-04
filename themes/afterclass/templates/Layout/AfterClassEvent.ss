@@ -112,22 +112,20 @@
 
 <section id="detail_related_events">
 	<h2>Related Events</h2>
-	<div class="related_event">
+	
+	<% control RelatedEvents %>
+	  <% control Event %>
+	  <div class="related_event">
+		<a href="#"><img src="$Image.SmallImage.URL"/>
+		<h3><strong>$Title</strong> @ $Location</h3></a>
+	  </div>
+	  <% end_control %>
+	<% end_control %>
+	
+	<!--<div class="related_event">
 		<a href="#"><img src="http://dummyimage.com/201x170"/>
 		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
-	<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
-	<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
-	<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
+	</div>-->
 </section>
 
 
