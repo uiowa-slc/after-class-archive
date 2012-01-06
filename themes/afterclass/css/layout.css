@@ -384,10 +384,13 @@ h1, h2, h3, h4, h5, h6 {
         background-color: #ffe99b; }
     #page_navigation ul ul {
       position: absolute;
-      width: 192px;
+      width: 190px;
       left: -9999px;
       z-index: 2000;
-      background-color: #ffde68; }
+      background-color: #FFDE68; 
+      border: 1px solid #ffeba5;
+      border-top: none;
+      }
       #page_navigation ul ul a {
         padding: 10px; }
     #page_navigation ul li:hover ul {
@@ -400,7 +403,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #page_content div.container {
   background-color: #bbb;
-  border: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+
+
   padding: 30px;
   width: 900px;
   background-image:  url("../images/gray-skyline.png"), url(../images/paper_2.png);
@@ -448,8 +454,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px; }
   #upcoming_events #upcoming_event_list {
     clear: both;
-    background-color: #ffe99b;
-    height: 580px;
+    background-color: #bbb;
+    background-image: url(../images/paper_2.png);
+    height: 800px;
     overflow: auto; }
     #upcoming_events #upcoming_event_list .event {
       background: #ffffff;
@@ -471,13 +478,13 @@ h1, h2, h3, h4, h5, h6 {
       overflow: hidden;
       min-height: 110px;
       margin-bottom: 5px;
-      border-top: 1px solid #a0a0a0;
+      border: 1px solid #a0a0a0;
       border-bottom: 1px solid #a0a0a0;
     }
       #upcoming_events #upcoming_event_list .event img {
         float: left;
         margin-right: 20px;
-        padding: 10px 0;
+        padding: 10px 10px;
          }
       #upcoming_events #upcoming_event_list .event h3 a {
         text-decoration: none;
@@ -898,6 +905,34 @@ h1, h2, h3, h4, h5, h6 {
 #map_canvas {
   height: 100%;
   width: 100%;
+}
+
+#Form_Form {
+	background-image: url(../images/lighter_bg.jpg);
+	padding: 20px;
+	border: 1px solid #555;
+}
+
+#Form_Form label{
+
+	font-size: 18px;
+	padding: 10px 0;
+
+
+}
+
+#Form_Form input.text {
+	font-size: 18px;
+	width: 100%;
+
+}
+
+#Form_Form_action_process{
+	font-size: 32px;
+	width: 200px;
+	padding: 20px;
+	font-family: SketchBlock-Bold, sans-serif;
+
 }
 <script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=SET_TO_TRUE_OR_FALSE">
