@@ -1,11 +1,16 @@
-<h1>$Action.uppercase</h1>
-<% control Category %>
-<div class="category_name">
-<a href="$Link">$Title</a>
-<% if Linkurl %>
-<div class="link_url">
-<a href="http://$LinkURL">$LinkURL</a>
-</div>
+
+
+<% if Action = category %>
+	<h1>Categories</h1>
+<% else_if Action = venue %>
+	<h1>Venues</h1>
+<% else_if Action = sponsor %>
+	<h1>Event Sponsors</h1>
 <% end_if %>
-</div>
-<% end_control %>
+<ul class="category-list">
+	<% control Category %>
+		<li><a href="$Link">$Title</a>
+		<% if Linkurl %><a href="http://$LinkURL">$LinkURL</a><% end_if %>
+		</li>
+	<% end_control %>
+</ul>

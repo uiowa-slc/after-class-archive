@@ -367,7 +367,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     list-style: none; }
     #page_navigation ul li {
-      width: 192px;
+      width: 190px;
       float: left; }
       #page_navigation ul li a {
         display: block;
@@ -384,7 +384,7 @@ h1, h2, h3, h4, h5, h6 {
         background-color: #ffe99b; }
     #page_navigation ul ul {
       position: absolute;
-      width: 190px;
+      width: 188px;
       left: -9999px;
       z-index: 2000;
       background-color: #FFDE68; 
@@ -690,7 +690,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #666;
   width: 900px;
   padding: 20px 60px;
-  margin: 20px 0 20px -60px;
+  margin: 0 0 20px -60px;
   color: #ffde68; }
   #detail_feature .event_text {
     width: 320px; }
@@ -896,7 +896,17 @@ h1, h2, h3, h4, h5, h6 {
 #detail_event_description_info {
   float: left;
   width: 400px;
+  margin-right: 25px;
 }
+
+
+
+#detail_event_description h2{
+	font-family: SketchBlock-Bold, sans-serif;
+	font-size: 32px;
+
+}
+
 #detail_event_description_map {
   float: left;
   height: 300px;
@@ -934,19 +944,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: SketchBlock-Bold, sans-serif;
 
 }
-<script type="text/javascript"
-    src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=SET_TO_TRUE_OR_FALSE">
-</script>
-<script type="text/javascript">
-  function initialize() {
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
-    var myOptions = {
-      zoom: 8,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"),
-        myOptions);
-  }
 
-</script>
+#page-content {
+	background-image: url(../images/lighter_bg.jpg);
+	padding: 10px 20px;
+	border: 1px solid #555;
+}
+
+.category-list li{
+	padding: 10px 0;
+	background-image: url(../images/lighter_bg.jpg);
+	margin: 10px 0;
+	list-style-type: none;
+}

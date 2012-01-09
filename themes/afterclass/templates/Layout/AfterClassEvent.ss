@@ -18,7 +18,7 @@
        		<a href="#">
        		<% control DateAndTime %>
 			<% if First %>
-			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+			<div class="event_date_box">$StartDate.format(B)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
 			<% end_if %>
         	<% end_control %>
        		</a>
@@ -52,11 +52,11 @@
 <section id="detail_event_description">
 	
 	<div id="detail_event_description_info">
-	<h2>Event Description</h2>
+	<h2>What's Happening?</h2>
 	$Content
 	</div>
 	<div id="detail_event_description_map">
-	<h2>Map</h2>
+	<h2>Where?</h2>
 	<div id="map_canvas" style="width: 100%; height: 100%"></div>
 	
 	</div>

@@ -27,4 +27,12 @@ class Category extends DataObject {
 		}
 	}
 	
+	function Link(){
+	
+		$base_url = Director::baseURL();
+		return $base_url."/events/categories/".$this->Title;
+	
+	}
+	
+	
 }

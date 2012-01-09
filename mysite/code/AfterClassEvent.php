@@ -9,10 +9,10 @@ class AfterClassEvent extends CalendarEvent {
 		"Eventtypes" => "Eventtype"
 	);
 	public static $db = array(
-	'Title' => 'Text',
-	'Location' => 'Text',
-	'Cost' => 'Text',
-	'Featured' => 'Boolean'
+		'Title' =>'Text',
+		'Location' => 'Text',
+		'Cost' => 'Text',
+		'Featured' => 'Boolean'
 	);
 	static $has_one = array(
 		'Image' => 'SizedImage'
@@ -77,8 +77,7 @@ class AfterClassEvent extends CalendarEvent {
 		$categoriesTablefield1->setAddTitle( 'Category' );
 		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield1 );*/
 		
-		
-		$categoriesTablefield2 = new ManyManyComplexTableField(
+		$sponsorTablefield = new ManyManyComplexTableField(
         	$this,
         	'Sponsors',
         	'Sponsor',
@@ -87,10 +86,12 @@ class AfterClassEvent extends CalendarEvent {
         	),
         	'getCMSFields_forPopup'
       	);
-		$categoriesTablefield2->setAddTitle( 'Sponsor' );
-		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield2 );
+		$sponsorTablefield->setAddTitle( 'Sponsor' );
+				$f->addFieldToTab('Root.Content.Categories', new HeaderField("SponsorHeader","Sponsors"));
+
+		$f->addFieldToTab( 'Root.Content.Categories', $sponsorTablefield );
 		
-		$categoriesTablefield3 = new ManyManyComplexTableField(
+		$venueTablefield = new ManyManyComplexTableField(
         	$this,
         	'Venues',
         	'Venue',
@@ -99,10 +100,12 @@ class AfterClassEvent extends CalendarEvent {
         	),
         	'getCMSFields_forPopup'
       	);
-		$categoriesTablefield3->setAddTitle( 'Venue' );
-		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield3 );
+      	
+		$f->addFieldToTab('Root.Content.Categories', new HeaderField("Venue Header","Venue(s)"));
+		$venueTablefield->setAddTitle( 'Venue' );
+		$f->addFieldToTab( 'Root.Content.Categories', $venueTablefield );
 		
-		$categoriesTablefield4 = new ManyManyComplexTableField(
+		$eventTypeTablefield = new ManyManyComplexTableField(
         	$this,
         	'Eventtypes',
         	'Eventtype',
@@ -111,8 +114,10 @@ class AfterClassEvent extends CalendarEvent {
         	),
         	'getCMSFields_forPopup'
       	);
-		$categoriesTablefield4->setAddTitle( 'Event Type' );
-		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield4 );
+		$eventTypeTablefield->setAddTitle( 'Event Type' );
+		
+		$f->addFieldToTab('Root.Content.Categories', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
+		$f->addFieldToTab( 'Root.Content.Categories', $eventTypeTablefield);
 		
 		return $f;
 	}

@@ -4,14 +4,14 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-	<base href="http://hulk.imu.uiowa.edu/afterclass_dev/" />
+	<% base_tag %>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false"></script>
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>After Class - The Best of UI's Culture, Concerts and Nightlife</title>
+	<title>$Title - After Class: The Best of UI's Culture, Concerts and Nightlife</title>
 	<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events">
 	<meta name="author" content="IMU Marketing &amp; Design">
 
