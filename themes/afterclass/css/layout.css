@@ -287,7 +287,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .big_header {
   font-family: SketchBlock-Bold, sans-serif;
   font-weight: normal;
   font-style: normal; }
@@ -304,7 +304,7 @@ h1, h2, h3, h4, h5, h6 {
   background-position: top center;
   }
 
-#page_header h1.big_header {
+#page_header .big_header {
   position: absolute;
   top: 40px;
   z-index: 100;
@@ -319,7 +319,7 @@ h1, h2, h3, h4, h5, h6 {
   background: url("../images/tigerhawk_scribble.png") no-repeat center right;
   }
   
-  #page_header h1.big_header a {
+  #page_header .big_header a {
   	color: #ffd026;
   	text-decoration: none;
   
@@ -367,7 +367,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     list-style: none; }
     #page_navigation ul li {
-      width: 190px;
+      width: 185px;
       float: left; }
       #page_navigation ul li a {
         display: block;
@@ -384,7 +384,7 @@ h1, h2, h3, h4, h5, h6 {
         background-color: #ffe99b; }
     #page_navigation ul ul {
       position: absolute;
-      width: 188px;
+      width: 184px;
       left: -9999px;
       z-index: 2000;
       background-color: #FFDE68; 
@@ -407,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
   border-right: 1px solid #ccc;
 
 
-  padding: 30px;
+  padding: 20px;
   width: 900px;
   background-image:  url("../images/gray-skyline.png"), url(../images/paper_2.png);
   background-repeat: no-repeat, repeat;
@@ -546,8 +546,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #222;
   font-size: 50px;
   border-bottom: 1px solid #555555; }
+#secondary_header h1 span {
+	color: #555;
+
+}
 
 #secondary_feature {
+  background-image: url(../images/dark_leather.png);
   background-color: #555555;
   width: 900px;
   padding: 20px 60px;
@@ -921,9 +926,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #Form_Form {
-	background-image: url(../images/lighter_bg.jpg);
+  	background-image: url(../images/dark_leather.png);
 	padding: 20px;
 	border: 1px solid #555;
+	color: #ffde68;
+
 }
 
 #Form_Form label{
@@ -936,7 +943,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #Form_Form input.text {
 	font-size: 18px;
-	width: 100%;
+	width: 80%;
+	padding: 10px;
+	background: #333;
+	border: 1px solid #555;
+	color: #ffe898;
 
 }
 
@@ -948,10 +959,12 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-#page-content {
+#single-page-content {
 	background-image: url(../images/lighter_bg.jpg);
-	padding: 10px 20px;
+	padding: 20px 20px;
 	border: 1px solid #555;
+	margin-top: 10px;
+	min-height: 200px;
 }
 .category-list {
 	margin: 0;
@@ -976,6 +989,9 @@ h1, h2, h3, h4, h5, h6 {
 .category-list li h2 a {
 	text-decoration: none;
 	color: #222;
+}
 
+.placeholder {
+	border: 1px solid #555;
 
 }

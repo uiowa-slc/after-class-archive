@@ -1,7 +1,11 @@
 <!--<header id="detail_header"><h1>Movies</h1></header>-->
 
 <section id="detail_feature" class="feature clearfix">
-    	   	<img src="$Image.LargeImage.URL" class="detail_feature_image"/>
+			<% if Image %>
+    	   		<img src="$Image.LargeImage.URL" class="detail_feature_image"/>
+    	   	<% else %>
+    	   		<img src="$ThemeDir/images/placeholder.png" class="detail_feature_image placeholder" />
+    	   	<% end_if %>
     	   	<div class="event_group">
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
@@ -117,7 +121,7 @@
 	<% control RelatedEvents %>
 	  <% control Event %>
 	  <div class="related_event">
-		<a href="#"><img src="$Image.SmallImage.URL"/>
+		<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL"/><% else %><img src="$ThemeDir/images/placeholder_small.png" /> <% end_if %>
 		<h3><strong>$Title</strong> @ $Location</h3></a>
 	  </div>
 	  <% end_control %>
