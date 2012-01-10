@@ -1,12 +1,13 @@
 
-
-<% if Action = category %>
-	<h1>Categories</h1>
-<% else_if Action = venue %>
-	<h1>Venues</h1>
-<% else_if Action = sponsor %>
-	<h1>Event Sponsors</h1>
-<% end_if %>
+<header id="secondary_header">
+	<% if Action = category %>
+		<h1>Categories</h1>
+	<% else_if Action = venue %>
+		<h1>Venues</h1>
+	<% else_if Action = sponsor %>
+		<h1>Event Sponsors</h1>
+	<% end_if %>
+</header>
 <ul class="category-list">
 	<% control Category %>
 		<li><h2><a href="$Link">$Title</a></h2>

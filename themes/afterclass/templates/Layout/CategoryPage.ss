@@ -1,7 +1,7 @@
 <header id="secondary_header">
 	
-		<h1>$Title</h1>
-		
+		<h1>Listed under: $Title</h1>
+</header>	
 		<% control Category %>
 		<% control AfterClassEvents %>
 		<% if Featured %>
@@ -73,6 +73,6 @@
 		<% end_control %>
 		</section>
 	<% end_control %>
-	</header>
+
 
 	

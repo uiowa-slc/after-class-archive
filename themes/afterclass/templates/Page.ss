@@ -28,7 +28,7 @@
 <% include StudentLifeBar %>
 <header id="page_header">
 	<div class="container">
-		<h1 class="big_header"><a href="$BaseHref">After Class</a></h1>
+		<div class="big_header"><a href="$BaseHref">After Class</a></div>
 	    <p class="subheader">The best of <em>UI</em>'s culture, concerts, and nightlife</p>
 	</div>
 </header>
