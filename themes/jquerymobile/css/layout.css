@@ -1764,13 +1764,13 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 	padding: 10px 0px 0px 0px;
 }
 .event-description p {
-	margin: 0px;
+	margin: 5px 0px 0px 0px;
 }
 .event-image {
 	float: right;
-	height: 100px;
+	height: 110px;
 	margin: 0px 0px 0px 10px;
-	width: 100px;
+	width: 130px;
 }
 .related_event {
 	display: inline-block;

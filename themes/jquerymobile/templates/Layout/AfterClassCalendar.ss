@@ -8,11 +8,9 @@
 			<% control Event %>
 				<div class="event-image"><a href="$Link">
 					<% if Image %>
-					<% control Image %>
-						<img src="$CroppedImage(100,100).URL" alt="$Title" />
-						<% end_control %>
+						<img src="$Image.SmallImage.URL" alt="$Title" />
 					<% else %>
-						<!--div style="width: 100px;height: 100px; float:right; border: 1px solid #3F3F3F; margin: 0px 55px 10px 0px;"></div-->
+						<img src="$BaseHref/themes/afterclass/images/placeholder_small.png" alt="Event Image">
 					<% end_if %>
 				</a></div>
 			<% end_control %>
