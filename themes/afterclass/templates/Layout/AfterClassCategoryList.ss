@@ -9,8 +9,10 @@
 <% end_if %>
 <ul class="category-list">
 	<% control Category %>
-		<li><a href="$Link">$Title</a>
-		<% if Linkurl %><a href="http://$LinkURL">$LinkURL</a><% end_if %>
+		<li><h2><a href="$Link">$Title</a></h2>
+		<% if Information %><p>$Information</p><% end_if %>
+		<% if LinkURL %><p><a href="$LinkURL" target="_blank">Visit website</a></p><% end_if %>
+
 		</li>
 	<% end_control %>
 </ul>
