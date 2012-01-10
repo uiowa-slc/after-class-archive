@@ -4,7 +4,15 @@ class Sponsor extends Category {
 		"AfterClassEvents" => "AfterClassEvent"
 	);
 	public static $db = array(
-		"Information" => "HTMLText"
+		"Information" => "HTMLText",
+		"LinkURL" => "Text"
 	);
+	
+	function getCMSFields_forPopup() {
+		$fields = parent::getCMSFields_forPopup();
+		$fields->push( new TextField('LinkURL', 'Website Address') );
+		$fields->push( new SimpleHTMLEditorField( 'Information' ) );
+		return $fields;
+	}
 	
 }

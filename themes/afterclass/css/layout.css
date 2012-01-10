@@ -687,6 +687,9 @@ h1, h2, h3, h4, h5, h6 {
 #detail_feature {
   background-color: #555555;
   background-image: url(../images/dark_leather.png);
+   -moz-box-shadow:    inset 0 0 10px #333;
+   -webkit-box-shadow: inset 0 0 10px #333;
+   box-shadow:         inset 0 0 10px #333;
   border: 1px solid #666;
   width: 900px;
   padding: 20px 60px;
@@ -950,10 +953,29 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 10px 20px;
 	border: 1px solid #555;
 }
+.category-list {
+	margin: 0;
+	padding: 0;
 
+}
 .category-list li{
-	padding: 10px 0;
+	padding: 10px 20px;
+	border: 1px solid #555;
 	background-image: url(../images/lighter_bg.jpg);
 	margin: 10px 0;
 	list-style-type: none;
+	display: block;
+	float: left;
+	width: 600px;
+}
+
+.category-list h2 {
+	border-bottom: 1px solid #ccc;
+
+}
+.category-list li h2 a {
+	text-decoration: none;
+	color: #222;
+
+
 }
