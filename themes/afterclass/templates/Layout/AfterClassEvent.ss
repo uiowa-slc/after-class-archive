@@ -111,6 +111,7 @@
 
 
 <section id="detail_related_events">
+	<% if RelatedEvents %>
 	<h2>Related Events</h2>
 	
 	<% control RelatedEvents %>
@@ -121,6 +122,7 @@
 	  </div>
 	  <% end_control %>
 	<% end_control %>
+	<% end_if %>
 	
 	<!--<div class="related_event">
 		<a href="#"><img src="http://dummyimage.com/201x170"/>

@@ -11,7 +11,7 @@ class Category extends DataObject {
 		return $fields;
 	}
 	
-	function Events() {
+	function Events($limit = null) {
 		$ids = array();
 		// Get IDs of all events in this category.
 		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
@@ -23,7 +23,7 @@ class Category extends DataObject {
 		if (empty($ids)) {
 			return false;
 		} else {
-			return $calendar->Events($filter);
+			return $calendar->Events($filter,null,null,null,$limit);
 		}
 	}
 	

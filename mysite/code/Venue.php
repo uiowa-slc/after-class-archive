@@ -13,4 +13,5 @@ class Venue extends Category {
 		$fields->push( new TextField('Address') );
 		return $fields;
 	}
+	
 }
