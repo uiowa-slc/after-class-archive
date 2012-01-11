@@ -1,7 +1,12 @@
 <!--<header id="detail_header"><h1>Movies</h1></header>-->
 
 <section id="detail_feature" class="feature clearfix">
-    	   	<img src="$Image.SmallImage.URL" class="detail_feature_image"/>
+    	   	<% if Image %>
+				<img src="$Image.SmallImage.URL" alt="$Title" class="detail_feature_image"/>
+			<% else %>
+				<img src="$BaseHref/themes/afterclass/images/placeholder_small.png" alt="Event Image" class="detail_feature_image"/>
+			<% end_if %>
+    	   	
     	   	<div class="event_group">
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
@@ -59,7 +64,13 @@
 	  
 	  <div class="related_event">
 	  	<% control Event %>
-		<a href="#"><img src="$Image.SmallImage.URL"/>
+		<a href="#">
+			<% if Image %>
+				<img src="$Image.SmallImage.URL" alt="$Title" />
+			<% else %>
+				<img src="$BaseHref/themes/afterclass/images/placeholder_small.png" alt="Event Image">
+			<% end_if %>
+		
 		<h3><strong>$Title</strong> @ $Location</h3></a>
 		<% control DateAndTime %><% if First %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_if %><% end_control %>
 		<% end_control %>
