@@ -51,7 +51,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             //'tag/$Tag' => 'tag'
             'categories/$Category' => 'categories'
             );
- 	static $allowed_actions = array ();
+ 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue");
  	function getCurrentTag(){
  		if($this->urlParams['Tag']){
  			 $Tag = DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
@@ -66,8 +66,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		}
  	}
  	
+ 	
  	function categories() {
- 		$Category = DataObject::get_one("Category", "Title = '".$this->urlParams['Category']."'");
+ 	
+ 		$CategoryName = addslashes($this->urlParams['Category']);
+ 		$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
  		$Data = array(
 	      'Category' => $Category
 	    );

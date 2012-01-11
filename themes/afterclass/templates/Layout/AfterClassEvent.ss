@@ -19,8 +19,8 @@
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
-    		
-    			<% control DateAndTime %>$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
+    			
+    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a><br /><% end_control %>
     			
     			<br />
             	$Location<br/>

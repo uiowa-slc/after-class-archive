@@ -1,15 +1,16 @@
 <?php
 class Category extends DataObject {
 	public static $db = array(
-		"Title" => "Varchar(155)",
+		"Title" => "Text",
 		"Showmenu" => "Boolean"
 	);
 	function getCMSFields_forPopup() {
 		$fields = new FieldSet();
 		$fields->push( new TextField( 'Title' ) );
-		$fields->push( new CheckboxField('Showmenu') );
+		$fields->push( new CheckboxField('Showmenu', 'Show in Main Menu?') );
 		return $fields;
 	}
+	
 	
 	function Events($limit = null) {
 		$ids = array();

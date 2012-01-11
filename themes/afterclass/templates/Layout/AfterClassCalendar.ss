@@ -1,9 +1,8 @@
 <section id="home_feature" class="feature">
 
 <% if action = view %>
-	<h1>We are VIEWING THINGS</h1>
 
-<% end_if %>
+<% else %>
 
 	<% if FeaturedEvents %>
 	<% control FeaturedEvents %>
@@ -13,11 +12,11 @@
 		<div class="homefeatureitem">
 			<a href="$Link"><% if Image %><img src="$Image.LargeImage.URL" /><% else %><img src="$ThemeDir/images/placeholder.png" /><% end_if %></a>
 			<div class="event_text">
-				<h2>Featured Event <strong>$Title</strong></h2>
+				<h2>Featured Event <strong><a href="$Link">$Title</a></strong></h2>
 				<p class="event_details">
 				<% control UpcomingDates %>
 				<% if First %>
-				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
+				<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)</a><br/>
         		$StartTime.nice<br/>
         		<% end_if %>
         		<% end_control %>
@@ -26,20 +25,20 @@
 			</div>
 			
 			<div class="event_date_tag">
-			<a href="#">
-			<% control UpcomingDates %>
-			<% if First %>
-			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
-			<% end_if %>
-        	<% end_control %>
-        	</a>
-        	
-            <ul>
-            	<li class="share_facebook"><a href="#">Facebook</a></li>
-                <li class="share_rss"><a href="#">RSS</a></li>
-                <li class="share_twitter"><a href="#">Twitter</a></li>
-                <li class="share_email"><a href="#">Email</a></li>
-            </ul>
+				<a href="#">
+					<% control UpcomingDates %>
+						<% if First %>
+							<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+						<% end_if %>
+		        	<% end_control %>
+	        	</a>
+	        	
+	            <ul>
+	            	<li class="share_facebook"><a href="#">Facebook</a></li>
+	                <li class="share_rss"><a href="#">RSS</a></li>
+	                <li class="share_twitter"><a href="#">Twitter</a></li>
+	                <li class="share_email"><a href="#">Email</a></li>
+	            </ul>
         	</div>
         
         <p class="event_description">$Content</p>
@@ -51,7 +50,7 @@
 	<% end_control %>
 	<% else %>
 	<div class="homefeatureitem">
-		<a href="$Link"><img src="http://hulk.imu.uiowa.edu/afterclass_dev/assets/book.png?r=42253" /></a>
+		<a href="$Link"><img src="{$BaseHref}assets/book.png?r=42253" /></a>
 		<div class="event_text">
 			<h2>Study Break <strong>Nothing big today.</strong></h2>
 				
@@ -59,9 +58,15 @@
 	</div>
 	<% end_if %>
 </section>
-    
+<% end_if %>    
 <section id="upcoming_events">
-	<h2>Upcoming Events</h2>
+<header id="secondary_header">
+<% if Action = view %>
+		<h2>Events listed on $DateHeader</h2>
+<% else %>
+		<h2>Upcoming Events</h2>
+<% end_if %>
+</header>
 	<% if Events %>
     	<!--<div id="upcoming_events_header">-->
         <p class="description"><!--Click on a date on our interactive calendar or scroll the list below for the latest event details.-->Scroll the list below for the latest event details.</p>
@@ -76,10 +81,10 @@
             
 		            <% end_control %>
 		            	<p>
-		                $StartDate.format(M j), $StartDate.format(Y)<br/>
-		                $StartDate.format(l) @ $StartTime.nice
+		                <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(M j), $StartDate.format(Y)</a><br/>
+		                $StartDate.format(l) <% if StartTime %>@ $StartTime.nice <% end_if %><br />
 		                <% control Event %>
-		                in $Location<br/>
+		               <% if Venues %> <% control Venues %>$Title<br/><% end_control %><% end_if %>
 		                $Cost
 		                <% end_control %>
 		                </p>
@@ -90,4 +95,5 @@
 	<% else %>
 		No events currently listed.
 	<% end_if %>
+
 </section>

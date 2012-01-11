@@ -40,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.231; }
 
 body, button, input, select, textarea {
@@ -66,18 +66,44 @@ body, button, input, select, textarea {
    Links
    ========================================================================== */
 a {
-  color: #00e; }
+  color: #555; 
+  font-weight: bold;
+  text-decoration: none;
+  
+  }
+  
+
 
 a:visited {
-  color: #551a8b; }
+  color: #444; 
+  
+  }
 
 a:focus {
   outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active {
-  outline: 0; }
+  outline: 0;
+  color: #666;
+   }
+.event_text a {
+	color: #FFDE68;
+}
 
+h2 a {
+	font-weight: normal;
+}
+
+.event_text a:hover {
+	color: #d7bb58;
+
+}
+
+#page_navigation a {
+	font-weight: normal;
+
+}
 /* =============================================================================
    Typography
    ========================================================================== */
@@ -548,7 +574,15 @@ h1, h2, h3, h4, h5, h6, .big_header {
   border-bottom: 1px solid #555555; }
 #secondary_header h1 span {
 	color: #555;
+	font-size: 32px;
 
+}
+
+#secondary_header h2 {
+	color: #333;
+	font-family: SketchBlock-Bold, sans-serif;
+	font-size: 32px;
+	border-bottom: 1px solid #555;
 }
 
 #secondary_feature {
