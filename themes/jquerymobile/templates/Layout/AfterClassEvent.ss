@@ -64,7 +64,7 @@
 	  
 	  <div class="related_event">
 	  	<% control Event %>
-		<a href="#">
+		<a href="$Link">
 			<% if Image %>
 				<img src="$Image.SmallImage.URL" alt="$Title" />
 			<% else %>
@@ -72,7 +72,7 @@
 			<% end_if %>
 		
 		<h3><strong>$Title</strong> @ $Location</h3></a>
-		<% control DateAndTime %><% if First %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_if %><% end_control %>
+		<% control UpcomingDates(1) %><% if First %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_if %><% end_control %>
 		<% end_control %>
 		
 	  </div>

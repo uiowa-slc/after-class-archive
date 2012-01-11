@@ -31,10 +31,8 @@
        	
        	<div class="event_date_tag">
        		<a href="#">
-       		<% control DateAndTime %>
-			<% if First %>
-			<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
-			<% end_if %>
+       		<% control UpcomingDates(1) %>
+				<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
         	<% end_control %>
        		</a>
             <ul>

@@ -40,7 +40,13 @@ class AfterClassEvent extends CalendarEvent {
 		if (empty($ids)) {
 			return false;
 		} else {
-			return $calendar->Events($filter,null,null,null,'4');
+			#($filter = null, $start_date = null, $end_date = null, $default_view = false, $limit = null, $announcement_filter = null)
+			$events = $calendar->Events($filter,null,null,false,'4')->groupBy('EventID'); #Figure out how to GROUP BY `CalendarDateTime`.EventID
+			$eventSet = new DataObjectSet();
+			foreach($events as $event => $data) {
+			    $eventSet->push($data->First()); //Get only the first of each event.
+			}
+			return $eventSet;
 		}
 	}
 	
