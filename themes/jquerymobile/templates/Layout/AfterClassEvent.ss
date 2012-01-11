@@ -1,38 +1,25 @@
 <!--<header id="detail_header"><h1>Movies</h1></header>-->
 
 <section id="detail_feature" class="feature clearfix">
-
-		<% control Image.SetWidth(200) %>
-    	   	<img src="$URL" class="detail_feature_image"/>
-    	<% end_control %>
+    	   	<img src="$Image.SmallImage.URL" class="detail_feature_image"/>
     	   	<div class="event_group">
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
-    			<% control UpcomingDates %>
-				<% if First %>
-				$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
-        		$StartTime.nice<br/>
-        		<% end_if %>
-        		<% end_control %>
+    		
+    			<% control DateAndTime %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
             	$Location<br/>
-            	$Cost</p>           
+            	Admission: $Cost</p>           
        	</div>
        	
        	<div class="event_date_tag">
-       		<a href="#">
-       		<% control UpcomingDates %>
-			<% if First %>
-			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
-			<% end_if %>
-        	<% end_control %>
-       		</a>
-            <ul>
+       		
+            <!--<ul>
             	<li class="share_facebook"><a href="#">Facebook</a></li>
                 <li class="share_rss"><a href="#">RSS</a></li>
                 <li class="share_twitter"><a href="#">Twitter</a></li>
                 <li class="share_email"><a href="#">Email</a></li>
-            </ul>
+            </ul>-->
         </div>       
     
 			</div>
@@ -55,37 +42,37 @@
 
 
 <section id="detail_event_description">
-	<h2>Event Description</h2>
+	
+	<div id="detail_event_description_info">
+	<h2>What's Happening?</h2>
 	$Content
-	<h2>Event Times</h2>
+	</div>
 	
-	<p></p><% control DateAndTime %><% if First %>
-	    <% else %>, 
-	    <% end_if %>$StartDate.format(M). $StartDate.format(d) at $StartTime.nice<% end_control %></p>
-	
-	<h2>Map of Location</h2>
-	<img src="http://dummyimage.com/840x450" class="detail_map"/>
 </section>
 
 
 <section id="detail_related_events">
+	<% if RelatedEvents %>
 	<h2>Related Events</h2>
-	<div class="related_event">
+	
+	<% control RelatedEvents %>
+	  
+	  <div class="related_event">
+	  	<% control Event %>
+		<a href="#"><img src="$Image.SmallImage.URL"/>
+		<h3><strong>$Title</strong> @ $Location</h3></a>
+		<% control DateAndTime %><% if First %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_if %><% end_control %>
+		<% end_control %>
+		
+	  </div>
+	  
+	<% end_control %>
+	<% end_if %>
+	
+	<!--<div class="related_event">
 		<a href="#"><img src="http://dummyimage.com/201x170"/>
 		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
-	<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
-	<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
-	<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>
+	</div>-->
 </section>
 
 

@@ -13,7 +13,7 @@
 		<li><h2><a href="$Link">$Title</a></h2>
 		<% if Information %><p>$Information</p><% end_if %>
 		<% if LinkURL %><p><a href="$LinkURL" target="_blank">Visit website</a></p><% end_if %>
-
+		<% control Events(2) %><div><% control Event %>$Title<% end_control %></div><% end_control %>
 		</li>
 	<% end_control %>
 </ul>

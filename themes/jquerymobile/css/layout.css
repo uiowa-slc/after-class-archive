@@ -1750,14 +1750,40 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 
 .events {
 	width: 100%;
-
+}
+.event {
+	clear: left;
+	margin: 10px 0px 0px 0px;
+}
+.event-description a {
+	color: black !important;
+	font-weight: normal !important;
+	text-decoration: none;
 }
 .event-description {
-
-	width: 60%;
-	float: left;
+	padding: 10px 0px 0px 0px;
+}
+.event-description p {
+	margin: 5px 0px 0px 0px;
+}
+.event-image {
+	float: right;
+	height: 110px;
+	margin: 0px 0px 0px 10px;
+	width: 130px;
+}
+.related_event {
+	display: inline-block;
+	margin: 10px 0px 0px 0px;
+	width: 95%;
+}
+.related_event img {
+	float: right;
+}
+.related_event h3 {
+	margin: 0px 0px 5px 0px;
+	padding: 10px 0px 0px 0px;
 }
 .clear {
 	clear: both
-
 }

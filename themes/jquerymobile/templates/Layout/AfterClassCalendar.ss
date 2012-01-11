@@ -1,102 +1,29 @@
 <header id="secondary_header">
 	
-		<h1>$Title</h1>
-		
-		<% if Category %>
-			<% control Category %>
-			<% control AfterClassEvents %>
-				<% if Featured %>
-					<!-- control Featured -->
-					<section id="secondary_feature" class="feature clearfix">
-			    	   	<img src="$Image.LargeImage.URL" class="secondary_feature_image"/>
-			    	   	<div class="event_group">
-			    	   	<div class="event_text">
-			    			<h2>Featured Event <strong>$Title</strong></h2>
-			    			<p class="event_details">
-			    			
-			    			<% control UpcomingDates %>
-								<% if First %>
-								$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
-				        		$StartTime.nice<br/>
-				    			<% end_if %>
-			    			<% end_control %>
-			    			
-			            	$Location<br/>
-			            	$Cost</p>           
-						</div>
-			       	
-			       		<div class="event_date_tag">
-			       		
-						<a href="#">
-						<% control UpcomingDates %>
-							<% if First %>
-								<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong> $StartDate.format(D)</div></a>
-							<% end_if %>
-			        	<% end_control %></a>
-			        	
-			            <ul>
-			            	<li class="share_facebook"><a href="#">Facebook</a></li>
-			                <li class="share_rss"><a href="#">RSS</a></li>
-			                <li class="share_twitter"><a href="#">Twitter</a></li>
-			                <li class="share_email"><a href="#">Email</a></li>
-			            </ul>
-			        	</div>       
-			        
-			         	<p class="event_description">$Content</p>
-			    
-						</div>
-			    	</section>
-			    	<!-- end_control -->
-		    	<% end_if %><!-- end if featured -->
-	    	<% end_control %>
-	    	<% end_control %>
+	<h1>$Title</h1>
 	
-		
-		
-		
-		
-	<% control Category %>
-		<section id="secondary_event_list">
-		<% control AfterClassEvents %>
-			<% if Title %>
-			<div class="secondary_event">
-					<div class="event_date_tag">
-					
-					<a href="$Link">
-					<% control UpcomingDates %>
-						<% if First %>
-						<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
-						<% end_if %>
-					<% end_control %>
-					</a>
-					
-					</div>
-					<a href="$Link"><img src="$Image.MediumImage.URL"/><!--http://dummyimage.com/340x290-->
-					<h2><strong>$Title</strong> @ $Location</h2></a>
-			</div>
-		
-			<% end_if %>
-		<% end_control %>
-		</section>
-	<% end_control %>
-	
-	<% else %> <!-- else if there isn't any category category -->
 	<div class="events">
 	<% control Events %>
-		<% control Event %>
 		<div class="event">
-			<% control Image %>
-				<img src="$CroppedImage(100,100).URL" alt="$Title" />
+			<% control Event %>
+				<div class="event-image"><a href="$Link">
+					<% if Image %>
+						<img src="$Image.SmallImage.URL" alt="$Title" />
+					<% else %>
+						<img src="$BaseHref/themes/afterclass/images/placeholder_small.png" alt="Event Image">
+					<% end_if %>
+				</a></div>
 			<% end_control %>
 				<div class="event-description">
-					<p>$Title - $Location</p>
-					<p>$Cost</p>
+					<a href="$Link">
+						<% control Event %>
+							<p>$Title <% if Location %>- $Location <% end_if %><% if Cost %>($Cost)<% end_if %></p>
+						<% end_control %>
+						<p>$StartDate.format(M j), $StartDate.format(Y)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
+					</a>
 				</div>
 				<div class="clear"></div>
 		</div>
-		<% end_control %>	
-	<% end_control %>
+		<% end_control %>
 	</div>
-		
-	<% end_if %> <!--end if there's a category to filter with -->
 </header>

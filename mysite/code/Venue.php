@@ -15,4 +15,5 @@ class Venue extends Category {
 		$fields->push( new SimpleHTMLEditorField( 'Information' ) );
 				return $fields;
 	}
+	
 }

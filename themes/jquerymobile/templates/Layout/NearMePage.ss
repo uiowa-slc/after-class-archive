@@ -1,14 +1,12 @@
-<h2>Good morning, dave.</h2>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <article>
       <p>Finding your location: <span id="status">checking...</span></p>
-      <p>All Available Venues:</p>
+      <!--<p>All Available Venues:</p>
       <ul>
       	<% control Venues %>
       		<li>$Title - $Address</li>
       	<% end_control %>
-      
-      </ul>
+      </ul>-->
     </article>
 
 <script>
@@ -42,9 +40,10 @@ function success(position) {
   document.querySelector('article').appendChild(mapcanvas);
   
   
-  var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  //var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var myLatlng = new google.maps.LatLng(41.661736, -91.540017);
   var myOptions = {
-    zoom: 13,
+    zoom: 14,
     center: myLatlng,
     panControl: true,
     mapTypeControl: false,
@@ -82,7 +81,7 @@ function success(position) {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<a href='$Title'>$Title</a><br />");
+		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(d)</a></div><% end_control %>");
 		infowindow.open(map, this);
 		});
 		
