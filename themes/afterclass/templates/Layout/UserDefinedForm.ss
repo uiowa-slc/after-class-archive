@@ -4,5 +4,6 @@
 </header>
 <div>
 $Content
+$Form
 </div>
 

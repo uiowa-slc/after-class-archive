@@ -6,23 +6,34 @@
     	   	<% else %>
     	   		<img src="$ThemeDir/images/placeholder.png" class="detail_feature_image placeholder" />
     	   	<% end_if %>
+    	   	
+    	   	<% if Categories %>
+    	   	<div class="event_categories">
+            	<ul>
+            		<li>test</li>
+            		<li>test</li>
+            	</ul>
+            </div>
+            <% end_if %>
     	   	<div class="event_group">
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
     		
-    			<% control DateAndTime %>$StartDate.format(M). $StartDate.format(d) at $StartTime.nice<br /><% end_control %>
+    			<% control DateAndTime %>$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
     			
     			<br />
             	$Location<br/>
-            	$Cost</p>           
+            	$Cost</p> 
+
+                  
        	</div>
        	
        	<div class="event_date_tag">
        		<a href="#">
        		<% control DateAndTime %>
 			<% if First %>
-			<div class="event_date_box">$StartDate.format(B)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+			<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
 			<% end_if %>
         	<% end_control %>
        		</a>
@@ -32,8 +43,9 @@
                 <li class="share_twitter"><a href="#">Twitter</a></li>
                 <li class="share_email"><a href="#">Email</a></li>
             </ul>
+       
         </div>       
-    
+   
 			</div>
 		<!--<div id="detail_carousel">
 			<div class="carousel_thumb">

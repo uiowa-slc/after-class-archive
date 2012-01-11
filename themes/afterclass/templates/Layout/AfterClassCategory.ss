@@ -5,10 +5,16 @@
 		<% control Category %>
 			<% if Events %>
 				<% control Events %>
+				<% control Event %>
+					
 					<% if Featured %>
 						<!-- If Featured -->
 						<section id="secondary_feature" class="feature clearfix">
+							<% if Image %>
 				    	   	<img src="$Image.LargeImage.URL" class="secondary_feature_image"/>
+				    	   	<% else %>
+				    	   	<img src="$ThemeDir/images/placeholder.png" class="secondary_feature_image" />
+				    	   	<% end_if %>
 				    	   	<div class="event_group">
 				    	   	<div class="event_text">
 				    			<h2>Featured Event <strong>$Title</strong></h2>
@@ -49,16 +55,13 @@
 		    	<% end_control %><! -- end control events -->
 		    <% else %>
 		    
-		    <div id="single-page-content">
 		    <h2>There are no events currently listed here.</h2>
 		    <p>Please check the <a href="$BaseHref">the homepage</a> or the following categories for what's happening currently: </p>
 		    <ul>
 		    	<li>Test</li>
 		    	<li>Test</li>
 		    </ul>
-		    
-		    </div>
-		    
+		    		    
 		    <% end_if %> <!-- end if events -->
 		<% end_control %><!-- end control category -->
 				
@@ -78,9 +81,10 @@
 								<% if Image %>
 									<img src="$Image.MediumImage.URL"/>
 								<% else %>
-									<img src="$ThemeDir/images/placeholder_small.png" />
+									<img src="$ThemeDir/images/placeholder_medium.png" />
 								<% end_if %>
 							<h2><strong>$Title</strong> @ $Location</h2></a>
+							<% end_control %><!-- end control event -->
 							<% end_control %><!-- end control events -->
 						</div>
 					<% end_control %>

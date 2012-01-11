@@ -1,11 +1,17 @@
 <section id="home_feature" class="feature">
+
+<% if action = view %>
+	<h1>We are VIEWING THINGS</h1>
+
+<% end_if %>
+
 	<% if FeaturedEvents %>
 	<% control FeaturedEvents %>
 	<% if First %>
 	<% control Event %>
 		
 		<div class="homefeatureitem">
-			<a href="$Link"><img src="$Image.LargeImage.URL" /></a>
+			<a href="$Link"><% if Image %><img src="$Image.LargeImage.URL" /><% else %><img src="$ThemeDir/images/placeholder.png" /><% end_if %></a>
 			<div class="event_text">
 				<h2>Featured Event <strong>$Title</strong></h2>
 				<p class="event_details">
@@ -64,7 +70,7 @@
         	<% control Events %>
 			<% control Event %>
         		<div class="event">
-            	<a href="$Link"><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /></a>
+            	<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /><% else %><img src="$ThemeDir/images/placeholder_small.png" /><% end_if %></a>
             	<div class="event_text">
             		<h3><a href="$Link">$Title</a></h3>         	
             

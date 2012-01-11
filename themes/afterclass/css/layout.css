@@ -988,10 +988,29 @@ h1, h2, h3, h4, h5, h6, .big_header {
 }
 .category-list li h2 a {
 	text-decoration: none;
-	color: #222;
+	color: #555;
 }
 
 .placeholder {
 	border: 1px solid #555;
+}
+
+#detail_feature {
+	position: relative
+}
+
+.event_categories {
+	position: absolute;
+	bottom: 10px;
+}
+
+.event_categories ul {
+
+	margin: 0;
+	padding: 0;
+}
+
+.event_categories li {
+	display: inline;
 
 }

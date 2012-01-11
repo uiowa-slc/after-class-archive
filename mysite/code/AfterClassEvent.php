@@ -124,6 +124,11 @@ class AfterClassEvent extends CalendarEvent {
 }
 
 class AfterClassEvent_Controller extends CalendarEvent_Controller {
+	public function AllCategories(){
+	//	$categories = DataObject::get("Category", "")
+	
+	
+	}
 	
 }
 class SizedImage extends Image {
