@@ -89,12 +89,27 @@ a:hover, a:active {
    }
 .event_text a {
 	color: #FFDE68;
+	font-weight: normal;
 }
 
 h2 a {
 	font-weight: normal;
 }
 
+#upcoming_event_list .event .event_text a{
+
+	color: #555;
+
+}
+.homefeatureitem .event_text a {
+	color: #555;
+
+}
+
+.homefeatureitem .event_text a:hover {
+	color: #444;
+
+}
 .event_text a:hover {
 	color: #d7bb58;
 
@@ -421,7 +436,11 @@ h1, h2, h3, h4, h5, h6, .big_header {
         padding: 10px; }
     #page_navigation ul li:hover ul {
       left: auto; }
+#page_navigation span {
+	color: #333;
 
+
+}
 #page_content {
   background-image: url("../images/skyline.png");
   background-repeat: repeat-x;

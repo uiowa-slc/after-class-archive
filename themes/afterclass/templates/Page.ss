@@ -43,9 +43,9 @@
 			<% else %>
 			<% end_if %>
 		<% end_control %-->
-		<li><a href="/afterclass_dev/"><strong>Home</strong> Complete event list</a></li>
+		<li><a href="/afterclass_dev/"><strong>Home</strong> <span>Complete event list</span></a></li>
 		<li>
-			<a href="events/category/"><strong>Category</strong> The type of event</a>
+			<a href="events/category/"><strong>Category</strong><span>The type of event</span></a>
 			<ul>
 				<% control getEventtypes %>
 					<% if Showmenu %>
@@ -55,7 +55,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="events/sponsor/"><strong>Sponsor</strong> Who puts it on</a>
+			<a href="events/sponsor/"><strong>Sponsor</strong><span>Who puts it on</span></a>
 			<ul>
 				<% control getSponsors %>
 					<% if Showmenu %>
@@ -65,7 +65,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="events/venue/"><strong>Venue</strong> Where it takes place</a>
+			<a href="events/venue/"><strong>Venue</strong><span>Where it takes place</span></a>
 			<ul>
 				<% control getVenues %>
 					<% if Showmenu %>

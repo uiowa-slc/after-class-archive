@@ -10,10 +10,10 @@ class Page extends SiteTree {
 		return DataObject::get('Eventtype');
 	}
 	public function getVenues() {
-		return DataObject::get('Venue');
+		return DataObject::get('Venue','','Title ASC');
 	}
 	public function getSponsors() {
-		return DataObject::get('Sponsor');
+		return DataObject::get('Sponsor', '','Title ASC');
 	}
 
 }

@@ -15,11 +15,12 @@
 		    <% else %><!-- if there aren't any events -->
 				 <div id="single-page-content">
 				    <h2>There are no events currently listed here.</h2>
-				    <p>Please check the <a href="$BaseHref">the homepage</a> or the following categories for what's happening currently: </p>
-				    <ul>
+				    <p>Please check the <a href="$BaseHref">the homepage</a> or the following categories for what's happening currently. </p>
+				    <p>Want to promote your student organization's upcoming event? <a href="{$BaseHref}add-event/">Submit it to us and we'll post it!</a></p>
+				   <!-- <ul>
 				    	<li>Test</li>
 				    	<li>Test</li>
-				    </ul>
+				    </ul> -->
 				 </div>
 
 		    <% end_if %> <!-- end if events -->
