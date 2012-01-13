@@ -25,7 +25,6 @@
     			<br />
             	$Location<br/>
             	$Cost</p> 
-
                   
        	</div>
        	
@@ -73,6 +72,12 @@
 	<h2>Where?</h2>
 	<div id="map_canvas" style="width: 100%; height: 100%"></div>
 	
+	<div style="clear: both;">
+		<% control Venues %>
+		<a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a>
+		<% end_control %>
+	</div>
+	
 	</div>
 	
 	
@@ -114,6 +119,11 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+      
+      var geomarker = new google.maps.Marker({
+          map: map,
+          position: place
+      });
       
     }
     });
