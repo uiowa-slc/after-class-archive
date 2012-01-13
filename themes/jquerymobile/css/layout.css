@@ -1787,3 +1787,6 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 .clear {
 	clear: both
 }
+#detail_event_description_info div a {
+	text-decoration: none;
+}
