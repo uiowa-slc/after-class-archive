@@ -1,5 +1,3 @@
-<!--<header id="detail_header"><h1>Movies</h1></header>-->
-
 <section id="detail_feature" class="feature clearfix">
 			<% if Image %>
     	   		<img src="$Image.LargeImage.URL" class="detail_feature_image"/>
@@ -7,20 +5,20 @@
     	   		<img src="$ThemeDir/images/placeholder.png" class="detail_feature_image placeholder" />
     	   	<% end_if %>
     	   	
-    	   	<% if Categories %>
-    	   	<div class="event_categories">
-            	<ul>
-            		<li>test</li>
-            		<li>test</li>
-            	</ul>
-            </div>
-            <% end_if %>
+    	   	<% include EventCategoryList %>
+
+            
     	   	<div class="event_group">
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
+    		
+    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a> 
     			
-    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a><br /><% end_control %>
+    			<% if EndDate %>
+    			 - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)"> $EndDate.Month $EndDate.DayOfMonth</a><% end_if %> <br />
+    			 
+    			 <% end_control %>
     			
     			<br />
             	$Location<br/>
@@ -29,9 +27,11 @@
        	</div>
        	
        	<div class="event_date_tag">
-       		<a href="#">
+       		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
        		<% control UpcomingDates(1) %>
-				<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+       			<% if StartDate %>
+					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+				<% end_if %>
         	<% end_control %>
        		</a>
             <ul>
@@ -44,20 +44,6 @@
         </div>       
    
 			</div>
-		<!--<div id="detail_carousel">
-			<div class="carousel_thumb">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-			<div class="carousel_thumb">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-			<div class="carousel_thumb">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-			<div class="carousel_thumb_last">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-		</div>-->
 		
     </section>
 
@@ -70,13 +56,13 @@
 	</div>
 	<div id="detail_event_description_map">
 	<h2>Where?</h2>
+	
+	<% control Venues %>
+	<p>This event is located at: <br />$Title - <a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
+	<% end_control %>
 	<div id="map_canvas" style="width: 100%; height: 100%"></div>
 	
-	<div style="clear: both;">
-		<% control Venues %>
-		<a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a>
-		<% end_control %>
-	</div>
+	<div style="clear: both;"></div>
 	
 	</div>
 	
@@ -147,11 +133,7 @@
 	  <% end_control %>
 	<% end_control %>
 	<% end_if %>
-	
-	<!--<div class="related_event">
-		<a href="#"><img src="http://dummyimage.com/201x170"/>
-		<h3><strong>Kenan Thompson</strong> @ Hubbard Park</h3></a>
-	</div>-->
+
 </section>
 
 

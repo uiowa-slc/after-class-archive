@@ -5,15 +5,15 @@ class Venue extends Category {
 	);
 	public static $db = array(
 		"Information" => "HTMLText",
-		"LinkURL" => "Text",
-		"Address" => "Text"
+		"Address" => "Varchar(255)",
+		"WebsiteURL" => "Text"
 	);
 	function getCMSFields_forPopup() {
 		$fields = parent::getCMSFields_forPopup();
-		$fields->push( new TextField('LinkURL', 'Website Address') );
-		$fields->push( new TextField('Address', 'Physical Location/Address') );
 		$fields->push( new SimpleHTMLEditorField( 'Information' ) );
-				return $fields;
+		$fields->push( new TextField('Address') );
+		$fields->push( new TextField('WebsiteURL','Website Address') );
+		return $fields;
 	}
 	
 }

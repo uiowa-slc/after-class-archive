@@ -17,7 +17,7 @@
 					<% else %>
 						<img src="$ThemeDir/images/placeholder_medium.png" />
 					<% end_if %>
-					<h2><strong>$Title</strong> <% if Venues %> <% control Venues %>@ $Title<br/><% end_control %><% end_if %></h2></a>
+					<h2><strong>$Title</strong> <% if Venues %>@ <% control Venues %>$Title<br/><% end_control %><% end_if %></h2></a>
 				<% end_control %><!-- end control event -->
 			</div>
 	<% end_control %><!-- end control events -->

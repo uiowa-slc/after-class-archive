@@ -66,9 +66,10 @@ body, button, input, select, textarea {
    Links
    ========================================================================== */
 a {
-  color: #555; 
+  color: #333; 
   font-weight: bold;
   text-decoration: none;
+  
   
   }
   
@@ -465,6 +466,17 @@ h1, h2, h3, h4, h5, h6, .big_header {
   margin-bottom: 200px;
   color: #333;
 }
+
+#home_feature.view{
+	width:900px;
+
+}
+
+#upcoming_events.view {
+	width: 900px;
+
+}
+
 #home_feature .event_text {
   width: 354px;
 }
@@ -1054,7 +1066,12 @@ h1, h2, h3, h4, h5, h6, .big_header {
 
 .event_categories {
 	position: absolute;
-	bottom: 10px;
+	bottom: 20px;
+}
+
+.event_categories a {
+	color: #ffde68;
+
 }
 
 .event_categories ul {

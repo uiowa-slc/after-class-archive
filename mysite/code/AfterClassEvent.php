@@ -133,6 +133,24 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 	public function AllCategories(){
 	//	$categories = DataObject::get("Category", "")
 	
+	$categories = new DataObjectSet();
+	$category_ids = array();
+	
+	$sponsors = $this->Sponsors();
+	$category_ids = array_merge($category_ids, $sponsors->getIDList());
+	
+	$venues = $this->Venues();
+	$category_ids = array_merge($category_ids, $venues->getIDList());
+	
+	$eventtypes = $this->EventTypes();
+	$category_ids = array_merge($category_ids, $eventtypes->getIDList());
+	
+	foreach($category_ids as $category_id){
+		$category = DataObject::get_by_id("Category", $category_id);
+		$categories->push($category);
+	
+	}
+	return $categories;
 	
 	}
 	
