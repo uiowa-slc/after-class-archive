@@ -102,15 +102,11 @@
 			<a href="http://www.uiowa.edu"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a>
 		</div>
 		<ul>
-			<li><a href="#">Category</a></li>
-			<li><a href="#">Sponsor</a></li>
-			<li><a href="#">Venue</a></li>
-			<li><a href="#">All Events</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="{$BaseHref}/events/category">Category</a></li>
+			<li><a href="{$BaseHref}/events/category">Sponsor</a></li>
+			<li><a href="{$BaseHref}/events/category">Venue</a></li>
+			<li><a href="{$BaseHref}/events/">All Events</a></li>
 		</ul>
-		<div id="search_footer">
-		<!--Search field goes here-->
-		</div>
 	</div>
 </footer>
 

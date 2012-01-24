@@ -1067,6 +1067,8 @@ h1, h2, h3, h4, h5, h6, .big_header {
 .event_categories {
 	position: absolute;
 	bottom: 20px;
+	background: rgba(39,39,39,0.4);
+	padding: 10px;
 }
 
 .event_categories a {

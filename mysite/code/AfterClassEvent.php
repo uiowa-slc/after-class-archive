@@ -65,11 +65,11 @@ class AfterClassEvent extends CalendarEvent {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
-		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Location.') );
-		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Cost of admission.') );
-		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Check if this is a featured event.'));
-		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Content.') );
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image'));
+		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Main Image (450 x 380 pixels is preferred)'));
+		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Location') );
+		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Cost of admission') );
+		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Is this a featured event?'));
+		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Description') );
 		
 		/*$categoriesTablefield1 = new ManyManyComplexTableField(
         	$this,

@@ -62,10 +62,9 @@
 	<% end_control %>
 	<div id="map_canvas" style="width: 100%; height: 100%"></div>
 	
-	<div style="clear: both;"></div>
 	
 	</div>
-	
+
 	
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
 </script>
@@ -116,7 +115,8 @@
   }
   window.onload = initialize();
 </script>
-	
+		<div style="clear: left;" class="clear"></div>
+
 </section>
 
 

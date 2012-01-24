@@ -32,11 +32,13 @@ function success(position) {
   
   s.innerHTML = "found you!";
   s.className = 'success';
+  var mapWidth = ($(window).width()) - 40;
+  
   
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcanvas';
   mapcanvas.style.height = '240px';
-  mapcanvas.style.width = '320px';
+  mapcanvas.style.width = mapWidth+'px';
   document.querySelector('article').appendChild(mapcanvas);
   
   

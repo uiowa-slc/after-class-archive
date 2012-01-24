@@ -281,12 +281,7 @@
 	color: 					#333333 /*{c-body-color}*/;
 	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #fff /*{c-body-shadow-color}*/;
 	background: 			#f0f0f0 /*{c-body-background-color}*/;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee /*{c-body-background-start}*/), to(#ddd /*{c-body-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient(top, #eee /*{c-body-background-start}*/, #ddd /*{c-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient(top, #eee /*{c-body-background-start}*/, #ddd /*{c-body-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient(top, #eee /*{c-body-background-start}*/, #ddd /*{c-body-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient(top, #eee /*{c-body-background-start}*/, #ddd /*{c-body-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient(top, #eee /*{c-body-background-start}*/, #ddd /*{c-body-background-end}*/);
+	background-image: url(../images/paper.png);
 }
 .ui-body-c,
 .ui-body-c input,
@@ -1748,23 +1743,62 @@ span.ui-slider-label { width: 100%; position: absolute;height: 32px;  font-size:
 span.ui-slider-label-a { left: -100%;  margin-right: -1px }
 span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 
+/* Custom Things Specific To After Class */
 .events {
 	width: 100%;
+	margin: auto;
+	border: 1px solid #a5a5a5;
 }
 .event {
 	clear: left;
-	margin: 10px 0px 0px 0px;
+	margin: 0;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
 }
+
+.event.odd {
+	background: #ddd;
+}
+
+.event.even {
+	background: #eee;
+
+}
+
+.event.first {
+	border-top: 1px solid #ccc;
+
+}
+
+.event.last {
+	border-bottom: none;
+
+}
+.event:active {
+	border-bottom: 1px solid #a9a9a9;
+	border-top: 1px solid #a9a9a9;
+
+
+}
+
+.event.odd:active {
+	background: #eee;
+}
+
+.event.even:active {
+	background: #ddd;
+}
+
 .event-description a {
 	color: black !important;
 	font-weight: normal !important;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 .event-description {
-	padding: 10px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 .event-description p {
-	margin: 5px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 .event-image {
 	float: right;
@@ -1789,4 +1823,29 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 }
 #detail_event_description_info div a {
 	text-decoration: none;
+}
+
+
+.ui-content {
+	margin: auto;
+	/*background: #f0f0f0;*/
+
+}
+
+/* iPad [portrait + landscape] */
+@media all and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.ui-content { 
+		width: 730px;
+	
+	
+	}
+}
+
+/* iPhone [portrait + landscape] */
+@media all and (max-device-width: 480px) {
+		/*.events { 
+		width: 300px;
+	
+	
+	}*/
 }
