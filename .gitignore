@@ -3261,3 +3261,5 @@ sapphire/thirdparty/tinymce/utils/validate.js
 sapphire/web.config
 sapphire/widgets/Widget.php
 sapphire/widgets/WidgetArea.php
+.DS_Store
+.gitignore
