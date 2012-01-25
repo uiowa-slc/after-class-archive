@@ -98,7 +98,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	      'Events' => $events
 	    );
 		
-		return $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page'));
+		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
+		return "";
 	}
 	
  	
