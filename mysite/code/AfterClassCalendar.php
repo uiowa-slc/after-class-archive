@@ -51,7 +51,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             //'tag/$Tag' => 'tag'
             'categories/$Category' => 'categories'
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue");
+ 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss");
  	function getCurrentTag(){
  		if($this->urlParams['Tag']){
  			 $Tag = DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
@@ -66,6 +66,42 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		}
  	}
  	
+ 	# EventDate, EventLocation, EventCost
+ 	public function newrss() {
+		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
+		foreach($events as $event) {
+			//$event->Title = $event->EventTitle();
+			//$event->EventDate = strip_tags($event->_Dates());
+			//$event->EventLocation = $event->Event();
+			//$event->EventCost = $event->Cost();
+			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
+			$event->Description = strip_tags($event->_Dates()) . $event->EventContent();
+		}
+		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
+		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
+		
+		if(is_int($rss->lastModified)) {
+			HTTP::register_modification_timestamp($rss->lastModified);
+			header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $rss->lastModified) . ' GMT');
+		}
+		if(!empty($rss->etag)) {
+			HTTP::register_etag($rss->etag);
+		}
+		$xml = str_replace('&nbsp;', '&#160;', $rss->renderWith('RSSFeed'));
+		$xml = preg_replace('/<!--(.|\s)*?-->/', '', $xml);
+		$xml = trim($xml);
+		HTTP::add_cache_headers();
+		header("Content-type: text/xml");
+		//echo $xml;
+		
+ 		$Data = array(
+	      'Events' => $events
+	    );
+		
+		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
+		return "";
+	}
+	
  	
  	function categories() {
  	
