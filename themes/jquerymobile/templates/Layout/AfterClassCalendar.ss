@@ -1,10 +1,15 @@
+<script>
+
+
+
+</script>
 <header id="secondary_header">
 	
 	<h1>$Title</h1>
 	
 	<div class="events">
 	<% control Events %>
-		<div class="event">
+		<div class="event $EvenOdd $FirstLast" onClick="location.href='$Link'" >
 			<% control Event %>
 				<div class="event-image"><a href="$Link">
 					<% if Image %>
@@ -17,9 +22,23 @@
 				<div class="event-description">
 					<a href="$Link">
 						<% control Event %>
-							<p>$Title <% if Location %>- $Location <% end_if %><% if Cost %>($Cost)<% end_if %></p>
+							<h2>$Title</h2>
+							
+							<% if Cost %>
+								<p>($Cost)</p>
+							<% end_if %>
 						<% end_control %>
-						<p>$StartDate.format(M j), $StartDate.format(Y)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
+						<p>$StartDate.format(m j)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
+						
+					<% control Event %>
+						<% if Venues %>
+							<% control Venues %>
+								<p>$Title <a href="http://www.google.com/maps?f=d&daddr=$Address" class="directions-link">Get Directions</a></p>
+							<% end_control %>
+						<% end_if %>
+					<% end_control %>
+						
+	
 					</a>
 				</div>
 				<div class="clear"></div>

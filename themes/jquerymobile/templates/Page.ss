@@ -4,13 +4,25 @@
 	<% base_tag %>
 	<title>$Title</title>
 	$MetaTags(false)
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
 	<%-- Caution: Any Requirements calls in init() methods of custom page types won't work due to jQuery Mobile loading pages via Ajax, place them all in Page_Controller --%>
 	<% require themedCSS(layout) %> 
 	<% require themedCSS(typography) %> 
 
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="{$ThemeDir}/js/jquery.mobile-1.0.min.js"></script>
+	
+	<script>
+	
+	$(document).ready(function() {
+		$(".event").click(function(){
+	     window.location=$(this).find("a").attr("href");
+	     return false;
+		});
+	});
+
+</script>
+	
 </head>
 <body>
 	<div data-role="page">
@@ -31,3 +43,4 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>

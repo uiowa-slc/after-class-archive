@@ -11,3 +11,20 @@
   	font-size: 20px;
   	text-decoration: none;
   }
+  
+  #secondary_header h1 {
+    font-family: SketchBlock-Bold, sans-serif;
+	margin: 0; 
+	padding: 0;
+	font-weight: normal;
+  
+  
+  }
+  
+  .event-description h2 {
+  	font-size: 18px;
+  	color: #272727 !important;
+  	padding: 0;
+  	margin: 0;
+  
+  }

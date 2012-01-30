@@ -1,5 +1,3 @@
-<!--<header id="detail_header"><h1>Movies</h1></header>-->
-
 <section id="detail_feature" class="feature clearfix">
     	   	<% if Image %>
 				<img src="$Image.SmallImage.URL" alt="$Title" class="detail_feature_image"/>
@@ -12,36 +10,20 @@
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
     		
-    			<% control DateAndTime %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
+    			<% control DateAndTime %>$StartDate.format(F) $StartDate.format(j)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
             	$Location<br/>
+        <% control Venues %>
+			<a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a> <br />
+		<% end_control %>
             	Admission: $Cost</p>           
        	</div>
        	
        	<div class="event_date_tag">
-       		
-            <!--<ul>
-            	<li class="share_facebook"><a href="#">Facebook</a></li>
-                <li class="share_rss"><a href="#">RSS</a></li>
-                <li class="share_twitter"><a href="#">Twitter</a></li>
-                <li class="share_email"><a href="#">Email</a></li>
-            </ul>-->
+
         </div>       
     
 			</div>
-		<!--<div id="detail_carousel">
-			<div class="carousel_thumb">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-			<div class="carousel_thumb">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-			<div class="carousel_thumb">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-			<div class="carousel_thumb_last">
-			<a href="#"><img src="http://dummyimage.com/96x81"/></a>
-			</div>
-		</div>-->
+
 		
     </section>
 
@@ -53,12 +35,11 @@
 	$Content
 	
 	<div>
-		<% control Venues %>
-		<a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a>
-		<% end_control %>
+
 	</div>
 	
 	</div>
+	
 	
 </section>
 
@@ -80,7 +61,7 @@
 		
 			<h3><strong>$Title</strong> @ $Location</h3></a>
 			<% control UpcomingDates(1) %>
-				$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br />
+				$StartDate.format(M). $StartDate.format(j)<% if StartTime %> at $StartTime.nice<% end_if %><br />
 			<% end_control %>
 		<% end_control %>
 		

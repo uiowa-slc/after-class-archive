@@ -65,11 +65,11 @@ class AfterClassEvent extends CalendarEvent {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
-		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Location.') );
-		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Cost of admission.') );
-		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Check if this is a featured event.'));
-		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Content.') );
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image'));
+		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Main Image (450 x 380 pixels is preferred)'));
+		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Location') );
+		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Cost of admission') );
+		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Is this a featured event?'));
+		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Description') );
 		
 		/*$categoriesTablefield1 = new ManyManyComplexTableField(
         	$this,
@@ -81,7 +81,7 @@ class AfterClassEvent extends CalendarEvent {
         	'getCMSFields_forPopup'
       	);
 		$categoriesTablefield1->setAddTitle( 'Category' );
-		$f->addFieldToTab( 'Root.Content.Categories', $categoriesTablefield1 );*/
+		$f->addFieldToTab( 'Root.Content.Tags', $categoriesTablefield1 );*/
 		
 		$sponsorTablefield = new ManyManyComplexTableField(
         	$this,
@@ -93,9 +93,9 @@ class AfterClassEvent extends CalendarEvent {
         	'getCMSFields_forPopup'
       	);
 		$sponsorTablefield->setAddTitle( 'Sponsor' );
-				$f->addFieldToTab('Root.Content.Categories', new HeaderField("SponsorHeader","Sponsors"));
+				$f->addFieldToTab('Root.Content.Tags', new HeaderField("SponsorHeader","Sponsors"));
 
-		$f->addFieldToTab( 'Root.Content.Categories', $sponsorTablefield );
+		$f->addFieldToTab( 'Root.Content.Tags', $sponsorTablefield );
 		
 		$venueTablefield = new ManyManyComplexTableField(
         	$this,
@@ -107,9 +107,9 @@ class AfterClassEvent extends CalendarEvent {
         	'getCMSFields_forPopup'
       	);
       	
-		$f->addFieldToTab('Root.Content.Categories', new HeaderField("Venue Header","Venue(s)"));
+		$f->addFieldToTab('Root.Content.Tags', new HeaderField("Venue Header","Venue(s)"));
 		$venueTablefield->setAddTitle( 'Venue' );
-		$f->addFieldToTab( 'Root.Content.Categories', $venueTablefield );
+		$f->addFieldToTab( 'Root.Content.Tags', $venueTablefield );
 		
 		$eventTypeTablefield = new ManyManyComplexTableField(
         	$this,
@@ -122,8 +122,8 @@ class AfterClassEvent extends CalendarEvent {
       	);
 		$eventTypeTablefield->setAddTitle( 'Event Type' );
 		
-		$f->addFieldToTab('Root.Content.Categories', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
-		$f->addFieldToTab( 'Root.Content.Categories', $eventTypeTablefield);
+		$f->addFieldToTab('Root.Content.Tags', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
+		$f->addFieldToTab( 'Root.Content.Tags', $eventTypeTablefield);
 		
 		return $f;
 	}

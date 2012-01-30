@@ -32,16 +32,18 @@ function success(position) {
   
   s.innerHTML = "found you!";
   s.className = 'success';
+  var mapWidth = ($(window).width()) - ($(window).width()/4);
+  
   
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcanvas';
   mapcanvas.style.height = '240px';
-  mapcanvas.style.width = '320px';
+  mapcanvas.style.width = mapWidth+'px';
   document.querySelector('article').appendChild(mapcanvas);
   
   
-  //var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var myLatlng = new google.maps.LatLng(41.661736, -91.540017);
+  var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  //var myLatlng = new google.maps.LatLng(41.661736, -91.540017);
   var myOptions = {
     zoom: 14,
     center: myLatlng,
@@ -55,11 +57,6 @@ function success(position) {
   //  infoWindow.close();
   //});
   
-/*makeMarker({
-   position: myLatlng,
-   title: 'Title',
-   content: '<div><h1>Lorem ipsum</h1>Lorem ipsum dolor sit amet<div>'
-});*/
 
   infowindow = new google.maps.InfoWindow({
   content: "holding..."
@@ -81,7 +78,7 @@ function success(position) {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(d)</a></div><% end_control %>");
+		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>");
 		infowindow.open(map, this);
 		});
 		
@@ -114,10 +111,14 @@ function error(msg) {
   // console.log(arguments);
 }
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error);
-} else {
-  error('not supported');
-}
+$(document).ready(function() {
+  if (navigator.geolocation) {
+	  navigator.geolocation.getCurrentPosition(success, error);
+	} else {
+	  error('not supported');
+	}
+});
+
+
 
 </script>

@@ -1,7 +1,7 @@
 <div data-role="navbar">
 	<ul class="menu1">
 		<% control Menu(1) %>
-			<% if URLSegment == home %><% else %>
+			<% if URLSegment == home %><% else_if URLSegment == add %><% else %>
 			<li class="$LinkingMode">
 				<a href="$AbsoluteLink" class="<% if isSection %>ui-btn-active<% end_if %>">
 					$MenuTitle

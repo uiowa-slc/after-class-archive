@@ -30,7 +30,7 @@
        		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
        		<% control UpcomingDates(1) %>
        			<% if StartDate %>
-					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 				<% end_if %>
         	<% end_control %>
        		</a>
@@ -62,10 +62,9 @@
 	<% end_control %>
 	<div id="map_canvas" style="width: 100%; height: 100%"></div>
 	
-	<div style="clear: both;"></div>
 	
 	</div>
-	
+
 	
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
 </script>
@@ -91,7 +90,7 @@
     var place = null;
     
     <% control Venues %>
-    var address = "IMU, Iowa City, IA";
+    var address = "$Address";
     <% end_control %>
     
     var geocoder = new google.maps.Geocoder();
@@ -116,7 +115,8 @@
   }
   window.onload = initialize();
 </script>
-	
+		<div style="clear: left;" class="clear"></div>
+
 </section>
 
 
