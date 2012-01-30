@@ -1775,8 +1775,8 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 
 }
 .event:active {
-	border-bottom: 1px solid #a9a9a9;
-	border-top: 1px solid #a9a9a9;
+	border-left: 1px solid #a9a9a9;
+	border-right: 1px solid #a9a9a9;
 
 
 }
@@ -1848,4 +1848,36 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 	
 	
 	}*/
+}
+.directions-link {
+	margin: 2px 0;
+	padding: 4px;
+	border: 1px solid #333;
+	display: block;
+	width: 100px;
+	font-size: 14px;
+	background: #ccc;
+	text-align: center;
+}
+
+.directions-link:active {
+	background: #ffde68;
+
+}
+
+.ui-link {
+	text-decoration: none;
+	color: #333;
+
+}
+
+.detail_feature_image {
+	float: right;
+	width: 40%;
+}
+
+h2 {
+    font-family: SketchBlock-Bold, sans-serif;
+    font-weight: normal;
+
 }

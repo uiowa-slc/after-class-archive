@@ -18,9 +18,32 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<% require themedCSS(layout) %> 
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+	
+<script>
+
+
+
+$(document).ready(function() {
+  $('#upcoming_scroll_indicator').hide();
+
+$('#upcoming_event_list').hover(function() {
+  $('#upcoming_scroll_indicator').toggle('fast', function() {
+    // Animation complete.
+  });
+});
+
+
+
+});
+
+
+</script>
+	
+	
+	
 </head>
 <body>
 
@@ -30,26 +53,25 @@
 	<div class="container">
 		<div class="big_header"><a href="$BaseHref">After Class</a></div>
 	    <p class="subheader">The best of <em>UI</em>'s culture, concerts, and nightlife</p>
+	    
+	$SearchForm
+	    
 	</div>
 </header>
 <nav id="page_navigation">
+<% cached %>
 	<div class="container">
 	<ul class="clearfix">
-		<!--% control Menu(1) %>
-			<% if First %>
-			<li>
-				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
-			</li>
-			<% else %>
-			<% end_if %>
-		<% end_control %-->
+
 		<li><a href="/afterclass_dev/"><strong>Home</strong> <span>Complete event list</span></a></li>
 		<li>
 			<a href="events/category/"><strong>Category</strong><span>The type of event</span></a>
 			<ul>
 				<% control getEventtypes %>
 					<% if Showmenu %>
+					<% if Events %>
 					<li><a href="all-events/categories/$Title">$Title</a></li>
+					<% end_if %>
 					<% end_if %>
 				<% end_control %>
 			</ul>
@@ -59,7 +81,10 @@
 			<ul>
 				<% control getSponsors %>
 					<% if Showmenu %>
+					<% if Events %>
+
 					<li><a href="all-events/categories/$Title">$Title</a></li>
+					<% end_if %>
 					<% end_if %>
 				<% end_control %>
 			</ul>
@@ -69,14 +94,20 @@
 			<ul>
 				<% control getVenues %>
 					<% if Showmenu %>
+					<% if Events %>
+
 					<li><a href="all-events/categories/$Title">$Title</a></li>
+					<% end_if %>
 					<% end_if %>
 				<% end_control %>
 			</ul>
 		</li>
 		<% control Menu(1) %>
 			<% if First %>
+			<% else_if URLSegment == near-me %>
+			
 			<% else %>
+			
 			<li>
 				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
 			</li>
@@ -85,6 +116,7 @@
     </ul>
     </div>
 </nav>
+<% end_cached %>
 <!--cut out header and nav-->
 <div id="page_content">
 	<div class="container clearfix">

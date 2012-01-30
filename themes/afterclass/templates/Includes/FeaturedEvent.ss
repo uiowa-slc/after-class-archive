@@ -13,7 +13,7 @@
 					    			
 					    			<% control UpcomingDates %>
 									<% if First %>
-									$StartDate.format(D), $StartDate.format(M) $StartDate.format(d)<br/>
+									$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)<br/>
 					        		$StartTime.nice<br/>
 					    			<% end_if %>
 					    			<% end_control %>
@@ -26,7 +26,7 @@
 									<a href="#">
 										<% control UpcomingDates %>
 											<% if First %>
-												<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(d)</strong>
+												<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong>
 													$StartDate.format(D)
 												</div></a>
 											<% end_if %><!-- end if first -->

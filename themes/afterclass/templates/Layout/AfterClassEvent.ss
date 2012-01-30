@@ -30,7 +30,7 @@
        		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
        		<% control UpcomingDates(1) %>
        			<% if StartDate %>
-					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(d)</strong> $StartDate.format(D)</div>
+					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 				<% end_if %>
         	<% end_control %>
        		</a>
@@ -90,7 +90,7 @@
     var place = null;
     
     <% control Venues %>
-    var address = "IMU, Iowa City, IA";
+    var address = "$Address";
     <% end_control %>
     
     var geocoder = new google.maps.Geocoder();

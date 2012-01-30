@@ -10,8 +10,11 @@
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
     		
-    			<% control DateAndTime %>$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
+    			<% control DateAndTime %>$StartDate.format(F) $StartDate.format(j)<% if StartTime %> at $StartTime.nice<% end_if %><br /><% end_control %>
             	$Location<br/>
+        <% control Venues %>
+			<a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a> <br />
+		<% end_control %>
             	Admission: $Cost</p>           
        	</div>
        	
@@ -32,9 +35,7 @@
 	$Content
 	
 	<div>
-		<% control Venues %>
-		<a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a>
-		<% end_control %>
+
 	</div>
 	
 	</div>
@@ -60,7 +61,7 @@
 		
 			<h3><strong>$Title</strong> @ $Location</h3></a>
 			<% control UpcomingDates(1) %>
-				$StartDate.format(M). $StartDate.format(d)<% if StartTime %> at $StartTime.nice<% end_if %><br />
+				$StartDate.format(M). $StartDate.format(j)<% if StartTime %> at $StartTime.nice<% end_if %><br />
 			<% end_control %>
 		<% end_control %>
 		

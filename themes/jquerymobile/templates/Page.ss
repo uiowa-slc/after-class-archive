@@ -12,7 +12,16 @@
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="{$ThemeDir}/js/jquery.mobile-1.0.min.js"></script>
 	
+	<script>
+	
+	$(document).ready(function() {
+		$(".event").click(function(){
+	     window.location=$(this).find("a").attr("href");
+	     return false;
+		});
+	});
 
+</script>
 	
 </head>
 <body>
