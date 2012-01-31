@@ -400,7 +400,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
   /* Opera11.10+ */
   background: -ms-linear-gradient(top, #ffde68 0%, #ffd026 100%);
   /* IE10+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$light', endColorstr='$dark',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffde68', endColorstr='#ffd026',GradientType=0 );
   /* IE6-9 */
   background: linear-gradient(top, #ffde68 0%, #ffd026 100%);
   /* W3C */ }
@@ -483,7 +483,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
   width: 354px;
 }
 #home_feature .homefeatureitem {
-  display: none;
+  /*display: none;*/
 }
 #home_feature div:first-of-type {
   display: block;
@@ -530,7 +530,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
       /* Opera11.10+ */
       background: -ms-linear-gradient(top, #ffde68 0%, #ffd026 100%);
       /* IE10+ */
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$light', endColorstr='$dark',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffde68', endColorstr='#ffd026',GradientType=0 );
       /* IE6-9 */
       background: linear-gradient(top, #ffde68 0%, #ffd026 100%);
       /* W3C */
@@ -703,7 +703,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
     /* Opera11.10+ */
     background: -ms-linear-gradient(top, #ffde68 0%, #ffd026 100%);
     /* IE10+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$light', endColorstr='$dark',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffde68', endColorstr='#ffd026',GradientType=0 );
     /* IE6-9 */
     background: linear-gradient(top, #ffde68 0%, #ffd026 100%);
     /* W3C */
@@ -724,7 +724,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
       margin: 20px 0px 6px 0px;
       padding: 0px; }
   .event_date_tag ul {
-    margin: 15px 0 0 0;
+    margin: 0px 0 0 0;
     padding: 0px;
     list-style: none; }
     .event_date_tag ul li {
@@ -1111,5 +1111,46 @@ h1, h2, h3, h4, h5, h6, .big_header {
 	border: 1px solid #111;
 	color: #ffde68;
 	font-size: 16px;
+	padding: 5px;
+	width: 400px;
+
+}
+
+.date-link:hover {
+	text-decoration: underline;
+	font-weight: bold;
+
+}
+
+.share p { text-align: center;
+	 font-family: 'SketchBlock-Bold';
+	 color: #444;
+	 margin: 0;
+}
+
+.share-links {
+	/*margin-top: 15px;*/
+}
+
+#facebook {
+	width: 100px;
+}
+
+#google-plus {
+	width: 100px;
+	margin-top: 15px;
+}
+
+#twitter {
+	width: 100px;
+	margin-top: 10px
+
+}
+
+#share-area {
+
+	background: url(../images/black-Linen.png);
+	padding: 10px;
+	border: 1px solid #ccc;
 
 }

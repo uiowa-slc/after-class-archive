@@ -18,8 +18,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<% require themedCSS(layout) %> 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+	<script src="{$ThemeDir}/js/jquery.min.js"></script>
+	<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	
 <script>
@@ -41,11 +41,49 @@ $('#upcoming_event_list').hover(function() {
 
 
 </script>
+
+<style type="text/css">
+
+header
+,nav
+,section
+,article
+,aside
+,footer
+,hgroup 
+{ 
+display: block;
+}
+ 
+
+
+</style>
 	
+	<!--[if lt IE 9]>
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+</script>
+<![endif]-->
 	
 	
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=242901859120617";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 
 <% include StudentLifeBar %>
@@ -119,7 +157,7 @@ $('#upcoming_event_list').hover(function() {
 			<% else %>
 			
 			<li>
-				<a href="$Link"><strong>$Title</strong> $MenuTitle</a>
+				<a href="$Link"><strong>$MenuTitle</strong> $Title</a>
 			</li>
 			<% end_if %>
 		<% end_control %>
@@ -152,18 +190,6 @@ $('#upcoming_event_list').hover(function() {
 	</div>
 </footer>
 
-
-
-
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
-<!-- scripts concatenated and minified via ant build script-->
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
-<!-- end scripts-->
 
 <script>
 	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID

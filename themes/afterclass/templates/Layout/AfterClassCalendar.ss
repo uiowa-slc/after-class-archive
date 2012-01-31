@@ -17,7 +17,7 @@
 				<% control UpcomingDates %>
 				<% if First %>
 				
-				<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)</a> <% if EndDate %> - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)">$EndDate.format(D), $EndDate.format(M) $EndDate.format(d)</a><% end_if %><br/>
+				<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(D), $StartDate.format(F) $StartDate.format(j)</a> <% if EndDate %> - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(D), $EndDate.format(F) $EndDate.format(d)</a><% end_if %><br/>
         		$StartTime.nice<br/>
         		<% end_if %>
         		<% end_control %>
@@ -30,26 +30,20 @@
 			
 					<% control UpcomingDates %>
 						<% if First %>
-							<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)"><div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div></a>
+							<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div></a>
 						<% end_if %>
 		        	<% end_control %>
 	        
-	        	
-	            <ul>
-	            	<li class="share_facebook"><a href="#">Facebook</a></li>
-	                <li class="share_rss"><a href="#">RSS</a></li>
-	                <li class="share_twitter"><a href="#">Twitter</a></li>
-	                <li class="share_email"><a href="#">Email</a></li>
-	            </ul>
+				<% include ShareLinks %>
         	</div>
         
         <p class="event_description">$Content</p>
 		
 		</div>
 		
-	<% end_control %>
-	<% end_if %>
-	<% end_control %>
+	<% end_control %> <!-- end control event -->
+	<% end_if %> <!-- end if first -->
+	<% end_control %><!-- end control featured events -->
 	<% else %>
 	<div class="homefeatureitem">
 		<a href="$Link"><img src="{$BaseHref}assets/book.png?r=42253" /></a>
@@ -58,9 +52,10 @@
 				
 		</div>
 	</div>
-	<% end_if %>
+	<% end_if %> <!-- end if featured events -->
+<% end_if %> <!-- end if action = view -->
 </section>
-<% end_if %>    
+   
 <section id="upcoming_events" class="$Action">
 <header id="secondary_header">
 <% if Action = view %>
@@ -83,9 +78,9 @@
             
 		            <% end_control %>
 		            	<p>
-		                <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(M j)</a>  
+		                <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(F j)</a>  
 		                
-		                <% if EndDate %>- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)">$EndDate.format(M j)</a><% end_if %> <br/>
+		                <% if EndDate %>- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(F j)</a><% end_if %> <br/>
 		                $StartDate.format(l) <% if StartTime %>@ $StartTime.nice <% end_if %><br />
 		                <% control Event %>
 		               <% if Venues %> <% control Venues %>$Title<br/><% end_control %><% end_if %>
