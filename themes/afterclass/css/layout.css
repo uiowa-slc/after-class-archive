@@ -1094,5 +1094,22 @@ h1, h2, h3, h4, h5, h6, .big_header {
  position: absolute;
  top: 500px;
  right: -2px;
+}
+
+#SearchForm_SearchForm_action_results { 
+	display: none;
+	
+}
+
+#Search {
+	float: right;
+	margin-top: 15px;
+}
+
+#SearchForm_SearchForm_Search {
+	background: #333;
+	border: 1px solid #111;
+	color: #ffde68;
+	font-size: 16px;
 
 }

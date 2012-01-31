@@ -54,7 +54,17 @@ $('#upcoming_event_list').hover(function() {
 		<div class="big_header"><a href="$BaseHref">After Class</a></div>
 	    <p class="subheader">The best of <em>UI</em>'s culture, concerts, and nightlife</p>
 	    
-	$SearchForm
+	<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
+	<fieldset>
+		<legend></legend>
+		
+			<div id="Search" class="field text  nolabel"><div class="middleColumn"><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" placeholder="Search for an event" ></div></div>
+		
+		
+			<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
+		
+	</fieldset>
+</form>
 	    
 	</div>
 </header>
@@ -63,7 +73,7 @@ $('#upcoming_event_list').hover(function() {
 	<div class="container">
 	<ul class="clearfix">
 
-		<li><a href="/afterclass_dev/"><strong>Home</strong> <span>Complete event list</span></a></li>
+		<li><a href="{$BaseHref}"><strong>Home</strong> <span>Complete event list</span></a></li>
 		<li>
 			<a href="events/category/"><strong>Category</strong><span>The type of event</span></a>
 			<ul>

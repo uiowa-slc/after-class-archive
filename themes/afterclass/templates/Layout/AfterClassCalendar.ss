@@ -97,7 +97,7 @@
             		<% if Pos == 5 %><span id="upcoming_scroll_indicator"> $Events.TotalItems &darr;</span>
 <% end_if %>
 
-            <% end_control %><!-- end control eventS %>
+            <% end_control %><!-- end control eventS -->
         </div>
 	<% else %>
 		No events currently listed.

@@ -6,6 +6,17 @@
 <header id="secondary_header">
 	
 	<h1>$Title</h1>
+		
+<div data-role="fieldcontain">
+<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
+<fieldset>
+    <input type="search" name="Search" id="search" value="" id="SearchForm_SearchForm_Search" placeholder="Search for an event" />
+    <input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go" data-inline="true">
+	</fieldset>
+</form>	
+</div>
+
+
 	
 	<div class="events">
 	<% control Events %>
@@ -28,7 +39,7 @@
 								<p>($Cost)</p>
 							<% end_if %>
 						<% end_control %>
-						<p>$StartDate.format(m j)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
+						<p>$StartDate.format(M j)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
 						
 					<% control Event %>
 						<% if Venues %>
