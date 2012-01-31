@@ -44,4 +44,16 @@ class Page_Controller extends ContentController {
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
 	}
+	function results($data, $form){
+	        $data = array(
+	            'Results' => $form->getResults(),
+	            'Query' => $form->getSearchQuery(),
+	            'Title' => 'Search Results'
+	        );
+	        $this->Query = $form->getSearchQuery();
+	     
+	        return $this->customise($data)->renderWith(array('Page_results', 'Page'));
+	    }	
+	
+	
 }

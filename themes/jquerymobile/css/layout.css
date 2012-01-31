@@ -1881,3 +1881,10 @@ h2 {
     font-weight: normal;
 
 }
+
+
+#SearchForm_SearchForm_action_results { 
+	display: none;
+	
+}
+

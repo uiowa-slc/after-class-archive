@@ -19,6 +19,11 @@
 	     window.location=$(this).find("a").attr("href");
 	     return false;
 		});
+		
+		
+		$("#SearchForm_SearchForm_action_results").parent().hide();
+		
+		
 	});
 
 </script>

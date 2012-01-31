@@ -13,10 +13,10 @@
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
     		
-    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a> 
+    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a> 
     			
     			<% if EndDate %>
-    			 - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)"> $EndDate.Month $EndDate.DayOfMonth</a><% end_if %> <br />
+    			 - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> $EndDate.Month $EndDate.DayOfMonth</a><% end_if %> <br />
     			 
     			 <% end_control %>
     			
@@ -27,20 +27,14 @@
        	</div>
        	
        	<div class="event_date_tag">
-       		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
+       		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
        		<% control UpcomingDates(1) %>
        			<% if StartDate %>
 					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 				<% end_if %>
         	<% end_control %>
        		</a>
-            <ul>
-            	<li class="share_facebook"><a href="#">Facebook</a></li>
-                <li class="share_rss"><a href="#">RSS</a></li>
-                <li class="share_twitter"><a href="#">Twitter</a></li>
-                <li class="share_email"><a href="#">Email</a></li>
-            </ul>
-       
+   				<% include ShareLinks %>
         </div>       
    
 			</div>
@@ -128,7 +122,7 @@
 	  <% control Event %>
 	  <div class="related_event">
 		<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL"/><% else %><img src="$ThemeDir/images/placeholder_small.png" /> <% end_if %>
-		<h3><strong>$Title</strong> @ $Location</h3></a>
+		<h3><strong>$Title</strong> <% if Venues %>@<% control Venues %> $Title <% end_control %><% end_if %></h3></a>
 	  </div>
 	  <% end_control %>
 	<% end_control %>
