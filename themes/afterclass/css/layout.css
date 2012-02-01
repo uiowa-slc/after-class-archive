@@ -1196,3 +1196,18 @@ h1, h2, h3, h4, h5, h6, .big_header {
 	bottom: 5px;
 
 }
+
+#SearchResults {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+
+}
+
+#SearchResults li{
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	background: #f2f2f2;
+}

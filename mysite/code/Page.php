@@ -15,6 +15,17 @@ class Page extends SiteTree {
 	public function getSponsors() {
 		return DataObject::get('Sponsor', '','Title ASC');
 	}
+	
+    public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
+    
+		//get our template
+		$template = new SSViewer('NewsletterForm');
+		
+		$customise = array();
+		
+		//return the customised template
+		return $template->process(new ArrayData($customise));
+	}
 
 }
 class Page_Controller extends ContentController {
@@ -44,6 +55,11 @@ class Page_Controller extends ContentController {
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
 	}
+	
+	
+
+	
+	
 	function results($data, $form){
 	        $data = array(
 	            'Results' => $form->getResults(),

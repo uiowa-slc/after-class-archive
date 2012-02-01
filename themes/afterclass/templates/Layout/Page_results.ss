@@ -6,13 +6,14 @@
 <div id="Content" class="searchResults">
      
     <% if Query %>
-        <p class="searchQuery"><strong>You searched for &quot;{$Query}&quot;</strong></p>
+        <h2>Event listing results for: &quot;{$Query}&quot;</h2>
     <% end_if %>
          
     <% if Results %>
     <ul id="SearchResults">
         <% control Results %>
         <li>
+        <h2>
             <a class="searchResultHeader" href="$Link">
                 <% if MenuTitle %>
                 $MenuTitle
@@ -20,8 +21,9 @@
                 $Title
                 <% end_if %>
             </a>
-            <p>$Content.LimitWordCountXML</p>
-            <a class="readMoreLink" href="$Link" title="Read more about &quot;{$Title}&quot;">Read more about &quot;{$Title}&quot;...</a>
+          </h2>
+            <p>$Content.Summary(50)</p>
+            <a class="readMoreLink" href="$Link" title="Read more about &quot;{$Title}&quot;">Read More</a>
         </li>
         <% end_control %>
     </ul>

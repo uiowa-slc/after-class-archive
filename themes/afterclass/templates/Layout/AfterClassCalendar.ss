@@ -78,6 +78,7 @@
             
 		            <% end_control %>
 		            	<p>
+		    
 		                <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(F j)</a>  
 		                
 		                <% if EndDate %>- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(F j)</a><% end_if %> <br/>

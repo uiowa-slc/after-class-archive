@@ -1,12 +1,17 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <article>
-      <p>Finding your location: <span id="status">checking...</span></p>
+		<!--<p>Finding your location: <span id="status">checking...</span></p> -->
       <!--<p>All Available Venues:</p>
       <ul>
       	<% control Venues %>
       		<li>$Title - $Address</li>
       	<% end_control %>
       </ul>-->
+      
+      $Content
+      
+      
+      
     </article>
 
 <script>

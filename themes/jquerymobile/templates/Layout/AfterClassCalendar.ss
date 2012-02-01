@@ -39,7 +39,9 @@
 								<p>($Cost)</p>
 							<% end_if %>
 						<% end_control %>
-						<p>$StartDate.format(M j)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
+						
+						
+						<p><% if EndDate %>Starts on <% end_if %>$StartDate.format(M j)<% if StartTime %> @ $StartTime.nice<% end_if %></p>
 						
 					<% control Event %>
 						<% if Venues %>

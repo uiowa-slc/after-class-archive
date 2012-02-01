@@ -90,7 +90,7 @@ document.createElement('hgroup');
 <header id="page_header">
 	<div class="container">
 		<div class="big_header"><a href="$BaseHref">After Class</a></div>
-	    <p class="subheader">The best of <em>UI</em>'s culture, concerts, and nightlife</p>
+	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
 	    
 	<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
 	<fieldset>

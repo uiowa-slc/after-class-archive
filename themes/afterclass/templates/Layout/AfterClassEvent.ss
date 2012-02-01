@@ -13,10 +13,10 @@
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
     		
-    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a> 
+    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.Format(l), $StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a> 
     			
     			<% if EndDate %>
-    			 - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> $EndDate.Month $EndDate.DayOfMonth</a><% end_if %> <br />
+    			 - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$StartDate.Format(l),$EndDate.Month $EndDate.DayOfMonth</a><% end_if %> <br />
     			 
     			 <% end_control %>
     			

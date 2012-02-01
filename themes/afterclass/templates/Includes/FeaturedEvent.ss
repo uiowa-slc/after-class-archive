@@ -13,8 +13,8 @@
 					    			
 					    			<% control UpcomingDates %>
 									<% if First %>
-									$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)<br/>
-					        		$StartTime.nice<br/>
+									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)<br/>
+					        		$StartTime.nice</a><br/>
 					    			<% end_if %>
 					    			<% end_control %>
 					    			
@@ -23,7 +23,7 @@
 								</div>
 					       	
 					       		<div class="event_date_tag">
-									<a href="#">
+									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
 										<% control UpcomingDates %>
 											<% if First %>
 												<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong>
@@ -33,12 +33,7 @@
 							        	<% end_control %>
 						        	</a>
 						        	
-						            <ul>
-						            	<li class="share_facebook"><a href="#">Facebook</a></li>
-						                <li class="share_rss"><a href="#">RSS</a></li>
-						                <li class="share_twitter"><a href="#">Twitter</a></li>
-						                <li class="share_email"><a href="#">Email</a></li>
-						            </ul>
+						<% include ShareLinks %>
 					        	</div><!-- /event_date_tag -->       
 					        
 					         	<p class="event_description">$Content</p>
