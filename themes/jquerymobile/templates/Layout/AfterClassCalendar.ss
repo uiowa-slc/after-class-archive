@@ -11,7 +11,7 @@
 <form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
 <fieldset>
     <input type="search" name="Search" id="search" value="" id="SearchForm_SearchForm_Search" placeholder="Search for an event" />
-    <input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go" data-inline="true">
+
 	</fieldset>
 </form>	
 </div>

@@ -150,6 +150,7 @@ document.createElement('hgroup');
 				<% end_control %>
 			</ul>
 		</li>
+		<!--
 		<% control Menu(1) %>
 			<% if First %>
 			<% else_if URLSegment == near-me %>
@@ -160,7 +161,7 @@ document.createElement('hgroup');
 				<a href="$Link"><strong>$MenuTitle</strong> $Title</a>
 			</li>
 			<% end_if %>
-		<% end_control %>
+		<% end_control %>-->
     </ul>
     </div>
 </nav>
@@ -178,15 +179,40 @@ document.createElement('hgroup');
 </div>
 <footer id="page_footer">
 	<div class="container">
-		<div id="ui_logo">
-			<a href="http://www.uiowa.edu"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a>
+	
+		<div id="dsl-info">
+			<div id="logo-container">
+				<a href="http://www.uiowa.edu" class="uiowa-logo"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a> 
+				<a href="http://studentlife.uiowa.edu/"><img src="{$ThemeDir}/images/dsl_logo.png" alt="The University of Iowa Logo" /></a>  
+			</div>
+			<p>319-335-3557<br />
+			vp-student-life@uiowa.edu<br />
+			Site designed by IMU Marketing + Design
+			
+			</p>
+			
+			
 		</div>
 		<ul>
 			<li><a href="{$BaseHref}/events/category">Category</a></li>
 			<li><a href="{$BaseHref}/events/category">Sponsor</a></li>
 			<li><a href="{$BaseHref}/events/category">Venue</a></li>
 			<li><a href="{$BaseHref}/events/">All Events</a></li>
+			<li><a href="{$BaseHref}/add/">Submit an Event</a></li>
+
 		</ul>
+		<div style="clear: both"></div>
+		<div id="footer-social-media">
+			<div class="fb-like" data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark"></div>
+			
+			<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="AfterClass">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			
+			
+			
+			
+		</div>
+		
 	</div>
 </footer>
 
