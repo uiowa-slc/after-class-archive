@@ -31,28 +31,34 @@
 	<% end_control %>
 </ul>
 <style type="text/css">
+.category-list>li{
+	width: 850px;
+}
 .category-list ul {
 	margin: 0px;
 	padding: 0px;
 }
 .category-list ul li {
-	border: 0px solid #CFCFCF;
+	background: #CFCFCF;
+	border: 1px solid #CFCFCF;
 	list-style-type: none;
 	float: left;
 	margin: 0px 15px 20px 0px;
-	padding: 0px;
-	width: 280px;
+	padding: 5px;
+	width: 390px;
 }
 .category-list ul li img {
 	float: left;
 }
 .category-list ul li .info {
-	font-size: 11px;
 	margin: 0px 0px 0px 150px;
 }
 .category-list ul li .info strong {
-	color: #555;
-	font-size: 14px;
+	color: #666;
+	font-family: SketchBlock-Bold, sans-serif;
+	font-size: 22px;
+	font-weight: normal;
+	text-transform: uppercase;
 }
 .category-list .view-all {
 	clear: left;
