@@ -1038,7 +1038,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
 	padding: 0;
 
 }
-.category-list li{
+.category-list>li{
 	padding: 10px 20px;
 	border: 1px solid #555;
 	background-image: url(../images/lighter_bg.jpg);
@@ -1047,6 +1047,20 @@ h1, h2, h3, h4, h5, h6, .big_header {
 	display: block;
 	float: left;
 	width: 600px;
+}
+.category-list ul {
+	margin: 0px;
+	padding: 0px;
+}
+.category-list ul li {
+	border: 1px solid #555;
+	list-style-type: none;
+	float: left;
+	margin: 0px 10px 20px 0px;
+	width: 280px;
+}
+.category-list ul li img {
+	float: left;
 }
 
 .category-list h2 {

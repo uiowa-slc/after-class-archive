@@ -75,7 +75,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			//$event->EventLocation = $event->Event();
 			//$event->EventCost = $event->Cost();
 			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
-			$event->Description = strip_tags($event->_Dates()) . $event->EventContent();
+			//$event->Description = strip_tags($event->_Dates()) . $event->EventContent();
+			$event->Description = strip_tags($event->EventContent());
 		}
 		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
 		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");

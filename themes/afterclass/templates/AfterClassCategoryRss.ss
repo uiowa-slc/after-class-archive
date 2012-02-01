@@ -8,12 +8,13 @@
 		
 		<% control Events %>
 		<item>
+				<description>$Description </description>
         		<% control Event %><title>$Title</title>
 				<link>{$BaseHref}{$URLSegment}</link>
-				<description>$Description </description>
 				<pubDate>Thu, 19 Jan 2012 14:21:15 -0600</pubDate>
 				<guid>{$BaseHref}{$URLSegment}</guid>
 				<cost>$Cost</cost>
+				<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
 				<location>$Location</location><% end_control %>
 				<dates>$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %></dates>
 				<% if Venues %><venues><% control Venues %>$Title<br/><% end_control %></venues><% end_if %>
