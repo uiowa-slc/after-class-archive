@@ -10,6 +10,13 @@
 	<% require themedCSS(typography) %> 
 
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	
+	<script language=javascript>
+      $(document).bind("mobileinit", function () {
+            $.mobile.ajaxLinksEnabled = false;
+      });
+</script>
+	
 	<script src="{$ThemeDir}/js/jquery.mobile-1.0.min.js"></script>
 	
 	<script>

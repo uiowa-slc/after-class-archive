@@ -1775,9 +1775,9 @@ span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 
 }
 .event:active {
-	border-left: 1px solid #a9a9a9;
+	/*border-left: 1px solid #a9a9a9;
 	border-right: 1px solid #a9a9a9;
-
+	*/
 
 }
 
