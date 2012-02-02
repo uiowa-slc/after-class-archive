@@ -3,7 +3,6 @@
 <% end_if %>
 
 <div class="content typography">
-<h2>DURP</h2>
 	$Content
 </div>
 

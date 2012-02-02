@@ -341,9 +341,9 @@ h1, h2, h3, h4, h5, h6, .big_header {
   background-color: #1a1a1b; }
 
 #page_header {
-  height: 220px;
-  background-image: url("../images/afterclass_illustration.jpg");
-  background-position: top center;
+  height: 240px;
+  background-image: url("../images/afterclass_illustration.png");
+  background-position: 170px 0;
   }
 
 #page_header .big_header {
@@ -358,7 +358,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
   letter-spacing: -6px;
   text-shadow: 4px 4px 8px #000000;
   filter: dropshadow(color=black, offx=4, offy=4);
-  background: url("../images/tigerhawk_scribble.png") no-repeat center right;
+  /*background: url("../images/tigerhawk_scribble.png") no-repeat center right;*/
   }
   
   #page_header .big_header a {
@@ -375,7 +375,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
   font-size: 20px;
   color: #ffe99b;
   text-transform: lowercase;
-  background-image: url("../images/taglinebox.png");
+  /*background-image: url("../images/taglinebox.png");*/
   background-repeat: no-repeat;
   padding: 24px 45px 36px 35px; }
   #page_header p em {
@@ -1147,24 +1147,25 @@ h1, h2, h3, h4, h5, h6, .big_header {
 }
 
 #facebook {
-	width: 100px;
+	/*width: 100px;*/
 }
 
 #google-plus {
-	width: 100px;
+	/*width: 100px;*/
 	margin-top: 15px;
 }
 
 #twitter {
-	width: 100px;
+	/*width: 100px;*/
 	margin-top: 10px
 
 }
 
 #share-area {
-
-	background: url(../images/black-Linen.png);
-	padding: 10px;
+	width: 80px;
+	margin-left: 2px;
+	background: #333;
+	padding: 5px;
 	border: 1px solid #555;
 
 }
@@ -1191,10 +1192,20 @@ h1, h2, h3, h4, h5, h6, .big_header {
 
 }
 
-#footer-social-media {
-	position: absolute;
-	bottom: 5px;
+#dsl-info p {
+	margin-top: 5px;
+	margin-bottom: 0;
 
+}
+
+#dsl-info a {
+	color: #ffe588;
+
+}
+
+#footer-social-media {
+	float: left;
+	margin-top: 20px;
 }
 
 #SearchResults {
@@ -1205,9 +1216,35 @@ h1, h2, h3, h4, h5, h6, .big_header {
 
 }
 
+
 #SearchResults li{
 	margin: 10px 0;
 	padding: 10px;
 	border: 1px solid #ccc;
 	background: #f2f2f2;
+}
+
+#mc_embed_signup {
+
+	margin-bottom: 15px;
+
+
+}
+
+.response {
+	
+	width: 400px;
+	background: #333;
+	margin: 10px 0;
+	padding: 10px;
+
+}
+
+.response a {
+	color: #ffe588;
+}
+
+#mc-embedded-subscribe {
+	margin-left: 5px;
+
 }

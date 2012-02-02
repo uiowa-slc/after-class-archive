@@ -17,12 +17,15 @@
 				<% control UpcomingDates %>
 				<% if First %>
 				
-				<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(D), $StartDate.format(F) $StartDate.format(j)</a> <% if EndDate %> - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(D), $EndDate.format(F) $EndDate.format(d)</a><% end_if %><br/>
+				<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</a> <% if EndDate %> - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(l), $EndDate.format(F) $EndDate.format(d)</a><% end_if %><br/>
         		$StartTime.nice<br/>
         		<% end_if %>
         		<% end_control %>
-            	$Location<br/>
-            	$Cost</p>
+        		at
+        		<% control Venues %>
+        			$Title	
+        		<% end_control %><br />
+            	Admission: $Cost</p>
             	<% include EventCategoryList %>
 			</div>
 			
