@@ -5,7 +5,7 @@
 	<title>$Title</title>
 	$MetaTags(false)
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
-	<%-- Caution: Any Requirements calls in init() methods of custom page types won't work due to jQuery Mobile loading pages via Ajax, place them all in Page_Controller --%>
+	<%-- Caution: Any Requirements calls in init() methods of custom page types wont work due to jQuery Mobile loading pages via Ajax, place them all in Page_Controller --%>
 	<% require themedCSS(layout) %> 
 	<% require themedCSS(typography) %> 
 

@@ -5,6 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<% base_tag %>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+	
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false"></script>
 	
@@ -20,11 +22,8 @@
 	<% require themedCSS(layout) %> 
 	<script src="{$ThemeDir}/js/jquery.min.js"></script>
 	<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	
 <script>
-
-
 
 $(document).ready(function() {
   $('#upcoming_scroll_indicator').hide();
@@ -35,10 +34,7 @@ $('#upcoming_event_list').hover(function() {
   });
 });
 
-
-
 });
-
 
 </script>
 
@@ -54,12 +50,10 @@ header
 { 
 display: block;
 }
- 
-
 
 </style>
-	
-	<!--[if lt IE 9]>
+
+<!--[if lt IE 9]>
 <script>
 document.createElement('header');
 document.createElement('nav');
@@ -70,8 +64,7 @@ document.createElement('footer');
 document.createElement('hgroup');
 </script>
 <![endif]-->
-	
-	
+
 </head>
 <body>
 <div id="fb-root"></div>
@@ -83,7 +76,15 @@ document.createElement('hgroup');
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<!--<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>-->
 
 
 <% include StudentLifeBar %>
