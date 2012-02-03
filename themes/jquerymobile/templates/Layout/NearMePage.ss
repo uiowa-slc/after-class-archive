@@ -7,7 +7,7 @@
       		<li>$Title - $Address</li>
       	<% end_control %>
       </ul>-->
-      
+      <div id="status"></div>
       $Content
       
       
@@ -15,6 +15,7 @@
     </article>
 
 <script>
+
 var markerArray = [];
 var infoWindow = null;
 function makeMarker(options){
@@ -28,16 +29,16 @@ function makeMarker(options){
    return pushPin;
 }
 
-function forcerefresh() {
+/*function forcerefresh() {
   if (document.location.href.indexOf("r=1") == -1) {
     window.location = "http://hulk.imu.uiowa.edu/afterclass_dev/near-me/?r=1";
   }
-}
+}*/
 
 function test() {
-  var s = document.querySelector('#status');
+  /*var s = document.querySelector('#status');
   s.innerHTML = "IMU!";
-  s.className = 'success';
+  s.className = 'success';*/
   var mapWidth = ($(window).width()) - ($(window).width()/6);
   
   var mapcanvas = document.createElement('div');
@@ -107,14 +108,14 @@ function test() {
 
 
 function success(position) {
-  if (s.className == 'success') {
+  /*if (s.className == 'success') {
     // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
     return;
-  }
+  }*/
   
-  var s = document.querySelector('#status');
+  /*var s = document.querySelector('#status');
   s.innerHTML = "found you!";
-  s.className = 'success';
+  s.className = 'success';*/
   var mapWidth = ($(window).width()) - ($(window).width()/4);
   
   var mapcanvas = document.createElement('div');
@@ -171,9 +172,9 @@ function success(position) {
 }
 
 function error(msg) {
-  var s = document.querySelector('#status');
+  /*var s = document.querySelector('#status');
   s.innerHTML = typeof msg == 'string' ? msg : "failed";
-  s.className = 'fail';
+  s.className = 'fail';*/
   
   // console.log(arguments);
 }
