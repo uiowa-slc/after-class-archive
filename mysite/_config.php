@@ -28,10 +28,10 @@ Director::set_environment_type("dev");
 FulltextSearchable::enable();
 ShortcodeParser::get()->register('NewsletterForm',array('Page','NewsletterFormShortCodeHandler'));
 
-//RecaptchaField::$public_api_key = '6LcXTc0SAAAAAJC2OBI-iCN17-IgcNzG67YJfUmW';
-//RecaptchaField::$private_api_key = '6LcXTc0SAAAAACeSs1sas1QQsXVlVlb2ns4xYvqI';
+RecaptchaField::$public_api_key = '6LcXTc0SAAAAAJC2OBI-iCN17-IgcNzG67YJfUmW';
+RecaptchaField::$private_api_key = '6LcXTc0SAAAAACeSs1sas1QQsXVlVlb2ns4xYvqI';
 
-//SpamProtectorManager::set_spam_protector('RecaptchaProtector');
+SpamProtectorManager::set_spam_protector('RecaptchaProtector');
 
 //$recaptchaField = new RecaptchaField('MyCaptcha');
 //$recaptchaField->jsOptions = array('theme' => 'clean'); // optional
