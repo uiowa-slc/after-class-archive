@@ -6,10 +6,10 @@ $project = 'mysite';
 global $databaseConfig;
 $databaseConfig = array(
 	"type" => 'MySQLDatabase',
-	"server" => 'localhost',
-	"username" => 'root',
-	"password" => 'root',
-	"database" => 'afterclass_dev',
+	"server" => 'koko.imu.uiowa.edu:3306',
+	"username" => 'afterclass',
+	"password" => 'thelongafterclasspasswordislong452',
+	"database" => 'afterclass',
 	"path" => '',
 );
 
@@ -27,3 +27,11 @@ SiteTree::enable_nested_urls();
 Director::set_environment_type("dev");
 FulltextSearchable::enable();
 ShortcodeParser::get()->register('NewsletterForm',array('Page','NewsletterFormShortCodeHandler'));
+
+RecaptchaField::$public_api_key = '6LccTc0SAAAAAAqBZU-iluU2VJCJQTDRuA4-fu-F';
+RecaptchaField::$private_api_key = '6LccTc0SAAAAACK9l57g1HtUwOX6dexh1OP5VjFO';
+
+SpamProtectorManager::set_spam_protector('RecaptchaProtector');
+
+//$recaptchaField = new RecaptchaField('MyCaptcha');
+//$recaptchaField->jsOptions = array('theme' => 'clean'); // optional

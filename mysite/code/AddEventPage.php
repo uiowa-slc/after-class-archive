@@ -43,8 +43,10 @@ class AddEventPage_Controller extends Page_Controller {
             new FormAction('addEvent', 'Submit')
         );
         $validator = new RequiredFields('Title','Location','Cost','Description');
-     
-        return new Form($this, 'addEventForm', $fields, $actions, $validator);
+     	$form = new Form($this, 'addEventForm', $fields, $actions, $validator);
+     	
+     	SpamProtectorManager::update_form($form);
+        return $form;
 	}
 	function addEvent($data, $form) {
 		$event = new AfterClassEvent();
