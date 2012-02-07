@@ -1,6 +1,6 @@
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
     <article>
-		<!--<p>Finding your location: <span id="status">checking...</span></p> -->
+      <p style="display:none;">Finding your location: <span id="status">checking...</span></p>
       <!--<p>All Available Venues:</p>
       <ul>
       	<% control Venues %>
@@ -12,6 +12,7 @@
       
       
       
+
     </article>
 
 <script>
