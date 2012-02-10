@@ -67,29 +67,54 @@ class AfterClassEvent extends CalendarEvent {
 	
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
+		/* Remove / Rename Default Fields */
+		$f->fieldByName('Root.Content.Main')->setTitle('Event Details');
+		$f->fieldByName('Root.Content.Main.Title')->setTitle('Event Name');
+		
+		$f->removeFieldFromTab('Root.Content', 'MenuTitle'); // remove a field from a tab
 		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Main Image (450 x 380 pixels is preferred)'));
-		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Location inside the Venue (e.g., the room\s number, room\'s name) -- Choose the venue in the Tags tab') );
-		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Cost of admission') );
-		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Is this a featured event?'));
-		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Description') );
+		$f->removeFieldFromTab('Root.Content.Metadata', 'URL'); 
+		$f->removeFieldFromTab('Root.Content', 'Metadata'); // remove a field from a tab	
+		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab	
 		
-		$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
-		$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
-		$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+		/* Rewriting the URL Field Group to move it to the main tab */
 		
-		/*$categoriesTablefield1 = new ManyManyComplexTableField(
-        	$this,
-        	'Categories',
-        	'Category',
-        	array(
-       		'Title' => 'Title'
-        	),
-        	'getCMSFields_forPopup'
-      	);
-		$categoriesTablefield1->setAddTitle( 'Category' );
-		$f->addFieldToTab( 'Root.Content.Tags', $categoriesTablefield1 );*/
+		$url_fieldgroup = new FieldGroup(_t('SiteTree.URL', "URL"),
+							new LabelField('BaseUrlLabel',Controller::join_links (
+								Director::absoluteBaseURL(),
+								(self::nested_urls() && $this->ParentID ? $this->Parent()->RelativeLink(true) : null)
+							)),
+							new UniqueRestrictedTextField("URLSegment",
+								"URLSegment",
+								"SiteTree",
+								_t('SiteTree.VALIDATIONURLSEGMENT1', "Another page is using that URL. URL must be unique for each page"),
+								"[^A-Za-z0-9-]+",
+								"-",
+								_t('SiteTree.VALIDATIONURLSEGMENT2', "URLs can only be made up of letters, digits and hyphens."),
+								"",
+								"",
+								"",
+								50
+							),
+							new LabelField('TrailingSlashLabel',"/"));
 		
+		/* adding main fields */
+		
+		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
+		
+		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (450 x 380 pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
+		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
+		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));
+		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Event Description') );
+		
+		if($this->Submittername != '' ){
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+		}
+
+		/* Sponsor Table */
 		$sponsorTablefield = new ManyManyComplexTableField(
         	$this,
         	'Sponsors',
@@ -100,9 +125,13 @@ class AfterClassEvent extends CalendarEvent {
         	'getCMSFields_forPopup'
       	);
 		$sponsorTablefield->setAddTitle( 'Sponsor' );
-				$f->addFieldToTab('Root.Content.Tags', new HeaderField("SponsorHeader","Sponsors"));
+		$sponsorTablefield->showPagination = false;
+		
+		$f->addFieldToTab('Root.Content.Sponsors', new HeaderField("SponsorHeader","Sponsors"));
 
-		$f->addFieldToTab( 'Root.Content.Tags', $sponsorTablefield );
+		$f->addFieldToTab( 'Root.Content.Sponsors', $sponsorTablefield );
+		
+		/* Venue Table */
 		
 		$venueTablefield = new ManyManyComplexTableField(
         	$this,
@@ -114,9 +143,11 @@ class AfterClassEvent extends CalendarEvent {
         	'getCMSFields_forPopup'
       	);
       	
-		$f->addFieldToTab('Root.Content.Tags', new HeaderField("Venue Header","Venue(s)"));
+		$f->addFieldToTab('Root.Content.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
 		$venueTablefield->setAddTitle( 'Venue' );
-		$f->addFieldToTab( 'Root.Content.Tags', $venueTablefield );
+		$venueTablefield->showPagination = false;
+
+		$f->addFieldToTab( 'Root.Content.VenueOrBuilding', $venueTablefield );
 		
 		$eventTypeTablefield = new ManyManyComplexTableField(
         	$this,
@@ -128,9 +159,10 @@ class AfterClassEvent extends CalendarEvent {
         	'getCMSFields_forPopup'
       	);
 		$eventTypeTablefield->setAddTitle( 'Event Type' );
-		
-		$f->addFieldToTab('Root.Content.Tags', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
-		$f->addFieldToTab( 'Root.Content.Tags', $eventTypeTablefield);
+		$eventTypeTablefield->showPagination = false;
+
+		$f->addFieldToTab('Root.Content.EventTypes', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
+		$f->addFieldToTab( 'Root.Content.EventTypes', $eventTypeTablefield);
 		
 		return $f;
 	}

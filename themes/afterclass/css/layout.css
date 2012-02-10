@@ -675,7 +675,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
     font-size: 40px;
     display: block; }
 .feature .event_details {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-top: 0px; }
 .feature .event_text {
   float: left; }
@@ -990,6 +990,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
 #map_canvas {
   height: 100%;
   width: 100%;
+  border: 1px solid darkGray;
 }
 
 #Form_Form {
@@ -1081,7 +1082,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
 }
 
 .event_categories {
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 20px;
 	background: rgba(39,39,39,0.4);
 	padding: 10px;
@@ -1164,7 +1165,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
 #share-area {
 	width: 80px;
 	margin-left: 2px;
-	background: #666;
+	background: #8e8d8d;
 	padding: 5px;
 	border: 1px solid #555;
 
@@ -1280,4 +1281,21 @@ font-family: SketchBlock-Bold, sans-serif;
 }
 #Captcha {
   padding: 10px 0px;
+}
+
+.detail_feature_image {
+	border: 1px solid #666;
+
+}
+
+.upcoming-left-column {
+	width: 150px;
+	float: left;
+
+}
+
+#upcoming_events .event_text {
+	float: left;
+	width: 250px;
+
 }

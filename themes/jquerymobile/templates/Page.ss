@@ -3,7 +3,13 @@
  <head>
 	<% base_tag %>
 	<title>$Title</title>
-	$MetaTags(false)
+	
+	<% if Content %>
+		<meta name="description" content="$Content">
+	<% else %>
+		<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events">
+	<% end_if %>
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
 	<%-- Caution: Any Requirements calls in init() methods of custom page types wont work due to jQuery Mobile loading pages via Ajax, place them all in Page_Controller --%>
 	<% require themedCSS(layout) %> 
