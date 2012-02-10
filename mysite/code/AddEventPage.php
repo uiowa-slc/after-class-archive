@@ -8,7 +8,7 @@ class AddEventPage extends Page {
 	);
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$fields->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
+		//$fields->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
 		
 		return $fields;
 	}
@@ -42,7 +42,7 @@ class AddEventPage_Controller extends Page_Controller {
         $actions = new FieldSet(
             new FormAction('addEvent', 'Submit')
         );
-        $validator = new RequiredFields('Title','Location','Cost','Description');
+        $validator = new RequiredFields('Title','Location','Cost','Description','Submittername','Submitteremail','Submitterdate');
      	$form = new Form($this, 'addEventForm', $fields, $actions, $validator);
      	
      	SpamProtectorManager::update_form($form);
@@ -55,7 +55,7 @@ class AddEventPage_Controller extends Page_Controller {
         $event->ParentID = 6;
         $event->write();
         Session::set('Submitted', true);
-        Director::redirectBack();
+        Director::redirect('/thanks');
 		
 	}
 }

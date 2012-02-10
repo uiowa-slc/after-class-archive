@@ -74,9 +74,11 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Is this a featured event?'));
 		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Description') );
 		
-		$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
-		$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
-		$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+		if ($this->Submittername != "") {
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+		}
 		
 		/*$categoriesTablefield1 = new ManyManyComplexTableField(
         	$this,
