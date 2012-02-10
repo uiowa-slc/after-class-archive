@@ -3,12 +3,6 @@
 	<h1>$Title</h1>
 </header>
 <div>
-<% if addEventForm %>
-<h2>Thank you for submitting your event!</h2>
-<p>You may submit another event if you'd like.</p>
-<% else %>
-<p>Are we missing an event from your student organization? Fill out the form below and let us know what's happening!</p>
-<% end_if %>
 
 $Content
 $Form
@@ -17,3 +11,19 @@ $addEventForm
 
 </div>
 </div>
+<style type="text/css">
+#recaptcha_table {
+  background: #FFFFFF;
+}
+#Form_addEventForm_Image {
+  color: #FFDE68;
+  font-size: 12px;
+  font-weight: normal;
+  width: 200px;
+  padding: 10px 0px 10px 0px;
+  
+}
+#nothing {
+font-family: SketchBlock-Bold, sans-serif;
+}
+</style>

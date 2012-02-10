@@ -77,7 +77,15 @@ class AfterClassEvent extends CalendarEvent {
 		$f->removeFieldFromTab('Root.Content', 'Metadata'); // remove a field from a tab	
 		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab	
 		
+<<<<<<< HEAD
 		/* Rewriting the URL Field Group to move it to the main tab */
+=======
+		if ($this->Submittername != "") {
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
+			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+		}
+>>>>>>> aca4aac752e8d5f969723caab55b65a1e51613c5
 		
 		$url_fieldgroup = new FieldGroup(_t('SiteTree.URL', "URL"),
 							new LabelField('BaseUrlLabel',Controller::join_links (
