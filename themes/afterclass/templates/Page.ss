@@ -13,8 +13,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>$Title - After Class: The Best of UI's Culture, Concerts and Nightlife</title>
-	<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events">
-	<meta name="author" content="IMU Marketing &amp; Design">
+	<% if Content %>
+		<meta name="description" content="$Content.NoHTML">
+	<% else %>
+		<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events">
+	<% end_if %>	<meta name="author" content="IMU Marketing &amp; Design">
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 

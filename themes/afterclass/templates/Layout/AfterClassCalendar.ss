@@ -14,13 +14,22 @@
 			<div class="event_text">
 				<h2>Featured Event <strong><a href="$Link">$Title</a></strong></h2>
 				<p class="event_details">
-				<% control UpcomingDates %>
-				<% if First %>
 				
-				<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</a> <% if EndDate %> - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</a><% end_if %><br/>
-        		$StartTime.nice<br/>
-        		<% end_if %>
+				<% control UpcomingDates %>
+					<% if First %>		
+						<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+							$StartDate.format(l), $StartDate.format(M). $StartDate.format(j)
+						</a> 
+						<% if EndDate %> - 
+							<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+								$EndDate.format(l), $EndDate.format(M). $EndDate.format(j)
+							</a>
+						<% end_if %>
+						<br/>
+		        		$StartTime.nice<br/>
+	        		<% end_if %>
         		<% end_control %>
+        		
         		at
         		<% control Venues %>
         			$Title	
@@ -30,6 +39,8 @@
             	<% end_if %>
             	
             	</p>
+            	        <p class="event_description">$Content</p>
+
             	<% include EventCategoryList %>
 			</div>
 			
@@ -44,7 +55,6 @@
 				<% include ShareLinks %>
         	</div>
         
-        <p class="event_description">$Content</p>
 		
 		</div>
 		
@@ -79,7 +89,10 @@
         	<% control Events %>
 			<% control Event %>
         		<div class="event">
-            	<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /><% else %><img src="$ThemeDir/images/placeholder_small.png" /><% end_if %></a>
+        		
+        		<div class="upcoming-left-column">
+	            	<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /><% else %><img src="$ThemeDir/images/placeholder_small.png" /><% end_if %></a>
+            	</div>
             	<div class="event_text">
             		<h3><a href="$Link">$Title</a></h3>         	
             

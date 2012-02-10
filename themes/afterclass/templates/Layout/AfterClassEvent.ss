@@ -5,7 +5,6 @@
     	   		<img src="$ThemeDir/images/placeholder.png" class="detail_feature_image placeholder" />
     	   	<% end_if %>
     	   	
-    	   	<% include EventCategoryList %>
 
             
     	   	<div class="event_group">
@@ -13,18 +12,34 @@
     		<h2><strong>$Title</strong></h2>
     		<p class="event_details">
     		
-    			<% control DateAndTime %> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.Format(l), $StartDate.Month $StartDate.DayOfMonth <% if StartTime %> at $StartTime.nice<% end_if %></a> 
+    			<% control DateAndTime %> 
+	    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+	    				$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth 
+	    				<% if StartTime %> at $StartTime.nice<% end_if %>
+	    			</a> 
     			
-    			<% if EndDate %>
-    			 - <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.Format(l),$EndDate.Month $EndDate.DayOfMonth</a><% end_if %> <br />
-    			 
-    			 <% end_control %>
+	    			<% if EndDate %> - 
+	    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+	    			 		$EndDate.Format(l),$EndDate.Format(M). $EndDate.DayOfMonth
+	    			 	</a>
+	    			 	
+	    			 <% end_if %> 
+	    			 <br />
+	    			 
+    			<% end_control %>
     			
     			<br />
+    			
+    			<% control Venues %>
+    				$Title <br />
+    			<% end_control %>
+    			
             	$Location<br/>
             	$Cost</p> 
                   
        	</div>
+       	
+
        	
        	<div class="event_date_tag">
        		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
@@ -36,7 +51,8 @@
        		</a>
    				<% include ShareLinks %>
         </div>       
-   
+          	<div style="clear: both"></div>
+       	<% include EventCategoryList %>
 			</div>
 		
     </section>
