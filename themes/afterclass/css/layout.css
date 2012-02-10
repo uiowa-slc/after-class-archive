@@ -1281,3 +1281,6 @@ font-family: SketchBlock-Bold, sans-serif;
 #Captcha {
   padding: 10px 0px;
 }
+#page_header a {
+  font-weight: normal;
+}
