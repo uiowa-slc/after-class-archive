@@ -53,11 +53,18 @@ class Page_Controller extends ContentController {
 		// Note: you should use SS template require tags inside your templates 
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
+		//echo $_SERVER['HTTP_USER_AGENT'];
+		  
+		
 	}
 	
-	
-
-	
+	public function iswindows() {
+		if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),"windows") === false) {
+		  return false;
+		} else {
+		  return true;
+		}
+	}
 	
 	function results($data, $form){
 	        $data = array(

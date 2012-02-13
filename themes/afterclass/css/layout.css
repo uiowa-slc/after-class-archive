@@ -388,7 +388,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
   margin: auto; }
 
 #page_navigation {
-  background: #ffffff;
+  background: #FFD026;
   /* Old browsers */
   background: -moz-linear-gradient(top, #ffde68 0%, #ffd026 100%);
   /* FF3.6+ */
@@ -1282,26 +1282,93 @@ font-family: SketchBlock-Bold, sans-serif;
 #Captcha {
   padding: 10px 0px;
 }
-<<<<<<< HEAD
 #page_header a {
   font-weight: normal;
 }
-=======
-
 .detail_feature_image {
 	border: 1px solid #666;
-
 }
-
 .upcoming-left-column {
 	width: 150px;
 	float: left;
-
 }
 
 #upcoming_events .event_text {
 	float: left;
-	width: 250px;
+	width: 240px;
+}
+
+/* STUDENT LIFE BAR */
+
+
+.studentlife-container {
+ margin: auto;
+ width: 960px; 
+ font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ 
+   }
+.studentlife-container * {
+
+ font-family: "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+
 
 }
->>>>>>> 99439132881adbfb2b230125156b5d417a452527
+#studentlife-header {
+  background-color: #000;
+  border-top: 5px solid #ffce39;
+  height: 39px;
+}
+  #studentlife-header .main-links {
+    float: left;
+    margin: 10px 0;
+    padding: 0;
+    line-height: 1.2em;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #ffce39; }
+#studentlife-header .main-links a {
+      color: #ffce39;
+      text-decoration: none; }
+#studentlife-header .main-links span {
+      color: #fff;
+      margin-left: 10px; }
+#studentlife-header .main-links span a {
+        color: #fff; }
+#studentlife-header ul {
+    margin: 10px 0;
+    padding: 0;
+    float: right; }
+#studentlife-header ul li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline;
+      border-right: 1px solid #666;
+      padding-left: 5px;
+      padding-right: 5px; }
+#studentlife-header ul li.last {
+   		border-right: none;
+   
+   }
+#studentlife-header ul li a {
+        font-size: 0.9em;
+        line-height: 1.2em;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #999; }
+#studentlife-header ul li a:hover {
+        color: #fff; }
+#studentlife-header ul li#univ-nav-all {
+      border-right: none;
+      padding-right: 0; }
+#studentlife-header ul li#univ-nav-all a {
+        text-transform: none; }
+.clearfix { clear: both;}
+    
+body {
+    	margin: 0;
+    	background-color: black;
+}
