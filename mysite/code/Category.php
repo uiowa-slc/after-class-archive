@@ -30,7 +30,7 @@ class Category extends DataObject {
 	
 	function Link(){
 	
-		$base_url = Director::baseURL();
+		$base_url = Director::absoluteBaseURL();
 		return $base_url."/events/categories/".$this->Title;
 	
 	}

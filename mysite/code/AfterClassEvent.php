@@ -67,25 +67,35 @@ class AfterClassEvent extends CalendarEvent {
 	
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
-		/* Remove / Rename Default Fields */
+		
+/* ------------------------------ */
+/* Remove / Rename Default Fields */
+/* ------------------------------ */
+
 		$f->fieldByName('Root.Content.Main')->setTitle('Event Details');
 		$f->fieldByName('Root.Content.Main.Title')->setTitle('Event Name');
-		
 		$f->removeFieldFromTab('Root.Content', 'MenuTitle'); // remove a field from a tab
 		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
 		$f->removeFieldFromTab('Root.Content.Metadata', 'URL'); 
 		$f->removeFieldFromTab('Root.Content', 'Metadata'); // remove a field from a tab	
 		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab	
+		$f->removeByName('FormattedAllDay');
 		
-<<<<<<< HEAD
-		/* Rewriting the URL Field Group to move it to the main tab */
-=======
+		
+		
+/* ------------------------------------------------- */
+/* Only show submitter information if it's available */
+/* ------------------------------------------------- */
+
 		if ($this->Submittername != "") {
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
->>>>>>> aca4aac752e8d5f969723caab55b65a1e51613c5
+		
+/* -------------------------------------------------------- */
+/* Rewriting the URL Field Group to move it to the main tab */
+/* -------------------------------------------------------- */
 		
 		$url_fieldgroup = new FieldGroup(_t('SiteTree.URL', "URL"),
 							new LabelField('BaseUrlLabel',Controller::join_links (
@@ -106,7 +116,9 @@ class AfterClassEvent extends CalendarEvent {
 							),
 							new LabelField('TrailingSlashLabel',"/"));
 		
-		/* adding main fields */
+/* ----------------------------------- */
+/* Add/Re-Add Content and Other Fields */
+/* ----------------------------------- */
 		
 		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
 		
@@ -116,13 +128,39 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));
 		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Event Description') );
 		
+		
+		$date_instructions = '
+		
+		<h2>For Events Happening Just Once</h2>
+		<p>Choose "Add a Date" and enter the Start Date, Start Time, and End Time (end time is optional).<em> End Date should be blank</strong>.</em>
+
+ 
+
+<h2>For Events That Happen on Multiple Dates at Different Times</h2>
+<p>Example: Bijou films or fitness classes</p>
+
+<p>Use the same process for single events, except be sure to "add a date" for each occurrence of the event. For example, a Bjiou film might have 5 occurrences with different Start Dates and Start Times. <strong>End Date should be blank.</strong></p>
+
+ 
+
+<h2>For Events that span several consecutive days with fairly similar start/end times</h2>
+
+<p>Example: A poster sale or a book buyback</p>
+<p>Chose "Add a Date" then enter the Start Date and the End Date for the event. Start Time and End Time must be blank. For these event types, you must describe the hours for the event in the Event Description.</p> ';
+		
+		
+		
+		
+		$f->insertBefore(new LiteralField('DatesInstructions', $date_instructions), 'DateTimes');
 		if($this->Submittername != '' ){
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
-
-		/* Sponsor Table */
+		
+/* ------------- */
+/* Sponsor Table */
+/* ------------- */
 		$sponsorTablefield = new ManyManyComplexTableField(
         	$this,
         	'Sponsors',
@@ -139,8 +177,10 @@ class AfterClassEvent extends CalendarEvent {
 
 		$f->addFieldToTab( 'Root.Content.Sponsors', $sponsorTablefield );
 		
-		/* Venue Table */
-		
+/* ----------- */
+/* Venue Table */
+/* ----------- */
+
 		$venueTablefield = new ManyManyComplexTableField(
         	$this,
         	'Venues',
@@ -157,6 +197,10 @@ class AfterClassEvent extends CalendarEvent {
 
 		$f->addFieldToTab( 'Root.Content.VenueOrBuilding', $venueTablefield );
 		
+/* ---------------- */		
+/* Event Type Table */
+/* ---------------- */	
+	
 		$eventTypeTablefield = new ManyManyComplexTableField(
         	$this,
         	'Eventtypes',
