@@ -25,8 +25,8 @@
 								$EndDate.format(l), $EndDate.format(M). $EndDate.format(j)
 							</a>
 						<% end_if %>
-						<br/>
-		        		$StartTime.nice<br/>
+						</p>
+		        		<p>$StartTime.nice
 	        		<% end_if %>
         		<% end_control %>
         		

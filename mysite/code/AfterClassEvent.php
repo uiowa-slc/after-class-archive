@@ -181,6 +181,9 @@ class AfterClassEvent extends CalendarEvent {
 /* Venue Table */
 /* ----------- */
 
+		$venueInstructions = '<h2>Instructions</h2><p>Every venue <em>must</em> have a somewhat complete address for Google Maps to work properly (example: Iowa Memorial Union, Iowa City, IA). Zip code is optional, but you NEED Iowa City, IA in each address. <br />The address field works as a search term on Google, and will give unexpected results with an incomplete address.</p>';
+		
+		
 		$venueTablefield = new ManyManyComplexTableField(
         	$this,
         	'Venues',
@@ -190,7 +193,8 @@ class AfterClassEvent extends CalendarEvent {
         	),
         	'getCMSFields_forPopup'
       	);
-      	
+      	$f->addFieldToTab('Root.Content.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
+
 		$f->addFieldToTab('Root.Content.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
 		$venueTablefield->setAddTitle( 'Venue' );
 		$venueTablefield->showPagination = false;

@@ -8,38 +8,40 @@
 
             
     	   	<div class="event_group">
+    	   
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
-    		<p class="event_details">
+    		<div class="event_details">
     		
-    			<% control DateAndTime %> 
-	    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-	    				$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth 
-	    				<% if StartTime %> at $StartTime.nice<% end_if %>
-	    			</a> 
-    			
-	    			<% if EndDate %> - 
-	    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
-	    			 		$EndDate.Format(l),$EndDate.Format(M). $EndDate.DayOfMonth
-	    			 	</a>
-	    			 	
-	    			 <% end_if %> 
-	    			 <br />
-	    			 
-    			<% end_control %>
-    			
+    			<div id="dates">
+	    			<% control DateAndTime %> 
+		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+		    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
+		    				<% if StartTime %> at $StartTime.nice<% end_if %>
+		    			
+	    			
+		    			<% if EndDate %> -
+		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+		    			 		<span>$EndDate.Format(l), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 	</a>
+		    			 	<% end_if %> 
+		    			 <br />
+		    			 
+	    			<% end_control %>
+    			</div>
     			<br />
+    		$Location<br/>
     			
     			<% control Venues %>
     				$Title <br />
     			<% end_control %>
     			
-            	$Location<br/>
-            	$Cost</p> 
-                  
+            	
+            	$Cost</div> 
+   	
        	</div>
-       	
-
+	
+                     				
        	
        	<div class="event_date_tag">
        		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
@@ -49,10 +51,16 @@
 				<% end_if %>
         	<% end_control %>
        		</a>
-   				<% include ShareLinks %>
-        </div>       
+       			<% include ShareLinks %>
+
+        </div>
+        
+
+       
           	<div style="clear: both"></div>
+
        	<% include EventCategoryList %>
+
 			</div>
 		
     </section>
@@ -64,14 +72,24 @@
 	<h2>What's Happening?</h2>
 	$Content
 	</div>
-	<div id="detail_event_description_map">
-	<h2>Where?</h2>
+	<% if Venues %>
+
+		<div id="detail_event_description_map">
 	
-	<% control Venues %>
-	<p>This event is located at: <br />$Title - <a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
-	<% end_control %>
-	<div id="map_canvas" style="width: 100%; height: 100%"></div>
+		<h2>Where?</h2>
 	
+		<% control Venues %>
+		<p>This event is located at: <br />$Title - 
+		
+		<% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% end_if %><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
+		
+		<% if Address %>
+		<div id="map_canvas" style="width: 100%; height: 100%"></div>
+		<% end_if %>
+		
+		<% end_control %>
+	<% end_if %>
+
 	
 	</div>
 

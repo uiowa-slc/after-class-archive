@@ -35,7 +35,7 @@
 		<% else %>
 			No events currently listed.
 			<% if LinkURL %>
-			Visit <a href="$LinkURL" target="_blank">their website</a> or <a href="/add">add one now</a>.<% else %>
+			Visit <a href="$LinkURL" target="_blank">their website</a> or <a href="/add">add an event to the calendar!</a>.<% else %>
 			<a href="/add">Add one now</a>.
 			<% end_if %>
 		<% end_if %>
