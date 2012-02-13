@@ -8,7 +8,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -21,7 +20,11 @@
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<% require themedCSS(layout) %> 
+	<% require themedCSS(layout) %>
+	<% if iswindows %>
+	<% require themedCSS(windows) %>
+	<% end_if %>
+	 
 	<script src="{$ThemeDir}/js/jquery.min.js"></script>
 	<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>
 	
