@@ -75,7 +75,8 @@ class Page_Controller extends ContentController {
 	        $this->Query = $form->getSearchQuery();
 	     
 	        return $this->customise($data)->renderWith(array('Page_results', 'Page'));
-	    }	
-	
-	
+	}
+	function EditURL(){
+		return "/admin/show/".$this->ID."/";
+	}
 }
