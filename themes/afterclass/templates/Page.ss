@@ -604,7 +604,7 @@ $('#mce-'+resp.result+'-response').html(msg);
 
 <% if CurrentMember %>
 <% if EditUrl %>
-<div id="editpage"><a id="edit-link" target="_blank" href="$EditURL">Edit this Page</a></div>
+<div id="editpage"><a id="edit-link" target="_blank" href="$EditURL">Edit This</a></div>
 <% end_if %>
 <% end_if %>
 

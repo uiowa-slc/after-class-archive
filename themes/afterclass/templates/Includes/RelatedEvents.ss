@@ -8,9 +8,9 @@
 		<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL"/><% else %><img src="$ThemeDir/images/placeholder_small.png" /> <% end_if %>
 		<h3><strong>$Title</strong> <% if Venues %>@<% control Venues %> $Title <% end_control %><% end_if %></h3></a>
 	  <% end_control %>
-		$StartDate.Format(l), $StartDate.Month $StartDate.DayOfMonth
+		<!--$StartDate.Format(l), $StartDate.Month $StartDate.DayOfMonth
 		<% if EndDate %>
-		 - $EndDate.Format(l), $EndDate.Month $EndDate.DayOfMonth<% end_if %> <br />
+		 - $EndDate.Format(l), $EndDate.Month $EndDate.DayOfMonth<% end_if %> <br />-->
 	  </div>
 	<% end_control %>
 	<% end_if %>

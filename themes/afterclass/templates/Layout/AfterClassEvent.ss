@@ -119,27 +119,24 @@
     
     <% control Venues %>
     var address = "$Address";
-    <% end_control %>
     
+    <% if Lat %>
+    var place = new google.maps.LatLng($Lat, $Lng);
+    var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP};
+    var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+    var geomarker = new google.maps.Marker({ map: map, position: place });
+    <% else %>
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
+      if (status == google.maps.GeocoderStatus.OK) {
       place = results[0].geometry.location;
-      
-      var myOptions = {
-      zoom: 16,
-      center: place,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
+      var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP};
       var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
-      
-      var geomarker = new google.maps.Marker({
-          map: map,
-          position: place
-      });
-      
-    }
+      var geomarker = new google.maps.Marker({ map: map, position: place });
+      }
     });
+    <% end_if %>
+    <% end_control %>
   }
   window.onload = initialize();
 </script>

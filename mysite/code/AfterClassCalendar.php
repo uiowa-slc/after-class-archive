@@ -108,12 +108,26 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	public function categoriesrss() {
 		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
 		
+		$events = new DataObjectSet();
 		$CategoryName = addslashes($this->urlParams['Category']);
- 		$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
- 		//$Data = array(
-	    //  'Category' => $Category
-	    //);
-		$events = $Category->events();
+		if (strpos(strtolower($CategoryName),",") === false) {
+		  $Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 		  //$Data = array(
+	      //  'Category' => $Category
+	      //);
+		  $events = $Category->events();
+		} else {
+		  $Categories = explode(",",$CategoryName);
+		  foreach ($Categories as $CatName) {
+		  	$Category = DataObject::get_one("Category", "Title = '".$CatName."'");
+		  	$CatEvents = $Category->events();
+		  	$events->merge($CatEvents);
+		  }
+		  $e = $events->toArray();
+		  CalendarUtil::date_sort($e);
+		  $events = new DataObjectSet($e);
+		}
+		
 		
 		foreach($events as $event) {
 			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
