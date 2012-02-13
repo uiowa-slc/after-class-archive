@@ -602,6 +602,11 @@ $('#mce-'+resp.result+'-response').html(msg);
 	</div>
 </footer>
 
+<% if CurrentMember %>
+<% if EditUrl %>
+<div id="editpage"><a id="edit-link" target="_blank" href="$EditURL">Edit this Page</a></div>
+<% end_if %>
+<% end_if %>
 
 <script type="text/javascript">
 
