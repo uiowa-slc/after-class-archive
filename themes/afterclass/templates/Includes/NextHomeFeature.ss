@@ -5,10 +5,10 @@
 			<a href="$Link"><% if Image %><img src="$Image.LargeImage.URL" /><% else %><img src="$ThemeDir/images/placeholder.png" /><% end_if %></a>
 			<div class="event_text">
 				<h2>Featured Event <strong><a href="$Link">$Title</a></strong></h2>
-				<p class="event_details">
+				<div class="event_details">
 				
-				<% control UpcomingDates %>
-					<% if First %>		
+				<% control DateAndTime %>
+				<p>
 						<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 							$StartDate.format(l), $StartDate.format(M). $StartDate.format(j)
 						</a> 
@@ -17,9 +17,10 @@
 								$EndDate.format(l), $EndDate.format(M). $EndDate.format(j)
 							</a>
 						<% end_if %>
-						</p>
-		        		<p>$StartTime.nice
-	        		<% end_if %>
+						<% if StartTime %>
+						at $StartTime.Nice
+						<% end_if %>
+		        </p>	
         		<% end_control %>
         		at
         		<% control Venues %>
@@ -28,7 +29,7 @@
         		<% if Cost %>
             	Admission: $Cost
             	<% end_if %>
-            	</p>
+            	</div>
             	<p class="event_description">$Content</p>
 
             	<% include EventCategoryList %>

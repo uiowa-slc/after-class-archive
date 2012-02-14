@@ -8,20 +8,20 @@
 				<h2>Featured Event <strong><a href="$Link">$Title</a></strong></h2>
 				<p class="event_details">
 				
-				<% control UpcomingDates %>
-					<% if First %>		
-						<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-							$StartDate.format(l), $StartDate.format(M). $StartDate.format(j)
-						</a> 
-						<% if EndDate %> - 
-							<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
-								$EndDate.format(l), $EndDate.format(M). $EndDate.format(j)
-							</a>
-						<% end_if %>
-						</p>
-		        		<p>$StartTime.nice
-	        		<% end_if %>
-        		<% end_control %>
+            	<% control DateAndTime %> 
+		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
+		    				<% if StartTime %> at $StartTime.nice<% end_if %>
+		    			
+	    			
+		    			<% if EndDate %> -
+		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 	</a>
+		    			 	<% end_if %> 
+		    			 <br />
+		    			 
+	    			<% end_control %>   
         		
         		at
         		<% control Venues %>
