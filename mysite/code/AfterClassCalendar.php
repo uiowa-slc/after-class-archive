@@ -7,7 +7,6 @@ class AfterClassCalendar extends Calendar {
 	static $allowed_children = array (
 	'AfterClassEvent'
 	);
-	
 	public function UEvents() {
 		$e = DataObject::get("AfterClassEvent")->toArray();;
 		CalendarUtil::date_sort($e);
@@ -156,6 +155,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		
 		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
 		return "";
+	}
+	
+	function AllEvents() {
+		$start_date = date( "d/m/Y", time() );
+		$end_date = date('Y-m-d',strtotime(date("Y-m-d", mktime()) . " + 365 day"));
+		return parent::Events(null,$start_date,$start_date,false,100);
 	}
  	
  	function categories() {

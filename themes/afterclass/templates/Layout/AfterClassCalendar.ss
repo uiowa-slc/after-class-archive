@@ -25,7 +25,7 @@
  
         <div id="upcoming_event_list">
 
-        	<% control Events %>
+        	<% control AllEvents %>
 			<% control Event %>
         		<div class="event">
         		
