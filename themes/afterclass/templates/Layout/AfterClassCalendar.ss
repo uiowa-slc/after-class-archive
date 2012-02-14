@@ -33,15 +33,26 @@
 	            	<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /><% else %><img src="$ThemeDir/images/placeholder_small.png" /><% end_if %></a>
             	</div>
             	<div class="event_text">
-            		<h3><a href="$Link">$Title</a></h3>         	
+            		<h3><a href="$Link">$Title</a></h3>  
+            		    			<% control DateAndTime %> 
+		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
+		    				<% if StartTime %> at $StartTime.nice<% end_if %>
+		    			
+	    			
+		    			<% if EndDate %> -
+		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 	</a>
+		    			 	<% end_if %> 
+		    			 <br />
+		    			 
+	    			<% end_control %>       	
             
 		            <% end_control %>
 		            	<p>
 		    
-		                <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(F j)</a>  
-		                
-		                <% if EndDate %>- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(F j)</a><% end_if %> <br/>
-		                $StartDate.format(l) <% if StartTime %>@ $StartTime.nice <% end_if %><br />
+		         
 		                <% control Event %>
 		               <% if Venues %> <% control Venues %>$Title<br/><% end_control %><% end_if %>
 		                $Cost
