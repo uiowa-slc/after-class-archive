@@ -110,14 +110,14 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		
 		$events = new DataObjectSet();
 		$CategoryName = addslashes($this->urlParams['Category']);
-		if (strpos(strtolower($CategoryName),",") === false) {
+		if (strpos(strtolower($CategoryName),"-") === false) {
 		  $Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
  		  //$Data = array(
 	      //  'Category' => $Category
 	      //);
 		  $events = $Category->events();
 		} else {
-		  $Categories = explode(",",$CategoryName);
+		  $Categories = explode("-",$CategoryName);
 		  foreach ($Categories as $CatName) {
 		  	$Category = DataObject::get_one("Category", "Title = '".$CatName."'");
 		  	$CatEvents = $Category->events();
