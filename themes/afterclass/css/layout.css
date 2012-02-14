@@ -489,7 +489,7 @@ h1, h2, h3, h4, h5, h6, .big_header {
         #page_navigation ul li a strong {
           display: block;
           font-family: SketchBlock-Bold, sans-serif;
-          font-weight: normal;
+          font-weight: normal !important;
           text-transform: uppercase;
           font-size: 22px; }
       #page_navigation ul li a:hover {
@@ -1397,10 +1397,14 @@ font-family: SketchBlock-Bold, sans-serif;
 }
 #editpage {
 	background: black;
+	color: #555;
 	top: 50px;
 	left: 0px;
 	padding: 10px;
 	position: fixed;
+}
+#editpage a {
+	color: #555;
 }
 
 #home_feature p.event_details .date-link {
