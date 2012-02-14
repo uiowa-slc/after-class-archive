@@ -15,7 +15,7 @@
 	<% require themedCSS(layout) %> 
 	<% require themedCSS(typography) %> 
 
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.6.4.js"></script>
 	
 	<script language=javascript>
       $(document).bind("mobileinit", function () {

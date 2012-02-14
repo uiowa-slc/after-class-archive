@@ -70,6 +70,16 @@ document.createElement('hgroup');
 </script>
 <![endif]-->
 
+<!--[if IE ]>
+<style>
+@font-face {
+  font-family: 'SketchBlock-Bold';
+  src: url("../fonts/1327B9_0.eot?#iefix") format("embedded-opentype"), url("../fonts/1327B9_0.woff") format("woff"), url("../fonts/1327B9_0.ttf") format("truetype"), url("../fonts/1327B9_0.svg#wf") format("svg");
+  }
+<![endif]-->
+
+</style>
+
 </head>
 <body>
 <div id="fb-root"></div>

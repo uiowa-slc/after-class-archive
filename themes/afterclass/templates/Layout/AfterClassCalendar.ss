@@ -34,7 +34,8 @@
             	</div>
             	<div class="event_text">
             		<h3><a href="$Link">$Title</a></h3>  
-            		    			<% control DateAndTime %> 
+            		
+            	<% control DateAndTime %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
 		    				<% if StartTime %> at $StartTime.nice<% end_if %>
