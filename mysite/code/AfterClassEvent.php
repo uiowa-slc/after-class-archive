@@ -78,8 +78,7 @@ class AfterClassEvent extends CalendarEvent {
 		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
 		$f->removeFieldFromTab('Root.Content.Metadata', 'URL'); 
 		$f->removeFieldFromTab('Root.Content', 'Metadata'); // remove a field from a tab	
-		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab	
-		$f->removeByName('FormattedAllDay');
+		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab
 		
 		
 		
@@ -132,14 +131,12 @@ class AfterClassEvent extends CalendarEvent {
 		$date_instructions = '
 		
 		<h2>For Events Happening Just Once</h2>
-		<p>Choose "Add a Date" and enter the Start Date, Start Time, and End Time (end time is optional).<em> End Date should be blank</strong>.</em>
+		<p>Choose "Add a Date" and enter the Start Date, Start Time, and End Time (end time is optional).<em>The End Date should be blank</strong>.</em>
 
  
-
-<h2>For Events That Happen on Multiple Dates at Different Times</h2>
-<p>Example: Bijou films or fitness classes</p>
-
-<p>Use the same process for single events, except be sure to "add a date" for each occurrence of the event. For example, a Bjiou film might have 5 occurrences with different Start Dates and Start Times. <strong>End Date should be blank.</strong></p>
+<h2>Events that Have Multiple "Ranges" (mostly CAB and Bijou Films)</h2>
+<p>Sometimes a film will play for multiple ranges. They might play one day, skip a day or two, and then play for another range of time. Example: Inception could play on March 1, then March 3 and March 4. In this example, add a date and start time for March 1, then add another date range that starts with March 3, and ends with March 4 <strong>with no start/end times</strong>.</p>
+<p>Another Example: Back to the Future might play on April 11, 12, 13, take a day off, then resume on 14, 15. We would just put this in two date ranges: April 11-13, and April 14-15 with NO start/end times.</p>
 
  
 
