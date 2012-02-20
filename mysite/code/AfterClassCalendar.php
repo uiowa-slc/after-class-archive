@@ -164,7 +164,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		$events =  parent::Events(null,$start_date,$start_date,false,1000);
 		
 		$events->removeDuplicates('EventID');
-		print_r($events);
+		//print_r($events);
 		if($events){
 			return $events;
 		}else{

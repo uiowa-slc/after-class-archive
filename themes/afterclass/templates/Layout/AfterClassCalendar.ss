@@ -27,7 +27,7 @@
 
         	<% control AllEvents %>
 			<% control Event %>
-        		<div class="event ID">
+        		<div class="event<% if ID = 0 %> hide<% else %><% end_if %>">
         		
         		<div class="upcoming-left-column">
 	            	<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /><% else %><img src="$ThemeDir/images/placeholder_small.png" /><% end_if %></a>
@@ -45,7 +45,7 @@
 		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
 		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 	</a>
-		    			<% end_if %> 
+		    			 	<% end_if %> 
 		    			 <br />
 		    			 
 	    			<% end_control %>       	

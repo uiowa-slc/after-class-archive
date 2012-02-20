@@ -1347,3 +1347,8 @@ padding: 5px;
 color: black;
 border: 1px solid #333;*/
 }
+
+.hide {
+	display: none;
+
+}

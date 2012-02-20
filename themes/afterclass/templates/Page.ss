@@ -129,7 +129,7 @@ document.createElement('hgroup');
 
 		<li><a href="{$BaseHref}"><strong>Home</strong> <span>Complete event list</span></a></li>
 		<li>
-			<a href="events/category/"><strong>Category</strong><span>The type of event</span></a>
+			<a href="events/category/"><strong>Categories</strong><span>The type of event</span></a>
 			<ul>
 				<% control getEventtypes %>
 					<% if Showmenu %>
@@ -141,7 +141,7 @@ document.createElement('hgroup');
 			</ul>
 		</li>
 		<li>
-			<a href="events/sponsor/"><strong>Sponsor</strong><span>Who puts it on</span></a>
+			<a href="events/sponsor/"><strong>Sponsors</strong><span>Who puts it on</span></a>
 			<ul>
 				<% control getSponsors %>
 					<% if Showmenu %>
@@ -154,7 +154,7 @@ document.createElement('hgroup');
 			</ul>
 		</li>
 		<li>
-			<a href="events/venue/"><strong>Venue</strong><span>Where it takes place</span></a>
+			<a href="events/venue/"><strong>Venues</strong><span>Where it takes place</span></a>
 			<ul>
 				<% control getVenues %>
 					<% if Showmenu %>
