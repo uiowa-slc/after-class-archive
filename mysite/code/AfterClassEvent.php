@@ -21,6 +21,17 @@ class AfterClassEvent extends CalendarEvent {
 		'Image' => 'SizedImage'
 	);
 	
+	static $defaults = array (
+		"ParentID" => 6
+	
+	
+	);
+	
+	static $default_parent = "events"; // URLSegment of default parent node.
+	static $can_be_root = false;
+	static $allowed_children = "none";
+
+	
 	function RelatedEvents() {
 		$ids = array();
 		

@@ -3265,3 +3265,4 @@ sapphire/widgets/WidgetArea.php
 .gitignore
 .DS_Store
 .gitignore
+assets/*

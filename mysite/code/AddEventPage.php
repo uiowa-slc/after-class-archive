@@ -50,11 +50,38 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 	function addEvent($data, $form) {
 		$event = new AfterClassEvent();
+	    $event->setParent(6);
+
         $form->saveInto($event);
+        
         $event->writeToStage("Stage");
-        $event->ParentID = 6;
-        $event->write();
         Session::set('Submitted', true);
+        
+        
+        //Email notification
+		
+		$from = "After Class Submissions";
+		$to = "dustin-quam@uiowa.edu, benjamin-lewis@uiowa.edu, afterclass@uiowa.edu";
+		$subject = "New After Class Event Submitted.";
+		$body = '<p>Someone submitted an After Class Event. This is the event information:</p>
+		
+				<ul>
+				
+					<li>'.$event->Title.'</li>
+					<li>'.$event->Content.'</li>
+					
+				</ul>
+				
+				<p><a href="http://afterclass.uiowa.edu/admin/show/'.$event->ID.'">Approve it (or don\'t) here</a></p>';
+			
+		
+		$email = new Email($from, $to, $subject, $body);
+		
+		
+		$email->send();
+
+        
+        
         Director::redirect('/thanks');
 		
 	}

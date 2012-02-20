@@ -4,6 +4,9 @@
 
 <div class="content typography">
 	$Content
+	$Form
+	$addEventForm
+
 </div>
 
 <% if Menu(2) %>

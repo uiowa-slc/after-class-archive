@@ -27,7 +27,7 @@
 
         	<% control UpcomingEvents(300) %>
 			<% control Event %>
-        		<div class="event">
+        		<div class="event $ID">
         		
         		<div class="upcoming-left-column">
 	            	<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /><% else %><img src="$ThemeDir/images/placeholder_small.png" /><% end_if %></a>
