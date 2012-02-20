@@ -160,7 +160,18 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	function AllEvents() {
 		$start_date = date( "d/m/Y", time() );
 		$end_date = date('Y-m-d',strtotime(date("Y-m-d", mktime()) . " + 365 day"));
-		return parent::Events(null,$start_date,$start_date,false,100);
+		
+		$events =  parent::Events(null,$start_date,$start_date,false,1000);
+		
+		$events->removeDuplicates('EventID');
+		print_r($events);
+		if($events){
+			return $events;
+		}else{
+			return null;
+		
+		
+		}
 	}
  	
  	function categories() {
