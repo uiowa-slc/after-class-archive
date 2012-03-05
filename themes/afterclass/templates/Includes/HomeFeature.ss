@@ -22,7 +22,8 @@
 		    			 <br />
 		    			 
 	    			<% end_control %>   
-        		
+        		</p>
+        		<p>
         		at
         		<% control Venues %>
         			$Title	

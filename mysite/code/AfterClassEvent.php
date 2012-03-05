@@ -15,7 +15,9 @@ class AfterClassEvent extends CalendarEvent {
 		'Featured' => 'Boolean',
 		'Submittername' => 'Text',
 		'Submitteremail' => 'Text',
-		'Submitterdate' => 'Text'
+		'Submitterdate' => 'Text',
+		'CancelReason' => 'Text',
+		'status' => 'Text'
 	);
 	static $has_one = array(
 		'Image' => 'SizedImage'
@@ -136,6 +138,7 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
 		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));
+		$f->addFieldToTab('Root.Content.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
 		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Event Description') );
 		
 		

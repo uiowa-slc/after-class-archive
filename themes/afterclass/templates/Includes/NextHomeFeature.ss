@@ -22,12 +22,13 @@
 						<% end_if %>
 		        </p>	
         		<% end_control %>
+        		<p>
         		at
         		<% control Venues %>
         			$Title	
-        		<% end_control %><br />
+        		<% end_control %></p>
         		<% if Cost %>
-            	Admission: $Cost
+            	<p>Admission: $Cost</p>
             	<% end_if %>
             	</div>
             	<p class="event_description">$Content</p>
