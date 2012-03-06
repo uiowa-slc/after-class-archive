@@ -34,7 +34,7 @@
             	</div>
             	<div class="event_text">
             		<h3><a href="$Link">$Title</a></h3>  
-            		
+            		<p>
             	<% control DateAndTime %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
@@ -45,8 +45,9 @@
 		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
 		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 	</a>
-		    			 	<% end_if %> 
-		    			 <br />
+		    			 	<% end_if %>
+		    			 	</p>
+		    		
 		    			 
 	    			<% end_control %>       	
             
