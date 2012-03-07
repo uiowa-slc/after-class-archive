@@ -1,7 +1,7 @@
 <div class="feature-background-wrapper" style="background: url(/afterclass_dev/themes/afterclass2/images/home-feature-background.png); background-position: bottom; background-repeat: none;">
 				<div class="homepage-feature" >
 				
-					<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />
+					<!--<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />-->
 					<h1><a href="$Link">$Title</a></h1>
 					<div class="homepage-feature-details"> <a href="$Link">
 						<% if Image %>
@@ -14,7 +14,6 @@
 						<div style="clear:both"></div>
 
 						<div class="home-feature-share">
-						<% include ShareLinks %>
 						<!--<% include HomeFeatureDateBox %>-->
 						</div><!-- end home-feature-share -->
 
@@ -50,7 +49,12 @@
 						<% end_control %>
 						
 						<% include EventCategoryList %>
+						
 						</div><!-- end homepage-feature-text -->
+						
+						<h2>share</h2>
+						<% include ShareLinks %>
+
 					</div><!-- end homepage-feature-content -->
 					<div style="clear: both"></div>
 

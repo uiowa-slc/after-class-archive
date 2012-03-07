@@ -1,18 +1,18 @@
 <section id="detail_feature" class="feature clearfix">
-			<% if Image %>
+
+   			<% if Image %>
     	   		<img src="$Image.LargeImage.URL" class="detail_feature_image"/>
     	   	<% else %>
     	   		<img src="$ThemeDir/images/placeholder.png" class="detail_feature_image placeholder" />
     	   	<% end_if %>
-    	   	
-
             
     	   	<div class="event_group">
     	   
     	   	<div class="event_text">
     		<h2><strong>$Title</strong></h2>
     		<div class="event_details">
-    		
+
+    	   	 		
     			<div id="dates">
 	    			<% control DateAndTime %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
@@ -42,25 +42,26 @@
 	<p><strong>Note: $CancelReason</strong></p>
 	<% end_if %>
 	</div>
-            	</div> 
-   	
-       	</div>
 	
-                     				
-       	
-       	<div class="event_date_tag">
+	       	<div class="event-meta">
        		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 
-       			<% include ShareLinks %>
 
 
        
-          	<div style="clear: both"></div>
 
        	<% include EventCategoryList %>
+		  	       	<% include ShareLinks %>
 
 			</div>
 		
+            	</div> 
+
+       	</div>
+	
+          	<div style="clear: both"></div>
+                     				
+
     </section>
 
 
@@ -69,7 +70,7 @@
 	<div id="detail_event_description_info">
 	<h2>What's Happening?</h2>
 	$Content
-
+	</div>
 	<% if Venues %>
 
 		<div id="detail_event_description_map">
