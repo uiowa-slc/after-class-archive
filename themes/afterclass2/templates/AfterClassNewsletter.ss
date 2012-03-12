@@ -27,7 +27,7 @@
 
 
 <!-- main content goes here -->
-
+<% control FeaturedEvent %>
 					<table cellpadding="0" cellspacing="0" width="600" bgcolor="#221e23">
 						<tbody>
 						
@@ -37,40 +37,44 @@
 						</tr>
 						
 						
-						<tr width="598"  bgcolor="#2791ae" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1" >
-							<td width="470" style="padding: 0px; margin:0px; padding-left: 10px; border-left: 1px solid #8f9ca1; border-top: 1px solid #8f9ca1; border-bottom: 1px solid #8f9ca1">
-								<h1 style="padding: 0px; margin:0px; color:white; text-transform: uppercase; font-weight: bold; font-size:24px">Avett Brothers</h1>
-							</td>
-							<td style="border-right: 1px solid #8f9ca1; border-top: 1px solid #8f9ca1; border-bottom: 1px solid #8f9ca1">
-							 	<h4 valign="center" style="background-color: #8f9ca1; width: 110px; height: 25px; font-weight:bold; font-size: 13px; text-align: center; padding-top:5px">concert</h4>
+						<tr width="598" bgcolor="#2791ae" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1" >
+							<td width="470" colspan="2" style="padding: 0px; margin:0px; padding-left: 10px; border-left: 1px solid #8f9ca1; border-top: 1px solid #8f9ca1; border-bottom: 1px solid #8f9ca1">
+								<h1 style="padding: 5px 0px; margin:0px; color:white; text-transform: uppercase; font-weight: bold; font-size:24px">$Title</h1>
 							</td>
 						</tr>
 						
 						
 						<tr>
 							<td colspan="2" style="margin:0;padding:0">
-							<img style="width:600px; height=400px" src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/main.jpg">
+							$Image.CroppedImage(600,350)
 							</td>
 						</tr>
 						<tr cellpadding="0" cellspacing="0">
 							<td colspan="2" style="border-top: 1px solid #8f9ca1; border-right: 1px solid #8f9ca1; border-left: 1px solid #8f9ca1; padding-top: 8px; padding-right: 8px; padding-left: 8px">
-								<p style="padding:0; margin:0"> <span style="font-size: 18px;text-transform: uppercase; color:#ffd520; font-weight: normal;">Where?</span> Mar. 7 @ 8 pm </p>
-								<p style="padding:0; margin:0"> <span style="font-size: 18px; text-transform: uppercase; color:#ffd520; font-weight: normal">When?</span> Iowa Memorial Union </p>
-								<p style="font-size:12px;padding:0; margin:0"> SCOPE Productions is proud to announce that The Avett Brothers will perform in the IMU Main Lounge on Wednesday, march 7, 2012. Doors will open at 7 pm and the show will begin at 8 pm <p>
+								<p style="padding:0; margin:0"> <span style="font-size: 18px;text-transform: uppercase; color:#ffd520; font-weight: normal;">Where?</span> $Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %></p>
+								<p style="padding:0; margin:0"> <span style="font-size: 18px; text-transform: uppercase; color:#ffd520; font-weight: normal">When?</span>
+								<% control DateAndTime %> 
+		    						<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    						<% if StartTime %> at $StartTime.nice<% end_if %>
+		    					<% if EndDate %> -
+		    			 			<span>$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 			<% end_if %> 
+	    						<% end_control %></p>
+								<p style="font-size:12px;padding:0; margin:0"> $Content<p>
 							</td>
 						</tr>
 						
 						
 						<tr style="padding:0; margin:0" cellpadding="0" cellspacing="0" >
 							<td colspan="2" style="border-bottom: 1px solid #8f9ca1; border-right: 1px solid #8f9ca1; border-left: 1px solid #8f9ca1;padding-left: 8px; padding-bottom: 8px; margin:0">
-							<a href="afterclass.uiowa.edu" style="text-decoration:none;padding:0; margin:0"><h5  style="width:110px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:5px;margin:0; "> view event</h5></a>
+							<a href="$AbsoluteLink" style="text-decoration:none;padding:0; margin:0"><h5  style="width:110px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:5px;margin:0; "> view event</h5></a>
 							</td>
 						</tr>
 						
 						
 						</tbody>						
 					</table>
-					
+<% end_control %>
 <!-- main content ends -->
 
 <!-- happening next/about section -->
@@ -91,66 +95,85 @@
 													</td>
 												</tr>
 						<!-- individual upcoming event -->
+											<% if Event1 %>
+											<% control Event1 %>
 												<tr>
 													<td style="padding:8px">
-													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">The Girl with the Dragon Tattoo</div>
+													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">$Title</div>
 													<div style="font-size: 12px;">Mar. 22 - Mar. 24</div>
 													<div style="font-size: 12px;">10:00pm</div>
 													</td>
 												</tr>
 												<tr>
-													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="http://afterclass.uiowa.edu" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
+													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="$AbsoluteLink" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
 												</tr>
+											<% end_control %>
+											<% end_if %>
 						<!-- end event -->
 						<!-- individual upcoming event -->
+											<% if Event2 %>
+											<% control Event2 %>
 												<tr>
 													<td style="padding:8px">
-													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">The Girl with the Dragon Tattoo</div>
+													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">$Title</div>
 													<div style="font-size: 12px;">Mar. 22 - Mar. 24</div>
 													<div style="font-size: 12px;">10:00pm</div>
 													</td>
 												</tr>
 												<tr>
-													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="http://afterclass.uiowa.edu" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
+													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="$AbsoluteLink" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
 												</tr>
+											<% end_control %>
+											<% end_if %>
 						<!-- end event -->
 						<!-- individual upcoming event -->
+											<% if Event3 %>
+											<% control Event3 %>
 												<tr>
 													<td style="padding:8px">
-													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">The Girl with the Dragon Tattoo</div>
+													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">$Title</div>
 													<div style="font-size: 12px;">Mar. 22 - Mar. 24</div>
 													<div style="font-size: 12px;">10:00pm</div>
 													</td>
 												</tr>
 												<tr>
-													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="http://afterclass.uiowa.edu" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
+													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="$AbsoluteLink" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
 												</tr>
+											<% end_control %>
+											<% end_if %>
 						<!-- end event -->
 						<!-- individual upcoming event -->
+											<% if Event4 %>
+											<% control Event4 %>
 												<tr>
 													<td style="padding:8px">
-													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">The Girl with the Dragon Tattoo</div>
+													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">$Title</div>
 													<div style="font-size: 12px;">Mar. 22 - Mar. 24</div>
 													<div style="font-size: 12px;">10:00pm</div>
 													</td>
 												</tr>
 												<tr>
-													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="http://afterclass.uiowa.edu" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
+													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="$AbsoluteLink" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
 												</tr>
+											<% end_control %>
+											<% end_if %>
 						<!-- end event -->
 						<!-- individual upcoming event -->
+											<% if Event5 %>
+											<% control Event5 %>
 												<tr>
 													<td style="padding:8px">
-													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">The Girl with the Dragon Tattoo</div>
+													<div style="font-weight:normal; font-size: 18px; margin:0; padding:0">$Title</div>
 													<div style="font-size: 12px;">Mar. 22 - Mar. 24</div>
 													<div style="font-size: 12px;">10:00pm</div>
 													</td>
 												</tr>
 												<tr>
-													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="http://afterclass.uiowa.edu" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
+													<td style="border-bottom: 1px solid #ffd520; padding: 8px;"><a href="$AbsoluteLink" style="text-decoration:none;padding:0; margin:0;"><h5  style="width:300px; height:25px; background-color:#ffd520; text-align:center; valign:center; border: 1px solid #8f9ca1; color:#221e23; padding-top:7px;margin:0; "> view event</h5></a></td>
 												</tr>
-						<!-- end event -->
-											
+											<% end_control %>
+											<% end_if %>
+						<!-- end event -->											
 						
 						
 												</tbody>
@@ -209,6 +232,8 @@
 										</tr>
 										<tr colspan="4">
 											<td colspan="4" style="border-left:1px solid #8f9ca1; border-right:1px solid #8f9ca1; border-bottom: 1px solid #8f9ca1">
+											<% if Image %><div style="padding: 8px 10px;"><a href="$ImageLink">$Image.CroppedImage(200,150)</a></div><% end_if %>
+											
 											<a href="http://studentlife.uiowa.edu/"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/division-of-student-life.png" style="margin:20px"/></a>
 											<a href="afterclass.uiowa.edu" style="text-decoration: none; color: white;"><h4 style="margin-left:10px; margin-bottom:10px; margin-top:0">afterclass.uiowa.edu</h4></a>
 											
