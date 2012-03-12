@@ -259,7 +259,6 @@ class AfterClassEvent extends CalendarEvent {
 }
 
 class AfterClassEvent_Controller extends CalendarEvent_Controller {
-<<<<<<< HEAD
 	public static $url_handlers = array(
             'fbpublish' => 'fbpublish'
             );
@@ -314,10 +313,7 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 	return $categories;
 	
 	}
-=======
 
->>>>>>> dea99184f7c14dc84325c8cf2e8745e122eef53d
-	
 }
 class SizedImage extends Image {
 	function generateSmallImage($gd) {
