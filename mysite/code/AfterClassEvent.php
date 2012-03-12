@@ -236,6 +236,37 @@ class AfterClassEvent extends CalendarEvent {
 }
 
 class AfterClassEvent_Controller extends CalendarEvent_Controller {
+	public static $url_handlers = array(
+            'fbpublish' => 'fbpublish'
+            );
+ 	static $allowed_actions = array ("fbpublish");
+ 	public function fbpublish() {
+ 		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
+ 		$url = 'https://graph.facebook.com/319621914746674/feed';
+ 		$fields = array(
+ 			'access_token' => urlencode("AAADc6v8HNekBAGxX0KBswrxm7itBjiC5xuNHpXEaxQJRxmKgYbxZC6luSf9pKD7m3n5MLpgfkeV92H1oTZAav1DUwAz3LD26vePiAQ5aouXt7OeuaZA"),
+ 			'message' => urlencode($this->data()->Title),
+ 			'link' => urlencode("http://hulk.imu.uiowa.edu" . $this->data()->Link()),
+ 			'picture' => urlencode("http://hulk.imu.uiowa.edu" . $this->data()->Image()->MediumImage()->URL)
+        );
+        $fields_string = "";
+        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string,'&');
+ 		$ch = curl_init();
+ 		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_POST,count($fields));
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
+		//execute post
+		$result = curl_exec($ch);
+		//close connection
+		curl_close($ch);
+ 		$Data = array(
+	      'Tokens' => $result
+	    );
+ 		return $this->customise($Data)->renderWith(array('AfterClassCallback', 'Page'));
+ 	}
+
+
 	public function AllCategories(){
 	//	$categories = DataObject::get("Category", "")
 	
