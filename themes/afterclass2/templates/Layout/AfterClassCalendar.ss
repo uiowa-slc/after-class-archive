@@ -31,7 +31,7 @@
 	
 	<% control AllEvents %>
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>">
-		<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a></h3>
+		<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a><% control Event.Eventtypes %><span class="event-header-category">$Title</span><% end_control %></h3>
 		
 		
 		<div class="homepage-event-content">
@@ -98,9 +98,12 @@
 				<div class="tags-container">
 				<h4>tagged as</h4>
 				<ul class="tags">
-					<li>Film</li>
-					<li>Bijou Event</li>
-					<li>Bijou Theatre</li>
+            		<% control Event %>
+            		
+            			<% control AllCategories %>
+            				<li><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %></li>
+            			<% end_control %>
+            		<% end_control %>
 				
 				</ul>
 				</div>
@@ -188,7 +191,7 @@
 	
 	</div><!-- end categories -->
 	
-	<div id="by-day">
+	<!--<div id="by-day">
 		<h2><img src="{$ThemeDir}/images/by_day.png" /></h2>
 		
 		<div class="day">
@@ -202,7 +205,7 @@
 		</div>
 		
 	
-	</div>
+	</div>-->
 	
 </div><!-- end right-column -->
 
