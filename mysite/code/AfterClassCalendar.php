@@ -49,9 +49,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	 public static $url_handlers = array(
             //'tag/$Tag' => 'tag'
             'categories/$Category' => 'categories',
-            'categoriesrss/$Category' => 'categoriesrss'
+            'categoriesrss/$Category' => 'categoriesrss',
+            'fbauthorize' => 'fbauthorize',
+            'fbcallback/$Token' => 'fbcallback'
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss");
+ 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback");
  	function getCurrentTag(){
  		if($this->urlParams['Tag']){
  			 $Tag = DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
@@ -173,6 +175,28 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		
 		}
 	}
+	
+	function fbauthorize() {
+		$Data = array();
+		return $this->customise($Data)->renderWith(array('AfterClassAuthorize', 'Page'));
+	}
+ 	
+ 	function fbcallback() {
+ 		//Params: appid, access_token
+ 		$token = addslashes($this->urlParams['Token']);
+ 		$pages_tokens = file_get_contents("https://graph.facebook.com/me/accounts?access_token=" . $token );
+ 		
+ 		$Data = array(
+	      'Tokens' => $pages_tokens
+	    );
+ 		return $this->customise($Data)->renderWith(array('AfterClassCallback', 'Page'));
+ 		/*require 'mechanize'
+		require 'json'
+		a = Mechanize.new
+		page = a.get("https://graph.facebook.com/me/accounts?access_token=#{self.token}")
+		data = JSON.parse(page.body)
+		return data*/
+ 	}
  	
  	function categories() {
  	

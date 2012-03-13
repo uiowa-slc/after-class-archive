@@ -17,7 +17,8 @@ class AfterClassEvent extends CalendarEvent {
 		'Submitteremail' => 'Text',
 		'Submitterdate' => 'Text',
 		'CancelReason' => 'Text',
-		'status' => 'Text'
+		'status' => 'Text',
+		'facebook_publishdate' => 'Date'
 	);
 	static $has_one = array(
 		'Image' => 'SizedImage'
@@ -25,8 +26,6 @@ class AfterClassEvent extends CalendarEvent {
 	
 	static $defaults = array (
 		"ParentID" => 6
-	
-	
 	);
 	
 	static $default_parent = "events"; // URLSegment of default parent node.
@@ -87,6 +86,39 @@ class AfterClassEvent extends CalendarEvent {
 			}
 			return $eventSet;
 		}
+	}
+	
+	public function onAfterPublish() {
+		parent::onAfterPublish();
+		if (($this->Featured) && (!$this->facebook_publishdate)) {
+			$this->facebook_publishdate = SS_Datetime::now(); getdate(); # SS_Datetime::now() ? or SS_Datetime::now()->getValue();
+			$this->facebook_publish();
+			$this->write();
+		}
+		return true;
+	}
+	public function facebook_publish() {
+ 		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
+ 		$url = 'https://graph.facebook.com/319621914746674/feed';
+ 		$fields = array(
+ 			'access_token' => urlencode("AAADc6v8HNekBAGxX0KBswrxm7itBjiC5xuNHpXEaxQJRxmKgYbxZC6luSf9pKD7m3n5MLpgfkeV92H1oTZAav1DUwAz3LD26vePiAQ5aouXt7OeuaZA"),
+ 			'message' => urlencode($this->data()->Title),
+ 			'link' => urlencode($this->data()->AbsoluteLink()),
+ 			'picture' => urlencode($this->data()->Image()->MediumImage()->AbsoluteURL)
+        );
+        $fields_string = "";
+        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string,'&');
+ 		$ch = curl_init();
+ 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+ 		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_POST,count($fields));
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
+		//execute post
+		$result = curl_exec($ch);
+		//close connection
+		curl_close($ch);
+		return true;
 	}
 	
 	/*static $db = array (
@@ -259,8 +291,61 @@ class AfterClassEvent extends CalendarEvent {
 }
 
 class AfterClassEvent_Controller extends CalendarEvent_Controller {
+	public static $url_handlers = array(
+            'fbpublish' => 'fbpublish'
+            );
+ 	static $allowed_actions = array ("fbpublish");
+ 	public function fbpublish() {
+ 		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
+ 		$url = 'https://graph.facebook.com/319621914746674/feed';
+ 		$fields = array(
+ 			'access_token' => urlencode("AAADc6v8HNekBAGxX0KBswrxm7itBjiC5xuNHpXEaxQJRxmKgYbxZC6luSf9pKD7m3n5MLpgfkeV92H1oTZAav1DUwAz3LD26vePiAQ5aouXt7OeuaZA"),
+ 			'message' => urlencode($this->data()->Title),
+ 			'link' => urlencode("http://hulk.imu.uiowa.edu" . $this->data()->Link()),
+ 			'picture' => urlencode("http://hulk.imu.uiowa.edu" . $this->data()->Image()->MediumImage()->URL)
+        );
+        $fields_string = "";
+        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string,'&');
+ 		$ch = curl_init();
+ 		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_POST,count($fields));
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
+		//execute post
+		$result = curl_exec($ch);
+		//close connection
+		curl_close($ch);
+ 		$Data = array(
+	      'Tokens' => $result
+	    );
+ 		return $this->customise($Data)->renderWith(array('AfterClassCallback', 'Page'));
+ 	}
 
+
+	public function AllCategories(){
+	//	$categories = DataObject::get("Category", "")
 	
+	$categories = new DataObjectSet();
+	$category_ids = array();
+	
+	$sponsors = $this->Sponsors();
+	$category_ids = array_merge($category_ids, $sponsors->getIDList());
+	
+	$venues = $this->Venues();
+	$category_ids = array_merge($category_ids, $venues->getIDList());
+	
+	$eventtypes = $this->EventTypes();
+	$category_ids = array_merge($category_ids, $eventtypes->getIDList());
+	
+	foreach($category_ids as $category_id){
+		$category = DataObject::get_by_id("Category", $category_id);
+		$categories->push($category);
+	
+	}
+	return $categories;
+	
+	}
+
 }
 class SizedImage extends Image {
 	function generateSmallImage($gd) {
