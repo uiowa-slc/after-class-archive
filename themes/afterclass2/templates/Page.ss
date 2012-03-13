@@ -183,7 +183,7 @@ document.createElement('hgroup');
     </div>
     
     <div id="secondary-nav">
-<p>popular: <a href="#">movies</a>, <a href="#">concerts</a>, <a href="#">wellness</a> </p>
+<p>just added! <a href="#">Memento (2000)</a></p>
 
 </div>
    <div style="clear: both"></div>
@@ -192,7 +192,7 @@ document.createElement('hgroup');
 
 <% end_cached %>
 <!--cut out header and nav-->
-<div id="page_content">
+<div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>">
 	<div class="container clearfix">
 	$Layout
 	

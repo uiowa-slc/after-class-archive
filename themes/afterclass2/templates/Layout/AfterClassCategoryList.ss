@@ -10,8 +10,13 @@
 </header>
 <ul class="category-list">
 	<% control Category %>
+	
+	<% if Events %>
+	
 		<li><h2><a href="$Link">$Title</a><% if Address %> <span><a href="#" target="_blank">Get Directions</a></span><% end_if %></h2>
 		<% if Information %><p>$Information</p><% end_if %>
+		<% if LinkURL %><p><a href="$LinkURL">Visit their website</a></p><% end_if %>
+		
 		
 		<!--<% control Events(2) %><div><% control Event %>$Title<% end_control %></div><% end_control %>-->
 		<% if Events %>
@@ -27,19 +32,13 @@
 			</li><% end_control %>
 		</ul>
 		<!--<div class="view-all"><a href="{$BaseHref}events/categories/$Title">View All $Events.count Events</a></div>-->
-			<% if LinkURL %>
-			View <a href="{$BaseHref}events/categories/$Title">all $Events.count events</a> or visit <a href="$LinkURL" target="_blank">their website</a>.
-			<% else %>
-			View <a href="{$BaseHref}events/categories/$Title">all $Events.count events</a>.
-			<% end_if %>
+
+			 <a href="{$BaseHref}events/categories/$Title">View all $Events.count events</a>.
 		<% else %>
 			No events currently listed.
-			<% if LinkURL %>
-			Visit <a href="$LinkURL" target="_blank">their website</a> or <a href="/add">add an event to the calendar!</a>.<% else %>
-			<a href="/add">Add one now</a>.
-			<% end_if %>
 		<% end_if %>
 		</li>
+		<% end_if %> <%-- end if there are any events --%>
 	<% end_control %>
 </ul>
 <style type="text/css">
@@ -51,7 +50,7 @@
 	padding: 0px;
 }
 .category-list ul li {
-	background: #CFCFCF;
+	background: #e5e5e5;
 	border: 1px solid #CFCFCF;
 	list-style-type: none;
 	float: left;

@@ -26,7 +26,6 @@
 		    			 	</a>
 		    			 	<% end_if %> 
 		    			 <br />
-		    			 
 	    			<% end_control %>
     			</div>
     			<br />

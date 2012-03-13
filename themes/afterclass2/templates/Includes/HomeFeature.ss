@@ -21,40 +21,47 @@
 					<div class="homepage-feature-content">
 					
 						<div class="homepage-feature-text">
-						<p>$Content.Summary(50)</p>
-						<h2>where</h2>
-						<p>
-						<% control Venues %>
-						$Title
-						<% end_control %>
-						</p>
+						<p>$Content.LimitSentences(3)</p>
 						
+							<div class="homepage-feature-specifics">
+							
+			
+										
+					
+								<div class="homepage-feature-when">
 								
-						
-						<% if Cost %>
-						<p>Admission: $Cost</p>
-						<% end_if %>
-						
-						<h2>when</h2>
-						
-						<% control DateAndTime %>
-						<p> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(l), $StartDate.format(M). $StartDate.format(j) </a>
-							<% if EndDate %>
-							- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> $EndDate.format(l), $EndDate.format(M). $EndDate.format(j) </a>
-							<% end_if %>
-							<% if StartTime %>
-							at $StartTime.Nice
-							<% end_if %>
-						</p>
-						<% end_control %>
-						
-						<% include EventCategoryList %>
-						
+									<% control DateAndTime %>
+									<p> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(F) $StartDate.format(j) </a>
+										<% if EndDate %>
+										- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(F) $EndDate.format(j) </a>
+										<% end_if %>
+										<% if StartTime %>
+										at $StartTime.Nice
+										<% end_if %>
+									</p>
+									<% end_control %>
+								</div><!-- end homepage-feature-when -->
+								
+								<div class="homepage-feature-where">
+									<p>
+									<% control Venues %>
+									@ <a href="$Link">$Title</a>
+									<% end_control %>
+									</p>
+											
+									<% if Cost %>
+										<p>Admission: <a href="$Link">$Cost </a></p>
+									<% end_if %>
+								</div>
+								<div class="clear"></div>
+							
+								<!--<% include EventCategoryList %> -->
+							</div><!-- end homepage-feature-specifics -->
 						</div><!-- end homepage-feature-text -->
 						
-						<h2>share</h2>
+						<!--<h2>share</h2>-->
 						<% include ShareLinks %>
-
+						<a class="more-event-info" href="$Link"><img src="{$ThemeDir}/images/view_event.png" alt="View Event" /></a>
 					</div><!-- end homepage-feature-content -->
 					<div style="clear: both"></div>
 

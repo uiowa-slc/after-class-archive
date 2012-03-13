@@ -1,14 +1,6 @@
 <section id="secondary_event_list">
 	<% control Events %>
 		<div class="secondary_event">
-		
-				<div class="event_date_tag">
-					<a href="$Link">
-						<div class="event_date_box">
-							$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)
-						</div>
-					</a>
-				</div>
 								
 				<% control Event %>
 					<a href="$Link">
