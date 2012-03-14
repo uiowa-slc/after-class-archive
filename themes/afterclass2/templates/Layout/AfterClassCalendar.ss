@@ -154,18 +154,23 @@
 <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAfter-Class%2F319621914746674&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 	</div><!-- end newsletter-signup -->
 	
+	<% if AllDeadlines %>
 	<div id="approaching-deadlines">
-		<h2><img src="{$ThemeDir}/images/approaching_deadlines2.png" alt="Approaching Deadlines" /></h2>
+		<h2><a href="{$BaseHref}deadlines/"><img src="{$ThemeDir}/images/approaching_deadlines2.png" alt="Approaching Deadlines" /></a></h2>
 		
 		<div id="deadlines-container">
 			<ul id="deadlines">
-				<li class="odd"><strong>March 13</strong> - Deadline for intramural sports signup</li>
-				<li class="even"><strong>March 18</strong> - Must turn in some rec services thing</li>
+				<% control AllDeadlines %>
+				<li class="$EvenOdd"><strong>$Date.NiceUS</strong> - $Description</li>
+				<% end_control %>
+			
 			</ul>
 		
 		</div>
 	
 	</div><!-- end approaching-deadlines -->
+	
+	<% end_if %>
 	<div id="the-dome">
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/underthedome_test.png" alt="Under the Dome Student Blog" /></a></h2>
 		<% control RSSDisplay(3, http://imu.uiowa.edu/news/feed/) %>
@@ -187,15 +192,28 @@
 
 	
 	<div id="categories">
-		<h2><img src="{$ThemeDir}/images/categories.png" alt="Categories" /></h2>
+		<h2><img src="{$ThemeDir}/images/by_type.png" alt="By Type" /></h2>
 		
 		<ul class="category">
-			<li>movies</li>
-			<li>performing arts</li>
-			<li>campus events</li>
-			<li>wellness</li>
-			<li>theatre</li>
-			<li>concerts</li>
+		
+			<% control getEventtypes %>
+				<% if Events %>
+					<li><h3><a href="events/categories/$Title">$Title ($Events.Count)</a></h3>
+					
+						<ul>
+							<% control Events %>
+								<li><a href="$Event.Link">$Event.Title</a></li>
+							<% end_control %>
+						
+						</ul>
+					
+					
+					</li>				
+				<% end_if %>
+			
+			
+			
+			<% end_control %>
 		
 		
 		</ul><!-- end category -->

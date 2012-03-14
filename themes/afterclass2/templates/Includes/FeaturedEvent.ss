@@ -1,42 +1,70 @@
-<section id="secondary_feature" class="feature clearfix">
-						<a href="$Link">
-							<% if Image %>
-				    	   	<img src="$Image.LargeImage.URL" class="secondary_feature_image"/>
-				    	   	<% else %>
-				    	   	<img src="$ThemeDir/images/placeholder.png" class="secondary_feature_image" />
-				    	   	<% end_if %>
-				    	</a>
-				    	   	<div class="event_group">
-					    	   	<div class="event_text">
-					    			<h2><a href="$Link">Featured Event <strong>$Title</strong></a></h2>
-					    			<p class="event_details">
-					    			
-					    			<% control UpcomingDates %>
-									<% if First %>
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)<br/>
-					        		$StartTime.nice</a><br/>
-					    			<% end_if %>
-					    			<% end_control %>
-					    			
-					            	$Location<br/>
-					            	$Cost</p>           
+<div class="feature-background-wrapper" style="background: url(/afterclass_dev/themes/afterclass2/images/home-feature-background.png); background-position: bottom; background-repeat: none;">
+				<div class="homepage-feature" >
+				
+					<!--<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />-->
+					<h1><a href="$Link">$Title</a></h1>
+					<div class="homepage-feature-details"> <a href="$Link">
+						<% if Image %>
+						$Image.CroppedImage(550,250)
+						<% else %>
+						<img src="$ThemeDir/images/placeholder.png" />
+						<% end_if %>
+						</a>
+						
+						<div style="clear:both"></div>
+
+						<div class="home-feature-share">
+						<!--<% include HomeFeatureDateBox %>-->
+						</div><!-- end home-feature-share -->
+
+					</div><!-- end homepage-feature-details -->
+					<div class="homepage-feature-content">
+					
+						<div class="homepage-feature-text">
+						<p>$Content.LimitSentences(3)</p>
+						
+							<div class="homepage-feature-specifics">
+							
+			
+										
+					
+								<div class="homepage-feature-when">
+								
+									<% control DateAndTime %>
+									<p> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(F) $StartDate.format(j) </a>
+										<% if EndDate %>
+										- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(F) $EndDate.format(j) </a>
+										<% end_if %>
+										<% if StartTime %>
+										at $StartTime.Nice
+										<% end_if %>
+									</p>
+									<% end_control %>
+								</div><!-- end homepage-feature-when -->
+								
+								<div class="homepage-feature-where">
+									<p>
+									<% control Venues %>
+									@ <a href="$Link">$Title</a>
+									<% end_control %>
+									</p>
+											
+									<% if Cost %>
+										<p>Admission: <a href="$Link">$Cost </a></p>
+									<% end_if %>
 								</div>
-					       	
-					       		<div class="event_date_tag">
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
-										<% control UpcomingDates %>
-											<% if First %>
-												<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong>
-													$StartDate.format(D)
-												</div></a>
-											<% end_if %><!-- end if first -->
-							        	<% end_control %>
-						        	</a>
-						        	
+								<div class="clear"></div>
+							
+								<!--<% include EventCategoryList %> -->
+							</div><!-- end homepage-feature-specifics -->
+						</div><!-- end homepage-feature-text -->
+						
+						<!--<h2>share</h2>-->
 						<% include ShareLinks %>
-					        	</div><!-- /event_date_tag -->       
-					        
-					         	<p class="event_description">$Content</p>
-					    
-							</div><!-- /event_group -->
-				    	</section>
+						<a class="more-event-info" href="$Link"><img src="{$ThemeDir}/images/view_event.png" alt="View Event" /></a>
+					</div><!-- end homepage-feature-content -->
+					<div style="clear: both"></div>
+
+				</div><!-- end homepage-feature -->
+				
+			</div><!-- end feature-background-wrapper -->

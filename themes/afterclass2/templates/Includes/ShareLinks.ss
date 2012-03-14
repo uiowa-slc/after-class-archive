@@ -1,4 +1,3 @@
-<div id="share-area">
 	<div class="share-links">
 		<div id="facebook">
 			<div class="fb-like" data-href="$AbsoluteLink" data-send="false" data-layout="button_count" data-width="50" data-show-faces="true"></div>
