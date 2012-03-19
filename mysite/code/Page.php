@@ -5,6 +5,9 @@ class Page extends SiteTree {
 	);
 
 	public static $has_one = array(
+	
+		"SecondaryContent" => "HTMLText"
+	
 	);
 	public function getEventtypes() {
 		return DataObject::get('Eventtype');
@@ -16,6 +19,8 @@ class Page extends SiteTree {
 		return DataObject::get('Sponsor', '','Title ASC');
 	}
 	
+
+		
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
     
 		//get our template
@@ -45,8 +50,8 @@ class Page_Controller extends ContentController {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
-	);
+	/*public static $allowed_actions = array (
+	);*/
 
 	public function init() {
 		parent::init();
@@ -57,6 +62,32 @@ class Page_Controller extends ContentController {
 		  
 		
 	}
+	
+	public function AllDeadlines(){
+	
+		$deadlines = DataObject::get("Deadline", $filter=null, $sort = "Date ASC");
+		
+		if($deadlines){
+			return $deadlines;
+		
+		}
+	
+	
+	}
+	
+	public function RandomNewEvent($pool_size = 6) {
+	
+		$newest_events = DataObject::get("AfterClassEvent", $filter = null, $sort = "Created DESC", $join = null, $limit = $pool_size);
+			if(isset($newest_events)){
+			$events = $newest_events->toArray();
+			shuffle($events);
+			return $events[0];
+		}
+		
+		
+	
+	
+	}	
 	
 	public function iswindows() {
 		if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),"windows") === false) {

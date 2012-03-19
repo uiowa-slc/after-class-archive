@@ -109,17 +109,6 @@ document.createElement('hgroup');
 	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
 	
 	
-	<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
-	<fieldset>
-		<legend></legend>
-		
-			<div id="Search" class="field text  nolabel"><div class="middleColumn"><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" placeholder="Search for an event" ></div></div>
-		
-		
-			<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
-		
-	</fieldset>
-</form>
 	    
 	</div>
 </header>
@@ -181,18 +170,29 @@ document.createElement('hgroup');
 		<% end_control %>
     </ul>
     </div>
-    
-    <div id="secondary-nav">
-<p>popular: <a href="#">movies</a>, <a href="#">concerts</a>, <a href="#">wellness</a> </p>
+    <% end_cached %>
 
+    <div id="secondary-nav">
+<!--<p><% control RandomNewEvent %>$Image.SetCroppedSize(30,30)<a href="$Link">$Title</a><span>$Content.LimitWordCount(5)</span><% end_control %></p>-->
+
+	<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
+	<fieldset>
+		<legend></legend>
+		
+			<div id="Search" class="field text  nolabel"><div class="middleColumn"><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" placeholder="Search for an event" ></div></div>
+		
+		
+			<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
+		
+	</fieldset>
+</form>
 </div>
    <div style="clear: both"></div>
  
 </nav>
 
-<% end_cached %>
 <!--cut out header and nav-->
-<div id="page_content">
+<div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>">
 	<div class="container clearfix">
 	$Layout
 	
