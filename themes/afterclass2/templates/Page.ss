@@ -123,9 +123,12 @@ document.createElement('hgroup');
 			<ul>
 				<% control getEventtypes %>
 					<% if Showmenu %>
-					<% if Events %>
-					<li><a href="events/categories/$Title">$Title</a></li>
-					<% end_if %>
+						<% if Events %>
+							<li><a href="events/categories/$Title">$Title ($Events.Count)</a></li>
+						
+						<% else %>
+							<li class="no-events"><span>$Title (0)</span></li>
+						<% end_if %>
 					<% end_if %>
 				<% end_control %>
 			</ul>
@@ -135,10 +138,12 @@ document.createElement('hgroup');
 			<ul>
 				<% control getSponsors %>
 					<% if Showmenu %>
-					<% if Events %>
-
-					<li><a href="events/categories/$Title">$Title</a></li>
-					<% end_if %>
+						<% if Events %>
+							<li><a href="events/categories/$Title">$Title ($Events.Count)</a></li>
+						
+						<% else %>
+							<li class="no-events"><span>$Title (0)</span></li>
+						<% end_if %>
 					<% end_if %>
 				<% end_control %>
 			</ul>
@@ -148,10 +153,12 @@ document.createElement('hgroup');
 			<ul>
 				<% control getVenues %>
 					<% if Showmenu %>
-					<% if Events %>
-
-					<li><a href="events/categories/$Title">$Title</a></li>
-					<% end_if %>
+						<% if Events %>
+							<li><a href="events/categories/$Title">$Title ($Events.Count)</a></li>
+						
+						<% else %>
+							<li class="no-events"><span>$Title (0)</span></li>
+						<% end_if %>
 					<% end_if %>
 				<% end_control %>
 			</ul>
@@ -168,6 +175,9 @@ document.createElement('hgroup');
 			</li>
 			<% end_if %>
 		<% end_control %>
+		
+		
+		
     </ul>
     </div>
     <% end_cached %>
@@ -204,14 +214,14 @@ document.createElement('hgroup');
 </div>
 <footer id="page_footer">
 	<div class="container">
-	<div class="disability-statement"><p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact Nancy Abram in advance at 319-335-3134.</p></div>
+	<div class="disability-statement"><p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:nancy-abram@uiowa.edu">Nancy Abram</a> in advance at 319-335-3414.</p></div>
 		<div id="dsl-info">
 			<div id="logo-container">
 				<a href="http://www.uiowa.edu" class="uiowa-logo"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a> 
 				<a href="http://studentlife.uiowa.edu/"><img src="{$ThemeDir}/images/dsl_logo.png" alt="The University of Iowa Logo" /></a>  
 			</div>
 			<p>319-335-3117<br />
-			<a href="mailto:uiafterclass@gmail.com">uiafterclass@gmail.com</a><br />
+			<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
 			Site designed by IMU Marketing + Design
 			
 			</p>
@@ -220,10 +230,13 @@ document.createElement('hgroup');
 		</div>
 		<ul>
 			<li><a href="{$BaseHref}/events/category">Category</a></li>
-			<li><a href="{$BaseHref}/events/category">Sponsor</a></li>
-			<li><a href="{$BaseHref}/events/category">Venue</a></li>
+			<li><a href="{$BaseHref}/events/sponsor">Sponsor</a></li>
+			<li><a href="{$BaseHref}/events/venue">Venue</a></li>
 			<li><a href="{$BaseHref}/events/">All Events</a></li>
 			<li><a href="{$BaseHref}/add/">Submit an Event</a></li>
+			<% if FutureDeadlines %>
+			<li><a href="{$BaseHref}deadlines/">Upcoming Deadlines</a></li>
+			<% end_if %>
 
 		</ul>
 		<!--<div style="clear: both"></div>-->

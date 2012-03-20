@@ -75,6 +75,16 @@ class Page_Controller extends ContentController {
 	
 	}
 	
+	public function FutureDeadlines($number = 0){
+		$deadlines = DataObject::get("Deadline", $filter="Date >= DATE(NOW())", $sort = "Date ASC", $join = null, $limit = $number);
+	
+		if($deadlines){
+			return $deadlines;
+		
+		}
+			
+	}
+	
 	public function RandomNewEvent($pool_size = 6) {
 	
 		$newest_events = DataObject::get("AfterClassEvent", $filter = null, $sort = "Created DESC", $join = null, $limit = $pool_size);

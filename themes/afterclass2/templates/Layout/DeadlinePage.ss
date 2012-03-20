@@ -1,13 +1,28 @@
 <header id="secondary_header">
-	<h1>$Title</h1>
+	<h1>Important Dates and Deadlines</h1>
 </header>
 <div id="single-page-content">
 
-<div>
-<% control AllDeadlines %>
-<p>$Title</p>
-<% end_control %>
 $Content
 $Form
-</div>
+
+<% if AllDeadlines %>
+
+	<% control FutureDeadlines %>
+	<div class="deadline">
+		<h2>$Title</h2>
+		<h3>Deadline: <span>$Date.NiceUS</span></h3>
+		<p>$Description</p>
+		<% if LinkURL %>
+			<a href="$LinkURL">More information.</a>
+		<% end_if %>
+	</div>
+	<% end_control %>
+
+<% else %>
+<p>There aren't any deadlines currently listed right now.</p>
+
+<% end_if %>
+
+
 </div>

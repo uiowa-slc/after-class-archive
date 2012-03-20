@@ -16,6 +16,7 @@ class Category extends DataObject {
 		$ids = array();
 		// Get IDs of all events in this category.
 		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
+		
 		// Setup filter
 		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
 		// Get the calendar
@@ -24,7 +25,12 @@ class Category extends DataObject {
 		if (empty($ids)) {
 			return false;
 		} else {
-			return $calendar->Events($filter,null,null,null,$limit);
+			$events = $calendar->Events($filter,null,null,null,$limit);
+			
+			$events->removeDuplicates('EventID');
+				
+			
+			return $events;
 		}
 	}
 	

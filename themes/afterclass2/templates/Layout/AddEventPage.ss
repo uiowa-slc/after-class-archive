@@ -1,7 +1,8 @@
-<div id="single-page-content">
 <header id="secondary_header">
-	<h1>$Title</h1>
+	<h1>Submit An Event</h1>
 </header>
+<div id="single-page-content">
+
 <div>
 
 $Content

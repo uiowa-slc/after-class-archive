@@ -3,6 +3,7 @@
 				
 					<!--<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />-->
 					<h1><a href="$Link">$Title</a></h1>
+					<% control Eventtypes %><a class="event-header-category" href="$Link">$Title</a><% end_control %>
 					<div class="homepage-feature-details"> <a href="$Link">
 						<% if Image %>
 						$Image.CroppedImage(550,250)
@@ -61,7 +62,7 @@
 						
 						<!--<h2>share</h2>-->
 						<% include ShareLinks %>
-						<a class="more-event-info" href="$Link"><img src="{$ThemeDir}/images/view_event.png" alt="View Event" /></a>
+						<a class="more-event-info" href="$Link">view event</a>
 					</div><!-- end homepage-feature-content -->
 					<div style="clear: both"></div>
 
