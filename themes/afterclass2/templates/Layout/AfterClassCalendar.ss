@@ -22,7 +22,7 @@
 			<% end_control %>
 		<% end_if %> <!-- end if featured events -->
 		
-		
+		 
 	<% end_if %> <!-- end if action = view -->
 	<div style="clear: both"></div>
 
@@ -33,7 +33,7 @@
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>">
 	
 		<div class="homepage-event-header">
-			<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event.Eventtypes %><a class="event-header-category" href="$Link">$Title</a><% end_control %>
+			<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %>
 			
 			<div style="clear: both"></div>
 		
@@ -50,7 +50,7 @@
 					<% end_control %>
 					</a>
 					
-					<div><a href="$Event.Link" class="more-event-info"><img src="{$ThemeDir}/images/view_event.png" /></a></div>
+					<div><a href="$Event.Link" class="more-event-info">view event</a></div>
 
 			</div><!-- end homepage-event-image -->
 
@@ -105,19 +105,7 @@
 			</div><!-- end homepage-event-meta -->
 			</div><!-- end homepage-event-desc -->
 
-				<!--<div class="tags-container">
-				<h4>tagged as</h4>
-				<ul class="tags">
-            		<% control Event %>
-            		
-            			<% control AllCategories %>
-            				<li><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %></li>
-            			<% end_control %>
-            		<% end_control %>
-				
-				</ul>
-				</div>-->
-				
+	
 
 		<div style="clear: both;"></div>
 
@@ -154,18 +142,24 @@
 <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAfter-Class%2F319621914746674&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 	</div><!-- end newsletter-signup -->
 	
-	<% if AllDeadlines %>
+	<% if FutureDeadlines %>
 	<div id="approaching-deadlines">
 		<h2><a href="{$BaseHref}deadlines/"><img src="{$ThemeDir}/images/approaching_deadlines2.png" alt="Approaching Deadlines" /></a></h2>
 		
 		<div id="deadlines-container">
 			<ul id="deadlines">
-				<% control AllDeadlines %>
-				<li class="$EvenOdd"><strong>$Date.NiceUS</strong> - $Description</li>
+				<% control FutureDeadlines(10) %>
+				<li class="$EvenOdd">
+					<% if LinkURL %>
+						<a href="$LinkURL"><strong>$Date.NiceUS</strong> - $Description</a>
+					<% else %>
+						<a href="{$BaseHref}deadlines/"><strong>$Date.NiceUS</strong> - $Description</a>					
+					<% end_if %>
+				</li>
 				<% end_control %>
 			
 			</ul>
-		
+			<span><a href="{$BaseHref}deadlines/">view all deadlines</a></span>
 		</div>
 	
 	</div><!-- end approaching-deadlines -->
@@ -188,9 +182,9 @@
 	
 	
 	</div><!-- end the-dome -->
-	
 
-	
+
+
 	<div id="categories">
 		<h2><img src="{$ThemeDir}/images/by_type.png" alt="By Type" /></h2>
 		
@@ -220,26 +214,10 @@
 	
 	
 	</div><!-- end categories -->
-	
-	<!--<div id="by-day">
-		<h2><img src="{$ThemeDir}/images/by_day.png" /></h2>
-		
-		<div class="day">
-			<h3>March 1</h3>
-			<ul>
-				<li>New Year's Eve</li>
-				<li>Dancers in Company</li>
-				<li>Eating Disorder Awareness Week</li>
-			</ul>
-		
-		</div>
-		
-	
-	</div>-->
+
 	
 </div><!-- end right-column -->
 
 <div class="clear"></div>
-
 
 

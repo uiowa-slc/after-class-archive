@@ -56,6 +56,18 @@ class AfterClassEvent extends CalendarEvent {
 	
 	}
 	
+	public function RandomEventType(){
+		$event_type = $this->getComponents('Eventtypes', '', 'RAND()', '', 1);
+		
+		if($event_type){
+		
+			return $event_type;
+		}
+
+	
+	
+	}
+	
 	function RelatedEvents() {
 		$ids = array();
 		

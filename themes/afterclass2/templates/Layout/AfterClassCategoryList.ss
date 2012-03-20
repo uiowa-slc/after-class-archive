@@ -26,10 +26,46 @@
 			<a href="$Link"><img src="$Image.SmallImage.URL"></a>
 			<div class="info">
 			<a href="$Link"><strong>$Title</strong></a><br />
-			<% end_control %>
-			$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %>
+			
+				 <div id="dates">
+	    			<% control DateAndTime %> 
+		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
+		    				<% if StartTime %> at $StartTime.nice<% end_if %>
+		    			
+	    			
+		    			<% if EndDate %> -
+		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 	</a>
+		    			 	<% end_if %> 
+		    			 <br />
+	    			<% end_control %>
+    			</div>
+    			
+    			<div class="where">
+				
+					<% if Venues %>
+						<ul>
+						<% control Venues %>
+							<li>@ <a href="$Link">$Title</a></li>
+						<% end_control %>
+						</ul>
+					<% end_if %>
+				</div>
+				
+						
+    			
+						<% end_control %>
+
+			
 			</div>
-			</li><% end_control %>
+			</li>
+			
+
+			
+			
+			<% end_control %>
 		</ul>
 		<!--<div class="view-all"><a href="{$BaseHref}events/categories/$Title">View All $Events.count Events</a></div>-->
 
@@ -56,7 +92,7 @@
 	margin: 0px 15px 20px 0px;
 	padding: 10px;
 	width: 450px;
-	min-height: 150px;
+	min-height: 180px;
 }
 .category-list ul li img {
 	float: right;
@@ -65,7 +101,7 @@
 .category-list ul li .info {
 }
 .category-list ul li .info strong {
-	color: #2488A3;
+	/*color: #2488A3;*/
 	font-family: 'Doppio One', monospace;
 	font-size: 22px;
 	font-weight: normal;
@@ -76,6 +112,24 @@
 	display: block;
 	width: 300px;
 	
+}
+
+.category-list .where {
+	margin: 0;
+	margin-top: 5px;
+	width: auto;
+
+}
+
+.category-list .where ul li{
+	border: none;
+	list-style-type: none;
+	float: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	min-height: 0;
+
 }
 .category-list .view-all {
 	clear: left;
