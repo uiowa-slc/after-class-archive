@@ -6,10 +6,10 @@ $project = 'mysite';
 global $databaseConfig;
 $databaseConfig = array(
 	"type" => 'MySQLDatabase',
-	"server" => 'koko.imu.uiowa.edu:3306',
-	"username" => 'afterclass',
-	"password" => 'thelongafterclasspasswordislong452',
-	"database" => 'afterclass',
+	"server" => 'localhost:3306',
+	"username" => 'root',
+	"password" => 'root',
+	"database" => 'afterclass_dev',
 	"path" => '',
 );
 
@@ -35,3 +35,5 @@ SpamProtectorManager::set_spam_protector('RecaptchaProtector');
 
 //$recaptchaField = new RecaptchaField('MyCaptcha');
 //$recaptchaField->jsOptions = array('theme' => 'clean'); // optional
+
+Object::add_extension('CMSMain', 'CMSActionDecorator');

@@ -18,7 +18,8 @@ class AfterClassEvent extends CalendarEvent {
 		'Submitterdate' => 'Text',
 		'CancelReason' => 'Text',
 		'status' => 'Text',
-		'facebook_publishdate' => 'Date'
+		'facebook_publishdate' => 'Date',
+		'facebook_published' => 'Boolean'
 	);
 	static $has_one = array(
 		'Image' => 'SizedImage'
@@ -90,19 +91,30 @@ class AfterClassEvent extends CalendarEvent {
 	
 	public function onAfterPublish() {
 		parent::onAfterPublish();
-		if (($this->Featured) && (!$this->facebook_publishdate)) {
-			$this->facebook_publishdate = SS_Datetime::now(); getdate(); # SS_Datetime::now() ? or SS_Datetime::now()->getValue();
-			$this->facebook_publish();
-			$this->write();
+		if ((($this->Featured) && (!$this->facebook_publishdate)) && (!$this->facebook_published)) {
+			//$this->facebook_publishdate = SS_Datetime::now(); #getdate(); # SS_Datetime::now() ? or SS_Datetime::now()->getValue();
+			//$this->facebook_published = true;
+			//$this->write();
+			//$this->facebook_publish();
 		}
 		return true;
 	}
 	public function facebook_publish() {
  		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
  		$url = 'https://graph.facebook.com/319621914746674/feed';
+ 		$message = $this->data()->Title;
+ 		foreach($this->data()->DateAndTime() as $time) {
+ 			$message = $message . ' - ';
+ 			$date = new DateTime($time->StartDate);
+ 			$message = $message . ' ' . $date->format('F d');
+ 			if ($time->EndDate) {
+ 				$date = new DateTime($time->EndDate);
+ 				$message = $message . ' to ' . $date->format('F d');
+ 			}
+ 		}
  		$fields = array(
  			'access_token' => urlencode("AAADc6v8HNekBAGxX0KBswrxm7itBjiC5xuNHpXEaxQJRxmKgYbxZC6luSf9pKD7m3n5MLpgfkeV92H1oTZAav1DUwAz3LD26vePiAQ5aouXt7OeuaZA"),
- 			'message' => urlencode($this->data()->Title),
+ 			'message' => urlencode($message),
  			'link' => urlencode($this->data()->AbsoluteLink()),
  			'picture' => urlencode($this->data()->Image()->MediumImage()->AbsoluteURL)
         );
@@ -132,6 +144,16 @@ class AfterClassEvent extends CalendarEvent {
 		'MonthlyIndex' => 'Int',
 		'MonthlyDayOfWeek' => 'Int'
 	);*/
+	
+	function getCMSActions() {
+		$actions = parent::getCMSActions();
+		$Action = new FormAction(
+			"doFacebook",
+			"Post To Facebook"
+        );
+		$actions->push($Action);
+		return $actions;
+	}
 	
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
