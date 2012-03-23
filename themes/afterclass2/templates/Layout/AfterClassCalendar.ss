@@ -202,7 +202,7 @@
 
 	<div id="categories">
 		<h2><img src="{$ThemeDir}/images/by_type.png" alt="By Type" /></h2>
-		
+		<div id="categories-container">
 		<ul class="category">
 		
 			<% control getEventtypes %>
@@ -226,7 +226,7 @@
 		
 		
 		</ul><!-- end category -->
-	
+	</div><!-- end categories-container -->
 	
 	</div><!-- end categories -->
 

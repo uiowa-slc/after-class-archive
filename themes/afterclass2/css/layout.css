@@ -2291,7 +2291,17 @@ color: #f9e091;
 
 }
 
+
+
 #categories ul li{
+
+
+}
+
+#categories-container {
+background: #302c2d;
+padding: 5px;
+margin-top: -20px;
 
 
 }

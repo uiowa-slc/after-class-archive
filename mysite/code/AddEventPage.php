@@ -1,6 +1,9 @@
 <?php
 class AddEventPage extends Page {
 	public static $db = array(
+	
+	
+	
 	);
 	public static $has_one = array(
 	);
@@ -29,9 +32,9 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 	public function addEventForm() {
 		$fields = new FieldSet(
-            new TextField('Title','Name of Event'),
-            new TextField('Location','Location of Event'),
-            new TextField('Submitterdate','Date or dates of Event'),
+            new TextField('Title','Name of the event'),
+            new TextField('Location','Location of the event'),
+            new TextField('Submitterdate','Date or dates of the event'),
             new TextField('Cost','How much does it cost to attend?'),
             new TextField('Content','Describe what the event is about.'),
             new TextField('Sponsor','Who is sponsoring or hosting the event?'),
@@ -60,15 +63,24 @@ class AddEventPage_Controller extends Page_Controller {
         
         //Email notification
 		
-		$from = "After Class Submissions";
+		if($event->Submitteremail){
+			$from = $event->Submitteremail;
+		}else {
+			$from = "After Class Submissions";
+		}
 		$to = "dustin-quam@uiowa.edu, benjamin-lewis@uiowa.edu, afterclass@uiowa.edu";
-		$subject = "New After Class Event Submitted.";
+		$subject = "[AC]".$event->Title;
 		$body = '<p>Someone submitted an After Class Event. This is the event information:</p>
 		
 				<ul>
 				
-					<li>'.$event->Title.'</li>
-					<li>'.$event->Content.'</li>
+					<li><strong>Title:</strong> '.$event->Title.'</li>
+					<li><strong>Submitted By:</strong> '.$event->Submittername.'['.$event->Submitteremail.']</li>
+					<li><strong>Date:</strong> '.$event->Submitterdate.'</li>
+					<li><strong>Location:</strong> '.$event->Location.'</li>
+					<li><strong>Cost:</strong> '.$event->Cost.'</li>
+					<li><strong>Sponsored By:</strong> '.$event->Sponsor.'</li>
+					<li><strong>Description:</strong> '.$event->Content.'</li>
 					
 				</ul>
 				

@@ -252,7 +252,11 @@ class AfterClassEvent extends CalendarEvent {
 		
 		
 		$f->insertBefore(new LiteralField('DatesInstructions', $date_instructions), 'DateTimes');
+		
+		
+		
 		if($this->Submittername != '' ){
+			$f->addFieldToTab('Root.Content.DatesandTimes', new LiteralField('SubmittedDates','<p>Suggested Date(s) from Submitter: <strong style="font-size: 18px">'.$this->Submitterdate.'</strong></p>'));
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
 			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
