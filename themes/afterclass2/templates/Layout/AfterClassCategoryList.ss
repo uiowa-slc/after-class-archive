@@ -10,7 +10,6 @@
 </header>
 <ul class="category-list">
 	<% control Category %>
-	
 	<% if Events %>
 	
 		<li><h2><a href="$Link">$Title</a><% if Address %> <span><a href="#" target="_blank">Get Directions</a></span><% end_if %></h2>
@@ -93,6 +92,8 @@
 	padding: 10px;
 	width: 450px;
 	min-height: 180px;
+	background: rgba(255, 255, 255, .3);
+
 }
 .category-list ul li img {
 	float: right;

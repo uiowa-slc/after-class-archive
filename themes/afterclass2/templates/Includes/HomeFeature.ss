@@ -1,9 +1,9 @@
-<div class="feature-background-wrapper" style="background: url(/afterclass_dev/themes/afterclass2/images/home-feature-background.png); background-position: bottom; background-repeat: none;">
+<div class="feature-background-wrapper">
 				<div class="homepage-feature" >
 				
 					<!--<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />-->
 					<h1><a href="$Link">$Title</a></h1>
-					<% control Eventtypes %><a class="event-header-category" href="$Link">$Title</a><% end_control %>
+					<% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %>
 					<div class="homepage-feature-details"> <a href="$Link">
 						<% if Image %>
 						$Image.CroppedImage(550,250)

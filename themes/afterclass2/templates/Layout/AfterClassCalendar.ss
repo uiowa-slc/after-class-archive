@@ -1,6 +1,17 @@
+<% require css(event_calendar/css/calendar.css) %>
+<% require javascript(event_calendar/javascript/calendar_core.js) %>
 <div id="left-column">
 	<% if action = view %>
+	<h1 class="date-header">Events on $DateHeader</h1>
 	
+		<% if Events %>
+		
+		<% else %>
+		
+		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/category/">categories</a>, <a href="{$BaseHref}events/venue">venues</a>, and <a href="{$BaseHref}events/sponsor/">sponsors</a> for full event listings.</p>
+		
+		<% end_if %>
+		
 	<% else %>
 		<!--<span class="featured">featured events</span>-->
 		<% if FeaturedEvents %>
@@ -33,7 +44,7 @@
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>">
 	
 		<div class="homepage-event-header">
-			<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %>
+			<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
 			
 			<div style="clear: both"></div>
 		
@@ -121,6 +132,10 @@
 
 
 <div id="right-column">
+	<div id="calendar-filter-form">
+		$CalendarWidget
+	</div>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAfter-Class%2F319621914746674&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 	<div id="newsletter-signup">
 		<h2><img src="{$ThemeDir}/images/stay_connected.png" alt="Stay Connected With Our Newsletter" /></h2>
 		<p>sign up for our newsletter to see what's happening around campus. you also might win something.</p>
@@ -139,9 +154,8 @@
 		</fieldset>
 	</form>
 </div><!-- end mc_embed_signup -->
-<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAfter-Class%2F319621914746674&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 	</div><!-- end newsletter-signup -->
-	
+
 	<% if FutureDeadlines %>
 	<div id="approaching-deadlines">
 		<h2><a href="{$BaseHref}deadlines/"><img src="{$ThemeDir}/images/approaching_deadlines2.png" alt="Approaching Deadlines" /></a></h2>
@@ -151,9 +165,9 @@
 				<% control FutureDeadlines(10) %>
 				<li class="$EvenOdd">
 					<% if LinkURL %>
-						<a href="$LinkURL"><strong>$Date.NiceUS</strong> - $Description</a>
+						<a href="$LinkURL" target="_blank>"<strong>$Date.NiceUS</strong> - $Title</a>
 					<% else %>
-						<a href="{$BaseHref}deadlines/"><strong>$Date.NiceUS</strong> - $Description</a>					
+						<a href="{$BaseHref}deadlines/"><strong>$Date.NiceUS</strong> - $Title</a>					
 					<% end_if %>
 				</li>
 				<% end_control %>
@@ -167,6 +181,7 @@
 	<% end_if %>
 	<div id="the-dome">
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/underthedome_test.png" alt="Under the Dome Student Blog" /></a></h2>
+		<div class="blog-entries">
 		<% control RSSDisplay(3, http://imu.uiowa.edu/news/feed/) %>
 		<div class="blog-entry $EvenOdd">
 			<h3><a href="$Link">$Title</a></h3>
@@ -179,7 +194,7 @@
 		
 		</div><!-- end blog-entry -->
 		<% end_control %>
-	
+		</div><!-- end blog-entries -->
 	
 	</div><!-- end the-dome -->
 

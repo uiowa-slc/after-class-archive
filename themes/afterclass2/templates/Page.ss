@@ -1,8 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
 <head>
 	<% base_tag %>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
@@ -10,8 +7,14 @@
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-	<title>$Title - After Class: The Best of UI's Culture, Concerts and Nightlife</title>
+	
+	<title><% if Category %>$Category.Title	<% if Action = category %>
+		Categories - 
+	<% else_if Action = venue %>
+		Venues - 
+	<% else_if Action = sponsor %>
+Event Sponsors -
+	<% end_if %> <% end_if %>$Title  - After Class: The Best of UI's Culture, Events and Nightlife</title>
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">
 	<% else %>
@@ -630,7 +633,7 @@ $('#mce-'+resp.result+'-response').html(msg);
 			
 			
 		</div>
-		
+		<div class="clear"></div>
 	</div>
 </footer>
 
@@ -654,10 +657,6 @@ $('#mce-'+resp.result+'-response').html(msg);
 
 </script>
 
-<!--[if lt IE 7 ]>
-	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-<![endif]-->
 
 </body>
 </html>

@@ -358,6 +358,11 @@ font-family: 'SketchBlock-Bold';
 
 }
 
+#left-column p.homepage-message {
+	color: white;
+
+}
+
 #student_life_header {
   height: 38px;
   border-top: 5px solid #ffd026;
@@ -410,11 +415,34 @@ font-family: 'SketchBlock-Bold';
   position: relative;
   width: 1000px;
   margin: auto; }
-#page_content.AfterClassCalendar.index .container, #page_content.AfterClassEvent.index .container {
+#page_content.AfterClassCalendar.index .container, #page_content.AfterClassEvent.index .container, #page_content.AfterClassCalendar.view .container {
 
 	margin-top: 20px;
 
 }
+
+#page_content.AfterClassCalendar.view #homepage-event-list h2 {
+	display: none;
+
+}
+
+#page_content.AfterClassCalendar.view #approaching-deadlines {
+	display: none;
+
+}
+
+#page_content.AfterClassCalendar.view #the-dome {
+	display: none;
+
+}
+
+#page_content.AfterClassCalendar.view #categories {
+	display: none;
+
+}
+
+
+
 #page_navigation {
 
 	text-align: center;
@@ -709,23 +737,26 @@ font-family: 'SketchBlock-Bold';
       }
 
 #page_footer {
-  height: 200px;
+  min-height: 200px;
   background-color: black;
   margin-top: 0;
   border-top: 5px solid #ffd026; }
   #page_footer .container {
-    color: #ffd026; }
+    color: #ffd026;
+    padding-bottom: 35px;
+     }
     #page_footer .container ul {
       margin: 0;
       padding: 20px 0 0 0;
       list-style: none; }
       #page_footer .container ul li {
         float: left;
-        padding-right: 20px; }
+        padding-right: 20px;
+        font-family: 'Doppio One', monospace;
+         }
         #page_footer .container ul li a {
           text-decoration: none;
           color: #ffd026;
-          text-transform: uppercase;
           font-size: 16px;
           font-weight: 400; }
         #page_footer .container ul li a:hover {
@@ -1586,10 +1617,11 @@ font-family: SketchBlock-Bold, sans-serif;
   color: #ffde68;  
  /* padding: 10px;*/
   /*margin-left: 10px;*/
+  margin-top: 19px;
 }
 
 #newsletter-signup p {
-	color: #ffeca8;
+	color: #EBE5E6;
 	margin: 5px 0;
 }
 
@@ -2114,7 +2146,7 @@ a:active.event-header-category {
 
 
 #the-dome {
-	margin-top: 30px;
+	margin-top: 60px;
 }
 
 #the-dome h2 {
@@ -2147,6 +2179,12 @@ font-family: 'Open Sans', sans;
 font-size: 16px;
 }
 
+.blog-entries {
+	margin-top: -5px;
+	z-index: 99;
+
+}
+
 
 
 #the-dome .blog-entry.even {
@@ -2171,12 +2209,15 @@ color: #f9e091;
 
 
 .feature-background-wrapper {
-
+	background: url(../images/home-feature-background.png); 
+	background-position: bottom; 
+	background-repeat: none;
 
 }
 
 #approaching-deadlines {
 	font-family: "Open Sans", sans;
+	margin-top: 30px
 
 
 }
@@ -2186,7 +2227,7 @@ color: #f9e091;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	border: 1px solid #5f8b94;
+	border: 1px solid #666;
 }
 
 
@@ -2283,7 +2324,7 @@ color: #f9e091;
 .disability-statement {
 	font-size: 14px;
 	margin: 5px 0;
-	color: #C6F5FF;
+	color: #EBE5E6;
 
 }
 
@@ -2355,5 +2396,105 @@ color: #f9e091;
 
 .deadline h3 span {
 	color: #2daacc;
+
+}
+
+.date-header{ 
+	color: white;
+	margin: 0;
+
+}
+
+#Form_CalendarFilterForm {
+	color: white;
+}
+
+#StartDayStartMonthStartYear .fieldgroupField {
+	float: left;
+
+}
+
+#StartDayStartMonthStartYear label {
+	width: 50px;
+	display: block;
+
+}
+
+#EndDayEndMonthEndYear {
+	clear: both;
+
+}
+
+#EndDayEndMonthEndYear label{
+	width: 50px;
+	display: block;
+}
+
+
+#EndDayEndMonthEndYear .fieldgroupField {
+	float: left;
+}
+
+#calendar-widget .dp-popup{
+	width: 100% !important;
+	background: none !important;
+}
+
+#calendar-widget .jCalendar {
+	width: 100% !important;
+	height: 150px;
+	font-size: 16px;
+}
+
+#calendar-widget h2 {
+	font-size: 18px;
+
+}
+
+table.jCalendar {
+	background: none !important;
+	font-family: 'Open Sans', sans;
+}
+
+table.jCalendar td {
+	background: none;
+	color: white;
+}
+
+table.jCalendar td.other-month:hover {
+	background: #ddd;
+}
+
+table.jCalendar td.today: hover {
+	background: #ddd;
+	color: #C6F5FF;
+}
+
+table.jCalendar td.today {
+	background: none;
+	color: #EACC5F;
+	font-weight: strong;
+}
+
+table.jCalendar td.weekday {
+	
+
+}
+
+table.jCalendar td.other-month {
+	background: none;
+}
+
+table.jCalendar th {
+	background: none;
+color: #C6F5FF;
+}
+
+div.dp-popup h2 {
+	background: none;
+}
+
+#calendar-widget h2 {
+	text-decoration: none;
 
 }
