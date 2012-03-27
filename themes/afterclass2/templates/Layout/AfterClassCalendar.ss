@@ -183,11 +183,9 @@
 	
 	<% end_if %>
 	
-	<% end_cached %>
 	<div id="the-dome">
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/underthedome_test.png" alt="Under the Dome Student Blog" /></a></h2>
 		
-		<% cached %>
 		<div class="blog-entries">
 		<% control RSSDisplay(3, http://imu.uiowa.edu/news/feed/) %>
 		<div class="blog-entry $EvenOdd">
