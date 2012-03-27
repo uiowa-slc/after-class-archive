@@ -10,6 +10,8 @@
 	Deny from all
 </Files>
 
+Header set X-Robots-Tag "noindex"
+
 ErrorDocument 404 /assets/error-404.html
 ErrorDocument 500 /assets/error-500.html
 
@@ -37,7 +39,7 @@ BrowserMatch bMSIE !no-gzip !gzip-only-text/html
 <IfModule mod_rewrite.c>
 	SetEnv HTTP_MOD_REWRITE On
 	RewriteEngine On
-	RewriteBase /
+	RewriteBase /afterclass_dev/
 
 	RewriteCond %{REQUEST_URI} ^(.*)$
 	RewriteCond %{REQUEST_FILENAME} !-f
