@@ -8,13 +8,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title><% if Category %>$Category.Title	<% if Action = category %>
+	<title><% if CategoryName %> $CategoryName - <% end_if %><% if Action = category %>
 		Categories - 
 	<% else_if Action = venue %>
 		Venues - 
 	<% else_if Action = sponsor %>
-Event Sponsors -
-	<% end_if %> <% end_if %>$Title  - After Class: The Best of UI's Culture, Events and Nightlife</title>
+		Event Sponsors -
+	<% end_if %> $Title  - After Class: The Best of UI's Culture, Events and Nightlife</title>
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">
 	<% else %>

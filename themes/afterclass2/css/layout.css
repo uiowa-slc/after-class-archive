@@ -599,12 +599,13 @@ font-family: 'SketchBlock-Bold';
         background-color: #1f758c; }
     #page_navigation ul ul {
       position: absolute;
-      width: 180px;
+      width: 280px;
       left: -9999px;
       z-index: 2000;
       background-color: #1f758c; 
       /*border: 1px solid #66d1fc;*/
       border-top: none;
+      font-size: 14px;
       }
       #page_navigation ul ul a, #page_navigation ul ul span {
         padding: 10px;
@@ -1950,6 +1951,7 @@ a.event-header-category {
 	padding: 5px;
 	margin: 5px;
 	float: right;
+	font-size: 14px;
 	
 
 }
@@ -2252,6 +2254,14 @@ color: #f9e091;
 #approaching-deadlines a {
 	font-weight: normal;
 	color: white;
+}
+
+#approaching-deadlines a.external {
+	background-image: url(../images/external_link.png);
+	background-repeat: no-repeat;
+	background-position-x: 100%;
+	padding-right: 15px;
+	background-position-y: 50%;
 }
 
 #approaching-deadlines a:hover {

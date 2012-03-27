@@ -203,7 +203,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		$CategoryName = addslashes($this->urlParams['Category']);
  		$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
  		$Data = array(
-	      'Category' => $Category
+	      'Category' => $Category,
+	      'CategoryName' => $CategoryName
 	    );
  		return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  	}

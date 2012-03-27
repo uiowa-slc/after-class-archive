@@ -3,7 +3,7 @@
 				
 					<!--<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />-->
 					<h1><a href="$Link">$Title</a></h1>
-					<% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %>
+					<% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_if %>
 					<div class="homepage-feature-details"> <a href="$Link">
 						<% if Image %>
 						$Image.CroppedImage(550,250)

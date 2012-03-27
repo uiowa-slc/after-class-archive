@@ -2,7 +2,7 @@
 <% require javascript(event_calendar/javascript/calendar_core.js) %>
 <div id="left-column">
 	<% if action = view %>
-	<h1 class="date-header">Events on $DateHeader</h1>
+	<h1 class="date-header">Events for $DateHeader</h1>
 	
 		<% if Events %>
 		
@@ -40,6 +40,7 @@
 <div id="homepage-event-list">
 	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
 	
+	<% cached %>
 	<% control AllEvents %>
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>">
 	
@@ -124,7 +125,8 @@
 	
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
-
+	
+	<% end_cached %>
 </div><!-- end homepage-event-list -->
 
 
@@ -155,7 +157,8 @@
 	</form>
 </div><!-- end mc_embed_signup -->
 	</div><!-- end newsletter-signup -->
-
+	
+	<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
 	<% if FutureDeadlines %>
 	<div id="approaching-deadlines">
 		<h2><a href="{$BaseHref}deadlines/"><img src="{$ThemeDir}/images/approaching_deadlines2.png" alt="Approaching Deadlines" /></a></h2>
@@ -165,9 +168,9 @@
 				<% control FutureDeadlines(10) %>
 				<li class="$EvenOdd">
 					<% if LinkURL %>
-						<a href="$LinkURL" target="_blank>"<strong>$Date.NiceUS</strong> - $Title</a>
+						<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.NiceUS </strong> - $Title</a>
 					<% else %>
-						<a href="{$BaseHref}deadlines/"><strong>$Date.NiceUS</strong> - $Title</a>					
+						<a href="{$BaseHref}deadlines/"><strong>$Date.NiceUS </strong> - $Title</a>					
 					<% end_if %>
 				</li>
 				<% end_control %>
@@ -179,8 +182,12 @@
 	</div><!-- end approaching-deadlines -->
 	
 	<% end_if %>
+	
+	<% end_cached %>
 	<div id="the-dome">
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/underthedome_test.png" alt="Under the Dome Student Blog" /></a></h2>
+		
+		<% cached %>
 		<div class="blog-entries">
 		<% control RSSDisplay(3, http://imu.uiowa.edu/news/feed/) %>
 		<div class="blog-entry $EvenOdd">
@@ -195,11 +202,11 @@
 		</div><!-- end blog-entry -->
 		<% end_control %>
 		</div><!-- end blog-entries -->
-	
+		<% end_cached %>
 	</div><!-- end the-dome -->
 
 
-
+	<% cached 'category-navigation', Aggregate(AfterClassEvent).Max(LastEdited) %>
 	<div id="categories">
 		<h2><img src="{$ThemeDir}/images/by_type.png" alt="By Type" /></h2>
 		<div id="categories-container">
@@ -229,7 +236,7 @@
 	</div><!-- end categories-container -->
 	
 	</div><!-- end categories -->
-
+	<% end_cached %>
 	
 </div><!-- end right-column -->
 

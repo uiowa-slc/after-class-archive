@@ -15,9 +15,9 @@
 	 				<% end_if %>
 				
 				<div class="category-content" <% if Address %>style="margin-left: 20px"<% end_if %>>
-					<% if Address %><p><a href="http://www.google.com/maps?f=d&daddr=$Address">$Address</a></p><% end_if %>
+					<% if Address %><p><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a></p><% end_if %>
 					<% if Phone %><p>$Phone</p><% end_if %>
-					<p>$ClassName</p>
+					
 					<% if Email %><a href="mailto: $Email">$Email</a></p><% end_if %>
 
 					<% if Information %><p>$Information</p><% end_if %>
@@ -55,7 +55,7 @@
 		<ul class="category-list-events">
 			<% control Events %><li>
 			<% control Event %>
-			<a href="$Link"><img src="$Image.SmallImage.URL"></a>
+			<% if Image %><a href="$Link"><img src="$Image.SmallImage.URL"></a><% end_if %>
 			<div class="info">
 			<a href="$Link"><strong>$Title</strong></a><br />
 			
