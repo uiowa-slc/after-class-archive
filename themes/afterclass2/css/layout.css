@@ -442,6 +442,10 @@ font-family: 'SketchBlock-Bold';
 }
 
 
+#page_content.AfterClassEvent .container {
+	width: 980px;
+
+}
 
 #page_navigation {
 
@@ -949,7 +953,7 @@ font-family: 'SketchBlock-Bold';
    -webkit-box-shadow: inset 0 0 10px #333;
    box-shadow:         inset 0 0 10px #333;
   border: 1px solid #666;
-  width: 1000px;
+  width: 940px;
   padding: 20px;
   /*margin: 0 0 20px -13px;*/
   
@@ -961,7 +965,7 @@ font-family: 'SketchBlock-Bold';
   #detail_feature .detail_feature_image {
     float: right; }
   #detail_feature .event_group {
-    width: 536px;
+    width: 486px;
     float: left; }
 
 #detail_carousel {
@@ -985,7 +989,7 @@ font-family: 'SketchBlock-Bold';
   background-color: #eee;
   background-image: url(../images/lighter_bg.jpg);
   padding: 20px;
-  width: 1000px;
+  width: 940px;
   margin-top: 20px;
 }
 

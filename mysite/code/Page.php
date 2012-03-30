@@ -120,4 +120,5 @@ class Page_Controller extends ContentController {
 	function EditURL(){
 		return "/admin/show/".$this->ID."/";
 	}
-}
+	
+	}

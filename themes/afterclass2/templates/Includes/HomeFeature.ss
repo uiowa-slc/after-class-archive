@@ -22,7 +22,7 @@
 					<div class="homepage-feature-content">
 					
 						<div class="homepage-feature-text">
-						<p>$Content.LimitSentences(3)</p>
+						<p>$getSummaryHTML(30) <a href="$Link">read more</a></p>
 						
 							<div class="homepage-feature-specifics">
 							

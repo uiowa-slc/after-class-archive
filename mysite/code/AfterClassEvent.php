@@ -222,14 +222,12 @@ class AfterClassEvent extends CalendarEvent {
 /* ----------------------------------- */
 		
 		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
-		
 		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (450 x 380 pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
 		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));
 		$f->addFieldToTab('Root.Content.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
 		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Event Description') );
-		
 		
 		$date_instructions = '
 		
@@ -272,7 +270,9 @@ class AfterClassEvent extends CalendarEvent {
         	array(
        		'Title' => 'Title'
         	),
-        	'getCMSFields_forPopup'
+        	'getCMSFields_forPopup',
+        	null,
+        	$sort = "Title ASC"
       	);
 		$sponsorTablefield->setAddTitle( 'Sponsor' );
 		$sponsorTablefield->showPagination = false;
@@ -295,7 +295,9 @@ class AfterClassEvent extends CalendarEvent {
         	array(
        		'Title' => 'Title'
         	),
-        	'getCMSFields_forPopup'
+        	'getCMSFields_forPopup',
+        	null,
+        	$sort = "Title ASC"
       	);
       	$f->addFieldToTab('Root.Content.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
 
@@ -316,7 +318,9 @@ class AfterClassEvent extends CalendarEvent {
         	array(
        		'Title' => 'Title'
         	),
-        	'getCMSFields_forPopup'
+        	'getCMSFields_forPopup',
+        	null,
+        	$sort = 'Title ASC'
       	);
 		$eventTypeTablefield->setAddTitle( 'Event Type' );
 		$eventTypeTablefield->showPagination = false;
@@ -326,6 +330,49 @@ class AfterClassEvent extends CalendarEvent {
 		
 		return $f;
 	}
+	
+	 	 /* 
+   * limits words to a number, but tries to validate the code 
+   */ 
+   public function getSummaryHTML ($limit = 100){ 
+   	
+      $m = 0; 
+      $addEplisis = ''; 
+      $returnstr = ''; 
+      $returnArray = array(); 
+      $html = array(); 
+      $chars = preg_split('/(<[^>]*[^\/]>| )/i', $this->Content, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE); 
+      foreach ($chars as $elemnt) { 
+         // found start tag 
+         if(preg_match('/^<(p|h1|h2|h3|h4|h5|h6|q|b|i|strong|em)(.*)>$/', $elemnt)){ 
+            preg_match('/^<(p|h1|h2|h3|h4|h5|h6|q|b|i|strong|em)(.*)>$/', $elemnt, $matches); 
+            array_push($html, $matches[1]);// convert <p class=""> to p 
+            array_push($returnArray, $elemnt); 
+            // found end tag 
+         } else if(preg_match('/^<\/(p|h1|h2|h3|h4|h5|h6|q|b|i|strong|em)(.*)>$/', $elemnt)){ 
+            preg_match('/^<\/(p|h1|h2|h3|h4|h5|h6|q|b|i|strong|em)(.*)>$/', $elemnt, $matches); 
+            $testelement = array_pop ($html); 
+            // match (ie: <p>etc</p>) 
+            if($testelement==$elemnt[1]) array_pop($html); 
+            array_push($returnArray, $elemnt); 
+         } else { 
+            // done 
+            if($elemnt == ' ') continue; 
+            array_push($returnArray, $elemnt); 
+            $m++; 
+            if($m > $limit) { 
+               $addEplisis = '&hellip;'; 
+               break; 
+            } 
+         } 
+      } 
+      // convert start tags to end tags 
+      $tmpr = ''; 
+      foreach ($html as $elemnt) { 
+         $tmpr.='</'.$elemnt.'>'; 
+      } 
+      return implode($returnArray, ' ') . $addEplisis . $tmpr; 
+   }	
 }
 
 class AfterClassEvent_Controller extends CalendarEvent_Controller {
@@ -333,6 +380,9 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
             'fbpublish' => 'fbpublish'
             );
  	static $allowed_actions = array ("fbpublish");
+ 	
+
+ 	
  	public function fbpublish() {
  		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
  		$url = 'https://graph.facebook.com/319621914746674/feed';
