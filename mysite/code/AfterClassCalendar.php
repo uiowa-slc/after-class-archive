@@ -129,7 +129,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		  $events = new DataObjectSet($e);
 		}
 		
-		
+		$events->removeDuplicates();
+
 		foreach($events as $event) {
 			$event->Title = strip_tags($event->EventTitle());
 			$event->Description = strip_tags($event->EventContent());

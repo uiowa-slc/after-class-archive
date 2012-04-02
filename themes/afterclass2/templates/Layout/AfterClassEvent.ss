@@ -14,52 +14,64 @@
 
     	   	 		
     			<div id="dates">
-	    			<% control DateAndTime %> 
-		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-		    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
-		    				<% if StartTime %> at $StartTime.nice<% end_if %>
-		    			
-	    			
-		    			<% if EndDate %> -
-		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
-		    			 		<span>$EndDate.Format(l), $EndDate.Format(M). $EndDate.DayOfMonth</span>
-		    			 	</a>
-		    			 	<% end_if %> 
-		    			 <br />
-	    			<% end_control %>
-    			</div>
+    			
+	    			<ul>
+		    			<% control DateAndTime %> 
+		    				<li>
+				    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
+				    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+				    			</a> 
+				    				<% if StartTime %> at $StartTime.nice<% end_if %>
+				    			
+			    			
+				    			<% if EndDate %> -
+				    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
+				    			 		<span>$EndDate.Format(l), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+				    			 	</a>
+				    			<% end_if %> 
+			    			</li>
+	
+		    			<% end_control %> <%-- end control DateAndTime --%>
+		    		</ul>
+    			</div><!-- end dates -->
     			<br />
     		$Location<br/>
     			
-    			<% control Venues %>
-    				$Title <br />
-    			<% end_control %>
-    			
-            	
+    			<ul class="venues">
+	    			<% control Venues %>
+	    				<li><a href="$Link">$Title</a></li>
+	    			<% end_control %>
+    			</ul>
+    			<% if Sponsors %>
+    				<div class="sponsors">
+	    			<p>Sponsored by</p>
+	    			<ul>
+		    			<% control Sponsors %>
+		    				<li><a href="$Link">$Title</a></li>
+		    			<% end_control %>
+	    			</ul>
+	    		</div>
+            	<% end_if %>
             	$Cost
             		<% if CancelReason %>
 	<p><strong>Note: $CancelReason</strong></p>
 	<% end_if %>
 	</div>
 	
-	       	<div class="event-meta">
-       		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-
-
-
-       
-
+	<div class="event-meta">
        	<% include EventCategoryList %>
-		  	       	<% include ShareLinks %>
 
 			</div>
-		
+		          	<div style="clear: both"></div>
+
             	</div> 
+				          	<div style="clear: both"></div>
 
        	</div>
 	
           	<div style="clear: both"></div>
-                     				
+             <% include ShareLinks %>
+        				
 
     </section>
 
@@ -77,7 +89,7 @@
 		<h2>Where?</h2>
 	
 		<% control Venues %>
-		<p>This event is located at: <br />$Title - 
+		<p>This event is located at: <br /><a href="$Link">$Title</a> - 
 		
 		<% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% end_if %><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
 		
