@@ -421,6 +421,11 @@ font-family: 'SketchBlock-Bold';
 
 }
 
+#page_content.AfterClassCalendar.index .container{
+	width: 1000px;
+
+}
+
 #page_content.AfterClassCalendar.view #homepage-event-list h2 {
 	display: none;
 
@@ -442,6 +447,10 @@ font-family: 'SketchBlock-Bold';
 }
 
 
+#page_content.AfterClassEvent .container {
+	width: 980px;
+
+}
 
 #page_navigation {
 
@@ -458,7 +467,6 @@ font-family: 'SketchBlock-Bold';
   
   #secondary-nav {
   	float: left;
-  	width: 350px;
   	/*background: #185b6d;*/
   	text-align: left;
   	font-size: 13px;
@@ -632,7 +640,7 @@ font-family: 'SketchBlock-Bold';
 #page_content div.container {
 /*padding-top: 30px;*/
   padding-bottom: 100px;
-  width: 1000px;
+  width: 980px;
  }
 
 #home_feature {
@@ -949,7 +957,7 @@ font-family: 'SketchBlock-Bold';
    -webkit-box-shadow: inset 0 0 10px #333;
    box-shadow:         inset 0 0 10px #333;
   border: 1px solid #666;
-  width: 1000px;
+  width: 940px;
   padding: 20px;
   /*margin: 0 0 20px -13px;*/
   
@@ -961,7 +969,7 @@ font-family: 'SketchBlock-Bold';
   #detail_feature .detail_feature_image {
     float: right; }
   #detail_feature .event_group {
-    width: 536px;
+    width: 486px;
     float: left; }
 
 #detail_carousel {
@@ -985,7 +993,7 @@ font-family: 'SketchBlock-Bold';
   background-color: #eee;
   background-image: url(../images/lighter_bg.jpg);
   padding: 20px;
-  width: 1000px;
+  width: 940px;
   margin-top: 20px;
 }
 
@@ -1269,7 +1277,7 @@ font-family: 'SketchBlock-Bold';
 }
 
 #single-page-content.category {
-	width: 980px;
+	width: 940px;
 
 }
 
@@ -1278,6 +1286,7 @@ font-family: 'SketchBlock-Bold';
 	padding: 0;
 
 }
+
 .category-list>li{
 	padding: 10px 20px;
 	border: 1px solid #555;
@@ -1286,7 +1295,7 @@ font-family: 'SketchBlock-Bold';
 	list-style-type: none;
 	display: block;
 	float: left;
-	width: 600px;
+	width: 940px;
 }
 .category-list ul {
 	margin: 0px;
@@ -1297,7 +1306,7 @@ font-family: 'SketchBlock-Bold';
 	list-style-type: none;
 	float: left;
 	margin: 0px 10px 20px 0px;
-	width: 280px;
+	width: 230px;
 }
 .category-list ul li img {
 	float: left;
@@ -1316,6 +1325,83 @@ font-family: 'SketchBlock-Bold';
 
 .category-list li h2 a:hover {
 	color: #222;
+}
+
+.category-list>li{
+}
+.category-list ul {
+	margin: 0px;
+	padding: 0px;
+}
+.category-list ul li {
+	border: 1px solid #ccc;
+	list-style-type: none;
+	float: left;
+	margin: 0px 15px 20px 0px;
+	padding: 10px;
+	width: 430px;
+	min-height: 180px;
+	background: rgba(255, 255, 255, .3);
+}
+.category-list ul li img {
+	float: right;
+	border: 1px solid #ccc;
+}
+.category-list ul li .info {
+}
+.category-list ul li .info strong {
+	/*color: #2488A3;*/
+	font-family: 'Doppio One', monospace;
+	font-size: 22px;
+	font-weight: normal;
+	text-transform: capitalize;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	display: block;
+	width: 300px;
+	
+}
+
+.category-list .where {
+	margin: 0;
+	margin-top: 5px;
+	width: auto;
+
+}
+
+.category-list .where ul li{
+	border: none;
+	list-style-type: none;
+	float: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	min-height: 0;
+
+}
+.category-list .view-all {
+	clear: left;
+	float: right;
+	font-size: 12px;
+	color: #555;
+}
+.category-list h2 span a {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+.venue-map {
+	float: left;
+	height: 250px;
+	width: 500px;
+
+}
+
+.category-content {
+	float: left;
+	width: 420px;
 }
 
 .placeholder {
@@ -1346,6 +1432,11 @@ font-family: 'SketchBlock-Bold';
 
 .event_categories li {
 	display: inline;
+}
+
+.event_categories li.first {
+	margin: 0;
+	padding: 0;
 
 }
 
@@ -1403,6 +1494,39 @@ font-family: 'SketchBlock-Bold';
 .event_details #dates {
 	line-height: 35px;
 	font-size: 18px;
+	margin-top: 10px;
+
+}
+
+.event_details #dates ul {
+	margin: 0;
+	padding: 0;
+
+}
+
+.event_details #dates li {
+	display: block;
+	margin: 5px 0;
+	padding: 0;
+
+}
+
+.event_details .venues {
+	margin:0;
+	padding:0;
+	list-style-type: none;
+}
+
+.event_details .sponsors ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+}
+
+.event_details .sponsors p{
+	margin-top: 10px;
+	margin-bottom: 0;
 
 }
 
@@ -1783,7 +1907,7 @@ padding: 10px;
 .homepage-feature-when {
 	float: left;
 	width: 50%;
-	min-height: 100px;
+	/*min-height: 100px;*/
 	border-right: 1px solid #666;
 	padding-right: 20px;
 	font-size: 18px;

@@ -3,7 +3,7 @@
     	   	<span>Tagged as:</span>
             	<ul>
             		<% control AllCategories %>
-            			<li><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %></li>
+            			<li class="$FirstLast"><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %></li>
             		<% end_control %>
             	</ul>
             </div>

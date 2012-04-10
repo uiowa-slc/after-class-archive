@@ -182,7 +182,7 @@ document.createElement('hgroup');
 		
 		
     </ul>
-    </div>
+    
     <% end_cached %>
 
     <div id="secondary-nav">
@@ -201,7 +201,7 @@ document.createElement('hgroup');
 </form>
 </div>
    <div style="clear: both"></div>
- 
+ </div><!-- end container -->
 </nav>
 
 <!--cut out header and nav-->

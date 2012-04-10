@@ -40,7 +40,6 @@
 <div id="homepage-event-list">
 	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
 	
-	<% cached %>
 	<% control AllEvents %>
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>">
 	
@@ -126,7 +125,6 @@
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
 	
-	<% end_cached %>
 </div><!-- end homepage-event-list -->
 
 
@@ -137,7 +135,8 @@
 	<div id="calendar-filter-form">
 		$CalendarWidget
 	</div>
-<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAfter-Class%2F319621914746674&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
+
 	<div id="newsletter-signup">
 		<h2><img src="{$ThemeDir}/images/stay_connected.png" alt="Stay Connected With Our Newsletter" /></h2>
 		<p>sign up for our newsletter to see what's happening around campus. you also might win something.</p>
@@ -168,9 +167,9 @@
 				<% control FutureDeadlines(10) %>
 				<li class="$EvenOdd">
 					<% if LinkURL %>
-						<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.NiceUS </strong> - $Title</a>
+						<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.Format(n/j/y)</strong> - $Title</a>
 					<% else %>
-						<a href="{$BaseHref}deadlines/"><strong>$Date.NiceUS </strong> - $Title</a>					
+						<a href="{$BaseHref}deadlines/"><strong>$Date.Format(n/j/y)</strong> - $Title</a>					
 					<% end_if %>
 				</li>
 				<% end_control %>
@@ -190,7 +189,7 @@
 		<% control RSSDisplay(3, http://imu.uiowa.edu/news/feed/) %>
 		<div class="blog-entry $EvenOdd">
 			<h3><a href="$Link">$Title</a></h3>
-			<div class="blog-posted-on">posted on $PublishedDate.NiceUS</div>
+			<div class="blog-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
 			<div class="blog-text">
 			<p>$Content.Summary(50)</p>
 			

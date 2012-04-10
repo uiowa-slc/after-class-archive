@@ -15,12 +15,12 @@
 	 				<% end_if %>
 				
 				<div class="category-content" <% if Address %>style="margin-left: 20px"<% end_if %>>
+					<% if Information %><p>$Information</p><% end_if %>
 					<% if Address %><p><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a></p><% end_if %>
 					<% if Phone %><p>$Phone</p><% end_if %>
 					
 					<% if Email %><a href="mailto: $Email">$Email</a></p><% end_if %>
 
-					<% if Information %><p>$Information</p><% end_if %>
 	 				<% if LinkURL %><p><a href="$LinkURL" target="_blank">Visit Website</a></p><% end_if %>
 	 				<% if WebsiteURL %><p><a href="$WebsiteURL" target="_blank">Visit Website</a></p><% end_if %>
 	 				
@@ -109,83 +109,7 @@
 <% end_control %>
 	
 <style type="text/css">
-.category-list>li{
-	width: 100%;
-}
-.category-list ul {
-	margin: 0px;
-	padding: 0px;
-}
-.category-list ul li {
-	border: 1px solid #ccc;
-	list-style-type: none;
-	float: left;
-	margin: 0px 15px 20px 0px;
-	padding: 10px;
-	width: 450px;
-	min-height: 180px;
-	background: rgba(255, 255, 255, .3);
-}
-.category-list ul li img {
-	float: right;
-	border: 1px solid #ccc;
-}
-.category-list ul li .info {
-}
-.category-list ul li .info strong {
-	/*color: #2488A3;*/
-	font-family: 'Doppio One', monospace;
-	font-size: 22px;
-	font-weight: normal;
-	text-transform: capitalize;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #ccc;
-	margin-bottom: 10px;
-	display: block;
-	width: 300px;
-	
-}
 
-.category-list .where {
-	margin: 0;
-	margin-top: 5px;
-	width: auto;
-
-}
-
-.category-list .where ul li{
-	border: none;
-	list-style-type: none;
-	float: none;
-	margin: 0;
-	padding: 0;
-	width: auto;
-	min-height: 0;
-
-}
-.category-list .view-all {
-	clear: left;
-	float: right;
-	font-size: 12px;
-	color: #555;
-}
-.category-list h2 span a {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
-	font-weight: normal;
-}
-
-.venue-map {
-	float: left;
-	height: 250px;
-	width: 500px;
-
-}
-
-.category-content {
-	float: left;
-	width: 460px;
-}
 </style>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
 </script>
