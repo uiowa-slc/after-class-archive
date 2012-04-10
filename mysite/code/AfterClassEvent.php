@@ -247,6 +247,12 @@ class AfterClassEvent extends CalendarEvent {
 		
 		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
 		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (450 x 380 pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		
+		
+		//$params = array('parent' => $this->ID, 'transaction' => "generic", 'imgstate' => 'existing'); //$this->Image->TransactionKey
+		//$f->push(new PixlrEditorField('PixlrButton', _t('Pixlr.EDIT_IMAGE', 'Edit this image'), $this->Image, $params));
+		
+		
 		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
 		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));

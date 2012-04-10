@@ -37,3 +37,4 @@ SpamProtectorManager::set_spam_protector('RecaptchaProtector');
 //$recaptchaField->jsOptions = array('theme' => 'clean'); // optional
 
 Object::add_extension('CMSMain', 'CMSActionDecorator');
+PixlrEditorField::$use_credentials = true;
