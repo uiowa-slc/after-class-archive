@@ -40,11 +40,13 @@
 <div id="homepage-event-list">
 	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
 	
+	<% cached 'eventlist', Aggregate(AfterClassEvent).Max(LastEdited) %>
+	
 	<% control AllEvents %>
-	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>">
+	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
 	
 		<div class="homepage-event-header">
-			<h3><a href="$Event.Link">$Event.Title <% if Event.CancelReason %><span>Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
+			<h3><a href="$Link" itemprop="url"><span itemprop="summary">$Event.Title</span><% if Event.CancelReason %><span class="homepage-cancel-reason">Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
 			
 			<div style="clear: both"></div>
 		
@@ -57,7 +59,11 @@
 					
 					<a href="$Link">
 					<% control Event %>
-					$Image.CroppedImage(153,153)
+						<% if Image %>
+							<% control Image %>
+								<% control CroppedImage(153,153) %><img itemprop="photo" src="$URL" /><% end_control %>
+							<% end_control %>
+						<% end_if %>
 					<% end_control %>
 					</a>
 					
@@ -82,12 +88,12 @@
 					
 					
 					<% control Event.DateAndTime %>
-						<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(M). $StartDate.format(j) </a> <% if StartTime %>
+						<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(M). $StartDate.format(j)</time> </a> <% if StartTime %>
 							at $StartTime.Nice
 							<% end_if %>
 						
 							<% if EndDate %>
-							- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> $EndDate.format(M). $EndDate.format(j) </a>
+							- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M). $EndDate.format(j)</time> </a>
 							<% end_if %>
 					
 						</li>
@@ -103,7 +109,10 @@
 					<% if Event.Venues %>
 						<ul>
 						<% control Event.Venues %>
-							<li>@ <a href="$Link">$Title</a></li>
+							<li>	<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+										@ <a href="$Link"><span itemprop="name">$Title</span></a>
+										</span>
+							</li>
 						<% end_control %>
 						</ul>
 					<% end_if %>
@@ -124,6 +133,8 @@
 	
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
+	
+	<% end_cached %>
 	
 </div><!-- end homepage-event-list -->
 

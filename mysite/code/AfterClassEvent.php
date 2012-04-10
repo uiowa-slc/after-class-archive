@@ -29,9 +29,33 @@ class AfterClassEvent extends CalendarEvent {
 		"ParentID" => 6
 	);
 	
+	//static $icon = self::getCMSIcon();
+	
 	static $default_parent = "events"; // URLSegment of default parent node.
 	static $can_be_root = false;
 	static $allowed_children = "none";
+		
+	function __construct($record = null, $isSingleton = false) { 
+		parent::__construct($record, $isSingleton); 
+	
+		if((bool)$record['Featured']) { 
+		
+		
+		
+		Object::set_static('Page', 'icon', 'sapphire/javascript/tree/images/page'); } 
+	}
+
+	public static function getCMSIcon(){
+		if($this->Featured) {
+			$icon = array("sapphire/javascript/tree/images/page", "file");
+			return $icon;
+		}else{
+			return Parent::$icon;
+		
+		}
+	
+	
+	}
 	
 	public function AllCategories(){
 		//$categories = DataObject::get("Category", "")
