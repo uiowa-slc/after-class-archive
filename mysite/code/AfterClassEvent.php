@@ -159,11 +159,11 @@ class AfterClassEvent extends CalendarEvent {
 	
 	function getCMSActions() {
 		$actions = parent::getCMSActions();
-		$Action = new FormAction(
-			"doFacebook",
-			"Post To Facebook"
-        );
-		$actions->push($Action);
+		//$Action = new FormAction(
+		//	"doFacebook",
+		//	"Post To Facebook"
+        //);
+		//$actions->push($Action);
 		return $actions;
 	}
 	
