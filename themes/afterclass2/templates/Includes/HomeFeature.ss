@@ -1,14 +1,15 @@
 <div class="feature-background-wrapper">
-				<div class="homepage-feature" >
-				
+	<div class="homepage-feature" itemscope itemtype="http://data-vocabulary.org/Event">				
 					<!--<img class="featured-logo" src="{$ThemeDir}/images/featured.png" />-->
-					<h1><a href="$Link">$Title</a></h1>
+					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_if %>
 					<div class="homepage-feature-details"> <a href="$Link">
 						<% if Image %>
-						$Image.CroppedImage(550,250)
+							<% control Image %>
+								<% control CroppedImage(550,250) %><img itemprop="photo" src="$URL" /><% end_control %>
+							<% end_control %>
 						<% else %>
-						<img src="$ThemeDir/images/placeholder.png" />
+							<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
 						<% end_if %>
 						</a>
 						
@@ -31,10 +32,10 @@
 					
 								<div class="homepage-feature-when">
 								
-									<% control DateAndTime %>
-									<p> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">$StartDate.format(F) $StartDate.format(j) </a>
+										<% control DateAndTime %>
+									<p> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(F) $StartDate.format(j)</time></a>
 										<% if EndDate %>
-										- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">$EndDate.format(F) $EndDate.format(j) </a>
+										- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(F) $EndDate.format(j)</time></a>
 										<% end_if %>
 										<% if StartTime %>
 										at $StartTime.Nice
@@ -46,8 +47,12 @@
 								<div class="homepage-feature-where">
 									<p>
 									<% control Venues %>
-									@ <a href="$Link">$Title</a>
-									<% end_control %>
+										<p>
+										<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+										@ <a href="$Link"><span itemprop="name">$Title</span></a>
+										</span>
+										</p>
+									<% end_control %>		
 									</p>
 											
 									<% if Cost %>
