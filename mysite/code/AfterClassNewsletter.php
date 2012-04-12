@@ -6,7 +6,7 @@ class AfterClassNewsletter extends Page {
 	static $db = array(
 		'IntroText' => 'HTMLText',
 		'ImageHeading' => 'Text',
-		'PicLinkURL' => 'Text',
+		'ImageLink' => 'Text',
 		'BlogTitle' => 'Text',
 		'BlogIntro' => 'Text',
 		'BlogLink' => 'Text',
@@ -31,7 +31,7 @@ class AfterClassNewsletter extends Page {
 		//$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField('IntroText'));
 		$fields->addFieldToTab('Root.Content.Main', new ImageField('Image','Flickr or Youtube Image 250 x 187'));
 		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
-		$fields->addFieldToTab('Root.Content.Main',new TextField('PicLinkURL','Flickr or Youtube link.') );
+		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageLink','Flickr or Youtube link.') );
 		$fields->addFieldToTab('Root.Content.Main',new TextField('BlogTitle','Blog Post Title') );
 		$fields->addFieldToTab('Root.Content.Main',new TextField('BlogIntro','Blog Post Text.') );
 		$fields->addFieldToTab('Root.Content.Main',new TextField('BlogLink','Link to the blog post.') );

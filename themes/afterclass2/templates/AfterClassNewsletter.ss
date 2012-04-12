@@ -245,7 +245,7 @@ html,body,td {
 			<div style="padding: 0px 0px 0px 5px;">
 			<h2 style="color:#ffd520; font-size: 30px; margin:0; padding:0">$ImageHeading</h2>
 			<% if Image %>
-			  <div style="padding: 5px 0px;"><a href="$PicLinkURL">
+			  <div style="padding: 5px 0px;"><a href="$ImageLink">
 				<% control Image %>
 			  	<% control CroppedImage(250,187) %>
 					<img src="$AbsoluteURL" alt="Recent Pics" border="0">
