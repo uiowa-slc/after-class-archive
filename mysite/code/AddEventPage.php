@@ -45,7 +45,7 @@ class AddEventPage_Controller extends Page_Controller {
         $actions = new FieldSet(
             new FormAction('addEvent', 'Submit')
         );
-        $validator = new RequiredFields('Title','Location','Cost','Description','Submittername','Submitteremail','Submitterdate');
+        $validator = new RequiredFields('Title','Location','Cost','Submitterdate', 'Description','Submittername','Submitteremail','Submitterdate');
      	$form = new Form($this, 'addEventForm', $fields, $actions, $validator);
      	
      	SpamProtectorManager::update_form($form);

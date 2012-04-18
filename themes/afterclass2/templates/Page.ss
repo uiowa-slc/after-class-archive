@@ -175,6 +175,18 @@ document.createElement('hgroup');
 			
 			<li>
 				<a href="$Link"><strong>$MenuTitle</strong></a>
+				
+				<% if Children %>
+					<ul>
+						<% control Children %>
+							<li><a href="$Link">$Title</a></li>
+						
+						<% end_control %>
+					
+					
+					</ul>
+				<% end_if %>
+				
 			</li>
 			<% end_if %>
 		<% end_control %>
@@ -223,7 +235,7 @@ document.createElement('hgroup');
 				<a href="http://www.uiowa.edu" class="uiowa-logo"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a> 
 				<a href="http://studentlife.uiowa.edu/"><img src="{$ThemeDir}/images/dsl_logo.png" alt="The University of Iowa Logo" /></a>  
 			</div>
-			<p>319-335-3117<br />
+			<p>319-335-3414<br />
 			<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
 			Site designed by IMU Marketing + Design
 			

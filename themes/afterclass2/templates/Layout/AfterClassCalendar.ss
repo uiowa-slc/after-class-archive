@@ -39,14 +39,14 @@
 
 <div id="homepage-event-list">
 	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
-	
-	<% cached 'eventlist', Aggregate(AfterClassEvent).Max(LastEdited) %>
-	
+
+
+
 	<% control AllEvents %>
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
 	
 		<div class="homepage-event-header">
-			<h3><a href="$Link" itemprop="url"><span itemprop="summary">$Event.Title</span><% if Event.CancelReason %><span class="homepage-cancel-reason">Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
+			<h3><a href="$Event.Link" itemprop="url"><span itemprop="summary">$Event.Title</span><% if Event.CancelReason %><span class="homepage-cancel-reason">Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
 			
 			<div style="clear: both"></div>
 		
@@ -110,7 +110,7 @@
 						<ul>
 						<% control Event.Venues %>
 							<li>	<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-										@ <a href="$Link"><span itemprop="name">$Title</span></a>
+										@ <a href="$Link" ><span itemprop="name">$Title</span></a>
 										</span>
 							</li>
 						<% end_control %>
@@ -133,8 +133,7 @@
 	
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
-	
-	<% end_cached %>
+		
 	
 </div><!-- end homepage-event-list -->
 
@@ -186,7 +185,12 @@
 				<% end_control %>
 			
 			</ul>
-			<span><a href="{$BaseHref}deadlines/">view all deadlines</a></span>
+			<ul id="additional-deadline-links">
+				<li><a href="{$BaseHref}deadlines/">view all deadlines</a></li>
+				<li><a href="http://www.registrar.uiowa.edu/calendars/fiveyearcalendar.aspx" target="_blank">academic calendar</a></li>
+				<li><a href="http://www.hawkeyesports.com/calendar/events/" target="_blank" >athletic calendar</a></li>
+				<li><a href="{$BaseHref}add/" target="_blank" >submit an event</a></li>
+			</ul>
 		</div>
 	
 	</div><!-- end approaching-deadlines -->

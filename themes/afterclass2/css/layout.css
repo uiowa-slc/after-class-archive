@@ -645,6 +645,7 @@ font-family: 'SketchBlock-Bold';
 
 #page_content div.container {
 /*padding-top: 30px;*/
+	z-index: 1;
   padding-bottom: 100px;
   width: 980px;
  }
@@ -1466,15 +1467,14 @@ font-family: 'SketchBlock-Bold';
 }
 
 #SearchForm_SearchForm_Search {
-	background: #185B6D;
+	background-color: #185B6D;
 	border: 1px solid #1B738A;
 	color: #EBE5E6;
 	font-size: 16px;
 	padding: 5px;
 	width: 360px;
 	background-image: url(../images/search_icon.png);
-	background-position-x: 350px;
-	background-position-y: 6px;
+	background-position: 350px, 6px;
 	background-repeat: no-repeat;
 
 }
@@ -2354,7 +2354,7 @@ color: #f9e091;
 
 }
 
-#approaching-deadlines ul {
+#approaching-deadlines ul#deadlines {
 	color: white;
 	list-style-type: none;
 	margin: 0;
@@ -2364,13 +2364,13 @@ color: #f9e091;
 
 
 
-#approaching-deadlines ul li {
+#approaching-deadlines ul#deadlines li {
 	background: #444;
 	padding: 10px;
 
 
 }
-#approaching-deadlines ul li.even {
+#approaching-deadlines ul#deadlines li.even {
 	background: #666;
 
 
@@ -2389,21 +2389,35 @@ color: #f9e091;
 #approaching-deadlines a.external {
 	background-image: url(../images/external_link.png);
 	background-repeat: no-repeat;
-	background-position-x: 100%;
+	background-position: 100% 50%;
 	padding-right: 15px;
-	background-position-y: 50%;
 }
 
 #approaching-deadlines a:hover {
 	color: #dadada;
 }
 
-#approaching-deadlines span {
+
+#additional-deadline-links {
+	float: right;
+	margin: 10px 0;
+	padding: 0;
+	
+}
+
+#additional-deadline-links li {
+	margin: 3px 0;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+/*#approaching-deadlines span {
 	float: right;
 	margin-top: 10px;
 	display: block;
 
-}
+}*/
 
 #approaching-deadlines h2 {
 	text-align: center;
@@ -2413,6 +2427,7 @@ color: #f9e091;
 
 #categories {
 	margin-top: 30px;
+	border: 1px solid #3e393a;
 
 }
 
@@ -2420,6 +2435,12 @@ color: #f9e091;
 	text-align: center;
 	margin: 0;
 	padding: 0;
+	padding-top: 10px;
+	background: #222;
+}
+
+#categories h2 img {
+	width: 100%;
 }
 
 #categories ul {

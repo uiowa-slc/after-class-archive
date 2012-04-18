@@ -58,6 +58,9 @@
 									<% if Cost %>
 										<p>Admission: <a href="$Link">$Cost </a></p>
 									<% end_if %>
+									
+									
+									
 								</div>
 								<div class="clear"></div>
 							

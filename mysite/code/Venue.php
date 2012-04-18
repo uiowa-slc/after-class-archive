@@ -15,7 +15,7 @@ class Venue extends Category {
 	);
 	function getCMSFields_forPopup() {
 		$fields = parent::getCMSFields_forPopup();
-		$fields->push( new SimpleHTMLEditorField( 'Information' ) );
+		$fields->push( new HTMLEditorField( 'Information' ) );
 		$fields->push( new TextField('Address') );
 		$fields->push( new TextField('Email', 'Contact Email Address') );
 		$fields->push( new TextField('Phone', 'Phone Number') );

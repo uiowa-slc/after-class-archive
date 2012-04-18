@@ -11,7 +11,7 @@ class Sponsor extends Category {
 	function getCMSFields_forPopup() {
 		$fields = parent::getCMSFields_forPopup();
 		$fields->push( new TextField('LinkURL', 'Website Address') );
-		$fields->push( new SimpleHTMLEditorField( 'Information' ) );
+		$fields->push( new HTMLEditorField( 'Information' ) );
 		return $fields;
 	}
 	
