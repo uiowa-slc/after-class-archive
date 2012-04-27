@@ -60,12 +60,11 @@
 	
 	<div class="event-meta">
        	<% include EventCategoryList %>
+	</div>
+	<div style="clear: both"></div>
 
-			</div>
-		          	<div style="clear: both"></div>
-
-            	</div> 
-				          	<div style="clear: both"></div>
+</div> 
+		<div style="clear: both"></div>
 
        	</div>
 	
@@ -81,6 +80,12 @@
 	<div id="detail_event_description_info">
 	<h2>What's Happening?</h2>
 	$Content
+	
+	<% if MoreInfoLink %>
+	<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
+	<% end_if %>
+	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+	
 	</div>
 	<% if Venues %>
 

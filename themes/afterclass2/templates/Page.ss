@@ -36,21 +36,27 @@
 	<% if iswindows %>
 	<% require themedCSS(windows) %>
 	<% end_if %>
-	 
+		<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>
+
+	<link href='{$ThemeDir}/js/fancybox/jquery.fancybox.css' rel='stylesheet' type='text/css'>
 	<script src="{$ThemeDir}/js/jquery.min.js"></script>
-	<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>
-	
+	<script src="{$ThemeDir}/js/fancybox/jquery.fancybox.pack.js"></script>
+
 <script>
 
-$(document).ready(function() {
-  $('#upcoming_scroll_indicator').hide();
-
-$('#upcoming_event_list').hover(function() {
-  $('#upcoming_scroll_indicator').toggle('fast', function() {
-    // Animation complete.
-  });
-});
-
+jQuery(document).ready(function ($) {
+ $('#feedback-link').fancybox({
+ 
+ 		padding: 0
+ 
+ });
+ $('.report-problem-link').fancybox({
+ 
+ 		padding: 0
+ 
+ });
+ 
+ 
 });
 
 </script>
@@ -115,6 +121,7 @@ document.createElement('hgroup');
 
 
 <% include StudentLifeBar %>
+<a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
 	<div class="container">
 		<div class="big_header"><a href="$BaseHref">After Class</a></div>

@@ -19,7 +19,8 @@ class AfterClassEvent extends CalendarEvent {
 		'CancelReason' => 'Text',
 		'status' => 'Text',
 		'facebook_publishdate' => 'Date',
-		'facebook_published' => 'Boolean'
+		'facebook_published' => 'Boolean',
+		'MoreInfoLink' => 'Text'
 	);
 	static $has_one = array(
 		'Image' => 'SizedImage'
@@ -266,7 +267,7 @@ class AfterClassEvent extends CalendarEvent {
 		//$params = array('parent' => $this->ID, 'transaction' => "generic", 'imgstate' => 'existing'); //$this->Image->TransactionKey
 		//$f->push(new PixlrEditorField('PixlrButton', _t('Pixlr.EDIT_IMAGE', 'Edit this image'), $this->Image, $params));
 		
-		
+		$f->addFieldToTab('Root.Content.Main',new TextField('MoreInfoLink','A link for more information') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
 		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));

@@ -42,6 +42,7 @@
 
 
 
+	<% cached if Home %>
 	<% control AllEvents %>
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
 	
@@ -57,18 +58,20 @@
 		<div class="homepage-event-content">
 			<div class="homepage-event-image">
 					
-					<a href="$Link">
+					
 					<% control Event %>
+					<a href="$Link">
 						<% if Image %>
 							<% control Image %>
 								<% control CroppedImage(153,153) %><img itemprop="photo" src="$URL" /><% end_control %>
 							<% end_control %>
 						<% end_if %>
-					<% end_control %>
 					</a>
 					
-					<div><a href="$Event.Link" class="more-event-info">view event</a></div>
-
+					
+					
+					<div><a href="$Link" class="more-event-info">view event</a></div>
+				<% end_control %>
 			</div><!-- end homepage-event-image -->
 
 			<div class="homepage-event-desc">
@@ -133,7 +136,7 @@
 	
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
-		
+	<% end_cached %>
 	
 </div><!-- end homepage-event-list -->
 

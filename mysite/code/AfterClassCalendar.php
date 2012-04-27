@@ -46,6 +46,21 @@ class AfterClassCalendar extends Calendar {
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {
+
+	public function Home(){
+	
+	
+		if($this->action == 'index'){
+			return true;
+			
+		
+		}else{
+			return false;
+		
+		}
+	
+	
+	}
  	 public static $url_handlers = array(
             //'tag/$Tag' => 'tag'
             'categories/$Category' => 'categories',
