@@ -1,0 +1,55 @@
+.orientation-container {
+	width: 1000px;
+	margin: auto;
+	min-height: 1000px;
+
+	/*background-image: linear-gradient(bottom, #4F3B53 32%, #816679 66%);
+	background-image: -o-linear-gradient(bottom, #4F3B53 32%, #816679 66%);
+	background-image: -moz-linear-gradient(bottom, #4F3B53 32%, #816679 66%);
+	background-image: -webkit-linear-gradient(bottom, #4F3B53 32%, #816679 66%);
+	background-image: -ms-linear-gradient(bottom, #4F3B53 32%, #816679 66%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.32, #4F3B53),
+		color-stop(0.66, #816679)
+	);*/
+	
+}
+
+.orientation-container h1 {
+	font-family: 'SketchBlock-Bold', sans;
+	color: #ffd026;
+	font-size: 130px;
+	margin: 3px 0;
+
+}
+
+.orientation-header {
+	display: block;
+}
+
+.orientation-step-one {
+	display: block;
+	margin: 10px auto;
+
+}
+.orientation-step-two {
+	display: block;
+	margin: 10px auto;
+
+}
+
+.orientation-facebook {
+	margin: 20px 0;
+}
+
+.orientation-facebook iframe {
+	margin: auto;
+	display: block;
+	background: url(../images/dark_leather.png);
+
+
+}

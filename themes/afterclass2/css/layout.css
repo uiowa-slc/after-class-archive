@@ -2686,6 +2686,11 @@ div.dp-popup h2 {
 	border: 1px solid #555;
 }
 
+#feedback-link img{
+	display: block;
+
+}
+
 /* Feedback Form */
 
 #feedback-form-container{
