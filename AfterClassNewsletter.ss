@@ -12,8 +12,8 @@ html,body,td {
   font-family: arial,helvetica,sans-serif;
 }
 </style>
-<body bgcolor="#47354c" style="color: #FFFFFF; background-image:url(http://news.imu.uiowa.edu/assets/AfterClassNewsletter/background.jpg); font-family: 'Helvetica Neue', arial, helvetica, sans-serif; color: white">
-<div id="thebody" style="font-family: 'Helvetica Neue', arial, helvetica, sans-serif;">
+<body bgcolor="#47354c" style="font-family: 'Helvetica Neue', arial, helvetica, sans-serif; color: white;">
+<div id="thebody" style="font-family: 'Helvetica Neue', arial, helvetica, sans-serif; color: #FFFFFF; background: #47354c url(http://news.imu.uiowa.edu/assets/AfterClassNewsletter/background.jpg);">
 <center>
 
 <!-- pseudo body table -->
@@ -40,66 +40,73 @@ html,body,td {
 						<tbody>
 						
 						<tr><td width="600" colspan="2" height="215" valign="top">
-							<a href="http://afterclass.uiowa.edu"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/afterclass-header.jpg" alt="After Class"/></a>
+							<a href="http://afterclass.uiowa.edu"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/afterclass-header.jpg" alt="After Class" border="0"/></a>
 						</td></tr>
 						<tr style="border-style: solid; border-weight: 1px; border-color:#8f9ca1;"><td width="600" valign="top" style="">
 						  <table cellpadding="10"><tr><td>
 						  $Content
 						  </td></tr></table>
 						</td></tr>
-<% control FeaturedEvent %>
+<!-- previously featured event control-->
 						<tr width="598" bgcolor="#444" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1">
 							<td width="600" colspan="2" style="padding: 0px; margin:0px; border: 1px solid #8f9ca1;">
-								<center>
-								<a href="$AbsoluteLink">
-								<% control Image %>
-			  					<% control CroppedImage(598,350) %>
-									<img src="$AbsoluteURL" alt="Feature" border="0" alt="Featured Event">
-			  					<% end_control %>
-								<% end_control %>
-								</a>
-								</center>
 								
-								<h1 style="padding: 5px 5px 5px 15px; margin:0px; color:white; font-weight: bold; font-size:34px; border-bottom: 1px solid #5A5A5A; background: #333;">$Title</h1>
-								<table cellpadding="10"><tr><td>
-								<table><tr><td width="600">
-								<div style="padding:0; margin:0; color: #FFF;">
-									<span style="font-size: 18px;text-transform: uppercase; color:#ffd520; font-weight: normal;">Where?</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
-								</div>
-								<div style="padding:0; margin:0; color: #FFF;">
-									<span style="font-size: 18px; text-transform: uppercase; color:#ffd520; font-weight: normal">When?</span>
-									<% control DateAndTime %> 
-		    							<span style="color: #FFF;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
-		    							<% if StartTime %> at $StartTime.nice<% end_if %>
-		    							<% if EndDate %> -
-		    			 					<span style="color: #FFF;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
-		    			 				<% end_if %> 
-	    							<% end_control %>
-	    						</div>
-	    						</td><td valign="top">
-									<a href="$AbsoluteLink" style="text-decoration:none; padding:0; margin:10px 0px 0px 0px;">
-									<h5  style="width:110px; height:25px; background-color:#2791AE; text-align:center; valign:center; font-size: 15px; border: 1px solid #8f9ca1; color:#FFF; padding-top:5px;margin:0; "> view event</h5></a>
-									</td></tr></table>
-								<div style="font-size:16px;padding:0; margin:0; color: #fff !important;">$Content</div>
-								</td></tr></table>
+                                
+                                <!-- Blog Post Info -->
+<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555; text-align: left;" width="600">
+	<tr>
+		<td valign="top">
+			<div style="padding: 0px 0px 0px 5px;">
+			<h2 style="color: #ffd520 !important; font-size: 30px; margin:0; padding:0;">$ImageHeading</h2>
+			<% if Image %>
+			  <div style="padding: 5px 0px;"><a href="$ImageLink">
+				<% control Image %>
+			  	<% control CroppedImage(250,187) %>
+					<img src="$AbsoluteURL" alt="Recent Pics" border="0" alt="StudyBreak">
+			 	<% end_control %>
+				<% end_control %>
+			  </a></div>
+			<% end_if %>
+		</td>
+        		<td width="305" valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			
+			<h2 style="margin: 0px; padding: 0px; color: #FFD520 !important;">
+				<a href="http://imu.uiowa.edu/blog/" style="text-decoration: none; color: #FFD520 !important; font-size: 30px; text-decoration: none; border: 0px;">from the blog</a>
+			</h2>
+			<a href="$BlogLink" style="text-decoration: none; color: #FFF !important;">
+				<h3 style="margin: 0px 0px 5px 0px;">$BlogTitle</h3>
+			</a>
+			<div style="font-size: 14px; line-height: 20px; color: #fff;">$BlogIntro</div>
+			<div style=""><a href="$BlogLink" style="display:block;margin: 10px 0px 10px 0px; color: #FFF; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+                                
 							</td>
 						</tr>
-												
+                        
+<tr width="598" bgcolor="#444" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1">
+							<td width="600" colspan="2" style="padding: 0px; margin:0px; border: 1px solid #8f9ca1;">
+                        <h2 style="color: #ffd520 !important; font-size: 30px; margin:0; padding:0;">social media</h2>
+						</td>
+						</tr>
+        										
 						</tbody>						
 					</table>
-<% end_control %>
+<!-- previously featured event end control-->
 <!-- main content ends -->
 
 <!-- happening next/about section -->
-<table cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px; padding: 15px 10px 15px 10px; text-align: left;" width="600">
+<table cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px; padding: 15px 10px 15px 10px;" width="600">
 	<tr><td align="center">
 	<img src="http://afterclass.uiowa.edu/themes/afterclass2/images/coming_soon.png" width="500">
 	<% if Event1 %>
 	<% control Event1 %>
-		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px;">
+		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
-		<h3 style="padding:0px 0px 10px 0px; margin:0px;"><a href="$AbsoluteLink" style="color: #FFF5D1; font-size:24px; text-decoration: none;">$Title</a></h3>
+		<h3 style="padding:0px 0px 10px 0px; margin:0px; color: #FFF5D1 !important;"><a href="$AbsoluteLink" style="color: #FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
 				<% control DateAndTime %> 
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
@@ -122,9 +129,9 @@ html,body,td {
 	<% end_if %>
 	<% if Event2 %>
 	<% control Event2 %>
-		<table bgcolor="#292929" style="border: 1px solid #555; padding: 15px 10px 15px 10px;">
+		<table bgcolor="#292929" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
-		<h3 style="padding:0px 0px 10px 0px; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
+		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
 				<% control DateAndTime %>
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
@@ -147,9 +154,9 @@ html,body,td {
 	<% end_if %>
 	<% if Event3 %>
 	<% control Event3 %>
-		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px;">
+		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
-		<h3 style="padding:0px 0px 10px 0px; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
+		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
 				<% control DateAndTime %> 
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
@@ -172,9 +179,9 @@ html,body,td {
 	<% end_if %>
 	<% if Event4 %>
 	<% control Event4 %>
-		<table bgcolor="#292929" style="border: 1px solid #555; padding: 15px 10px 15px 10px;">
+		<table bgcolor="#292929" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
-		<h3 style="padding:0px 0px 10px 0px; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
+		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
 				<% control DateAndTime %>
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
@@ -198,9 +205,9 @@ html,body,td {
 	<% end_if %>
 	<% if Event5 %>
 	<% control Event5 %>
-		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px;">
+		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
-		<h3 style="padding:0px 0px 10px 0px; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
+		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 		<div style="font-size: 16px; color: #fff !important;">
 				<% control DateAndTime %> 
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
@@ -225,51 +232,21 @@ html,body,td {
 	
 	</td></tr>
 </table>
-<!-- Blog Post Info -->
-<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555;" width="600">
-	<tr>
-		<td width="305" valign="top">
-			<div style="padding: 0px 10px 0px 10px;">
-			
-			<h2 style="margin: 0px; padding: 0px;">
-				<a href="http://imu.uiowa.edu/blog/" style="text-decoration: none; color: #FFD520; font-size: 30px; text-decoration: none; border: 0px;">from the blog</a>
-			</h2>
-			<a href="$BlogLink" style="text-decoration: none; color: #FFF !important;">
-				<h3 style="margin: 0px 0px 5px 0px;">$BlogTitle</h3>
-			</a>
-			<div style="font-size: 14px; line-height: 20px; color: #fff;">$BlogIntro</div>
-			<div style=""><a href="$BlogLink" style="display:block;margin: 10px 0px 10px 0px; color: #FFF; font-weight:bold;">Read more on our blog...</a></div>
-			</div>
-		</td>
-		<td valign="top">
-			<div style="padding: 0px 0px 0px 5px;">
-			<h2 style="color: #ffd520; font-size: 30px; margin:0; padding:0;">$ImageHeading</h2>
-			<% if Image %>
-			  <div style="padding: 5px 0px;"><a href="$ImageLink">
-				<% control Image %>
-			  	<% control CroppedImage(250,187) %>
-					<img src="$AbsoluteURL" alt="Recent Pics" border="0" alt="StudyBreak">
-			 	<% end_control %>
-				<% end_control %>
-			  </a></div>
-			<% end_if %>
-		</td>
-		</tr>
-</table>
+<!-- blog previously here-->
 <!-- About After Class -->
-<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555;" width="600">
+<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555; text-align: left;" width="600">
 	<tr>
 		<td width="305" valign="top">
 			<div style="padding: 0px 10px 10px 10px;">
-			<h2 style="color: #FFD520; font-size: 30px; margin:0; padding:0">about after class</h2>
+			<h2 style="color: #FFD520 !important; font-size: 30px; margin:0; padding:0">about after class</h2>
 			<p style="font-weight: normal; font-size: 15px; padding:0; margin:0; color: #FFF;">After Class, a project of the Division of Student Life at the University of Iowa,  brings you the best of campus culture, events, and nightlife - stuff to do "after class."</p>
-			<h4 style="text-align: center; padding: 5px 0px 0px 0px; margin:0px;">
+			<h4 style="text-align: center; padding: 5px 0px 0px 0px; margin:0px; color: #FFD520 !important;">
 				<a href="http://afterlcass.uiowa.edu/" style="text-decoration: none; background-color: #2791AE; color: #fff; border: 1px solid #8f9ca1; display: block; width: 180px; height: 25px; padding: 7px 0px 0px 0px;">check out the site</a>
 			</h4>
 			</div>
 		</td>
 		<td valign="top">
-			<h2 style="color: #FFD520; font-size: 30px; margin:0; padding:0">promote your stuff</h2>
+			<h2 style="color: #FFD520 !important; font-size: 30px; margin:0; padding:0">promote your stuff</h2>
 			<p style="font-weight: normal; font-size: 15px; padding:0; margin:0; color: #FFF;"> Use After Class to promote your event to a student audience! You can add your own events on the website</p>
 			
 			<h4 style="text-align: center; padding: 5px 0px 0px 0px; margin:0px;">
