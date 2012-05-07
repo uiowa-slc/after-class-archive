@@ -21,6 +21,21 @@
     FB.init({appId: '127918570561161', status: true, cookie: true,
              xfbml: true});
   };
+  
+  //handle a session response from any of the auth related calls
+function handleSessionResponse(response) {
+    //if we dont have a session (which means the user has been logged out, redirect the user)
+    if (!response.session) {
+        window.location = "/mysite/Login.aspx";
+        return;
+    }
+
+    //if we do have a non-null response.session, call FB.logout(),
+    //the JS method will log the user out of Facebook and remove any authorization cookies
+    FB.logout(handleSessionResponse);
+}
+  
+  
   (function() {
     var e = document.createElement('script'); e.async = true;
     e.src = document.location.protocol +
@@ -47,12 +62,12 @@
 	  //if (response.first_name==undefined) {
 	  //alert("Restart!")
 	  //} else {
-	 /* document.getElementById('Form_Form_first_name').value = response.first_name;
+	  document.getElementById('Form_Form_first_name').value = response.first_name;
 	  document.getElementById('Form_Form_last_name').value = response.last_name;
 	  document.getElementById('Form_Form_email').value = response.email;
 	  document.getElementById('Form_Form_facebook_id').value = response.id;
 	  var myForm = document.getElementById('Form_Form');
-	  myForm.submit();*/
+	  myForm.submit();
 	  FB.logout(function(response) {
 	    //user is now logged out
 	  });
@@ -65,21 +80,38 @@
 
 
 	<div class="orientation-container">
-		<img src="{$ThemeDir}/images/orientation/header.png" class="orientation-header" />
-		<img src="{$ThemeDir}/images/orientation/stepone.png" class="orientation-step-one" />
-		<div class="orientation-facebook">
-		
-		<fb:like-box profile_id="64131067165" width="500" stream="false" header="false" connections="16"></fb:like-box>
-		
-<!--<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=800&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23DDD7D8&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:800px; height:258px;" allowTransparency="true"></iframe>-->
-</div>
-		<img src="{$ThemeDir}/images/orientation/steptwo.png" class="orientation-step-two" />
-
-		<div class="orientation-form">
-			$Form	
+	
+		<div class="orientation-header-container">
+			<img src="{$ThemeDir}/images/orientation/header.png" class="orientation-header" />
+			
+			<div class="orientation-form">
+				<p>Don't have Facebook? Fill this out!</p>
+				$Form	
+			</div>
+			
+			<div class="clear">
+			
 		</div>
 		
-		<p><a onClick="logoutnow();return false;" href="#">Logout</a></p>
+		
+		<img src="{$ThemeDir}/images/orientation/never-miss.png" class="orientation-tagline" />
+		
+		<div class="orientation-steps">
+		
+			<ol>
+				<li class="step-one"><a href="#" onclick="loginnow();return false;" class="orientation-button">sign in with facebook</a></li>
+				<li class="step-two"><p>like us!</p>
+					<div class="orientation-facebook">
+						<fb:like-box profile_id="64131067165" width="700" colorscheme="dark" show_faces="true" border_color="#555555"  stream="false" header="false" connections="16"></fb:like-box>
+					</div>
+				</li>
+				<li class="step-three"><a onClick="logoutnow();return false;" href="#" class="orientation-button logout">sign out</a></li>
+			
+				
+		
+		
+		</div>
+
 		
 	</div>
 

@@ -24,6 +24,7 @@
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
 	
+<<<<<<< HEAD
 	<title><% if CategoryName %>$Category.Title - <% end_if %><% if Action = category %>
 		Categories - 
 	<% else_if Action = venue %>
@@ -31,6 +32,21 @@
 	<% else_if Action = sponsor %>
 		Event Sponsors -
 	<% end_if %> $Title  - After Class: The Best of UI's Culture, Events and Nightlife</title>
+=======
+	<title><% if CategoryName %> $CategoryName - <% end_if %>
+	
+		<% if Action = category %>
+			Categories - 
+		<% else_if Action = venue %>
+			Venues - 
+		<% else_if Action = sponsor %>
+			Event Sponsors -
+		<% end_if %> 
+		
+		$Title  - After Class: The Best of UI's Culture, Events and Nightlife
+	</title>
+	
+>>>>>>> 4ccc5de19c222d8df5aba63499fa2926a0646700
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">
 		<% if Category.Information %>
