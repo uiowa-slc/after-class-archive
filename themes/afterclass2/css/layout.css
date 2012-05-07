@@ -1481,8 +1481,13 @@ font-family: 'SketchBlock-Bold';
 	padding: 5px;
 	width: 360px;
 	background-image: url(../images/search_icon.png);
-	background-position: 330px, 6px;
+	background-position: 345px, 6px;
 	background-repeat: no-repeat;
+	
+	/* ie8, grumble grumble */
+	
+	-ms-background-position-x: 345px;
+	-ms-background-position-y: 6px;
 
 }
 
