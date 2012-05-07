@@ -127,7 +127,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		$events = new DataObjectSet();
 		$CategoryName = addslashes($this->urlParams['Category']);
 		if (strpos(strtolower($CategoryName),"-") === false) {
-		  $Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+		  $Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
  		  //$Data = array(
 	      //  'Category' => $Category
 	      //);
@@ -135,7 +135,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		} else {
 		  $Categories = explode("-",$CategoryName);
 		  foreach ($Categories as $CatName) {
-		  	$Category = DataObject::get_one("Category", "Title = '".$CatName."'");
+		  	$Category = DataObject::get_one("Category", "URLSlug = '".$CatName."'");
 		  	$CatEvents = $Category->events();
 		  	$events->merge($CatEvents);
 		  }
@@ -217,7 +217,10 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	function categories() {
  	
  		$CategoryName = addslashes($this->urlParams['Category']);
- 		$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 		$Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
+ 		if (!($Category)) {
+ 			$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 		}
  		$Data = array(
 	      'Category' => $Category,
 	      'CategoryName' => $CategoryName

@@ -2,11 +2,13 @@
 class Category extends DataObject {
 	public static $db = array(
 		"Title" => "Text",
+		"URLSlug" => "Text",
 		"Showmenu" => "Boolean"
 	);
 	function getCMSFields_forPopup() {
 		$fields = new FieldSet();
 		$fields->push( new TextField( 'Title' ) );
+		$fields->push( new TextField( 'URLSlug', 'Use underscores for spaces. Do not use dashes.' ) );
 		$fields->push( new CheckboxField('Showmenu', 'Show in Main Menu?') );
 		return $fields;
 	}
@@ -26,10 +28,7 @@ class Category extends DataObject {
 			return false;
 		} else {
 			$events = $calendar->Events($filter,null,null,null,$limit);
-			
 			$events->removeDuplicates('EventID');
-				
-			
 			return $events;
 		}
 	}

@@ -8,6 +8,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
+	<% if CategoryName %>
+	<link rel="canonical" href="{$BaseHref}events/categories/$Category.URLSlug" />
+		<% if Category.Information %>
+		
+		<% end_if %>
+	<% end_if %>
+	
 	<% if ClassName = AfterClassEvent %>
 	<meta property="og:title" content="$Title"/>
 	<meta property="og:type" content="activity"/>
@@ -17,7 +24,7 @@
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
 	
-	<title><% if CategoryName %> $CategoryName - <% end_if %><% if Action = category %>
+	<title><% if CategoryName %>$Category.Title - <% end_if %><% if Action = category %>
 		Categories - 
 	<% else_if Action = venue %>
 		Venues - 
@@ -26,10 +33,23 @@
 	<% end_if %> $Title  - After Class: The Best of UI's Culture, Events and Nightlife</title>
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">
+		<% if Category.Information %>
+		<meta name="keywords" content="$Category.Title, Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+		<% end_if %>
 	<% else %>
-		<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events">
-	<% end_if %>	<meta name="author" content="IMU Marketing &amp; Design">
-
+		<% if CategoryName %>
+			<% if Category.Information %>
+				<meta name="description" content="$Category.Information" />
+			<% else %>
+				<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+			<% end_if %>
+			<meta name="keywords" content="$Category.Title, Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+		<% else %>
+			<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+			<meta name="keywords" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+		<% end_if %>
+	<% end_if %>
+	<meta name="author" content="IMU Marketing &amp; Design">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<% require themedCSS(layout) %>
@@ -143,7 +163,7 @@ document.createElement('hgroup');
 				<% control getEventtypes %>
 					<% if Showmenu %>
 						<% if Events %>
-							<li><a href="events/categories/$Title">$Title ($Events.Count)</a></li>
+							<li><a href="events/categories/$URLSlug">$Title ($Events.Count)</a></li>
 						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>
@@ -158,7 +178,7 @@ document.createElement('hgroup');
 				<% control getSponsors %>
 					<% if Showmenu %>
 						<% if Events %>
-							<li><a href="events/categories/$Title">$Title ($Events.Count)</a></li>
+							<li><a href="events/categories/$URLSlug">$Title ($Events.Count)</a></li>
 						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>
@@ -173,7 +193,7 @@ document.createElement('hgroup');
 				<% control getVenues %>
 					<% if Showmenu %>
 						<% if Events %>
-							<li><a href="events/categories/$Title">$Title ($Events.Count)</a></li>
+							<li><a href="events/categories/$URLSlug">$Title ($Events.Count)</a></li>
 						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>
