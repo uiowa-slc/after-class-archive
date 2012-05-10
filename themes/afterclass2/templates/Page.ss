@@ -9,10 +9,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<% if CategoryName %>
-	<link rel="canonical" href="{$BaseHref}events/categories/$Category.URLSlug" />
-		<% if Category.Information %>
-		
+	
+	<% control Category %>
+		<% if ClassName = Sponsor %>
+		<link rel="canonical" href="{$BaseHref}events/sponsors/$URLSlug" />
+		<% else_if ClassName = Venue %>
+		<link rel="canonical" href="{$BaseHref}events/venues/$URLSlug" />
+		<% else_if ClassName = Category %>
+		<link rel="canonical" href="{$BaseHref}events/categories/$URLSlug" />
 		<% end_if %>
+	<% end_control %>
 	<% end_if %>
 	
 	<% if ClassName = AfterClassEvent %>
@@ -23,30 +29,30 @@
 	<meta property="og:site_name" content="After Class"/>
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
-	
-<<<<<<< HEAD
-	<title><% if CategoryName %>$Category.Title - <% end_if %><% if Action = category %>
-		Categories - 
-	<% else_if Action = venue %>
-		Venues - 
-	<% else_if Action = sponsor %>
-		Event Sponsors -
-	<% end_if %> $Title  - After Class: The Best of UI's Culture, Events and Nightlife</title>
-=======
-	<title><% if CategoryName %> $CategoryName - <% end_if %>
-	
-		<% if Action = category %>
-			Categories - 
-		<% else_if Action = venue %>
-			Venues - 
-		<% else_if Action = sponsor %>
-			Event Sponsors -
-		<% end_if %> 
-		
-		$Title  - After Class: The Best of UI's Culture, Events and Nightlife
-	</title>
-	
->>>>>>> 4ccc5de19c222d8df5aba63499fa2926a0646700
+	<meta name="ryan" content="yes" />
+	<title><% if CategoryName %>$Category.Title
+		<% control Category %>
+		<% if ClassName = Sponsor %>
+		- Event Sponsor
+		<% else_if ClassName = Venue %>
+		- Event Venue
+		<% else_if ClassName = Category %>
+		- Upcoming
+		<% end_if %>
+		<% end_control %>
+	<% else %>
+		<% control Category %><% if First %>
+		<% if ClassName = Sponsor %>
+		Event Sponsors
+		<% else_if ClassName = Venue %>
+		Venues
+		<% else %>
+		Categories
+		<% end_if %>
+		<% end_if %><% end_control %>
+	<% end_if %>
+	 - After Class: The Best of UI's Culture, Events and Nightlife</title>
+
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">
 		<% if Category.Information %>
@@ -174,7 +180,7 @@ document.createElement('hgroup');
 
 		<li class="first"><a href="{$BaseHref}"><strong>Home</strong></a></li>
 		<li>
-			<a href="events/category/"><strong>Categories</strong></a>
+			<a href="events/categories/"><strong>Categories</strong></a>
 			<ul>
 				<% control getEventtypes %>
 					<% if Showmenu %>
@@ -189,12 +195,12 @@ document.createElement('hgroup');
 			</ul>
 		</li>
 		<li>
-			<a href="events/sponsor/"><strong>Sponsors</strong></a>
+			<a href="events/sponsors/"><strong>Sponsors</strong></a>
 			<ul>
 				<% control getSponsors %>
 					<% if Showmenu %>
 						<% if Events %>
-							<li><a href="events/categories/$URLSlug">$Title ($Events.Count)</a></li>
+							<li><a href="events/sponsors/$URLSlug">$Title ($Events.Count)</a></li>
 						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>
@@ -204,12 +210,12 @@ document.createElement('hgroup');
 			</ul>
 		</li>
 		<li>
-			<a href="events/venue/"><strong>Venues</strong></a>
+			<a href="events/venues/"><strong>Venues</strong></a>
 			<ul>
 				<% control getVenues %>
 					<% if Showmenu %>
 						<% if Events %>
-							<li><a href="events/categories/$URLSlug">$Title ($Events.Count)</a></li>
+							<li><a href="events/venues/$URLSlug">$Title ($Events.Count)</a></li>
 						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>

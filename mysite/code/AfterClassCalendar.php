@@ -64,11 +64,13 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	 public static $url_handlers = array(
             //'tag/$Tag' => 'tag'
             'categories/$Category' => 'categories',
+            'venues/$Venue' => 'venues',
+            'sponsors/$Sponsor' => 'sponsors',
             'categoriesrss/$Category' => 'categoriesrss',
             'fbauthorize' => 'fbauthorize',
             'fbcallback/$Token' => 'fbcallback'
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback");
+ 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback", "venues", "sponsors");
  	function getCurrentTag(){
  		if($this->urlParams['Tag']){
  			 $Tag = DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
@@ -213,40 +215,71 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		data = JSON.parse(page.body)
 		return data*/
  	}
- 	
- 	function categories() {
- 	
- 		$CategoryName = addslashes($this->urlParams['Category']);
- 		$Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
- 		if (!($Category)) {
- 			$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 	/* Return a venue, or list of venues, meow. */
+ 	function venues() {
+ 		$VenueName = addslashes($this->urlParams['Venue']);
+ 		if ($VenueName) {
+ 			$Venue = DataObject::get_one("Venue", "URLSlug = '".$VenueName."'");
+ 			$Data = array(
+	      		'Category' => $Venue,
+	      		'CategoryName' => $VenueName
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+ 		} else {
+ 			$Category = DataObject::get("Venue");
+ 			$Data = array(
+				'Category' => $Category
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  		}
- 		$Data = array(
-	      'Category' => $Category,
-	      'CategoryName' => $CategoryName
-	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+ 	}
+ 	/* Return a sponsor or list of sponsors, meow. */
+ 	function sponsors() {
+ 		$SponsorName = addslashes($this->urlParams['Sponsor']);
+ 		if ($SponsorName) {
+ 			$Sponsor = DataObject::get_one("Sponsor", "URLSlug = '".$SponsorName."'");
+ 			$Data = array(
+	      	'Category' => $Sponsor,
+	      	'CategoryName' => $SponsorName
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+ 		} else {
+ 			$Category = DataObject::get("Sponsor");
+ 			$Data = array(
+	    	  'Category' => $Category
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 		}
+ 	}
+ 	/* Return a category or list of eventtypes, meow. */
+ 	function categories() {
+ 		$CategoryName = addslashes($this->urlParams['Category']);
+ 		if ($CategoryName) {
+ 			$Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
+ 			if (!($Category)) {
+ 				$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 			}
+ 			$Data = array(
+				'Category' => $Category,
+				'CategoryName' => $CategoryName
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+ 		} else {
+ 			$Category = DataObject::get("Eventtype");
+ 			$Data = array(
+	      	'Category' => $Category
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 		}
  	}
  	function category() {
- 	    $Category = DataObject::get("Eventtype");
- 		$Data = array(
-	      'Category' => $Category
-	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	    Director::redirect('./events/categories/');
  	}
  	function sponsor() {
- 	    $Category = DataObject::get("Sponsor");
- 		$Data = array(
-	      'Category' => $Category
-	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+		Director::redirect('./events/sponsors/');
  	}
  	function venue() {
- 	    $Category = DataObject::get("Venue");
- 		$Data = array(
-	      'Category' => $Category
-	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	    Director::redirect('./events/venues/');
  	}
  	
  	/*function tag() {
