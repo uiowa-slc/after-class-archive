@@ -46,20 +46,12 @@ class AfterClassCalendar extends Calendar {
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {
-
-	public function Home(){
-	
-	
+	public function Home() {
 		if($this->action == 'index'){
 			return true;
-			
-		
 		}else{
 			return false;
-		
 		}
-	
-	
 	}
  	 public static $url_handlers = array(
             //'tag/$Tag' => 'tag'
@@ -67,6 +59,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             'venues/$Venue' => 'venues',
             'sponsors/$Sponsor' => 'sponsors',
             'categoriesrss/$Category' => 'categoriesrss',
+            'categories/$Category/rss' => 'categoriesrss',
             'fbauthorize' => 'fbauthorize',
             'fbcallback/$Token' => 'fbcallback'
             );
@@ -272,9 +265,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  		}
  	}
- 	function category() {
+ 	/*function category() {
  	    Director::redirect('./events/categories/');
- 	}
+ 	}*/
  	function sponsor() {
 		Director::redirect('./events/sponsors/');
  	}
