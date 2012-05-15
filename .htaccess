@@ -18,7 +18,8 @@ ErrorDocument 500 /assets/error-500.html
 <IfModule mod_alias.c>
 	RedirectMatch 403 /silverstripe-cache(/|$)
 </IfModule>
-
+RewriteRule ^blog$ - [L]
+RewriteRule ^blog/.* - [L]
 <IfModule mod_deflate.c> 
 AddOutputFilterByType DEFLATE text/plain 
 AddOutputFilterByType DEFLATE text/html 
@@ -50,3 +51,5 @@ php_value error_reporting 2147483647
 php_flag display_errors 1
 php_value error_reporting 8191
 php_value memory_limit 64M
+
+
