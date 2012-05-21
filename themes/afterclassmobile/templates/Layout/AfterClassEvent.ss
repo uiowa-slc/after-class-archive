@@ -94,7 +94,7 @@
 	<% if MoreInfoLink %>
 	<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
 	<% end_if %>
-	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event.</a></p>
+	<!--<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event.</a></p>-->
 	
 	</div>
 	</div>

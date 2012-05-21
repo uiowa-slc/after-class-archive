@@ -43,11 +43,11 @@
 			</div>
 			<nav id="sticker">
 				<ul>
-			<li><a href="{$BaseHref}/events/">home</a></li>				
-			<li><a href="{$BaseHref}/events/categories/"><strong>categories</strong></a></li>
-			<li><a href="{$BaseHref}/events/sponsors">sponsors</a></li>
-			<li><a href="{$BaseHref}/events/venues">venues</a></li>
-			<li><a href="{$BaseHref}/events/add">add</a></li>
+			<li><a href="{$BaseHref}events/">home</a></li>				
+			<li><a href="{$BaseHref}events/categories/"><strong>categories</strong></a></li>
+			<li><a href="{$BaseHref}events/sponsors">sponsors</a></li>
+			<li><a href="{$BaseHref}events/venues">venues</a></li>
+			<li><a href="{$BaseHref}add">add</a></li>
 			
 					<div class="clear"></div>
 				</ul>
