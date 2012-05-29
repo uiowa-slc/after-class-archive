@@ -48,14 +48,16 @@ function handleSessionResponse(response) {
 			if (response.perms) {
 			  // user is logged in and granted some permissions.
 			  // perms is a comma separated list of granted permissions
-			  javascript:location.reload(true);
+			  //javascript:location.reload(true);
 			} else {
 			  // user is logged in, but did not grant any permissions
+			  //javascript:location.reload(true);
 			}
 		  } else {
 			// user is not logged in
 		  }
-		}, {perms:'email,sms'});
+		  javascript:location.reload(true);
+		}, {perms:'email'});
   }
   function logoutnow() {
 	FB.api('/me', function(response) {
