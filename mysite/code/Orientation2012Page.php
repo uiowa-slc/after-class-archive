@@ -52,15 +52,23 @@ function Form() {
 		Director::redirect($this->URLSegment.'/');
 	}
 	public function show() {
-		$mr = "first,last,email,signupsource,created<br />";
-		$records = DataObject::get("OrientationPerson",null,"id DESC",null,1000);
-		foreach ($records as $record) {
-			if ($record->signup_source == $this->URLSegment) {
-				$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
+	
+	if(Permission::check("ADMIN")){
+		if($this){
+			$mr = "first,last,email,signupsource,created<br />";
+			$records = DataObject::get("OrientationPerson",null,"id DESC",null,1000);
+			foreach ($records as $record) {
+				if ($record->signup_source == $this->URLSegment) {
+					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
+				}
 			}
+			return $mr;
 		}
-		return $mr;
+	}else {
+		Director::redirect("home/");
+	
 	}
+}
 
 
 	public function init() {
