@@ -33,41 +33,47 @@
 	<title><% if CategoryName %>$Category.Title
 		<% control Category %>
 		<% if ClassName = Sponsor %>
-		- Event Sponsor
+		- University of Iowa Event Sponsor - 
 		<% else_if ClassName = Venue %>
-		- Event Venue
+		- Event Venue - 
 		<% else_if ClassName = Category %>
-		- Upcoming
+		- Upcoming -
 		<% end_if %>
 		<% end_control %>
 	<% else %>
 		<% control Category %><% if First %>
 		<% if ClassName = Sponsor %>
-		Event Sponsors
+		Event Sponsors - 
 		<% else_if ClassName = Venue %>
-		Venues
+		Venues - 
 		<% else %>
-		Categories
+		Categories - 
 		<% end_if %>
 		<% end_if %><% end_control %>
 	<% end_if %>
-	 - After Class: The Best of UI's Culture, Events and Nightlife</title>
+	<% if ClassName = AfterClassEvent %>
+	$Title - 
+	<% end_if %>
+	<% if ClassName = FeaturedAfterClassEvent %>
+	$Title - 
+	<% end_if %>
+	After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
 
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">
 		<% if Category.Information %>
-		<meta name="keywords" content="$Category.Title, Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+		<meta name="keywords" content="$Category.Title, Iowa City Movies, Iowa City Events, Iowa City Concerts, Lectures, and Campus Events" />
 		<% end_if %>
 	<% else %>
 		<% if CategoryName %>
 			<% if Category.Information %>
 				<meta name="description" content="$Category.Information" />
 			<% else %>
-				<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+				<meta name="description" content="After Class is the biggest list of University of Iowa events, culture, nightlife, concerts, lectures, and more." />
 			<% end_if %>
-			<meta name="keywords" content="$Category.Title, Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+			<meta name="keywords" content="$Category.Title, Iowa City Movies, Iowa City Events, Iowa City Concerts, Lectures, and Campus Events" />
 		<% else %>
-			<meta name="description" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
+			<meta name="description" content="After Class is the biggest list of University of Iowa events, culture, nightlife, concerts, lectures, and more." />
 			<meta name="keywords" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
 		<% end_if %>
 	<% end_if %>
