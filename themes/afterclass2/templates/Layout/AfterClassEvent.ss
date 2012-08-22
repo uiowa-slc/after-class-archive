@@ -106,7 +106,7 @@
 	<% end_if %>
 
 	
-	</div>
+
 
 	
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
