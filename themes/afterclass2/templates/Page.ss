@@ -29,7 +29,6 @@
 	<meta property="og:site_name" content="After Class"/>
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
-	<meta name="ryan" content="yes" />
 	<title><% if CategoryName %>$Category.Title
 		<% control Category %>
 		<% if ClassName = Sponsor %>

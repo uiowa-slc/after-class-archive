@@ -75,18 +75,20 @@
     </section>
 
 
+
 <section id="detail_event_description">
 	
 	<div id="detail_event_description_info">
-	<h2>What's Happening?</h2>
-	$Content
-	
-	<% if MoreInfoLink %>
-	<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
-	<% end_if %>
-	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
-	
+		<h2>What's Happening?</h2>
+		$Content
+		
+		<% if MoreInfoLink %>
+		<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
+		<% end_if %>
+		<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
 	</div>
+	
+	
 	<% if Venues %>
 
 		<div id="detail_event_description_map">
@@ -94,18 +96,15 @@
 		<h2>Where?</h2>
 	
 		<% control Venues %>
-		<p>This event is located at: <br /><a href="$Link">$Title</a> - 
-		
-		<% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% end_if %><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
-		
-		<% if Address %>
-		<div id="map_canvas" style="width: 100%; height: 100%"></div>
-		<% end_if %>
-		
+			<p>This event is located at: <br /><a href="$Link">$Title</a> - 
+			<% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% end_if %><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
+			
+			<% if Address %>
+				<div id="map_canvas" style="width: 100%; height: 100%"></div>
+			<% end_if %>
 		<% end_control %>
+		
 	<% end_if %>
-
-	
 
 
 	
@@ -155,8 +154,9 @@
   }
   window.onload = initialize();
 </script>
-		<div style="clear: left;" class="clear"></div>
 
+	</div>
+	<div class="clear"></div>
 </section>
 
 

@@ -47,48 +47,60 @@ html,body,td {
 						  $Content
 						  </td></tr></table>
 						</td></tr>
-<% control FeaturedEvent %>
+<!-- previously featured event control-->
 						<tr width="598" bgcolor="#444" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1">
 							<td width="600" colspan="2" style="padding: 0px; margin:0px; border: 1px solid #8f9ca1;">
-								<center>
-								<a href="$AbsoluteLink">
-								<% control Image %>
-			  					<% control CroppedImage(598,350) %>
-									<img src="$AbsoluteURL" alt="Feature" border="0" alt="Featured Event">
-			  					<% end_control %>
-								<% end_control %>
-								</a>
-								</center>
 								
-								<h1 style="padding: 5px 5px 5px 15px; margin:0px; color:white; font-weight: bold; font-size:34px; border-bottom: 1px solid #5A5A5A; background: #333;">$Title</h1>
-								<table cellpadding="10"><tr><td>
-								<table><tr><td width="600">
-								<div style="padding:0; margin:0; color: #FFF;">
-									<span style="font-size: 18px;text-transform: uppercase; color:#ffd520; font-weight: normal;">Where?</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
-								</div>
-								<div style="padding:0; margin:0; color: #FFF;">
-									<span style="font-size: 18px; text-transform: uppercase; color:#ffd520; font-weight: normal">When?</span>
-									<% control DateAndTime %> 
-		    							<span style="color: #FFF;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
-		    							<% if StartTime %> at $StartTime.nice<% end_if %>
-		    							<% if EndDate %> -
-		    			 					<span style="color: #FFF;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
-		    			 				<% end_if %> 
-	    							<% end_control %>
-	    						</div>
-	    						</td><td valign="top">
-									<a href="$AbsoluteLink" style="text-decoration:none; padding:0; margin:10px 0px 0px 0px; color: #fff !important;">
-									<h5  style="width:110px; height:25px; background-color:#2791AE; text-align:center; valign:center; font-size: 15px; border: 1px solid #8f9ca1; color:#FFF !important; padding-top:5px;margin:0; "> view event</h5></a>
-									</td></tr></table>
-								<div style="font-size:16px;padding:0; margin:0; color: #fff !important;">$Content</div>
-								</td></tr></table>
+                                
+                                <!-- Blog Post Info -->
+<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555; text-align: left;" width="600">
+	<tr>
+		<td valign="top">
+			<div style="padding: 0px 0px 0px 5px;">
+			<h2 style="color: #ffd520 !important; font-size: 30px; margin:0; padding:0;">$ImageHeading</h2>
+			<% if Image %>
+			  <div style="padding: 5px 0px;"><a href="$ImageLink">
+				<% control Image %>
+			  	<% control CroppedImage(250,187) %>
+					<img src="$AbsoluteURL" alt="Recent Pics" border="0" alt="StudyBreak">
+			 	<% end_control %>
+				<% end_control %>
+			  </a></div>
+			<% end_if %>
+		</td>
+        		<td width="305" valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			
+			<h2 style="margin: 0px; padding: 0px; color: #FFD520 !important;">
+				<a href="http://imu.uiowa.edu/blog/" style="text-decoration: none; color: #FFD520 !important; font-size: 30px; text-decoration: none; border: 0px;">from the blog</a>
+			</h2>
+			<a href="$BlogLink" style="text-decoration: none; color: #FFF !important;">
+				<h3 style="margin: 0px 0px 5px 0px;">$BlogTitle</h3>
+			</a>
+			<div style="font-size: 14px; line-height: 20px; color: #fff;">$BlogIntro</div>
+			<div style=""><a href="$BlogLink" style="display:block;margin: 10px 0px 10px 0px; color: #FFF; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+                                
 							</td>
 						</tr>
-												
+                        
+<tr width="598" bgcolor="#444" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1">
+							<td width="600" colspan="2" style="padding: 10px; margin:0px; border: 1px solid #8f9ca1;">
+                        <h2 style="color: #ffd520 !important; font-size: 30px; margin:0; padding:0;">stay updated with after class</h2>
+                      <center>  
+                      <a href="http://twitter.com/imubuddy"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/icontwitter.png" border="0" alt="Twitter" style="padding-right: 10px;" height="75" width="75"></a>     
+                      <a href="http://www.facebook.com/uiowa.imu"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/iconfacebook.png" border="0" alt="Facebook" style="padding-right: 10px;" height="75" width="75"></a>     
+                      <a href="http://afterclass.uiowa.edu/events/rss"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/iconrss.png" border="0" alt="Subscribe" style="padding-right: 10px;" height="75" width="75"></a>
+                      <a href="http://uiowa.us2.list-manage.com/subscribe?u=c61b1cddac92babd42d7d628e&id=8e3635391c"><img src="http://news.imu.uiowa.edu/assets/AfterClassNewsletter/iconmail.png" border="0" alt="Mail to a Friend" height="75" width="75"></a></center>
+						</td>
+						</tr>
+        										
 						</tbody>						
 					</table>
-<% end_control %>
+<!-- previously featured event end control-->
 <!-- main content ends -->
 
 <!-- happening next/about section -->
@@ -225,37 +237,7 @@ html,body,td {
 	
 	</td></tr>
 </table>
-<!-- Blog Post Info -->
-<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555; text-align: left;" width="600">
-	<tr>
-		<td valign="top">
-			<div style="padding: 0px 0px 0px 5px;">
-			<h2 style="color: #ffd520 !important; font-size: 30px; margin:0; padding:0;">$ImageHeading</h2>
-			<% if Image %>
-			  <div style="padding: 5px 0px;"><a href="$ImageLink">
-				<% control Image %>
-			  	<% control CroppedImage(250,187) %>
-					<img src="$AbsoluteURL" alt="Recent Pics" border="0" alt="StudyBreak">
-			 	<% end_control %>
-				<% end_control %>
-			  </a></div>
-			<% end_if %>
-		</td>
-        		<td width="305" valign="top">
-			<div style="padding: 0px 10px 0px 10px;">
-			
-			<h2 style="margin: 0px; padding: 0px; color: #FFD520 !important;">
-				<a href="http://imu.uiowa.edu/blog/" target="_blank" style="display: block; text-decoration: none; color: #FFD520 !important; font-size: 30px; text-decoration: none; border: 0px; background-color: #333;  background-repeat: no-repeat; background-position: 200px; padding-right: 20px; margin-bottom: 5px;">from <span style="color: #ffea90; padding-bottom: 3px;">the blog</span></a>
-			</h2>
-			
-				<h3 style="margin: 0px 0px 5px 0px;"><a href="$BlogLink" style="color: #ffea90; border-bottom: 1px dotted #FFD520; padding-bottom: 3px; text-decoration: none; background-color: #333; background-image: url('http://afterclass.uiowa.edu/themes/afterclass2/images/external_link_newsletter.png'); background-repeat: no-repeat; background-position: right; padding-right: 20px;">$BlogTitle</a></h3>
-			</a>
-			<div style="font-size: 14px; line-height: 20px; color: #fff;">$BlogIntro</div>
-			<div style=""><a href="$BlogLink" style="display:block;margin: 10px 0px 10px 0px; color: #FFF; font-weight:bold;">Read more on our blog...</a></div>
-			</div>
-		</td>
-		</tr>
-</table>
+<!-- blog previously here-->
 <!-- About After Class -->
 <table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555; text-align: left;" width="600">
 	<tr>
@@ -264,7 +246,7 @@ html,body,td {
 			<h2 style="color: #FFD520 !important; font-size: 30px; margin:0; padding:0">about after class</h2>
 			<p style="font-weight: normal; font-size: 15px; padding:0; margin:0; color: #FFF;">After Class, a project of the Division of Student Life at the University of Iowa,  brings you the best of campus culture, events, and nightlife - stuff to do "after class."</p>
 			<h4 style="text-align: center; padding: 5px 0px 0px 0px; margin:0px; color: #FFD520 !important;">
-				<a href="http://afterclass.uiowa.edu/" style="text-decoration: none; background-color: #2791AE; color: #fff; border: 1px solid #8f9ca1; display: block; width: 180px; height: 25px; padding: 7px 0px 0px 0px;">check out the site</a>
+				<a href="http://afterclass.uiowa.edu/" style="text-decoration: none; background-color: #2791AE; color: #fff; border: 1px solid #8f9ca1; display: block; width: 180px; height: 25px; padding: 7px 0px 0px 0px;">visit the site</a>
 			</h4>
 			</div>
 		</td>
@@ -286,9 +268,7 @@ html,body,td {
 	<tr><td>
 		<a href="$BookstoreImageLink">
 			<% control BookstoreImage %>
-			  <% control CroppedImage(590,200) %>
-				<img src="$AbsoluteURL" alt="Ad" border="0" alt="University Book Store">
-			  <% end_control %>
+				<img src="$AbsoluteURL" alt="Ad" border="0" alt="Iowa Hawk Shop Advertisement">
 			<% end_control %>
 		</a>
 	</td></tr>

@@ -90,6 +90,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			//$event->Description = strip_tags($event->_Dates()) . $event->EventContent();
 			$event->Description = strip_tags($event->EventContent());
 		}
+		
+		//remove duplicates from the feed.
+		
+		$events->removeDuplicates("EventID");
+		
 		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
 		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
 		
