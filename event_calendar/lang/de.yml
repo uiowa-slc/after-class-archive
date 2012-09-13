@@ -17,30 +17,30 @@ if(array_key_exists('de_DE', $lang) && is_array($lang['de_DE'])) {
 
 // e.g. 4. Okt. 2009
 $lang['de_DE']['Calendar']['OneDay'] = 
-	'%{sDayNumShort}. %{sMonShort}. %{sYearFull}';
+	'$StartDayNumberShort. $StartMonthNameShort. $StartYearLong';	
 
 // e.g. 4. - 6. Okt. 2009
-$lang['de_DE']['Calendar']['SameMonthSameYear'] = 
-	'%{sDayNumShort}. - %{eDayNumShort}. %{sMonShort}. %{eYearFull}';
+$lang['de_DE']['Calendar']['SameMonthSameYear'] =
+	'$StartDayNumberShort. - $EndDayNumberShort. $StartMonthNameShort. $EndYearLong';	
 
 // e.g. 4. Okt. - 6. Nov. 2009
 $lang['de_DE']['Calendar']['DiffMonthSameYear'] = 
-	'%{sDayNumShort}. %{sMonShort}. - %{eDayNumShort}. %{eMonShort}. %{eYearFull}';
+	'$StartDayNumberShort. $StartMonthNameShort - $EndDayNumberShort. $EndMonthNameShort. $EndYearFull';	
 
 // e.g. 30. Dez. 2008 - 2. Jan. 2009
 $lang['de_DE']['Calendar']['DiffMonthDiffYear'] = 
-	'%{sDayNumShort}. %{sMonShort}. %{sYearFull} - %{eDayNumShort}. %{eMonShort}. %{eYearFull}';
+	'$StartDayNumberShort. $StartMonthNameShort. $StartYearLong - $EndDayNumberShort. $EndMonthNameShort. $EndYearLong';	
 
 
 // "Headers" control the display when a date range is given to the calendar through the URL.
 $lang['de_DE']['Calendar']['OneDayHeader'] =
-	'%{sDayNumShort}. %{sMonFull} %{sYearFull}';
+	'$StartDayNumberShort. $StartMonthNameLong $StartYearLong';
 
 $lang['de_DE']['Calendar']['MonthHeader'] =
-	'%{sMonFull} %{sYearFull}';
+	'$StartMonthNameLong $StartYearLong';
 
 $lang['de_DE']['Calendar']['YearHeader'] =
-	'%{sYearFull}';	
+	'$StartYearLong';
 	
 /** Language **/
 
@@ -122,7 +122,5 @@ $lang['de_DE']['CalendarEvent.ss']['SUBSCRIBE'] =
 	$lang['de_DE']['Calendar.ss']['SUBSCRIBE'];
 $lang['de_DE']['CalendarEvent.ss']['ADDITIONALDATES'] = 
 	'Zusätzliche Daten';
-$lang['de_DE']['CalendarEvent.ss']['ADD'] = 
-	$lang['de_DE']['Calendar.ss']['ADD'];
 
 $lang['de_DE']['CalendarWidget']['LOCALEFILE'] = 'date_de.js';

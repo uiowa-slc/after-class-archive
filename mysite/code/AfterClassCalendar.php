@@ -63,7 +63,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             'fbauthorize' => 'fbauthorize',
             'fbcallback/$Token' => 'fbcallback'
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback", "venues", "sponsors");
+ 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback", "venues", "sponsors", "Events");
  	function getCurrentTag(){
  		if($this->urlParams['Tag']){
  			 $Tag = DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
@@ -190,6 +190,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		
 		
 		}
+	}
+	
+	function Events(){
+		parent::Events();
+		
 	}
 	
 	function fbauthorize() {
