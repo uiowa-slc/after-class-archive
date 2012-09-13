@@ -2,52 +2,50 @@
 
 class RecurringDayOfWeek extends DataObject {
 	
-
-
 	static $db = array (
-		'Value' => 'Int'
+		'Value' => 'Int',
+		'Skey' => 'Varchar(1)'
 	);
-
-
-
-	static $default_sort = "Value ASC";
 	
-	
-
 	static $belongs_many_many = array (
 		'CalendarEvent' => 'CalendarEvent'
 	);
 	
+	static $days_initial = array ('S', 'M', 'T', 'W', 'T', 'F', 'S');
 	
-	
-
-	static function create_default_records() {
-		for($i = 0; $i <= 6; $i++) {
+	static function doDefaultRecords()
+	{
+		for($i = 0; $i <= 6; $i++)
+		{
 			$record = new RecurringDayOfWeek();
-			$record->Value = $i;			
+			$record->Value = $i;
+			$record->Skey = self::$days_initial[$i];
 			$record->write();
 		}	
 	}
-
-
-
-	public function requireDefaultRecords() {
+	public function requireDefaultRecords()
+	{
 		parent::requireDefaultRecords();
-		$records = DataList::create("RecurringDayOfWeek");
-		if(!$records->exists()) {
-			self::create_default_records();
+		if(!DataObject::get("RecurringDayOfWeek"))
+		{
+			self::doDefaultRecords();
 		}
-		elseif($records->count() != 7)  {
-			foreach($records as $record) {
-				$record->delete();
+		elseif($records = DataObject::get("RecurringDayOfWeek"))
+		{
+			if($records->Count() < 7)
+			{
+				foreach($records as $record)
+				{
+					$record->delete();
+				}
+				self::doDefaultRecords();
 			}
-			self::create_default_records();
 		}
+        
+        //SS_Database::alteration_message("Recurring Days of Week added.","created"); 		
+	
 	}	
-
-
-	public function getTitle() {
-		return strftime("%a", sfDate::getInstance()->nextDay($this->Value)->get());
-	}
 	
 }
+
+?>
