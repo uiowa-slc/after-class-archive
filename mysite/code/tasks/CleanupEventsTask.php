@@ -71,6 +71,7 @@ class CleanupEventsTask extends ScheduledTask {
     			
     			if($eventPage->archiveStatus == 'old'){
     				$eventPage->setParent($archivePage);
+    				$eventPage->doUnpublish();  
     				$eventPage->write();
     			
     			}	
