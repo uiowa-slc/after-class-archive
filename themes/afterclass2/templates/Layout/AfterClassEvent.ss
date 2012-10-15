@@ -21,8 +21,7 @@
 				    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 				    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 				    			</a> 
-				    				<% if StartTime %> at $StartTime.nice<% end_if %>
-				    			
+				    				<% if StartTime %> at $StartTime.nice<% end_if %><% if EndTime %>, ends at $EndTime.nice<% end_if %>
 			    			
 				    			<% if EndDate %> -
 				    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
