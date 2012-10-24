@@ -70,7 +70,11 @@ class CleanupEventsBuildTask extends BuildTask {
     			
     			
     			if($eventPage->archiveStatus == 'old'){
+    				//$eventPage->delete();
+    				$eventPage->deleteFromStage("Live"); 
     				$eventPage->setParent($archivePage);
+    				
+    				
     				$eventPage->write();
     			
     			}	
