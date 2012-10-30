@@ -44,7 +44,7 @@
 
 	<% cached if Home %>
 	<% control AllEvents %>
-	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
+	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event">
 	
 		<div class="homepage-event-header">
 			<h3><a href="$Event.Link" itemprop="url"><span itemprop="summary">$Event.Title</span><% if Event.CancelReason %><span class="homepage-cancel-reason">Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
