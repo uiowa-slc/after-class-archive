@@ -34,7 +34,7 @@ class AddEventPage_Controller extends Page_Controller {
 		$fields = new FieldSet(
             new TextField('Title','Name of the event'),
             new TextField('Location','Location of the event'),
-            new TextField('Submitterdate','Date or dates of the event'),
+            new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
             new TextField('Cost','How much does it cost to attend?'),
             new TextField('Content','Describe what the event is about.'),
             new TextField('Sponsor','Who is sponsoring or hosting the event?'),
