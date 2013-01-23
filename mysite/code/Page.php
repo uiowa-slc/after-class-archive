@@ -31,6 +31,57 @@ class Page extends SiteTree {
 		//return the customised template
 		return $template->process(new ArrayData($customise));
 	}
+	
+function allPagesToCache() {
+    // Get each page type to define its sub-urls
+    $urls = array();
+    // memory intensive depending on number of pages
+    $pages = DataObject::get("Page");
+    $ignored = array('UserDefinedForm', 'AddEventPage');
+
+    foreach($pages as $page) {
+    	if(!in_array($page->ClassName, $ignored)) {
+	    	$urls = array_merge($urls, (array)$page->subPagesToCache());
+	    }
+    }
+    
+    $urls[] = 'events/categories/';
+    $urls[] = 'events/sponsors/';
+    $urls[] = 'events/venues/';     
+    // add any custom URLs which are not SiteTree instances
+    //$urls[] = "sitemap.xml";
+ 
+    return $urls;
+  }
+ 
+ /**
+ 
+   * Get a list of URLs to cache related to this page
+   */
+  function subPagesToCache() {
+    $urls = array();
+ 
+    // add current page
+    $urls[] = $this->Link();
+     
+    // cache the RSS feed if comments are enabled
+    if ($this->ProvideComments) {
+      $urls[] = Director::absoluteBaseURL() . "pagecomment/rss/" . $this->ID;
+    }
+     
+    return $urls;
+  }
+   
+  function pagesAffectedByChanges() {
+    $urls = $this->subPagesToCache();
+    if($p = $this->Parent) $urls = array_merge((array)$urls, (array)$p->subPagesToCache());
+    
+    $urls[] = 'events/categories/';
+    $urls[] = 'events/sponsors/';
+    $urls[] = 'events/venues/'; 
+    
+    return $urls;
+  }
 
 }
 class Page_Controller extends ContentController {
@@ -62,6 +113,8 @@ class Page_Controller extends ContentController {
 		  
 		
 	}
+	
+	
 	
 	public function AllDeadlines(){
 	

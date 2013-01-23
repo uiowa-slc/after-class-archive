@@ -1,10 +1,11 @@
 <!doctype html>
 
 <head>
+
 	<% base_tag %>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<!--<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />-->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
@@ -77,7 +78,6 @@
 		<% end_if %>
 	<% end_if %>
 	<meta name="author" content="IMU Marketing &amp; Design">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<% require themedCSS(layout) %>
 	<% if iswindows %>
@@ -184,6 +184,8 @@ document.createElement('hgroup');
 	<ul class="clearfix">
 
 		<li class="first"><a href="{$BaseHref}"><strong>Home</strong></a></li>
+		<li><a href="blog/"><strong>blog</strong><img class="new" src="{$ThemeDir}/images/new.png"/></a></li>
+
 		<li>
 			<a href="events/categories/"><strong>Categories</strong></a>
 			<ul>
@@ -255,7 +257,6 @@ document.createElement('hgroup');
 		<% end_control %>
 		
 		
-		
     </ul>
     
     <% end_cached %>
@@ -307,9 +308,9 @@ document.createElement('hgroup');
 			
 		</div>
 		<ul>
-			<li><a href="{$BaseHref}/events/category">Category</a></li>
-			<li><a href="{$BaseHref}/events/sponsor">Sponsor</a></li>
-			<li><a href="{$BaseHref}/events/venue">Venue</a></li>
+			<li><a href="{$BaseHref}/events/categories">Categories</a></li>
+			<li><a href="{$BaseHref}/events/sponsors">Sponsors</a></li>
+			<li><a href="{$BaseHref}/events/venues">Venue</a></li>
 			<li><a href="{$BaseHref}/events/">All Events</a></li>
 			<li><a href="{$BaseHref}/add/">Submit an Event</a></li>
 			<% if FutureDeadlines %>
@@ -579,7 +580,8 @@ document.createElement('hgroup');
   })();
 
 </script>
-
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
 
 </body>
 </html>

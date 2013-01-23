@@ -261,7 +261,7 @@ class AfterClassEvent extends CalendarEvent {
 /* ----------------------------------- */
 		
 		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (400 x 380 pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (<strong style="font-size: 14px">552 x 524 [new size!]</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		
 		
 		//$params = array('parent' => $this->ID, 'transaction' => "generic", 'imgstate' => 'existing'); //$this->Image->TransactionKey

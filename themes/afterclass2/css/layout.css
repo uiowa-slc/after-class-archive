@@ -115,6 +115,12 @@ h2 a {
 	font-weight: normal;
 
 }
+
+#page_navigation img.new {
+	position: absolute;
+	margin-top: -50px;
+	
+}
 /* =============================================================================
    Typography
    ========================================================================== */
@@ -461,6 +467,7 @@ font-family: 'SketchBlock-Bold';
 
 #page_content.AfterClassEvent .container {
 	width: 980px;
+	margin-top: 20px;
 
 }
 
@@ -478,7 +485,7 @@ font-family: 'SketchBlock-Bold';
   }
   
   #secondary-nav {
-  	float: left;
+  	float: right;
   	/*background: #185b6d;*/
   	text-align: left;
   	font-size: 13px;
@@ -527,7 +534,7 @@ font-family: 'SketchBlock-Bold';
     padding: 0;
     list-style: none;
     float: left;
-    width: 600px;
+    width: 650px;
      }
     #page_navigation ul li {
      /* width: 100px; */
@@ -1479,9 +1486,9 @@ font-family: 'SketchBlock-Bold';
 	color: #EBE5E6;
 	font-size: 16px;
 	padding: 5px;
-	width: 360px;
+	width: 300px;
 	background-image: url(../images/search_icon.png);
-	background-position: 345px, 6px;
+	background-position: 285px, 6px;
 	background-repeat: no-repeat;
 	
 	/* ie8, grumble grumble */
@@ -1506,6 +1513,7 @@ font-family: 'SketchBlock-Bold';
 .event_details .date-link span {
 	background:#353535;
 	padding: 5px;
+	border: 1px solid #666;
 	
 }
 
@@ -2157,25 +2165,25 @@ a:active.event-header-category {
 
 .more-event-info {
 	border: 1px solid #666;
-	background: #4e4e4e;
-	color: #ffde68;
-	padding: 5px 4px 2px;
+	background: #2488A3;
+	color: white;
+	padding: 5px;
 	/*margin: 10px 0;*/
 	text-align: center;
-	font-family: SketchBlock-Bold, sans;
+	/*font-family: SketchBlock-Bold, sans;*/
 	font-weight: normal;
-	width: 145px;
+	width: 139px;
 	display: block;
 	float:right;
 
 }
 
 .more-event-info:hover {
-	-webkit-box-shadow: inset 0px 4px 20px 1px rgba(227, 227, 227, 0.1);
-	-moz-box-shadow: inset 0px 4px 20px 1px rgba(227, 227, 227, 0.1);
-	-o-box-shadow: inset 0px 4px 20px 1px rgba(227, 227, 227, 0.1);
-	-ms-box-shadow: inset 0px 4px 20px 1px rgba(227, 227, 227, 0.1);
-	box-shadow: inset 0px 4px 20px 1px rgba(227, 227, 227, 0.1);
+	-webkit-box-shadow: inset 0px 4px 20px 1px #195e71;
+	-moz-box-shadow: inset 0px 4px 20px 1px #195e71;
+	-o-box-shadow: inset 0px 4px 20px 1px #195e71;
+	-ms-box-shadow: inset 0px 4px 20px 1px #195e71;
+	box-shadow: inset 0px 4px 20px 1px #195e71;
 	color: #ffde68;
 
 }
@@ -2187,6 +2195,21 @@ a:active.event-header-category {
 	-ms-box-shadow: inset 0px 4px 15px 1px rgba(51, 51, 51, 0.9);
 	box-shadow: inset 0px 4px 15px 1px rgba(51, 51, 51, 0.9);
 
+}
+
+.more-event-info-link {
+	float: right;
+}
+
+.addthis_toolbox{
+	width: 400px;
+	float: left;
+	margin-top: 8px;
+}
+
+.read-more-link {
+	margin: 5px 0;
+	display: block;
 }
 
 .homepage-feature #share-area {
@@ -2225,7 +2248,7 @@ a:active.event-header-category {
 	float: left;
 	width: 190px;
 	margin-right: 20px;
-	border-right: 1px solid #ccc;
+	/*border-right: 1px solid #ccc;*/
 	padding-right: 20px;
 }
 .homepage-event-meta .dates {
@@ -2234,15 +2257,20 @@ a:active.event-header-category {
 	list-style-position: inside;
 	padding: 0;
 	margin: 0;
-
-	
-
 }
 
 .homepage-event-meta .dates li {
 	/*float: left;*/
-
 }
+
+.event-share-container{
+	background: #e2e2e2;
+	padding: 4px;
+	border: 1px solid #ccc;
+	margin: 3px 0;
+	
+}
+
 .where {
 	margin-left: 10px;
 	width: 150px;
@@ -2343,6 +2371,8 @@ color: #f9e091;
 
 .read-more a{
 	color: #ffde68;
+	display: block;
+
 
 }
 
@@ -2743,3 +2773,34 @@ textarea {
 #recaptcha_area {
 	margin: 10px 0;
 }
+
+/* Mobile Media Queries */
+
+@media screen and (max-width: 480px) {
+
+	#studentlife-header{
+		display: none;
+	}
+
+	/*#right-column {
+		float: none !important;
+	}
+	
+	#left-column {
+		width: 100% !important;
+	}
+	
+	.homepage-event {
+		width: 100% !important;
+	}
+	
+	#page_content.AfterClassCalendar.index .container{
+		width: 100% !important;
+		
+	}*/
+
+
+
+}
+
+

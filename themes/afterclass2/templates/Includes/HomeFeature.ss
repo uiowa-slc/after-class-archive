@@ -6,7 +6,7 @@
 					<div class="homepage-feature-details"> <a href="$Link">
 						<% if Image %>
 							<% control Image %>
-								<% control CroppedImage(550,250) %><img itemprop="photo" src="$URL" /><% end_control %>
+								<img itemprop="photo" src="$URL" />
 							<% end_control %>
 						<% else %>
 							<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />

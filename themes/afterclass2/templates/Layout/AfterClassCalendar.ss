@@ -70,14 +70,14 @@
 					
 					
 					
-					<div><a href="$Link" class="more-event-info">view event</a></div>
+					
 				<% end_control %>
 			</div><!-- end homepage-event-image -->
 
 			<div class="homepage-event-desc">
 			
 			<% control Event %>
-			<p>$Content.Summary(40) <a href="$Link" class="read-more-link">read more</a></p>
+			<p>$Content.Summary(40) <a href="$Link" class="read-more-link">[read more]</a></p>
 			<% end_control %>
 	<!--<a href="#" class="more-event-info">get directions</a>-->
 
@@ -131,9 +131,25 @@
 	
 
 		<div style="clear: both;"></div>
-
+		
+		<div class="event-share-container">
+			<div class="addthis_toolbox addthis_default_style"
+				addthis:url="{$Event.AbsoluteLink}"
+				addthis:title="{$Event.Title}"
+				addthis:description="">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>			</div>
+			<div class="more-event-info-link">
+				<a href="$Link" class="more-event-info">view event</a>
+			</div>
+			<div class="clear"></div>
+		</div>
 		</div><!-- end homepage-event-content -->
-	
+
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
 	<% end_cached %>
@@ -204,7 +220,7 @@
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/underthedome_test.png" alt="Under the Dome Student Blog" /></a></h2>
 		
 		<div class="blog-entries">
-		<% control RSSDisplay(3, http://imu.uiowa.edu/news/feed/) %>
+		<% control RSSDisplay(3, http://afterclass.uiowa.edu/blog/feed/) %>
 		<div class="blog-entry $EvenOdd">
 			<h3><a href="$Link">$Title</a></h3>
 			<div class="blog-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
