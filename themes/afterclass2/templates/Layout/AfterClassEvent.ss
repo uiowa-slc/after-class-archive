@@ -23,7 +23,7 @@
 				    			</a> 
 				    				<% if StartTime %> at $StartTime.nice<% end_if %><% if EndTime %>, ends at $EndTime.nice<% end_if %>
 			    			
-				    			<% if EndDate %> -
+				    			<% if EndDate %> until
 				    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
 				    			 		<span>$EndDate.Format(l), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 				    			 	</a>
@@ -69,8 +69,8 @@
 	
           	<div style="clear: both"></div>
              <div class="addthis_toolbox addthis_default_style"
-				addthis:url="{$Event.AbsoluteLink}"
-				addthis:title="{$Event.Title}"
+				addthis:url="{$AbsoluteLink}"
+				addthis:title="{$Title}"
 				addthis:description="">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
@@ -104,8 +104,9 @@
 		<h2>Where?</h2>
 	
 		<% control Venues %>
-			<p>This event is located at: <br /><a href="$Link">$Title</a> - 
-			<% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% end_if %><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
+			<p>This event is located at: <a href="$Link">$Title</a></p>
+			 
+			<p><% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo;</a><% end_if %><% if WebsiteURL %> <br /> <a href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></p>
 			
 			<% if Address %>
 				<div id="map_canvas" style="width: 100%; height: 100%"></div>

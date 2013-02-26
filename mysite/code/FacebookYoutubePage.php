@@ -77,9 +77,7 @@ class FacebookYoutubePage extends Page {
 		    $video_id = $match[0]; #/videos/asdfjj/ ???
 		    preg_match("<title *+>[A-Za-z0-9_]+</title>",$value,$match);
 		    $title = $match[0]; # <title x>sdfsdf</title> ???
-		    
-		    <title type='text'>Studybreak - Obama</title><content type='text'>
-		    
+		    		    
 			$array2 = explode("</id>",$value);
 			$array2 = preg_split("/videos\/[A-Za-z0-9_]+</",$contents);
 			$p1 = $array2[0];

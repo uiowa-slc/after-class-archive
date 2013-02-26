@@ -32,16 +32,21 @@
 					
 								<div class="homepage-feature-when">
 								
-										<% control DateAndTime %>
+										<% control DateAndTimeLimited(3) %>
 									<p> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(F) $StartDate.format(j)</time></a>
 										<% if EndDate %>
-										- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(F) $EndDate.format(j)</time></a>
+										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(F) $EndDate.format(j)</time></a>
 										<% end_if %>
 										<% if StartTime %>
 										at $StartTime.Nice
 										<% end_if %>
 									</p>
 									<% end_control %>
+									
+									
+									<% if DateAndTimeMoreThan(3) %>
+										<a href="$Link" class="more-dates-link">view more dates &raquo;</a>
+									<% end_if %>
 								</div><!-- end homepage-feature-when -->
 								
 								<div class="homepage-feature-where">
@@ -69,7 +74,16 @@
 						</div><!-- end homepage-feature-text -->
 						
 						<!--<h2>share</h2>-->
-						<% include ShareLinks %>
+						 <div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
+				addthis:title="{$Title}"
+				addthis:description="">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_twitter"></a>    
+    <a class="addthis_button_google_plusone_share"></a>
+
+    <a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
+
+</div>
 						<a class="more-event-info" href="$Link">view event</a>
 					</div><!-- end homepage-feature-content -->
 					<div style="clear: both"></div>

@@ -42,12 +42,11 @@
 
 
 
-	<% cached if Home %>
 	<% control AllEvents %>
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event">
 	
 		<div class="homepage-event-header">
-			<h3><a href="$Event.Link" itemprop="url"><span itemprop="summary">$Event.Title</span><% if Event.CancelReason %><span class="homepage-cancel-reason">Note: $Event.CancelReason</span><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
+			<h3><a href="$Event.Link" itemprop="url"><span itemprop="summary">$Event.Title</span><% if Event.CancelReason %><div class="homepage-cancel-reason">Note: $Event.CancelReason</d><% end_if %></a></h3><% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
 			
 			<div style="clear: both"></div>
 		
@@ -77,7 +76,7 @@
 			<div class="homepage-event-desc">
 			
 			<% control Event %>
-			<p>$Content.Summary(40) <a href="$Link" class="read-more-link">[read more]</a></p>
+			<p>$Content.Summary(30) <a href="$Link" class="read-more-link">read more &raquo;</a></p>
 			<% end_control %>
 	<!--<a href="#" class="more-event-info">get directions</a>-->
 
@@ -90,18 +89,23 @@
 					<ul class="dates">
 					
 					
-					<% control Event.DateAndTime %>
+					<% control Event.DateAndTimeLimited(3) %>
+						
 						<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(M). $StartDate.format(j)</time> </a> <% if StartTime %>
 							at $StartTime.Nice
 							<% end_if %>
 						
 							<% if EndDate %>
-							- <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M). $EndDate.format(j)</time> </a>
+							until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M). $EndDate.format(j)</time> </a>
 							<% end_if %>
-					
+						
 						</li>
 						<% end_control %>
-
+						<% control Event %>
+						<% if DateAndTimeMoreThan(3) %>
+							<a href="$Link" class="more-dates-link">view more dates &raquo;</a>
+						<% end_if %>
+						<% end_control %>
 
 					</ul>
 				</div>
@@ -132,27 +136,32 @@
 
 		<div style="clear: both;"></div>
 		
+		<div class="homepage-event-bottom">
 		<div class="event-share-container">
-			<div class="addthis_toolbox addthis_default_style"
-				addthis:url="{$Event.AbsoluteLink}"
+<div class="addthis_toolbox addthis_default_style"	addthis:url="{$Event.AbsoluteLink}"
 				addthis:title="{$Event.Title}"
 				addthis:description="">
-<a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>			</div>
-			<div class="more-event-info-link">
-				<a href="$Link" class="more-event-info">view event</a>
-			</div>
+    <a class="addthis_button_facebook"></a>
+    <a class="addthis_button_twitter"></a>    
+    <a class="addthis_button_google_plusone_share"></a>
+    <a class="addthis_button_tumblr"></a>    
+
+    <a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
+
+</div>
+			
 			<div class="clear"></div>
 		</div>
+		<div class="more-event-info-link">
+			<a href="$Link" class="more-event-info">view event</a>
+		</div>
+		<div class="clear"></div>
+		</div><!-- end homepage-event-bottom -->
+		<div class="clear"></div>
 		</div><!-- end homepage-event-content -->
 
 	</div><!-- end homepage-event -->
 	<% end_control %> <%-- end control Upcoming Events --%>
-	<% end_cached %>
 	
 </div><!-- end homepage-event-list -->
 
@@ -185,7 +194,26 @@
 	</form>
 </div><!-- end mc_embed_signup -->
 	</div><!-- end newsletter-signup -->
-	
+	<div id="the-blog">
+		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/from_the_blog.png" alt="The After Class Blog" /></a></h2>
+		
+		<div class="blog-entries">
+		<% control RSSDisplay(3, http://afterclass.uiowa.edu/blog/feed/) %>
+		<div class="blog-entry $EvenOdd">
+			$Image
+			<h3><a href="$Link">$Title</a></h3>
+			<div class="blog-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
+			<div class="blog-text">
+			<p>$Content.Summary(50)</p>
+			
+			</div>
+			<div class="read-more"><p><a href="$Link">Read More</a></p></div>
+		
+		</div><!-- end blog-entry -->
+		<% end_control %>
+		</div><!-- end blog-entries -->
+		<p class="view-all-posts-link"><a href="blog/">view all posts &raquo;</a></p>
+	</div><!-- end the-blog -->	
 	<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
 	<% if FutureDeadlines %>
 	<div id="approaching-deadlines">
@@ -205,38 +233,27 @@
 			
 			</ul>
 			<ul id="additional-deadline-links">
-				<li><a href="{$BaseHref}deadlines/">view all deadlines</a></li>
-				<li><a href="http://www.registrar.uiowa.edu/calendars/fiveyearcalendar.aspx" target="_blank">academic calendar</a></li>
-				<li><a href="http://www.hawkeyesports.com/calendar/events/" target="_blank" >athletic calendar</a></li>
-				<li><a href="{$BaseHref}add/" target="_blank" >submit an event</a></li>
+				<li><a href="{$BaseHref}deadlines/">view all deadlines &raquo;</a></li>
+				<li><a href="http://www.registrar.uiowa.edu/calendars/fiveyearcalendar.aspx" target="_blank">academic calendar &raquo;</a></li>
+				<li><a href="http://www.hawkeyesports.com/calendar/events/" target="_blank" >athletic calendar &raquo;</a></li>
+				<li><a href="{$BaseHref}add/" target="_blank" >submit an event &raquo;</a></li>
 			</ul>
 		</div>
 	
 	</div><!-- end approaching-deadlines -->
-	
+	<div class="clear"></div>
 	<% end_if %>
 	
-	<div id="the-dome">
-		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/underthedome_test.png" alt="Under the Dome Student Blog" /></a></h2>
-		
-		<div class="blog-entries">
-		<% control RSSDisplay(3, http://afterclass.uiowa.edu/blog/feed/) %>
-		<div class="blog-entry $EvenOdd">
-			<h3><a href="$Link">$Title</a></h3>
-			<div class="blog-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
-			<div class="blog-text">
-			<p>$Content.Summary(50)</p>
-			
-			</div>
-			<div class="read-more"><p><a href="$Link">Read More</a></p></div>
-		
-		</div><!-- end blog-entry -->
-		<% end_control %>
-		</div><!-- end blog-entries -->
-		<% end_cached %>
-	</div><!-- end the-dome -->
+	<!-- ad space -->
+	<!--
+	<div id="ad1" class="homepage-ad">
+		<img src="http://imu.uiowa.edu/assets/HomePageBlog2/1740-11-295-x-300-pixel-IMU-Ad.jpg" width="368" />
+	</div>
+	<div id="ad2" class="homepage-ad">
+		<img src="http://imu.uiowa.edu/assets/HomePageBlog2/y0uzrw.jpeg" width="368" />	
+	</div>-->
 
-
+	<!-- categories -->
 	<% cached 'category-navigation', Aggregate(AfterClassEvent).Max(LastEdited) %>
 	<div id="categories">
 		<h2><img src="{$ThemeDir}/images/by_type.png" alt="By Type" /></h2>
@@ -268,6 +285,8 @@
 	
 	</div><!-- end categories -->
 	<% end_cached %>
+	
+	
 	
 </div><!-- end right-column -->
 

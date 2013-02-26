@@ -167,11 +167,11 @@ document.createElement('hgroup');
 <!--<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>-->
 
 
-<% include StudentLifeBar %>
+<% include DivisionBarNonResponsive %>
 <a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
 	<div class="container">
-		<div class="big_header"><a href="$BaseHref">After Class</a></div>
+		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
 	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
 	
 	
@@ -184,7 +184,7 @@ document.createElement('hgroup');
 	<ul class="clearfix">
 
 		<li class="first"><a href="{$BaseHref}"><strong>Home</strong></a></li>
-		<li><a href="blog/"><strong>blog</strong><img class="new" src="{$ThemeDir}/images/new.png"/></a></li>
+		<li><a href="blog/"><strong>blog</strong></a></li>
 
 		<li>
 			<a href="events/categories/"><strong>Categories</strong></a>
@@ -580,7 +580,7 @@ document.createElement('hgroup');
   })();
 
 </script>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
 
 </body>

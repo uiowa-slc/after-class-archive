@@ -15,15 +15,17 @@
 	 				<% end_if %>
 				
 				<div class="category-content" <% if Address %>style="margin-left: 20px"<% end_if %>>
-					<% if Information %><p>$Information</p><% end_if %>
-					<% if Address %><p><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a></p><% end_if %>
+					<% if Information %><p class="category-information">$Information</p><% end_if %>
+					
+				
+					<% if Address %><p><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo; </a></p><% end_if %>
 					<% if Phone %><p>$Phone</p><% end_if %>
 					
 					<% if Email %><a href="mailto: $Email">$Email</a></p><% end_if %>
 
-	 				<% if LinkURL %><p><a href="$LinkURL" target="_blank">Visit Website</a></p><% end_if %>
-	 				<% if WebsiteURL %><p><a href="$WebsiteURL" target="_blank">Visit Website</a></p><% end_if %>
-	 				
+	 				<% if LinkURL %><p><a href="$LinkURL" target="_blank">Visit Website &raquo; </a></p><% end_if %>
+	 				<% if WebsiteURL %><p><a href="$WebsiteURL" target="_blank">Visit the $Title Website &raquo;</a></p><% end_if %>
+	 			
 	 			</div><!-- end category-content -->
 	 			
 	 			<div class="clear"></div>
@@ -60,19 +62,22 @@
 			<a href="$Link"><strong>$Title</strong></a><br />
 			
 			    <div id="dates">
-	    			<% control DateAndTime %> 
+	    			<% control UpcomingDates %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
 		    				<% if StartTime %> at $StartTime.nice<% end_if %>
 		    			
 	    			
-		    			<% if EndDate %> -
+		    			<% if EndDate %> until
 		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
 		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 	</a>
 		    			 	<% end_if %> 
 		    			 <br />
+
 	    			<% end_control %>
+	    					    			<% if OtherDates %>
+							<a href="$Link" class="more-dates-link">view more dates &raquo;</a><% end_if %>
     			</div>
     			
     			

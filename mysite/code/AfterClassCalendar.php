@@ -42,6 +42,7 @@ class AfterClassCalendar extends Calendar {
 			return $calendar->Events($filter);
 		}
 	}
+
 	
 }
  

@@ -71,7 +71,7 @@ class AfterClassEvent extends CalendarEvent {
 	
 	
 	}
-	
+
 	public function AllCategories(){
 		//$categories = DataObject::get("Category", "")
 		
@@ -195,7 +195,26 @@ class AfterClassEvent extends CalendarEvent {
 		'MonthlyIndex' => 'Int',
 		'MonthlyDayOfWeek' => 'Int'
 	);*/
+	public function DateAndTimeLimited($num = 3){
+		$datesTimes = $this->DateAndTime();
+		
+		//print_r($datesTimes);
+		$datesTimes = $datesTimes->getRange(0, $num);
+		
+		return($datesTimes);
+		
+	}
 	
+	public function DateAndTimeMoreThan($num=3){
+		$datesTimes = $this->DateAndTime();
+		
+		//print_r($datesTimes->TotalItems());
+		if(($datesTimes->TotalItems())>$num){
+			return true;
+		}else{
+			return false;
+		}
+	}	
 	function getCMSActions() {
 		$actions = parent::getCMSActions();
 		//$Action = new FormAction(
@@ -424,9 +443,10 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 	public static $url_handlers = array(
             'fbpublish' => 'fbpublish'
             );
- 	static $allowed_actions = array ("fbpublish");
+ 	//static $allowed_actions = array ("fbpublish", );
  	
-
+	
+	
  	
  	public function fbpublish() {
  		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
