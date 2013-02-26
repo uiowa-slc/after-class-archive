@@ -183,7 +183,7 @@ document.createElement('hgroup');
 	<div class="container">
 	<ul class="clearfix">
 
-		<li class="first"><a href="{$BaseHref}"><strong>Home</strong></a></li>
+		<li class="first" ><a href="{$BaseHref}"><strong>Home</strong></a></li>
 		<li><a href="blog/"><strong>blog</strong></a></li>
 
 		<li>
