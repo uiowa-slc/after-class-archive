@@ -19,6 +19,7 @@ class AddEventPage extends Page {
 }
 class AddEventPage_Controller extends Page_Controller {
 	public static $allowed_actions = array (
+		"addEventForm"
 	);
 	public function init() {
 		parent::init();
