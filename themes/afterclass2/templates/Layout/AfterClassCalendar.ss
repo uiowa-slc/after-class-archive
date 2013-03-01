@@ -244,15 +244,36 @@
 	<div class="clear"></div>
 	<% end_if %>
 	
-	<!-- ad space -->
-	<!--
-	<div id="ad1" class="homepage-ad">
-		<img src="http://imu.uiowa.edu/assets/HomePageBlog2/1740-11-295-x-300-pixel-IMU-Ad.jpg" width="368" />
-	</div>
-	<div id="ad2" class="homepage-ad">
-		<img src="http://imu.uiowa.edu/assets/HomePageBlog2/y0uzrw.jpeg" width="368" />	
-	</div>-->
-
+	<% if Ad1Image %>
+		<div id="ad1" class="homepage-ad">
+			<% if Ad1URL %>
+				<a href="$Ad1URL" target="_blank"><img src="$Ad1Image.URL" width="368" /></a>
+			<% else %>
+				<img src="$Ad1Image.URL" width="368" />
+			<% end_if %>
+		</div>
+	<% end_if %>
+	
+	<% if Ad2Image %>
+		<div id="ad2" class="homepage-ad">
+			<% if Ad2URL %>
+				<a href="$Ad2URL" target="_blank"><img src="$Ad2Image.URL" width="368" /></a>
+			<% else %>
+				<img src="$Ad2Image.URL" width="368" />
+			<% end_if %>
+		</div>
+	<% end_if %>
+	
+	<% if Ad3Image %>
+		<div id="ad3" class="homepage-ad">
+			<% if Ad3URL %>
+				<a href="$Ad3URL" target="_blank"><img src="$Ad3Image.URL" width="368" /></a>
+			<% else %>
+				<img src="$Ad3Image.URL" width="368" />
+			<% end_if %>
+		</div>
+	<% end_if %>	
+	
 	<!-- categories -->
 	<% cached 'category-navigation', Aggregate(AfterClassEvent).Max(LastEdited) %>
 	<div id="categories">

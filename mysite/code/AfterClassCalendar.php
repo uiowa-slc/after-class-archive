@@ -4,9 +4,35 @@ class AfterClassCalendar extends Calendar {
 /* static $has_many = array (
  'EventCategories' => 'EventCategory'
  );*/
+ 	static $db = array (
+ 		"Ad1URL" => "Text",
+ 		"Ad2URL" => "Text",
+ 		"Ad3URL" => "Text"
+ 	);
+ 
+ 	static $has_one = array(
+ 		"Ad1Image" => "Image",
+ 		"Ad2Image" => "Image",
+  		"Ad3Image" => "Image",
+ 	
+ 	);
 	static $allowed_children = array (
 	'AfterClassEvent'
 	);
+	
+		function getCMSFields() {
+		$fields =parent::getCMSFields();
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1URL"));
+		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad1Image"));
+		
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad2URL"));
+		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad2Image"));
+		
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3URL"));
+		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad3Image"));
+
+		return $fields;
+	}
 	public function UEvents() {
 		$e = DataObject::get("AfterClassEvent")->toArray();;
 		CalendarUtil::date_sort($e);
