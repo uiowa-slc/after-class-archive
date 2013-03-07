@@ -6,8 +6,14 @@ class AfterClassCalendar extends Calendar {
  );*/
  	static $db = array (
  		"Ad1URL" => "Text",
+ 		"Ad1Title" => "Text",
+ 		
  		"Ad2URL" => "Text",
- 		"Ad3URL" => "Text"
+ 		"Ad2Title" => "Text",
+
+ 		"Ad3URL" => "Text",
+ 		"Ad3Title" => "Text",
+
  	);
  
  	static $has_one = array(
@@ -22,15 +28,19 @@ class AfterClassCalendar extends Calendar {
 	
 		function getCMSFields() {
 		$fields =parent::getCMSFields();
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1URL"));
-		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad1Image"));
 		
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad2URL"));
-		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad2Image"));
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1URL", "Ad 1 External Link"));
+		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad1Image","Ad 1 Image (same dimensions as newsletter ad)"));
 		
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3URL"));
-		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad3Image"));
-
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad2Title", "Ad 2 Title / Alt Text"));
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad2URL", "Ad 2 External Link"));
+		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad2Image", "Ad 2 Image (same dimensions as newsletter ad) "));
+		
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3Title", "Ad 3 Title / Alt Text"));
+		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3URL", "Ad 3 External Link"));
+		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
+		
 		return $fields;
 	}
 	public function UEvents() {

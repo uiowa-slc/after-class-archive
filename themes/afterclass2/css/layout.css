@@ -2837,8 +2837,10 @@ textarea {
 
 .homepage-ad {
 	margin: 10px 0;
+}
+
+.homepage-ad img {
 	border: 1px solid #666;
-	
 }
 
 /* Mobile Media Queries */
