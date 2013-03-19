@@ -184,7 +184,7 @@ document.createElement('hgroup');
 	<ul class="clearfix">
 
 		<li class="first" ><a href="{$BaseHref}"><strong>Home</strong></a></li>
-		<li><a href="blog/"><strong>blog</strong></a></li>
+		<li><a href="news/"><strong>news</strong></a></li>
 
 		<li>
 			<a href="events/categories/"><strong>Categories</strong></a>
