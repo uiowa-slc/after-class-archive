@@ -351,16 +351,13 @@ font-family: 'SketchBlock-Bold';
 }
 
 #right-column {
-	width: 370px;
-	float: left;
-	margin-left: 20px;
+	width: 100%;
 
 }
 
 
 #left-column {
-	width: 600px;
-	float: left;
+	width: 100%;
 
 }
 
@@ -387,12 +384,14 @@ font-family: 'SketchBlock-Bold';
   /*z-index: 100;*/
   margin: 0;
   padding: 0;
-  padding-right: 170px;
+  /*padding-right: 170px;*/
   color: #ffd026;
   font-size: 120px;
   letter-spacing: -6px;
   text-shadow: 4px 4px 8px #000000;
   filter: dropshadow(color=black, offx=4, offy=4);
+  margin-left: -10px;
+
   /*background: url("../images/tigerhawk_scribble.png") no-repeat center right;*/
   }
   
@@ -404,7 +403,7 @@ font-family: 'SketchBlock-Bold';
 
 #page_header p {
   position: relative;
-  top: -50px;
+  display: inline;
   left: 60px;
   /*z-index: 50;*/
   font-size: 20px;
@@ -414,35 +413,37 @@ font-family: 'SketchBlock-Bold';
   background-repeat: no-repeat;
   padding: 24px 45px 36px 35px;
     text-shadow: 0px 1px 14px rgba(0,0,0,0.8);
+    top: -80px
 
    }
   #page_header p em {
     text-transform: uppercase;
     font-style: normal; }
 
+#page_header .container {
+	background: url("../images/header-buildings-smaller.png");
+	background-repeat: no-repeat;
+	background-position-x: 100%;
+	background-position-y: 75%;
+	/*background-size: contain;*/
+}
 .container {
   /*position: relative;*/
-  width: 1000px;
+  width: 100%;
   margin: auto; 
  
   }
-#page_content.AfterClassCalendar.index .container, #page_content.AfterClassEvent.index .container, #page_content.FeaturedAfterClassEvent.index, #page_content.AfterClassCalendar.view .container {
+  
+#page_header .big_header {
 
+	height: 240px;
+}
+
+  
+  
+  
+#page_content.AfterClassCalendar.index .container, #page_content.AfterClassEvent.index .container, #page_content.FeaturedAfterClassEvent.index, #page_content.AfterClassCalendar.view .container, #page_content.AfterClassEvent .container {
 	margin-top: 20px;
-
-}
-
-/*#page_content {
-	z-index: 0;
-}*/
-
-#page_content.AfterClassCalendar.index .container{
-	width: 1000px;
-
-}
-
-#page_content.AfterClassCalendar.view .container{
-	width: 1000px;
 
 }
 
@@ -467,12 +468,6 @@ font-family: 'SketchBlock-Bold';
 
 }
 
-
-#page_content.AfterClassEvent .container {
-	width: 980px;
-	margin-top: 20px;
-
-}
 
 #page_navigation {
 
@@ -542,7 +537,7 @@ font-family: 'SketchBlock-Bold';
     #page_navigation ul li {
      /* width: 100px; */
       float: left;
-      margin-left: 20px; 
+      margin-left: 5px; 
       }
       
       #page_navigation ul li.first {
@@ -595,14 +590,20 @@ font-family: 'SketchBlock-Bold';
         text-decoration: none; 
         height: 35px;
         
-        }
-        #page_navigation ul li a strong {
-          display: block;
+        display: block;
          /* font-family: 'SketchBlock-Bold', sans-serif;*/
           font-weight: normal !important;
           text-transform: lowercase;
-          font-size: 22px; }
-          
+          font-size: 10px;
+        
+        }
+        
+       #page_navigation ul li a strong {
+	       
+	       font-weight: normal;
+       }
+         
+ 
          #page_navigation ul li a:hover {
 			-webkit-box-shadow: inset 0px 4px 40px 1px rgba(109, 198, 227, 0.2);
 			-moz-box-shadow: inset 0px 4px 40px 1px rgba(109, 198, 227, 0.2);
@@ -663,7 +664,6 @@ font-family: 'SketchBlock-Bold';
 /*padding-top: 30px;*/
 	/*z-index: 1;*/
   padding-bottom: 100px;
-  width: 980px;
  }
 
 #home_feature {
@@ -980,7 +980,7 @@ font-family: 'SketchBlock-Bold';
    -webkit-box-shadow: inset 0 0 10px #333;
    box-shadow:         inset 0 0 10px #333;
   border: 1px solid #666;
-  width: 940px;
+  /*width: 940px;*/
   padding: 20px;
   /*margin: 0 0 20px -13px;*/
   
@@ -1016,7 +1016,7 @@ font-family: 'SketchBlock-Bold';
   background-color: #eee;
   background-image: url(../images/lighter_bg.jpg);
   padding: 20px;
-  width: 940px;
+  /*width: 940px;*/
   margin-top: 20px;
 }
 
@@ -1131,85 +1131,6 @@ font-family: 'SketchBlock-Bold';
 .clear {
 	clear: both;
 }
-/* =============================================================================
-   PLACEHOLDER Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles
-   Modify as content requires.
-   ========================================================================== */
-@media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */ }
-@media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */ }
-/* =============================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    text-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important; }
-
-  /* Black prints faster: sanbeiji.com/archives/953 */
-  a, a:visited {
-    color: #444 !important;
-    text-decoration: underline; }
-
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
-    content: ""; }
-
-  /* Don't show links for images, or javascript/internal links */
-  pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-
-  thead {
-    display: table-header-group; }
-
-  /* css-discuss.incutio.com/wiki/Printing_Tables */
-  tr, img {
-    page-break-inside: avoid; }
-
-  img {
-    max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2, h3 {
-    page-break-after: avoid; } }
-.text label, .date label, .checkboxset >label, .Actions input {
-  display: block;
-  margin: 10px 0px 0px 0px;
-}
-.checkboxsetfield {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-.checkboxsetfield li {
-  margin: 0px;
-  padding: 5px 0px 0px 0px;
-}
-#detail_event_description_info {
-  float: left;
-  width: 500px;
-  margin-right: 25px;
-}
-
-
 
 #detail_event_description h2{
 	font-family: 'Doppio One' , monospace;
@@ -1301,7 +1222,7 @@ font-family: 'SketchBlock-Bold';
 }
 
 #single-page-content.category {
-	width: 940px;
+	/*width: 940px;*/
 
 }
 
@@ -1488,7 +1409,7 @@ font-family: 'SketchBlock-Bold';
 #Search {
 	float: right;
 	margin-top: 5px;
-	margin-left: 15px;
+	/*margin-left: 15px;*/
 
 }
 
@@ -1498,9 +1419,9 @@ font-family: 'SketchBlock-Bold';
 	color: #EBE5E6;
 	font-size: 16px;
 	padding: 5px;
-	width: 300px;
+	width: 275px;
 	background-image: url(../images/search_icon.png);
-	background-position: 285px, 6px;
+	background-position: 270px, 6px;
 	background-repeat: no-repeat;
 	
 	/* ie8, grumble grumble */
@@ -1785,7 +1706,9 @@ font-family: SketchBlock-Bold, sans-serif;
 
 #newsletter-signup p {
 	color: #EBE5E6;
-	margin: 5px 0;
+	margin: 0;
+	
+	margin-top:-20px;
 }
 
 #newsletter-signup h2 {
@@ -1964,45 +1887,13 @@ padding: 10px;
 }
 
 .homepage-event {
-	 background-image: url(../images/lighter_bg.jpg);
-
-	/*background-color: #221c21;*/
-	/*background-color: #161616;*/
-   /* background-color: #2A2227;
-background-image: linear-gradient(bottom, rgb(53,43,46) 4%, rgb(42,33,40) 56%);
-background-image: -o-linear-gradient(bottom, rgb(53,43,46) 4%, rgb(42,33,40) 56%);
-background-image: -moz-linear-gradient(bottom, rgb(53,43,46) 4%, rgb(42,33,40) 56%);
-background-image: -webkit-linear-gradient(bottom, rgb(53,43,46) 4%, rgb(42,33,40) 56%);
-background-image: -ms-linear-gradient(bottom, rgb(53,43,46) 4%, rgb(42,33,40) 56%);
-
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.04, rgb(53,43,46)),
-	color-stop(0.56, rgb(42,33,40))
-);*/
-
-    width: 600px;
-    float: left;
+	background-image: url(../images/lighter_bg.jpg);
     margin: 10px 0;
     border: 1px solid #444;
 }
 
 .homepage-event.even {
-	/*background-image: linear-gradient(bottom, rgb(74,66,69) 4%, rgb(82,70,80) 56%);
-background-image: -o-linear-gradient(bottom, rgb(74,66,69) 4%, rgb(82,70,80) 56%);
-background-image: -moz-linear-gradient(bottom, rgb(74,66,69) 4%, rgb(82,70,80) 56%);
-background-image: -webkit-linear-gradient(bottom, rgb(74,66,69) 4%, rgb(82,70,80) 56%);
-background-image: -ms-linear-gradient(bottom, rgb(74,66,69) 4%, rgb(82,70,80) 56%);
 
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.04, rgb(74,66,69)),
-	color-stop(0.56, rgb(82,70,80))
-);*/
 
 }
 
@@ -2035,7 +1926,7 @@ background-image: -webkit-gradient(
 	/*border-bottom: 1px solid #ccc;*/
 }
 .homepage-event-desc {
-	width: 415px;
+	width: 50%;
 	float: left;
 	font-size: 14px;
 }
@@ -2070,20 +1961,6 @@ background-image: -webkit-gradient(
 	padding: 10px;
 	margin: 0;
 	color: #222;
-	/*background: #2791ae;
-background: -moz-linear-gradient(top, #2791ae 0%, #23839d 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2791ae), color-stop(100%,#23839d));
-background: -webkit-linear-gradient(top, #2791ae 0%,#23839d 100%);
-background: -o-linear-gradient(top, #2791ae 0%,#23839d 100%);
-background: -ms-linear-gradient(top, #2791ae 0%,#23839d 100%);
-background: linear-gradient(top, #2791ae 0%,#23839d 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2791ae', endColorstr='#23839d',GradientType=0 );*/
-
-	/*background: url(../images/header_background.png);*/
-	
-
-	/*border-bottom: 1px solid #444;*/
-	
 	border-bottom: 1px solid #ccc;
 }
 
@@ -2102,7 +1979,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2791ae', end
 }
 
 .homepage-event h3 {
-	font-size: 24px;
+	font-size: 22px;
 	display: block;
 	float: left;
 	width: 430px;
@@ -2273,12 +2150,14 @@ a:active.event-header-category {
 .homepage-event-image {
 	float: right;
 	margin-left: 10px;
+	width: 153px;
+	
 	
 }
 
 .homepage-event-image img {
 	border: 1px solid #666;
-
+	width: 100%
 }
 
 .homepage-event-image .more-event-info img {
@@ -2846,6 +2725,130 @@ textarea {
 	border: 1px solid #666;
 }
 
+
+#detail_event_description_info {
+  float: left;
+  width: 500px;
+  margin-right: 25px;
+}
+
+
+#canvas{
+	position: absolute;
+	
+}
+
+
+
+
+/* =============================================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */ }
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */ }
+  
+
+@media only screen and (min-width: 960px){
+
+	#right-column {
+		width: 35%;
+		float: left;
+		margin-left: 20px;
+	
+	}
+	
+	.homepage-event-desc {
+		width: 70%;
+	
+	}
+	.homepage-event h3 {
+		font-size: 24px;
+	}	
+	
+	#left-column {
+		width: 61%;
+		float: left;
+	
+	}
+	
+    #page_navigation ul li {
+     /* width: 100px; */
+      float: left;
+      margin-left: 20px; 
+      }
+      
+       #page_navigation ul li a {
+       	font-size: 22px;
+       }
+	
+	.container {
+		width: 960px
+	
+	}
+
+}
+  
+  
+@media only screen and (min-width: 1300px){
+
+	  #page_header .container {	
+			background: url("../images/header-buildings-medium.png");
+			width: 80%;
+			background-position-y:50%;
+			background-position-x: 100%;
+			background-repeat: no-repeat;
+	}
+	
+	#page_header .big_header {
+		/*padding-left: 5%;*/
+	}
+	
+	#page_header p {
+		padding-left: 5%;
+	}
+	
+	.container {
+		width: 1200px
+	
+	}
+	
+	.homepage-event-image {
+		width: 35%
+	}
+	
+	.homepage-event-desc{
+		width:62%;
+	}
+}
+
+
+@media only screen and (min-width: 1500px){
+
+	#page_header .big_header {
+		padding-left: 5%;
+	}
+
+
+}
+
+@media only screen and (min-width: 1600px){
+
+  #page_header .container {
+  	background: url("../images/header-buildings.png");
+	  width: 80%;
+	  background-position-y: 30%;
+	  background-position-x: 100%;
+	  background-repeat: no-repeat;
+  }
+  
+
+}
+  
+
 /* Mobile Media Queries */
 
 @media screen and (max-width: 480px) {
@@ -2875,4 +2878,68 @@ textarea {
 
 }
 
+/* =============================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important; }
 
+  /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+
+  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2, h3 {
+    page-break-after: avoid; } }
+.text label, .date label, .checkboxset >label, .Actions input {
+  display: block;
+  margin: 10px 0px 0px 0px;
+}
+.checkboxsetfield {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.checkboxsetfield li {
+  margin: 0px;
+  padding: 5px 0px 0px 0px;
+}
+
+}

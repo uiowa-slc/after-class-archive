@@ -1,14 +1,7 @@
 <% require css(event_calendar/css/calendar.css) %>
 <% require javascript(event_calendar/javascript/calendar_core.js) %>
-<div id="left-column">
-<% if action = view %>
-	<h1 class="date-header">Events for $DateHeader</h1>
-	<% if Events %>
-	<% else %>
-		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/category/">categories</a>, <a href="{$BaseHref}events/venue">venues</a>, and <a href="{$BaseHref}events/sponsor/">sponsors</a> for full event listings.</p>
-	<% end_if %><!-- end if events -->
-<% else %>
-	<% if FeaturedEvents %>
+
+<% if FeaturedEvents %>
 		<% control FeaturedEvents.First %>
 			<% control Event %>
 				<% include HomeFeature %>	
@@ -24,6 +17,17 @@
 				<% end_control %>
 			<% end_control %>
 	<% end_if %> <!-- end if featured events -->
+
+
+<div id="left-column">
+<% if action = view %>
+	<h1 class="date-header">Events for $DateHeader</h1>
+	<% if Events %>
+	<% else %>
+		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/category/">categories</a>, <a href="{$BaseHref}events/venue">venues</a>, and <a href="{$BaseHref}events/sponsor/">sponsors</a> for full event listings.</p>
+	<% end_if %><!-- end if events -->
+<% else %>
+
 <% end_if %> <!-- end if action = view -->
 <div style="clear: both"></div>
 <div id="homepage-event-list">
@@ -48,7 +52,7 @@
 					<a href="$Link">
 					<% if Image %>
 						<% control Image %>
-							<% control CroppedImage(153,153) %><img itemprop="photo" src="$URL" /><% end_control %>
+							<% control CroppedImage(249,249) %><img itemprop="photo" src="$URL" /><% end_control %>
 						<% end_control %>
 					<% end_if %>
 					</a>
@@ -151,7 +155,7 @@
 	</div>
 	<!-- end newsletter-signup -->
 	<div id="the-blog">
-		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/from_the_blog.png" alt="The After Class Blog" /></a></h2>
+		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/news.png" alt="After Class News" /></a></h2>
 		<div class="blog-entries">
 			<% control RSSDisplay(3, http://afterclass.uiowa.edu/blog/feed/) %>
 				<div class="blog-entry $EvenOdd">

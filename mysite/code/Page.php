@@ -110,12 +110,63 @@ class Page_Controller extends ContentController {
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
 		//echo $_SERVER['HTTP_USER_AGENT'];
-		  
+		Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
 		
+		$jsFiles = array(
+			    'themes/afterclass2/js/jquery.min.js',
+			    'themes/afterclass2/js/modernizr-2.0.6.min.js',
+			    'themes/afterclass2/js/canvasplay/CanvasController.js',
+			    'themes/afterclass2/js/canvasplay/DisplayObject.js',
+			    'themes/afterclass2/js/canvasplay/DisplayContainer.js',
+			    'themes/afterclass2/js/canvasplay/Shape.js',
+			    'themes/afterclass2/js/canvasplay/Circle.js',
+			    'themes/afterclass2/js/canvasplay/Star.js',
+			    'themes/afterclass2/js/canvasplay/Rectangle.js',
+			    'themes/afterclass2/js/canvasplay/Orb.js',
+			    'themes/afterclass2/js/canvasplay/StarOrb.js',
+			    'themes/afterclass2/js/canvasplay/Point.js',
+			    'themes/afterclass2/js/canvasplay/Bounds.js',
+			    'themes/afterclass2/js/canvasplay/Ticker.js',
+			    'themes/afterclass2/js/canvasplay/ColorPool.js',
+			    'themes/afterclass2/js/canvasplay/ObjectPool.js',
+			    'themes/afterclass2/js/canvasplay/FixedVibration.js',
+			    'themes/afterclass2/js/canvasplay/Emitter.js',
+			    'themes/afterclass2/js/canvasplay/VariableVibration.js',
+			    'themes/afterclass2/js/canvasplay/ExitBoundsTrigger.js',
+			    'themes/afterclass2/js/canvasplay/BehaviourManager.js',
+			    'themes/afterclass2/js/canvasplay/TriggerManager.js',
+			    
+			    'themes/afterclass2/js/stars.js',
+			    'themes/afterclass2/js/fancybox/jquery.fancybox.pack.js',
+			    'themes/afterclass2/js/mailchimp.js',
+			    'themes/afterclass2/js/init.js',
+			    
+			    'event_calendar/javascript/calendar_core.js',
+			    'event_calendar/javascript/locale/date_en.js',
+			    'event_calendar/javascript/jquery.date.js',
+			    'event_calendar/javascript/jquery.datePicker.js',
+			    'event_calendar/javascript/calendar_widget.js'
+			    
+
+			);
+
+		
+		if(Director::isDev()) {
+		
+			foreach($jsFiles as $jsFile){
+				Requirements::javascript($jsFile);	
+			}
+
+		}else{
+			
+			Requirements::combine_files(
+				'allcombined.js',$jsFiles);
+			
+			}
+
 	}
 	
-	
-	
+
 	public function AllDeadlines(){
 	
 		$deadlines = DataObject::get("Deadline", $filter=null, $sort = "Date ASC");
