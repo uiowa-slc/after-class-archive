@@ -70,7 +70,7 @@ body, button, input, select, textarea {
    ========================================================================== */
 a {
   color: #2488A3; 
-  font-weight: bold;
+  /*font-weight: bold;*/
   text-decoration: none;
   
   
@@ -324,6 +324,13 @@ body {
   src: url("../fonts/1327B9_0.eot?#iefix") format("embedded-opentype"), url("../fonts/1327B9_0.woff") format("woff"), url("../fonts/1327B9_0.ttf") format("truetype"), url("../fonts/1327B9_0.svg#wf") format("svg");
   font-weight: normal;
   font-style: normal; }
+  
+  
+/* Custom Styles */
+
+#studentlife-bar {
+	display: none;
+}
 
 body {
  font-family: 'Open Sans', sans-serif;
@@ -348,6 +355,7 @@ font-family: 'SketchBlock-Bold';
   font-weight: normal;
   font-style: normal; 
   text-transform: lowercase;
+  
 }
 
 #right-column {
@@ -359,6 +367,10 @@ font-family: 'SketchBlock-Bold';
 #left-column {
 	width: 100%;
 
+}
+
+#left-column h2 img, #right-column h2 img {
+	width: 100%;
 }
 
 #left-column p.homepage-message {
@@ -373,14 +385,16 @@ font-family: 'SketchBlock-Bold';
   background-color: #1a1a1b; }
 
 #page_header {
-  height: 240px;
   background-image: url("../images/afterclass_illustration.jpg");
   background-position: 170px 0;
+  background-size: contain;
+  background-color: #272324;
+  background-repeat: repeat-x;
   }
 
 #page_header .big_header {
   position: relative;
-  top: 40px;
+  top: 0px;
   /*z-index: 100;*/
   margin: 0;
   padding: 0;
@@ -395,25 +409,29 @@ font-family: 'SketchBlock-Bold';
   /*background: url("../images/tigerhawk_scribble.png") no-repeat center right;*/
   }
   
-  #page_header .big_header a {
-  	color: #ffd026;
-  	text-decoration: none;
+	#page_header .big_header a {
+		color: #ffd026;
+		text-decoration: none;
+	
+	}
   
-  }
+	#page_header .big_header a img {
+		width: 100%;
+	}
 
 #page_header p {
   position: relative;
   display: inline;
-  left: 60px;
+  left: 0;
   /*z-index: 50;*/
   font-size: 20px;
   color: #d0c2d0;
   text-transform: lowercase;
   /*background-image: url("../images/taglinebox.png");*/
   background-repeat: no-repeat;
-  padding: 24px 45px 36px 35px;
+  padding: 0;
     text-shadow: 0px 1px 14px rgba(0,0,0,0.8);
-    top: -80px
+  display: none;
 
    }
   #page_header p em {
@@ -426,6 +444,7 @@ font-family: 'SketchBlock-Bold';
 	background-position-x: 100%;
 	background-position-y: 75%;
 	/*background-size: contain;*/
+	height: 100%;
 }
 .container {
   /*position: relative;*/
@@ -435,8 +454,7 @@ font-family: 'SketchBlock-Bold';
   }
   
 #page_header .big_header {
-
-	height: 240px;
+	line-height: 0.6
 }
 
   
@@ -483,12 +501,10 @@ font-family: 'SketchBlock-Bold';
   }
   
   #secondary-nav {
-  	float: right;
   	/*background: #185b6d;*/
   	text-align: left;
   	font-size: 13px;
-  	padding: 5px;
-  	min-height: 40px;
+
   	color: white;
   	/*border: 1px solid #1b738a;*/
   }
@@ -531,8 +547,6 @@ font-family: 'SketchBlock-Bold';
     margin: 0;
     padding: 0;
     list-style: none;
-    float: left;
-    width: 650px;
      }
     #page_navigation ul li {
      /* width: 100px; */
@@ -551,33 +565,24 @@ font-family: 'SketchBlock-Bold';
      }
      
      #page_navigation ul li ul li.no-events span {
-     	
-     	/*background: #58818c;*/
      	color: #8f8f8f;
-     	
-     	
-     
-     
      }
 
      #page_navigation ul li ul li.no-events span:hover {
-     	
-     	/*background: #58818c;*/
      	color: #8f8f8f;
-     	
-     	
-     
-     
      }    
      
      #page_navigation ul li ul li a:hover {
-     
      	background: #176377;
-     
      }
      
      #page_navigation ul li ul {
      	float: none;
+     }
+     
+     /* hide home button on mobile nav */
+     #page_navigation ul>li.first {
+     	display: none;
      }
      
       #page_navigation ul li a {
@@ -588,13 +593,11 @@ font-family: 'SketchBlock-Bold';
 		padding-bottom: 7px;
         color: #EBE5E6;
         text-decoration: none; 
-        height: 35px;
-        
-        display: block;
-         /* font-family: 'SketchBlock-Bold', sans-serif;*/
-          font-weight: normal !important;
-          text-transform: lowercase;
-          font-size: 10px;
+		display: block;
+		/* font-family: 'SketchBlock-Bold', sans-serif;*/
+		font-weight: normal !important;
+		text-transform: lowercase;
+		font-size: 13px;
         
         }
         
@@ -1407,10 +1410,8 @@ font-family: 'SketchBlock-Bold';
 }
 
 #Search {
-	float: right;
 	margin-top: 5px;
 	/*margin-left: 15px;*/
-
 }
 
 #SearchForm_SearchForm_Search {
@@ -1419,16 +1420,18 @@ font-family: 'SketchBlock-Bold';
 	color: #EBE5E6;
 	font-size: 16px;
 	padding: 5px;
-	width: 275px;
 	background-image: url(../images/search_icon.png);
-	background-position: 270px, 6px;
+	background-position: 98% 6px;
 	background-repeat: no-repeat;
+	margin: auto;
+	display: block;
+	width: 95%;
 	
 	/* ie8, grumble grumble */
 	
-	-ms-background-position-x: 345px;
+	-ms-background-position-x: 98%;
 	-ms-background-position-y: 6px;
-
+	
 }
 
 .date-link:hover {
@@ -1447,8 +1450,9 @@ font-family: 'SketchBlock-Bold';
 	background:#353535;
 	padding: 5px;
 	border: 1px solid #666;
-	
 }
+
+
 
 .event_details #dates {
 	line-height: 35px;
@@ -1745,16 +1749,15 @@ font-family: SketchBlock-Bold, sans-serif;
 .homepage-feature {
   color: #DDD7D8;  
   border: 1px solid #444;  
-  padding: 20px;
+  padding: 0px;
   /*background-color: #443349;*/
   /*background-color: rgba(49,39,41,0.95);*/
 }
 
+
+
 .homepage-feature img{
 	border: 1px solid #666;  
-
-
-
 }
 
 .homepage-feature img.featured-logo {
@@ -1762,7 +1765,6 @@ font-family: SketchBlock-Bold, sans-serif;
 	position: absolute;
 	top: 10px;
 	left: -30px;
-
 }
 
 .home-feature-share #share-area {
@@ -1807,14 +1809,23 @@ padding: 10px;
 	float: right;*/
 
 }
+
+.homepage-feature-details img{
+	max-width: 100%;
+}
+
+.homepage-feature-image-container {
+	width: 60%;
+
+}
 .homepage-feature img {
 	border: 1px solid #444;
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 }
 
 .homepage-feature a {
 	color: #eacc5f;
-	font-weight: bold;
+	/*font-weight: bold;*/
 
 }
 .homepage-feature a:hover {
@@ -1859,11 +1870,7 @@ padding: 10px;
 }
 
 .homepage-feature-where {
-	float: right;
-	text-align: right;
-	width: 40%;
-	margin-left: 20px;
-
+	display: none;
 }
 
 .homepage-feature-when {
@@ -1873,14 +1880,45 @@ padding: 10px;
 	/*border-right: 1px solid #666;
 	padding-right: 20px;*/
 	font-size: 18px;
+}
 
+.homepage-feature-when p {
+	display: none;
+}
+
+.homepage-feature-when p.first {
+	display: block;
 }
 
 .homefeatureitem img {
 	border: 1px solid #666;
 
 }
+.img-shadow {
+	position: relative;
+	max-width: 100%;
+	float: right;
+	}
+    
+    .img-shadow::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		
+		/* this looks okay-ish but a normal inner shadow is prolly better */
+/*-webkit-box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);
+box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/	 
+	-webkit-box-shadow: inset 0px 0px 20px 3px rgba(5, 5, 5, 0.7);
+	box-shadow: inset 0px 0px 20px 3px rgba(5, 5, 5, 0.7);
 
+  } 
+	   
+.img-shadow img {
+	float: right;
+	} 
 .homefeatureitem .event_text a:hover {
 	color: #dbb700;
 
@@ -1982,7 +2020,7 @@ padding: 10px;
 	font-size: 22px;
 	display: block;
 	float: left;
-	width: 430px;
+	width: 80%;
 	color: #E6E2DF;
 	margin: 0;
 }
@@ -2004,19 +2042,18 @@ padding: 10px;
 }
 
 a.event-header-category {
-
 	color: white;
-	background: #2488A3;
+	background: #342738;
 	/*background: #5d5d5d;*/
 	/*background-image: url(../images/dark_leather.png);*/
-	border: 1px solid #006079;
+	border: 1px solid #5a4461;
 	padding: 5px;
 	/*margin: 5px;*/
 	float: right;
 	font-size: 14px;
-	
-
+	font-weight: normal;
 }
+
 
 a:hover.event-header-category {
 	-webkit-box-shadow: inset 0px 4px 40px 1px rgba(109, 198, 227, 0.2);
@@ -2024,6 +2061,7 @@ a:hover.event-header-category {
 	-o-box-shadow: inset 0px 4px 40px 1px rgba(109, 198, 227, 0.2);
 	-ms-box-shadow: inset 0px 4px 40px 1px rgba(109, 198, 227, 0.2);
 	box-shadow: inset 0px 4px 40px 1px rgba(109, 198, 227, 0.2);
+	font-weight: normal;
 }
 
 
@@ -2119,7 +2157,7 @@ a:active.event-header-category {
 }
 
 .addthis_toolbox{
-	width: 400px;
+	width: 40%;
 	float: left;
 	margin: 3px 0;
 }
@@ -2150,7 +2188,7 @@ a:active.event-header-category {
 .homepage-event-image {
 	float: right;
 	margin-left: 10px;
-	width: 153px;
+	width: 100px;
 	
 	
 }
@@ -2723,6 +2761,7 @@ textarea {
 
 .homepage-ad img {
 	border: 1px solid #666;
+	width: 100%;
 }
 
 
@@ -2747,20 +2786,125 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 @media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */ }
-@media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */ }
+  	
+  	#page_navigation ul {
+    	float: left;
+    }
+  	
+	#page_navigation ul li a {
+       	font-size: 16px;
+     }
+     
+	#SearchForm_SearchForm_Search {
+		background-image: none;
+		float: right;
+		width: 100%;
+	}
+	
+.homepage-event-image {
+	width: 150px;
+}
+#page_header .big_header a img {
+	width: 70%
+}
+
   
+}
 
-@media only screen and (min-width: 960px){
+@media only screen and (min-width: 594px){
 
+    #secondary-nav {
+  		float: right;
+  		padding:5px 0;
+  	}
+  	
+
+}
+@media only screen and (min-width: 768px) {
+	
+	#left-column {
+		width: 61%;
+		float: left;
+	}
+	
 	#right-column {
 		width: 35%;
 		float: left;
 		margin-left: 20px;
-	
+	}
+	.homepage-event-desc {
+		width: 60%;
 	}
 	
+	.homepage-feature-image-container img{
+		width: 100%;
+	}
+	#page_header .big_header {
+		top: 10px;
+	}
+	#page_header .big_header a img {
+		width: intrinsic;
+	}
+	#page_header p {
+		display: block;
+	}
+
+	#page_navigation ul li a {
+       	font-size: 18px;
+     }
+
+  
+	#Search {
+		/*float: right;*/
+		/*width: 80%;*/
+	}
+	
+    #secondary-nav {
+    	width: 30%;
+    }
+	
+	#SearchForm_SearchForm_Search {
+		background-image: url('../images/search_icon.png');
+	}
+	
+	.homepage-feature-content{
+		width: 37%;
+		float: right;
+		padding: 10px;
+	}
+	
+	.homepage-feature img{
+		float: right;
+	}
+	.homepage-feature-where {
+		float: right;
+		text-align: right;
+		width: 40%;
+		margin-left: 20px;
+	}	
+
+  
+}
+
+@media only screen and (min-width: 850px){
+
+ }
+
+@media only screen and (min-width: 960px){
+
+	#studentlife-bar {
+		display: block;
+	}	
+	#page_header {
+		  height: 240px;
+	 }
+	#page_header .container {	
+		background-position-y: 90%;
+	}
+	
+	.homepage-feature-when p {
+		display: block;
+	}
 	.homepage-event-desc {
 		width: 70%;
 	
@@ -2768,13 +2912,7 @@ textarea {
 	.homepage-event h3 {
 		font-size: 24px;
 	}	
-	
-	#left-column {
-		width: 61%;
-		float: left;
-	
-	}
-	
+
     #page_navigation ul li {
      /* width: 100px; */
       float: left;
@@ -2784,36 +2922,47 @@ textarea {
        #page_navigation ul li a {
        	font-size: 22px;
        }
+       
+     #page_navigation ul>li.first {
+     	display: inline;
+     }
 	
 	.container {
 		width: 960px
 	
 	}
+	
+	#page_header p {
+		left: 60px;
+		 /* padding: 24px 45px 36px 35px; */
+		 top: -30px;
+
+	}
+
 
 }
-  
-  
+
 @media only screen and (min-width: 1300px){
 
-	  #page_header .container {	
-			background: url("../images/header-buildings-medium.png");
-			width: 80%;
-			background-position-y:50%;
-			background-position-x: 100%;
-			background-repeat: no-repeat;
+	#page_header .container {	
+		background: url("../images/header-buildings-medium.png");
+		width: 80%;
+		background-position-y: 90%;
+		background-position-x: 100%;
+		background-repeat: no-repeat;
+		
 	}
 	
-	#page_header .big_header {
-		/*padding-left: 5%;*/
+	.homepage-feature-content{
+		width: 38%;
 	}
-	
+
 	#page_header p {
 		padding-left: 5%;
 	}
 	
 	.container {
 		width: 1200px
-	
 	}
 	
 	.homepage-event-image {
@@ -2840,7 +2989,7 @@ textarea {
   #page_header .container {
   	background: url("../images/header-buildings.png");
 	  width: 80%;
-	  background-position-y: 30%;
+	  background-position-y: 130%;
 	  background-position-x: 100%;
 	  background-repeat: no-repeat;
   }
@@ -2848,35 +2997,6 @@ textarea {
 
 }
   
-
-/* Mobile Media Queries */
-
-@media screen and (max-width: 480px) {
-
-	#studentlife-header{
-		display: none;
-	}
-
-	/*#right-column {
-		float: none !important;
-	}
-	
-	#left-column {
-		width: 100% !important;
-	}
-	
-	.homepage-event {
-		width: 100% !important;
-	}
-	
-	#page_content.AfterClassCalendar.index .container{
-		width: 100% !important;
-		
-	}*/
-
-
-
-}
 
 /* =============================================================================
    Print styles.

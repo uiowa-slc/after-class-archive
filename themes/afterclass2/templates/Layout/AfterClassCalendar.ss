@@ -52,7 +52,7 @@
 					<a href="$Link">
 					<% if Image %>
 						<% control Image %>
-							<% control CroppedImage(249,249) %><img itemprop="photo" src="$URL" /><% end_control %>
+							<% control CroppedImage(250,158) %><img class="" itemprop="photo" src="$URL" /><% end_control %>
 						<% end_control %>
 					<% end_if %>
 					</a>
@@ -211,14 +211,14 @@
 		<a href="$Ad1URL" target="_blank">
 			<% control Ad1Image %>
 				<% control SetWidth(368) %>
-				<img src="$URL" width="368" alt="$Ad1Title" />
+				<img src="$URL" alt="$Ad1Title" />
 				<% end_control %>
 			<% end_control %>
 		</a>
 		<% else %>
 			<% control Ad1Image %>
 				<% control SetWidth(368) %>
-				<img src="$URL" width="368" alt="$Ad1Title" />
+				<img src="$URL" alt="$Ad1Title" />
 				<% end_control %>
 			<% end_control %>
 		<% end_if %>
@@ -231,7 +231,7 @@
 		
 			<% control Ad2Image %>
 				<% control SetWidth(368) %>
-				<img src="$URL" width="368" alt="$Ad2Title" />
+				<img src="$URL" alt="$Ad2Title" />
 				<% end_control %>
 			<% end_control %>			
 			

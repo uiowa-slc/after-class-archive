@@ -5,18 +5,31 @@
 		var orbs = new Array();
 		var behaviours = new BehaviourManager();
 		var triggers = new TriggerManager();
+		
+		var canvasWidth =  $("#canvas-container").width();
+		var canvasHeight = $("#canvas-container").height();
+		
+		$(window).resize(function() {
+			$("#canvas").width($("#canvas-container").width());
+			$("#canvas").height($("#canvas-container").height());
+			//alert("hello");
+
+		});		
 
 		function starInit()
 		{
+		
+
+			
 			objectPool.onCreateObject = onCreateObject;
 
 			canvasController = new CanvasController( document.getElementById( "canvas" ) );
 
-			bounds = new Bounds( 0, 0, canvasController.canvas.width, canvasController.canvas.height );
+			bounds = new Bounds( 0, 0, canvasWidth, canvasHeight );
 
 			var rectangle = new Rectangle();
-			rectangle.width = 1000;
-			rectangle.height = 240;
+			rectangle.width = canvasWidth;
+			rectangle.height = canvasHeight;
 			rectangle.alpha = 0.0;
 			canvasController.addChild( rectangle );
 
@@ -41,7 +54,7 @@
 
 			// target, drag, minScale, maxScale, minForce, maxForce, emitMinAngle, emitMaxAngle, gravityForce, gravityAngle
 
-			behaviours.add( new Emitter( orb, 1, 0.4, 4, 10, 15, -45, 45, 0.5, 90 ) );
+			behaviours.add( new Emitter( orb, 1, 3, 6, 10, 15, -45, 45, 0.5, 90 ) );
 
 			triggers.add( new ExitBoundsTrigger( orb, bounds, onExitBounds ) );
 

@@ -149,8 +149,8 @@ document.createElement('hgroup');
 <header id="page_header">
 
 
-	<div class="container">
-		<canvas id="canvas" width="960" height="240"></canvas>
+	<div class="container" id="canvas-container">
+		<canvas id="canvas"></canvas>
 		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
 
 	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
