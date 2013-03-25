@@ -43,7 +43,7 @@ html {
 
 body {
   margin: 0;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.231; }
 
 body, button, input, select, textarea {
@@ -316,7 +316,7 @@ table {
 
 body {
   background-color: #1a1a1b;
-  background-image: url(../images/black-Linen.png);
+  background-image: url(../images/background.png);
   }
 
 @font-face {
@@ -348,25 +348,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-family: 'Doppio One', monospace;
 	text-transform: capitalize;
 }
-  
-  
-.big_header {
-font-family: 'SketchBlock-Bold';
-  font-weight: normal;
-  font-style: normal; 
-  text-transform: lowercase;
-  
-}
 
 #right-column {
 	width: 100%;
-
 }
-
 
 #left-column {
 	width: 100%;
-
 }
 
 #left-column h2 img, #right-column h2 img {
@@ -386,7 +374,7 @@ font-family: 'SketchBlock-Bold';
 
 #page_header {
   background-image: url("../images/afterclass_illustration.jpg");
-  background-position: 170px 0;
+  background-position: 140px 0;
   background-size: contain;
   background-color: #272324;
   background-repeat: repeat-x;
@@ -461,7 +449,7 @@ font-family: 'SketchBlock-Bold';
   
   
 #page_content.AfterClassCalendar.index .container, #page_content.AfterClassEvent.index .container, #page_content.FeaturedAfterClassEvent.index, #page_content.AfterClassCalendar.view .container, #page_content.AfterClassEvent .container {
-	margin-top: 20px;
+	margin-top: 0;
 
 }
 
@@ -1018,7 +1006,7 @@ font-family: 'SketchBlock-Bold';
   min-height: 450px;
   background-color: #eee;
   background-image: url(../images/lighter_bg.jpg);
-  padding: 20px;
+  padding: 2%;
   /*width: 940px;*/
   margin-top: 20px;
 }
@@ -1046,6 +1034,10 @@ font-family: 'SketchBlock-Bold';
   #detail_event_description img {
     margin: 0 30px 20px 30px;
     border: 1px solid #555555; }
+    
+#detail_event_description .map-container {
+	min-height: 300px;
+}
 
 #detail_related_events {
   color: #555555;
@@ -1141,15 +1133,11 @@ font-family: 'SketchBlock-Bold';
 
 }
 
-#detail_event_description_map {
-  float: left;
-  height: 300px;
-  width: 400px;
-}
+
 #map_canvas {
-  height: 100%;
   width: 100%;
   border: 1px solid darkGray;
+  
 }
 
 #Form_Form {
@@ -1418,14 +1406,14 @@ font-family: 'SketchBlock-Bold';
 	background-color: #185B6D;
 	border: 1px solid #1B738A;
 	color: #EBE5E6;
-	font-size: 16px;
+	font-size: 12px;
 	padding: 5px;
 	background-image: url(../images/search_icon.png);
 	background-position: 98% 6px;
 	background-repeat: no-repeat;
 	margin: auto;
 	display: block;
-	width: 95%;
+	width: 100%;
 	
 	/* ie8, grumble grumble */
 	
@@ -1746,21 +1734,23 @@ font-family: SketchBlock-Bold, sans-serif;
 
 }
 
-.homepage-feature {
+.hero-event {
   color: #DDD7D8;  
   border: 1px solid #444;  
   padding: 0px;
+  margin-top: 5px;
   /*background-color: #443349;*/
   /*background-color: rgba(49,39,41,0.95);*/
 }
 
 
 
-.homepage-feature img{
-	border: 1px solid #666;  
+.hero-event img{
+	border: 1px solid #666;
+	width: 100%;
 }
 
-.homepage-feature img.featured-logo {
+.hero-event img.featured-logo {
 	border: none;
 	position: absolute;
 	top: 10px;
@@ -1787,54 +1777,46 @@ font-family: SketchBlock-Bold, sans-serif;
   width: 600px;
 }*/
 
-.homepage-feature-content {
+.hero-event-content {
 	color: #ebe5e6;
-
+	width: 80%;
+	float: left;
 }
 
-.homepage-feature-text .event_categories{
-
-padding: 10px;
-
-
+.hero-event-text .event_categories{
+	padding: 10px;
 }
 
-.homepage-feature-content p {
+.hero-event-content p {
 	margin: 10px 0;
 
 }
 
-.homepage-feature-details {
+.hero-event-details {
 	/*width: 300px;
 	float: right;*/
-
 }
 
-.homepage-feature-details img{
+.hero-event-details img{
 	max-width: 100%;
 }
 
-.homepage-feature-image-container {
-	width: 60%;
-
-}
-.homepage-feature img {
+.hero-event img {
 	border: 1px solid #444;
 	/*margin-top: 15px;*/
 }
 
-.homepage-feature a {
+.hero-event a {
 	color: #eacc5f;
 	/*font-weight: bold;*/
 
 }
-.homepage-feature a:hover {
+.hero-event a:hover {
 	color: #ceb454;
 	font-weight: bold;
-
 }
 
-.homepage-feature h1 {
+.hero-event h1 {
 	margin-top: 0;
 	margin: 0;
 	color: #f5eeef;
@@ -1845,14 +1827,14 @@ padding: 10px;
 	float: left;
 }
 
-.homepage-feature h1 a {
+.hero-event h1 a {
 	color: #f5eeef;
-	font-size: 33px;
+	font-size: 20px;
 
 
 }
 
-.homepage-feature h2 {
+.hero-event h2 {
 	font-family: SketchBlock-Bold, sans;
 	font-size: 32px;
 	font-weight: lighter;
@@ -1861,7 +1843,7 @@ padding: 10px;
 
 }
 
-.homepage-feature-specifics {
+.hero-event-specifics {
 	margin: 10px 0;
 	/*background-image: url(../images/dark_leather.png);
 	padding: 10px;
@@ -1869,24 +1851,24 @@ padding: 10px;
 
 }
 
-.homepage-feature-where {
+.hero-event-where {
 	display: none;
 }
 
-.homepage-feature-when {
+.hero-event-when {
 	float: left;
 	width: 50%;
 	/*min-height: 100px;*/
 	/*border-right: 1px solid #666;
 	padding-right: 20px;*/
-	font-size: 18px;
+	font-size: 14px;
 }
 
-.homepage-feature-when p {
+.hero-event-when p {
 	display: none;
 }
 
-.homepage-feature-when p.first {
+.hero-event-when p.first {
 	display: block;
 }
 
@@ -1894,6 +1876,19 @@ padding: 10px;
 	border: 1px solid #666;
 
 }
+
+.hero-event-content a.more-event-info {
+	color: white;
+	font-weight: normal;
+	display: none;
+}
+
+
+.hero-event-image-container {
+	width: 20%;
+	float: right;
+	overflow: hidden;
+}	
 .img-shadow {
 	position: relative;
 	max-width: 100%;
@@ -1911,8 +1906,8 @@ padding: 10px;
 		/* this looks okay-ish but a normal inner shadow is prolly better */
 /*-webkit-box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);
 box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/	 
-	-webkit-box-shadow: inset 0px 0px 20px 3px rgba(5, 5, 5, 0.7);
-	box-shadow: inset 0px 0px 20px 3px rgba(5, 5, 5, 0.7);
+	-webkit-box-shadow: inset 0px 0px 30px 3px rgba(5, 5, 5, 0.45);
+	box-shadow: inset 0px 0px 30px 3px rgba(5, 5, 5, 0.45);
 
   } 
 	   
@@ -1964,7 +1959,7 @@ box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/
 	/*border-bottom: 1px solid #ccc;*/
 }
 .homepage-event-desc {
-	width: 50%;
+	width: 65%;
 	float: left;
 	font-size: 14px;
 }
@@ -2020,7 +2015,6 @@ box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/
 	font-size: 22px;
 	display: block;
 	float: left;
-	width: 80%;
 	color: #E6E2DF;
 	margin: 0;
 }
@@ -2042,7 +2036,7 @@ box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/
 }
 
 a.event-header-category {
-	color: white;
+	color: #eeeeef;
 	background: #342738;
 	/*background: #5d5d5d;*/
 	/*background-image: url(../images/dark_leather.png);*/
@@ -2050,8 +2044,9 @@ a.event-header-category {
 	padding: 5px;
 	/*margin: 5px;*/
 	float: right;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
+	display: none
 }
 
 
@@ -2113,25 +2108,9 @@ a:active.event-header-category {
 
 
 .more-event-info {
-	border: 1px solid #666;
-	background: #2488A3;
-	color: white;
-	padding: 5px;
-	/*margin: 10px 0;*/
-	text-align: center;
-	/*font-family: SketchBlock-Bold, sans;*/
-	font-weight: normal;
-	width: 143px;
-	display: block;
-	float:right;
-	margin-top: 3px;
-
+	display: none;
 }
 
-.homepage-feature-content a.more-event-info {
-	color: white;
-	font-weight: normal;
-}
 
 .more-event-info:hover {
 	-webkit-box-shadow: inset 0px 4px 20px 1px #195e71;
@@ -2157,9 +2136,7 @@ a:active.event-header-category {
 }
 
 .addthis_toolbox{
-	width: 40%;
-	float: left;
-	margin: 3px 0;
+	display: none;
 }
 .addthis_button_facebook_like{
 	margin-top: -2px;
@@ -2171,12 +2148,12 @@ a:active.event-header-category {
 	display: block;
 }
 
-.homepage-feature #share-area {
+.hero-event #share-area {
 	float: left;
 	margin: 0;
 
 }
-.homepage-feature .more-event-info {
+.hero-event .more-event-info {
 	/*height: 23px;*/
 }
 
@@ -2230,13 +2207,7 @@ a:active.event-header-category {
 }
 
 .event-share-container{
-	background: #e2e2e2;
-	padding: 3px;
-	border: 1px solid #ccc;
-	margin: 2px 0;
-	width: 145px;
-	float: left;
-	
+	display: none;	
 }
 
 .where {
@@ -2693,11 +2664,7 @@ div.dp-popup h2 {
 /* Feedback Image */
 
 #feedback-link {
-	position: fixed; 
-	left: 0px; 
-	top: 300px; 
-	display: block;
-	border: 1px solid #555;
+	display: none;
 }
 
 #feedback-link img{
@@ -2765,11 +2732,7 @@ textarea {
 }
 
 
-#detail_event_description_info {
-  float: left;
-  width: 500px;
-  margin-right: 25px;
-}
+
 
 
 #canvas{
@@ -2786,29 +2749,28 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 @media only screen and (min-width: 480px) {
-  	
-  	#page_navigation ul {
-    	float: left;
-    }
-  	
+
+	#page_navigation ul {
+		float: left;
+	}
 	#page_navigation ul li a {
-       	font-size: 16px;
-     }
-     
+	   	font-size: 16px;
+	 }
 	#SearchForm_SearchForm_Search {
 		background-image: none;
-		float: right;
-		width: 100%;
+		float: left;
+		width: 80%;
+		margin-left: 10px;
+		margin-top: 3px;
 	}
-	
-.homepage-event-image {
-	width: 150px;
-}
-#page_header .big_header a img {
-	width: 70%
-}
+	.homepage-event-image {
+		width: 150px;
+	}
+	#page_header .big_header a img {
+		width: 70%
+	}
 
-  
+
 }
 
 @media only screen and (min-width: 594px){
@@ -2828,15 +2790,16 @@ textarea {
 	}
 	
 	#right-column {
-		width: 35%;
-		float: left;
-		margin-left: 20px;
+		width: 37%;
+		float: right;
 	}
+	
+
 	.homepage-event-desc {
 		width: 60%;
 	}
 	
-	.homepage-feature-image-container img{
+	.hero-event-image-container img{
 		width: 100%;
 	}
 	#page_header .big_header {
@@ -2847,6 +2810,8 @@ textarea {
 	}
 	#page_header p {
 		display: block;
+		left: 60px;
+		top: -10px;
 	}
 
 	#page_navigation ul li a {
@@ -2865,24 +2830,56 @@ textarea {
 	
 	#SearchForm_SearchForm_Search {
 		background-image: url('../images/search_icon.png');
-	}
-	
-	.homepage-feature-content{
-		width: 37%;
-		float: right;
-		padding: 10px;
-	}
-	
-	.homepage-feature img{
+		width: 100%;
 		float: right;
 	}
-	.homepage-feature-where {
+	
+
+	.hero-event-content{
+		width: 35%;
+		float: left;
+		padding: 1%;
+	}
+	.hero-event-image-container {
+		width: 61%;
+		float: left;
+	}	
+	
+	/* individual page version */
+	
+	.AfterClassEvent .hero-event-content{
+		width: 49%;
+		float: left;
+	}
+	
+	.AfterClassEvent .hero-event-image-container {
+		width: 49%;
+		float: right;
+	}
+	
+	.hero-event img{
+		float: right;
+	}
+	.hero-event-where {
 		float: right;
 		text-align: right;
 		width: 40%;
 		margin-left: 20px;
 	}	
-
+	#page_content.AfterClassCalendar.index .container, #page_content.AfterClassEvent.index .container, #page_content.FeaturedAfterClassEvent.index, #page_content.AfterClassCalendar.view .container, #page_content.AfterClassEvent .container {
+		margin-top: 20px;
+	
+	}
+	
+	#detail_event_description_map {
+	  float: left;
+	}
+	
+	#detail_event_description_info {
+	  float: left;
+	  width: 50%;
+	  margin-right: 25px;
+	}
   
 }
 
@@ -2892,6 +2889,46 @@ textarea {
 
 @media only screen and (min-width: 960px){
 
+	.more-event-info {
+		border: 1px solid #666;
+		background: #2488A3;
+		color: white;
+		padding: 5px;
+		/*margin: 10px 0;*/
+		text-align: center;
+		/*font-family: SketchBlock-Bold, sans;*/
+		font-weight: normal;
+		width: 143px;
+		float:right;
+		margin-top: 3px;
+	}
+	#feedback-link {
+		position: fixed; 
+		left: 0px; 
+		top: 300px; 
+		border: 1px solid #555;
+	}
+	.addthis_toolbox{
+		width: 50%;
+		float: left;
+		margin: 3px 0;
+		display: block;
+	}
+	.event-share-container{
+		background: #e2e2e2;
+		padding: 3px;
+		border: 1px solid #ccc;
+		margin: 2px 0;
+		width: 145px;
+		float: left;
+	}
+	.hero-event-when {
+		font-size: 14px;
+	}
+
+	.hero-event-content a.more-event-info {
+		display: block;
+	}
 	#studentlife-bar {
 		display: block;
 	}	
@@ -2902,7 +2939,7 @@ textarea {
 		background-position-y: 90%;
 	}
 	
-	.homepage-feature-when p {
+	.hero-event-when p {
 		display: block;
 	}
 	.homepage-event-desc {
@@ -2933,17 +2970,39 @@ textarea {
 	}
 	
 	#page_header p {
-		left: 60px;
 		 /* padding: 24px 45px 36px 35px; */
-		 top: -30px;
-
+		 top: -15px;
 	}
-
+	
+	a.event-header-category {
+		display: block;
+	}	
+	
+	.homepage-event h3 {
+		width: 80%;
+	}
 
 }
 
-@media only screen and (min-width: 1300px){
+@media only screen and (min-width: 1024px){
+	body {
+		font-size: 16px;
+	} 	
+	.hero-event h1 a {
+		color: #f5eeef;
+		font-size: 30px;
+	}
+		
+}
 
+@media only screen and (min-width: 1100px){
+
+
+}
+@media only screen and (min-width: 1300px){
+	.hero-event-content{
+		width: 37%;
+	}	
 	#page_header .container {	
 		background: url("../images/header-buildings-medium.png");
 		width: 80%;
@@ -2953,8 +3012,8 @@ textarea {
 		
 	}
 	
-	.homepage-feature-content{
-		width: 38%;
+	.hero-event-content{
+		/*width: 38%;*/
 	}
 
 	#page_header p {

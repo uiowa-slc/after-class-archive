@@ -1,10 +1,9 @@
 <% require css(event_calendar/css/calendar.css) %>
-<% require javascript(event_calendar/javascript/calendar_core.js) %>
 
 <% if FeaturedEvents %>
 		<% control FeaturedEvents.First %>
 			<% control Event %>
-				<% include HomeFeature %>	
+				<% include HeroEvent %>	
 			<% end_control %><!-- end control Event -->		
 		<% end_control %><!-- end control FeaturedEvents.First -->
 		<% else %>
@@ -12,7 +11,7 @@
 				<% control Event %>
 					<% if CancelReason %>
 					<% else %>
-						<% include HomeFeature %>
+						<% include HeroEvent %>
 					<% end_if %><!-- end if cancelreason -->
 				<% end_control %>
 			<% end_control %>
@@ -133,7 +132,7 @@
 	<div id="calendar-filter-form">
 		$CalendarWidget
 	</div>
-	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
+	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100%; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 	<div id="newsletter-signup">
 		<h2><img src="{$ThemeDir}/images/stay_connected.png" alt="Stay Connected With Our Newsletter" /></h2>
 		<p>sign up for our newsletter to see what's happening around campus. you also might win something.</p>

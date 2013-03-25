@@ -110,7 +110,7 @@ class Page_Controller extends ContentController {
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
 		//echo $_SERVER['HTTP_USER_AGENT'];
-		Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
+		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
 		
 		$jsFiles = array(
 			    'themes/afterclass2/js/jquery.min.js',
@@ -141,11 +141,11 @@ class Page_Controller extends ContentController {
 			    'themes/afterclass2/js/mailchimp.js',
 			    'themes/afterclass2/js/init.js',
 			    
-			    'event_calendar/javascript/calendar_core.js',
+			   /* 'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',
 			    'event_calendar/javascript/jquery.date.js',
 			    'event_calendar/javascript/jquery.datePicker.js',
-			    'event_calendar/javascript/calendar_widget.js'
+			    'event_calendar/javascript/calendar_widget.js'*/
 			    
 
 			);

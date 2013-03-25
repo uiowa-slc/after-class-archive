@@ -1,16 +1,16 @@
 <div class="feature-background-wrapper">
-	<div class="homepage-feature" itemscope itemtype="http://data-vocabulary.org/Event">	
+	<div class="hero-feature-event" itemscope itemtype="http://data-vocabulary.org/Event">	
 	
-				<div class="homepage-feature-content">
+				<div class="hero-feature-event-content">
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_if %>
 					<div class="clear"></div>
-					<div class="homepage-feature-details">
-							<div class="homepage-feature-text">
+					<div class="hero-feature-event-details">
+							<div class="hero-feature-event-text">
 							<p>$getSummaryHTML(30) <a href="$Link">read more</a></p>
 							
-								<div class="homepage-feature-specifics">
-									<div class="homepage-feature-when">
+								<div class="hero-feature-event-specifics">
+									<div class="hero-feature-event-when">
 											<% control DateAndTimeLimited(3) %>
 										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(F) $StartDate.format(j)</time></a>
 											<% if EndDate %>
@@ -27,9 +27,9 @@
 											<a href="$Link" class="more-dates-link">view more dates &raquo;</a>
 										<% end_if %>
 										
-									</div><!-- end homepage-feature-when -->
+									</div><!-- end hero-feature-event-when -->
 									
-									<div class="homepage-feature-where">
+									<div class="hero-feature-event-where">
 										<p>
 										<% control Venues %>
 											<p class="venues">
@@ -47,8 +47,8 @@
 									<div class="clear"></div>
 								
 								
-								</div><!-- end homepage-feature-specifics -->
-							</div><!-- end homepage-feature-text -->
+								</div><!-- end hero-feature-event-specifics -->
+							</div><!-- end hero-feature-event-text -->
 						</div>
 									
 											<!--<h2>share</h2>-->
@@ -68,9 +68,9 @@
 					
 
 
-					</div><!-- end homepage-feature-details -->
+					</div><!-- end hero-feature-event-details -->
 					
-					<div class="homepage-feature-image-container">
+					<div class="hero-feature-event-image-container">
 						<a href="$Link" class="img-shadow">
 							<% if Image %>
 								<% control Image %>
@@ -87,6 +87,6 @@
 				
 					<div style="clear: both"></div>
 
-				</div><!-- end homepage-feature -->
+				</div><!-- end hero-feature-event -->
 				
 			</div><!-- end feature-background-wrapper -->

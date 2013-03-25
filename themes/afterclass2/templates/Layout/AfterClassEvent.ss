@@ -1,22 +1,23 @@
-<section id="detail_feature" class="feature clearfix">
+<% include HeroEvent %>
 
-   			<% if Image %>
-    	   		<img src="$Image.LargeImage.URL" class="detail_feature_image"/>
-    	   	<% else %>
-    	   		<img src="$ThemeDir/images/placeholder.png" class="detail_feature_image placeholder" />
-    	   	<% end_if %>
-            
-    	   	<div class="event_group">
-    	   
-    	   	<div class="event_text">
-    		<h2><strong>$Title</strong></h2>
-    		<div class="event_details">
 
-    	   	 		
-    			<div id="dates">
-    			
-	    			<ul>
-		    			<% control DateAndTime %> 
+
+<section id="detail_event_description">
+	
+	<div id="detail_event_description_info">
+		<h2>What's Happening?</h2>
+		$Content
+		
+		<% if MoreInfoLink %>
+		<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
+		<% end_if %>
+		<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+		
+		<% if DateAndTimeMoreThan(3) %>
+		
+		<h2 id="dates">All Dates and Times </h2>
+				<ul>
+				<% control DateAndTime %> 
 		    				<li>
 				    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 				    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span>
@@ -32,68 +33,11 @@
 	
 		    			<% end_control %> <%-- end control DateAndTime --%>
 		    		</ul>
-    			</div><!-- end dates -->
-    			<br />
-    		$Location<br/>
-    			
-    			<ul class="venues">
-	    			<% control Venues %>
-	    				<li><a href="$Link">$Title</a></li>
-	    			<% end_control %>
-    			</ul>
-    			<% if Sponsors %>
-    				<div class="sponsors">
-	    			<p>Sponsored by</p>
-	    			<ul>
-		    			<% control Sponsors %>
-		    				<li><a href="$Link">$Title</a></li>
-		    			<% end_control %>
-	    			</ul>
-	    		</div>
-            	<% end_if %>
-            	$Cost
-            		<% if CancelReason %>
-	<p><strong>Note: $CancelReason</strong></p>
-	<% end_if %>
-	</div>
-	
-	<div class="event-meta">
-       	<% include EventCategoryList %>
-	</div>
-	<div style="clear: both"></div>
-
-</div> 
-		<div style="clear: both"></div>
-
-       	</div>
-	
-          	<div style="clear: both"></div>
-             <div class="addthis_toolbox addthis_default_style"
-				addthis:url="{$AbsoluteLink}"
-				addthis:title="{$Title}"
-				addthis:description="">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-				<a class="addthis_button_tweet"></a>
-				<a class="addthis_button_pinterest_pinit"></a>
-				<a class="addthis_counter addthis_pill_style"></a>
-			</div>
-        				
-
-    </section>
-
-
-
-<section id="detail_event_description">
-	
-	<div id="detail_event_description_info">
-		<h2>What's Happening?</h2>
-		$Content
-		
-		<% if MoreInfoLink %>
-		<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
 		<% end_if %>
-		<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+
+		
+		
+		
 	</div>
 	
 	
@@ -109,7 +53,8 @@
 			<p><% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo;</a><% end_if %><% if WebsiteURL %> <br /> <a href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></p>
 			
 			<% if Address %>
-				<div id="map_canvas" style="width: 100%; height: 100%"></div>
+			
+				<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
 			<% end_if %>
 		<% end_control %>
 		
