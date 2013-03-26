@@ -132,6 +132,31 @@
 	<div id="calendar-filter-form">
 		$CalendarWidget
 	</div>
+	
+
+	<div id="the-news">
+		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/news.png" alt="After Class News" /></a></h2>
+		<div class="news-entries">
+			<% control RSSDisplay(3, http://afterclass.uiowa.edu/news/feed/) %>
+				<div class="news-entry $EvenOdd">
+					$Image
+					<h3><a href="$Link">$Title</a></h3>
+					<div class="news-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
+					<div class="news-text">
+						<p>$Content.Summary(50)</p>
+					</div>
+					<div class="read-more">
+						<p><a href="$Link">Read More</a></p>
+					</div>
+				</div>
+				<!-- end news-entry -->
+			<% end_control %>
+		</div>
+		<!-- end news-entries -->
+		<p class="view-all-posts-link"><a href="news/">view all posts &raquo;</a></p>
+	</div>
+	<!-- end the-news -->	
+
 	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100%; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 	<div id="newsletter-signup">
 		<h2><img src="{$ThemeDir}/images/stay_connected.png" alt="Stay Connected With Our Newsletter" /></h2>
@@ -153,28 +178,7 @@
 		<!-- end mc_embed_signup -->
 	</div>
 	<!-- end newsletter-signup -->
-	<div id="the-blog">
-		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/news.png" alt="After Class News" /></a></h2>
-		<div class="blog-entries">
-			<% control RSSDisplay(3, http://afterclass.uiowa.edu/blog/feed/) %>
-				<div class="blog-entry $EvenOdd">
-					$Image
-					<h3><a href="$Link">$Title</a></h3>
-					<div class="blog-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
-					<div class="blog-text">
-						<p>$Content.Summary(50)</p>
-					</div>
-					<div class="read-more">
-						<p><a href="$Link">Read More</a></p>
-					</div>
-				</div>
-				<!-- end blog-entry -->
-			<% end_control %>
-		</div>
-		<!-- end blog-entries -->
-		<p class="view-all-posts-link"><a href="blog/">view all posts &raquo;</a></p>
-	</div>
-	<!-- end the-blog -->	
+
 	<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
 		<% if FutureDeadlines %>
 			<div id="approaching-deadlines">

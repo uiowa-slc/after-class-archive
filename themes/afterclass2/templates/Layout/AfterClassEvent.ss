@@ -34,10 +34,9 @@
 		    			<% end_control %> <%-- end control DateAndTime --%>
 		    		</ul>
 		<% end_if %>
-
-		
-		
-		
+		<div class="event-meta">
+			<% include EventCategoryList %>
+		</div>
 	</div>
 	
 	

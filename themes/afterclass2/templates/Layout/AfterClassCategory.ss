@@ -1,8 +1,6 @@
 <header id="secondary_header">
  	<h1>$Category.Title</h1>
 </header>
-
-
  <div id="single-page-content" class="category">
  			
  			<div class="about-category">
@@ -55,52 +53,11 @@
 		<!--<% control Events(2) %><div><% control Event %>$Title<% end_control %></div><% end_control %>-->
 		<% if Events %>
 		<ul class="category-list-events">
-			<% control Events %><li>
-			<% control Event %>
-			<% if Image %><a href="$Link"><img src="$Image.SmallImage.URL"></a><% end_if %>
-			<div class="info">
-			<a href="$Link"><strong>$Title</strong></a><br />
-			
-			    <div id="dates">
-	    			<% control UpcomingDates %> 
-		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
-		    				<% if StartTime %> at $StartTime.nice<% end_if %>
-		    			
-	    			
-		    			<% if EndDate %> until
-		    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
-		    			 		<span>$EndDate.Format(M). $EndDate.DayOfMonth</span>
-		    			 	</a>
-		    			 	<% end_if %> 
-		    			 <br />
-
-	    			<% end_control %>
-	    					    			<% if OtherDates %>
-							<a href="$Link" class="more-dates-link">view more dates &raquo;</a><% end_if %>
-    			</div>
-    			
-    			
-    			<% if ClassName = Venue %> 
-    			
-    			
-    			<% else %>
-    			
-    			<div class="where">
-				
-					<% if Venues %>
-						<ul>
-						<% control Venues %>
-							<li>@ <a href="$Link">$Title</a></li>
-						<% end_control %>
-						</ul>
-					<% end_if %>
-				</div>
-    			
-    			<% end_if %>
-    			<% end_control %>
-			</div>
-			</li><% end_control %>
+			<% control Events %>
+				<% control Event %>
+					<% include EventCard %>
+				<% end_control %>
+			<% end_control %>
 		</ul>
 		<div style="clear: both"></div>
 		<!--<div class="view-all"><a href="{$BaseHref}events/categories/$Title">View All $Events.count Events</a></div>-->

@@ -123,7 +123,7 @@ document.createElement('hgroup');
 <![endif]-->
 
 </style>
-<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body onload="starInit();">
 <div id="fb-root"></div>
@@ -147,26 +147,20 @@ document.createElement('hgroup');
 <% include DivisionBarNonResponsive %>
 <a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
-
-
 	<div class="container" id="canvas-container">
-		<canvas id="canvas"></canvas>
+		<canvas id="canvas" style="display: none;"></canvas>
 		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
-
 	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
-	
-	
-	    
 	</div>
 </header>
+
 <nav id="page_navigation">
 <% cached %>
 	<div class="container">
 	<ul class="clearfix">
-
+		<li class="moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
 		<li class="first" ><a href="{$BaseHref}"><strong>Home</strong></a></li>
-		<li><a href="news/"><strong>news</strong></a></li>
-
+		<li id="news"><a href="news/"><strong>news</strong></a></li>
 		<li>
 			<a href="events/categories/"><strong>Categories</strong></a>
 			<ul>

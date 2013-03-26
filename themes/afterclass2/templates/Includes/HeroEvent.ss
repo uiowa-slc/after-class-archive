@@ -1,25 +1,8 @@
 <div class="feature-background-wrapper">
 	<div class="hero-event" itemscope itemtype="http://data-vocabulary.org/Event">	
-	
 
 					
-					<div class="hero-event-image-container">
-						<a href="$Link" class="img-shadow">
-							<% if Image %>
-								<% control Image %>
-									<% control CroppedImage(730,462) %>
-									<img itemprop="photo" src="$URL" />
-									<% end_control %>
-								<% end_control %>
-							<% else %>
-								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
-							<% end_if %>
-						</a>
-						<div class="clear"></div>
-					</div>
-					
-					
-									<div class="hero-event-content">
+					<div class="hero-event-content">
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_if %>
 					<div class="clear"></div>
@@ -113,9 +96,7 @@
 						<% if ClassName = AfterClassCalendar %>
 							<a class="more-event-info" href="$Link">view event</a>
 						<% else %>
-							<div class="event-meta">
-								<% include EventCategoryList %>
-							</div>
+	
 						<% end_if %><%-- end if ClassName = AfterClassEvent --%>
 						
 						<div style="clear:both"></div>
@@ -123,6 +104,24 @@
 
 
 					</div><!-- end hero-event-content -->
+				
+					
+					<div class="hero-event-image-container">
+						<a href="$Link" class="img-shadow">
+							<% if Image %>
+								<% control Image %>
+									<% control CroppedImage(730,462) %>
+									<img itemprop="photo" src="$URL" />
+									<% end_control %>
+								<% end_control %>
+							<% else %>
+								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
+							<% end_if %>
+						</a>
+						<div class="clear"></div>
+					</div>
+					
+				
 				
 					<div style="clear: both"></div>
 
