@@ -2860,13 +2860,14 @@ textarea {
 	}
 	
     #secondary-nav {
-    	width: 30%;
+    	width: 36%;
     }
 	
 	#SearchForm_SearchForm_Search {
 		background-image: url('../images/search_icon.png');
 		width: 100%;
 		float: right;
+		font-size: 16px;
 	}
 	
 	.hero-event h1 a {
