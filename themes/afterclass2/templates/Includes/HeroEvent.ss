@@ -9,35 +9,14 @@
 					<div class="hero-event-details">
 							<div class="hero-event-text">
 							
-							<% if ClassName = AfterClassCalendar %>
 								<p>$getSummaryHTML(30) <a href="$Link">read more</a></p>
-							<% else %>
-								<%-- if we are not looking at the calendar, include more info: --%>
-								
-								<div class="event_details">
-								$Location<br/>
-	    			
-				    			<ul class="venues">
-					    			<% control Venues %>
-					    				<li><a href="$Link">$Title</a></li>
-					    			<% end_control %>
-				    			</ul>
-				    			<% if Sponsors %>
-				    				<div class="sponsors">
-					    			<p>Sponsored by</p>
-					    			<ul>
-						    			<% control Sponsors %>
-						    				<li><a href="$Link">$Title</a></li>
-						    			<% end_control %>
-					    			</ul>
-					    		</div>
-				            	<% end_if %>
+				        
 				            	$Cost
 							    <% if CancelReason %>
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
-								</div><!-- end event_details-->
-							<% end_if %> <%-- end ifClassName = AfterClassCalendar --%>
+							</div><!-- end hero-event-text-->
+						
 							
 								<div class="hero-event-specifics">
 									<div class="hero-event-when">
@@ -73,34 +52,26 @@
 										<% if Cost %>
 											<p class="admission-price">Admission: <a href="$Link">$Cost </a></p>
 										<% end_if %>	
-									</div>
+									</div><!-- end herp-event-where -->
 									<div class="clear"></div>
 								
 								
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
-						</div>
+				
 									
-											<!--<h2>share</h2>-->
 						 <div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
 									addthis:title="{$Title}"
 									addthis:description="">
-					    <a class="addthis_button_facebook_like"></a>
-					    <a class="addthis_button_twitter"></a>    
-					    <a class="addthis_button_google_plusone_share"></a>
+							<a class="addthis_button_facebook_like"></a>
+							<a class="addthis_button_twitter"></a>    
+							<a class="addthis_button_google_plusone_share"></a>
+							
+							<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
 					
-					    <a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
-					
-					</div>
-					<div class="clear"></div>
-						<% if ClassName = AfterClassCalendar %>
-							<a class="more-event-info" href="$Link">view event</a>
-						<% else %>
-	
-						<% end_if %><%-- end if ClassName = AfterClassEvent --%>
-						
-						<div style="clear:both"></div>
-					
+					    </div><!-- end addthis_toolbox -->
+					    
+					<div class="clear"></div>	
 
 
 					</div><!-- end hero-event-content -->
