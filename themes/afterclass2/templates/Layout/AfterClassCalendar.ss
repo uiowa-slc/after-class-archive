@@ -32,9 +32,9 @@
 <div id="homepage-event-list">
 	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
 	<% control AllEvents %>
-	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event">
+	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event" onClick="location.href='$Event.Link'">
 		<div class="homepage-event-header">
-			<h3>
+			<h3 class="big-cell">
 				<a href="$Event.Link" itemprop="url">
 					<span itemprop="summary">$Event.Title</span><% if Event.CancelReason %>
 					<div class="homepage-cancel-reason">
@@ -57,6 +57,14 @@
 					</a>
 					<% end_control %>
 				</div>
+				
+			<h3 class="small-cell">
+				<a href="$Event.Link">
+					<span>$Event.Title</span><% if Event.CancelReason %>
+					<div class="homepage-cancel-reason">
+						Note: $Event.CancelReason</d><% end_if %>
+				</a>
+			</h3>
 				<!-- end homepage-event-image -->
 				<div class="homepage-event-desc">
 					<% control Event %>

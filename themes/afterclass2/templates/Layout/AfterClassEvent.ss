@@ -2,7 +2,6 @@
 	<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
 					<div class="hero-event-content">
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
-					<% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_if %>
 					<div class="clear"></div>
 					<div class="hero-event-details">
 							<div class="hero-event-text">
@@ -52,7 +51,11 @@
 										<% end_if %>	
 									</div><!-- end herp-event-where -->
 									<div class="clear"></div>
-								
+										<% if MoreInfoLink %>
+										<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
+										<% end_if %>
+										<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+		
 								
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
@@ -95,11 +98,7 @@
 	
 	<div id="detail_event_description_info">
 
-		<% if MoreInfoLink %>
-		<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
-		<% end_if %>
-		<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
-		
+
 		<% if DateAndTimeMoreThan(3) %>
 		
 		<h2 id="dates">All Dates and Times </h2>
