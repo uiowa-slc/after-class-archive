@@ -2796,7 +2796,7 @@ textarea {
 		top: 10px;
 	}
 	#page_header .big_header a img {
-		width: intrinsic;
+		width: 50%;
 	}
 	#page_header p {
 		display: block;
