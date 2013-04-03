@@ -32,6 +32,7 @@
 <div id="homepage-event-list">
 	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
 	<% control AllEvents %>
+	<div class="homepage-event-wrapper">
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event" onClick="location.href='$Event.Link'">
 		<div class="homepage-event-header">
 			<h3 class="big-cell">
@@ -131,6 +132,8 @@
 			<!-- end homepage-event-content -->
 		</div>
 		<!-- end homepage-event -->
+		</div>
+		<!-- end homepage-event-wrapper-x -->
 		<% end_control %> <%-- end control Upcoming Events --%>
 	</div>
 	<!-- end homepage-event-list -->

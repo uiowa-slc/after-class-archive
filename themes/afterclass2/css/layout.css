@@ -1697,10 +1697,11 @@ font-family: SketchBlock-Bold, sans-serif;
 }
 
 .hero-event {
-  color: #DDD7D8;  
+  color: #DDD7D8;
+  padding: 0 2%;  
  /* border: 1px solid #444;  */
   /*margin-top: 5px;*/
-  padding: 1%;
+  /*padding: 1%;*/
   /*background-color: #443349;*/
   /*background-color: rgba(49,39,41,0.95);*/
 }
@@ -2835,6 +2836,10 @@ textarea {
 		margin-top: 10px;
 	}
 	
+	.hero-event {
+	  padding: 0; 
+	}
+	
 	.hero-event h1 a {
 		color: #ADD7E2;
 		font-size: 1.3em;
@@ -2901,8 +2906,9 @@ textarea {
 
 @media only screen and (min-width: 960px){
 
-	.container {
-		width: 960px
+
+	.container, .logos {
+		width: 960px !important;
 	}
 	
 	#page_header p {
@@ -2923,7 +2929,7 @@ textarea {
 		display: block;
 	}	
 	#page_header {
-		  height: 240px;
+		  height: 10%;
 	 }
 	#page_header .container {	
 		background-position-y: 90%;
@@ -3030,13 +3036,16 @@ textarea {
 	.category-list ul li {
 		float: left;
 		width: 28%;
+	}
 	
+	#page_header p {
+		font-size: 1.2em;
 	}
 
 }
 @media only screen and (min-width: 1200px){
 	.hero-event-content{
-		width: 37%;
+		/*width: 37%;*/
 	}
 
 	#page_header .container {	
@@ -3073,8 +3082,8 @@ textarea {
 		padding-left: 5%;
 	}
 	
-	.container {
-		width: 1200px
+	.container, .logos {
+		width: 1200px !important;
 	}
 	
 	.homepage-event-image {
@@ -3088,8 +3097,13 @@ textarea {
 
 
 @media only screen and (min-width: 1400px){
-.container {
-	width:95%;
+
+	#page_header p {
+		font-size: 1.4em;
+	}
+
+.container, .logos {
+	width:95% !important; 
 }	
 .homepage-event{
 	font-size: 90%;
@@ -3143,7 +3157,10 @@ textarea {
 	.homepage-event {
 		width: 23%;
 	}
-
+	
+	#page_header p {
+		font-size: 1.6em;
+	}
 
 }
 
@@ -3153,7 +3170,10 @@ textarea {
 	.homepage-event {
 		width: 18%;
 	}
-
+	
+	#page_header p {
+		font-size: 1.8em;
+	}
 
 }
 
@@ -3161,6 +3181,10 @@ textarea {
 	.homepage-event {
 		width: 14%;
 	}
+	#page_header p {
+		font-size: 2em;
+	}	
+	
 }
 
 /* =============================================================================
