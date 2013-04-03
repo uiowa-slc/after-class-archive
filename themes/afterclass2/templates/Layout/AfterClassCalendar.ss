@@ -36,19 +36,26 @@
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event" onClick="location.href='$Event.Link'">
 		<div class="homepage-event-header">
 			<h3 class="big-cell">
-				<a href="$Event.Link" itemprop="url">
-					<span itemprop="summary">$Event.Title</span><% if Event.CancelReason %>
+			
+			<% control Event %>
+				<a href="$Link" itemprop="url">
+					<span itemprop="summary">$Title</span><% if Event.CancelReason %>
 					<div class="homepage-cancel-reason">
-						Note: $Event.CancelReason</d><% end_if %>
+						Note: $CancelReason</d><% end_if %>
 				</a>
 			</h3>
-			<% control Event %><% if Eventtypes %><% control Eventtypes.First %><a class="event-header-category" href="$Link">$Title</a><% end_control %><% end_control %><% end_if %>
+		
+			<% if Eventtypes %>
+				<% control Eventtypes.First %>
+					<a class="event-header-category" href="$Link">$Title</a>
+				<% end_control %>
+			<% end_if %>
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
 			<div class="homepage-event-content">
 				<div class="homepage-event-image">
-					<% control Event %>
+				
 					<a href="$Link">
 					<% if Image %>
 						<% control Image %>
@@ -56,25 +63,40 @@
 						<% end_control %>
 					<% end_if %>
 					</a>
-					<% end_control %>
+				
 				</div>
 				
 			<h3 class="small-cell">
-				<a href="$Event.Link">
-					<span>$Event.Title</span><% if Event.CancelReason %>
+				<a href="$Link">
+					<span>$Title</span><% if Event.CancelReason %>
 					<div class="homepage-cancel-reason">
 						Note: $Event.CancelReason</d><% end_if %>
 				</a>
 			</h3>
 				<!-- end homepage-event-image -->
 				<div class="homepage-event-desc">
-					<% control Event %>
+			
 					<p>$Content.Summary(30) <a href="$Link" class="read-more-link">read more &raquo;</a></p>
-					<% end_control %>
+				
 					<div class="homepage-event-meta">
+						<div class="where">
+							<% if Venues %>
+							<ul>
+								<% control Venues %>
+									<li>	<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+										@ <a href="$Link" ><span itemprop="name">$Title</span></a>
+										</span>
+									</li>
+								<% end_control %>
+							</ul>
+							<% end_if %>
+						</div><!-- end where -->
+						
 						<div class="when">
 							<ul class="dates">
-								<% control Event.DateAndTimeLimited(3) %>
+						
+								<% if DateAndTimeLimited(2) %>
+								<% control DateAndTimeLimited(2) %>
 									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(M). $StartDate.format(j)</time> </a> <% if StartTime %>
 										at $StartTime.Nice
 										<% end_if %>
@@ -83,25 +105,17 @@
 										<% end_if %>
 									</li>
 								<% end_control %>
-								<% control Event %>
-									<% if DateAndTimeMoreThan(3) %>
-										<a href="$Link" class="more-dates-link">view more dates &raquo;</a>
+						
+									<% if DateAndTimeMoreThan(2) %>
+										<a href="$Link" class="more-dates-link">more dates &raquo;</a>
 									<% end_if %>
-								<% end_control %>
+								
+								<% end_if %> <!-- end if Event.UpcomingDates(1) -->
+								
 							</ul>
 						</div>
-						<div class="where">
-							<% if Event.Venues %>
-							<ul>
-								<% control Event.Venues %>
-									<li>	<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-										@ <a href="$Link" ><span itemprop="name">$Title</span></a>
-										</span>
-									</li>
-								<% end_control %>
-							</ul>
-							<% end_if %>
-						</div>
+
+						<% end_control %> <!-- end control Event -->
 						<div style="clear: both"></div>
 					</div>
 					<!-- end homepage-event-meta -->
