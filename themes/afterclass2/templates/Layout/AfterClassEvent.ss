@@ -92,7 +92,7 @@
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
 				
-									
+						<hr />			
 						 <div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
 									addthis:title="{$Title}"
 									addthis:description="">
@@ -106,6 +106,22 @@
 					    
 					<div class="clear"></div>	
 
+						<% if Venues %>
+					
+							<div id="detail_event_description_map">
+					
+							<% control Venues %>
+								<p>This event is located at: <a href="$Link">$Title</a></p>
+								 
+								<p><% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo;</a><% end_if %><% if WebsiteURL %> <br /> <a href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></p>
+								
+								<% if Address %>
+									<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
+								<% end_if %>
+							<% end_control %>
+							
+						<% end_if %>
+						</div> <!-- end detail_event_description_map -->
 
 					</div><!-- end hero-event-content -->
 				
@@ -150,24 +166,7 @@
 		<!--<div class="event-meta">
 			<% include EventCategoryList %>
 		</div>-->
-	
-	<% if Venues %>
 
-		<div id="detail_event_description_map">
-
-		<% control Venues %>
-			<p>This event is located at: <a href="$Link">$Title</a></p>
-			 
-			<p><% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo;</a><% end_if %><% if WebsiteURL %> <br /> <a href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></p>
-			
-			<% if Address %>
-				<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
-			<% end_if %>
-		<% end_control %>
-		
-	<% end_if %>
-
-	</div>
 		<div class="clear"></div>
 		</div>
 	

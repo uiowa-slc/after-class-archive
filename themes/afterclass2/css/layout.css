@@ -2896,8 +2896,8 @@ textarea {
 	}
 	
 	#detail_event_description_map {
-	  float: right;
-	  width: 49%;
+	  /*float: right;
+	  width: 49%;*/
 	}
 	
 	#detail_event_description_info {
