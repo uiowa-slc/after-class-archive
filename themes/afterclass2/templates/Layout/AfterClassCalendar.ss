@@ -30,7 +30,7 @@
 <% end_if %> <!-- end if action = view -->
 <div style="clear: both"></div>
 <div id="homepage-event-list">
-	<h2><img src="{$ThemeDir}/images/happening_next.png" alt="happening next" /></h2>
+	<h2><img src="{$ThemeDir}/images/events.png" alt="Events" /></h2>
 	<% control AllEvents %>
 	<div class="homepage-event-wrapper">
 	<div class="homepage-event $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event" onClick="location.href='$Event.Link'">
