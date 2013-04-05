@@ -1210,7 +1210,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .category-list>li{
 	padding: 10px 20px;
 	border: 1px solid #555;
-	background-image: url(../images/lighter_bg.jpg);
+	/*background-image: url(../images/lighter_bg.jpg);*/
 	margin: 10px 0;
 	list-style-type: none;
 	display: block;
@@ -1233,7 +1233,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 .category-list li h2 a {
 	text-decoration: none;
-	color: #555;
+	color: #ccc;
 	font-size: 1.7em;
 }
 
