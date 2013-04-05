@@ -144,7 +144,7 @@ document.createElement('hgroup');
 </script>
 
 
-<% include DivisionBarNonResponsive %>
+<% include DivisionBar %>
 <a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
 	<div class="container" id="canvas-container">
