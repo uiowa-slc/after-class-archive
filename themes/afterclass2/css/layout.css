@@ -32,6 +32,30 @@ audio[controls], canvas, video {
  * 4. Prevent iOS text size adjust on device orientation change, without disabling user zoom
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
  */
+ 
+ 
+/*Division Bar Custom Styles/Breakpoints */
+
+/* ======================================================================
+    Min Width 1200px
+========================================================================= */
+@media only screen and (min-width:1200px) {
+    .wrapper {
+        width: 1200px;
+        max-width: intrinsic;
+    }
+}
+
+/* ======================================================================
+    Min Width 1400px
+========================================================================= */
+@media only screen and (min-width:1400px) {
+    .wrapper {
+        width: 1400px;
+    }
+}
+
+ 
 html {
   font-size: 100%;
   overflow-y: scroll;
