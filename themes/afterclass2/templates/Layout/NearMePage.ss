@@ -145,19 +145,16 @@ function success(position) {
   content: "holding..."
   });
   
-  <% control Events %>
+  <% control Venues %>
   
-
-  <% control Event %>
+  <% if Events.Event %>
+  
   //geo-coding to convert our addresses to usable longitude/latitude  
   var geocoder;
   geocoder = new google.maps.Geocoder();
+  var address = "$Address";
   
-  <% control Venues %>
-  var addresses[{$Pos}] = "$Address";
-  <% end_control %>
-  
-  geocoder.geocode( { 'address': addresses[1]}, function(results, status) {
+  geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
         //map.setCenter(results[0].geometry.location);
 
@@ -167,7 +164,7 @@ function success(position) {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><div style='font-size:11px;padding:2px 0px;'><a href='$Link'>$Title - $StartDate.format(M). $StartDate.format(j)</a></div>");
+		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>");
 		infowindow.open(map, this);
 		});
 		
@@ -175,9 +172,7 @@ function success(position) {
         //alert("Geocode was not successful for the following reason: " + status);
       }
     });
-    
-    <% end_control %>
-
+    <% end_if %>
   <% end_control %>
   
 }
