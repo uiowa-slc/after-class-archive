@@ -171,6 +171,7 @@ function success(position) {
   infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
+  
   	var image = 'http://i.stack.imgur.com/orZ4x.png';
 	var marker = new google.maps.Marker({
 	    position: myLatlng,
