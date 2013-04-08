@@ -6,7 +6,13 @@ class CleanupEventsBuildTask extends BuildTask {
     protected $description = 'Move outdated events to the archive.';
  
     protected $enabled = true;
- 
+  function init() { 
+      parent::init(); 
+      // Unless called from the command line, all CliControllers need ADMIN privileges 
+      if(!Director::is_cli() && !Permission::check("ADMIN") && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR']) { 
+         return Security::permissionFailure(); 
+      } 
+   }
  function run($request) {
 	$this->cleanupEvents();
     }

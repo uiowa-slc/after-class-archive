@@ -60,14 +60,41 @@ function test() {
     navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
   
+// Try W3C Geolocation (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  }
+  // Browser doesn't support Geolocation
+  else {
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+  }
+  
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag == true) {
+      alert("Geolocation service failed.");
+      initialLocation = newyork;
+    } else {
+      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+      initialLocation = siberia;
+    }
+    map.setCenter(initialLocation);
+  }  
 
-  infowindow = new google.maps.InfoWindow({
+  var infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
   <% control Venues %>
-  
+    <% if AfterClassEvents %>
+
   //geo-coding to convert our addresses to usable longitude/latitude  
   var geocoder;
   geocoder = new google.maps.Geocoder();
@@ -94,7 +121,7 @@ function test() {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>" + results[0].geometry.location);
+		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>");
 		infowindow.open(map, this);
 		});
 		
@@ -103,7 +130,7 @@ function test() {
       }
     });
   <% end_if %>
-  
+  <% end_if %>
   <% end_control %>
 }
 
@@ -119,12 +146,12 @@ function success(position) {
   /*var s = document.querySelector('#status');
   s.innerHTML = "found you!";
   s.className = 'success';*/
-  var mapWidth = ($(window).width()) - ($(window).width()/4);
+  var mapWidth = "100%";
   
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcanvas';
   mapcanvas.style.height = '240px';
-  mapcanvas.style.width = mapWidth+'px';
+  mapcanvas.style.width = mapWidth;
   document.querySelector('article').appendChild(mapcanvas);
   
   
@@ -144,10 +171,15 @@ function success(position) {
   infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
-  
+  	var image = 'http://i.stack.imgur.com/orZ4x.png';
+	var marker = new google.maps.Marker({
+	    position: myLatlng,
+	    map: map,
+	    icon: image
+	});  
+	marker.setMap(map); 
   <% control Venues %>
   
-  <% if Events.Event %>
   
   //geo-coding to convert our addresses to usable longitude/latitude  
   var geocoder;
@@ -172,7 +204,7 @@ function success(position) {
         //alert("Geocode was not successful for the following reason: " + status);
       }
     });
-    <% end_if %>
+  
   <% end_control %>
   
 }

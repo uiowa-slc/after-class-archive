@@ -183,7 +183,6 @@ document.createElement('hgroup');
 					<% if Showmenu %>
 						<% if Events %>
 							<li><a href="events/sponsors/$URLSlug">$Title ($Events.Count)</a></li>
-						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>
 						<% end_if %>
@@ -198,7 +197,6 @@ document.createElement('hgroup');
 					<% if Showmenu %>
 						<% if Events %>
 							<li><a href="events/venues/$URLSlug">$Title ($Events.Count)</a></li>
-						
 						<% else %>
 							<li class="no-events"><span>$Title (0)</span></li>
 						<% end_if %>
@@ -209,36 +207,25 @@ document.createElement('hgroup');
 		
 		<% control Menu(1) %>
 			<% if First %>
-			<% else_if URLSegment == near-me %>
-			
 			<% else %>
-			
 			<li>
 				<a href="$Link"><strong>$MenuTitle</strong></a>
-				
 				<% if Children %>
 					<ul>
 						<% control Children %>
 							<li><a href="$Link">$Title</a></li>
-						
 						<% end_control %>
-					
-					
 					</ul>
 				<% end_if %>
-				
 			</li>
 			<% end_if %>
 		<% end_control %>
-		
-		
     </ul>
-    
     <% end_cached %>
 
-    <div id="secondary-nav">
-<!--<p><% control RandomNewEvent %>$Image.SetCroppedSize(30,30)<a href="$Link">$Title</a><span>$Content.LimitWordCount(5)</span><% end_control %></p>-->
+   <div id="secondary-nav">
 
+<!--
 	<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
 	<fieldset>
 		<legend></legend>
@@ -249,7 +236,7 @@ document.createElement('hgroup');
 			<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
 		
 	</fieldset>
-</form>
+</form>-->
 </div>
    <div style="clear: both"></div>
  </div><!-- end container -->
