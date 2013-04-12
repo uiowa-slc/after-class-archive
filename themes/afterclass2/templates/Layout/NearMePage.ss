@@ -1,21 +1,19 @@
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
 <script type="text/javascript" src="{$ThemeDir}/js//jquery.min.js"></script>
 
-    <article>
-      <p style="display:none;">Finding your location: <span id="status">checking...</span></p>
-      <!--<p>All Available Venues:</p>
-      <ul>
-      	<% control Venues %>
-      		<li>$Title - $Address</li>
-      	<% end_control %>
-      </ul>-->
-      <div id="status"></div>
-      $Content
-      
-      
-      
 
-    </article>
+<header id="secondary_header">
+	<h1>$Title</h1>
+</header>
+<div id="single-page-content">
+      <p id="status">Finding your location....</p>
+
+$Content
+$Form
+
+</div>
+
 
 <script>
 
@@ -32,26 +30,21 @@ function makeMarker(options){
    return pushPin;
 }
 
-/*function forcerefresh() {
-  if (document.location.href.indexOf("r=1") == -1) {
-    window.location = "http://hulk.imu.uiowa.edu/afterclass_dev/near-me/?r=1";
-  }
-}*/
 
-function test() {
+function locate() {
   /*var s = document.querySelector('#status');
   s.innerHTML = "IMU!";
   s.className = 'success';*/
-  var mapWidth = ($(window).width()) - ($(window).width()/6);
+  var mapWidth = "100%";
   
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcanvas';
   mapcanvas.style.height = '240px';
-  mapcanvas.style.width = mapWidth+'px';
-  document.querySelector('article').appendChild(mapcanvas);
-  
+  mapcanvas.style.width = mapWidth;
+  document.querySelector('#single-page-content').appendChild(mapcanvas);
+  var iowacity = new google.maps.LatLng(41.661736, -91.540017)
   //var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var myLatlng = new google.maps.LatLng(41.661736, -91.540017);
+  var myLatlng = iowacity;
   var myOptions = {
     zoom: 14,
     center: myLatlng,
@@ -66,8 +59,32 @@ function test() {
   if(navigator.geolocation) {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
-      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      map.setCenter(initialLocation);
+		initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		 iowacity = new google.maps.LatLng(41.661736, -91.540017)
+
+		var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowacity);
+		
+		
+		// If the current position is too far away from Iowa City, just default to centering around Iowa City
+		
+		if(distanceFromInitialLocation < 32186.9){
+		
+			map.setCenter(initialLocation);
+			
+			
+			var image = 'http://i.stack.imgur.com/orZ4x.png';
+			var initalMarker = new google.maps.Marker({
+				position: initialLocation,
+				map: map,
+				icon: image
+			});  
+			initalMarker.setMap(map);
+			$('#status').text("Your location is indicated on the map.");
+		}else {
+			$('#status').text("You're too far away from Iowa City. Here are events in IC");
+
+		}
+      
     }, function() {
       handleNoGeolocation(browserSupportFlag);
     });
@@ -79,16 +96,12 @@ function test() {
   }
   
   function handleNoGeolocation(errorFlag) {
-    if (errorFlag == true) {
-      alert("Geolocation service failed.");
-      initialLocation = newyork;
-    } else {
-      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-      initialLocation = siberia;
-    }
+	initialLocation = iowacity;
     map.setCenter(initialLocation);
+    $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
   }  
 
+	
   var infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
@@ -134,82 +147,6 @@ function test() {
   <% end_control %>
 }
 
-
-
-
-function success(position) {
-  /*if (s.className == 'success') {
-    // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
-    return;
-  }*/
-  
-  /*var s = document.querySelector('#status');
-  s.innerHTML = "found you!";
-  s.className = 'success';*/
-  var mapWidth = "100%";
-  
-  var mapcanvas = document.createElement('div');
-  mapcanvas.id = 'mapcanvas';
-  mapcanvas.style.height = '240px';
-  mapcanvas.style.width = mapWidth;
-  document.querySelector('article').appendChild(mapcanvas);
-  
-  
-  var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  //var myLatlng = new google.maps.LatLng(41.661736, -91.540017);
-  var myOptions = {
-    zoom: 14,
-    center: myLatlng,
-    panControl: true,
-    mapTypeControl: false,
-    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-  
-
-  infowindow = new google.maps.InfoWindow({
-  content: "holding..."
-  });
-  
-  	var image = 'http://i.stack.imgur.com/orZ4x.png';
-	var marker = new google.maps.Marker({
-	    position: myLatlng,
-	    map: map,
-	    icon: image
-	});  
-	marker.setMap(map); 
-  <% control Venues %>
-  
-  
-  //geo-coding to convert our addresses to usable longitude/latitude  
-  var geocoder;
-  geocoder = new google.maps.Geocoder();
-  var address = "$Address";
-  
-  geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-        //map.setCenter(results[0].geometry.location);
-
-		var testLatLng = new google.maps.LatLng(41.661736, -91.540017);
-		var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>");
-		infowindow.open(map, this);
-		});
-		
-      } else {
-        //alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  
-  <% end_control %>
-  
-}
-
 function error(msg) {
   /*var s = document.querySelector('#status');
   s.innerHTML = typeof msg == 'string' ? msg : "failed";
@@ -226,6 +163,6 @@ function error(msg) {
 	}
 });*/
 $(document).ready(function() {
-  test();
+  locate();
 });
 </script>

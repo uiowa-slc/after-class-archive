@@ -41,7 +41,9 @@ function allPagesToCache() {
 
     foreach($pages as $page) {
     	if(!in_array($page->ClassName, $ignored)) {
-	    	$urls = array_merge($urls, (array)$page->subPagesToCache());
+    		if($page->isPublished()){
+	    		$urls = array_merge($urls, (array)$page->subPagesToCache());
+	    	}
 	    }
     }
     
@@ -146,8 +148,6 @@ class Page_Controller extends ContentController {
 			    'event_calendar/javascript/jquery.date.js',
 			    'event_calendar/javascript/jquery.datePicker.js',
 			    'event_calendar/javascript/calendar_widget.js'*/
-			    
-
 			);
 
 		
@@ -173,9 +173,7 @@ class Page_Controller extends ContentController {
 		
 		if($deadlines){
 			return $deadlines;
-		
 		}
-	
 	
 	}
 	
@@ -186,7 +184,6 @@ class Page_Controller extends ContentController {
 			return $deadlines;
 		
 		}
-			
 	}
 	
 	public function RandomNewEvent($pool_size = 6) {
@@ -197,10 +194,6 @@ class Page_Controller extends ContentController {
 			shuffle($events);
 			return $events[0];
 		}
-		
-		
-	
-	
 	}	
 	
 	public function iswindows() {
@@ -225,4 +218,12 @@ class Page_Controller extends ContentController {
 		return "/admin/show/".$this->ID."/";
 	}
 	
-	}
+	public function handleRequest(SS_HTTPRequest $request) { 
+		$ret = parent::handleRequest($request); 
+		$temp=$ret->getBody(); 
+		$temp = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $temp); 
+		$ret->setBody($temp); 
+		return $ret; 
+	} 
+	
+}
