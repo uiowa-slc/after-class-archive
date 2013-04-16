@@ -33,8 +33,16 @@ class CleanupEventsBuildTask extends BuildTask {
     		
     		/* check all dates for each event */
     		foreach($eventPages as $eventPage){
+    		
+    			if($eventPage->UpcomingDates()){
+    				$eventPage->archiveStatus = "still_new";
+    			}else{
+    				$eventPage->archiveStatus = "old";
+    			}
+    		
     			echo "<h3>Checking dates associated with <strong>".$eventPage->Title.": </strong></h3>";
-    			$eventDateTimes = $eventPage->Dates();
+    			/*
+/*$eventDateTimes = $eventPage->Dates();
     			
     			if($eventDateTimes){
     			foreach($eventDateTimes as $eventDateTime){
@@ -43,14 +51,14 @@ class CleanupEventsBuildTask extends BuildTask {
     				 echo "<li>Starts:".$startDate.", ";
     				 
     				 /* if the start date is in the future, make sure the event status is new */
-    				if($startDate){
+    				/*if($startDate){
     					if(strtotime($startDate) > time()){
     						$eventPage->archiveStatus = "still_new";
     					}
     				
-    				}		 
+    				}		*/ 
 					/* if there's an end date on any range that's in the future, we know the event is always going to be new */
-    				if($endDate){
+    				/*if($endDate){
     					echo "Ends:".$endDate;
     					if(strtotime($endDate) < time()){
     						echo "- <strong> old </strong>";
@@ -62,16 +70,20 @@ class CleanupEventsBuildTask extends BuildTask {
     					
     					}// end if end date is old
     					
+    					
+    					// need something here to check if still_new
+    					
     				
     				}// end if endDate
     			
     			}// end foreach eventDateTimes
+
     			
     			if($eventPage->archiveStatus != 'still_new'){
     				$eventPage->archiveStatus = 'old';
     			
     			}
-    			
+    			*/
     			echo "<br />status: ".$eventPage->archiveStatus;
     			
     			
@@ -84,9 +96,6 @@ class CleanupEventsBuildTask extends BuildTask {
     				$eventPage->write();
     			
     			}	
-
-    		}
-    		
     		
     	   } //end foreach events
     			echo "<br />done checking events!";
