@@ -80,6 +80,8 @@
 	<meta name="author" content="IMU Marketing &amp; Design">
 
 	<% require themedCSS(layout) %>
+	<% require css(event_calendar/css/calendar.css) %>
+	<% require themedCSS(calendar_widget) %>
 	<% if iswindows %>
 	<% require themedCSS(windows) %>
 	<% end_if %>
@@ -155,56 +157,16 @@ document.createElement('hgroup');
 </header>
 
 <nav id="page_navigation">
-<% cached %>
+
 	<div class="container">
 	<ul class="clearfix">
-		<li class="moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
 		<li class="first" ><a href="{$BaseHref}"><strong>Home</strong></a></li>
 		<li id="news"><a href="news/"><strong>news</strong></a></li>
-		<li>
-			<a href="events/categories/"><strong>Categories</strong></a>
-			<ul>
-				<% control getEventtypes %>
-					<% if Showmenu %>
-						<% if Events %>
-							<li><a href="events/categories/$URLSlug">$Title ($Events.Count)</a></li>
-						
-						<% else %>
-							<li class="no-events"><span>$Title (0)</span></li>
-						<% end_if %>
-					<% end_if %>
-				<% end_control %>
-			</ul>
-		</li>
-		<li>
-			<a href="events/sponsors/"><strong>Sponsors</strong></a>
-			<ul>
-				<% control getSponsors %>
-					<% if Showmenu %>
-						<% if Events %>
-							<li><a href="events/sponsors/$URLSlug">$Title ($Events.Count)</a></li>
-						<% else %>
-							<li class="no-events"><span>$Title (0)</span></li>
-						<% end_if %>
-					<% end_if %>
-				<% end_control %>
-			</ul>
-		</li>
-		<li>
-			<a href="events/venues/"><strong>Venues</strong></a>
-			<ul>
-				<% control getVenues %>
-					<% if Showmenu %>
-						<% if Events %>
-							<li><a href="events/venues/$URLSlug">$Title ($Events.Count)</a></li>
-						<% else %>
-							<li class="no-events"><span>$Title (0)</span></li>
-						<% end_if %>
-					<% end_if %>
-				<% end_control %>
-			</ul>
-		</li>
-		
+		<li class="moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
+		<li><a href="near-me/" class="near-me-link">Today</a></li>
+		<li><a href="$WeekendLink">This Weekend</a></li>
+		<li><a href="near-me/" class="near-me-link">Near Me</a></li>
+		<li><a href="#" id="calendar-expand">View Calendar</a></li>
 		<% control Menu(1) %>
 			<% if First %>
 			<% else %>
@@ -213,31 +175,19 @@ document.createElement('hgroup');
 				<% if Children %>
 					<ul>
 						<% control Children %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="$Link" <% if >$Title</a></li>
 						<% end_control %>
 					</ul>
 				<% end_if %>
 			</li>
 			<% end_if %>
 		<% end_control %>
-    </ul>
-    <% end_cached %>
 
-   <div id="secondary-nav">
-
-<!--
-	<form id="SearchForm_SearchForm" action="{$BaseHref}/events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
-	<fieldset>
-		<legend></legend>
-		
-			<div id="Search" class="field text  nolabel"><div class="middleColumn"><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" placeholder="Search for an event" ></div></div>
-		
-		
-			<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
-		
-	</fieldset>
-</form>-->
-</div>
+		</ul>
+		<div class="clear"></div>
+		<div id="calendar-filter-form">
+			$CalendarWidget
+		</div>
    <div style="clear: both"></div>
  </div><!-- end container -->
 </nav>

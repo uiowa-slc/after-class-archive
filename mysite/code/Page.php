@@ -112,8 +112,9 @@ class Page_Controller extends ContentController {
 		// instead of putting Requirements calls here.  However these are 
 		// included so that our older themes still work
 		//echo $_SERVER['HTTP_USER_AGENT'];
-		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
 		
+		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
+		Requirements::block('event_calendar/css/calendar_widget.css'); 
 		$jsFiles = array(
 			    'themes/afterclass2/js/jquery.min.js',
 			    'themes/afterclass2/js/modernizr-2.0.6.min.js',
@@ -140,6 +141,7 @@ class Page_Controller extends ContentController {
 			    
 			    'themes/afterclass2/js/stars.js',
 			    'themes/afterclass2/js/fancybox/jquery.fancybox.pack.js',
+			    'themes/afterclass2/js/jquery-ui.js',
 			    'themes/afterclass2/js/mailchimp.js',
 			    'themes/afterclass2/js/init.js',
 			    
@@ -166,11 +168,37 @@ class Page_Controller extends ContentController {
 
 	}
 	
+	public function MonthLink()
+	  {
+	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	    $d = new sfDate();
+		return $calendar->AbsoluteLink()."view/".$d->firstDayOfMonth()->format('Ym');
+	  }
+	  
+	  public function WeekLink()
+	  {
+	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	  	$d = new sfDate();
+		return $calendar->AbsoluteLink()."view/".$d->firstDayOfWeek()->format('Ymd')."/".$d->finalDayOfWeek()->format('Ymd');
+	  }
+	  
+	  public function WeekendLink()
+	  {
+	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	  	$d = new sfDate();
+			// Saturday? Dial back to Friday
+	  	if($d->format('w') == 6)
+	  		$d->previousDay();
+	  	// Before Friday? Advance. Otherwise, it's Friday, so leave it alone.
+	  	else if($d->format('w') < 5)
+	  		$d->nextDay(sfTime::FRIDAY);
+	  	
+		return $calendar->AbsoluteLink()."view/".$d->format('Ymd')."/".$d->addDay(2)->format('Ymd');
+	  }
+
 
 	public function AllDeadlines(){
-	
 		$deadlines = DataObject::get("Deadline", $filter=null, $sort = "Date ASC");
-		
 		if($deadlines){
 			return $deadlines;
 		}
