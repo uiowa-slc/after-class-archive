@@ -46,30 +46,20 @@ class AfterClassEvent extends CalendarEvent {
 		Object::set_static('Page', 'icon', 'sapphire/javascript/tree/images/page'); } 
 	}
 
-	/*public static function getCMSIcon(){
-		if($this->Featured) {
-			$icon = array("sapphire/javascript/tree/images/page", "file");
-			return $icon;
-		}else{
-			return Parent::$icon;
-		
-		}
-	
-	
-	}*/
-	
 	function onBeforeWrite(){
 		parent::onBeforeWrite();
-		
-		
+
 		if($this->Featured){
 			$this->ClassName = "FeaturedAfterClassEvent";
 		}else {
 			$this->ClassName = "AfterClassEvent";
 		
 		}
+	}
 	
-	
+	public function UpcomingDates($limit = 3)
+	{
+		return DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
 	}
 
 	public function AllCategories(){

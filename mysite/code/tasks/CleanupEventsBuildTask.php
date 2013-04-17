@@ -37,7 +37,7 @@ class CleanupEventsBuildTask extends BuildTask {
     			if($eventPage->UpcomingDates()){
     				$eventPage->archiveStatus = "still_new";
     			}else{
-    				$eventPage->archiveStatus = "old";
+	    			$eventPage->archiveStatus = "old";
     			}
     		
     			echo "<h3>Checking dates associated with <strong>".$eventPage->Title.": </strong></h3>";
