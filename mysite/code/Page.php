@@ -78,9 +78,9 @@ function allPagesToCache() {
     $urls = $this->subPagesToCache();
     if($p = $this->Parent) $urls = array_merge((array)$urls, (array)$p->subPagesToCache());
     
-    $urls[] = 'events/categories/';
+   /* $urls[] = 'events/categories/';
     $urls[] = 'events/sponsors/';
-    $urls[] = 'events/venues/'; 
+    $urls[] = 'events/venues/'; */
     
     return $urls;
   }

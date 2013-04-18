@@ -34,7 +34,7 @@ class CleanupEventsBuildTask extends BuildTask {
     		/* check all dates for each event */
     		foreach($eventPages as $eventPage){
     		
-    			if($eventPage->UpcomingDates()){
+    			if($eventPage->UpcomingDatesAndRanges()){
     				$eventPage->archiveStatus = "still_new";
     			}else{
 	    			$eventPage->archiveStatus = "old";

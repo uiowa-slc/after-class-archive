@@ -57,7 +57,7 @@ class AfterClassEvent extends CalendarEvent {
 		}
 	}
 	
-	public function UpcomingDates($limit = 3)
+	public function UpcomingDatesAndRanges($limit = 3)
 	{
 		return DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
 	}
