@@ -167,6 +167,7 @@ document.createElement('hgroup');
 		<li><a href="$WeekendLink">This Weekend</a></li>
 		<li><a href="near-me/" class="near-me-link">Near Me</a></li>
 		<li><a href="#" id="calendar-expand">View Calendar</a></li>
+		<li><a href="#" class="subscribe-link">Subscribe</a></li>
 		<% control Menu(1) %>
 			<% if First %>
 			<% else %>

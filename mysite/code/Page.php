@@ -18,11 +18,8 @@ class Page extends SiteTree {
 	public function getSponsors() {
 		return DataObject::get('Sponsor', '','Title ASC');
 	}
-	
-
 		
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
-    
 		//get our template
 		$template = new SSViewer('NewsletterForm');
 		
@@ -114,7 +111,7 @@ class Page_Controller extends ContentController {
 		//echo $_SERVER['HTTP_USER_AGENT'];
 		
 		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
-		Requirements::block('event_calendar/css/calendar_widget.css'); 
+
 		$jsFiles = array(
 			    'themes/afterclass2/js/jquery.min.js',
 			    'themes/afterclass2/js/modernizr-2.0.6.min.js',
@@ -158,14 +155,14 @@ class Page_Controller extends ContentController {
 			foreach($jsFiles as $jsFile){
 				Requirements::javascript($jsFile);	
 			}
+			
+			Requirements::block('event_calendar/css/calendar_widget.css'); 
 
 		}else{
 			
 			Requirements::combine_files(
 				'allcombined.js',$jsFiles);
-			
 			}
-
 	}
 	
 	public function MonthLink()
