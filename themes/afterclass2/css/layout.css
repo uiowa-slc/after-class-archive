@@ -489,6 +489,7 @@ h6 a {
 #page_navigation ul li ul { float: none }
 /* hide home button on mobile nav */
 #page_navigation ul>li.first { display: none }
+#page_navigation ul>li.first.moon-icon { display: block }
 #page_navigation ul>li.moon-icon a { width: 30px }
 #page_navigation ul>li.moon-icon a img { width: 50% }
 #page_navigation ul li#news { display: none }
