@@ -348,11 +348,11 @@ h6 a {
 }
 #right-column {
     margin-top: 1em;
-    width: 100%;
+/*    width: 100%; */
 }
 #right-column h2 img { width: 75% }
 #left-column {
-    width: 100%;
+ /*   width: 100%; */
     margin-top: 1em;
 }
 #left-column h2 img { width: 50% }
@@ -519,9 +519,9 @@ h6 a {
     border-width: 4px 2.5px 0 2.5px;
     border-color: #ccb3d1 transparent transparent transparent;
     position: relative;
-    top: 13px;
-    left: 3px;
-    margin: 4px;
+    top: 11px;
+    left: 1px;
+    margin: 2px;
 }
 #page_navigation ul li a#calendar-expand.active:after {
     width: 0px;
@@ -530,8 +530,8 @@ h6 a {
     border-width: 0 2px 3px 2px;
     border-color: transparent transparent #9356A2 transparent;
     top: -7px;
-    left: 3px;
-    margin: 4px;
+    left: 1px;
+    margin: 2px;
 }
 #page_navigation ul li a strong { font-weight: normal }
 #page_navigation ul li.today a { color: #d6e8f0 }
@@ -1402,13 +1402,12 @@ h6 a {
     /*background: #252525;*/
 }
 #event-card-list h2 {
-    font-family: SketchBlock-Bold, sans;
-    color: #ffde68;
     font-weight: normal;
-    text-align: center;
     font-size: 1.2em;
     margin: 0 0;
-    border-bottom: 1px solid #312f2f;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #e9cb67;
+    margin-bottom: 1em;
 }
 .event-card-desc p {
     margin: 0;
@@ -1591,10 +1590,9 @@ a.read-more-link { color: #ADD7E2 }
 .tags-container h4 { margin: 2px 0 }
 #the-news { }
 #the-news h2 {
-    border-bottom: 1px solid #444;
-    margin: 5px 0;
-    padding: 0;
-    text-align: center;
+    border-bottom: 2px solid #e9cb67;
+    margin: 1em 0;
+    padding-bottom: 0.5em;
 }
 #the-news h3 {
     font-size: 2.5em;
@@ -1847,10 +1845,14 @@ textarea {
     #page_navigation ul li a#calendar-expand:after {
         top: 15px;
         border-width: 7px 4.5px 0 4.5px;
+        left: 3px;
+        margin: 4px;
     }
     #page_navigation ul li a#calendar-expand.active:after {
         top: -20px;
         border-width: 0 4.5px 7px 4.5px;
+        left: 3px;
+        margin: 4px;
     }
     #page_navigation ul ul {
         width: 280px;
@@ -1867,17 +1869,17 @@ textarea {
         float: right;
         /*padding: 5px 0;*/
     }
-    #page_navigation ul li.subscribe-link { display: block }
+    #page_navigation ul li a.subscribe-link { display: block }
 }
 @media only screen and (min-width: 768px) { 
     .small-screen { display: none }
     .big-screen { display: block }
     #left-column {
-        width: 62%;
+     /*   width: 62%;*/
         float: left;
     }
     #right-column {
-        width: 37%;
+     /*   width: 37%; */
         float: right;
     }
     .hero-event-image-container img { width: 100% }

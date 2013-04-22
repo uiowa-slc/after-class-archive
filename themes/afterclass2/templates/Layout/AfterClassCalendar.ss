@@ -17,8 +17,8 @@
 			<% end_control %>
 	<% end_if %> <!-- end if featured events -->
 
-
-<div id="left-column">
+<div class="row">
+<div id="left-column" class="span8">
 <% if action = view %>
 	<h1 class="date-header">Events for $DateHeader</h1>
 	<% if Events %>
@@ -40,7 +40,7 @@
 	<!-- end event-card-list -->
 </div>
 <!-- end left-column -->
-<div id="right-column">
+<div id="right-column" class="span4">
 	<div id="the-news">
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/news.png" alt="After Class News" /></a></h2>
 		<div class="news-entries">
@@ -160,4 +160,5 @@
 	<!-- categories -->
 </div>
 <!-- end right-column -->
+</div><!-- end row -->
 <div class="clear"></div>

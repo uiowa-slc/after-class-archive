@@ -80,6 +80,8 @@
 	<meta name="author" content="IMU Marketing &amp; Design">
 
 	<% require themedCSS(layout) %>
+	<% require themedCSS(grid) %>
+
 	<% require css(event_calendar/css/calendar.css) %>
 	<% require themedCSS(calendar_widget) %>
 	<% if iswindows %>

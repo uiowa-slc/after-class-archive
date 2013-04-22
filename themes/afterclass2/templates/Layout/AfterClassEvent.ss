@@ -26,8 +26,9 @@
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
 									$Content
-									
-				            	<p><strong>Price:</strong> $Cost</p>
+								<% if Price %>
+				            		<p><strong>Price:</strong> $Cost</p>
+				            	<% end_if %>
 							    <% if CancelReason %>
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
@@ -41,16 +42,7 @@
 					    			</p>
 					    			</div>
 					    	<% end_if %>
-					    	<% control Venues %>
-								<p class="venues">
-								<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-								@ <% if Top.Location %>$Top.Location, <br /><% end_if %><a href="$Link"><span itemprop="name">$Title</span></a>
-								</span>
-								</p>
-							<% end_control %>	
-							
-								<div class="hero-event-specifics">
-									<div class="hero-event-when">
+					    									<div class="hero-event-when">
 											<% control DateAndTime %>
 										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(F) $StartDate.format(j)</time></a>
 											<% if EndDate %>
@@ -61,12 +53,18 @@
 											<% end_if %>
 										</p>
 										<% end_control %>
-										
-										<% if DateAndTimeMoreThan(3) %>
-											<a href="{$Link}#dates" class="more-dates-link">view more dates &raquo;</a>
-										<% end_if %>
-										
+								
 									</div><!-- end hero-event-when -->
+					    	<% control Venues %>
+								<p class="venues">
+								<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+								@ <% if Top.Location %>$Top.Location, <br /><% end_if %><a href="$Link"><span itemprop="name">$Title</span></a>
+								</span>
+								</p>
+							<% end_control %>	
+							
+								<div class="hero-event-specifics">
+	
 									
 									<div class="hero-event-where">
 										<p>
