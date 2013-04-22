@@ -161,17 +161,17 @@ document.createElement('hgroup');
 	<div class="container">
 	<ul class="clearfix">
 		<li class="first" ><a href="{$BaseHref}"><strong>Home</strong></a></li>
-		<li id="news"><a href="news/"><strong>news</strong></a></li>
 		<li class="moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
-		<li><a href="near-me/" class="near-me-link">Today</a></li>
-		<li><a href="$WeekendLink">This Weekend</a></li>
+		<li id="news"><a href="news/"><strong>news</strong></a></li>
+		<li><a href="#" id="calendar-expand">Calendar</a></li>
+		<li class="today"><a href="#">Today</a></li>
+		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
 		<li><a href="near-me/" class="near-me-link">Near Me</a></li>
-		<li><a href="#" id="calendar-expand">View Calendar</a></li>
-		<li><a href="#" class="subscribe-link">Subscribe</a></li>
+		<li class="subscribe-link"><a href="#">Subscribe</a></li>
 		<% control Menu(1) %>
 			<% if First %>
 			<% else %>
-			<li>
+			<li class="$URLSegment">
 				<a href="$Link"><strong>$MenuTitle</strong></a>
 				<% if Children %>
 					<ul>

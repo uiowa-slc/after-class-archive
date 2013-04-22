@@ -12,9 +12,9 @@ jQuery(document).ready(function ($) {
 $(function() {
 	$("#calendar-expand").click(function() {
 	  		if($("#calendar-filter-form").css('display') == 'none'){
-		  		$("#calendar-expand").text("Hide Calendar");
+		  		$("#calendar-expand").addClass("active");
 	  		}else{	
-		  		$("#calendar-expand").text("View Calendar");
+		  		$("#calendar-expand").removeClass("active");
 	  		}
 	  		$("#calendar-filter-form").toggle("slow");
 	  

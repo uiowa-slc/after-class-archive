@@ -71,7 +71,7 @@ body {
 
 body, button, input, select, textarea {
   font-family: sans-serif;
-  color: #222; }
+  color: white; }
 
 /* 
  * These selection declarations have to be separate
@@ -92,7 +92,7 @@ body, button, input, select, textarea {
    Links
    ========================================================================== */
 a {
-  color: #2488A3; 
+  color: #E8CA66; 
   /*font-weight: bold;*/
   text-decoration: none;
 }
@@ -108,7 +108,7 @@ a:focus {
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active {
   outline: 0;
-  color: #666;
+  color: #c7a83f;
    }
 .event_text a {
 	color: #FFDE68;
@@ -365,16 +365,23 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 #right-column {
+	margin-top: 1em;
 	width: 100%;
+}
+
+#right-column h2 img {
+	width: 75%;
 }
 
 #left-column {
 	width: 100%;
+	margin-top: 1em;
 }
 
-#left-column h2 img, #right-column h2 img {
+#left-column h2 img {
 	width: 50%;
 }
+
 
 #left-column p.homepage-message {
 	color: white;
@@ -588,14 +595,28 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
      
      }
       #page_navigation ul>li.moon-icon a img{
-     	width: 70%;
+     	width: 50%;
      
      }  
      
      #page_navigation ul li#news {
      	display: none;
-     
      }  
+     
+    #page_navigation ul li.subscribe-link{
+    	display: none;
+    }
+    #page_navigation ul li.add{
+    	display: none;
+    }
+    #page_navigation ul li.weekend{
+    	display: none;
+    }        
+	#page_navigation ul li.subscribe-link a {
+		color: #7BCDF0;
+	}    
+	
+	
       #page_navigation ul li a {
         display: block;
 		padding-top: 15px;
@@ -612,35 +633,53 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
         border-right: 1px solid rgba(68, 68, 68, 0.39);
         }
   
-		#page_navigation ul li a.subscribe-link {
-			color: #7BCDF0;
-		}    
-		
-		
+
 		#page_navigation ul li a#calendar-expand:after {
 			content: '';
 			width: 0px;
 			height: 0px;
 			border-style: solid;
-			border-width: 9px 5px 0 5px;
+			border-width: 4px 2.5px 0 2.5px;
 			border-color: #ccb3d1 transparent transparent transparent;
 			position: relative;
-			top: 20px;
+			top: 13px;
 			left: 3px;
 			margin: 4px;
 		
 		}
 		
+		#page_navigation ul li a#calendar-expand.active:after {
+			width: 0px;
+			height: 0px;
+			border-style: solid;
+			border-width: 0 2px 3px 2px;
+			border-color: transparent transparent #9356A2 transparent;
+			top: -7px;
+			left: 3px;
+			margin: 4px;		
 	
-		    
+		}
        #page_navigation ul li a strong {
 	       
 	       font-weight: normal;
        }
        
+       #page_navigation ul li.today a{
+       		color: #d6e8f0;
        
-         
- 
+       }
+       
+       #page_navigation ul li.weekend a{
+       		color: #bde1f0;
+       
+       }
+       
+       #page_navigation ul li a.near-me-link {
+       		color: #9ed8f0;
+       }
+       #page_navigation ul li.add a {
+       		color: #E8CA66
+       }
          #page_navigation ul li a:hover {
 			-webkit-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
 			-moz-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
@@ -659,18 +698,25 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
           
       #page_navigation ul li a:hover {
         background-color: #342836;
-        
-        
          }
+         
+     #page_navigation ul li a#calendar-expand.active {
+        background-color: #342836;
+		-webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+		-moz-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+		-o-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+		-ms-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+		box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);       
+     }
     #page_navigation ul ul {
       position: absolute;
-      width: 280px;
+      width: 58px;
       left: -9999px;
       z-index: 2000;
       background-color: #342836; 
       /*border: 1px solid #66d1fc;*/
       border-top: none;
-      font-size: 0.8em;
+      font-size: 0.6em;
       }
       #page_navigation ul ul a, #page_navigation ul ul span {
         padding: 10px;
@@ -811,9 +857,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   min-height: 200px;
   background-color: black;
   margin-top: 0;
-  border-top: 5px solid #ffd026; }
+  border-top: 5px solid #E8CA66; }
   #page_footer .container {
-    color: #ffd026;
+    color: #E8CA66;
     padding-bottom: 35px;
      }
     #page_footer .container ul {
@@ -827,7 +873,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
          }
         #page_footer .container ul li a {
           text-decoration: none;
-          color: #ffd026;
+          color: #E8CA66;
           font-size: 1em;
           font-weight: 400; }
         #page_footer .container ul li a:hover {
@@ -847,8 +893,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 #secondary_header h1 {
   padding: 5px 0;
   margin: 5px 0;
-  color: #f5eeef;
-  font-size: 2em;
+  color: #C4E1F1;
+  font-size: 3em;
    }
 #secondary_header h1 span {
 	color: #555;
@@ -1159,7 +1205,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 
 #single-page-content {
-	background-image: url(../images/lighter_bg.jpg);
+	/*background-image: url(../images/lighter_bg.jpg);*/
 	min-height: 200px;
 }
 
@@ -1171,7 +1217,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 #single-page-content h2 {
 	padding-bottom: 10px;
-	border-bottom: 1px solid #d0d0d0;
+	border-bottom: 1px solid #444;
+	box-shadow: 0 1px 0 black;
+	color: #C1B5CE;
 
 }
 
@@ -1191,7 +1239,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 
 #single-page-content a:hover {
-	color: #006079;
+	color: #d2af3c;
 }
 
 #single-page-content.category {
@@ -1662,6 +1710,7 @@ font-family: SketchBlock-Bold, sans-serif;
 .hero-event img {
 	border: 1px solid #444;
 	/*margin-top: 15px;*/
+	border-top: none;
 }
 
 .hero-event a {
@@ -1891,7 +1940,7 @@ box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/
 .event-card h3 {
 	font-size: 1.3em;
 	display: block;
-	float: left;
+	/*float: left;*/ 
 	color: #E6E2DF;
 	margin: 0;
 }
@@ -2137,7 +2186,7 @@ a.read-more-link {
 
 }
 #the-news h3 {
-font-size: 1.2em;
+font-size: 2.5em;
 color: #fff5d1;
 margin: 0;
 }
@@ -2182,6 +2231,7 @@ color: #f9e091;
 .read-more a{
 	color: #ffde68;
 	display: block;
+	text-align: right;
 
 
 }
@@ -2581,7 +2631,29 @@ textarea {
 	#page_header .big_header a img {
 		width: 70%
 	}
+	
+	#page_navigation ul li a#calendar-expand:after {
+		top: 15px;
+		border-width: 7px 4.5px 0 4.5px;
 
+	}
+	#page_navigation ul li a#calendar-expand.active:after {
+		top: -20px;
+		border-width: 0 4.5px 7px 4.5px;
+
+	} 
+    #page_navigation ul ul {
+      width: 280px;
+      font-size: 0.8em;
+    }
+    
+	
+    #page_navigation ul li.weekend{
+    	display: block;
+    }   
+    
+
+    
 
 }
 
@@ -2591,6 +2663,11 @@ textarea {
   		float: right;
   		/*padding:5px 0;*/
   	}
+  	
+	#page_navigation ul li.subscribe-link{
+		display: block;
+	
+	}
   	
 
 }
@@ -2603,7 +2680,7 @@ textarea {
 }
 
 	#left-column {
-		width: 61%;
+		width: 62%;
 		float: left;
 	}
 	
@@ -2640,11 +2717,17 @@ textarea {
      	display: block;
      
      }  
+     
+
 	#page_navigation ul li a {
        	font-size: 1.1em;
      }
-
-  
+	#page_navigation ul li a#calendar-expand:after {
+		top: 20px;
+	}
+	#page_navigation ul li a#calendar-expand.active:after {
+		top: -15px;
+	}  
 	#Search {
 		/*float: right;*/
 		/*width: 80%;*/
@@ -2749,12 +2832,20 @@ textarea {
 		 /* padding: 24px 45px 36px 35px; */
 		 top: -15px;
 	}
+	
+
      #page_navigation ul>li.first strong{
      	display: block;
      }
 	#page_navigation ul>li.moon-icon {
 		display: none;
-	}	
+	}
+	
+
+
+    #page_navigation ul li.add{
+    	display: block;
+    }	
 	a.event-header-category {
 		display: block;
 	}	
@@ -2763,7 +2854,7 @@ textarea {
 		display: block;
 	}	
 	#page_header {
-		  height: 10%;
+		  height: 235px;
 	 }
 	#page_header .container {	
 		background-position-y: 90%;

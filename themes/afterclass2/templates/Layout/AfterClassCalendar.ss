@@ -44,7 +44,7 @@
 	<div id="the-news">
 		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/news.png" alt="After Class News" /></a></h2>
 		<div class="news-entries">
-			<% control RSSDisplay(3, http://afterclass.uiowa.edu/news/feed/) %>
+			<% control RSSDisplay(10, http://afterclass.uiowa.edu/news/feed/) %>
 				<div class="news-entry $EvenOdd">
 					$Image
 					<h3><a href="$Link">$Title</a></h3>

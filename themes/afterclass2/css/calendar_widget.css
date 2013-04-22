@@ -1,6 +1,17 @@
 /* Original file below */
 
-#calendar-widget {min-height:180px;position:relative;}
+
+#calendar-filter-form {
+	display: none;
+}
+
+#calendar-widget {min-height:180px;position:relative;
+	border: 1px solid rgba(68, 68, 68, 0.39);
+	background-color: #1D1B1F;
+	margin-bottom: 0.5em;
+	box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.1) inset;	
+	
+}
 #calendar-widget img {position:absolute;top:50%;left:50%;margin:-16px 0 0 -16px;}
 /* widget positioning */
 div.dp-popup {
@@ -14,7 +25,6 @@ div.dp-popup {
 	color:#333;
 }
 div.dp-popup h2 {
-	background:#666;
 	color:#fff;
 }
 div.dp-popup a {
@@ -25,7 +35,7 @@ div.dp-popup a.disabled {
 }
 table.jCalendar {
 	height: 150px ;
-	font-size: 1.8em ;
+	font-size: 1.3em ;
 	background: none ;
 	font-family: 'Open Sans', sans ;
 	width: 70%;
@@ -40,10 +50,12 @@ table.jCalendar thead {
 }
 
 table.jCalendar td {
-	background: none ;
-	color: white ;
-	padding: 0.8em 0.5em ;
+	color: white;
+	padding: 0.8em 0.5em;
 	border: 1px solid #444 ;
+	background-color: #302742;
+	cursor: pointer;
+	box-shadow: 0px -10px 75px rgba(14, 14, 14, 0.4) inset;
 }
 table.jCalendar td.other-month {
 
@@ -63,7 +75,7 @@ table.jCalendar td.selected:hover {
 	color: #fff;
 }
 table.jCalendar td:hover, table.jCalendar td.dp-hover {
-	background: #ccdddd;
+	background: #59DFF1;
 	color: #333;
 }
 table.jCalendar td.disabled, table.jCalendar td.disabled:hover {
@@ -83,11 +95,11 @@ table.jCalendar {
 }
 table.jCalendar th {
 	font-weight: bold;
-	padding: 3px 5px;
+	padding: 10px 5px;
 	border:0;
 }
 table.jCalendar td {
-	padding: 0.9em 0.6em;
+	padding: 0.5em 0.3em;
 	text-align: center;
 	border: 1px solid #444;
 }
@@ -98,10 +110,7 @@ table.jCalendar td {
 
 div.dp-popup {
 	position: relative;
-	font-size: 11px;
-	font-family: arial, sans-serif;
 	padding: 0;
-	width: 80%;
 	line-height: 1.2em;
 }
 div#dp-popup {
@@ -145,9 +154,12 @@ div.dp-popup div.dp-nav-prev a {
 /* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
 div.dp-popup div.dp-nav-prev a, div.dp-popup div.dp-nav-next a {
 	cursor: pointer;
-	font-size: 14px;
+	font-size: 0.8em;
 	font-weight: bold;
 	color:#fff; 
+	padding: 0.6em;
+	border: 1px solid rgba(68, 68, 68, 0.39);
+	background: #362638;
 }
 
 div.dp-popup div.dp-nav-prev a:hover, div.dp-popup div.dp-nav-next a:hover {color:#dedede;}
