@@ -171,7 +171,12 @@ class Page_Controller extends ContentController {
 	    $d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".$d->firstDayOfMonth()->format('Ym');
 	  }
-	  
+	public function TodayLink()
+	  {
+	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	    $d = new sfDate();
+		return $calendar->AbsoluteLink()."view/".$d->format('Ym');
+	  }	  
 	  public function WeekLink()
 	  {
 	  	$calendar = DataObject::get_one("AfterClassCalendar");

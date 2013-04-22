@@ -65,26 +65,7 @@
 	<!-- end the-news -->	
 
 	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100%; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
-	<div id="newsletter-signup">
-		<h2><img src="{$ThemeDir}/images/stay_connected.png" alt="Stay Connected With Our Newsletter" /></h2>
-		<p>sign up for our newsletter to see what's happening around campus. you also might win something.</p>
-		<div id="mc_embed_signup">
-			<form action="http://uiowa.us2.list-manage.com/subscribe/post?u=c61b1cddac92babd42d7d628e&amp;id=8e3635391c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-				<fieldset>
-					<div id="mce-responses" class="newsletter-responses">
-						<div class="response" id="mce-error-response" style="display:none"></div>
-						<div class="response" id="mce-success-response" style="display:none"></div>
-					</div>
-					<div class="mc-field-group" class="newsletter-inputs">
-						<input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email address..." />
-						<input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="btn" />
-					</div>
-				</fieldset>
-			</form>
-		</div>
-		<!-- end mc_embed_signup -->
-	</div>
-	<!-- end newsletter-signup -->
+
 
 	<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
 		<% if FutureDeadlines %>

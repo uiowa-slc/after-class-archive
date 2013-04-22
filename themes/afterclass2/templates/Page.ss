@@ -164,10 +164,10 @@ document.createElement('hgroup');
 		<li class="moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
 		<li id="news"><a href="news/"><strong>news</strong></a></li>
 		<li><a href="#" id="calendar-expand">Calendar</a></li>
-		<li class="today"><a href="#">Today</a></li>
+		<li class="today"><a href="$TodayLink">Today</a></li>
 		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
 		<li><a href="near-me/" class="near-me-link">Near Me</a></li>
-		<li class="subscribe-link"><a href="#">Subscribe</a></li>
+		<li><a href="{$BaseHref}subscribe/" class="subscribe-link" data-fancybox-type="iframe">Subscribe</a></li>
 		<% control Menu(1) %>
 			<% if First %>
 			<% else %>
@@ -301,6 +301,19 @@ document.createElement('hgroup');
 </script>
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
+<script type="text/javascript">
 
+
+$("#calendar-expand").click(function() {
+  		if($("#calendar-filter-form").css('display') == 'none'){
+	  		$("#calendar-expand").addClass("active");
+  		}else{	
+	  		$("#calendar-expand").removeClass("active");
+  		}
+  		$("#calendar-filter-form").toggle("slow");
+  
+});
+
+</script>
 </body>
 </html>
