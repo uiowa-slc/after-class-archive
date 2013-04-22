@@ -511,6 +511,10 @@ h6 a {
     font-size: 0.7em;
     border-right: 1px solid rgba(68, 68, 68, 0.39);
 }
+#page_navigation ul li.first a {
+    border-left: 1px solid rgba(68, 68, 68, 0.39);
+}
+
 #page_navigation ul li a#calendar-expand:after {
     content: '';
     width: 0px;
