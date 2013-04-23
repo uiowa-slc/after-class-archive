@@ -162,13 +162,14 @@ document.createElement('hgroup');
 
 	<div class="container">
 	<ul class="clearfix">
-		<li class="first" ><a href="{$BaseHref}"><strong>Home</strong></a></li>
+		<li class="first" ><a href="{$BaseHref}">Home</a></li>
 		<li class="first moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
-		<li id="news"><a href="news/"><strong>news</strong></a></li>
+		<li id="news"><a href="news/">news</a></li>
+		<li><a href="near-me/" class="near-me-link">Nearby</a></li>
 		<li class="today"><a href="$TodayLink">Today</a></li>
 		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
 		<li><a href="#" id="calendar-expand">Beyond</a></li>
-		<li><a href="near-me/" class="near-me-link">Nearby</a></li>
+		
 		<li><a href="{$BaseHref}subscribe/" class="subscribe-link" data-fancybox-type="iframe">Subscribe</a></li>
 		<% control Menu(1) %>
 			<% if First %>
