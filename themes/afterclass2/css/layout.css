@@ -1885,7 +1885,7 @@ textarea {
     }
     #right-column {
      /*   width: 37%; */
-        float: right;
+     /*   float: right; */
     }
     .hero-event-image-container img { width: 100% }
     .hero-event-content {
