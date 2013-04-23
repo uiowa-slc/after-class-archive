@@ -1989,7 +1989,7 @@ textarea {
         top: -15px;
     }
     #page_navigation ul>li.first strong { display: block }
-    #page_navigation ul>li.moon-icon { display: none }
+    #page_navigation ul>li.first.moon-icon { display: none }
     #page_navigation ul li.add { display: block }
     a.event-header-category { display: block }
     #studentlife-bar { display: block }
