@@ -457,16 +457,8 @@ h6 a {
     margin: 0;
     padding: 0;
 }
-#page_navigation #secondary-nav ul li a.near-me-link { color: #72c3e6 }
-#page_navigation #secondary-nav ul li a {
-    color: #F1DC96;
-    font-size: 1em;
-}
-#page_navigation #secondary-nav ul li { }
-#page_navigation #secondary-nav span {
-    margin-left: 5px;
-    color: white;
-}
+
+
 #page_navigation ul {
     margin: 0;
     padding: 0;
@@ -541,7 +533,10 @@ h6 a {
 #page_navigation ul li a strong { font-weight: normal }
 #page_navigation ul li.today a { color: #d6e8f0 }
 #page_navigation ul li.weekend a { color: #bde1f0 }
-#page_navigation ul li a.near-me-link { color: #9ed8f0 }
+#page_navigation ul li a#calendar-expand {
+    	
+    	color: #9ed8f0 
+}
 #page_navigation ul li.add a { color: #E8CA66 }
 #page_navigation ul li a:hover {
     -webkit-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
@@ -1847,6 +1842,7 @@ textarea {
     .event-card-desc { width: 60% }
     .event-card-image { width: 150px }
     #page_header .big_header a img { width: 70% }
+
     #page_navigation ul li a#calendar-expand:after {
         top: 15px;
         border-width: 7px 4.5px 0 4.5px;
