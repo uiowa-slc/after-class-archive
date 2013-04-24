@@ -1,8 +1,22 @@
 <div class="feature-background-wrapper row">
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
 
+			<div class="hero-event-image-container span7">
+						<a href="$Link" class="img-shadow">
+							<% if Image %>
+								<% control Image %>
+									<% control CroppedImage(730,462) %>
+									<img itemprop="photo" src="$URL" />
+									<% end_control %>
+								<% end_control %>
+							<% else %>
+								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
+							<% end_if %>
+						</a>
+						<div class="clear"></div>
+					</div>
 					
-					<div class="hero-event-content span7">
+					<div class="hero-event-content span5">
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<div class="clear"></div>
 					<div class="hero-event-details">
@@ -76,21 +90,7 @@
 					</div><!-- end hero-event-content -->
 				
 					
-					<div class="hero-event-image-container span5">
-						<a href="$Link" class="img-shadow">
-							<% if Image %>
-								<% control Image %>
-									<% control CroppedImage(730,462) %>
-									<img itemprop="photo" src="$URL" />
-									<% end_control %>
-								<% end_control %>
-							<% else %>
-								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
-							<% end_if %>
-						</a>
-						<div class="clear"></div>
-					</div>
-					
+									
 				
 				
 					<div style="clear: both"></div>

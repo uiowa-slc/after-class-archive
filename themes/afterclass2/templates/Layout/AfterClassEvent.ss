@@ -171,6 +171,8 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
 </script>
 <script type="text/javascript">
+
+
   var place = null;
   
   function GetLocation(address) {
@@ -185,10 +187,105 @@
     });
   }
   function initialize() {
-    //var thelocation = GetLocation("Iowa Memorial Union, Iowa City, IA");
-    //var latlng = new google.maps.LatLng(41.6626698, -91.5383739);
-    //alert(thelocation.lat().toString().substr(0, 12));
-    //var latlng = new google.maps.LatLng(thelocation.lat(),thelocation.lng());
+
+  // Create an array of styles.
+  var styles = [
+    {
+      stylers: [
+        { hue: "#00ffe6" },
+        { saturation: -20 }
+      ]
+    },{
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
+  ];
+
+  // Create a new StyledMapType object, passing it the array of styles,
+  // as well as the name to be displayed on the map type control.
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+
+  // Create a map object, and include the MapTypeId to add
+  // to the map type control.
+  var mapOptions = {
+    zoom: 11,
+    center: new google.maps.LatLng(55.6468, 37.581),
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    }
+  };
+
+}
+  
+  function initialize() {
+  
+  
+	  // Create an array of styles.
+	  var styles = [
+	 
+{
+    "stylers": [
+      { "weight": 2.7 },
+      { "saturation": -71 },
+      { "invert_lightness": true },
+      { "visibility": "on" },
+      { "hue": "#8800ff" }
+    ]
+  },{
+    "elementType": "geometry",
+    "stylers": [
+      { "weight": 1.6 },
+      { "lightness": -20 },
+      { "saturation": -13 },
+      { "gamma": 1.33 }
+    ]
+  },{
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#000000" },
+      { "weight": 3.6 },
+      { "hue": "#a200ff" },
+      { "lightness": 38 },
+      { "saturation": -4 }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "hue": "#00b2ff" },
+      { "lightness": -2 },
+      { "saturation": 27 }
+    ]
+  }
+ ];
+	
+	  // Create a new StyledMapType object, passing it the array of styles,
+	  // as well as the name to be displayed on the map type control.
+	  var styledMap = new google.maps.StyledMapType(styles,
+	    {name: "Styled Map"});
+	
+	  // Create a map object, and include the MapTypeId to add
+	  // to the map type control.
+	  var mapOptions = {
+	    zoom: 11,
+	    center: new google.maps.LatLng(55.6468, 37.581),
+	    mapTypeControlOptions: {
+	      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+	    }
+	  };
+	  
+	  
     var place = null;
     
     <% control Venues %>
@@ -211,6 +308,9 @@
     });
     <% end_if %>
     <% end_control %>
+    
+	  map.mapTypes.set('map_style', styledMap);
+	  map.setMapTypeId('map_style');
   }
   window.onload = initialize();
 </script>

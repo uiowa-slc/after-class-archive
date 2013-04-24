@@ -39,7 +39,7 @@ class AfterClassEvent extends CalendarEvent {
 	function __construct($record = null, $isSingleton = false) { 
 		parent::__construct($record, $isSingleton); 
 	
-		if((bool)$record['Featured']) { 
+		if($this->Featured) { 
 		
 		
 		

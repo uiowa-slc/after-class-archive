@@ -350,7 +350,7 @@ h6 a {
     margin-top: 1em;
 /*    width: 100%; */
 }
-#right-column h2 img { width: 75% }
+#right-column h2 img { width: 55.5% }
 #left-column {
  /*   width: 100%; */
     margin-top: 1em;
@@ -962,7 +962,7 @@ h6 a {
 }
 #map_canvas {
     width: 100%;
-    border: 1px solid darkGray;
+    border: 1px solid #444
 }
 #Form_Form {
     background-image: url(../images/dark_leather.png);
@@ -1064,7 +1064,7 @@ h6 a {
     -ms-background-position-y: 6px;
 }
 .date-link:hover {
-    color: #006079;
+   /* color: #006079;*/
     /*font-weight: bold;*/
 }
 #home_feature .event_details {
@@ -1297,14 +1297,14 @@ h6 a {
     border-top: none;
 }
 .hero-event a {
-    color: #c09bc0;
+    /*color: #c09bc0;*/
     /*font-weight: bold;*/
 }
 .hero-event a:hover {
-    color: #e5b9e5;
-    font-weight: bold;
+    /*color: #e5b9e5;*/
+    
 }
-.hero-event strong { color: #EED78F }
+.hero-event strong {  color: #e5b9e5; }
 .hero-event h1 {
     margin: 0.3em 0;
     /*border-bottom: #ffde68 1px solid;*/
@@ -1394,11 +1394,10 @@ h6 a {
     background-color: #242424;
     box-shadow: 0px -10px 85px rgba(10, 10, 10, 1) inset;
 }
-.event-card-content { padding: 10px }
+.event-card-content { /* padding: 10px */}
 .event-card-content { color: white }
 .event-card.first { margin-top: 0 }
 #event-card-list {
-    margin-top: 20px;
     /*background: #252525;*/
 }
 #event-card-list h2 {
@@ -1440,7 +1439,7 @@ h6 a {
 }
 .event-card.canceled .event-card-header { /*background-image: url(../images/canceled.png);_NO__DOTCOMMA__AFTER__*/ }
 .event-card-header {
-    padding: 5px 10px;
+    padding: 5px 0;
     margin: 0;
     color: #222;
     /*border-bottom: 1px solid #ccc;*/
@@ -1459,7 +1458,7 @@ h6 a {
     /*color: #E6E2DF;*/
     color: #ADD7E2;
 }
-.event-card h3 a:hover { color: #006079 }
+.event-card h3 a:hover { color: #7BCDF0 }
 a.event-header-category {
     color: #eeeeef;
     background: #342738;
@@ -1938,7 +1937,7 @@ textarea {
     .FeaturedAfterClassEvent .hero-event-image-container {
         width: 49%;
         float: right;
-        margin: 1.5% 0;
+        margin: 2em 0;
     }
     .hero-event img { float: right }
     .hero-event-where {
@@ -1979,7 +1978,7 @@ textarea {
 @media only screen and (min-width: 960px) { 
     #page_content { padding: 0 }
     .container,
-    .logos { width: 960px !important }
+    .logos { /*width: 960px !important*/ }
     #page_header p {
         /* padding: 24px 45px 36px 35px;*/
         top: -15px;
@@ -2047,7 +2046,7 @@ textarea {
 }
 @media only screen and (min-width: 1024px) { 
     body { font-size: 1em }
-    .container { width: 1000px }
+    .container {/* width: 1000px*/ }
 }
 @media only screen and (min-width: 1100px) { 
     /*.category-list ul li {
@@ -2112,13 +2111,13 @@ textarea {
     .hero-event { font-size: 105% }
     #page_header p { padding-left: 5% }
     .container,
-    .logos { width: 1100px !important }
+    .logos { /*width: 1100px !important*/ }
     .event-card-desc { width: 60% }
 }
 @media only screen and (min-width: 1400px) { 
     #page_header p { font-size: 1.4em }
     .container,
-    .logos { width: 1230px !important }
+    .logos {/* width: 1230px !important */}
     #page_header .big_header {
         /*padding-left: 5%;*/
     }
