@@ -484,12 +484,12 @@ h6 a {
 #page_navigation ul>li.first.moon-icon { display: block }
 #page_navigation ul>li.moon-icon a { width: 30px }
 #page_navigation ul>li.moon-icon a img { width: 50% }
-#page_navigation ul li#news { display: none }
-#page_navigation ul li a.subscribe-link { display: none }
-#page_navigation ul li.add { display: none }
-#page_navigation ul li.weekend { display: none }
-#page_navigation ul li a.subscribe-link { color: #7BCDF0 }
-#page_navigation ul li a {
+#page_navigation ul>li#news { display: none }
+#page_navigation ul>li a.subscribe-link { display: none }
+#page_navigation ul>li.add { display: none }
+#page_navigation ul>li.weekend { display: none }
+#page_navigation ul>li a.subscribe-link { color: #7BCDF0 }
+#page_navigation ul>li a {
     display: block;
     padding-top: 15px;
     padding-left: 10px;
@@ -538,22 +538,22 @@ h6 a {
     	color: #9ed8f0 
 }
 #page_navigation ul li.add a { color: #E8CA66 }
-#page_navigation ul li a:hover {
+#page_navigation ul>li a:hover {
     -webkit-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     -moz-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     -o-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     -ms-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
 }
-#page_navigation ul li a:active {
+#page_navigation ul>li a:active {
     -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -moz-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -o-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -ms-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
 }
-#page_navigation ul li a:hover { background-color: #342836 }
-#page_navigation ul li a#calendar-expand.active {
+#page_navigation ul>li a:hover { background-color: #342836 }
+#page_navigation ul>li a#calendar-expand.active {
     background-color: #342836;
     -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -moz-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
@@ -623,13 +623,24 @@ h6 a {
     font-size: 1.3em;
 }
 #upcoming_events #upcoming_events_header p { font-size: 0.8em }
-#upcoming_events #calendar_widget {
-    width: 220px;
-    height: 130px;
-    background-color: #ffe99b;
-    float: left;
-    margin-bottom: 20px;
+
+#calendar-filter-form {
+	float: left;
+	width: 50%;
 }
+
+.filters {
+	float: left;
+	width: 45%;
+	text-align: left;
+	margin-left: 1em;
+}
+
+#page_navigation .filters ul li {
+	float: none;
+	text-align: left;
+}
+
 #upcoming_events #upcoming_event_list {
     clear: both;
     background-color: #bbb;
@@ -1006,8 +1017,10 @@ h6 a {
 #single-page-content a:hover { color: #d2af3c }
 #single-page-content.category {
     /*width: 940px;*/
-    background: url(../images/lighter_bg.jpg);
+   /* background: url(../images/lighter_bg.jpg); */
 }
+
+
 .venue-map {
     float: left;
     height: 250px;
@@ -1161,9 +1174,7 @@ h6 a {
 #SearchResults li {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
-    background: #f2f2f2;
-}
+  }
 #mc_embed_signup { margin-bottom: 15px }
 .response {
     width: 400px;
@@ -1264,8 +1275,8 @@ h6 a {
 .hero-event hr {
     width: 80%;
     margin: 3% auto;
-    border-top: 1px solid #666;
-    border-bottom: 1px solid #333;
+    border-top: 1px solid #3C3B3B;
+    border-bottom: 1px solid #0E0E0E;
     height: 2px;
 }
 .hero-event img {
@@ -1821,6 +1832,24 @@ textarea {
 
 .fancybox-wrap {
 	border: 1px solid #302E2E;
+	
+}
+
+.button {
+	padding: 10px; 
+	background: #3786A7 url(button.png) repeat-x bottom; 
+	border: none; color: #fff; 
+	font-weight: bold; 
+	border-radius: 5px; 
+	text-shadow: 1px 1px #666;
+	display: block; 
+    float: left; 
+    clear: left; 
+    margin: 0.5em 0;
+}
+
+.button a:hover {
+	color: #ddd;
 	
 }
 /* =============================================================================

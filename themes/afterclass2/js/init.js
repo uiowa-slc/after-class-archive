@@ -12,6 +12,6 @@ jQuery(document).ready(function ($) {
 	 	padding: 0
 	 });
 	 
-	 $("#calendar-filter-form").hide();
+	 $(".secondary-nav").hide();
 	// $("#calendar-expand").inner
 });

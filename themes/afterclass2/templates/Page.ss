@@ -189,9 +189,23 @@ document.createElement('hgroup');
 
 		</ul>
 		<div class="clear"></div>
-		<div id="calendar-filter-form">
-			$CalendarWidget
+		
+		<div class="secondary-nav">
+		
+			<div id="calendar-filter-form">
+				$CalendarWidget
+			</div>
+			<div class="filters">
+				<h3>Categories</h3>
+					<% control getEventtypes %>
+						<% if Events %>
+							<a href="events/sponsors/$URLSlug">$Title</a>,  
+						<% end_if %>
+					<% end_control %>
+			</div>
 		</div>
+		
+		
    <div style="clear: both"></div>
  </div><!-- end container -->
 </nav>
@@ -308,12 +322,12 @@ document.createElement('hgroup');
 
 
 $("#calendar-expand").click(function() {
-  		if($("#calendar-filter-form").css('display') == 'none'){
+  		if($(".secondary-nav").css('display') == 'none'){
 	  		$("#calendar-expand").addClass("active");
   		}else{	
 	  		$("#calendar-expand").removeClass("active");
   		}
-  		$("#calendar-filter-form").toggle("slow");
+  		$(".secondary-nav").toggle("slow");
   
 });
 

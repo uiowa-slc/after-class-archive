@@ -42,7 +42,7 @@
 					    			</p>
 					    			</div>
 					    	<% end_if %>
-					    									<div class="hero-event-when">
+					    	<div class="hero-event-when">
 											<% control DateAndTime %>
 										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(F) $StartDate.format(j)</time></a>
 											<% if EndDate %>
@@ -55,13 +55,7 @@
 										<% end_control %>
 								
 									</div><!-- end hero-event-when -->
-					    	<% control Venues %>
-								<p class="venues">
-								<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-								@ <% if Top.Location %>$Top.Location, <br /><% end_if %><a href="$Link"><span itemprop="name">$Title</span></a>
-								</span>
-								</p>
-							<% end_control %>	
+					    	
 							
 								<div class="hero-event-specifics">
 	
@@ -83,9 +77,9 @@
 									</div><!-- end hero-event-where -->
 									<div class="clear"></div>
 										<% if MoreInfoLink %>
-										<p><a href="$MoreInfoLink" class="event-detail-button" target="_blank">More information</a></p>
+										<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
 										<% end_if %>
-										<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+
 			
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
@@ -109,10 +103,13 @@
 							<div id="detail_event_description_map">
 					
 							<% control Venues %>
-								<p>This event is located at: <a href="$Link">$Title</a></p>
+								<p>This event is located at: <strong>$Title</strong> <a href="$Link">(view more events here)</a></p>
 								 
-								<p><% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo;</a><% end_if %><% if WebsiteURL %> <br /> <a href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></p>
-								
+								<p>
+								<% if WebsiteURL %><a class="button" href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %>
+								<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a><% end_if %>
+								</p>
+<div class="clear"></div>								
 								<% if Address %>
 									<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
 								<% end_if %>
@@ -138,32 +135,6 @@
 						</a>
 						<div class="clear"></div>
 					</div>
-	
-		
-		<!--<% if DateAndTimeMoreThan(3) %>
-			<h2 id="dates">All Dates and Times </h2>
-					<ul>
-					<% control DateAndTime %> 
-			    				<li>
-					    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-					    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span>
-					    			</a> 
-					    				<% if StartTime %> at $StartTime.nice<% end_if %><% if EndTime %>, ends at $EndTime.nice<% end_if %>
-				    			
-					    			<% if EndDate %> until
-					    				<a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link">
-					    			 		<span>$EndDate.Format(l), $EndDate.Format(M). $EndDate.DayOfMonth</span>
-					    			 	</a>
-					    			<% end_if %> 
-				    			</li>
-		
-			    			<% end_control %> <%-- end control DateAndTime --%>
-			    		</ul>
-		<% end_if %>-->
-		
-		<!--<div class="event-meta">
-			<% include EventCategoryList %>
-		</div>-->
 
 		<div class="clear"></div>
 		</div>
@@ -315,7 +286,8 @@
   window.onload = initialize();
 </script>
 
-
+<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+<div class="clear"></div>
 </div><!-- end hero-event -->
 
 <% include RelatedEvents %>

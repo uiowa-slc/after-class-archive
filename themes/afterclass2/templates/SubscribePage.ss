@@ -20,8 +20,6 @@
 </head>
 <body>
 
-<div id="feedback-form-container">
-
 	<div id="newsletter-signup">
 		<h2><img src="{$ThemeDir}/images/stay_connected.png" alt="Stay Connected With Our Newsletter" /></h2>
 		<p>sign up for our newsletter to see what's happening around campus. you also might win something.</p>
@@ -43,9 +41,6 @@
 	</div>
 	<!-- end newsletter-signup -->
 
-
-
-</div>
 
 </body>
 </html>

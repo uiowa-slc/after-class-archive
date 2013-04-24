@@ -2,7 +2,7 @@
 
 
 #calendar-filter-form {
-	display: none;
+	/*display: none;*/
 }
 
 #calendar-widget {min-height:180px;position:relative;
@@ -38,7 +38,7 @@ table.jCalendar {
 	font-size: 1.3em ;
 	background: none ;
 	font-family: 'Open Sans', sans ;
-	width: 70%;
+	width: 50%;
 }
 table.jCalendar th {
 	color: #C6F5FF ;
