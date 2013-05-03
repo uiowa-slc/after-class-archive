@@ -22,9 +22,6 @@
 					<div class="hero-event-details">
 							<div class="hero-event-text">	
 
-							    <% if CancelReason %>
-									<p><strong>Note: $CancelReason</strong></p>
-								<% end_if %>
 									$Content
 								<% if Price %>
 				            		<p><strong>Price:</strong> $Cost</p>

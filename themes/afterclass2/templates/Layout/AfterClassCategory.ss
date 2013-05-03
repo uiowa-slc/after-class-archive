@@ -30,7 +30,7 @@
 
 		
 		
-		
+	
 		<% if ClassName = Sponsor %>
  			<h2>Current events sponsored by $Title:</h2>
  		<% else_if ClassName = Venue %>
@@ -43,7 +43,7 @@
  			
  			</style>
  		<% else_if ClassName = Eventtype %>
- 		
+ 			<h2>Events listed under $Title:</h2>
  		<% end_if %>	
 		
 		

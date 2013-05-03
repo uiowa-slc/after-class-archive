@@ -11,6 +11,7 @@
 	<% end_if %><% end_control %>
 </header>
 
+<div id="single-page-content">
 	<h2>Jump To</h2>
 	<p><% control Category %><% if Events %><a href="#$Title">$Title</a>, <% end_if %> <% end_control %></p>
 	<hr />
@@ -31,6 +32,7 @@
 				<div class="clear"></div>
 				<% if LinkURL %><p><a href="$LinkURL">Visit their website</a></p><% end_if %>
 				<% if Events %>
+				<h3>Events in this category:</h3>
 				<% control Events %>
 						<% control Event %>
 							<% include EventCard %>	
@@ -49,7 +51,4 @@
 
 		</div>
 	<% end_control %>
-
-
-<style type="text/css">
-</style>
+</div>

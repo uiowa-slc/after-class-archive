@@ -2041,7 +2041,7 @@ a.button:active {
         margin-top: 10px;
     }
     .hero-event { padding: 0 }
-    .hero-event h1 { font-size: 2.6em }
+    .hero-event h1 { font-size: 2em }
     .hero-event-content {
         width: 38%;
         float: right;
@@ -2158,7 +2158,7 @@ a.button:active {
         width: 145px;
         float: left;
     }
-    .hero-event h1 a { font-size: 1.1em }
+    .hero-event h1 a { font-size: 1.4em }
     /* Hero / Featured Event */
     .hero-event-when { font-size: 0.9em }
     .hero-event-content a.more-event-info { display: block }
