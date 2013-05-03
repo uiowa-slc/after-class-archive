@@ -1,4 +1,3 @@
-<div class="event-card-wrapper">
 	<div class="event-card $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %> id-{$Event.ID}" itemscope itemtype="http://data-vocabulary.org/Event" onClick="location.href='$Link'">
 		<div class="event-card-header">
 			<h3 class="big-cell">
@@ -108,4 +107,3 @@
 			<!-- end event-card-content -->
 		</div>
 		<!-- end event-card -->
-		</div>

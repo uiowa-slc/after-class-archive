@@ -72,16 +72,17 @@ function locate() {
 			map.setCenter(initialLocation);
 			
 			
-			var image = 'http://i.stack.imgur.com/orZ4x.png';
+			var image = 'themes/afterclass2/images/position-indicator.png';
 			var initalMarker = new google.maps.Marker({
 				position: initialLocation,
 				map: map,
 				icon: image
 			});  
 			initalMarker.setMap(map);
-			$('#status').text("Your location is indicated on the map.");
+			$('#status').text("Your location is indicated on the map with this icon:");
+			$('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
 		}else {
-			$('#status').text("You're too far away from Iowa City. Here are events in IC");
+			$('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
 
 		}
       
@@ -106,7 +107,7 @@ function locate() {
   content: "holding..."
   });
   <% control Venues %>
-    <% if AfterClassEvents %>
+    <% if Events %>
 
   //geo-coding to convert our addresses to usable longitude/latitude  
   var geocoder;
@@ -134,7 +135,7 @@ function locate() {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>");
+		infowindow.setContent("<% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>< br /><strong><a href='/categories/$Title'>$Title</a></strong>");
 		infowindow.open(map, this);
 		});
 		

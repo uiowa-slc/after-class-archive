@@ -30,25 +30,58 @@
 <% end_if %> <!-- end if action = view -->
 <div style="clear: both"></div>
 <div id="event-card-list">
-	<h2><img src="{$ThemeDir}/images/events.png" alt="Events" /></h2>
-	<% control AllEvents %>
-		<% control Event %>
-			<% include EventCard %>
-		<% end_control %>
+	<h2>What's up next</h2>
+	<div class="event-cards">
+		<% control AllEvents %>
+			<% control Event %>
+				<% include EventCard %>
+			<% end_control %>
 		<% end_control %> <%-- end control Upcoming Events --%>
+	</div> <!--end event-cards -->
 	</div>
 	<!-- end event-card-list -->
 </div>
 <!-- end left-column -->
 <div id="right-column" class="span5">
+
+<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
+		<% if FutureDeadlines %>
+			<div id="approaching-deadlines">
+				<h2><a href="{$BaseHref}deadlines/">Approaching Deadlines</a></h2>
+				<div id="deadlines-container">
+					<ul id="deadlines">
+						<% control FutureDeadlines(10) %>
+							<li class="$EvenOdd">
+								<% if LinkURL %>
+									<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.Format(n/j/y)</strong> - $Title</a>
+								<% else %>
+									<a href="{$BaseHref}deadlines/"><strong>$Date.Format(n/j/y)</strong> - $Title</a>					
+								<% end_if %>
+							</li>
+						<% end_control %>
+					</ul>
+					<ul id="additional-deadline-links">
+						<li><a href="{$BaseHref}deadlines/">view all deadlines &raquo;</a></li>
+						<li><a href="{$BaseHref}add/" target="_blank">submit an event &raquo;</a></li>
+						<li><a href="http://www.registrar.uiowa.edu/calendars/fiveyearcalendar.aspx" target="_blank" class="external">academic calendar</a></li>
+						<li><a href="http://www.hawkeyesports.com/calendar/events/" target="_blank" class="external" >athletic calendar</a></li>
+		
+					</ul>
+				</div>
+			</div>
+			<!-- end approaching-deadlines -->
+			<div class="clear"></div>
+		<% end_if %>
+	<% end_cached %>
+
 	<div id="the-news">
-		<h2><a href="http://imu.uiowa.edu/news"><img src="{$ThemeDir}/images/news.png" alt="After Class News" /></a></h2>
+		<h2><a href="http://imu.uiowa.edu/news">After Class: student news</a></h2>
 		<div class="news-entries">
 			<% control RSSDisplay(10, http://afterclass.uiowa.edu/news/feed/) %>
 				<div class="news-entry $EvenOdd">
 					$Image
 					<h3><a href="$Link">$Title</a></h3>
-					<div class="news-posted-on">posted on $PublishedDate.Format(n/j/y)</div>
+					<div class="news-posted-on">posted on $PublishedDate.Format(F n), $PublishedDate.Format(Y) by $Author</div>
 					<div class="news-text">
 						<p>$Content.Summary(50)</p>
 					</div>
@@ -67,35 +100,7 @@
 	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100%; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
 
 
-	<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
-		<% if FutureDeadlines %>
-			<div id="approaching-deadlines">
-				<h2><a href="{$BaseHref}deadlines/"><img src="{$ThemeDir}/images/approaching_deadlines2.png" alt="Approaching Deadlines" /></a></h2>
-				<div id="deadlines-container">
-					<ul id="deadlines">
-						<% control FutureDeadlines(10) %>
-							<li class="$EvenOdd">
-								<% if LinkURL %>
-									<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.Format(n/j/y)</strong> - $Title</a>
-								<% else %>
-									<a href="{$BaseHref}deadlines/"><strong>$Date.Format(n/j/y)</strong> - $Title</a>					
-								<% end_if %>
-							</li>
-						<% end_control %>
-					</ul>
-					<ul id="additional-deadline-links">
-						<li><a href="{$BaseHref}deadlines/">view all deadlines &raquo;</a></li>
-						<li><a href="http://www.registrar.uiowa.edu/calendars/fiveyearcalendar.aspx" target="_blank">academic calendar &raquo;</a></li>
-						<li><a href="http://www.hawkeyesports.com/calendar/events/" target="_blank" >athletic calendar &raquo;</a></li>
-						<li><a href="{$BaseHref}add/" target="_blank" >submit an event &raquo;</a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- end approaching-deadlines -->
-			<div class="clear"></div>
-		<% end_if %>
-	<% end_cached %>
-	<% if Ad1Image %>
+		<% if Ad1Image %>
 	<p>test</p>
 	<div id="ad1" class="homepage-ad">
 		<% if Ad1URL %>

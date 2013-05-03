@@ -15,7 +15,7 @@
 #calendar-widget img {position:absolute;top:50%;left:50%;margin:-16px 0 0 -16px;}
 /* widget positioning */
 div.dp-popup {
-	margin:10px auto;
+	margin:0 auto;
 	width: 100% ;
 	background: none ;
 }
@@ -157,9 +157,7 @@ div.dp-popup div.dp-nav-prev a, div.dp-popup div.dp-nav-next a {
 	font-size: 0.8em;
 	font-weight: bold;
 	color:#fff; 
-	padding: 0.6em;
-	border: 1px solid rgba(68, 68, 68, 0.39);
-	background: #362638;
+
 }
 
 div.dp-popup div.dp-nav-prev a:hover, div.dp-popup div.dp-nav-next a:hover {color:#dedede;}
@@ -187,6 +185,6 @@ div.dp-popup td.disabled {
 }
 
 /*Month Heading Style JT*/
-#calendar-widget h2 {text-decoration: underline; padding: 8px 0;font-size: 1.5em ; text-decoration: none}
+#calendar-widget h2 {text-decoration: underline; padding: 8px 0;font-size: 1.5em ; text-decoration: none; background: #19495E;}
 div.dp-calendar{padding-bottom: 2px;}
 

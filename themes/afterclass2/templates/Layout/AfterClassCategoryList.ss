@@ -6,16 +6,29 @@
 	<% else_if ClassName = Venue %>
 	<h1>Venues</h1>
 	<% else %>
-	<h1>Categories</h1>
+	<h1>Trending Categories</h1>
 	<% end_if %>
 	<% end_if %><% end_control %>
 </header>
 
+	<h2>Jump To</h2>
+	<p><% control Category %><% if Events %><a href="#$Title">$Title</a>, <% end_if %> <% end_control %></p>
+	<hr />
 	<% control Category %>
 		<div class="category">
 			<% if Events %>
-		<h2><a href="$Link">$Title &raquo;</a><% if Address %> <span><a href="#" target="_blank">Get Directions</a></span><% end_if %></h2>
+			
+
+		<h2 id="$Title">
+		<% if ClassName = Eventtype %>
+		$Title
+		<% else %>
+		$Title <a href="$Link">(more information)</a>
+		<% end_if %>
+		</h2>
 				<% if Information %><p>$Information</p><% end_if %>
+				<% if Address %><a href="#" target="_blank" class="button">Get Directions</a><% end_if %>
+				<div class="clear"></div>
 				<% if LinkURL %><p><a href="$LinkURL">Visit their website</a></p><% end_if %>
 				<% if Events %>
 				<% control Events %>
@@ -26,11 +39,17 @@
 				<% else %>
 					No events currently listed.
 				<% end_if %>
-		
+					<div class="clear"></div>
+				
+						<p class="clearfix"><a href="#" class="top-link">Back to top</a></p>	
+						<hr />
 				<% end_if %> <%-- end if there are any events --%>
-				<div class="clear"></div>				
+				<div class="clear"></div>
+				
+
 		</div>
 	<% end_control %>
+
 
 <style type="text/css">
 </style>

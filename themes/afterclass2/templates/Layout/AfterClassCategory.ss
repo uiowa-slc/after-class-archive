@@ -51,9 +51,11 @@
 		<div class="category-list">
 		<% if Events %>
 			<% control Events %>
+				<div class="event-cards">
 				<% control Event %>
 					<% include EventCard %>
 				<% end_control %>
+				</div>
 			<% end_control %>
 		<div style="clear: both"></div>
 		<!--<div class="view-all"><a href="{$BaseHref}events/categories/$Title">View All $Events.count Events</a></div>-->

@@ -22,14 +22,17 @@
 					<div class="hero-event-details">
 							<div class="hero-event-text">
 							
-								<p>$getSummaryHTML(30) <a href="$Link">read more</a></p>
-				        
-				            	$Cost
+								<p>$getSummaryHTML(30)</p>
+				 
+							</div><!-- end hero-event-text-->
+							<div class="hero-event-essential-text">						       
+				            	<p>$Cost</p>
 							    <% if CancelReason %>
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
-							</div><!-- end hero-event-text-->
-						
+								<p><a href="$Link">read more</a></p>
+								
+							</div>
 							
 								<div class="hero-event-specifics">
 									<div class="hero-event-when">

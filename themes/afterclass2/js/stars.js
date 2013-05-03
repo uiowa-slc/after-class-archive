@@ -10,16 +10,23 @@
 		var canvasHeight = $("#canvas-container").height();
 		
 		$(window).resize(function() {
-			$("#canvas").width($("#canvas-container").width());
+		
+		/*hide canvas on resize for now so we don't see messed up stars */		
+		$("#canvas").hide();
+		
+
+			/*$("#canvas").width($("#canvas-container").width());
 			$("#canvas").height($("#canvas-container").height());
+			
+			
+			var canvasWidth =  $("#canvas-container").width();
+			var canvasHeight = $("#canvas-container").height();*/
 			//alert("hello");
 
 		});		
 
 		function starInit()
 		{
-		
-
 			
 			objectPool.onCreateObject = onCreateObject;
 

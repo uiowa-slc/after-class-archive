@@ -118,18 +118,11 @@ document.createElement('hgroup');
 </script>
 <![endif]-->
 
-<!--[if IE ]>
-<style>
-@font-face {
-  font-family: 'SketchBlock-Bold';
-  src: url("../fonts/1327B9_0.eot?#iefix") format("embedded-opentype"), url("../fonts/1327B9_0.woff") format("woff"), url("../fonts/1327B9_0.ttf") format("truetype"), url("../fonts/1327B9_0.svg#wf") format("svg");
-  }
-<![endif]-->
 
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onload="starInit();">
+<body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -152,7 +145,7 @@ document.createElement('hgroup');
 <a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
 	<div class="container" id="canvas-container">
-		<canvas id="canvas" style="display: none;"></canvas>
+		<canvas id="canvas"></canvas>
 		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
 	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
 	</div>
@@ -179,7 +172,7 @@ document.createElement('hgroup');
 				<% if Children %>
 					<ul>
 						<% control Children %>
-							<li><a href="$Link" <% if >$Title</a></li>
+							<li><a href="$Link" <% if RedirectionType = External %>class="external" target="_blank"<% end_if %> >$Title</a></li>
 						<% end_control %>
 					</ul>
 				<% end_if %>
@@ -196,12 +189,26 @@ document.createElement('hgroup');
 				$CalendarWidget
 			</div>
 			<div class="filters">
-				<h3>Categories</h3>
-					<% control getEventtypes %>
+				<form id="SearchForm_SearchForm" action="{$BaseHref}events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
+					<fieldset>
+						<legend></legend>
+							<div id="Search" class="field text  nolabel"><div class="middleColumn"><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" placeholder="Search for an event"></div></div>
+							<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
+					</fieldset>
+				</form>
+
+				<h3>Trending Categories</h3>
+					<p><% control getEventtypes %>
 						<% if Events %>
-							<a href="events/sponsors/$URLSlug">$Title</a>,  
+							<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %>  
 						<% end_if %>
-					<% end_control %>
+					<% end_control %></p>
+				<h3>View Events By</h3>
+				<ul>
+					<li><a href="{$BaseHref}events/categories/">Category</a></li>
+					<li><a href="{$BaseHref}events/sponsors/">Sponsor</a></li>
+					<li><a href="{$BaseHref}events/venues/">Venue</a></li>
+				</ul>
 			</div>
 		</div>
 		

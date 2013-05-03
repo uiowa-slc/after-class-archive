@@ -84,7 +84,6 @@
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
 				
-						<hr />			
 						 <div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
 									addthis:title="{$Title}"
 									addthis:description="">
@@ -97,6 +96,7 @@
 					    </div><!-- end addthis_toolbox -->
 					    
 					<div class="clear"></div>	
+						<hr />			
 
 						<% if Venues %>
 					

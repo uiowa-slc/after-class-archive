@@ -14,4 +14,6 @@ jQuery(document).ready(function ($) {
 	 
 	 $(".secondary-nav").hide();
 	// $("#calendar-expand").inner
+	starInit();
 });
+
