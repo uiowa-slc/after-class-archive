@@ -44,7 +44,6 @@
 					<div class="clear"></div>
 				
 						<p class="clearfix"><a href="#" class="top-link">Back to top</a></p>	
-						<hr />
 				<% end_if %> <%-- end if there are any events --%>
 				<div class="clear"></div>
 				

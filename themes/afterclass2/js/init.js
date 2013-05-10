@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 	 $(".secondary-nav").hide();
 	// $("#calendar-expand").inner
 	$("#canvas").height($("#page_header").height());
-	$("#canvas").width($("#page_header").width());
+	$("#canvas").width($("#page_header").width()/2);
 	
 	
 	starInit();
