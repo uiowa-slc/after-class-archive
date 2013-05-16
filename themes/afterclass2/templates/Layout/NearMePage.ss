@@ -31,7 +31,50 @@ function makeMarker(options){
 }
 
 
+
 function locate() {
+
+	 // Create an array of styles.
+	var styles = [
+		 
+	{
+	    "stylers": [
+	      { "weight": 2.7 },
+	      { "saturation": -71 },
+	      { "invert_lightness": true },
+	      { "visibility": "on" },
+	      { "hue": "#8800ff" }
+	    ]
+	  },{
+	    "elementType": "geometry",
+	    "stylers": [
+	      { "weight": 1.6 },
+	      { "lightness": -20 },
+	      { "saturation": -13 },
+	      { "gamma": 1.33 }
+	    ]
+	  },{
+	    "featureType": "road",
+	    "elementType": "geometry.fill",
+	    "stylers": [
+	      { "color": "#000000" },
+	      { "weight": 3.6 },
+	      { "hue": "#a200ff" },
+	      { "lightness": 38 },
+	      { "saturation": -4 }
+	    ]
+	  },{
+	    "featureType": "water",
+	    "stylers": [
+	      { "hue": "#00b2ff" },
+	      { "lightness": -2 },
+	      { "saturation": 27 }
+	    ]
+	  }
+	 ];
+
+	 var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
   /*var s = document.querySelector('#status');
   s.innerHTML = "IMU!";
   s.className = 'success';*/
@@ -46,7 +89,7 @@ function locate() {
   //var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var myLatlng = iowacity;
   var myOptions = {
-    zoom: 14,
+    zoom: 15,
     center: myLatlng,
     panControl: true,
     mapTypeControl: false,
@@ -54,7 +97,8 @@ function locate() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-  
+   map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
 // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
     browserSupportFlag = true;

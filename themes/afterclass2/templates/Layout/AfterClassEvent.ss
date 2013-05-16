@@ -21,7 +21,6 @@
 					
 					<div class="hero-event-details">
 							<div class="hero-event-text">	
-
 									$Content
 								<% if Price %>
 				            		<p><strong>Price:</strong> $Cost</p>
@@ -30,16 +29,8 @@
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
 							</div><!-- end hero-event-text-->
-							<% if Sponsors %>
-				    				<div class="sponsors">
-					    			<p><strong>Sponsored by: </strong>
-						    			<% control Sponsors %>
-						    				<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %> 
-						    			<% end_control %>
-					    			</p>
-					    			</div>
-					    	<% end_if %>
-					    	<div class="hero-event-when">
+							<div class="hero-event-when">
+					    		<h2>Date(s)</h2>
 											<% control DateAndTime %>
 										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(F) $StartDate.format(j)</time></a>
 											<% if EndDate %>
@@ -51,13 +42,24 @@
 										</p>
 										<% end_control %>
 								
-									</div><!-- end hero-event-when -->
+							</div><!-- end hero-event-when -->
+							<% if Sponsors %>
+				    				<div class="sponsors">
+				    				<h2>Sponsors</h2>
+						    			<% control Sponsors %>
+						    			<p><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %> </p>
+						    			<% end_control %>
+					    			</p>
+					    			</div>
+					    	<% end_if %>
+
 					    	
 							
 								<div class="hero-event-specifics">
 	
 									
 									<div class="hero-event-where">
+								
 										<p>
 										<% control Venues %>
 											<p class="venues">
@@ -96,11 +98,11 @@
 						<hr />			
 
 						<% if Venues %>
-					
+							<h2>Located at</h2>
 							<div id="detail_event_description_map">
 					
 							<% control Venues %>
-								<p>This event is located at: <strong>$Title</strong> <a href="$Link">(view more events here)</a></p>
+								<p>$Title <a href="$Link">(view more events here)</a></p>
 								 
 								<p>
 								<% if WebsiteURL %><a class="button" href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %>
@@ -154,89 +156,48 @@
       }
     });
   }
-  function initialize() {
-
-  // Create an array of styles.
-  var styles = [
-    {
-      stylers: [
-        { hue: "#00ffe6" },
-        { saturation: -20 }
-      ]
-    },{
-      featureType: "road",
-      elementType: "geometry",
-      stylers: [
-        { lightness: 100 },
-        { visibility: "simplified" }
-      ]
-    },{
-      featureType: "road",
-      elementType: "labels",
-      stylers: [
-        { visibility: "off" }
-      ]
-    }
-  ];
-
-  // Create a new StyledMapType object, passing it the array of styles,
-  // as well as the name to be displayed on the map type control.
-  var styledMap = new google.maps.StyledMapType(styles,
-    {name: "Styled Map"});
-
-  // Create a map object, and include the MapTypeId to add
-  // to the map type control.
-  var mapOptions = {
-    zoom: 11,
-    center: new google.maps.LatLng(55.6468, 37.581),
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-  };
-
-}
   
-  function initialize() {
+function initialize() {
   
   
-	  // Create an array of styles.
-	  var styles = [
-	 
-{
-    "stylers": [
-      { "weight": 2.7 },
-      { "saturation": -71 },
-      { "invert_lightness": true },
-      { "visibility": "on" },
-      { "hue": "#8800ff" }
-    ]
-  },{
-    "elementType": "geometry",
-    "stylers": [
-      { "weight": 1.6 },
-      { "lightness": -20 },
-      { "saturation": -13 },
-      { "gamma": 1.33 }
-    ]
-  },{
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#000000" },
-      { "weight": 3.6 },
-      { "hue": "#a200ff" },
-      { "lightness": 38 },
-      { "saturation": -4 }
-    ]
-  },{
-    "featureType": "water",
-    "stylers": [
-      { "hue": "#00b2ff" },
-      { "lightness": -2 },
-      { "saturation": 27 }
-    ]
-  }
- ];
+		 // Create an array of styles.
+		var styles = [
+			 
+		{
+		    "stylers": [
+		      { "weight": 2.7 },
+		      { "saturation": -71 },
+		      { "invert_lightness": true },
+		      { "visibility": "on" },
+		      { "hue": "#8800ff" }
+		    ]
+		  },{
+		    "elementType": "geometry",
+		    "stylers": [
+		      { "weight": 1.6 },
+		      { "lightness": -20 },
+		      { "saturation": -13 },
+		      { "gamma": 1.33 }
+		    ]
+		  },{
+		    "featureType": "road",
+		    "elementType": "geometry.fill",
+		    "stylers": [
+		      { "color": "#000000" },
+		      { "weight": 3.6 },
+		      { "hue": "#a200ff" },
+		      { "lightness": 38 },
+		      { "saturation": -4 }
+		    ]
+		  },{
+		    "featureType": "water",
+		    "stylers": [
+		      { "hue": "#00b2ff" },
+		      { "lightness": -2 },
+		      { "saturation": 27 }
+		    ]
+		  }
+		 ];
 	
 	  // Create a new StyledMapType object, passing it the array of styles,
 	  // as well as the name to be displayed on the map type control.
@@ -247,6 +208,8 @@
 	  // to the map type control.
 	  var mapOptions = {
 	    zoom: 11,
+	   scrollwheel: false,
+	   draggable: false,
 	    center: new google.maps.LatLng(55.6468, 37.581),
 	    mapTypeControlOptions: {
 	      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -261,24 +224,28 @@
     
     <% if Lat %>
     var place = new google.maps.LatLng($Lat, $Lng);
-    var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP};
+    var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP, scrollwheel: false, draggable: false
+};
     var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
     var geomarker = new google.maps.Marker({ map: map, position: place });
+	  map.mapTypes.set('map_style', styledMap);
+	  map.setMapTypeId('map_style');
     <% else %>
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
       place = results[0].geometry.location;
-      var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP};
+      var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP,scrollwheel: false, draggable: false};
       var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
       var geomarker = new google.maps.Marker({ map: map, position: place });
+       
+	  map.mapTypes.set('map_style', styledMap);
+	  map.setMapTypeId('map_style');
       }
     });
     <% end_if %>
     <% end_control %>
-    
-	  map.mapTypes.set('map_style', styledMap);
-	  map.setMapTypeId('map_style');
+
   }
   window.onload = initialize();
 </script>

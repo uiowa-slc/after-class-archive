@@ -1,11 +1,20 @@
 
 
 <% if FeaturedEvents %>
-		<% control FeaturedEvents.First %>
-			<% control Event %>
-				<% include HeroEvent %>	
-			<% end_control %><!-- end control Event -->		
-		<% end_control %><!-- end control FeaturedEvents.First -->
+	<div class="flexslider">
+		<div class="slides">
+			
+			<% control FeaturedEvents %>
+				<div class="slide">
+	
+					<% include HeroEvent %>	
+			
+				</div>
+			<% end_control %><!-- end control FeaturedEvents.First -->
+			
+		</div>
+	</div>
+		
 		<% else %>
 			<% control AllEvents.First %>
 				<% control Event %>
@@ -77,7 +86,7 @@
 	<div id="the-news">
 		<h2><a href="http://imu.uiowa.edu/news">After Class: student news</a></h2>
 		<div class="news-entries">
-			<% control RSSDisplay(10, http://afterclass.uiowa.edu/news/feed/) %>
+			<% control dynamicNews %>
 				<div class="news-entry $EvenOdd">
 					$Image
 					<h3><a href="$Link">$Title</a></h3>

@@ -139,8 +139,13 @@ class Page_Controller extends ContentController {
 			    'themes/afterclass2/js/stars.js',
 			    'themes/afterclass2/js/fancybox/jquery.fancybox.pack.js',
 			    'themes/afterclass2/js/jquery-ui.js',
+			    'themes/afterclass2/js/flexslider/jquery.flexslider-min.js',
 			    'themes/afterclass2/js/mailchimp.js',
+			    
 			    'themes/afterclass2/js/init.js',
+			    
+			    
+			    
 			    
 			   /* 'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',
@@ -175,7 +180,7 @@ class Page_Controller extends ContentController {
 	  {
 	  	$calendar = DataObject::get_one("AfterClassCalendar");
 	    $d = new sfDate();
-		return $calendar->AbsoluteLink()."view/".$d->format('Ym');
+		return $calendar->AbsoluteLink()."view/".date("Ymd");
 	  }	  
 	  public function WeekLink()
 	  {
@@ -255,5 +260,32 @@ class Page_Controller extends ContentController {
 		$ret->setBody($temp); 
 		return $ret; 
 	} 
+	
+	public function RandomTagline(){
+		$config = SiteConfig::current_site_config(); 
+		
+		$taglines[] = $config->TaglineOption1;
+		$taglines[] = $config->TaglineOption2;
+		$taglines[] = $config->TaglineOption3;
+		$taglines[] = $config->TaglineOption4;
+		$taglines[] = $config->TaglineOption5;
+		$taglines[] = $config->TaglineOption6;
+		$taglines[] = $config->TaglineOption7;
+		$taglines[] = $config->TaglineOption8;
+		$taglines[] = $config->TaglineOption9;
+		$taglines[] = $config->TaglineOption10;
+		
+		$taglines = array_filter($taglines);
+
+		$randomTagline = $taglines[array_rand($taglines)];
+
+			if($randomTagline){
+				return $randomTagline;
+			}else {
+				return "the best of UI's culture, events, and nightlife";
+				
+			}	
+	
+			}
 	
 }

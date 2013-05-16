@@ -81,7 +81,6 @@
 
 	<% require themedCSS(layout) %>
 	<% require themedCSS(grid) %>
-
 	<% require css(event_calendar/css/calendar.css) %>
 	<% require themedCSS(calendar_widget) %>
 	<% if iswindows %>
@@ -120,7 +119,7 @@ document.createElement('hgroup');
 
 
 </style>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 <body>
 <div id="fb-root"></div>
@@ -147,7 +146,7 @@ document.createElement('hgroup');
 	<div class="container" id="canvas-container">
 		<canvas id="canvas"></canvas>
 		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
-	    <p class="subheader">The best of <em>UI</em>'s culture, events, and nightlife</p>
+	    <p class="subheader">$RandomTagline</p>
 	</div>
 </header>
 
@@ -200,7 +199,7 @@ document.createElement('hgroup');
 				<h3>Trending Categories</h3>
 					<p><% control getEventtypes %>
 						<% if Events %>
-							<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %>  
+							<a href="$Link">$Title</a> | 
 						<% end_if %>
 					<% end_control %></p>
 				<h3>View Events By</h3>
@@ -238,7 +237,7 @@ document.createElement('hgroup');
 			</div>
 			<p>319-335-3414<br />
 			<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
-			Site designed by IMU Marketing + Design
+			<a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a>
 			
 			</p>
 			
@@ -289,9 +288,6 @@ document.createElement('hgroup');
 
 <!--End mc_embed_signup-->
  
-
-		
-			<!--<div class="fb-like"data-href="http://facebook.com/uiowa.imu"  data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark"></div>-->
 
 			<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="AfterClass">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

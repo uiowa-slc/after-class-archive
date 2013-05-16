@@ -1,9 +1,7 @@
 <?php
 
 class AfterClassCalendar extends Calendar {
-/* static $has_many = array (
- 'EventCategories' => 'EventCategory'
- );*/
+
  	static $db = array (
  		"Ad1URL" => "Text",
  		"Ad1Title" => "Text",
@@ -20,6 +18,10 @@ class AfterClassCalendar extends Calendar {
  		"Ad1Image" => "Image",
  		"Ad2Image" => "Image",
   		"Ad3Image" => "Image",
+  		
+  		"FeaturedEvent1" => "AfterClassEvent",
+  		"FeaturedEvent2" => "AfterClassEvent",
+  		"FeaturedEvent3" => "AfterClassEvent"
  	
  	);
 	static $allowed_children = array (
@@ -28,7 +30,7 @@ class AfterClassCalendar extends Calendar {
 	
 		function getCMSFields() {
 		$fields =parent::getCMSFields();
-		
+		$fields->removeFieldFromTab("Root.Content.Main", "Content");
 		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
 		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1URL", "Ad 1 External Link"));
 		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad1Image","Ad 1 Image (same dimensions as newsletter ad)"));
@@ -40,6 +42,12 @@ class AfterClassCalendar extends Calendar {
 		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3Title", "Ad 3 Title / Alt Text"));
 		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3URL", "Ad 3 External Link"));
 		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
+
+		$fields->addFieldToTab("Root.Content.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
+		
+		$fields->addFieldToTab('Root.Content.Main', new TreeDropdownField("FeaturedEvent1ID", "Featured Event 1", "SiteTree"));
+		$fields->addFieldToTab('Root.Content.Main', new TreeDropdownField("FeaturedEvent2ID", "Featured Event 2", "SiteTree"));
+		$fields->addFieldToTab('Root.Content.Main', new TreeDropdownField("FeaturedEvent3ID", "Featured Event 3", "SiteTree"));
 		
 		return $fields;
 	}
@@ -48,10 +56,7 @@ class AfterClassCalendar extends Calendar {
 		CalendarUtil::date_sort($e);
 		return $e;
 	}
-	
-	public function AllFeaturedEvents() {
-	    return DataObject::get("AfterClassEvent","Featured IS TRUE");
-	}
+
 	public function Eventtype() {
 	    return DataObject::get("Eventtype");
 	}
@@ -64,19 +69,26 @@ class AfterClassCalendar extends Calendar {
 	
 	
 	function FeaturedEvents() {
-		$ids = array();
-		// Get IDs of all featured events.
-		$ids = array_merge($ids,$this->AllFeaturedEvents()->column('ID'));
-		// Setup filter
-		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
-		// Get the calendar
-		$calendar = DataObject::get_one("AfterClassCalendar");
-		// Get the events from the calendar
-		if (empty($ids)) {
-			return false;
-		} else {
-			return $calendar->Events($filter);
+	
+		$eventSet = new DataObjectSet();
+		
+		$events[] = $this->FeaturedEvent1();
+		$events[] = $this->FeaturedEvent2();
+		$events[] = $this->FeaturedEvent3();
+		
+		foreach($events as $event){
+			if($event->UpcomingDatesAndRanges()){
+				$eventSet->push($event);
+			}
 		}
+				
+		if($eventSet->exists()) {
+			return $eventSet;
+		}
+		else{ 
+			return false;	
+		}
+	
 	}
 
 	
@@ -119,12 +131,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	public function newrss() {
 		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
 		foreach($events as $event) {
-			//$event->Title = $event->EventTitle();
-			//$event->EventDate = strip_tags($event->_Dates());
-			//$event->EventLocation = $event->Event();
-			//$event->EventCost = $event->Cost();
 			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
-			//$event->Description = strip_tags($event->_Dates()) . $event->EventContent();
 			$event->Description = strip_tags($event->EventContent());
 		}
 		
@@ -147,8 +154,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		$xml = trim($xml);
 		HTTP::add_cache_headers();
 		header("Content-type: text/xml");
-		//echo $xml;
-		
+
  		$Data = array(
 	      'Events' => $events
 	    );
@@ -165,9 +171,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		$CategoryName = addslashes($this->urlParams['Category']);
 		if (strpos(strtolower($CategoryName),"-") === false) {
 		  $Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
- 		  //$Data = array(
-	      //  'Category' => $Category
-	      //);
 		  $events = $Category->events();
 		} else {
 		  $Categories = explode("-",$CategoryName);
@@ -307,9 +310,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  		}
  	}
- 	/*function category() {
- 	    Director::redirect('./events/categories/');
- 	}*/
+
  	function sponsor() {
 		Director::redirect('./events/sponsors/');
  	}
@@ -317,20 +318,17 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	    Director::redirect('./events/venues/');
  	}
  	
- 	/*function tag() {
-	 	if($Tag = $this->getCurrentTag()) {
-	            $Data = array(
-	                'Tag' => $Tag,
-	                'TagTitle' => $Tag->Title,
-	                'TaggedEvents' => $Tag->getEvents()
-	             );
-	              
-	            //return our $Data array to use, rendering with the ProductPage.ss template
-	            return $this->customise($Data)->renderWith(array('AfterClassCalendar', 'Calendar','Page'));
-	        } else { //Product not found
-	            return $this->httpError(404, 'Sorry that product could not be found');
-	        }
- 	}*/
+ 	public function dynamicNews(){
+	 	
+	 	$events = $this->AllEvents();
+	 	$count = $events->Count();
+	 	$count = floor($count/3);
+	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
+	 	
+	 	return $news;
+	 	
+ 	}
+ 	
  	public function init() {
 		RSSFeed::linkToFeed($this->Link() . "rss", "RSS Feed of this calendar");
 		$this->parseURL();

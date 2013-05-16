@@ -1,7 +1,7 @@
 <header id="secondary_header">
  	<h1>$Category.Title</h1>
 </header>
- <div id="single-page-content" class="category">
+ <div id="category-content" class="category">
  			
  			<div class="about-category">
 	 			<% control Category %>
@@ -34,7 +34,7 @@
 		<% if ClassName = Sponsor %>
  			<h2>Current events sponsored by $Title:</h2>
  		<% else_if ClassName = Venue %>
- 			<h2>Current events at $Title:</h2>
+ 		
  			<style>
  				.where {
  					display: none;
@@ -43,7 +43,7 @@
  			
  			</style>
  		<% else_if ClassName = Eventtype %>
- 			<h2>Events listed under $Title:</h2>
+ 			
  		<% end_if %>	
 		
 		

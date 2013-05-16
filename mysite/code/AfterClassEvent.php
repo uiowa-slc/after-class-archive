@@ -2,8 +2,6 @@
 
 class AfterClassEvent extends CalendarEvent {
 	static $many_many = array (
-		//"Tags" => "Tag",
-		//"Categories" => "Category",
 		"Sponsors" => "Sponsor",
 		"Venues" => "Venue",
 		"Eventtypes" => "Eventtype"
@@ -12,7 +10,6 @@ class AfterClassEvent extends CalendarEvent {
 		'Title' =>'Text',
 		'Location' => 'Text',
 		'Cost' => 'Text',
-		'Featured' => 'Boolean',
 		'Submittername' => 'Text',
 		'Submitteremail' => 'Text',
 		'Submitterdate' => 'Text',
@@ -36,26 +33,7 @@ class AfterClassEvent extends CalendarEvent {
 	static $can_be_root = false;
 	static $allowed_children = "none";
 		
-	function __construct($record = null, $isSingleton = false) { 
-		parent::__construct($record, $isSingleton); 
-	
-		if($this->Featured) { 
-		
-		
-		
-		Object::set_static('Page', 'icon', 'sapphire/javascript/tree/images/page'); } 
-	}
 
-	function onBeforeWrite(){
-		parent::onBeforeWrite();
-
-		if($this->Featured){
-			$this->ClassName = "FeaturedAfterClassEvent";
-		}else {
-			$this->ClassName = "AfterClassEvent";
-		
-		}
-	}
 	
 	public function UpcomingDatesAndRanges($limit = 3)
 	{
@@ -130,16 +108,6 @@ class AfterClassEvent extends CalendarEvent {
 		}
 	}
 	
-	public function onAfterPublish() {
-		parent::onAfterPublish();
-		if ((($this->Featured) && (!$this->facebook_publishdate)) && (!$this->facebook_published)) {
-			//$this->facebook_publishdate = SS_Datetime::now(); #getdate(); # SS_Datetime::now() ? or SS_Datetime::now()->getValue();
-			//$this->facebook_published = true;
-			//$this->write();
-			//$this->facebook_publish();
-		}
-		return true;
-	}
 	public function facebook_publish() {
  		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
  		$url = 'https://graph.facebook.com/319621914746674/feed';
@@ -173,18 +141,7 @@ class AfterClassEvent extends CalendarEvent {
 		curl_close($ch);
 		return true;
 	}
-	
-	/*static $db = array (
-		'Recursion' => 'Boolean',
-		'CustomRecursionType' => 'Int',
-		'DailyInterval' => 'Int',
-		'WeeklyInterval' => 'Int',
-		'MonthlyInterval' => 'Int',
-		'MonthlyRecursionType1' => 'Int',
-		'MonthlyRecursionType2' => 'Int',
-		'MonthlyIndex' => 'Int',
-		'MonthlyDayOfWeek' => 'Int'
-	);*/
+
 	public function DateAndTimeLimited($num = 3){
 		$datesTimes = $this->DateAndTime();
 		
@@ -197,8 +154,7 @@ class AfterClassEvent extends CalendarEvent {
 	
 	public function DateAndTimeMoreThan($num=3){
 		$datesTimes = $this->DateAndTime();
-		
-		//print_r($datesTimes->TotalItems());
+
 		if(($datesTimes->TotalItems())>$num){
 			return true;
 		}else{
@@ -207,11 +163,7 @@ class AfterClassEvent extends CalendarEvent {
 	}	
 	function getCMSActions() {
 		$actions = parent::getCMSActions();
-		//$Action = new FormAction(
-		//	"doFacebook",
-		//	"Post To Facebook"
-        //);
-		//$actions->push($Action);
+
 		return $actions;
 	}
 	
@@ -270,16 +222,16 @@ class AfterClassEvent extends CalendarEvent {
 /* ----------------------------------- */
 		
 		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (<strong style="font-size: 14px">552 x 524 [new size!]</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (<strong style="font-size: 14px">672x425 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		
 		
-		//$params = array('parent' => $this->ID, 'transaction' => "generic", 'imgstate' => 'existing'); //$this->Image->TransactionKey
-		//$f->push(new PixlrEditorField('PixlrButton', _t('Pixlr.EDIT_IMAGE', 'Edit this image'), $this->Image, $params));
-		
+
 		$f->addFieldToTab('Root.Content.Main',new TextField('MoreInfoLink','A link for more information') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
-		$f->addFieldToTab('Root.Content.Main',new CheckboxField('Featured','Feature this event on the homepage and category pages'));
+				$f->addFieldToTab('Root.Content.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
+
+		
 		$f->addFieldToTab('Root.Content.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
 		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Event Description') );
 		

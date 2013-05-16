@@ -11,9 +11,10 @@
 	<% end_if %><% end_control %>
 </header>
 
-<div id="single-page-content">
-	<h2>Jump To</h2>
-	<p><% control Category %><% if Events %><a href="#$Title">$Title</a>, <% end_if %> <% end_control %></p>
+<div id="category-list-content">
+	<ul>
+	<% control Category %><% if Events %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_control %>
+	</ul>
 	<hr />
 	<% control Category %>
 		<div class="category">
@@ -30,9 +31,9 @@
 				<% if Information %><p>$Information</p><% end_if %>
 				<% if Address %><a href="#" target="_blank" class="button">Get Directions</a><% end_if %>
 				<div class="clear"></div>
-				<% if LinkURL %><p><a href="$LinkURL">Visit their website</a></p><% end_if %>
+				<% if LinkURL %><p><a href="$LinkURL" class="button">Visit their website</a></p><% end_if %>
+				<div class="clear"></div>
 				<% if Events %>
-				<h3>Events in this category:</h3>
 				<% control Events %>
 						<% control Event %>
 							<% include EventCard %>	

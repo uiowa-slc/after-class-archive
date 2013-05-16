@@ -463,6 +463,9 @@ h6 a {
     background: linear-gradient(top, #2791ae 0%,#23839d 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2791ae', endColorstr='#23839d',GradientType=0 );*/
 }
+
+
+
 /* Secondary Nav Styles */
 
 .secondary-nav {
@@ -495,7 +498,8 @@ h6 a {
 #page_navigation ul>li.first.moon-icon { display: block }
 #page_navigation ul>li.moon-icon a { width: 30px }
 #page_navigation ul>li.moon-icon a img { width: 50% }
-#page_navigation ul>li#news { display: none }
+/*#page_navigation ul>li#news { display: none }*/
+#page_navigation ul>li.about-after-class{display:none;}
 #page_navigation ul>li a.subscribe-link { display: none }
 #page_navigation ul>li.add { display: none }
 #page_navigation ul>li.weekend { display: none }
@@ -590,7 +594,7 @@ h6 a {
 #page_navigation ul li a.external {
         background-image: url(../images/external_link.png);
         background-repeat: no-repeat;
-        background-position-x: 95%;
+        background-position-x: 55%;
         background-position-y: 50%;
 
 }
@@ -714,6 +718,7 @@ h6 a {
     background-color: black;
     margin-top: 0;
     border-top: 5px solid #E8CA66;
+    padding:10px;
 }
 #page_footer .container {
     color: #E8CA66;
@@ -736,19 +741,13 @@ h6 a {
     font-weight: 400;
 }
 #page_footer .container ul li a:hover { color: #a0a0a0 }
-#page_footer .container #ui_logo {
-    float: left;
-    padding-top: 14px;
-    margin-right: 20px;
-}
-#page_footer .container #search_footer {
-    position: absolute;
-    right: 0;
-    background-color: white;
-    width: 250px;
-    height: 25px;
-    top: 15px;
-}
+
+#logo-container a {
+    display: block;
+   }
+#logo-container a img{
+    max-width: 75%;
+   }
 #secondary_header h1 {
     padding: 5px 0;
     margin: 5px 0;
@@ -1025,7 +1024,7 @@ h6 a {
 .category-list li { color: white }
 #single-page-content h2 {
     padding-bottom: 10px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #2E2E2E;
    /* box-shadow: 0 1px 0 black; */
     color: #C1B5CE;
 }
@@ -1176,23 +1175,7 @@ h6 a {
     /*border: 1px solid #555;*/
     margin-top: 10px;
 }
-#logo-container { }
-#logo-container a {
-    display: block;
-    margin: 5px 0;
-}
-.uiowa-logo { }
-#dsl-info { float: right }
-#dsl-info { text-align: right }
-#dsl-info p {
-    margin-top: 5px;
-    margin-bottom: 0;
-}
-#dsl-info a { color: #ffe588 }
-#footer-social-media {
-    float: left;
-    margin-top: 20px;
-}
+
 #SearchResults {
     list-style-type: none;
     margin: 0;
@@ -1212,11 +1195,8 @@ h6 a {
 .response a { color: #ffe588 }
 #mc-embedded-subscribe { margin-left: 5px }
 #Form_addEventForm {
-    background-image: url(../images/dark_leather.png);
-    border: 1px solid #555;
     border-image: initial;
-    color: #FFDE68;
-    padding: 20px;
+    color: #E8CA66;
 }
 #Form_addEventForm fieldset label {
     font-size: 1.1em;
@@ -1229,7 +1209,7 @@ h6 a {
     padding: 10px;
     background: #333;
     border: 1px solid #555;
-    color: #FFE898;
+    color: #E8CA66;
     border-image: initial;
 }
 #Form_addEventForm_action_addEvent {
@@ -1268,6 +1248,7 @@ h6 a {
 #newsletter-signup {
     color: #ffde68;
     padding: 1em;
+    text-align: center;
 }
 #newsletter-signup h2 {
     font-family: SketchBlock-Bold, sans;
@@ -1374,12 +1355,7 @@ h6 a {
 }
 .hero-event-where { display: none }
 .hero-event-when {
-    float: left;
-    width: 50%;
-    /*min-height: 100px;*/
-    /*border-right: 1px solid #666;;
-    padding-right: 20px;*/
-    font-size: 0.9em;
+
 }
 .hero-event-when p { display: none }
 .hero-event-when p.first { display: block }
@@ -1414,6 +1390,50 @@ h6 a {
 }
 .img-shadow img { float: right }
 .homefeatureitem .event_text a:hover { color: #dbb700 }
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > .slide {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Flex Direction Nav */
+/* Direction Nav */
+.flex-direction-nav {height: 0; padding: 0; margin: 0; list-style-type: none;}
+.flex-direction-nav a {
+	width: 38px;
+	height: 79px;
+	margin: -40px 0 0;
+	display: block;
+	background-image: none;
+	position: absolute;
+	top: 27%;
+	z-index: 10;
+	cursor: pointer;
+	text-indent: -9999px;
+	opacity: 1;
+	-webkit-transition: all .3s ease;
+}
+.flex-direction-nav .flex-prev {
+	background: url(../js/flexslider/images/flexslider_prev.png) no-repeat 0 0;
+	left: 10px;
+}
+.flex-direction-nav .flex-next {
+	background: url(../js/flexslider/images/flexslider_next.png) no-repeat 0 0;
+	right: 10px;
+}
+.flexslider:hover .flex-next:hover,
+.flexslider:hover .flex-prev:hover {
+	opacity: 1;
+}
+.flex-direction-nav .flex-disabled {
+	opacity: .3!important;
+	filter: alpha(opacity=30);
+	cursor: default;
+}
+
+
 .event-card {
     /*background-image: url(../images/lighter_bg.jpg);*/
     /*background-color: #1D1C1C;*/
@@ -1451,11 +1471,11 @@ h6 a {
 #event-card-list h2 {
     font-weight: normal;
     font-size: 2.2em;
-    padding: 0.5em 0;
+    padding: 0.3em 0;
     border-bottom: 2px solid #21d0e8;
     margin-bottom: 1em;
     color: #9cdfe8;
-    text-align: right;
+    text-align: left;
     text-transform: lowercase;
 }
 .event-card-desc p {
@@ -1640,13 +1660,13 @@ a.read-more-link { color: #ADD7E2 }
 #the-news { }
 #the-news h2 {
     border-bottom: 2px solid #e9cb67;
-    margin: 1em 0;
-    padding: 0.5em 0;
-    text-align: right;
+ /*   margin: 1em 0; */
+    padding: 0.3em 0;
+    text-align: left;
     font-size: 2.2em;
 }
 #the-news h3 {
-    font-size: 2.3em;
+    font-size: 2.2em;
     color: #fff5d1;
     margin: 0;
 }
@@ -2024,6 +2044,8 @@ a.button:active {
     #page_navigation ul li a { font-size: 1.1em }
     #page_navigation ul li a#calendar-expand:after { top: 20px }
     #page_navigation ul li a#calendar-expand.active:after { top: -15px }
+    #page_navigation ul>li.about-after-class{display: block;}
+
     #Search {
         /*float: right;*/
         /*width: 80%;*/
@@ -2088,9 +2110,39 @@ a.button:active {
         margin-right: 25px;
     }
     
+	#logo-container { }
+	#logo-container a {
+	    display: block;
+	    margin: 5px 0;
+	}
+	.uiowa-logo { }
+	#dsl-info { float: right }
+	#dsl-info { text-align: right }
+	#dsl-info p {
+	    margin-top: 5px;
+	    margin-bottom: 0;
+	}
+	#dsl-info a { color: #ffe588 }
+	#footer-social-media {
+	    float: left;
+	    margin-top: 20px;
+	}
+#page_footer .container #ui_logo {
+    float: left;
+    padding-top: 14px;
+    margin-right: 20px;
+}
+#page_footer .container #search_footer {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    width: 250px;
+    height: 25px;
+    top: 15px;
+}
 
 
-    /* Category Pages */
+  /* Category Pages */
     /*.category-list ul li {
             float: left;
             width: 45%;
@@ -2145,8 +2197,7 @@ a.button:active {
         border: 1px solid #555;
     }
     .addthis_toolbox {
-        width: 50%;
-        float: left;
+    	clear: both;
         margin: 3px 0;
         display: block;
     }
@@ -2160,7 +2211,7 @@ a.button:active {
     }
     .hero-event h1 a { font-size: 1.4em }
     /* Hero / Featured Event */
-    .hero-event-when { font-size: 0.9em }
+    .hero-event-when { }
     .hero-event-content a.more-event-info { display: block }
     .hero-event-when p { display: block }
     /* Homepage Events */
@@ -2175,6 +2226,12 @@ a.button:active {
         background-position-x: 100%;
         background-repeat: no-repeat;
     }  
+    
+.flex-direction-nav a {
+
+	top:40%;
+
+}
 }
 @media only screen and (min-width: 1024px) { 
     body { font-size: 1em }
@@ -2209,7 +2266,7 @@ a.button:active {
 
     .event-card h3 { float: none; }
 
-    .category .event-card { width: 24% }
+    .category .event-card { width: 24%; padding-left: 0; }
     .event-card-content { padding: 0 }
     .event-card-desc p { display: none }
     .event-card-header { display: none }
@@ -2246,7 +2303,6 @@ a.button:active {
             overflow: scroll;
         }*/
     a.event-header-category { display: none }
-    .hero-event { font-size: 105% }
     #page_header p { padding-left: 5% }
     .container,
     .logos { /*width: 1100px !important*/ }
@@ -2278,6 +2334,13 @@ a.button:active {
         }*/
 }
 @media only screen and (min-width: 1800px) { 
+
+	.flex-direction-nav .flex-prev {
+		left: 15%;
+	}
+	.flex-direction-nav .flex-next {
+		right: 15%;
+	}  
     /*.event-card {
             width: 18%;
         }
