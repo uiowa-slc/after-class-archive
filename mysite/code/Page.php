@@ -34,7 +34,7 @@ function allPagesToCache() {
     $urls = array();
     // memory intensive depending on number of pages
     $pages = DataObject::get("Page");
-    $ignored = array('UserDefinedForm', 'AddEventPage');
+    $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage');
 
     foreach($pages as $page) {
     	if(!in_array($page->ClassName, $ignored)) {
