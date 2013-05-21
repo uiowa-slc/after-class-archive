@@ -111,8 +111,25 @@ class Page_Controller extends ContentController {
 		//echo $_SERVER['HTTP_USER_AGENT'];
 		
 		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
-
+		
+		
+		$themeFolder = $this->ThemeDir();
+		 
+		//Set the folder to our theme so that relative image paths work
+		Requirements::set_combined_files_folder($themeFolder . '/combinedfiles');
+		
+		Requirements::block('event_calendar/css/calendar_widget.css'); 
+		
+		/*
+		Requirements::block('event_calendar/javascript/locale/date_en.js'); 
+		Requirements::block('event_calendar/javascript/jquery.date.js'); 
+		Requirements::block('event_calendar/javascript/jquery.datePicker.js'); 
+		Requirements::block('event_calendar/javascript/calendar_core.js'); 
+		Requirements::block('event_calendar/javascript/calendar_widget.js');
+		Requirements::block('sapphire/thirdparty/jquery/jquery.js');  */
+		
 		$jsFiles = array(
+		
 			    'themes/afterclass2/js/jquery.min.js',
 			    'themes/afterclass2/js/modernizr-2.0.6.min.js',
 			    'themes/afterclass2/js/canvasplay/CanvasController.js',
@@ -141,17 +158,24 @@ class Page_Controller extends ContentController {
 			    'themes/afterclass2/js/jquery-ui.js',
 			    'themes/afterclass2/js/flexslider/jquery.flexslider-min.js',
 			    'themes/afterclass2/js/mailchimp.js',
-			    
+			    'division-bar/js/division-bar.js',
 			    'themes/afterclass2/js/init.js',
-			    
-			    
-			    
-			    
-			   /* 'event_calendar/javascript/calendar_core.js',
+			    'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',
+				'sapphire/thirdparty/jquery/jquery.js',
 			    'event_calendar/javascript/jquery.date.js',
 			    'event_calendar/javascript/jquery.datePicker.js',
-			    'event_calendar/javascript/calendar_widget.js'*/
+			    'event_calendar/javascript/calendar_widget.js'
+
+			);
+
+			//Add all the files to combine into an array
+			$cssFiles = array(
+			    $themeFolder . '/css/layout.css',
+			    $themeFolder . '/css/grid.css',
+			    $themeFolder . '/css/calendar_widget.css',
+				$themeFolder .'/js/fancybox/jquery.fancybox.css'
+
 			);
 
 		
@@ -160,11 +184,13 @@ class Page_Controller extends ContentController {
 			foreach($jsFiles as $jsFile){
 				Requirements::javascript($jsFile);	
 			}
-			
-			Requirements::block('event_calendar/css/calendar_widget.css'); 
+			foreach($cssFiles as $cssFile){
+				Requirements::css($cssFile);	
+			}			
 
 		}else{
-			
+			//Combine!  
+			Requirements::combine_files("combinedCSS.css", $cssFiles);
 			Requirements::combine_files(
 				'allcombined.js',$jsFiles);
 			}

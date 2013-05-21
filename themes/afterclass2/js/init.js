@@ -19,7 +19,8 @@ jQuery(document).ready(function ($) {
 	$('.flexslider').flexslider({
 	selector: ".slides > .slide",   
     animation: "slide",
-    controlNav: false,  
+    controlNav: true,  
+    directionNav: false,   
 	
 	
 	});

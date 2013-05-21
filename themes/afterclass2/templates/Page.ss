@@ -10,7 +10,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<% if CategoryName %>
-	
 	<% control Category %>
 		<% if ClassName = Sponsor %>
 		<link rel="canonical" href="{$BaseHref}events/sponsors/$URLSlug" />
@@ -79,29 +78,13 @@
 	<% end_if %>
 	<meta name="author" content="IMU Marketing &amp; Design">
 
-	<% require themedCSS(layout) %>
-	<% require themedCSS(grid) %>
-	<% require css(event_calendar/css/calendar.css) %>
-	<% require themedCSS(calendar_widget) %>
+
 	<% if iswindows %>
 	<% require themedCSS(windows) %>
 	<% end_if %>
 
-	<link href='{$ThemeDir}/js/fancybox/jquery.fancybox.css' rel='stylesheet' type='text/css'>
-
-
 <style type="text/css">
 
-header
-,nav
-,section
-,article
-,aside
-,footer
-,hgroup 
-{ 
-display: block;
-}
 
 </style>
 
@@ -204,9 +187,9 @@ document.createElement('hgroup');
 					<% end_control %></p>
 				<h3>View Events By</h3>
 				<ul>
-					<li><a href="{$BaseHref}events/categories/">Category</a></li>
-					<li><a href="{$BaseHref}events/sponsors/">Sponsor</a></li>
-					<li><a href="{$BaseHref}events/venues/">Venue</a></li>
+					<li><a href="{$BaseHref}events/categories/">Categories</a></li>
+					<li><a href="{$BaseHref}events/sponsors/">Sponsors</a></li>
+					<li><a href="{$BaseHref}events/venues/">Venues</a></li>
 				</ul>
 			</div>
 		</div>
@@ -244,11 +227,11 @@ document.createElement('hgroup');
 			
 		</div>
 		<ul>
-			<li><a href="{$BaseHref}/events/categories">Categories</a></li>
-			<li><a href="{$BaseHref}/events/sponsors">Sponsors</a></li>
-			<li><a href="{$BaseHref}/events/venues">Venue</a></li>
-			<li><a href="{$BaseHref}/events/">All Events</a></li>
-			<li><a href="{$BaseHref}/add/">Submit an Event</a></li>
+			<li><a href="{$BaseHref}events/categories">Categories</a></li>
+			<li><a href="{$BaseHref}events/sponsors">Sponsors</a></li>
+			<li><a href="{$BaseHref}events/venues">Venue</a></li>
+			<li><a href="{$BaseHref}events/">All Events</a></li>
+			<li><a href="{$BaseHref}add/">Submit an Event</a></li>
 			<% if FutureDeadlines %>
 			<li><a href="{$BaseHref}deadlines/">Upcoming Deadlines</a></li>
 			<% end_if %>

@@ -60,11 +60,11 @@
 						
 								<% if DateAndTimeLimited(2) %>
 								<% control DateAndTimeLimited(2) %>
-									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(M). $StartDate.format(j)</time> </a> <% if StartTime %>
+									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> <% if StartTime %>
 										at $StartTime.Nice
 										<% end_if %>
 										<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M). $EndDate.format(j)</time> </a>
+										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(M) $EndDate.format(j)</time> </a>
 										<% end_if %>
 									</li>
 								<% end_control %>
