@@ -82,7 +82,7 @@ function locate() {
   
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcanvas';
-  mapcanvas.style.height = '400px';
+  mapcanvas.style.height = '300px';
   mapcanvas.style.width = mapWidth;
   document.querySelector('#single-page-content').appendChild(mapcanvas);
   var iowacity = new google.maps.LatLng(41.661736, -91.540017)

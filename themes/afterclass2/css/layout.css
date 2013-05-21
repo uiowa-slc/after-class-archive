@@ -350,14 +350,14 @@ h6 a {
     font-family: 'Doppio One', monospace;
 }
 #right-column {
-    margin-top: 1em;
+    margin-top: 0;
 /*    width: 100%; */
 }
 #right-column h2 { text-transform: lowercase;}
 #right-column h2 img { width: 55.5% }
 #left-column {
  /*   width: 100%; */
-    margin-top: 1em;
+    margin-top: 0;
 }
 #left-column h2 img { width: 50% }
 #left-column h2 { text-transform: lowercase;}
@@ -437,6 +437,7 @@ h6 a {
 #page_content.AfterClassCalendar.view #the-news { display: none }
 #page_content.AfterClassCalendar.view #categories { display: none }
 #page_content.AfterClassCalendar.view .hero-event { display: none }
+#page_content.AfterClassCalendar.view .flex-control-nav { display: none; }
 #page_navigation {
     text-align: center;
     background-image: linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
@@ -1395,8 +1396,7 @@ h6 a {
 
 /* Flex Direction Nav */
 /* Direction Nav */
-.flex-direction-nav { display: none; }
-.flex-direction-nav {height: 0; padding: 0; margin: 0; list-style-type: none;}
+.flex-direction-nav { height: 0; padding: 0; margin: 0; list-style-type: none;}
 .flex-direction-nav a {
 	width: 38px;
 	height: 79px;
