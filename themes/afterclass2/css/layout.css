@@ -1090,7 +1090,6 @@ h6 a {
     background-image: url(../images/search_icon.png);
     background-position: 98% 6px;
     background-repeat: no-repeat;
-    margin: auto;
     display: block;
     width: 96%;
     /* ie8, grumble grumble */
