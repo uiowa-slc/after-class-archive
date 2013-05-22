@@ -119,7 +119,7 @@ class Page_Controller extends ContentController {
 		Requirements::set_combined_files_folder($themeFolder . '/combinedfiles');
 		
 		Requirements::block('event_calendar/css/calendar_widget.css'); 
-		
+		Requirements::block('sapphire/thirdparty/jquery/jquery.js');
 		/*
 		Requirements::block('event_calendar/javascript/locale/date_en.js'); 
 		Requirements::block('event_calendar/javascript/jquery.date.js'); 
@@ -179,7 +179,7 @@ class Page_Controller extends ContentController {
 			);
 
 		
-		if(Director::isDev()) {
+	/*	if(Director::isDev()) {
 		
 			foreach($jsFiles as $jsFile){
 				Requirements::javascript($jsFile);	
@@ -188,13 +188,13 @@ class Page_Controller extends ContentController {
 				Requirements::css($cssFile);	
 			}			
 
-		}else{
+		}else{*/
 			//Combine!  
 			Requirements::combine_files("combinedCSS.css", $cssFiles);
 			Requirements::combine_files(
 				'allcombined.js',$jsFiles);
-			}
-	}
+			/* } */
+ 	}
 	
 	public function MonthLink()
 	  {

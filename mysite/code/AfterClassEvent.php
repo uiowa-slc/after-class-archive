@@ -222,7 +222,7 @@ class AfterClassEvent extends CalendarEvent {
 /* ----------------------------------- */
 		
 		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (<strong style="font-size: 14px">672x425 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		
 		
 

@@ -4,7 +4,7 @@
 
 
 <header id="secondary_header">
-	<h1>$Title</h1>
+	<h1>Events Nearby</h1>
 </header>
 <div id="single-page-content">
       <p id="status">Finding your location....</p>
@@ -165,7 +165,7 @@ function locate() {
       position: venueLatLng
     });
     google.maps.event.addListener(marker, 'click', function () {
-	infowindow.setContent("<strong><a href='/categories/$Title'>$Title</a></strong><br /><% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>");
+	infowindow.setContent("<% control Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %><strong><a href='$Link'>$Title</a></strong>");
 	infowindow.open(map, this);
 	});
   <% else %>
@@ -179,7 +179,7 @@ function locate() {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<% control Events(2) %><div style='font-size:11px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %>< br /><strong><a href='/categories/$Title'>$Title</a></strong>");
+		infowindow.setContent("<% control Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %><strong><a href='$Link'>$Title</a></strong>");
 		infowindow.open(map, this);
 		});
 		

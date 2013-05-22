@@ -64,7 +64,7 @@
 										at $StartTime.Nice
 										<% end_if %>
 										<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(M) $EndDate.format(j)</time> </a>
+										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a>
 										<% end_if %>
 									</li>
 								<% end_control %>
@@ -83,26 +83,6 @@
 				</div>
 				<!-- end event-card-desc -->
 				<div style="clear: both;"></div>
-				<div class="event-card-bottom">
-					<div class="event-share-container">
-						<div class="addthis_toolbox addthis_default_style"	addthis:url="{$Event.AbsoluteLink}"
-							addthis:title="{$Event.Title}"
-							addthis:description="">
-							<a class="addthis_button_facebook"></a>
-							<a class="addthis_button_twitter"></a>    
-							<a class="addthis_button_google_plusone_share"></a>
-							<a class="addthis_button_tumblr"></a>    
-							<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="more-event-info-link">
-						<a href="$Link" class="more-event-info">view event</a>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<!-- end event-card-bottom -->
-				<div class="clear"></div>
 			</div>
 			<!-- end event-card-content -->
 		</div>

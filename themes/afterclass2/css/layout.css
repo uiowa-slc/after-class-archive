@@ -1506,7 +1506,7 @@ h6 a {
 .event-card-desc .more-dates-link { color: white }
 .event-card-desc .more-dates-link:hover {
     color: #dfdfdf;
-    : ;
+  
 }
 .event-card.canceled .event-card-header { /*background-image: url(../images/canceled.png);_NO__DOTCOMMA__AFTER__*/ }
 .event-card-header {
@@ -1630,8 +1630,7 @@ a.read-more-link { color: #ADD7E2 }
     list-style-position: inside;
     padding: 0;
     margin: 0;
-    width: 155px;
-}
+    }
 .event-card-meta .dates li { /*float: left;_NO__DOTCOMMA__AFTER__*/ }
 .event-card-bottom { margin: 5px 0 }
 .event-share-container { display: none }
@@ -2219,7 +2218,7 @@ a.button:active {
     .hero-event-content a.more-event-info { display: block }
     .hero-event-when p { display: block }
     /* Homepage Events */
-    .event-card-desc { width: 70% }
+    .event-card-desc { width: 100% }
     .event-card h3 { font-size: 1.5em;}
     /*.event-card h3 {
             width: 80%;
@@ -2311,7 +2310,7 @@ a.button:active {
     #page_header p { padding-left: 5% }
     .container,
     .logos { /*width: 1100px !important*/ }
-    .event-card-desc { width: 60% }
+   /* .event-card-desc { width: 60% }*/
 }
 @media only screen and (min-width: 1400px) { 
     #page_header p { font-size: 1.4em }

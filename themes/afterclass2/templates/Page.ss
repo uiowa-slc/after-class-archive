@@ -66,7 +66,7 @@
 	<% else %>
 		<% if CategoryName %>
 			<% if Category.Information %>
-				<meta name="description" content="$Category.Information" />
+				<meta name="description" content="<% control Category %>$Information.XML<% end_control %>" />
 			<% else %>
 				<meta name="description" content="After Class is the biggest list of University of Iowa events, culture, nightlife, concerts, lectures, and more." />
 			<% end_if %>
@@ -140,7 +140,7 @@ document.createElement('hgroup');
 		<li class="first" ><a href="{$BaseHref}">Home</a></li>
 		<li class="first moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
 		<li id="news"><a href="news/">news</a></li>
-		<li><a href="near-me/" class="near-me-link">Nearby</a></li>
+		<li><a href="nearby/" class="near-me-link">Nearby</a></li>
 		<li class="today"><a href="$TodayLink">Today</a></li>
 		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
 		<li><a href="#" id="calendar-expand">Beyond</a></li>
@@ -318,17 +318,6 @@ $("#calendar-expand").click(function() {
 });
 
 </script>
-  <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'after-class'; // required: replace example with your forum shortname
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
 </body>
 </html>
