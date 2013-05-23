@@ -314,6 +314,7 @@ $("#calendar-expand").click(function() {
 	  		$("#calendar-expand").removeClass("active");
   		}
   		$(".secondary-nav").toggle("slow");
+  		return false;
   
 });
 
