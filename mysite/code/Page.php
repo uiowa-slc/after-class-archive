@@ -181,22 +181,11 @@ class Page_Controller extends ContentController {
 
 			);
 
-		
-	/*	if(Director::isDev()) {
-		
-			foreach($jsFiles as $jsFile){
-				Requirements::javascript($jsFile);	
-			}
-			foreach($cssFiles as $cssFile){
-				Requirements::css($cssFile);	
-			}			
 
-		}else{*/
-			//Combine!  
 			Requirements::combine_files("combinedCSS.css", $cssFiles);
 			Requirements::combine_files(
 				'allcombined.js',$jsFiles);
-			/* } */
+	
  	}
 	
 	public function MonthLink()
@@ -306,15 +295,21 @@ class Page_Controller extends ContentController {
 		
 		$taglines = array_filter($taglines);
 
-		$randomTagline = $taglines[array_rand($taglines)];
-
-			if($randomTagline){
-				return $randomTagline;
-			}else {
-				return "the best of UI's culture, events, and nightlife";
-				
-			}	
-	
+	if(array_rand($taglines)){
+			$randomTagline = $taglines[array_rand($taglines)];
+			}else{
+				$randomTagline ="";
 			}
+	
+				if($randomTagline){
+					return $randomTagline;
+				}else {
+					return "the best of UI's culture, events, and nightlife";
+					
+				}	
+		
+				}
+		
+
 	
 }
