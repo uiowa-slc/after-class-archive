@@ -143,7 +143,7 @@ document.createElement('hgroup');
 		<li><a href="nearby/" class="near-me-link">Nearby</a></li>
 		<li class="today"><a href="$TodayLink">Today</a></li>
 		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
-		<li><a href="{$Link}/#" id="calendar-expand">Beyond</a></li>
+		<li><a href="{$Link}#" id="calendar-expand">Beyond</a></li>
 		
 		<li><a href="{$BaseHref}subscribe/" class="subscribe-link" data-fancybox-type="iframe">Subscribe</a></li>
 		<% control Menu(1) %>
