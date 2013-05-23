@@ -105,24 +105,6 @@ document.createElement('hgroup');
 <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=347095148660849";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-
-
 <% include DivisionBar %>
 <a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
@@ -145,7 +127,7 @@ document.createElement('hgroup');
 		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
 		<li><a href="{$Link}#" id="calendar-expand">Beyond</a></li>
 		
-		<li><a href="{$BaseHref}subscribe/" class="subscribe-link" data-fancybox-type="iframe">Subscribe</a></li>
+		<li><a href="http://eepurl.com/vWmfP" class="subscribe-link" target="_blank">Subscribe</a></li>
 		<% control Menu(1) %>
 			<% if First %>
 			<% else %>
@@ -229,7 +211,7 @@ document.createElement('hgroup');
 		<ul>
 			<li><a href="{$BaseHref}events/categories">Categories</a></li>
 			<li><a href="{$BaseHref}events/sponsors">Sponsors</a></li>
-			<li><a href="{$BaseHref}events/venues">Venue</a></li>
+			<li><a href="{$BaseHref}events/venues">Venues</a></li>
 			<li><a href="{$BaseHref}events/">All Events</a></li>
 			<li><a href="{$BaseHref}add/">Submit an Event</a></li>
 			<% if FutureDeadlines %>

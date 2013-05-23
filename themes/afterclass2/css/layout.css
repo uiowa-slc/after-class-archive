@@ -988,9 +988,9 @@ h6 a {
     border: 1px solid #444
 }
 #Form_Form {
-    background-image: url(../images/dark_leather.png);
+   /* background-image: url(../images/dark_leather.png);
     padding: 20px;
-    border: 1px solid #555;
+    border: 1px solid #555;*/
     color: #ffde68;
 }
 #Form_Form label {
@@ -2217,7 +2217,7 @@ a.button:active {
     .hero-event-content a.more-event-info { display: block }
     .hero-event-when p { display: block }
     /* Homepage Events */
-    .event-card-desc { width: 100% }
+    .event-card-desc {  }
     .event-card h3 { font-size: 1.5em;}
     /*.event-card h3 {
             width: 80%;
@@ -2253,6 +2253,7 @@ a.button:active {
         /*width: 37%;*/
     }
     
+    .event-card-desc { width: 100%;  }
 
     .event-card {
         font-size: 90%;

@@ -106,7 +106,7 @@
 	</div>
 	<!-- end the-news -->	
 
-	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;border_color=%23444&amp;stream=false&amp;header=false&amp;appId=242901859120617" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100%; height:258px; background: #292929;" allowTransparency="true" class="facebook-iframe"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=370&amp;height=600&amp;show_faces=true&amp;colorscheme=dark&amp;stream=true&amp;show_border=false&amp;header=false&amp;appId=584926258188205" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:600px;" allowTransparency="true"></iframe>
 
 
 		<% if Ad1Image %>

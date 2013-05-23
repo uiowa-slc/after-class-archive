@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-	 $('#feedback-link').fancybox({
+	/* $('#feedback-link').fancybox({
 	 	padding: 0
 	 });
 	 $('.subscribe-link').fancybox({
@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 	 });
 	 $('.report-problem-link').fancybox({
 	 	padding: 0
-	 });
+	 });*/
 	 
 	 $(".secondary-nav").hide();
 	// $("#calendar-expand").inner
