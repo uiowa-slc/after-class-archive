@@ -26,7 +26,7 @@
 				 
 							</div><!-- end hero-event-text-->
 							<div class="hero-event-essential-text">						       
-				            	<p>$Cost</p>
+				            	<% if Cost %><p>$Cost</p><% end_if %>
 							    <% if CancelReason %>
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
