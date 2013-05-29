@@ -31,7 +31,7 @@ jQuery(document).ready(function ($) {
 	  		}else{	
 		  		$("#calendar-expand").removeClass("active");
 	  		}
-	  		$(".secondary-nav").toggle("slow");
+	  		$(".secondary-nav").toggle();
 	  		return false;
 	  
 	});	
