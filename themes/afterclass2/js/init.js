@@ -24,7 +24,17 @@ jQuery(document).ready(function ($) {
 	});
 	
 	$('#facebook-like-box').sticky_div();
+
+	$("#calendar-expand").click(function() {
+	  		if($(".secondary-nav").css('display') == 'none'){
+		  		$("#calendar-expand").addClass("active");
+	  		}else{	
+		  		$("#calendar-expand").removeClass("active");
+	  		}
+	  		$(".secondary-nav").toggle("slow");
+	  		return false;
+	  
+	});	
 	
-	//starInit();
 });
 

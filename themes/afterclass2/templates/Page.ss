@@ -286,21 +286,5 @@ document.createElement('hgroup');
 </script>
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
-<script type="text/javascript">
-
-
-$("#calendar-expand").click(function() {
-  		if($(".secondary-nav").css('display') == 'none'){
-	  		$("#calendar-expand").addClass("active");
-  		}else{	
-	  		$("#calendar-expand").removeClass("active");
-  		}
-  		$(".secondary-nav").toggle("slow");
-  		return false;
-  
-});
-
-</script>
-
 </body>
 </html>
