@@ -1665,7 +1665,7 @@ a.read-more-link { color: #ADD7E2 }
     font-size: 2.2em;
 }
 #the-news h3 {
-    font-size: 2.2em;
+    font-size: 1.5em;
     color: #fff5d1;
     margin: 0;
 }
@@ -1955,6 +1955,13 @@ a.button:active {
 	margin: 0 1em;
 }
 
+#facebook-like-box {
+	width: 275px;
+	overflow: scroll;
+	background-color: rgba(25,24,25,0.83);
+	
+}
+
 /* =============================================================================
    PLACEHOLDER Media Queries for Responsive Design.
    These override the primary ('mobile first') styles
@@ -2032,6 +2039,7 @@ a.button:active {
         width: 80%;
         float: left;
     }
+
     #page_header .big_header { top: 10px }
     #page_header .big_header a img { width: 50% }
     #page_header p {
@@ -2143,13 +2151,18 @@ a.button:active {
     top: 15px;
 }
 
-
+#the-news h3 {
+    font-size: 1.8em;
+}
   /* Category Pages */
     /*.category-list ul li {
             float: left;
             width: 45%;
         
         }*/
+  #facebook-like-box {
+	width: 285px;
+	}
 }
 @media only screen and (min-width: 850px) { 
  	.hero-event.homepage .hero-event-text{
@@ -2198,6 +2211,10 @@ a.button:active {
         top: 300px;
         border: 1px solid #555;
     }
+    
+	#the-news h3 {
+	    font-size: 2.2em;
+	}
     .addthis_toolbox {
     	clear: both;
         margin: 3px 0;
@@ -2234,7 +2251,9 @@ a.button:active {
 	}
 	
 	.flex-control-paging li a {width: 11px; height: 11px;}
-
+	  #facebook-like-box {
+		width: 370px;
+		}
 }
 @media only screen and (min-width: 1024px) { 
     body { font-size: 1em }
