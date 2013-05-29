@@ -134,7 +134,7 @@ class Page_Controller extends ContentController {
 			   // 'themes/afterclass2/js/jquery.min.js',
 			   // 'themes/afterclass2/js/jquery-migrate.js',
 			    'sapphire/thirdparty/jquery/jquery.js',
-			    'themes/afterclass2/js/_division-bar.js',
+			    'division-bar/js/division-bar.js',
 			   	'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',
 			    'event_calendar/javascript/jquery.date.js',
@@ -163,6 +163,7 @@ class Page_Controller extends ContentController {
 			    'themes/afterclass2/js/canvasplay/TriggerManager.js',
 			    
 			    'themes/afterclass2/js/stars.js',*/
+			    'themes/afterclass2/js/jquery.sticky-div.js',
 			    'themes/afterclass2/js/fancybox/jquery.fancybox.pack.js',
 			    'themes/afterclass2/js/flexslider/jquery.flexslider-min.js',
 			    'themes/afterclass2/js/mailchimp.js',

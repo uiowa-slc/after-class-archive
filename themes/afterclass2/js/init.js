@@ -21,9 +21,9 @@ jQuery(document).ready(function ($) {
     animation: "slide",
     controlNav: true,  
     directionNav: false,   
-	
-	
 	});
+	
+	$('#facebook-like-box').sticky_div();
 	
 	//starInit();
 });
