@@ -1956,7 +1956,7 @@ a.button:active {
 }
 
 #facebook-like-box {
-	width: 270px;
+	width: 292px;
 	overflow: hidden;
 	background-color: rgba(25,24,25,0.83);
 	
@@ -2161,7 +2161,7 @@ a.button:active {
         
         }*/
   #facebook-like-box {
-	width: 285px;
+	width: 292px;
 	}
 }
 @media only screen and (min-width: 850px) { 

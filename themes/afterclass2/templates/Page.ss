@@ -109,7 +109,7 @@ document.createElement('hgroup');
 <a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>
 <header id="page_header">
 	<div class="container" id="canvas-container">
-		<canvas id="canvas"></canvas>
+		<!--<canvas id="canvas"></canvas>-->
 		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
 	    <p class="subheader">$RandomTagline</p>
 	</div>
