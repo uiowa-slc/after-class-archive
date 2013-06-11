@@ -1784,6 +1784,17 @@ a.read-more-link { color: #ADD7E2 }
     padding: 5px;
     margin-top: -20px;
 }
+
+.connect{
+	float:left;
+	width:33%;
+}
+
+.connect .fb{
+	clear: both;
+	margin: 15px 0 15px 0;
+}
+
 #by-day h2 { text-align: center }
 .day {
     background: #161616;

@@ -194,140 +194,187 @@ document.createElement('hgroup');
 <div>
 $Content
 
+<div style="float:left;">
+<h2>Connect to Facebook</h2>
+</div>
+
+<div style="float:right;margin-right:200px;">
+<h2>Connect to Twitter</h2>
+</div>
+
+<div class="clearfix"></div>
+
 <div class="connect">
 <% if FB1 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB1&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB2 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB2&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB3 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB3&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB4 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB4&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB5 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB5&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
-<% end_if %>
-
-<% if FB6 %>
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB6&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 </div>
 
 <div class="connect">
+
+<% if FB6 %>
+<div class="fb">
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB6&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
+<% end_if %>
+
 <% if FB7 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB7&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB8 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB8&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB9 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB9&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB10 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB10&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB11 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB11&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 
 <% if FB12 %>
+<div class="fb">
 <iframe src="//www.facebook.com/plugins/likebox.php?href=$FB12&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+</div>
 <% end_if %>
 </div>
 
 <div class="connect">
 <% if Twitter1 %>
-
+<p>
 <a href="https://twitter.com/$Twitter1" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter1</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter2 %>
-
+<p>
 <a href="https://twitter.com/$Twitter2" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter2</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter3 %>
-
+<p>
 <a href="https://twitter.com/$Twitter3" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter3</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter4 %>
-
+<p>
 <a href="https://twitter.com/$Twitter4" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter4</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter5 %>
-
+<p>
 <a href="https://twitter.com/$Twitter5" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter5</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter6 %>
-
+<p>
 <a href="https://twitter.com/$Twitter6" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter6</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter7 %>
-
+<p>
 <a href="https://twitter.com/$Twitter7" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter7</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter8 %>
-
+<p>
 <a href="https://twitter.com/$Twitter8" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter8</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter9 %>
-
+<p>
 <a href="https://twitter.com/$Twitter9" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter9</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter10 %>
-
+<p>
 <a href="https://twitter.com/$Twitter10" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter10</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter11 %>
-
+<p>
 <a href="https://twitter.com/$Twitter11" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter11</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 
 
 <% if Twitter12 %>
-
+<p>
 <a href="https://twitter.com/$Twitter12" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter12</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
 <% end_if %>
 </div>
 
