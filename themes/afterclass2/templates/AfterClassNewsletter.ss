@@ -115,16 +115,21 @@ h1, a {
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 20px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<% if Image %>
 		<td width="150" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink"><img border="0" src="$Image.SmallImage.AbsoluteURL" alt="Event Image"></a>
 		</div>
 		</td>
-		<td width="400" valign="top">
+		<% end_if %>
+		<td align="top">
+		<% if Location %>
 			<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
+								<% end_if %>
+								<% if DateAndTime %>
 								<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold">When:</span>
 									<% control DateAndTime %> 
@@ -135,6 +140,7 @@ h1, a {
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
+	    						<% end_if %>
 	    						<br />
 								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
@@ -155,16 +161,21 @@ h1, a {
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 20px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<% if Image %>
 		<td width="150" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink"><img border="0" src="$Image.SmallImage.AbsoluteURL" alt="Event Image"></a>
 		</div>
 		</td>
-		<td width="400" valign="top">
+		<% end_if %>
+		<td align="top">
+		<% if Location %>
 			<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
+								<% end_if %>
+								<% if DateAndTime %>
 								<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold">When:</span>
 									<% control DateAndTime %> 
@@ -175,6 +186,7 @@ h1, a {
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
+	    						<% end_if %>
 	    						<br />
 								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
@@ -195,16 +207,21 @@ h1, a {
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 20px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<% if Image %>
 		<td width="150" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink"><img border="0" src="$Image.SmallImage.AbsoluteURL" alt="Event Image"></a>
 		</div>
 		</td>
-		<td width="400" valign="top">
+		<% end_if %>
+		<td align="top">
+		<% if Location %>
 			<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
+								<% end_if %>
+								<% if DateAndTime %>
 								<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold">When:</span>
 									<% control DateAndTime %> 
@@ -215,6 +232,7 @@ h1, a {
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
+	    						<% end_if %>
 	    						<br />
 								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
@@ -235,16 +253,21 @@ h1, a {
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 20px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<% if Image %>
 		<td width="150" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink"><img border="0" src="$Image.SmallImage.AbsoluteURL" alt="Event Image"></a>
 		</div>
 		</td>
-		<td width="400" valign="top">
+		<% end_if %>
+		<td align="top">
+		<% if Location %>
 			<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
+								<% end_if %>
+								<% if DateAndTime %>
 								<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold">When:</span>
 									<% control DateAndTime %> 
@@ -255,6 +278,7 @@ h1, a {
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
+	    						<% end_if %>
 	    						<br />
 								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
@@ -275,16 +299,21 @@ h1, a {
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 20px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<% if Image %>
 		<td width="150" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink"><img border="0" src="$Image.SmallImage.AbsoluteURL" alt="Event Image"></a>
 		</div>
 		</td>
-		<td width="400" valign="top">
+		<% end_if %>
+		<td align="top">
+		<% if Location %>
 			<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
+								<% end_if %>
+								<% if DateAndTime %>
 								<div style="padding:0; margin:0; color: #000;">
 									<span style="font-size: 20px; color:#2791a7; font-weight: bold">When:</span>
 									<% control DateAndTime %> 
@@ -295,6 +324,7 @@ h1, a {
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
+	    						<% end_if %>
 	    						<br />
 								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
