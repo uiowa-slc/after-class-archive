@@ -119,7 +119,7 @@ h1, a {
 	<% control Event1 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 12px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -168,7 +168,7 @@ h1, a {
 	<% control Event2 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 12px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -217,7 +217,7 @@ h1, a {
 	<% control Event3 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 12px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -266,7 +266,7 @@ h1, a {
 	<% control Event4 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 12px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -315,7 +315,7 @@ h1, a {
 	<% control Event5 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0; margin:20px 0 0 12px; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -364,7 +364,7 @@ h1, a {
 	</td></tr>
 </table>
 <!-- Blog Post Info -->
-<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600">
+<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;">
 <table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
 				<tr>
 			<% if Image %>
