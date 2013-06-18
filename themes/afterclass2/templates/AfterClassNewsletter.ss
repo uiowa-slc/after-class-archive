@@ -79,7 +79,7 @@ h1, a {
 								</div>
 								<div style="padding:0; margin:0; color: #000; font-size:16px;">
 									<span style="font-size: 16px; color:#2791a7; font-weight: bold">When:</span>
-									<% control DateAndTime %> 
+									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
