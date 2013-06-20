@@ -411,7 +411,21 @@ h1, a {
 	</tbody>
 </table>
 <!-- close pseudo body table -->
+<!-- Bookstore Advertisement -->
 
+<% if BookstoreImage %>
+<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555;" width="600">
+	<tr><td>
+		<a href="$BookstoreImageLink">
+			<% control BookstoreImage %>
+			  <% control CroppedImage(590,200) %>
+				<img src="$AbsoluteURL" alt="Ad" border="0" alt="University Book Store">
+			  <% end_control %>
+			<% end_control %>
+		</a>
+	</td></tr>
+</table>
+<% end_if %>
 <!-- DSL -->
 <table style="width:100%;" bgcolor="#1d1d1f">
 <tr>
