@@ -60,8 +60,6 @@ h1, a {
 <% control FeaturedEvent %>
 						<tr width="598"  style="border-style: solid;">
 							<td width="600" colspan="2" style="padding: 0px; margin:0px;">
-								
-								<h1 style="padding: 5px 5px 15px 15px; margin:0px; color:#2791a7; font-weight: bold; font-size:34px; ">$Title</h1>
 								<center>
 								<a href="$AbsoluteLink">
 								<% control Image %>
@@ -71,14 +69,16 @@ h1, a {
 								<% end_control %>
 								</a>
 								</center>
+								
+								<h1 style="padding: 5px 5px 15px 15px; margin:0px; color:#2791a7; font-weight: bold; font-size:34px; ">$Title</h1>
 								<table cellpadding="10"><tr><td>
 								<table><tr><td width="600">
-								<div style="padding:0; margin:0 0 10px 0; color: #000; font-size:16px;">
-									<span style="font-size: 16px; color:#2791a7; font-weight: bold;">Where:</span>
+								<div style="padding:0; margin:0 0 10px 0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
-								<div style="padding:0; margin:0; color: #000; font-size:16px;">
-									<span style="font-size: 16px; color:#2791a7; font-weight: bold">When:</span>
+								<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -89,7 +89,7 @@ h1, a {
 	    						</div>
 	    						</td><td valign="top">
 									</td></tr></table><br />
-								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(30)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(30)</div>
 								</td></tr></table>
 							</td>
 						</tr>
@@ -119,7 +119,7 @@ h1, a {
 	<% control Event1 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -132,14 +132,14 @@ h1, a {
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold;">Where:</span>
+			<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold">When:</span>
+								<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -150,7 +150,7 @@ h1, a {
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -168,7 +168,7 @@ h1, a {
 	<% control Event2 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -181,14 +181,14 @@ h1, a {
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold;">Where:</span>
+			<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold">When:</span>
+								<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -199,7 +199,7 @@ h1, a {
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -217,7 +217,7 @@ h1, a {
 	<% control Event3 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -230,14 +230,14 @@ h1, a {
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold;">Where:</span>
+			<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold">When:</span>
+								<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -248,7 +248,7 @@ h1, a {
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -266,7 +266,7 @@ h1, a {
 	<% control Event4 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -279,14 +279,14 @@ h1, a {
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold;">Where:</span>
+			<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold">When:</span>
+								<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -297,7 +297,7 @@ h1, a {
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -315,7 +315,7 @@ h1, a {
 	<% control Event5 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
-		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:24px; text-decoration: none;">$Title</a></h1>
+		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
 		<% if Image %>
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
@@ -328,14 +328,14 @@ h1, a {
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold;">Where:</span>
+			<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #000; font-size:14px;">
-									<span style="font-size: 17px; color:#2791a7; font-weight: bold">When:</span>
+								<div style="padding:0; margin:0; color: #000; font-size:18px;">
+									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
 		    							<span style="color: #000;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -346,7 +346,7 @@ h1, a {
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:20px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #000 !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -411,15 +411,39 @@ h1, a {
 	</tbody>
 </table>
 <!-- close pseudo body table -->
+
+<!-- About After Class -->
+<img src="http://afterclass.uiowa.edu/assets/newsletter/aboutus.png" width="600" style="margin-bottom:10px;">
+<table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
+	<tr>
+		<td width="305" valign="top">
+			<div style="padding: 0px 10px 10px 10px;">
+			<h2 style="color:#2791a7 !important; font-size: 30px; margin:0; padding:0;">About After Class</h2>
+			<p style="font-weight: normal; font-size: 15px; padding:0; margin:10px 0 10px 0;">After Class is a Division of Student Life initiative meant to bring you great opportunities to be entertained, get involved, and enjoy student life at Iowa.</p>
+			<h4 style="text-align: center; padding: 5px 0px 0px 0px; margin:0px; color: #FFD520 !important;">
+				<a href="http://afterclass.uiowa.edu/" style="text-decoration: none; background-color: #2791AE; color: #fff; display: block; width: 180px; height: 29px; padding: 7px 0px 0px 0px; border-radius:10px;">visit the site</a>
+			</h4>
+			</div>
+		</td>
+		<td valign="top">
+			<h2 style="color: #2791a7 !important; font-size: 30px; margin:0; padding:0">List Your Event</h2>
+			<p style="font-weight: normal; font-size: 15px; padding:0; margin:10px 0 10px 0;">Promote your events on After Class to a student audience! Submit your information at the website today.</p>
+			
+			<h4 style="text-align: center; padding: 5px 0px 0px 0px; margin:0px;">
+				<a href="http://afterclass.uiowa.edu/add" style="text-decoration: none; background-color: #2791AE; color: #fff; display: block; width: 180px; height: 29px; padding: 7px 0px 0px 0px; border-radius:10px;">add your event</a>
+			</h4>
+		</td>
+		</tr>
+</table>
 <!-- Bookstore Advertisement -->
 
 <% if BookstoreImage %>
-<table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555;" width="600">
+<table style="margin: 20px 0px 30px 0px;" width="600">
 	<tr><td>
 		<a href="$BookstoreImageLink">
 			<% control BookstoreImage %>
 			  <% control CroppedImage(590,200) %>
-				<img src="$AbsoluteURL" alt="Ad" border="0" alt="University Book Store">
+				<img src="$AbsoluteURL" alt="Ad" border="1px" alt="University Book Store">
 			  <% end_control %>
 			<% end_control %>
 		</a>
