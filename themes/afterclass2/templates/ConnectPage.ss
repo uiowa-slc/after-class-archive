@@ -207,31 +207,31 @@ $Content
 <div class="connect">
 <% if FB1 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB1&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB1&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB2 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB2&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB2&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB3 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB3&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB3&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB4 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB4&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB4&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB5 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB5&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB5&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 </div>
@@ -240,43 +240,43 @@ $Content
 
 <% if FB6 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB6&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB6&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB7 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB7&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB7&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB8 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB8&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB8&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB9 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB9&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB9&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB10 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB10&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB10&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB11 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB11&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB11&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 
 <% if FB12 %>
 <div class="fb">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB12&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=$FB12&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="height:260px;"></iframe>
 </div>
 <% end_if %>
 </div>
