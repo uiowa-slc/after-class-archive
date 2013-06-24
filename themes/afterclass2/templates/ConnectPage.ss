@@ -195,11 +195,11 @@ document.createElement('hgroup');
 $Content
 
 <div style="float:left;">
-<h2>Connect to Facebook</h2>
+<h2>Connect via Facebook</h2>
 </div>
 
 <div style="float:right;margin-right:200px;">
-<h2>Connect to Twitter</h2>
+<h2>Connect via Twitter</h2>
 </div>
 
 <div class="clearfix"></div>
@@ -283,6 +283,7 @@ $Content
 
 <div class="connect">
 <% if Twitter1 %>
+<h3>$TwitterTitle1</h3>
 <p>
 <a href="https://twitter.com/$Twitter1" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter1</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -291,6 +292,7 @@ $Content
 
 
 <% if Twitter2 %>
+<h3>$TwitterTitle2</h3>
 <p>
 <a href="https://twitter.com/$Twitter2" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter2</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -299,6 +301,7 @@ $Content
 
 
 <% if Twitter3 %>
+<h3>$TwitterTitle3</h3>
 <p>
 <a href="https://twitter.com/$Twitter3" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter3</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -307,6 +310,7 @@ $Content
 
 
 <% if Twitter4 %>
+<h3>$TwitterTitle4</h3>
 <p>
 <a href="https://twitter.com/$Twitter4" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter4</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -315,6 +319,7 @@ $Content
 
 
 <% if Twitter5 %>
+<h3>$TwitterTitle5</h3>
 <p>
 <a href="https://twitter.com/$Twitter5" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter5</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -323,6 +328,7 @@ $Content
 
 
 <% if Twitter6 %>
+<h3>$TwitterTitle6</h3>
 <p>
 <a href="https://twitter.com/$Twitter6" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter6</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -331,6 +337,7 @@ $Content
 
 
 <% if Twitter7 %>
+<h3>$TwitterTitle7</h3>
 <p>
 <a href="https://twitter.com/$Twitter7" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter7</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -339,6 +346,7 @@ $Content
 
 
 <% if Twitter8 %>
+<h3>$TwitterTitle8</h3>
 <p>
 <a href="https://twitter.com/$Twitter8" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter8</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -347,6 +355,7 @@ $Content
 
 
 <% if Twitter9 %>
+<h3>$TwitterTitle9</h3>
 <p>
 <a href="https://twitter.com/$Twitter9" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter9</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -355,6 +364,7 @@ $Content
 
 
 <% if Twitter10 %>
+<h3>$TwitterTitle10</h3>
 <p>
 <a href="https://twitter.com/$Twitter10" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter10</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -363,6 +373,7 @@ $Content
 
 
 <% if Twitter11 %>
+<h3>$TwitterTitle11</h3>
 <p>
 <a href="https://twitter.com/$Twitter11" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter11</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -371,6 +382,7 @@ $Content
 
 
 <% if Twitter12 %>
+<h3>$TwitterTitle12</h3>
 <p>
 <a href="https://twitter.com/$Twitter12" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @$Twitter12</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

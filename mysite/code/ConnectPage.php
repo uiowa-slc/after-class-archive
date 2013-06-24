@@ -24,7 +24,19 @@ class ConnectPage extends Page {
 		'Twitter9' => 'Text',
 		'Twitter10' => 'Text',
 		'Twitter11' => 'Text',
-		'Twitter12' => 'Text'
+		'Twitter12' => 'Text',
+		'TwitterTitle1' => 'Text',
+		'TwitterTitle2' => 'Text',
+		'TwitterTitle3' => 'Text',
+		'TwitterTitle4' => 'Text',
+		'TwitterTitle5' => 'Text',
+		'TwitterTitle6' => 'Text',
+		'TwitterTitle7' => 'Text',
+		'TwitterTitle8' => 'Text',
+		'TwitterTitle9' => 'Text',
+		'TwitterTitle10' => 'Text',
+		'TwitterTitle11' => 'Text',
+		'TwitterTitle12' => 'Text'
 	);
 	public static $has_one = array(
 	);
@@ -44,17 +56,29 @@ class ConnectPage extends Page {
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'FB10', 'Facebook' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'FB11', 'Facebook' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'FB12', 'Facebook' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle1', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter1', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle2', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter2', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle3', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter3', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle4', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter4', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle5', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter5', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle6', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter6', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle7', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter7', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle8', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter8', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle9', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter9', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle10', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter10', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle11', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter11', 'Twitter' ) );
+		$fields->addFieldToTab('Root.Content.Main', new TextField( 'TwitterTitle12', 'Twitter Title' ) );
 		$fields->addFieldToTab('Root.Content.Main', new TextField( 'Twitter12', 'Twitter' ) );
 		
 		return $fields;
