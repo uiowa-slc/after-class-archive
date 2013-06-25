@@ -12,8 +12,21 @@ html,body,td {
   font-family: arial,helvetica,sans-serif;
   font-size: 20px;
 }
-h1, a {
+h1, h2, h3, h4, a {
 	color:#2791a7;
+	font-weight: bold;
+}
+h1 {
+	font-size: 30px;
+}
+h2{
+	font-size: 24px;
+}
+h3{
+	font-size:20px;
+}
+h4{
+	font-size: 17px;
 }
 </style>
 <body bgcolor="#fff" style="font-family: 'Helvetica Neue', arial, helvetica, sans-serif; color: white; padding: 0; margin:0;">
@@ -364,6 +377,7 @@ h1, a {
 	</td></tr>
 </table>
 <!-- Blog Post Info -->
+<% if BlogTitle %>
 <img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;">
 <table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
 				<tr>
@@ -389,6 +403,7 @@ h1, a {
 		</td>
 		</tr>
 </table>
+<% end_if %>
 
 <!-- happening next/aboutsection ends-->
 <!-- content ends -->
