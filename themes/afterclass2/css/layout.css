@@ -1785,16 +1785,6 @@ a.read-more-link { color: #ADD7E2 }
     margin-top: -20px;
 }
 
-.connect{
-	float:left;
-	width:33%;
-}
-
-.connect .fb{
-	clear: both;
-	margin: 15px 0 15px 0;
-}
-
 #by-day h2 { text-align: center }
 .day {
     background: #161616;
@@ -2015,6 +2005,8 @@ a.button:active {
 	.hero-event.homepage .hero-event-text{
 		display: none;
 	}
+	
+
 }
 @media only screen and (min-width: 594px) { 
 
@@ -2033,6 +2025,16 @@ a.button:active {
 }
 }
 @media only screen and (min-width: 768px) { 
+
+.connect{
+	float:left;
+	width:100%;
+	clear: both;
+}
+
+.twitter{
+	margin-top: 0;
+}
 
 
     .small-screen { display: none }
@@ -2176,6 +2178,19 @@ a.button:active {
 	}
 }
 @media only screen and (min-width: 850px) { 
+
+.connect{
+	float:left;
+	width:28%;
+	clear: none;
+	overflow: hidden;
+	padding: 0 15px 0 15px;
+}
+
+.connect .fb{
+	clear: both;
+	margin: 15px 0 15px 0;
+}
  	.hero-event.homepage .hero-event-text{
 		display: block;
 	}   
