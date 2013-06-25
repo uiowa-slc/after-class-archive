@@ -2032,6 +2032,10 @@ a.button:active {
 	clear: both;
 }
 
+.col2{
+	margin-top: 0;
+}
+
 .twitter{
 	margin-top: 0;
 }
@@ -2185,6 +2189,10 @@ a.button:active {
 	clear: none;
 	overflow: hidden;
 	padding: 0 15px 0 15px;
+}
+
+.col2{
+	margin-top: 65px;
 }
 
 .connect .fb{
