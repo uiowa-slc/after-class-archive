@@ -12,15 +12,22 @@ html,body,td {
   font-family: helvetica, arial,sans-serif;
   font-size: 20px;
 }
-h1, h2, h3, h4, a {
-	color:#2791a7;
+a{
+	color: #1598ce;
+}
+h3, h4{
+	color:#08707E;
 	font-weight: bold;
 }
 h1 {
-	font-size: 30px;
+	color: #30c1ce;
+	font-size: 36px;
 }
 h2{
-	font-size: 24px;
+	color: #1a99b3;
+	font-size: 28px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 2px;
 }
 h3{
 	font-size:20px;
@@ -31,9 +38,13 @@ h4{
 ul li{
 	list-style-type: square;
 }
+ul {
+	margin: 0;
+	padding: 0 10px;
+}
 </style>
 <body bgcolor="#fff" style="font-family: 'Helvetica Neue', helvetica, arial, sans-serif; color: white; padding: 0; margin:0;">
-<div id="thebody" style="font-family: 'Helvetica Neue',helvetica, arial, sans-serif; color: #6F6E6E; background: #fff url(http://afterclass.uiowa.edu/assets/newsletter/paper.png);">
+<div id="thebody" style="font-family: 'Helvetica Neue',helvetica, arial, sans-serif; color: #3d3d3d; background: #fff url(http://afterclass.uiowa.edu/assets/newsletter/paper.png);">
 <center>
 
 <table cellpadding="0" cellspacing="0" style="text-align:center;" width="100%" bgcolor="#1d1d1f">
@@ -89,23 +100,23 @@ ul li{
 								<h1 style="padding: 5px 5px 15px 15px; margin:0px; color:#2791a7; font-weight: bold; font-size:34px; ">$Title</h1>
 								<table cellpadding="10"><tr><td>
 								<table><tr><td width="600">
-								<div style="padding:0; margin:0 0 10px 0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0 0 10px 0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
-								<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
-		    							<span style="color: #6F6E6E;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
-		    			 					<span style="color: #6F6E6E;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
 	    						</td><td valign="top">
 									</td></tr></table><br />
-								<div style="font-size:18px;padding:0; margin:0; color: #6F6E6E !important;">$Content.LimitWordCount(30)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #3d3d3d !important;">$Content.LimitWordCount(30)</div>
 								</td></tr></table>
 							</td>
 						</tr>
@@ -113,7 +124,7 @@ ul li{
 						</tbody>						
 					</table>
 					
-									<a href="$AbsoluteLink" style="text-decoration:none; padding:0; margin:10px 0px 0px 0px; color: #6F6E6E !important;">
+									<a href="$AbsoluteLink" style="text-decoration:none; padding:0; margin:10px 0px 0px 0px; color: #3d3d3d !important;">
 									<table>
 									<tr>
 									<td width="590px">
@@ -148,25 +159,25 @@ ul li{
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
-		    							<span style="color: #6F6E6E;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
-		    			 					<span style="color: #6F6E6E;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:18px;padding:0; margin:0; color: #6F6E6E !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #3d3d3d !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -197,25 +208,25 @@ ul li{
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
-		    							<span style="color: #6F6E6E;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
-		    			 					<span style="color: #6F6E6E;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:18px;padding:0; margin:0; color: #6F6E6E !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #3d3d3d !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -246,25 +257,25 @@ ul li{
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
-		    							<span style="color: #6F6E6E;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
-		    			 					<span style="color: #6F6E6E;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:18px;padding:0; margin:0; color: #6F6E6E !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #3d3d3d !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -295,25 +306,25 @@ ul li{
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
-		    							<span style="color: #6F6E6E;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
-		    			 					<span style="color: #6F6E6E;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:18px;padding:0; margin:0; color: #6F6E6E !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #3d3d3d !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -344,25 +355,25 @@ ul li{
 		<% end_if %>
 		<td align="top">
 		<% if Location %>
-			<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
 									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
-								<div style="padding:0; margin:0; color: #6F6E6E; font-size:18px;">
+								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
 									<% control UpcomingDates %> 
-		    							<span style="color: #6F6E6E;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
+		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
-		    			 					<span style="color: #6F6E6E;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
+		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
 	    							<% end_control %>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
-								<div style="font-size:18px;padding:0; margin:0; color: #6F6E6E !important;">$Content.LimitWordCount(17)</div>
+								<div style="font-size:18px;padding:0; margin:0; color: #3d3d3d !important;">$Content.LimitWordCount(17)</div>
 		</td></tr>
 		</table>
 									<table>
@@ -400,7 +411,7 @@ ul li{
         		<td valign="top">
 			<div style="padding: 0px 10px 0px 10px;">
 			</a>
-			<div style="font-size: 20px; line-height: 20px; color: #6F6E6E;">$BlogIntro</div>
+			<div style="font-size: 20px; line-height: 20px; color: #3d3d3d;">$BlogIntro</div>
 			<div style=""><a href="$BlogLink" style="display:block;margin: 10px 0px 10px 0px; color: #2791a7; font-weight:bold;">Read more on our blog...</a></div>
 			</div>
 		</td>
