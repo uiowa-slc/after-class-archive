@@ -200,7 +200,7 @@ $Content
 <div class="connect">
 <h2>Connect via Facebook</h2>
 
-<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fuiowa.imu&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="float:left;"></iframe>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fuistudentlife&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" frameborder="0" scrolling="no" style="float:left;"></iframe>
 
 <div class="clearfix"></div>
 <% if FB1 %>
