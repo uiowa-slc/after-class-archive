@@ -58,14 +58,14 @@
 					    			</div>
 					    	<% end_if %>
 
-					    	
 							
 								<div class="hero-event-specifics">
 	
 									
 									<div class="hero-event-where">
 								
-										<p>
+										<p><% if Location %>{$Location}, <br /><% end_if %>
+										
 										<% control Venues %>
 											<p class="venues">
 											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
@@ -118,6 +118,18 @@
 							<a class="addthis_counter addthis_bubble_style"></a>
 							</div>
 							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
+						
+					    	<% if AllCategories %>
+					    		<div class="categories">
+				    				<h2>Tagged as:</h2>
+				    					<p>
+						    			<% control AllCategories %>
+						    			<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %>
+						    			<% end_control %></p>
+					    			</p>
+					    			</div>
+					    	
+					    	<% end_if %>
 				</div>
 				<div class="clear"></div>
 				<hr />
