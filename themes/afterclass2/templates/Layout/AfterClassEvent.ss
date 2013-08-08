@@ -64,8 +64,7 @@
 									
 									<div class="hero-event-where">
 								
-										<p><% if Location %>{$Location}, <br /><% end_if %>
-										
+										<p>
 										<% control Venues %>
 											<p class="venues">
 											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
@@ -138,10 +137,11 @@
 				<div class="span6">
 				<% if Venues %>
 							<h2>Location</h2>
+							
 							<div id="detail_event_description_map">
-					
+								<p><% if Location %>{$Location} <br /><% end_if %>
 							<% control Venues %>
-								<p>$Title <a href="$Link">view more events here &raquo;</a></p>
+								$Title <a href="$Link">view more events here &raquo;</a></p>
 								 
 								<p>
 								<% if WebsiteURL %><a class="button" href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %>
