@@ -419,6 +419,103 @@ ul {
 </table>
 <% end_if %>
 
+<% if BlogTitle2 %>
+<!--<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;"> --->
+<table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
+				<tr>
+			
+				<h1 style="margin: 10px 0px 15px 10px; font-size:34px;"><a href="$BlogLink2" style="color: #2791a7; padding-bottom: 3px; text-decoration: none;">$BlogTitle2</a></h1>
+				</tr>
+	<tr>
+        		<td valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			</a>
+			<div style="font-size: 20px; line-height: 20px; color: #3d3d3d;">$BlogIntro2</div>
+			<div style=""><a href="$BlogLink2" style="display:block;margin: 10px 0px 10px 0px; color: #2791a7; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+<% end_if %>
+
+<% if BlogTitle3 %>
+<!--<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;"> --->
+<table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
+				<tr>
+			
+				<h1 style="margin: 10px 0px 15px 10px; font-size:34px;"><a href="$BlogLink3" style="color: #2791a7; padding-bottom: 3px; text-decoration: none;">$BlogTitle3</a></h1>
+				</tr>
+	<tr>
+        		<td valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			</a>
+			<div style="font-size: 20px; line-height: 20px; color: #3d3d3d;">$BlogIntro3</div>
+			<div style=""><a href="$BlogLink3" style="display:block;margin: 10px 0px 10px 0px; color: #2791a7; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+<% end_if %>
+
+<% if BlogTitle4 %>
+<!--<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;"> --->
+<table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
+				<tr>
+			
+				<h1 style="margin: 10px 0px 15px 10px; font-size:34px;"><a href="$BlogLink4" style="color: #2791a7; padding-bottom: 3px; text-decoration: none;">$BlogTitle4</a></h1>
+				</tr>
+	<tr>
+        		<td valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			</a>
+			<div style="font-size: 20px; line-height: 20px; color: #3d3d3d;">$BlogIntro4</div>
+			<div style=""><a href="$BlogLink" style="display:block;margin: 10px 0px 10px 0px; color: #2791a7; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+<% end_if %>
+
+<% if BlogTitle5 %>
+<!--<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;"> --->
+<table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
+				<tr>
+			
+			
+				<h1 style="margin: 10px 0px 15px 10px; font-size:34px;"><a href="$BlogLink5" style="color: #2791a7; padding-bottom: 3px; text-decoration: none;">$BlogTitle5</a></h1>
+				</tr>
+	<tr>
+        		<td valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			</a>
+			<div style="font-size: 20px; line-height: 20px; color: #3d3d3d;">$BlogIntro5</div>
+			<div style=""><a href="$BlogLink5" style="display:block;margin: 10px 0px 10px 0px; color: #2791a7; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+<% end_if %>
+
+<% if BlogTitle6 %>
+<!--<img src="http://afterclass.uiowa.edu/assets/newsletter/fromtheblog.png" width="600" style="margin-bottom:10px;"> --->
+<table style="margin: 10px 0px 10px 0px; text-align: left;" width="600">
+				<tr>
+		
+			
+				<h1 style="margin: 10px 0px 15px 10px; font-size:34px;"><a href="$BlogLink6" style="color: #2791a7; padding-bottom: 3px; text-decoration: none;">$BlogTitle6</a></h1>
+				</tr>
+	<tr>
+        		<td valign="top">
+			<div style="padding: 0px 10px 0px 10px;">
+			</a>
+			<div style="font-size: 20px; line-height: 20px; color: #3d3d3d;">$BlogIntro6</div>
+			<div style=""><a href="$BlogLink6" style="display:block;margin: 10px 0px 10px 0px; color: #2791a7; font-weight:bold;">Read more on our blog...</a></div>
+			</div>
+		</td>
+		</tr>
+</table>
+<% end_if %>
+
 <!-- happening next/aboutsection ends-->
 <!-- content ends -->
 

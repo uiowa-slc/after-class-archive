@@ -7,9 +7,32 @@ class AfterClassNewsletter extends Page {
 		'IntroText' => 'HTMLText',
 		'ImageHeading' => 'Text',
 		'ImageLink' => 'Text',
+		
 		'BlogTitle' => 'Text',
 		'BlogIntro' => 'Text',
 		'BlogLink' => 'Text',
+		
+		'BlogTitle2' => 'Text',
+		'BlogIntro2' => 'Text',
+		'BlogLink2' => 'Text',
+		
+		'BlogTitle3' => 'Text',
+		'BlogIntro3' => 'Text',
+		'BlogLink3' => 'Text',
+		
+		'BlogTitle4' => 'Text',
+		'BlogIntro4' => 'Text',
+		'BlogLink4' => 'Text',
+		
+		'BlogTitle5' => 'Text',
+		'BlogIntro5' => 'Text',
+		'BlogLink5' => 'Text',
+		
+		'BlogTitle6' => 'Text',
+		'BlogIntro6' => 'Text',
+		'BlogLink6' => 'Text',
+		
+		
 		'BookstoreImageLink' => 'Text'
 	);
 	static $has_one = array(
@@ -32,9 +55,31 @@ class AfterClassNewsletter extends Page {
 		$fields->addFieldToTab('Root.Content.Main', new ImageField('Image','Flickr or Youtube Image 250 x 187'));
 		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
 		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageLink','Flickr or Youtube link.') );
-		$fields->addFieldToTab('Root.Content.Main',new TextField('BlogTitle','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.Main',new TextField('BlogIntro','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.Main',new TextField('BlogLink','Link to the blog post.') );
+		
+		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogTitle','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogIntro','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogLink','Link to the blog post.') );
+		
+		$fields->addFieldToTab('Root.Content.BlogPost2',new TextField('BlogTitle2','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost2',new TextField('BlogIntro2','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost2',new TextField('BlogLink2','Link to the blog post.') );
+		
+		$fields->addFieldToTab('Root.Content.BlogPost3',new TextField('BlogTitle3','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost3',new TextField('BlogIntro3','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost3',new TextField('BlogLink3','Link to the blog post.') );
+		
+		$fields->addFieldToTab('Root.Content.BlogPost4',new TextField('BlogTitle4','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost4',new TextField('BlogIntro4','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost4',new TextField('BlogLink4','Link to the blog post.') );
+		
+		$fields->addFieldToTab('Root.Content.BlogPost5',new TextField('BlogTitle5','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost5',new TextField('BlogIntro5','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost5',new TextField('BlogLink5','Link to the blog post.') );
+		
+		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogTitle6','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogIntro6','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogLink6','Link to the blog post.') );
+		
 		$fields->addFieldToTab('Root.Content.Ad', new ImageField('BookstoreImage','Bookstore ad Image 590 x 200'));
 		$fields->addFieldToTab('Root.Content.Ad',new TextField('BookstoreImageLink','Bookstore ad link (with associatedid!!)') );
 		
