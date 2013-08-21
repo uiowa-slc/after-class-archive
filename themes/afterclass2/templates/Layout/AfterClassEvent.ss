@@ -36,15 +36,18 @@
 							</div><!-- end hero-event-text-->
 							<div class="hero-event-when">
 					    		<h2>Date(s)</h2>
-											<% control DateAndTime %>
-										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
-											<% if EndDate %>
-											until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
-											<% end_if %>
-											<% if StartTime %>
-											at $StartTime.Nice
-											<% end_if %>
-										</p>
+										<% control DateAndTime %>
+											<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+												<% end_if %>
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
+												<% if EndTime %>
+												until $EndTime.Nice
+												<% end_if %>
+											</p>
 										<% end_control %>
 								
 							</div><!-- end hero-event-when -->

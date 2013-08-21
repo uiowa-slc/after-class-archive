@@ -1,20 +1,13 @@
-
-
 <% if FeaturedEvents %>
 	<div class="flexslider">
 		<div class="slides">
-			
 			<% control FeaturedEvents %>
 				<div class="slide">
-	
 					<% include HeroEvent %>	
-			
 				</div>
 			<% end_control %><!-- end control FeaturedEvents.First -->
-			
 		</div>
 	</div>
-		
 		<% else %>
 			<% control AllEvents.First %>
 				<% control Event %>
@@ -24,7 +17,7 @@
 					<% end_if %><!-- end if cancelreason -->
 				<% end_control %>
 			<% end_control %>
-	<% end_if %> <!-- end if featured events -->
+		<% end_if %> <!-- end if featured events -->
 
 <div class="row">
 <div id="left-column" class="span7">
