@@ -31,7 +31,10 @@ class AfterClassNewsletter extends Page {
 		'BlogTitle6' => 'Text',
 		'BlogIntro6' => 'Text',
 		'BlogLink6' => 'Text',
-		
+
+		'BlogTitle7' => 'Text',
+		'BlogIntro7' => 'Text',
+		'BlogLink7' => 'Text',		
 		
 		'BookstoreImageLink' => 'Text'
 	);
@@ -79,6 +82,10 @@ class AfterClassNewsletter extends Page {
 		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogTitle6','Blog Post Title') );
 		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogIntro6','Blog Post Text.') );
 		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogLink6','Link to the blog post.') );
+
+		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogTitle7','Blog Post Title') );
+		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogIntro7','Blog Post Text.') );
+		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogLink7','Link to the blog post.') );
 		
 		$fields->addFieldToTab('Root.Content.Ad', new ImageField('BookstoreImage','Bookstore ad Image 590 x 200'));
 		$fields->addFieldToTab('Root.Content.Ad',new TextField('BookstoreImageLink','Bookstore ad link (with associatedid!!)') );

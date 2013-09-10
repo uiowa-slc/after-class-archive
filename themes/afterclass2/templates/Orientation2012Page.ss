@@ -86,19 +86,19 @@ function handleSessionResponse(response) {
 		<div class="orientation-header-container">
 			<img src="{$ThemeDir}/images/orientation/header.png" class="orientation-header" />
 			
-			<!--<div class="orientation-form">
+			<div class="orientation-form">
 				<p>Don't have Facebook? Fill this out!</p>
-					
+					$Form
 			</div>
 			
 			<div class="clear">
 			
-		</div>-->
+		</div>
 		
 		
 		<img src="{$ThemeDir}/images/orientation/never-miss.png" class="orientation-tagline" />
-		$Form
-		<!--<div class="orientation-steps">
+		
+		<div class="orientation-steps">
 		
 			<ol>
 				<li class="step-one"><a href="#" onclick="loginnow();return false;" class="orientation-button">sign in with facebook</a></li>
@@ -112,7 +112,7 @@ function handleSessionResponse(response) {
 			</ol>
 		
 		
-		</div>-->
+		</div>
 
 		
 	</div>
