@@ -5,16 +5,15 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 
-	<title>Orientation  - After Class: The Best of UI's Culture, Events and Nightlife</title>
+	<title>Hawkeye Caucus</title>
 
-	
-	<% require themedCSS(orientation) %>
+	<% require themedCSS(HawkCaucus) %>
 	 
 	<script src="{$ThemeDir}/js/jquery.min.js"></script>
 	<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>
 
 </head>
-<body>
+<body class = "background">
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -81,33 +80,35 @@ function handleSessionResponse(response) {
 
 
 
-	<div class="orientation-container">
+	<div class="caucus-container">
+		
+		<div class= "logo">
+			<img src="{$ThemeDir}/images/HawkCaucus/logo.png" class="caucus-header" />
+		</div>
 	
-		<div class="orientation-header-container">
-			<img src="{$ThemeDir}/images/orientation/header.png" class="orientation-header" />
+		<div class="caucus-content">
 			
-			<div class="orientation-form">
-				<p>Don't have Facebook? Fill this out!</p>
-					$Form
+			<div class="caucus-form">
+			<h4 class="widget2 backcolr"> Don't have Facebook? Fill this out!</h4>
+				<div class ="caucusPad">
+					
+						$Form
+				</div>
 			</div>
 			
-			<div class="clear">
+		
 			
-			</div>
-		
-		
-		<img src="{$ThemeDir}/images/orientation/never-miss.png" class="orientation-tagline" />
-		
-		<div class="orientation-steps">
-		
+			<div class="caucus-steps">
+			<h4 class="widget backcolr"> Find us on Facebook</h4>
 			<ol>
-				<li class="step-one"><a href="#" onclick="loginnow();return false;" class="orientation-button">sign in with facebook</a></li>
+				<li class="step-one"><a href="#" onclick="loginnow();return false;" class="caucus-button">sign in with facebook</a></li>
 				<li class="step-two"><p>like us!</p>
-					<div class="orientation-facebook">
-						<fb:like-box profile_id="64131067165" width="700" colorscheme="dark" show_faces="true" border_color="#555555"  stream="false" header="false" connections="16"></fb:like-box>
+					<div class="caucus-facebook">
+					
+						<fb:like-box href="https://www.facebook.com/UIHawkeyeCaucus" width="600" colorscheme="dark" show_faces="true" border_color="#555555"  stream="false" header="false" connections="16"></fb:like-box>
 					</div>
 				</li>
-				<li class="step-three"><a onClick="logoutnow();return false;" href="#" class="orientation-button logout">sign out</a></li>
+				<li class="step-three"><a onClick="logoutnow();return false;" href="#" class="caucus-button logout">sign out</a></li>
 			
 			</ol>
 		
@@ -115,7 +116,7 @@ function handleSessionResponse(response) {
 		</div>
 
 		
-		</div>
+	</div>
 	</div>
 </body>
 </html>
