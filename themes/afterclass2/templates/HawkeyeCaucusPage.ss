@@ -89,7 +89,7 @@ function handleSessionResponse(response) {
 		<div class="caucus-content">
 			
 			<div class="caucus-form">
-			<h4 class="widget2 backcolr"> Don't have Facebook? Fill this out!</h4>
+			<h4 class="widget2"> Don't have Facebook? Fill this out!</h4>
 				<div class ="caucusPad">
 					
 						$Form
@@ -105,7 +105,7 @@ function handleSessionResponse(response) {
 				<li class="step-two"><p>like us!</p>
 					<div class="caucus-facebook">
 					
-						<fb:like-box href="https://www.facebook.com/UIHawkeyeCaucus" width="600" colorscheme="dark" show_faces="true" border_color="#555555"  stream="false" header="false" connections="16"></fb:like-box>
+						<fb:like-box href="https://www.facebook.com/UIHawkeyeCaucus" width="600" colorscheme="light" show_faces="true" border_color="#cccccc"  stream="false" header="false" connections="16"></fb:like-box>
 					</div>
 				</li>
 				<li class="step-three"><a onClick="logoutnow();return false;" href="#" class="caucus-button logout">sign out</a></li>

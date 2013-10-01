@@ -16,12 +16,13 @@ fieldset{
 	font-size: 1.1em;
 	padding: 10px 0; 
 	display: block;
+	color: #333;
 }
 
 #Form_Form input.text{
-	background: #333;
-	border: 1px solid #555;
-	color: #ffe898; 	
+
+	border: 1px solid #ccc;	
+	background: white;
 }
 
 .caucusPad { 
@@ -74,15 +75,15 @@ fieldset{
 .caucus-facebook iframe {
 	margin: auto;
 	display: block;
-	background: url(../images/dark_leather.png);
 }
 .caucus-form {
 	display: block;
 	float: right;
-	width: 300px;
-	border: #666 solid 1px;
-	background-color: white;
-	margin: 10px; 
+	width: 200px;
+	margin: 10px;
+	font-size: 0.8em; 
+	border: 1px solid #ccc;
+	background: white;
 }
 
 .caucus-form #Form_Form {
@@ -98,17 +99,17 @@ fieldset{
 
 .caucus-steps {
 	
-	min-width: 667px; 
+	min-width: 820px; 
 	font-size: 32px;
 	float: left;
-	background-color: white;
-	margin: 10px;
-	border: #666 solid 1px;
+	margin: 0px;
 	
 }
 
 .caucus-steps ol {
-	padding: 86px 12px 18px 53px;
+	padding: 0px 12px 18px 53px;
+	margin: 10px;
+	color: #333;
 }
 
 .caucus-steps li {
@@ -119,18 +120,16 @@ fieldset{
 
 .caucus-button {
 	padding: 20px;
-	background: #268FAB url(button.png) repeat-x bottom; 
+	background: #39393A repeat-x bottom; 
 	border: none; 
 	color: #fff; 
 	font-weight: bold; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
 	text-shadow: 1px 1px #666;
 	text-decoration: none;
 }
 
 .caucus-button.logout {
-	background: #694a5f;
+	background: #39393A;
 
 }
 
@@ -176,11 +175,9 @@ fieldset{
 
 /* title stuff */
 .widget {
-	width: 68.5%;
 	height: 40px;
-	padding: 9px 53px 4px 156px;
-	float: left;
-	color: #000;
+	padding: 9px 53px 4px 20px;
+	color: #4D4D4D;
 	font-weight: bold; 
 	margin-top: 0px; 
 }
@@ -189,7 +186,7 @@ fieldset{
 	height: 28px;
 	padding: 18px 5% 6px 5%;
 	float: left;
-	color: #000;
+	color: #4D4D4D;
 	font-weight: bold; 
 	margin-top: 0px; 
 }

@@ -6,6 +6,7 @@ class HawkeyeCaucusPage extends Page {
 	public static $has_one = array(
 	);
 	
+	
 }
 class HawkeyeCaucusPage_Controller extends Page_Controller {
 
@@ -25,6 +26,7 @@ class HawkeyeCaucusPage_Controller extends Page_Controller {
 	 * @var array
 	 */
 	public static $allowed_actions = array (
+		"Form"
 	);
 	
 function Form() {
@@ -45,10 +47,10 @@ function Form() {
 	* This function is called when the user submits the form.
 	*/
 	function SignupAction($data, $form) {
-		$orientationPerson = new OrientationPerson();
-		$form->saveInto($orientationPerson);
-		$orientationPerson->signup_source = $this->URLSegment;
-		$orientationPerson->write();
+		$hawkeyeCaucusPerson = new HawkeyeCaucusPerson();
+		$form->saveInto($hawkeyeCaucusPerson);
+		$hawkeyeCaucusPerson->signup_source = $this->URLSegment;
+		$hawkeyeCaucusPerson->write();
 		Director::redirect($this->URLSegment.'/');
 	}
 	public function show() {
@@ -56,7 +58,7 @@ function Form() {
 	if(Permission::check("ADMIN")){
 		if($this){
 			$mr = "first,last,email,signupsource,created<br />";
-			$records = DataObject::get("OrientationPerson",null,"id DESC",null,3000);
+			$records = DataObject::get("HawkeyeCaucusPerson",null,"id DESC",null,3000);
 			foreach ($records as $record) {
 				if ($record->signup_source == $this->URLSegment) {
 					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
