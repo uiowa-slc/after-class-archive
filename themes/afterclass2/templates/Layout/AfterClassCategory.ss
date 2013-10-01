@@ -1,5 +1,9 @@
 <header id="secondary_header">
- 	<h1>$Category.Title</h1>
+ 	<% if Category.AltTitle %>
+ 		<h1>$Category.AltTitle</h1>
+ 	<% else %> 
+ 		<h1> $Category.Title </h1>
+ 	<% end_if %> 
 </header>
  <div id="category-content" class="category">
  			

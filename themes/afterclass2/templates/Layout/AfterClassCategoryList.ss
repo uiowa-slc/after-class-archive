@@ -13,7 +13,7 @@
 
 <div id="category-list-content">
 	<ul>
-	<% control Category %><% if Events %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_control %>
+	<% control Category %><% if Events %><% if AltTitle %><li><a href="#$Title">$AltTitle</a></li><% else %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_if %> <% end_control %>
 	</ul>
 	<hr />
 	<% control Category %>
@@ -25,7 +25,7 @@
 		<% if ClassName = Eventtype %>
 		$Title
 		<% else %>
-		$Title <a href="$Link">(more information)</a>
+		<% if AltTitle %> $AltTitle <a href="$Link">(more information)</a> <% else %> $Title <a href="$Link">(more information)</a> <% end_if %>
 		<% end_if %>
 		</h2>
 				<% if Information %><p>$Information</p><% end_if %>

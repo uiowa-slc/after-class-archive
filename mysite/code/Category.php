@@ -2,12 +2,14 @@
 class Category extends DataObject {
 	public static $db = array(
 		"Title" => "Text",
+		"AltTitle" => "Text",
 		"URLSlug" => "Text",
 		"Showmenu" => "Boolean"
 	);
 	function getCMSFields_forPopup() {
 		$fields = new FieldSet();
 		$fields->push( new TextField( 'Title' ) );
+		$fields->push( new TextField( 'AltTitle' ) );
 		$fields->push( new TextField( 'URLSlug', 'Use underscores for spaces. Do not use dashes.' ) );
 		$fields->push( new CheckboxField('Showmenu', 'Show in Main Menu?') );
 		return $fields;
@@ -36,8 +38,7 @@ class Category extends DataObject {
 	function Link(){
 	
 		$base_url = Director::absoluteBaseURL();
-		return $base_url."events/categories/".$this->Title;
-	
+		return $base_url."events/categories/".$this->Title; 
 	}
 	
 	
