@@ -83,7 +83,6 @@ ul {
 						  $Content
 						  </td></tr></table>
 						</td></tr>
-						
 <% if FeaturedEvent %>
 <% control FeaturedEvent %>
 						<tr width="598"  style="border-style: solid;">
@@ -138,6 +137,32 @@ ul {
 <% end_control %>
 <% end_if %>
 <!-- main content ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- happening next/about section -->
 <table cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px; padding: 15px 10px 15px 10px;" width="600">

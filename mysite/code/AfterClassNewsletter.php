@@ -58,7 +58,7 @@ class AfterClassNewsletter extends Page {
 		$fields->addFieldToTab('Root.Content.Main', new ImageField('Image','Flickr or Youtube Image 250 x 187'));
 		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
 		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageLink','Flickr or Youtube link.') );
-		
+	/*	
 		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogTitle','Blog Post Title') );
 		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogIntro','Blog Post Text.') );
 		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogLink','Link to the blog post.') );
@@ -86,7 +86,7 @@ class AfterClassNewsletter extends Page {
 		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogTitle7','Blog Post Title') );
 		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogIntro7','Blog Post Text.') );
 		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogLink7','Link to the blog post.') );
-		
+	*/	
 		$fields->addFieldToTab('Root.Content.Ad', new ImageField('BookstoreImage','Bookstore ad Image 590 x 200'));
 		$fields->addFieldToTab('Root.Content.Ad',new TextField('BookstoreImageLink','Bookstore ad link (with associatedid!!)') );
 		
