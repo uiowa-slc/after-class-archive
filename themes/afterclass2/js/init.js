@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
 	  outer_div: null // This is a jquery or DOM element whose height needs to be greater than the div in order to make it sticky. Default is null.
 	  
 	};
-	$('#facebook-like-box').sticky_div(stickyDivOptions);
+	/* $('#facebook-like-box').sticky_div(stickyDivOptions); */
 
 	$("#calendar-expand").click(function() {
 	  		if($(".secondary-nav").css('display') == 'none'){
