@@ -549,7 +549,6 @@
 										
 											$Content.LimitWordCount(30)
 											<br>
-											<% end_control %>
 											</p>
                         </td>
                     </tr>
@@ -570,6 +569,7 @@
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 <a class="mcnButton " title="View This Event" href="$AbsoluteLink" target="_self" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">View This Event</a>
+                                <% end_control %>
                             </td>
                         </tr>
                     </tbody>
@@ -1176,7 +1176,7 @@
 							<a href="mailto:afterclass@uiowa.edu" style="text-decoration: none; color: #E8CA66;">afterclass@uiowa.edu</a><br />
 							<a href="http://studentlife.uiowa.edu/md/" target="_blank" style="text-decoration: none; color: #E8CA66;">Site designed by Student Life Marketing + Design</a><br />
 							</p>
-                        <p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:nancy-abram@uiowa.edu">Nancy Abram</a> in advance at 319-335-3414.</p>
+                        <p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:getinvolved@uiowa.edu">CSIL</a> in advance at 349-335-3059.</p>
                         </td>
                     </tr>
                 </tbody></table>
