@@ -1045,8 +1045,8 @@
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px;padding-left: 0px;padding-top: 0;padding-bottom: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 
-                                    <a href="http://www.hawkshop.com/ePOS/form=index.html&amp;associateid=afterclass_newsletter_10/21/13" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                        <img align="left" alt="Your Books, Your Gear, Your Store" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/2197_1_590x200_ad_22Your_Books_Your_Gear_Your_Store_22.jpg" width="590" style="max-width: 590px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
+                                    <a href="$BookstoreImageLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                        <img align="left" alt="Your Books, Your Gear, Your Store" src="$BookstoreImage.AbsoluteURL" width="590" style="max-width: 590px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
                                     </a>
                                 
                             </td>
