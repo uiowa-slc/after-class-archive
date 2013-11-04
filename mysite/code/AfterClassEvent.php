@@ -147,8 +147,11 @@ class AfterClassEvent extends CalendarEvent {
 		
 		//print_r($datesTimes);
 		$datesTimes = $datesTimes->getRange(0, $num);
-		
+		if($datesTimes){
 		return($datesTimes);
+		}else {
+			return false;
+		}
 		
 	}
 	

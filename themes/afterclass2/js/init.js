@@ -17,7 +17,8 @@ jQuery(document).ready(function ($) {
 	$("#canvas").height($("#page_header").height());
 	$("#canvas").width($("#page_header").width()/2);
 	$('.flexslider').flexslider({
-	selector: ".slides > .slide",   
+	selector: ".slides > .slide",
+touch: false,   
     animation: "slide",
     controlNav: true,  
     directionNav: false,   
