@@ -145,10 +145,9 @@ class AfterClassEvent extends CalendarEvent {
 	public function DateAndTimeLimited($num = 3){
 		$datesTimes = $this->DateAndTime();
 		
-		//print_r($datesTimes);
-		$datesTimes = $datesTimes->getRange(0, $num);
 		if($datesTimes){
-		return($datesTimes);
+			$datesTimes = $datesTimes->getRange(0, $num);
+			return($datesTimes);
 		}else {
 			return false;
 		}
