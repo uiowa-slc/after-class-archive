@@ -45,9 +45,11 @@
 						<div class="where">
 							<% if Venues %>
 							<ul>
+							<% if Location %>{$Location}<% end_if %>
 								<% control Venues %>
 									<li>	<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-										@ <a href="$Link" ><span itemprop="name">$Title</span></a>
+									@
+										 <a href="$Link" ><span itemprop="name">$Title</span></a>
 										</span>
 									</li>
 								<% end_control %>
@@ -60,7 +62,7 @@
 						
 								<% if DateAndTimeLimited(2) %>
 								<% control DateAndTimeLimited(2) %>
-									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> <% if StartTime %>
+									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)</time> </a> <% if StartTime %>
 										at $StartTime.Nice
 										<% end_if %>
 										<% if EndDate %>
