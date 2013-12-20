@@ -2466,3 +2466,7 @@ a.button:active {
     margin: 0px;
     padding: 5px 0px 0px 0px;
 }
+
+#detail_related_events h2 {
+	margin-left: 20px;
+}

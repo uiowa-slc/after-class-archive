@@ -17,7 +17,8 @@
 							<% end_if %>
 						</a>
 						<div class="clear"></div>
-					</div>
+					
+					<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p></div>
 					
 					<div class="hero-event-details">
 							<div class="hero-event-text">	
@@ -60,6 +61,31 @@
 					    			</p>
 					    			</div>
 					    	<% end_if %>
+	
+				
+							<% if Venues %>
+							<h2>Location</h2>
+							
+							<div id="detail_event_description_map">
+								<p><% if Location %>{$Location} <br /><% end_if %>
+							<% control Venues %>
+								$Title <a href="$Link">view more events here &raquo;</a></p>
+								 
+								<p>
+								
+								<div class="row"><div class="span6"><% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a><% end_if %></div>
+								<div class="span6"><% if WebsiteURL %><a class="button" href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></div></div>
+								</p>
+<div class="clear"></div>								
+								<% if Address %>
+									<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
+								
+								<% end_if %>
+							<% end_control %>
+							</div> <!-- end detail_event_description_map -->
+						<% end_if %>
+						
+			
 
 							
 								<div class="hero-event-specifics">
@@ -132,35 +158,16 @@
 					    			</div>
 					    	
 					    	<% end_if %>
-				</div>
+				
+					<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+					</div>
 				<div class="clear"></div>
 				<hr />
 				<div class="row location-social">
-				
-				<div class="span6">
-				<% if Venues %>
-							<h2>Location</h2>
-							
-							<div id="detail_event_description_map">
-								<p><% if Location %>{$Location} <br /><% end_if %>
-							<% control Venues %>
-								$Title <a href="$Link">view more events here &raquo;</a></p>
-								 
-								<p>
-								<% if WebsiteURL %><a class="button" href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %>
-								<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a><% end_if %>
-								</p>
-<div class="clear"></div>								
-								<% if Address %>
-									<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
-								<% end_if %>
-							<% end_control %>
-							
-						<% end_if %>
-						</div> <!-- end detail_event_description_map -->
-				</div><!-- end span6 -->
-				
-<div class="hero-event-social span6">
+				<div class="container">
+					<% include RelatedEvents %>
+				</div>
+<div class="hero-event-social span12">
 
 							<!-- AddThis Button END -->
 							<!--<div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
@@ -183,7 +190,8 @@
 							
 							        /* * * DON'T EDIT BELOW THIS LINE * * */
 							        (function() {
-							            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+							            var dsq = document.createElement('script'); 
+							            dsq.type = 'text/javascript'; dsq.async = true;
 							            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 							            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 							        })();
@@ -191,7 +199,7 @@
 							    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 							    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
-						</div><!-- end hero-event-social span6 -->
+						</div><!-- end hero-event-social span12 -->
 						<div class="clear"></div>
 					</div><!-- end row -->
 					
@@ -305,14 +313,18 @@ function initialize() {
     <% end_if %>
     <% end_control %>
 
-  }
-  window.onload = initialize();
+} 
+
+window.onload = initialize();
+
+
+
 </script>
 
-<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+
 <div class="clear"></div>
 </div><!-- end hero-event -->
 
-<% include RelatedEvents %>
+
 
 
