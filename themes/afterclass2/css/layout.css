@@ -1811,6 +1811,7 @@ a.read-more-link { color: #ADD7E2 }
     text-align: center;
     margin: 20px 0;
 }
+
 #categories h3 {
     font-size: 1.2em;
     margin: 5px 0;
@@ -1957,10 +1958,11 @@ a.button:active {
 }
 
 #facebook-like-box {
-	width: 292px;
 	overflow: hidden;
-	background-color: rgba(25,24,25,0.83);
-	
+}
+
+#facebook-like-box * {
+	width: 100% !important;
 }
 
 /* =============================================================================
@@ -2177,9 +2179,7 @@ a.button:active {
             width: 45%;
         
         }*/
-  #facebook-like-box {
-	width: 292px;
-	}
+
 }
 @media only screen and (min-width: 850px) { 
 
@@ -2285,9 +2285,7 @@ a.button:active {
 	}
 	
 	.flex-control-paging li a {/*width: 11px; height: 11px;*/}
-	  #facebook-like-box {
-		width: 370px;
-		}
+
 }
 @media only screen and (min-width: 1024px) { 
     body { font-size: 1em }

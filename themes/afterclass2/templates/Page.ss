@@ -125,7 +125,7 @@ document.createElement('hgroup');
 		<li><a href="nearby/" class="near-me-link">Nearby</a></li>
 		<li class="today"><a href="$TodayLink">Today</a></li>
 		<li class="weekend"><a href="$WeekendLink">Weekend</a></li>
-		<li><a href="{$Link}#" id="calendar-expand">Beyond</a></li>
+		<li><a href="{$Link}#" id="calendar-expand">Full Calendar</a></li>
 		
 		<li><a href="http://eepurl.com/vWmfP" class="subscribe-link" target="_blank">Subscribe</a></li>
 		<% control Menu(1) %>
@@ -200,7 +200,7 @@ document.createElement('hgroup');
 				<a href="http://www.uiowa.edu" class="uiowa-logo"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a> 
 				<a href="http://studentlife.uiowa.edu/"><img src="{$ThemeDir}/images/dsl_logo.png" alt="The University of Iowa Logo" /></a>  
 			</div>
-			<p>319-335-3414<br />
+			<p>319-335-3132<br />
 			<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
 			<a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a>
 			
