@@ -18,7 +18,7 @@
 						</a>
 						<div class="clear"></div>
 					
-					<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p></div>
+					</div>
 					
 					<div class="hero-event-details">
 							<div class="hero-event-text">	
@@ -81,6 +81,7 @@
 									<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
 								
 								<% end_if %>
+								<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
 							<% end_control %>
 							</div> <!-- end detail_event_description_map -->
 						<% end_if %>
@@ -158,8 +159,6 @@
 					    			</div>
 					    	
 					    	<% end_if %>
-				
-					<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
 					</div>
 				<div class="clear"></div>
 				<hr />
