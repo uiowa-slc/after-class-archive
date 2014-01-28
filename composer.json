@@ -6,9 +6,7 @@
 		"silverstripe/cms": "3.1.2",
 		"silverstripe/framework": "3.1.2",
 		"silverstripe-themes/simple": "*",
-		"silverstripe/event-calendar": "*",
-		"colymba/gridfield-bulk-editing-tools": "*",
-		"silverstripe/tagfield": "dev-master"
+		"silverstripe/event-calendar": "*"
 	},
 	"config": {
 		"process-timeout": 600	
