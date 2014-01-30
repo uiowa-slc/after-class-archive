@@ -147,28 +147,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             'sponsors/$Sponsor' => 'sponsors',
             'categoriesrss/$Category' => 'categoriesrss',
             'categories/$Category/rss' => 'categoriesrss',
-            'fbauthorize' => 'fbauthorize',
-            'fbcallback/$Token' => 'fbcallback'
+
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback", "venues", "sponsors");
- 	function getCurrentTag(){
- 		if($this->urlParams['Tag']){
- 			 $Tag = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
- 			 
- 			 if($Tag){
- 			 	return $Tag;
- 			 }else{
- 			 	return false;
- 			 }
- 		}else{
- 			return false;
- 		}
- 	}
+ 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "venues", "sponsors");
  	
  	# EventDate, EventLocation, EventCost
  	public function newrss() {
@@ -268,44 +249,20 @@ NOTE:  - replace with ClassName::get()->First()
 		return "";
 	}
 	
-	function AllEvents() {
-		$start_date = date( "d/m/Y", time() );
-		$end_date = date('Y-m-d',strtotime(date("Y-m-d", mktime()) . " + 365 day"));
-		
-		$events =  parent::Events(null,$start_date,$start_date,false,1000);
-		
-		$events->removeDuplicates('EventID');
-		//print_r($events);
-		if($events){
-			return $events;
-		}else{
-			return null;
-		
-		
-		}
+	function AllEventsWithoutDuplicates() {
+		$calendar = $this->owner;
+		$events = $calendar->getEventList('1900-01-01','3000-01-01');
+
+		$eventsArray= $events->ToArray();
+
+		$eventsArrayList = new ArrayList($eventsArray);
+		$eventsArrayList->removeDuplicates('EventID');
+
+
+		return $eventsArrayList;
 	}
 	
-	function fbauthorize() {
-		$Data = array();
-		return $this->customise($Data)->renderWith(array('AfterClassAuthorize', 'Page'));
-	}
- 	
- 	function fbcallback() {
- 		//Params: appid, access_token
- 		$token = addslashes($this->urlParams['Token']);
- 		$pages_tokens = file_get_contents("https://graph.facebook.com/me/accounts?access_token=" . $token );
- 		
- 		$Data = array(
-	      'Tokens' => $pages_tokens
-	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCallback', 'Page'));
- 		/*require 'mechanize'
-		require 'json'
-		a = Mechanize.new
-		page = a.get("https://graph.facebook.com/me/accounts?access_token=#{self.token}")
-		data = JSON.parse(page.body)
-		return data*/
- 	}
+	
  	/* Return a venue, or list of venues, meow. */
  	function venues() {
  		$VenueName = addslashes($this->urlParams['Venue']);
@@ -418,7 +375,7 @@ NOTE: this should be a controller class, otherwise use Controller::curr()->redir
  	
  	public function dynamicNews(){
 	 	
-	 	$events = $this->AllEvents();
+	 	$events = $this->AllEventsWithoutDuplicates();
 	 	$count = $events->Count();
 	 	$count = floor($count/3);
 	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
@@ -429,7 +386,6 @@ NOTE: this should be a controller class, otherwise use Controller::curr()->redir
  	
  	public function init() {
 		RSSFeed::linkToFeed($this->Link() . "rss", "RSS Feed of this calendar");
-		$this->parseURL();
 		parent::init();
 	}
  

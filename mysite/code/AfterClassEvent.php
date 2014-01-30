@@ -86,63 +86,11 @@ NOTE:  - replace with ClassName::get()->byID($id)
 	}
 	
 	function RelatedEvents() {
-		$ids = array();
-		
-		// Get IDs of all events in these categories.
-		foreach($this->Sponsors() as $category) {
-		  $ids = array_merge($ids,$category->AfterClassEvents()->column('ID'));
-		}
-		foreach($this->Venues() as $category) {
-		  $ids = array_merge($ids,$category->AfterClassEvents()->column('ID'));
-		}
-		foreach($this->Eventtypes() as $category) {
-		  $ids = array_merge($ids,$category->AfterClassEvents()->column('ID'));
-		}
-		
-		// Setup filter
-		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
-		// Get the calendar
-		$calendar = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("AfterClassCalendar");
-		// Get the events from the calendar
-		if (empty($ids)) {
-			return false;
-		} else {
-			#($filter = null, $start_date = null, $end_date = null, $default_view = false, $limit = null, $announcement_filter = null)
-			$events = $calendar->Events($filter,null,null,false,'4')->groupBy('EventID'); #Figure out how to GROUP BY `CalendarDateTime`.EventID
-			$eventSet = new ArrayList();
-			foreach($events as $event => $data) {
-			    $eventSet->push($data->First()); //Get only the first of each event.
-			}
-			return $eventSet;
-		}
+
+		// TODO: rewrite this Function
+
 	}
 
-	public function DateAndTimeLimited($num = 3){
-		$datesTimes = $this->DateAndTime();
-		
-		if($datesTimes){
-			$datesTimes = $datesTimes->getRange(0, $num);
-			return($datesTimes);
-		}else {
-			return false;
-		}
-		
-	}
-	
-	public function DateAndTimeMoreThan($num=3){
-		$datesTimes = $this->DateAndTime();
-
-		if(($datesTimes->TotalItems())>$num){
-			return true;
-		}else{
-			return false;
-		}
-	}	
 	function getCMSActions() {
 		$actions = parent::getCMSActions();
 
@@ -240,12 +188,7 @@ NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor argument
 /* Sponsor Table */
 /* ------------- */
 
-		$sponsorTablefield = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ManyManyComplexTableField
-NOTE:  check syntax  
-### @@@@ ########### @@@@ ###
-*/new GridField(
+		/*$sponsorTablefield = new GridField(
         	$this,
         	'Sponsors',
         	'Sponsor',
@@ -258,21 +201,16 @@ NOTE:  check syntax
       	);
 		
 		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));
-		$f->addFieldToTab( 'Root.Sponsors', $sponsorTablefield );
+		$f->addFieldToTab( 'Root.Sponsors', $sponsorTablefield );*/
 		
 /* ----------- */
 /* Venue Table */
 /* ----------- */
 
-		$venueInstructions = '<h2>Instructions</h2><p>Every venue <em>must</em> have a somewhat complete address for Google Maps to work properly (example: Iowa Memorial Union, Iowa City, IA). Zip code is optional, but you NEED Iowa City, IA in each address. <br />The address field works as a search term on Google, and will give unexpected results with an incomplete address.</p>';
+	/*	$venueInstructions = '<h2>Instructions</h2><p>Every venue <em>must</em> have a somewhat complete address for Google Maps to work properly (example: Iowa Memorial Union, Iowa City, IA). Zip code is optional, but you NEED Iowa City, IA in each address. <br />The address field works as a search term on Google, and will give unexpected results with an incomplete address.</p>';
 		
 		
-		$venueTablefield = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ManyManyComplexTableField
-NOTE:  check syntax  
-### @@@@ ########### @@@@ ###
-*/new GridField(
+		$venueTablefield = new GridField(
         	$this,
         	'Venues',
         	'Venue',
@@ -286,18 +224,13 @@ NOTE:  check syntax
       	$f->addFieldToTab('Root.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
 
 		$f->addFieldToTab('Root.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
-		$f->addFieldToTab( 'Root.VenueOrBuilding', $venueTablefield );
+		$f->addFieldToTab( 'Root.VenueOrBuilding', $venueTablefield );*/
 		
 /* ---------------- */		
 /* Event Type Table */
 /* ---------------- */	
 	
-		$eventTypeTablefield = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ManyManyComplexTableField
-NOTE:  check syntax  
-### @@@@ ########### @@@@ ###
-*/new GridField(
+		/*$eventTypeTablefield = new GridField(
         	$this,
         	'Eventtypes',
         	'Eventtype',
@@ -310,7 +243,7 @@ NOTE:  check syntax
       	);
 
 		$f->addFieldToTab('Root.EventTypes', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
-		$f->addFieldToTab( 'Root.EventTypes', $eventTypeTablefield);
+		$f->addFieldToTab( 'Root.EventTypes', $eventTypeTablefield);*/
 		
 		return $f;
 	}

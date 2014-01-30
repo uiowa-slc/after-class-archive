@@ -60,8 +60,8 @@
 						<div class="when">
 							<ul class="dates">
 						
-								<% if DateAndTimeLimited(2) %>
-								<% loop DateAndTimeLimited(2) %>
+								<% if DateAndTime.Limit(2) %>
+								<% loop DateAndTime.Limit(2) %>
 									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)</time> </a> <% if StartTime %>
 										at $StartTime.Nice
 										<% end_if %>
@@ -71,7 +71,7 @@
 									</li>
 								<% end_loop %>
 						
-									<% if DateAndTimeMoreThan(2) %>
+									<% if DateAndTime.Count > "2" %>
 										<a href="$Link" class="more-dates-link">more dates &raquo;</a>
 									<% end_if %>
 								

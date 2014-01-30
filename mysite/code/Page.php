@@ -266,48 +266,8 @@ NOTE:  - replace with ClassName::get()->First()
 		return $calendar->AbsoluteLink()."view/".$d->format('Ymd')."/".$d->addDay(2)->format('Ymd');
 	  }
 
+	
 
-	public function AllDeadlines(){
-		$deadlines = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Deadline", $filter=null, $sort = "Date ASC");
-		if($deadlines){
-			return $deadlines;
-		}
-	
-	}
-	
-	public function FutureDeadlines($number = 0){
-		$deadlines = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Deadline", $filter="Date >= DATE(NOW())", $sort = "Date ASC", $join = null, $limit = $number);
-	
-		if($deadlines){
-			return $deadlines;
-		
-		}
-	}
-	
-	public function RandomNewEvent($pool_size = 6) {
-	
-		$newest_events = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("AfterClassEvent", $filter = null, $sort = "Created DESC", $join = null, $limit = $pool_size);
-			if(isset($newest_events)){
-			$events = $newest_events->toArray();
-			shuffle($events);
-			return $events[0];
-		}
-	}	
 	
 	public function iswindows() {
 		if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),"windows") === false) {

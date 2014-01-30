@@ -9,7 +9,7 @@
 		</div>
 	</div>
 		<% else %>
-			<% loop AllEvents.First %>
+			<% loop Events.First %>
 				<% loop Event %>
 					<% if CancelReason %>
 					<% else %>
@@ -34,7 +34,7 @@
 <div id="event-card-list">
 	<h2>What's up next</h2>
 	<div class="event-cards">
-		<% loop AllEvents %>
+		<% loop AllEventsWithoutDuplicates %>
 			<% loop Event %>
 				<% include EventCard %>
 			<% end_loop %>
@@ -46,35 +46,6 @@
 <!-- end left-column -->
 <div id="right-column" class="span5">
 
-<% cached 'future-deadlines', Aggregate(Deadline).Max(LastEdited) %>
-		<% if FutureDeadlines %>
-			<div id="approaching-deadlines">
-				<h2><a href="{$BaseHref}deadlines/">Approaching Deadlines</a></h2>
-				<div id="deadlines-container">
-					<ul id="deadlines">
-						<% loop FutureDeadlines(10) %>
-							<li class="$EvenOdd">
-								<% if LinkURL %>
-									<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.Format(n/j/y)</strong> - $Title</a>
-								<% else %>
-									<a href="{$BaseHref}deadlines/"><strong>$Date.Format(n/j/y)</strong> - $Title</a>					
-								<% end_if %>
-							</li>
-						<% end_loop %>
-					</ul>
-					<ul id="additional-deadline-links">
-						<li><a href="{$BaseHref}deadlines/">view all deadlines &raquo;</a></li>
-						<li><a href="{$BaseHref}add/" target="_blank">submit an event &raquo;</a></li>
-						<li><a href="http://www.registrar.uiowa.edu/calendars/fiveyearcalendar.aspx" target="_blank" class="external">academic calendar</a></li>
-						<li><a href="http://www.hawkeyesports.com/calendar/events/" target="_blank" class="external" >athletic calendar</a></li>
-		
-					</ul>
-				</div>
-			</div>
-			<!-- end approaching-deadlines -->
-			<div class="clear"></div>
-		<% end_if %>
-	<% end_cached %>
 
 	<div id="the-news">
 		<h2><a href="http://imu.uiowa.edu/news">After Class: student news</a></h2>

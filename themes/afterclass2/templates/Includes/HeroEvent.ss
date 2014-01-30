@@ -36,7 +36,7 @@
 							
 								<div class="hero-event-specifics">
 									<div class="hero-event-when">
-											<% loop DateAndTimeLimited(3) %>
+											<% loop $DateAndTime.Limit(3) %>
 										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
 											<% if EndDate %>
 											until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
@@ -48,7 +48,7 @@
 										<% end_loop %>
 										
 										
-										<% if DateAndTimeMoreThan(3) %>
+										<% if $DateAndTime.Count > "3" %>
 											<a href="{$Link}#dates" class="more-dates-link">view more dates &raquo;</a>
 										<% end_if %>
 										
