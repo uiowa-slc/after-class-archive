@@ -10,13 +10,28 @@ class Page extends SiteTree {
 	
 	);
 	public function getEventtypes() {
-		return DataObject::get('Eventtype');
+		return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get('Eventtype');
 	}
 	public function getVenues() {
-		return DataObject::get('Venue','','Title ASC');
+		return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get('Venue','','Title ASC');
 	}
 	public function getSponsors() {
-		return DataObject::get('Sponsor', '','Title ASC');
+		return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get('Sponsor', '','Title ASC');
 	}
 		
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
@@ -33,7 +48,12 @@ function allPagesToCache() {
     // Get each page type to define its sub-urls
     $urls = array();
     // memory intensive depending on number of pages
-    $pages = DataObject::get("Page");
+    $pages = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Page");
     $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage');
 
     foreach($pages as $page) {
@@ -110,7 +130,12 @@ class Page_Controller extends ContentController {
 		// included so that our older themes still work
 		//echo $_SERVER['HTTP_USER_AGENT'];
 		
-		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
+		//Requirements::block('/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: sapphire
+NOTE:  - changed from sapphire/ to framework/ - using constant preferred.   
+### @@@@ ########### @@@@ ###
+*/FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
 		
 		
 		$themeFolder = $this->ThemeDir();
@@ -120,7 +145,12 @@ class Page_Controller extends ContentController {
 		
 		Requirements::block('event_calendar/css/calendar_widget.css'); 
 		Requirements::block('division-bar/js/_division-bar.js');
-		//Requirements::block('sapphire/thirdparty/jquery/jquery.js'); 
+		//Requirements::block('/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: sapphire
+NOTE:  - changed from sapphire/ to framework/ - using constant preferred.   
+### @@@@ ########### @@@@ ###
+*/FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
 		/*
 		Requirements::block('event_calendar/javascript/locale/date_en.js'); 
 		Requirements::block('event_calendar/javascript/jquery.date.js'); 
@@ -133,7 +163,12 @@ class Page_Controller extends ContentController {
 				'themes/afterclass2/js/modernizr-2.0.6.min.js',
 			   // 'themes/afterclass2/js/jquery.min.js',
 			   // 'themes/afterclass2/js/jquery-migrate.js',
-			    'sapphire/thirdparty/jquery/jquery.js',
+			    '/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: sapphire
+NOTE:  - changed from sapphire/ to framework/ - using constant preferred.   
+### @@@@ ########### @@@@ ###
+*/FRAMEWORK_DIR/thirdparty/jquery/jquery.js',
 			   
 			   	'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',
@@ -194,26 +229,46 @@ class Page_Controller extends ContentController {
 	
 	public function MonthLink()
 	  {
-	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	  	$calendar = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
 	    $d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".$d->firstDayOfMonth()->format('Ym');
 	  }
 	public function TodayLink()
 	  {
-	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	  	$calendar = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
 	    $d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".date("Ymd");
 	  }	  
 	  public function WeekLink()
 	  {
-	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	  	$calendar = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
 	  	$d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".$d->firstDayOfWeek()->format('Ymd')."/".$d->finalDayOfWeek()->format('Ymd');
 	  }
 	  
 	  public function WeekendLink()
 	  {
-	  	$calendar = DataObject::get_one("AfterClassCalendar");
+	  	$calendar = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
 	  	$d = new sfDate();
 			// Saturday? Dial back to Friday
 	  	if($d->format('w') == 6)
@@ -227,7 +282,12 @@ class Page_Controller extends ContentController {
 
 
 	public function AllDeadlines(){
-		$deadlines = DataObject::get("Deadline", $filter=null, $sort = "Date ASC");
+		$deadlines = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Deadline", $filter=null, $sort = "Date ASC");
 		if($deadlines){
 			return $deadlines;
 		}
@@ -235,7 +295,12 @@ class Page_Controller extends ContentController {
 	}
 	
 	public function FutureDeadlines($number = 0){
-		$deadlines = DataObject::get("Deadline", $filter="Date >= DATE(NOW())", $sort = "Date ASC", $join = null, $limit = $number);
+		$deadlines = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Deadline", $filter="Date >= DATE(NOW())", $sort = "Date ASC", $join = null, $limit = $number);
 	
 		if($deadlines){
 			return $deadlines;
@@ -245,7 +310,12 @@ class Page_Controller extends ContentController {
 	
 	public function RandomNewEvent($pool_size = 6) {
 	
-		$newest_events = DataObject::get("AfterClassEvent", $filter = null, $sort = "Created DESC", $join = null, $limit = $pool_size);
+		$newest_events = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("AfterClassEvent", $filter = null, $sort = "Created DESC", $join = null, $limit = $pool_size);
 			if(isset($newest_events)){
 			$events = $newest_events->toArray();
 			shuffle($events);

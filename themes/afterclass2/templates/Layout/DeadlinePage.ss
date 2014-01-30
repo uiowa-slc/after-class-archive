@@ -8,7 +8,7 @@ $Form
 
 <% if AllDeadlines %>
 
-	<% control FutureDeadlines %>
+	<% with/loopFutureDeadlines %>
 	<div class="deadline">
 		<h2>$Title</h2>
 		<h3>Deadline: <span>$Date.NiceUS</span></h3>
@@ -17,7 +17,7 @@ $Form
 			<a href="$LinkURL">More information.</a>
 		<% end_if %>
 	</div>
-	<% end_control %>
+	<% end_with/loop%>
 
 <% else %>
 <p>There aren't any deadlines currently listed right now.</p>

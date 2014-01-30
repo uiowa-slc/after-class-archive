@@ -4,11 +4,11 @@
 			<div class="hero-event-image-container span7">
 						<a href="$Link" class="img-shadow">
 							<% if Image %>
-								<% control Image %>
-									<% control CroppedImage(730,462) %>
+								<% with/loopImage %>
+									<% with/loopCroppedImage(730,462) %>
 									<img itemprop="photo" src="$URL" />
-									<% end_control %>
-								<% end_control %>
+									<% end_with/loop%>
+								<% end_with/loop%>
 							<% else %>
 								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
 							<% end_if %>
@@ -36,7 +36,7 @@
 							
 								<div class="hero-event-specifics">
 									<div class="hero-event-when">
-											<% control DateAndTimeLimited(3) %>
+											<% with/loopDateAndTimeLimited(3) %>
 										<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
 											<% if EndDate %>
 											until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
@@ -45,7 +45,7 @@
 											at $StartTime.Nice
 											<% end_if %>
 										</p>
-										<% end_control %>
+										<% end_with/loop%>
 										
 										
 										<% if DateAndTimeMoreThan(3) %>
@@ -56,13 +56,13 @@
 									
 									<div class="hero-event-where">
 										<p>
-										<% control Venues %>
+										<% with/loopVenues %>
 											<p class="venues">
 											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
 											@ <a href="$Link"><span itemprop="name">$Title</span></a>
 											</span>
 											</p>
-										<% end_control %>		
+										<% end_with/loop%>		
 										</p>
 												
 										<% if Cost %>

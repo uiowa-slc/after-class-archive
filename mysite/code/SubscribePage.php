@@ -10,7 +10,7 @@ class SubscribePage extends Page {
 	public function getCMSFields()
 	{
 		$f = parent::getCMSFields();
-		/*$f->addFieldToTab("Root.Content.Main", new DataObjectManager(
+		/*$f->addFieldToTab("Root.Main", new DataObjectManager(
 			$this,
 			'Deadlines',
 			'Deadline',

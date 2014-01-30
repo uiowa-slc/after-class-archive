@@ -131,43 +131,43 @@ document.createElement('hgroup');
 		<li>
 			<a href="events/category/"><strong>Categories</strong><span>The type of event</span></a>
 			<ul>
-				<% control getEventtypes %>
+				<% with/loopgetEventtypes %>
 					<% if Showmenu %>
 					<% if Events %>
 					<li><a href="events/categories/$Title">$Title</a></li>
 					<% end_if %>
 					<% end_if %>
-				<% end_control %>
+				<% end_with/loop%>
 			</ul>
 		</li>
 		<li>
 			<a href="events/sponsor/"><strong>Sponsors</strong><span>Who puts it on</span></a>
 			<ul>
-				<% control getSponsors %>
+				<% with/loopgetSponsors %>
 					<% if Showmenu %>
 					<% if Events %>
 
 					<li><a href="events/categories/$Title">$Title</a></li>
 					<% end_if %>
 					<% end_if %>
-				<% end_control %>
+				<% end_with/loop%>
 			</ul>
 		</li>
 		<li>
 			<a href="events/venue/"><strong>Venues</strong><span>Where it takes place</span></a>
 			<ul>
-				<% control getVenues %>
+				<% with/loopgetVenues %>
 					<% if Showmenu %>
 					<% if Events %>
 
 					<li><a href="events/categories/$Title">$Title</a></li>
 					<% end_if %>
 					<% end_if %>
-				<% end_control %>
+				<% end_with/loop%>
 			</ul>
 		</li>
 		
-		<% control Menu(1) %>
+		<% with/loopMenu(1) %>
 			<% if First %>
 			<% else_if URLSegment == near-me %>
 			
@@ -177,7 +177,7 @@ document.createElement('hgroup');
 				<a href="$Link"><strong>$MenuTitle</strong> $Title</a>
 			</li>
 			<% end_if %>
-		<% end_control %>
+		<% end_with/loop%>
     </ul>
     </div>
 </nav>

@@ -7,7 +7,7 @@ class Category extends DataObject {
 		"Showmenu" => "Boolean"
 	);
 	function getCMSFields_forPopup() {
-		$fields = new FieldSet();
+		$fields = new FieldList();
 		$fields->push( new TextField( 'Title' ) );
 		$fields->push( new TextField( 'AltTitle' ) );
 		$fields->push( new TextField( 'URLSlug', 'Use underscores for spaces. Do not use dashes.' ) );
@@ -24,7 +24,12 @@ class Category extends DataObject {
 		// Setup filter
 		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
 		// Get the calendar
-		$calendar = DataObject::get_one("AfterClassCalendar");
+		$calendar = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
 		// Get the events from the calendar
 		if (empty($ids)) {
 			return false;

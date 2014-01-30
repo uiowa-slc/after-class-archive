@@ -25,8 +25,8 @@
  
         <div id="upcoming_event_list">
 
-        	<% control AllEvents %>
-			<% control Event %>
+        	<% with/loopAllEvents %>
+			<% with/loopEvent %>
         		<div class="event<% if ID = 0 %> hide<% else %><% end_if %>">
         		
         		<div class="upcoming-left-column">
@@ -35,7 +35,7 @@
             	<div class="event_text">
             		<h3><a href="$Link">$Title</a></h3>  
             		<p>
-            	<% control DateAndTime %> 
+            	<% with/loopDateAndTime %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
 		    				<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -49,23 +49,23 @@
 		    			 	</p>
 		    		
 		    			 
-	    			<% end_control %>       	
+	    			<% end_with/loop%>       	
             
-		            <% end_control %>
+		            <% end_with/loop%>
 		            	<p>
 		    
 		         
-		                <% control Event %>
-		               <% if Venues %> <% control Venues %>$Title<br/><% end_control %><% end_if %>
+		                <% with/loopEvent %>
+		               <% if Venues %> <% with/loopVenues %>$Title<br/><% end_with/loop%><% end_if %>
 		                $Cost
-		                <% end_control %> <!-- end control event -->
+		                <% end_with/loop%> <!-- end control event -->
 		                </p>
 	           	</div>  
             	</div> 
             		<% if Pos == 5 %><span id="upcoming_scroll_indicator"> $Events.TotalItems &darr;</span>
 <% end_if %>
 
-            <% end_control %><!-- end control eventS -->
+            <% end_with/loop%><!-- end control eventS -->
         </div>
 	<% else %>
 		No events currently listed.

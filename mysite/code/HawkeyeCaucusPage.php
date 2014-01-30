@@ -31,12 +31,12 @@ class HawkeyeCaucusPage_Controller extends Page_Controller {
 	
 function Form() {
 		//
-		$myForm = new Form($this, "Form", new FieldSet(
+		$myForm = new Form($this, "Form", new FieldList(
 			new TextField("first_name", "Your First Name"),
 			new TextField("last_name","Last Name"),
 			new TextField("email","Email Address"),
  			new HiddenField("facebook_id")
-		), new FieldSet(
+		), new FieldList(
 			new FormAction("SignupAction","Get Connected!")
 		), new RequiredFields());
 		$myForm->disableSecurityToken();
@@ -51,14 +51,24 @@ function Form() {
 		$form->saveInto($hawkeyeCaucusPerson);
 		$hawkeyeCaucusPerson->signup_source = $this->URLSegment;
 		$hawkeyeCaucusPerson->write();
-		Director::redirect($this->URLSegment.'/');
+		/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: Director::redirect(
+NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
+### @@@@ ########### @@@@ ###
+*/$this->redirect($this->URLSegment.'/');
 	}
 	public function show() {
 	
 	if(Permission::check("ADMIN")){
 		if($this){
 			$mr = "first,last,email,signupsource,created<br />";
-			$records = DataObject::get("HawkeyeCaucusPerson",null,"id DESC",null,3000);
+			$records = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("HawkeyeCaucusPerson",null,"id DESC",null,3000);
 			foreach ($records as $record) {
 				if ($record->signup_source == $this->URLSegment) {
 					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
@@ -67,7 +77,12 @@ function Form() {
 			return $mr;
 		}
 	}else {
-		Director::redirect("home/");
+		/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: Director::redirect(
+NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
+### @@@@ ########### @@@@ ###
+*/$this->redirect("home/");
 	
 	}
 }

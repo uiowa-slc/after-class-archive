@@ -19,14 +19,14 @@
 		<div id="categories-container">
 		<ul class="category">
 		
-			<% control getEventtypes %>
+			<% with/loopgetEventtypes %>
 				<% if Events %>
 					<li><h3><a href="events/categories/$Title" target="_blank">$Title ($Events.Count)</a></h3>
 					
 						<ul>
-							<% control Events %>
+							<% with/loopEvents %>
 								<li><a href="$Event.Link" target="_blank">$Event.Title</a></li>
-							<% end_control %>
+							<% end_with/loop%>
 						
 						</ul>
 					
@@ -36,7 +36,7 @@
 			
 			
 			
-			<% end_control %>
+			<% end_with/loop%>
 		
 		
 		</ul><!-- end category -->

@@ -1,0 +1,312 @@
+235 matches (BASIC) for: '<% control '
+   -- Replaced in 3 places IN AfterClassCategoryRss.ss
+   -- Replaced in 4 places IN Page.ss
+   -- Replaced in 1 places IN EventCategoryList.ss
+   -- Replaced in 2 places IN FeaturedEvent.ss
+   -- Replaced in 5 places IN HomeFeature.ss
+   -- Replaced in 5 places IN NextHomeFeature.ss
+   -- Replaced in 3 places IN RelatedEvents.ss
+   -- Replaced in 3 places IN SecondaryEvents.ss
+   -- Replaced in 5 places IN AfterClassCalendar.ss
+   -- Replaced in 4 places IN AfterClassCategory.ss
+   -- Replaced in 5 places IN AfterClassCategoryList.ss
+   -- Replaced in 5 places IN AfterClassEvent.ss
+   -- Replaced in 7 places IN CategoryPage.ss
+   -- Replaced in 7 places IN EventsPage.ss
+   -- Replaced in 2 places IN Page_results.ss
+   -- Replaced in 1 places IN RssBlogPostsPage.ss
+   -- Replaced in 3 places IN AfterClassCategoryRss.ss
+   -- Replaced in 25 places IN AfterClassNewsletter.ss
+   -- Replaced in 24 places IN AfterClassNewsletter_.ss
+   -- Replaced in 29 places IN AfterClassSummerNewsletter.ss
+   -- Replaced in 2 places IN CategoryFramePage.ss
+   -- Replaced in 7 places IN CategoryPage.ss
+   -- Replaced in 7 places IN ConnectPage.ss
+   -- Replaced in 7 places IN Page.ss
+   -- Replaced in 5 places IN EventCard.ss
+   -- Replaced in 1 places IN EventCategoryList.ss
+   -- Replaced in 4 places IN HeroEvent.ss
+   -- Replaced in 3 places IN RelatedEvents.ss
+   -- Replaced in 3 places IN SecondaryEvents.ss
+   -- Replaced in 19 places IN AfterClassCalendar.ss
+   -- Replaced in 3 places IN AfterClassCategory.ss
+   -- Replaced in 5 places IN AfterClassCategoryList.ss
+   -- Replaced in 10 places IN AfterClassEvent.ss
+   -- Replaced in 1 places IN DeadlinePage.ss
+   -- Replaced in 7 places IN EventsPage.ss
+   -- Replaced in 5 places IN NearMePage.ss
+   -- Replaced in 2 places IN Page_results.ss
+   -- Replaced in 1 places IN RssBlogPostsPage.ss
+235 matches (BASIC) for: '<% end_control '
+   -- Replaced in 3 places IN AfterClassCategoryRss.ss
+   -- Replaced in 4 places IN Page.ss
+   -- Replaced in 1 places IN EventCategoryList.ss
+   -- Replaced in 2 places IN FeaturedEvent.ss
+   -- Replaced in 5 places IN HomeFeature.ss
+   -- Replaced in 5 places IN NextHomeFeature.ss
+   -- Replaced in 3 places IN RelatedEvents.ss
+   -- Replaced in 3 places IN SecondaryEvents.ss
+   -- Replaced in 5 places IN AfterClassCalendar.ss
+   -- Replaced in 4 places IN AfterClassCategory.ss
+   -- Replaced in 5 places IN AfterClassCategoryList.ss
+   -- Replaced in 5 places IN AfterClassEvent.ss
+   -- Replaced in 7 places IN CategoryPage.ss
+   -- Replaced in 7 places IN EventsPage.ss
+   -- Replaced in 2 places IN Page_results.ss
+   -- Replaced in 1 places IN RssBlogPostsPage.ss
+   -- Replaced in 3 places IN AfterClassCategoryRss.ss
+   -- Replaced in 25 places IN AfterClassNewsletter.ss
+   -- Replaced in 24 places IN AfterClassNewsletter_.ss
+   -- Replaced in 29 places IN AfterClassSummerNewsletter.ss
+   -- Replaced in 2 places IN CategoryFramePage.ss
+   -- Replaced in 7 places IN CategoryPage.ss
+   -- Replaced in 7 places IN ConnectPage.ss
+   -- Replaced in 7 places IN Page.ss
+   -- Replaced in 5 places IN EventCard.ss
+   -- Replaced in 1 places IN EventCategoryList.ss
+   -- Replaced in 4 places IN HeroEvent.ss
+   -- Replaced in 3 places IN RelatedEvents.ss
+   -- Replaced in 3 places IN SecondaryEvents.ss
+   -- Replaced in 19 places IN AfterClassCalendar.ss
+   -- Replaced in 3 places IN AfterClassCategory.ss
+   -- Replaced in 5 places IN AfterClassCategoryList.ss
+   -- Replaced in 10 places IN AfterClassEvent.ss
+   -- Replaced in 1 places IN DeadlinePage.ss
+   -- Replaced in 7 places IN EventsPage.ss
+   -- Replaced in 5 places IN NearMePage.ss
+   -- Replaced in 2 places IN Page_results.ss
+   -- Replaced in 1 places IN RssBlogPostsPage.ss
+
+------------------------------------
+Files Searched
+------------------------------------
+/division-bar/templates/DivisionBar.ss
+/themes/afterclass/templates/AfterClassCategoryRss.ss
+/themes/afterclass/templates/Page.ss
+/themes/afterclass/templates/Includes/EventCategoryList.ss
+/themes/afterclass/templates/Includes/FeaturedEvent.ss
+/themes/afterclass/templates/Includes/HomeFeature.ss
+/themes/afterclass/templates/Includes/NewsletterForm.ss
+/themes/afterclass/templates/Includes/NextHomeFeature.ss
+/themes/afterclass/templates/Includes/RelatedEvents.ss
+/themes/afterclass/templates/Includes/SecondaryEvents.ss
+/themes/afterclass/templates/Includes/ShareLinks.ss
+/themes/afterclass/templates/Includes/StudentLifeBar.ss
+/themes/afterclass/templates/Layout/AddEventPage.ss
+/themes/afterclass/templates/Layout/AfterClassCalendar.ss
+/themes/afterclass/templates/Layout/AfterClassCategory.ss
+/themes/afterclass/templates/Layout/AfterClassCategoryList.ss
+/themes/afterclass/templates/Layout/AfterClassEvent.ss
+/themes/afterclass/templates/Layout/CategoryPage.ss
+/themes/afterclass/templates/Layout/EventsPage.ss
+/themes/afterclass/templates/Layout/HomePage.ss
+/themes/afterclass/templates/Layout/Page.ss
+/themes/afterclass/templates/Layout/Page_results.ss
+/themes/afterclass/templates/Layout/RssBlogPostsPage.ss
+/themes/afterclass/templates/Layout/UserDefinedForm.ss
+/themes/afterclass2/templates/AfterClassCategoryRss.ss
+/themes/afterclass2/templates/AfterClassNewsletter.ss
+/themes/afterclass2/templates/AfterClassNewsletter_.ss
+/themes/afterclass2/templates/AfterClassSummerNewsletter.ss
+/themes/afterclass2/templates/CategoryFramePage.ss
+/themes/afterclass2/templates/CategoryPage.ss
+/themes/afterclass2/templates/ConnectPage.ss
+/themes/afterclass2/templates/FacebookYoutubePage.ss
+/themes/afterclass2/templates/FeedbackPage.ss
+/themes/afterclass2/templates/HawkeyeCaucusPage.ss
+/themes/afterclass2/templates/Orientation2012Page.ss
+/themes/afterclass2/templates/Page.ss
+/themes/afterclass2/templates/SubscribePage.ss
+/themes/afterclass2/templates/Includes/EventCard.ss
+/themes/afterclass2/templates/Includes/EventCategoryList.ss
+/themes/afterclass2/templates/Includes/HeroEvent.ss
+/themes/afterclass2/templates/Includes/HomeShareLinks.ss
+/themes/afterclass2/templates/Includes/NewsletterForm.ss
+/themes/afterclass2/templates/Includes/RelatedEvents.ss
+/themes/afterclass2/templates/Includes/SecondaryEvents.ss
+/themes/afterclass2/templates/Includes/ShareLinks.ss
+/themes/afterclass2/templates/Includes/StudentLifeBar.ss
+/themes/afterclass2/templates/Layout/AddEventPage.ss
+/themes/afterclass2/templates/Layout/AfterClassAuthorize.ss
+/themes/afterclass2/templates/Layout/AfterClassCalendar.ss
+/themes/afterclass2/templates/Layout/AfterClassCallback.ss
+/themes/afterclass2/templates/Layout/AfterClassCategory.ss
+/themes/afterclass2/templates/Layout/AfterClassCategoryList.ss
+/themes/afterclass2/templates/Layout/AfterClassEvent.ss
+/themes/afterclass2/templates/Layout/DeadlinePage.ss
+/themes/afterclass2/templates/Layout/EventsPage.ss
+/themes/afterclass2/templates/Layout/NearMePage.ss
+/themes/afterclass2/templates/Layout/Page.ss
+/themes/afterclass2/templates/Layout/Page_results.ss
+/themes/afterclass2/templates/Layout/RssBlogPostsPage.ss
+/themes/afterclass2/templates/Layout/UserDefinedForm.ss
+/themes/simple/templates/Includes/BreadCrumbs.ss
+/themes/simple/templates/Includes/Footer.ss
+/themes/simple/templates/Includes/Header.ss
+/themes/simple/templates/Includes/Navigation.ss
+/themes/simple/templates/Includes/SideBar.ss
+/themes/simple/templates/Includes/SidebarMenu.ss
+/themes/simple/templates/Layout/Page.ss
+/themes/simple/templates/Layout/Page_results.ss
+/themes/simple/templates/Page.ss
+
+------------------------------------
+Summary: by search key
+------------------------------------
+235:	 <% end_control 
+235:	 <% control 
+
+------------------------------------
+Summary: by directory
+------------------------------------
+208:	 /themes/afterclass2/templates
+106:	 /themes/afterclass2/templates/Layout
+72:	 /themes/afterclass/templates/Layout
+38:	 /themes/afterclass/templates/Includes
+32:	 /themes/afterclass2/templates/Includes
+14:	 /themes/afterclass/templates
+
+------------------------------------
+Summary: by root directory (/)
+------------------------------------
+470:	 themes/
+
+------------------------------------
+Total replacements: 470
+------------------------------------
+6 matches (BASIC) for: 'new DataObjectSet'
+   -- Replaced in 3 places IN AfterClassCalendar.php
+   -- Replaced in 3 places IN AfterClassEvent.php
+7 matches (BASIC) for: 'new FieldSet'
+   -- Replaced in 2 places IN AddEventPage.php
+   -- Replaced in 1 places IN Category.php
+   -- Replaced in 2 places IN HawkeyeCaucusPage.php
+   -- Replaced in 2 places IN Orientation2012Page.php
+1 matches (BASIC) for: 'extends DataObjectDecorator'
+   -- Replaced in 1 places IN CustomSiteConfig.php
+1 matches (BASIC) for: 'function updateCMSFields(FieldSet'
+   -- Replaced in 1 places IN CustomSiteConfig.php
+59 matches (BASIC) for: 'Root.Content.Main'
+   -- Replaced in 8 places IN AfterClassCalendar.php
+   -- Replaced in 10 places IN AfterClassEvent.php
+   -- Replaced in 4 places IN AfterClassNewsletter.php
+   -- Replaced in 36 places IN ConnectPage.php
+   -- Replaced in 1 places IN SubscribePage.php
+53 matches (BASIC) for: 'Root.Content.'
+   -- Replaced in 9 places IN AfterClassCalendar.php
+   -- Replaced in 15 places IN AfterClassEvent.php
+   -- Replaced in 29 places IN AfterClassNewsletter.php
+7 matches (COMPLEX) for: 'Director::redirect('
+   -- Replaced in 1 places IN AddEventPage.php
+   -- Replaced in 2 places IN AfterClassCalendar.php
+   -- Replaced in 2 places IN HawkeyeCaucusPage.php
+   -- Replaced in 2 places IN Orientation2012Page.php
+3 matches (COMPLEX) for: 'new ManyManyComplexTableField'
+   -- Replaced in 3 places IN AfterClassEvent.php
+6 matches (COMPLEX) for: 'new ImageField('
+   -- Replaced in 3 places IN AfterClassCalendar.php
+   -- Replaced in 1 places IN AfterClassEvent.php
+   -- Replaced in 2 places IN AfterClassNewsletter.php
+23 matches (COMPLEX) for: 'DataObject::get('
+   -- Replaced in 7 places IN AfterClassCalendar.php
+   -- Replaced in 3 places IN AfterClassEvent.php
+   -- Replaced in 1 places IN HawkeyeCaucusPage.php
+   -- Replaced in 1 places IN Orientation2012Page.php
+   -- Replaced in 7 places IN Page.php
+   -- Replaced in 1 places IN CleanupEventsBuildTask.php
+   -- Replaced in 1 places IN EraseOldEventsBuildTask.php
+   -- Replaced in 1 places IN InvertCleanupEventsBuildTask.php
+   -- Replaced in 1 places IN MakeRSSFeedTask.php
+18 matches (COMPLEX) for: 'DataObject::get_one('
+   -- Replaced in 7 places IN AfterClassCalendar.php
+   -- Replaced in 1 places IN AfterClassEvent.php
+   -- Replaced in 1 places IN Category.php
+   -- Replaced in 4 places IN Page.php
+   -- Replaced in 2 places IN CleanupEventsBuildTask.php
+   -- Replaced in 1 places IN EraseOldEventsBuildTask.php
+   -- Replaced in 2 places IN InvertCleanupEventsBuildTask.php
+2 matches (COMPLEX) for: 'DataObject::get_by_id('
+   -- Replaced in 2 places IN AfterClassEvent.php
+3 matches (COMPLEX) for: 'sapphire'
+   -- Replaced in 3 places IN Page.php
+1 matches (COMPLEX) for: 'function extraStatics'
+   -- Replaced in 1 places IN CustomSiteConfig.php
+4 matches (COMPLEX) for: 'new HtmlEditorField'
+   -- Replaced in 1 places IN AfterClassEvent.php
+   -- Replaced in 1 places IN AfterClassNewsletter.php
+   -- Replaced in 1 places IN Sponsor.php
+   -- Replaced in 1 places IN Venue.php
+1 matches (COMPLEX) for: 'new FileField'
+   -- Replaced in 1 places IN AddEventPage.php
+1 matches (COMPLEX) for: 'new UniqueRestrictedTextField'
+   -- Replaced in 1 places IN AfterClassEvent.php
+
+------------------------------------
+Files Searched
+------------------------------------
+/mysite/_config.php
+/mysite/code/AddEventPage.php
+/mysite/code/AfterClassCalendar.php
+/mysite/code/AfterClassEvent.php
+/mysite/code/AfterClassNewsletter.php
+/mysite/code/Category.php
+/mysite/code/ConnectPage.php
+/mysite/code/CustomSiteConfig.php
+/mysite/code/Eventtype.php
+/mysite/code/FacebookYoutubePage.php
+/mysite/code/FeedbackPage.php
+/mysite/code/HawkeyeCaucusPage.php
+/mysite/code/HawkeyeCaucusPerson.php
+/mysite/code/NearMePage.php
+/mysite/code/Orientation2012Page.php
+/mysite/code/OrientationPerson.php
+/mysite/code/Page.php
+/mysite/code/Sponsor.php
+/mysite/code/SubscribePage.php
+/mysite/code/Venue.php
+/mysite/code/tasks/CleanupEventsBuildTask.php
+/mysite/code/tasks/EraseOldEventsBuildTask.php
+/mysite/code/tasks/InvertCleanupEventsBuildTask.php
+/mysite/code/tasks/MakeRSSFeedTask.php
+/spamprotection/_config.php
+/spamprotection/code/EditableSpamProtectionField.php
+/spamprotection/code/SpamProtector.php
+/spamprotection/code/SpamProtectorField.php
+/spamprotection/code/SpamProtectorManager.php
+/spamprotection/code/extensions/CommentSpamProtection.php
+
+------------------------------------
+Summary: by search key
+------------------------------------
+59:	 Root.Content.Main
+53:	 Root.Content.
+23:	 DataObject::get(
+18:	 DataObject::get_one(
+7:	 Director::redirect(
+7:	 new FieldSet
+6:	 new DataObjectSet
+6:	 new ImageField(
+4:	 new HtmlEditorField
+3:	 new ManyManyComplexTableField
+3:	 sapphire
+2:	 DataObject::get_by_id(
+1:	 new UniqueRestrictedTextField
+1:	 new FileField
+1:	 function extraStatics
+1:	 extends DataObjectDecorator
+1:	 function updateCMSFields(FieldSet
+
+------------------------------------
+Summary: by directory
+------------------------------------
+187:	 /mysite/code
+9:	 /mysite/code/tasks
+
+------------------------------------
+Summary: by root directory (/)
+------------------------------------
+196:	 mysite/
+
+------------------------------------
+Total replacements: 196
+------------------------------------

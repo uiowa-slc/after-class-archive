@@ -30,50 +30,85 @@ class AfterClassCalendar extends Calendar {
 	
 		function getCMSFields() {
 		$fields =parent::getCMSFields();
-		$fields->removeFieldFromTab("Root.Content.Main", "Content");
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad1URL", "Ad 1 External Link"));
-		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad1Image","Ad 1 Image (same dimensions as newsletter ad)"));
+		$fields->removeFieldFromTab("Root.Main", "Content");
+		$fields->addFieldToTab("Root.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
+		$fields->addFieldToTab("Root.Ads", new TextField("Ad1URL", "Ad 1 External Link"));
+		$fields->addFieldToTab("Root.Ads", /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ImageField(
+NOTE:  Check Syntax 
+### @@@@ ########### @@@@ ###
+*/new UploadField("Ad1Image","Ad 1 Image (same dimensions as newsletter ad)"));
 		
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad2Title", "Ad 2 Title / Alt Text"));
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad2URL", "Ad 2 External Link"));
-		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad2Image", "Ad 2 Image (same dimensions as newsletter ad) "));
+		$fields->addFieldToTab("Root.Ads", new TextField("Ad2Title", "Ad 2 Title / Alt Text"));
+		$fields->addFieldToTab("Root.Ads", new TextField("Ad2URL", "Ad 2 External Link"));
+		$fields->addFieldToTab("Root.Ads", /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ImageField(
+NOTE:  Check Syntax 
+### @@@@ ########### @@@@ ###
+*/new UploadField("Ad2Image", "Ad 2 Image (same dimensions as newsletter ad) "));
 		
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3Title", "Ad 3 Title / Alt Text"));
-		$fields->addFieldToTab("Root.Content.Ads", new TextField("Ad3URL", "Ad 3 External Link"));
-		$fields->addFieldToTab("Root.Content.Ads", new ImageField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
+		$fields->addFieldToTab("Root.Ads", new TextField("Ad3Title", "Ad 3 Title / Alt Text"));
+		$fields->addFieldToTab("Root.Ads", new TextField("Ad3URL", "Ad 3 External Link"));
+		$fields->addFieldToTab("Root.Ads", /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ImageField(
+NOTE:  Check Syntax 
+### @@@@ ########### @@@@ ###
+*/new UploadField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
 
-		$fields->addFieldToTab("Root.Content.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
+		$fields->addFieldToTab("Root.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
 		/* $name, $title = "", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = null, $parentID = 0, $cache = false */
-		$fields->addFieldToTab('Root.Content.Main', new SimpleTreeDropdownField($name = "FeaturedEvent1ID", $title = "Featured Event 1", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
-		$fields->addFieldToTab('Root.Content.Main', new SimpleTreeDropdownField($name = "FeaturedEvent2ID", $title = "Featured Event 2", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
-		$fields->addFieldToTab('Root.Content.Main', new SimpleTreeDropdownField($name = "FeaturedEvent3ID", $title = "Featured Event 3", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
-		/*$fields->addFieldToTab('Root.Content.Main', new SimpleTreeDropdownField("FeaturedEvent1ID", "Featured Event 1", "SiteTree", null, null, null, null, 6));
-		$fields->addFieldToTab('Root.Content.Main', new SimpleTreeDropdownField("FeaturedEvent2ID", "Featured Event 2", "SiteTree"));
-		$fields->addFieldToTab('Root.Content.Main', new SimpleTreeDropdownField("FeaturedEvent3ID", "Featured Event 3", "SiteTree"));*/
+		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent1ID", $title = "Featured Event 1", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
+		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent2ID", $title = "Featured Event 2", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
+		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent3ID", $title = "Featured Event 3", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
+		/*$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent1ID", "Featured Event 1", "SiteTree", null, null, null, null, 6));
+		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent2ID", "Featured Event 2", "SiteTree"));
+		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent3ID", "Featured Event 3", "SiteTree"));*/
 		
 		return $fields;
 	}
 	public function UEvents() {
-		$e = DataObject::get("AfterClassEvent")->toArray();;
+		$e = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("AfterClassEvent")->toArray();;
 		CalendarUtil::date_sort($e);
 		return $e;
 	}
 
 	public function Eventtype() {
-	    return DataObject::get("Eventtype");
+	    return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Eventtype");
 	}
 	public function Sponsor() {
-	    return DataObject::get("Sponsor");
+	    return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Sponsor");
 	}
 	public function Venue() {
-	    return DataObject::get("Venue");
+	    return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Venue");
 	}
 	
 	
 	function FeaturedEvents() {
 	
-		$eventSet = new DataObjectSet();
+		$eventSet = new ArrayList();
 		
 		$events[] = $this->FeaturedEvent1();
 		$events[] = $this->FeaturedEvent2();
@@ -118,7 +153,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "fbauthorize", "fbcallback", "venues", "sponsors");
  	function getCurrentTag(){
  		if($this->urlParams['Tag']){
- 			 $Tag = DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
+ 			 $Tag = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Tag", "Title = '".$this->urlParams['Tag']."'");
  			 
  			 if($Tag){
  			 	return $Tag;
@@ -170,21 +210,31 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	public function categoriesrss() {
 		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
 		
-		$events = new DataObjectSet();
+		$events = new ArrayList();
 		$CategoryName = addslashes($this->urlParams['Category']);
 		if (strpos(strtolower($CategoryName),"-") === false) {
-		  $Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
+		  $Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
 		  $events = $Category->events();
 		} else {
 		  $Categories = explode("-",$CategoryName);
 		  foreach ($Categories as $CatName) {
-		  	$Category = DataObject::get_one("Category", "URLSlug = '".$CatName."'");
+		  	$Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Category", "URLSlug = '".$CatName."'");
 		  	$CatEvents = $Category->events();
 		  	$events->merge($CatEvents);
 		  }
 		  $e = $events->toArray();
 		  CalendarUtil::date_sort($e);
-		  $events = new DataObjectSet($e);
+		  $events = new ArrayList($e);
 		}
 		
 		$events->removeDuplicates();
@@ -260,14 +310,24 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	function venues() {
  		$VenueName = addslashes($this->urlParams['Venue']);
  		if ($VenueName) {
- 			$Venue = DataObject::get_one("Venue", "URLSlug = '".$VenueName."'");
+ 			$Venue = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Venue", "URLSlug = '".$VenueName."'");
  			$Data = array(
 	      		'Category' => $Venue,
 	      		'CategoryName' => $VenueName
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  		} else {
- 			$Category = DataObject::get("Venue");
+ 			$Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Venue");
  			$Data = array(
 				'Category' => $Category
 	    	);
@@ -278,14 +338,24 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	function sponsors() {
  		$SponsorName = addslashes($this->urlParams['Sponsor']);
  		if ($SponsorName) {
- 			$Sponsor = DataObject::get_one("Sponsor", "URLSlug = '".$SponsorName."'");
+ 			$Sponsor = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Sponsor", "URLSlug = '".$SponsorName."'");
  			$Data = array(
 	      	'Category' => $Sponsor,
 	      	'CategoryName' => $SponsorName
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  		} else {
- 			$Category = DataObject::get("Sponsor");
+ 			$Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Sponsor");
  			$Data = array(
 	    	  'Category' => $Category
 	    	);
@@ -296,9 +366,19 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	function categories() {
  		$CategoryName = addslashes($this->urlParams['Category']);
  		if ($CategoryName) {
- 			$Category = DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
+ 			$Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
  			if (!($Category)) {
- 				$Category = DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 				$Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Category", "Title = '".$CategoryName."'");
  			}
  			$Data = array(
 				'Category' => $Category,
@@ -306,7 +386,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  		} else {
- 			$Category = DataObject::get("Eventtype");
+ 			$Category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Eventtype");
  			$Data = array(
 	      	'Category' => $Category
 	    	);
@@ -315,10 +400,20 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	}
 
  	function sponsor() {
-		Director::redirect('./events/sponsors/');
+		/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: Director::redirect(
+NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
+### @@@@ ########### @@@@ ###
+*/$this->redirect('./events/sponsors/');
  	}
  	function venue() {
- 	    Director::redirect('./events/venues/');
+ 	    /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: Director::redirect(
+NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
+### @@@@ ########### @@@@ ###
+*/$this->redirect('./events/venues/');
  	}
  	
  	public function dynamicNews(){

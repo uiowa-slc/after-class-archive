@@ -473,7 +473,7 @@
                                                         <td valign="top" class="bodyContainer" style="padding-top: 10px;padding-bottom: 10px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                         <!--BEGINNING OF BODY CONTENT, ADD CONDITIONS HERE-->
   
-<% control FeaturedEvent %>
+<% with/loopFeaturedEvent %>
 <!-- main event image -->
  <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnImageBlockOuter">
@@ -484,11 +484,11 @@
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px;padding-left: 0px;padding-top: 0;padding-bottom: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                             <!--image content-->                            
                                     <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                    <% control Image %>
-                                    <% control CroppedImage(598,350) %>                                       
+                                    <% with/loopImage %>
+                                    <% with/loopCroppedImage(598,350) %>                                       
                                         <img align="left" alt="$Title" src="$AbsoluteURL" width="600" style="max-width: 730px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
-                                        <% end_control %>
-                                        <% end_control %>                                                
+                                        <% end_with/loop%>
+                                        <% end_with/loop%>                                                
                                     </a>
                            
                             </td>
@@ -517,7 +517,7 @@
 									<strong>When:</strong> 
 							
 										<% if DateAndTimeLimited(2) %>
-										<% control DateAndTimeLimited(2) %>
+										<% with/loopDateAndTimeLimited(2) %>
 											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
 											<% if StartTime %>
 										at $StartTime.Nice
@@ -525,7 +525,7 @@
 											<% if EndDate %>
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
 											<% end_if %>				
-											<% end_control %>
+											<% end_with/loop%>
 										
 											<% if DateAndTimeMoreThan(2) %>
 											<br />	
@@ -537,12 +537,12 @@
 												<% if Venues %>
 												<strong>Location: </strong>
 													<% if Location %>{$Location}<% end_if %>
-													<% control Venues %>
+													<% with/loopVenues %>
 													$Title 			
 													<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a>
 													<% end_if %>
 								
-													<% end_control %>							
+													<% end_with/loop%>							
 												<% end_if %>
 											<br />
 											<br />
@@ -569,7 +569,7 @@
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 <a class="mcnButton " title="View This Event" href="$AbsoluteLink" target="_self" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">View This Event</a>
-                                <% end_control %>
+                                <% end_with/loop%>
                             </td>
                         </tr>
                     </tbody>
@@ -601,7 +601,7 @@
 </table>
 <!-- end coming soon image -->
 <!-- begin event 1 -->
-<% control Event1 %>
+<% with/loopEvent1 %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnCaptionBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnCaptionBlockOuter">
         <tr>
@@ -619,9 +619,9 @@
                       
                         <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                         
-						<% control Image.SetWidth(200) %>
+						<% with/loopImage.SetWidth(200) %>
                         <img alt="$Title" src="$AbsoluteURL" width="176" style="max-width: 730px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-						<% end_control %>					
+						<% end_with/loop%>					
 						</a>
                     </td>
                 </tr>
@@ -634,7 +634,7 @@
 							<p class="$FirstLast"> <strong>When:</strong> 
 							<% if DateAndTimeLimited(2) %>
 								
-								<% control DateAndTimeLimited(1) %>
+								<% with/loopDateAndTimeLimited(1) %>
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
 									<% if StartTime %>
 										at $StartTime.Nice
@@ -642,7 +642,7 @@
 									<% if EndDate %>
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
 									<% end_if %>				
-								<% end_control %>
+								<% end_with/loop%>
 										
 								<% if DateAndTimeMoreThan(2) %>
 									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
@@ -652,12 +652,12 @@
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
-										<% control Venues %>
+										<% with/loopVenues %>
 											$Title 			
 											<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a>
 										<% end_if %>
 									</p>
-										<% end_control %>							
+										<% end_with/loop%>							
 										<% end_if %>
 										
 							</p>
@@ -674,10 +674,10 @@
         </tr>
     </tbody>
 </table>
-<% end_control %>	
+<% end_with/loop%>	
 <!-- end event 1-->
 <!-- begin event 2-->
-<% control Event2 %>
+<% with/loopEvent2 %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnCaptionBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnCaptionBlockOuter">
         <tr>
@@ -695,9 +695,9 @@
                       
                         <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                         
-						<% control Image.SetWidth(200) %>
+						<% with/loopImage.SetWidth(200) %>
                         <img alt="$Title" src="$AbsoluteURL" width="176" style="max-width: 730px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-						<% end_control %>					
+						<% end_with/loop%>					
 						</a>
                     </td>
                 </tr>
@@ -711,7 +711,7 @@
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
 								<% if DateAndTimeLimited(2) %>
-								<% control DateAndTimeLimited(1) %>
+								<% with/loopDateAndTimeLimited(1) %>
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
 									<% if StartTime %>
 										at $StartTime.Nice
@@ -719,7 +719,7 @@
 									<% if EndDate %>
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
 									<% end_if %>				
-								<% end_control %>
+								<% end_with/loop%>
 										
 								<% if DateAndTimeMoreThan(2) %>
 									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
@@ -729,12 +729,12 @@
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
-										<% control Venues %>
+										<% with/loopVenues %>
 											$Title 			
 											<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a>
 										<% end_if %>
 									</p>
-										<% end_control %>							
+										<% end_with/loop%>							
 										<% end_if %>
 							</p>
 							
@@ -750,10 +750,10 @@
         </tr>
     </tbody>
 </table>
-<% end_control %>
+<% end_with/loop%>
 <!-- END EVENT 2->
 <!-- BEGIN EVENT 3 -->
-<% control Event3 %>
+<% with/loopEvent3 %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnCaptionBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnCaptionBlockOuter">
         <tr>
@@ -771,9 +771,9 @@
                       
                         <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                         
-						<% control Image.SetWidth(200) %>
+						<% with/loopImage.SetWidth(200) %>
                         <img alt="$Title" src="$AbsoluteURL" width="176" style="max-width: 730px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-						<% end_control %>					
+						<% end_with/loop%>					
 						</a>
                     </td>
                 </tr>
@@ -787,7 +787,7 @@
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
 								<% if DateAndTimeLimited(2) %>
-								<% control DateAndTimeLimited(1) %>
+								<% with/loopDateAndTimeLimited(1) %>
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
 									<% if StartTime %>
 										at $StartTime.Nice
@@ -795,7 +795,7 @@
 									<% if EndDate %>
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
 									<% end_if %>				
-								<% end_control %>
+								<% end_with/loop%>
 										
 								<% if DateAndTimeMoreThan(2) %>
 									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
@@ -805,12 +805,12 @@
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
-										<% control Venues %>
+										<% with/loopVenues %>
 											$Title 			
 											<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a>
 										<% end_if %>
 									</p>
-										<% end_control %>							
+										<% end_with/loop%>							
 										<% end_if %>
 							</p>
 							
@@ -826,10 +826,10 @@
         </tr>
     </tbody>
 </table>
-<% end_control %>
+<% end_with/loop%>
 <!-- END EVENT 3 -->
 <!-- BEING EVENT 4 -->
-<% control Event4 %>
+<% with/loopEvent4 %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnCaptionBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnCaptionBlockOuter">
         <tr>
@@ -847,9 +847,9 @@
                       
                         <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                         
-						<% control Image.SetWidth(200) %>
+						<% with/loopImage.SetWidth(200) %>
                         <img alt="$Title" src="$AbsoluteURL" width="176" style="max-width: 730px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-						<% end_control %>					
+						<% end_with/loop%>					
 						</a>
                     </td>
                 </tr>
@@ -863,7 +863,7 @@
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
 								<% if DateAndTimeLimited(2) %>
-								<% control DateAndTimeLimited(1) %>
+								<% with/loopDateAndTimeLimited(1) %>
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
 									<% if StartTime %>
 										at $StartTime.Nice
@@ -871,7 +871,7 @@
 									<% if EndDate %>
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
 									<% end_if %>				
-								<% end_control %>
+								<% end_with/loop%>
 										
 								<% if DateAndTimeMoreThan(2) %>
 									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
@@ -881,12 +881,12 @@
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
-										<% control Venues %>
+										<% with/loopVenues %>
 											$Title 			
 											<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a>
 										<% end_if %>
 									</p>
-										<% end_control %>							
+										<% end_with/loop%>							
 										<% end_if %>
 							</p>
 							
@@ -902,10 +902,10 @@
         </tr>
     </tbody>
 </table>
-<% end_control %>
+<% end_with/loop%>
 <!-- END EVENT 4 -->
 <!-- BEGIN EVENT 5 -->
-<% control Event5 %>
+<% with/loopEvent5 %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnCaptionBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnCaptionBlockOuter">
         <tr>
@@ -923,9 +923,9 @@
                       
                         <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                         
-						<% control Image.SetWidth(200) %>
+						<% with/loopImage.SetWidth(200) %>
                         <img alt="$Title" src="$AbsoluteURL" width="176" style="max-width: 730px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-						<% end_control %>					
+						<% end_with/loop%>					
 						</a>
                     </td>
                 </tr>
@@ -939,7 +939,7 @@
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
 								<% if DateAndTimeLimited(2) %>
-								<% control DateAndTimeLimited(1) %>
+								<% with/loopDateAndTimeLimited(1) %>
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
 									<% if StartTime %>
 										at $StartTime.Nice
@@ -947,7 +947,7 @@
 									<% if EndDate %>
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
 									<% end_if %>				
-								<% end_control %>
+								<% end_with/loop%>
 										
 								<% if DateAndTimeMoreThan(2) %>
 									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
@@ -957,12 +957,12 @@
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
-										<% control Venues %>
+										<% with/loopVenues %>
 											$Title 			
 											<% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a>
 										<% end_if %>
 									</p>
-										<% end_control %>							
+										<% end_with/loop%>							
 										<% end_if %>
 							</p>
 							
@@ -978,7 +978,7 @@
         </tr>
     </tbody>
 </table>
-<% end_control %>
+<% end_with/loop%>
 <!-- END EVENT 5 -->
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">

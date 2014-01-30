@@ -9,9 +9,9 @@
 			</h3>
 		
 			<% if Eventtypes %>
-				<% control Eventtypes.First %>
+				<% with/loopEventtypes.First %>
 					<a class="event-header-category" href="$Link">$Title</a>
-				<% end_control %>
+				<% end_with/loop%>
 			<% end_if %>
 			<div style="clear: both"></div>
 			</div>
@@ -21,9 +21,9 @@
 				
 					<a href="$Link">
 					<% if Image %>
-						<% control Image %>
-							<% control CroppedImage(250,158) %><img class="" itemprop="photo" src="$URL" /><% end_control %>
-						<% end_control %>
+						<% with/loopImage %>
+							<% with/loopCroppedImage(250,158) %><img class="" itemprop="photo" src="$URL" /><% end_with/loop%>
+						<% end_with/loop%>
 					<% end_if %>
 					</a>
 				
@@ -46,13 +46,13 @@
 							<% if Venues %>
 							<ul>
 							<% if Location %>{$Location}<% end_if %>
-								<% control Venues %>
+								<% with/loopVenues %>
 									<li>	<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
 									@
 										 <a href="$Link" ><span itemprop="name">$Title</span></a>
 										</span>
 									</li>
-								<% end_control %>
+								<% end_with/loop%>
 							</ul>
 							<% end_if %>
 						</div><!-- end where -->
@@ -61,7 +61,7 @@
 							<ul class="dates">
 						
 								<% if DateAndTimeLimited(2) %>
-								<% control DateAndTimeLimited(2) %>
+								<% with/loopDateAndTimeLimited(2) %>
 									<li> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)</time> </a> <% if StartTime %>
 										at $StartTime.Nice
 										<% end_if %>
@@ -69,7 +69,7 @@
 										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a>
 										<% end_if %>
 									</li>
-								<% end_control %>
+								<% end_with/loop%>
 						
 									<% if DateAndTimeMoreThan(2) %>
 										<a href="$Link" class="more-dates-link">more dates &raquo;</a>

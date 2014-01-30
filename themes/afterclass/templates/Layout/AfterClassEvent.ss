@@ -14,7 +14,7 @@
     		<div class="event_details">
     		
     			<div id="dates">
-	    			<% control DateAndTime %> 
+	    			<% with/loopDateAndTime %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 		    				<span>$StartDate.Format(l), $StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
 		    				<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -27,14 +27,14 @@
 		    			 	<% end_if %> 
 		    			 <br />
 		    			 
-	    			<% end_control %>
+	    			<% end_with/loop%>
     			</div>
     			<br />
     		$Location<br/>
     			
-    			<% control Venues %>
+    			<% with/loopVenues %>
     				$Title <br />
-    			<% end_control %>
+    			<% end_with/loop%>
     			
             	
             	$Cost</div> 
@@ -45,11 +45,11 @@
        	
        	<div class="event_date_tag">
        		<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
-       		<% control UpcomingDates(1) %>
+       		<% with/loopUpcomingDates(1) %>
        			<% if StartDate %>
 					<div class="event_date_box">$StartDate.format(M)<strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 				<% end_if %>
-        	<% end_control %>
+        	<% end_with/loop%>
        		</a>
        			<% include ShareLinks %>
 
@@ -78,7 +78,7 @@
 	
 		<h2>Where?</h2>
 	
-		<% control Venues %>
+		<% with/loopVenues %>
 		<p>This event is located at: <br />$Title - 
 		
 		<% if Address %><a href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions</a><% end_if %><% if WebsiteURL %>, <a href="$WebsiteURL">Visit Website</a><% end_if %></p>
@@ -87,7 +87,7 @@
 		<div id="map_canvas" style="width: 100%; height: 100%"></div>
 		<% end_if %>
 		
-		<% end_control %>
+		<% end_with/loop%>
 	<% end_if %>
 
 	
@@ -117,7 +117,7 @@
     //var latlng = new google.maps.LatLng(thelocation.lat(),thelocation.lng());
     var place = null;
     
-    <% control Venues %>
+    <% with/loopVenues %>
     var address = "$Address";
     
     <% if Lat %>
@@ -136,7 +136,7 @@
       }
     });
     <% end_if %>
-    <% end_control %>
+    <% end_with/loop%>
   }
   window.onload = initialize();
 </script>

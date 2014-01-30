@@ -11,12 +11,12 @@
 					    			<h2><a href="$Link">Featured Event <strong>$Title</strong></a></h2>
 					    			<p class="event_details">
 					    			
-					    			<% control UpcomingDates %>
+					    			<% with/loopUpcomingDates %>
 									<% if First %>
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)<br/>
 					        		$StartTime.nice</a><br/>
 					    			<% end_if %>
-					    			<% end_control %>
+					    			<% end_with/loop%>
 					    			
 					            	$Location<br/>
 					            	$Cost</p>           
@@ -24,13 +24,13 @@
 					       	
 					       		<div class="event_date_tag">
 									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)">
-										<% control UpcomingDates %>
+										<% with/loopUpcomingDates %>
 											<% if First %>
 												<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong>
 													$StartDate.format(D)
 												</div></a>
 											<% end_if %><!-- end if first -->
-							        	<% end_control %>
+							        	<% end_with/loop%>
 						        	</a>
 						        	
 						<% include ShareLinks %>

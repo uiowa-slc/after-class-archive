@@ -2,17 +2,17 @@
 	<% if RelatedEvents %>
 	<h2>Related Events</h2>
 	
-	<% control RelatedEvents %>
+	<% with/loopRelatedEvents %>
 	  <div class="related_event">
-	  <% control Event %>
+	  <% with/loopEvent %>
 		<a href="$Link"><% if Image %><img src="$Image.SmallImage.URL"/><% else %><img src="$ThemeDir/images/placeholder_small.png" /> <% end_if %>
-		<h3><strong>$Title</strong> <% if Venues %>@<% control Venues %> $Title <% end_control %><% end_if %></h3></a>
-	  <% end_control %>
+		<h3><strong>$Title</strong> <% if Venues %>@<% with/loopVenues %> $Title <% end_with/loop%><% end_if %></h3></a>
+	  <% end_with/loop%>
 		<!--$StartDate.Format(l), $StartDate.Month $StartDate.DayOfMonth
 		<% if EndDate %>
 		 - $EndDate.Format(l), $EndDate.Month $EndDate.DayOfMonth<% end_if %> <br />-->
 	  </div>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 
 </section>

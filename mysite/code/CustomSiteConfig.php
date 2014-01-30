@@ -1,8 +1,13 @@
 <?php
  
-class CustomSiteConfig extends DataObjectDecorator {
+class CustomSiteConfig extends DataExtension {
      
-    function extraStatics() {
+    /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: function extraStatics
+NOTE:  Remove me: simply define static vars on extension directly, or use add_to_class()   
+### @@@@ ########### @@@@ ###
+*/function extraStatics() {
         return array(
             'db' => array(
                 "TaglineOption1" => "Text",
@@ -19,7 +24,7 @@ class CustomSiteConfig extends DataObjectDecorator {
         );
     }
  
-    public function updateCMSFields(FieldSet $fields) {
+    public function updateCMSFields(FieldList $fields) {
         $fields->addFieldToTab("Root.Main", new TextField("TaglineOption1", "Tagline Option 1"));
         $fields->addFieldToTab("Root.Main", new TextField("TaglineOption2", "Tagline Option 2"));
         $fields->addFieldToTab("Root.Main", new TextField("TaglineOption3", "Tagline Option 3"));

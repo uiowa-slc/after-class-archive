@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<% if CategoryName %>
-	<% control Category %>
+	<% with/loopCategory %>
 		<% if ClassName = Sponsor %>
 		<link rel="canonical" href="{$BaseHref}events/sponsors/$URLSlug" />
 		<% else_if ClassName = Venue %>
@@ -18,7 +18,7 @@
 		<% else_if ClassName = Category %>
 		<link rel="canonical" href="{$BaseHref}events/categories/$URLSlug" />
 		<% end_if %>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 	
 	<% if ClassName = AfterClassEvent %>
@@ -30,7 +30,7 @@
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
 	<title><% if CategoryName %>$Category.Title
-		<% control Category %>
+		<% with/loopCategory %>
 		<% if ClassName = Sponsor %>
 		- University of Iowa Event Sponsor - 
 		<% else_if ClassName = Venue %>
@@ -38,9 +38,9 @@
 		<% else_if ClassName = Category %>
 		- Upcoming -
 		<% end_if %>
-		<% end_control %>
+		<% end_with/loop%>
 	<% else %>
-		<% control Category %><% if First %>
+		<% with/loopCategory %><% if First %>
 		<% if ClassName = Sponsor %>
 		Event Sponsors - 
 		<% else_if ClassName = Venue %>
@@ -48,7 +48,7 @@
 		<% else %>
 		Categories - 
 		<% end_if %>
-		<% end_if %><% end_control %>
+		<% end_if %><% end_with/loop%>
 	<% end_if %>
 	<% if ClassName = AfterClassEvent %>
 	$Title - 
@@ -66,7 +66,7 @@
 	<% else %>
 		<% if CategoryName %>
 			<% if Category.Information %>
-				<meta name="description" content="<% control Category %>$Information.XML<% end_control %>" />
+				<meta name="description" content="<% with/loopCategory %>$Information.XML<% end_with/loop%>" />
 			<% else %>
 				<meta name="description" content="After Class is the biggest list of University of Iowa events, culture, nightlife, concerts, lectures, and more." />
 			<% end_if %>
@@ -128,21 +128,21 @@ document.createElement('hgroup');
 		<li><a href="{$Link}#" id="calendar-expand">Full Calendar</a></li>
 		
 		<li><a href="http://eepurl.com/vWmfP" class="subscribe-link" target="_blank">Subscribe</a></li>
-		<% control Menu(1) %>
+		<% with/loopMenu(1) %>
 			<% if First %>
 			<% else %>
 			<li class="$URLSegment">
 				<a href="$Link"><strong>$MenuTitle</strong></a>
 				<% if Children %>
 					<ul>
-						<% control Children %>
+						<% with/loopChildren %>
 							<li><a href="$Link" <% if RedirectionType = External %>class="external" target="_blank"<% end_if %> >$Title</a></li>
-						<% end_control %>
+						<% end_with/loop%>
 					</ul>
 				<% end_if %>
 			</li>
 			<% end_if %>
-		<% end_control %>
+		<% end_with/loop%>
 
 		</ul>
 		<div class="clear"></div>
@@ -162,11 +162,11 @@ document.createElement('hgroup');
 				</form>
 
 				<h3>Trending Categories</h3>
-					<p><% control getEventtypes %>
+					<p><% with/loopgetEventtypes %>
 						<% if Events %>
 							<a href="$Link">$Title</a> | 
 						<% end_if %>
-					<% end_control %></p>
+					<% end_with/loop%></p>
 				<h3>View Events By</h3>
 				<ul>
 					<li><a href="{$BaseHref}events/categories/">Categories</a></li>

@@ -54,48 +54,63 @@ class AfterClassNewsletter extends Page {
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 		
-		//$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField('IntroText'));
-		$fields->addFieldToTab('Root.Content.Main', new ImageField('Image','Flickr or Youtube Image 250 x 187'));
-		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
-		$fields->addFieldToTab('Root.Content.Main',new TextField('ImageLink','Flickr or Youtube link.') );
+		//$fields->addFieldToTab('Root.Main', /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new HtmlEditorField
+NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor arguments must now be set using setters on the instance of the field.  
+### @@@@ ########### @@@@ ###
+*/new HtmlEditorField('IntroText'));
+		$fields->addFieldToTab('Root.Main', /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ImageField(
+NOTE:  Check Syntax 
+### @@@@ ########### @@@@ ###
+*/new UploadField('Image','Flickr or Youtube Image 250 x 187'));
+		$fields->addFieldToTab('Root.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
+		$fields->addFieldToTab('Root.Main',new TextField('ImageLink','Flickr or Youtube link.') );
 	/*	
-		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogTitle','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogIntro','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost1',new TextField('BlogLink','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost1',new TextField('BlogTitle','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost1',new TextField('BlogIntro','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost1',new TextField('BlogLink','Link to the blog post.') );
 		
-		$fields->addFieldToTab('Root.Content.BlogPost2',new TextField('BlogTitle2','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost2',new TextField('BlogIntro2','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost2',new TextField('BlogLink2','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost2',new TextField('BlogTitle2','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost2',new TextField('BlogIntro2','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost2',new TextField('BlogLink2','Link to the blog post.') );
 		
-		$fields->addFieldToTab('Root.Content.BlogPost3',new TextField('BlogTitle3','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost3',new TextField('BlogIntro3','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost3',new TextField('BlogLink3','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost3',new TextField('BlogTitle3','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost3',new TextField('BlogIntro3','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost3',new TextField('BlogLink3','Link to the blog post.') );
 		
-		$fields->addFieldToTab('Root.Content.BlogPost4',new TextField('BlogTitle4','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost4',new TextField('BlogIntro4','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost4',new TextField('BlogLink4','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost4',new TextField('BlogTitle4','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost4',new TextField('BlogIntro4','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost4',new TextField('BlogLink4','Link to the blog post.') );
 		
-		$fields->addFieldToTab('Root.Content.BlogPost5',new TextField('BlogTitle5','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost5',new TextField('BlogIntro5','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost5',new TextField('BlogLink5','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost5',new TextField('BlogTitle5','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost5',new TextField('BlogIntro5','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost5',new TextField('BlogLink5','Link to the blog post.') );
 		
-		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogTitle6','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogIntro6','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost6',new TextField('BlogLink6','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost6',new TextField('BlogTitle6','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost6',new TextField('BlogIntro6','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost6',new TextField('BlogLink6','Link to the blog post.') );
 
-		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogTitle7','Blog Post Title') );
-		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogIntro7','Blog Post Text.') );
-		$fields->addFieldToTab('Root.Content.BlogPost7',new TextField('BlogLink7','Link to the blog post.') );
+		$fields->addFieldToTab('Root.BlogPost7',new TextField('BlogTitle7','Blog Post Title') );
+		$fields->addFieldToTab('Root.BlogPost7',new TextField('BlogIntro7','Blog Post Text.') );
+		$fields->addFieldToTab('Root.BlogPost7',new TextField('BlogLink7','Link to the blog post.') );
 	*/	
-		$fields->addFieldToTab('Root.Content.Ad', new ImageField('BookstoreImage','Bookstore ad Image 590 x 200'));
-		$fields->addFieldToTab('Root.Content.Ad',new TextField('BookstoreImageLink','Bookstore ad link (with associatedid!!)') );
+		$fields->addFieldToTab('Root.Ad', /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ImageField(
+NOTE:  Check Syntax 
+### @@@@ ########### @@@@ ###
+*/new UploadField('BookstoreImage','Bookstore ad Image 590 x 200'));
+		$fields->addFieldToTab('Root.Ad',new TextField('BookstoreImageLink','Bookstore ad link (with associatedid!!)') );
 		
-		$fields->addFieldToTab('Root.Content.Events', new TreeDropdownField("FeaturedEventID", "Featured event.", "SiteTree"));
-		$fields->addFieldToTab('Root.Content.Events', new TreeDropdownField("Event1ID", "Event 1", "SiteTree"));
-		$fields->addFieldToTab('Root.Content.Events', new TreeDropdownField("Event2ID", "Event 2", "SiteTree"));
-		$fields->addFieldToTab('Root.Content.Events', new TreeDropdownField("Event3ID", "Event 3", "SiteTree"));
-		$fields->addFieldToTab('Root.Content.Events', new TreeDropdownField("Event4ID", "Event 4", "SiteTree"));
-		$fields->addFieldToTab('Root.Content.Events', new TreeDropdownField("Event5ID", "Event 5", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("FeaturedEventID", "Featured event.", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event1ID", "Event 1", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event2ID", "Event 2", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event3ID", "Event 3", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event4ID", "Event 4", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event5ID", "Event 5", "SiteTree"));
     	return $fields;
 	}
 	

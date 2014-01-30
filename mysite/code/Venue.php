@@ -15,7 +15,12 @@ class Venue extends Category {
 	);
 	function getCMSFields_forPopup() {
 		$fields = parent::getCMSFields_forPopup();
-		$fields->push( new HTMLEditorField( 'Information' ) );
+		$fields->push( /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new HtmlEditorField
+NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor arguments must now be set using setters on the instance of the field.  
+### @@@@ ########### @@@@ ###
+*/new HtmlEditorField( 'Information' ) );
 		$fields->push( new TextField('Address') );
 		$fields->push( new TextField('Email', 'Contact Email Address') );
 		$fields->push( new TextField('Phone', 'Phone Number') );

@@ -20,15 +20,30 @@ class CleanupEventsBuildTask extends BuildTask {
     function cleanupEvents() {
     
     	/* get our parent pages */
-    	$archivePage = DataObject::get_one("Page", "URLSegment = 'archive'");
-    	$calendarPage = DataObject::get_one("AfterClassCalendar");
+    	$archivePage = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Page", "URLSegment = 'archive'");
+    	$calendarPage = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
     	
     	if($archivePage){
     		
     		echo "Archive page found, its ID is:".$archivePage->ID."<br />";
     		echo "Checking Events:<br />
     		<ul>";
-    		$eventPages = DataObject::get("AfterClassEvent", 'ParentID = '.$calendarPage->ID);
+    		$eventPages = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("AfterClassEvent", 'ParentID = '.$calendarPage->ID);
     		
     		
     		/* check all dates for each event */

@@ -3,15 +3,15 @@
 			<h1><span>Listed under:</span> $Category.Title</h1>
 </header>
 
-		<% control Category %>
+		<% with/loopCategory %>
 			<% if Events %>
-				<% control Events %>
-					<% control Event %>	
+				<% with/loopEvents %>
+					<% with/loopEvent %>	
 						<% if Featured %>
 							<% include FeaturedEvent %>    			    	
 				 		<% end_if %><!-- End If Featured -->
-		    		<% end_control %><! -- end control event -->
-		    	<% end_control %> <!-- end control events -->
+		    		<% end_with/loop%><! -- end control event -->
+		    	<% end_with/loop%> <!-- end control events -->
 		    <% else %><!-- if there aren't any events -->
 				 <div id="single-page-content">
 				    <h2>There are no events currently listed here.</h2>
@@ -25,15 +25,15 @@
 
 		    <% end_if %> <!-- end if events -->
 		    
-		<% end_control %><!-- end control category -->
+		<% end_with/loop%><!-- end control category -->
 		
 		
 		
 		
-			<% control Category %>
+			<% with/loopCategory %>
 				<% if Events %>
 					<% include SecondaryEvents %>
 				<% end_if %><!-- end if events -->
-			<% end_control %>
+			<% end_with/loop%>
 				
 		

@@ -85,16 +85,16 @@ ul {
 						</td></tr>
 						
 <% if FeaturedEvent %>
-<% control FeaturedEvent %>
+<% with/loopFeaturedEvent %>
 						<tr width="598"  style="border-style: solid;">
 							<td width="600" colspan="2" style="padding: 0px; margin:0px;">
 								<center>
 								<a href="$AbsoluteLink">
-								<% control Image %>
-			  					<% control CroppedImage(598,350) %>
+								<% with/loopImage %>
+			  					<% with/loopCroppedImage(598,350) %>
 									<img src="$AbsoluteURL" alt="Feature" border="0" alt="Featured Event">
-			  					<% end_control %>
-								<% end_control %>
+			  					<% end_with/loop%>
+								<% end_with/loop%>
 								</a>
 								</center>
 								
@@ -103,17 +103,17 @@ ul {
 								<table><tr><td width="600">
 								<div style="padding:0; margin:0 0 10px 0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
+									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
 								</div>
 								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
-									<% control UpcomingDates %> 
+									<% with/loopUpcomingDates %> 
 		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_control %>
+	    							<% end_with/loop%>
 	    						</div>
 	    						</td><td valign="top">
 									</td></tr></table><br />
@@ -135,7 +135,7 @@ ul {
 									</td>
 									</tr>
 									</table>
-<% end_control %>
+<% end_with/loop%>
 <% end_if %>
 <!-- main content ends -->
 
@@ -144,7 +144,7 @@ ul {
 	<tr><td align="center">
 	<% if Event1 %>
 	<img src="http://afterclass.uiowa.edu/assets/newsletter/comingsoon.png" width="600">
-	<% control Event1 %>
+	<% with/loopEvent1 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
@@ -152,9 +152,9 @@ ul {
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink">
-			<% control Image.SetWidth(200) %>
+			<% with/loopImage.SetWidth(200) %>
 			<img border="0" src="$AbsoluteURL" alt="Event Image"></a>
-			<% end_control %>
+			<% end_with/loop%>
 		</div>
 		</td>
 		<% end_if %>
@@ -162,19 +162,19 @@ ul {
 		<% if Location %>
 			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
+									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
 								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
-									<% control UpcomingDates %> 
+									<% with/loopUpcomingDates %> 
 		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_control %>
+	    							<% end_with/loop%>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
@@ -190,10 +190,10 @@ ul {
 									</td>
 									</tr>
 									</table>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 	<% if Event2 %>
-	<% control Event2 %>
+	<% with/loopEvent2 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
@@ -201,9 +201,9 @@ ul {
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink">
-			<% control Image.SetWidth(200) %>
+			<% with/loopImage.SetWidth(200) %>
 			<img border="0" src="$AbsoluteURL" alt="Event Image"></a>
-			<% end_control %>
+			<% end_with/loop%>
 		</div>
 		</td>
 		<% end_if %>
@@ -211,19 +211,19 @@ ul {
 		<% if Location %>
 			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
+									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
 								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
-									<% control UpcomingDates %> 
+									<% with/loopUpcomingDates %> 
 		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_control %>
+	    							<% end_with/loop%>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
@@ -239,10 +239,10 @@ ul {
 									</td>
 									</tr>
 									</table>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 	<% if Event3 %>
-	<% control Event3 %>
+	<% with/loopEvent3 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
@@ -250,9 +250,9 @@ ul {
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink">
-			<% control Image.SetWidth(200) %>
+			<% with/loopImage.SetWidth(200) %>
 			<img border="0" src="$AbsoluteURL" alt="Event Image"></a>
-			<% end_control %>
+			<% end_with/loop%>
 		</div>
 		</td>
 		<% end_if %>
@@ -260,19 +260,19 @@ ul {
 		<% if Location %>
 			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
+									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
 								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
-									<% control UpcomingDates %> 
+									<% with/loopUpcomingDates %> 
 		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_control %>
+	    							<% end_with/loop%>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
@@ -288,10 +288,10 @@ ul {
 									</td>
 									</tr>
 									</table>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 	<% if Event4 %>
-	<% control Event4 %>
+	<% with/loopEvent4 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
@@ -299,9 +299,9 @@ ul {
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink">
-			<% control Image.SetWidth(200) %>
+			<% with/loopImage.SetWidth(200) %>
 			<img border="0" src="$AbsoluteURL" alt="Event Image"></a>
-			<% end_control %>
+			<% end_with/loop%>
 		</div>
 		</td>
 		<% end_if %>
@@ -309,19 +309,19 @@ ul {
 		<% if Location %>
 			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
+									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
 								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
-									<% control UpcomingDates %> 
+									<% with/loopUpcomingDates %> 
 		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_control %>
+	    							<% end_with/loop%>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
@@ -337,10 +337,10 @@ ul {
 									</td>
 									</tr>
 									</table>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 	<% if Event5 %>
-	<% control Event5 %>
+	<% with/loopEvent5 %>
 		<table style="padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550">
 		<h1 style="width:100%; text-align:left; padding:0 0 0 12px; margin:20px 0 0 0; color: #2791a7 !important;"><a href="$AbsoluteLink" style="color: #2791a7 !important; font-size:30px; text-decoration: none;">$Title</a></h1>
@@ -348,9 +348,9 @@ ul {
 		<td width="200" valign="top">
 		<div style="margin: 0px 20px 0px 0px; border: 1px solid;">
 			<a href="$AbsoluteLink">
-			<% control Image.SetWidth(200) %>
+			<% with/loopImage.SetWidth(200) %>
 			<img border="0" src="$AbsoluteURL" alt="Event Image"></a>
-			<% end_control %>
+			<% end_with/loop%>
 		</div>
 		</td>
 		<% end_if %>
@@ -358,19 +358,19 @@ ul {
 		<% if Location %>
 			<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold;">Where:</span>
-									$Location <% control Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_control %>
+									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
 								</div>
 								<% end_if %>
 								<% if UpcomingDates %>
 								<div style="padding:0; margin:0; color: #3d3d3d; font-size:18px;">
 									<span style="font-size: 18px; color:#2791a7; font-weight: bold">When:</span>
-									<% control UpcomingDates %> 
+									<% with/loopUpcomingDates %> 
 		    							<span style="color: #3d3d3d;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #3d3d3d;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_control %>
+	    							<% end_with/loop%>
 	    						</div>
 	    						<% end_if %>
 	    						<br />
@@ -386,7 +386,7 @@ ul {
 									</td>
 									</tr>
 									</table>
-	<% end_control %>
+	<% end_with/loop%>
 	<% end_if %>
 	
 	</td></tr>
@@ -398,11 +398,11 @@ ul {
 				<tr>
 			<% if Image %>
 			  <div style="padding: 5px 0px;"><a href="$ImageLink">
-				<% control Image %>
-			  	<% control SetRatioSize(600,600) %>
+				<% with/loopImage %>
+			  	<% with/loopSetRatioSize(600,600) %>
 					<img src="$AbsoluteURL" alt="Recent Pics" border="0" alt="StudyBreak">
-			 	<% end_control %>
-				<% end_control %>
+			 	<% end_with/loop%>
+				<% end_with/loop%>
 			  </a></div>
 			<% end_if %>
 			
@@ -596,11 +596,11 @@ ul {
 <table style="margin: 20px 0px 30px 0px;" width="600">
 	<tr><td>
 		<a href="$BookstoreImageLink">
-			<% control BookstoreImage %>
-			  <% control CroppedImage(590,200) %>
+			<% with/loopBookstoreImage %>
+			  <% with/loopCroppedImage(590,200) %>
 				<img src="$AbsoluteURL" alt="Ad" border="1px" alt="University Book Store">
-			  <% end_control %>
-			<% end_control %>
+			  <% end_with/loop%>
+			<% end_with/loop%>
 		</a>
 	</td></tr>
 </table>

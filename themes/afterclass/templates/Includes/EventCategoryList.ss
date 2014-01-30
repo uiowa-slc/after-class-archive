@@ -2,9 +2,9 @@
     	   	<div class="event_categories">
     	   	<span>Tagged as:</span>
             	<ul>
-            		<% control AllCategories %>
+            		<% with/loopAllCategories %>
             			<li><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %></li>
-            		<% end_control %>
+            		<% end_with/loop%>
             	</ul>
             </div>
             <% end_if %>

@@ -1,22 +1,22 @@
 <% if FeaturedEvents %>
 	<div class="flexslider">
 		<div class="slides">
-			<% control FeaturedEvents %>
+			<% with/loopFeaturedEvents %>
 				<div class="slide">
 					<% include HeroEvent %>	
 				</div>
-			<% end_control %><!-- end control FeaturedEvents.First -->
+			<% end_with/loop%><!-- end control FeaturedEvents.First -->
 		</div>
 	</div>
 		<% else %>
-			<% control AllEvents.First %>
-				<% control Event %>
+			<% with/loopAllEvents.First %>
+				<% with/loopEvent %>
 					<% if CancelReason %>
 					<% else %>
 						<% include HeroEvent %>
 					<% end_if %><!-- end if cancelreason -->
-				<% end_control %>
-			<% end_control %>
+				<% end_with/loop%>
+			<% end_with/loop%>
 		<% end_if %> <!-- end if featured events -->
 
 <div class="row">
@@ -34,11 +34,11 @@
 <div id="event-card-list">
 	<h2>What's up next</h2>
 	<div class="event-cards">
-		<% control AllEvents %>
-			<% control Event %>
+		<% with/loopAllEvents %>
+			<% with/loopEvent %>
 				<% include EventCard %>
-			<% end_control %>
-		<% end_control %> <%-- end control Upcoming Events --%>
+			<% end_with/loop%>
+		<% end_with/loop%> <%-- end control Upcoming Events --%>
 	</div> <!--end event-cards -->
 	</div>
 	<!-- end event-card-list -->
@@ -52,7 +52,7 @@
 				<h2><a href="{$BaseHref}deadlines/">Approaching Deadlines</a></h2>
 				<div id="deadlines-container">
 					<ul id="deadlines">
-						<% control FutureDeadlines(10) %>
+						<% with/loopFutureDeadlines(10) %>
 							<li class="$EvenOdd">
 								<% if LinkURL %>
 									<a href="$LinkURL" target="_blank>" class="external"><strong>$Date.Format(n/j/y)</strong> - $Title</a>
@@ -60,7 +60,7 @@
 									<a href="{$BaseHref}deadlines/"><strong>$Date.Format(n/j/y)</strong> - $Title</a>					
 								<% end_if %>
 							</li>
-						<% end_control %>
+						<% end_with/loop%>
 					</ul>
 					<ul id="additional-deadline-links">
 						<li><a href="{$BaseHref}deadlines/">view all deadlines &raquo;</a></li>
@@ -79,7 +79,7 @@
 	<div id="the-news">
 		<h2><a href="http://imu.uiowa.edu/news">After Class: student news</a></h2>
 		<div class="news-entries">
-			<% control dynamicNews %>
+			<% with/loopdynamicNews %>
 				<div class="news-entry $EvenOdd">
 					$Image
 					<h3><a href="$Link">$Title</a></h3>
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 				<!-- end news-entry -->
-			<% end_control %>
+			<% end_with/loop%>
 		</div>
 		<!-- end news-entries -->
 		<p class="view-all-posts-link"><a href="news/">view all posts &raquo;</a></p>
@@ -106,18 +106,18 @@
 	<div id="ad1" class="homepage-ad">
 		<% if Ad1URL %>
 		<a href="$Ad1URL" target="_blank">
-			<% control Ad1Image %>
-				<% control SetWidth(368) %>
+			<% with/loopAd1Image %>
+				<% with/loopSetWidth(368) %>
 				<img src="$URL" alt="$Ad1Title" />
-				<% end_control %>
-			<% end_control %>
+				<% end_with/loop%>
+			<% end_with/loop%>
 		</a>
 		<% else %>
-			<% control Ad1Image %>
-				<% control SetWidth(368) %>
+			<% with/loopAd1Image %>
+				<% with/loopSetWidth(368) %>
 				<img src="$URL" alt="$Ad1Title" />
-				<% end_control %>
-			<% end_control %>
+				<% end_with/loop%>
+			<% end_with/loop%>
 		<% end_if %>
 	</div>
 	<% end_if %>
@@ -126,19 +126,19 @@
 		<% if Ad2URL %>
 		<a href="$Ad2URL" target="_blank">
 		
-			<% control Ad2Image %>
-				<% control SetWidth(368) %>
+			<% with/loopAd2Image %>
+				<% with/loopSetWidth(368) %>
 				<img src="$URL" alt="$Ad2Title" />
-				<% end_control %>
-			<% end_control %>			
+				<% end_with/loop%>
+			<% end_with/loop%>			
 			
 		</a>
 		<% else %>
-			<% control Ad2Image %>
-				<% control SetWidth(368) %>
+			<% with/loopAd2Image %>
+				<% with/loopSetWidth(368) %>
 				<img src="$URL" width="368" alt="$Ad2Title" />
-				<% end_control %>
-			<% end_control %>		
+				<% end_with/loop%>
+			<% end_with/loop%>		
 		<% end_if %>
 	</div>
 	<% end_if %>
@@ -147,19 +147,19 @@
 		<% if Ad3URL %>
 		<a href="$Ad3URL" target="_blank">
 
-			<% control Ad3Image %>
-				<% control SetWidth(368) %>
+			<% with/loopAd3Image %>
+				<% with/loopSetWidth(368) %>
 					<img src="$URL" width="368" alt="$Ad3Title" />
-				<% end_control %>
-			<% end_control %>			
+				<% end_with/loop%>
+			<% end_with/loop%>			
 			
 		</a>
 		<% else %>
-			<% control Ad3Image %>
-				<% control SetWidth(368) %>
+			<% with/loopAd3Image %>
+				<% with/loopSetWidth(368) %>
 					<img src="$URL" width="368" alt="$Ad3Title" />
-				<% end_control %>
-			<% end_control %>	
+				<% end_with/loop%>
+			<% end_with/loop%>	
 		<% end_if %>
 	</div>
 	<% end_if %>	

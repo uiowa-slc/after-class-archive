@@ -1,6 +1,6 @@
 
 <header id="secondary_header">
-	<% control Category %><% if First %>
+	<% with/loopCategory %><% if First %>
 	<% if ClassName = Sponsor %>
 	<h1>Event Sponsors</h1>
 	<% else_if ClassName = Venue %>
@@ -8,15 +8,15 @@
 	<% else %>
 	<h1>Trending Categories</h1>
 	<% end_if %>
-	<% end_if %><% end_control %>
+	<% end_if %><% end_with/loop%>
 </header>
 
 <div id="category-list-content">
 	<ul>
-	<% control Category %><% if Events %><% if AltTitle %><li><a href="#$Title">$AltTitle</a></li><% else %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_if %> <% end_control %>
+	<% with/loopCategory %><% if Events %><% if AltTitle %><li><a href="#$Title">$AltTitle</a></li><% else %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_if %> <% end_with/loop%>
 	</ul>
 	<hr />
-	<% control Category %>
+	<% with/loopCategory %>
 		<div class="category">
 			<% if Events %>
 			
@@ -34,11 +34,11 @@
 				<% if LinkURL %><p><a href="$LinkURL" class="button">Visit their website</a></p><% end_if %>
 				<div class="clear"></div>
 				<% if Events %>
-				<% control Events %>
-						<% control Event %>
+				<% with/loopEvents %>
+						<% with/loopEvent %>
 							<% include EventCard %>	
-						<% end_control %>
-				<% end_control %>
+						<% end_with/loop%>
+				<% end_with/loop%>
 				<% else %>
 					No events currently listed.
 				<% end_if %>
@@ -50,5 +50,5 @@
 				
 
 		</div>
-	<% end_control %>
+	<% end_with/loop%>
 </div>

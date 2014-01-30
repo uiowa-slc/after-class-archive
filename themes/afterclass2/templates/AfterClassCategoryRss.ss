@@ -6,20 +6,20 @@
 		<atom:link href="http://hulk.imu.uiowa.edu/afterclass_dev/events/" rel="self" type="application/rss+xml" />
 		<description></description>
 		
-		<% control Events %>
+		<% with/loopEvents %>
 		<item>
 				<description>$Description </description>
-        		<% control Event %><title>$Title</title>
+        		<% with/loopEvent %><title>$Title</title>
 				<link>{$BaseHref}{$URLSegment}</link>
 				<pubDate>Thu, 19 Jan 2012 14:21:15 -0600</pubDate>
 				<guid>{$BaseHref}{$URLSegment}</guid>
 				<cost>$Cost</cost>
 				<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
-				<location>$Location</location><% end_control %>
+				<location>$Location</location><% end_with/loop%>
 				<dates>$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %></dates>
-				<% if Venues %><venues><% control Venues %>$Title<br/><% end_control %></venues><% end_if %>
+				<% if Venues %><venues><% with/loopVenues %>$Title<br/><% end_with/loop%></venues><% end_if %>
 		</item>
-		<% end_control %>
+		<% end_with/loop%>
 		
 	</channel>
 </rss>

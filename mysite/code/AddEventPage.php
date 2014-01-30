@@ -32,18 +32,23 @@ class AddEventPage_Controller extends Page_Controller {
     	}
 	}
 	public function addEventForm() {
-		$fields = new FieldSet(
+		$fields = new FieldList(
             new TextField('Title','Name of the event'),
             new TextField('Location','Location of the event'),
             new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
             new TextField('Cost','How much does it cost to attend?'),
             new TextField('Content','Describe what the event is about.'),
             new TextField('Sponsor','Who is sponsoring or hosting the event?'),
-            new FileField('Image','Event Image (730 x 462 pixels is preferred)'),
+            /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new FileField
+NOTE:  $folderName optional constructor argument must now be set using a setter on the instance of the field. 
+### @@@@ ########### @@@@ ###
+*/new FileField('Image','Event Image (730 x 462 pixels is preferred)'),
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')
         );
-        $actions = new FieldSet(
+        $actions = new FieldList(
             new FormAction('addEvent', 'Submit')
         );
         $validator = new RequiredFields('Title','Location','Cost','Submitterdate', 'Description','Submittername','Submitteremail','Submitterdate');
@@ -95,7 +100,12 @@ class AddEventPage_Controller extends Page_Controller {
 
         
         
-        Director::redirect('/thanks');
+        /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: Director::redirect(
+NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
+### @@@@ ########### @@@@ ###
+*/$this->redirect('/thanks');
 		
 	}
 }

@@ -37,13 +37,23 @@ class AfterClassEvent extends CalendarEvent {
 	
 	public function UpcomingDatesAndRanges($limit = 3)
 	{
-		return DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
+		return /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
 	}
 
 	public function AllCategories(){
-		//$categories = DataObject::get("Category", "")
+		//$categories = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Category", "")
 		
-		$categories = new DataObjectSet();
+		$categories = new ArrayList();
 		$category_ids = array();
 		
 		$sponsors = $this->Sponsors();
@@ -56,7 +66,12 @@ class AfterClassEvent extends CalendarEvent {
 		$category_ids = array_merge($category_ids, $eventtypes->getIDList());
 		
 		foreach($category_ids as $category_id){
-			$category = DataObject::get_by_id("Category", $category_id);
+			$category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_by_id(
+NOTE:  - replace with ClassName::get()->byID($id)  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_by_id("Category", $category_id);
 			$categories->push($category);
 		
 		}
@@ -93,14 +108,19 @@ class AfterClassEvent extends CalendarEvent {
 		// Setup filter
 		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
 		// Get the calendar
-		$calendar = DataObject::get_one("AfterClassCalendar");
+		$calendar = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("AfterClassCalendar");
 		// Get the events from the calendar
 		if (empty($ids)) {
 			return false;
 		} else {
 			#($filter = null, $start_date = null, $end_date = null, $default_view = false, $limit = null, $announcement_filter = null)
 			$events = $calendar->Events($filter,null,null,false,'4')->groupBy('EventID'); #Figure out how to GROUP BY `CalendarDateTime`.EventID
-			$eventSet = new DataObjectSet();
+			$eventSet = new ArrayList();
 			foreach($events as $event => $data) {
 			    $eventSet->push($data->First()); //Get only the first of each event.
 			}
@@ -176,11 +196,11 @@ class AfterClassEvent extends CalendarEvent {
 /* Remove / Rename Default Fields */
 /* ------------------------------ */
 
-		$f->fieldByName('Root.Content.Main')->setTitle('Event Details');
-		$f->fieldByName('Root.Content.Main.Title')->setTitle('Event Name');
+		$f->fieldByName('Root.Main')->setTitle('Event Details');
+		$f->fieldByName('Root.Main.Title')->setTitle('Event Name');
 		$f->removeFieldFromTab('Root.Content', 'MenuTitle'); // remove a field from a tab
 		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
-		$f->removeFieldFromTab('Root.Content.Metadata', 'URL'); 
+		$f->removeFieldFromTab('Root.Metadata', 'URL'); 
 		$f->removeFieldFromTab('Root.Content', 'Metadata'); // remove a field from a tab	
 		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab
 		
@@ -191,9 +211,9 @@ class AfterClassEvent extends CalendarEvent {
 /* ------------------------------------------------- */
 
 		if ($this->Submittername != "") {
-			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
-			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
-			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
+			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
+			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
 		
 /* -------------------------------------------------------- */
@@ -205,7 +225,12 @@ class AfterClassEvent extends CalendarEvent {
 								Director::absoluteBaseURL(),
 								(self::nested_urls() && $this->ParentID ? $this->Parent()->RelativeLink(true) : null)
 							)),
-							new UniqueRestrictedTextField("URLSegment",
+							/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new UniqueRestrictedTextField
+NOTE:  Removed: use custom fields instead. 
+### @@@@ ########### @@@@ ###
+*/new UniqueRestrictedTextField("URLSegment",
 								"URLSegment",
 								"SiteTree",
 								_t('SiteTree.VALIDATIONURLSEGMENT1', "Another page is using that URL. URL must be unique for each page"),
@@ -223,19 +248,29 @@ class AfterClassEvent extends CalendarEvent {
 /* Add/Re-Add Content and Other Fields */
 /* ----------------------------------- */
 		
-		$f->addFieldToTab("Root.Content.Main", $url_fieldgroup);
-		$f->addFieldToTab('Root.Content.Main', new ImageField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab("Root.Main", $url_fieldgroup);
+		$f->addFieldToTab('Root.Main', /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ImageField(
+NOTE:  Check Syntax 
+### @@@@ ########### @@@@ ###
+*/new UploadField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		
 		
 
-		$f->addFieldToTab('Root.Content.Main',new TextField('MoreInfoLink','A link for more information') );
-		$f->addFieldToTab('Root.Content.Main',new TextField('Location','Room Name or Number') );
-		$f->addFieldToTab('Root.Content.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
-				$f->addFieldToTab('Root.Content.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
+		$f->addFieldToTab('Root.Main',new TextField('MoreInfoLink','A link for more information') );
+		$f->addFieldToTab('Root.Main',new TextField('Location','Room Name or Number') );
+		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
+				$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
 
 		
-		$f->addFieldToTab('Root.Content.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
-		$f->addFieldToTab('Root.Content.Main',new HTMLEditorField('Content','Event Description') );
+		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
+		$f->addFieldToTab('Root.Main',/*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new HtmlEditorField
+NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor arguments must now be set using setters on the instance of the field.  
+### @@@@ ########### @@@@ ###
+*/new HtmlEditorField('Content','Event Description') );
 		
 		$date_instructions = '
 		
@@ -262,16 +297,21 @@ class AfterClassEvent extends CalendarEvent {
 		
 		
 		if($this->Submittername != '' ){
-			$f->addFieldToTab('Root.Content.DatesandTimes', new LiteralField('SubmittedDates','<p>Suggested Date(s) from Submitter: <strong style="font-size: 18px">'.$this->Submitterdate.'</strong></p>'));
-			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
-			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
-			$f->addFieldToTab('Root.Content.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+			$f->addFieldToTab('Root.DatesandTimes', new LiteralField('SubmittedDates','<p>Suggested Date(s) from Submitter: <strong style="font-size: 18px">'.$this->Submitterdate.'</strong></p>'));
+			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
+			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
+			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
 		
 /* ------------- */
 /* Sponsor Table */
 /* ------------- */
-		$sponsorTablefield = new ManyManyComplexTableField(
+		$sponsorTablefield = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ManyManyComplexTableField
+NOTE:  check syntax  
+### @@@@ ########### @@@@ ###
+*/new GridField((
         	$this,
         	'Sponsors',
         	'Sponsor',
@@ -285,9 +325,9 @@ class AfterClassEvent extends CalendarEvent {
 		$sponsorTablefield->setAddTitle( 'Sponsor' );
 		$sponsorTablefield->showPagination = false;
 		
-		$f->addFieldToTab('Root.Content.Sponsors', new HeaderField("SponsorHeader","Sponsors"));
+		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));
 
-		$f->addFieldToTab( 'Root.Content.Sponsors', $sponsorTablefield );
+		$f->addFieldToTab( 'Root.Sponsors', $sponsorTablefield );
 		
 /* ----------- */
 /* Venue Table */
@@ -296,7 +336,12 @@ class AfterClassEvent extends CalendarEvent {
 		$venueInstructions = '<h2>Instructions</h2><p>Every venue <em>must</em> have a somewhat complete address for Google Maps to work properly (example: Iowa Memorial Union, Iowa City, IA). Zip code is optional, but you NEED Iowa City, IA in each address. <br />The address field works as a search term on Google, and will give unexpected results with an incomplete address.</p>';
 		
 		
-		$venueTablefield = new ManyManyComplexTableField(
+		$venueTablefield = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ManyManyComplexTableField
+NOTE:  check syntax  
+### @@@@ ########### @@@@ ###
+*/new GridField((
         	$this,
         	'Venues',
         	'Venue',
@@ -307,19 +352,24 @@ class AfterClassEvent extends CalendarEvent {
         	null,
         	$sort = "Title ASC"
       	);
-      	$f->addFieldToTab('Root.Content.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
+      	$f->addFieldToTab('Root.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
 
-		$f->addFieldToTab('Root.Content.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
+		$f->addFieldToTab('Root.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
 		$venueTablefield->setAddTitle( 'Venue' );
 		$venueTablefield->showPagination = false;
 
-		$f->addFieldToTab( 'Root.Content.VenueOrBuilding', $venueTablefield );
+		$f->addFieldToTab( 'Root.VenueOrBuilding', $venueTablefield );
 		
 /* ---------------- */		
 /* Event Type Table */
 /* ---------------- */	
 	
-		$eventTypeTablefield = new ManyManyComplexTableField(
+		$eventTypeTablefield = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: new ManyManyComplexTableField
+NOTE:  check syntax  
+### @@@@ ########### @@@@ ###
+*/new GridField((
         	$this,
         	'Eventtypes',
         	'Eventtype',
@@ -333,8 +383,8 @@ class AfterClassEvent extends CalendarEvent {
 		$eventTypeTablefield->setAddTitle( 'Event Type' );
 		$eventTypeTablefield->showPagination = false;
 
-		$f->addFieldToTab('Root.Content.EventTypes', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
-		$f->addFieldToTab( 'Root.Content.EventTypes', $eventTypeTablefield);
+		$f->addFieldToTab('Root.EventTypes', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
+		$f->addFieldToTab( 'Root.EventTypes', $eventTypeTablefield);
 		
 		return $f;
 	}
@@ -420,9 +470,14 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 
 
 	public function AllCategories(){
-	//	$categories = DataObject::get("Category", "")
+	//	$categories = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("Category", "")
 	
-	$categories = new DataObjectSet();
+	$categories = new ArrayList();
 	$category_ids = array();
 	
 	$sponsors = $this->Sponsors();
@@ -435,7 +490,12 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 	$category_ids = array_merge($category_ids, $eventtypes->getIDList());
 	
 	foreach($category_ids as $category_id){
-		$category = DataObject::get_by_id("Category", $category_id);
+		$category = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_by_id(
+NOTE:  - replace with ClassName::get()->byID($id)  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_by_id("Category", $category_id);
 		$categories->push($category);
 	
 	}

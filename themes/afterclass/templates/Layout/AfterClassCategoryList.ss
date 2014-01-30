@@ -9,22 +9,22 @@
 	<% end_if %>
 </header>
 <ul class="category-list">
-	<% control Category %>
+	<% with/loopCategory %>
 		<li><h2><a href="$Link">$Title</a><% if Address %> <span><a href="#" target="_blank">Get Directions</a></span><% end_if %></h2>
 		<% if Information %><p>$Information</p><% end_if %>
 		
-		<!--<% control Events(2) %><div><% control Event %>$Title<% end_control %></div><% end_control %>-->
+		<!--<% with/loopEvents(2) %><div><% with/loopEvent %>$Title<% end_with/loop%></div><% end_with/loop%>-->
 		<% if Events %>
 		<ul class="category-list-events">
-			<% control Events(4) %><li>
-			<% control Event %>
+			<% with/loopEvents(4) %><li>
+			<% with/loopEvent %>
 			<a href="$Link"><img src="$Image.SmallImage.URL"></a>
 			<div class="info">
 			<a href="$Link"><strong>$Title</strong></a><br />
-			<% end_control %>
+			<% end_with/loop%>
 			$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %>
 			</div>
-			</li><% end_control %>
+			</li><% end_with/loop%>
 		</ul>
 		<!--<div class="view-all"><a href="{$BaseHref}events/categories/$Title">View All $Events.count Events</a></div>-->
 			<% if LinkURL %>
@@ -40,7 +40,7 @@
 			<% end_if %>
 		<% end_if %>
 		</li>
-	<% end_control %>
+	<% end_with/loop%>
 </ul>
 <style type="text/css">
 .category-list>li{

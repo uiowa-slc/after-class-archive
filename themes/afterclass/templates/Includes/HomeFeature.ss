@@ -1,6 +1,6 @@
-<% control FeaturedEvents %>
+<% with/loopFeaturedEvents %>
 	<% if First %>
-	<% control Event %>
+	<% with/loopEvent %>
 		
 		<div class="homefeatureitem">
 			<a href="$Link"><% if Image %><img src="$Image.LargeImage.URL" /><% else %><img src="$ThemeDir/images/placeholder.png" /><% end_if %></a>
@@ -8,7 +8,7 @@
 				<h2>Featured Event <strong><a href="$Link">$Title</a></strong></h2>
 				<p class="event_details">
 				
-            	<% control DateAndTime %> 
+            	<% with/loopDateAndTime %> 
 		    			<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link">
 		    				<span>$StartDate.Format(M). $StartDate.DayOfMonth</span></a> 
 		    				<% if StartTime %> at $StartTime.nice<% end_if %>
@@ -21,13 +21,13 @@
 		    			 	<% end_if %> 
 		    			 <br />
 		    			 
-	    			<% end_control %>   
+	    			<% end_with/loop%>   
         		</p>
         		<p>
         		at
-        		<% control Venues %>
+        		<% with/loopVenues %>
         			$Title	
-        		<% end_control %><br />
+        		<% end_with/loop%><br />
         		<% if Cost %>
             	Admission: $Cost
             	<% end_if %>
@@ -40,11 +40,11 @@
 			
 			<div class="event_date_tag">
 			
-					<% control UpcomingDates %>
+					<% with/loopUpcomingDates %>
 						<% if First %>
 							<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div></a>
 						<% end_if %>
-		        	<% end_control %>
+		        	<% end_with/loop%>
 	        
 				<% include ShareLinks %>
         	</div>
@@ -52,6 +52,6 @@
 		
 		</div>
 		
-	<% end_control %> <!-- end control event -->
+	<% end_with/loop%> <!-- end control event -->
 	<% end_if %> <!-- end if first -->
-<% end_control %><!-- end control featured events -->
+<% end_with/loop%><!-- end control featured events -->
