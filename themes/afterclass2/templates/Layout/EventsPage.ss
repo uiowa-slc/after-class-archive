@@ -1,29 +1,29 @@
 <section id="home_feature" class="feature">
-<% with/loopPage(all-events) %>
-	<% with/loopChildren %>
+<% loop Page(all-events) %>
+	<% loop Children %>
 	<% if Featured %>
 		<div class="homefeatureitem">
 			<a href="$Link"><img src="$Image.LargeImage.URL" /></a>
 			<div class="event_text">
 				<h2>Featured Event <strong>$Title</strong></h2>
 				<p class="event_details">
-				<% with/loopUpcomingDates %>
+				<% loop UpcomingDates %>
 				<% if First %>
 				$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)<br/>
         		$StartTime.nice<br/>
         		<% end_if %>
-        		<% end_with/loop%>
+        		<% end_loop %>
             	$Location<br/>
             	$Cost</p>
 			</div>
 			
 			<div class="event_date_tag">
 			<a href="#">
-			<% with/loopUpcomingDates %>
+			<% loop UpcomingDates %>
 			<% if First %>
 			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 			<% end_if %>
-        	<% end_with/loop%>
+        	<% end_loop %>
         	</a>
         	
             <ul>
@@ -38,8 +38,8 @@
 		
 		</div>
 	<% end_if %>
-	<% end_with/loop%>
-<% end_with/loop%>
+	<% end_loop %>
+<% end_loop %>
 </section>
     
     <section id="upcoming_events">
@@ -53,23 +53,23 @@
         <!--</div>-->
         
         <div id="upcoming_event_list">
-        	<% with/loopPage(all-events) %>
-        	<% with/loopChildren %>
+        	<% loop Page(all-events) %>
+        	<% loop Children %>
         		<div class="event">
             	<a href="$Link"><img src="$Image.SmallImage.URL" width="130" height="110" alt="$Title" border="0" /></a>
                 <h3><a href="$Link">$Title</a></h3>
                 
                 <p>
-                <% with/loopUpcomingDates %>
+                <% loop UpcomingDates %>
 				<% if First %>$StartDate.format(M j), $StartDate.format(Y)<br/>
                 	$StartDate.format(l) @ $StartTime.nice<% end_if %>
-                <% end_with/loop%>
+                <% end_loop %>
                 in $Location<br/>
                 $Cost
                 </p>
                 
             	</div>
-            <% end_with/loop%>
-        	<% end_with/loop%>
+            <% end_loop %>
+        	<% end_loop %>
         </div>
     </section>

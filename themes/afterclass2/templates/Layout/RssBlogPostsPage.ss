@@ -1,8 +1,8 @@
-<% with/loopRSSEvents %>
+<% loop RSSEvents %>
   <div>
   	Title: $Title
   	Dates: $Dates
   	Cost: $Cost
   	Location: $Location
   </div>
-<% end_with/loop%>
+<% end_loop %>

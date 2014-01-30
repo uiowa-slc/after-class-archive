@@ -8,7 +8,7 @@
  <div id="category-content" class="category">
  			
  			<div class="about-category">
-	 			<% with/loopCategory %>
+	 			<% loop Category %>
 				
 				<div class="category-content">
 					<% if Information %><p class="category-information">$Information</p><% end_if %>
@@ -54,13 +54,13 @@
 
 		<div class="category-list">
 		<% if Events %>
-			<% with/loopEvents %>
+			<% loop Events %>
 				<div class="event-cards">
-				<% with/loopEvent %>
+				<% loop Event %>
 					<% include EventCard %>
-				<% end_with/loop%>
+				<% end_loop %>
 				</div>
-			<% end_with/loop%>
+			<% end_loop %>
 		<div style="clear: both"></div>
 		<!--<div class="view-all"><a href="{$BaseHref}events/categories/$Title">View All $Events.count Events</a></div>-->
 
@@ -70,6 +70,6 @@
 		<% end_if %>
 	</div>
  </div>
-<% end_with/loop%>
+<% end_loop %>
 
 

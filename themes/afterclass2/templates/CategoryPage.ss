@@ -2,8 +2,8 @@
 	
 		<h1>Listed under: $Title</h1>
 </header>	
-		<% with/loopCategory %>
-		<% with/loopAfterClassEvents %>
+		<% loop Category %>
+		<% loop AfterClassEvents %>
 		<% if Featured %>
 		<!-- control Featured -->
 		<section id="secondary_feature" class="feature clearfix">
@@ -13,12 +13,12 @@
     			<h2>Featured Event <strong>$Title</strong></h2>
     			<p class="event_details">
     			
-    			<% with/loopUpcomingDates %>
+    			<% loop UpcomingDates %>
 				<% if First %>
 				$StartDate.format(D), $StartDate.format(M) $StartDate.format(j)<br/>
         		$StartTime.nice<br/>
     			<% end_if %>
-    			<% end_with/loop%>
+    			<% end_loop %>
     			
             	$Location<br/>
             	$Cost</p>           
@@ -26,11 +26,11 @@
        	
        		<div class="event_date_tag">
        		
-			<a href="#"><% with/loopUpcomingDates %>
+			<a href="#"><% loop UpcomingDates %>
 			<% if First %>
 			<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div></a>
 			<% end_if %>
-        	<% end_with/loop%></a>
+        	<% end_loop %></a>
         	
             <ul>
             	<li class="share_facebook"><a href="#">Facebook</a></li>
@@ -46,22 +46,22 @@
     	</section>
     	<!-- end_control -->
     	<% end_if %>
-    	<% end_with/loop%>
-    	<% end_with/loop%>
+    	<% end_loop %>
+    	<% end_loop %>
 		
-	<% with/loopCategory %>
+	<% loop Category %>
 		<section id="secondary_event_list">
-		<% with/loopAfterClassEvents %>
+		<% loop AfterClassEvents %>
 			<% if Title %>
 			<div class="secondary_event">
 					<div class="event_date_tag">
 					
 					<a href="$Link">
-					<% with/loopUpcomingDates %>
+					<% loop UpcomingDates %>
 						<% if First %>
 						<div class="event_date_box">$StartDate.format(M) <strong>$StartDate.format(j)</strong> $StartDate.format(D)</div>
 						<% end_if %>
-					<% end_with/loop%>
+					<% end_loop %>
 					</a>
 					
 					</div>
@@ -70,9 +70,9 @@
 			</div>
 		
 			<% end_if %>
-		<% end_with/loop%>
+		<% end_loop %>
 		</section>
-	<% end_with/loop%>
+	<% end_loop %>
 
 
 	

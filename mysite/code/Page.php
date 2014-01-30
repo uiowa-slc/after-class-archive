@@ -130,12 +130,7 @@ class Page_Controller extends ContentController {
 		// included so that our older themes still work
 		//echo $_SERVER['HTTP_USER_AGENT'];
 		
-		//Requirements::block('/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: sapphire
-NOTE:  - changed from sapphire/ to framework/ - using constant preferred.   
-### @@@@ ########### @@@@ ###
-*/FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
+		//Requirements::block('FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
 		
 		
 		$themeFolder = $this->ThemeDir();
@@ -145,12 +140,8 @@ NOTE:  - changed from sapphire/ to framework/ - using constant preferred.
 		
 		Requirements::block('event_calendar/css/calendar_widget.css'); 
 		Requirements::block('division-bar/js/_division-bar.js');
-		//Requirements::block('/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: sapphire
-NOTE:  - changed from sapphire/ to framework/ - using constant preferred.   
-### @@@@ ########### @@@@ ###
-*/FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
+		//Requirements::block('FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
+
 		/*
 		Requirements::block('event_calendar/javascript/locale/date_en.js'); 
 		Requirements::block('event_calendar/javascript/jquery.date.js'); 
@@ -163,12 +154,7 @@ NOTE:  - changed from sapphire/ to framework/ - using constant preferred.
 				'themes/afterclass2/js/modernizr-2.0.6.min.js',
 			   // 'themes/afterclass2/js/jquery.min.js',
 			   // 'themes/afterclass2/js/jquery-migrate.js',
-			    '/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: sapphire
-NOTE:  - changed from sapphire/ to framework/ - using constant preferred.   
-### @@@@ ########### @@@@ ###
-*/FRAMEWORK_DIR/thirdparty/jquery/jquery.js',
+			    'FRAMEWORK_DIR/thirdparty/jquery/jquery.js',
 			   
 			   	'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',

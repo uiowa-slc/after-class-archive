@@ -150,7 +150,7 @@ function locate() {
   var infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
-  <% with/loopVenues %>
+  <% loop Venues %>
     <% if Events %>
 
   //geo-coding to convert our addresses to usable longitude/latitude  
@@ -165,7 +165,7 @@ function locate() {
       position: venueLatLng
     });
     google.maps.event.addListener(marker, 'click', function () {
-	infowindow.setContent("<% with/loopEvents(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% with/loopEvent %>$Title<% end_with/loop%> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_with/loop%><strong><a href='$Link'>$Title</a></strong>");
+	infowindow.setContent("<% loop Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
 	infowindow.open(map, this);
 	});
   <% else %>
@@ -179,7 +179,7 @@ function locate() {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<% with/loopEvents(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% with/loopEvent %>$Title<% end_with/loop%> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_with/loop%><strong><a href='$Link'>$Title</a></strong>");
+		infowindow.setContent("<% loop Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
 		infowindow.open(map, this);
 		});
 		
@@ -189,7 +189,7 @@ function locate() {
     });
   <% end_if %>
   <% end_if %>
-  <% end_with/loop%>
+  <% end_loop %>
 }
 
 function error(msg) {

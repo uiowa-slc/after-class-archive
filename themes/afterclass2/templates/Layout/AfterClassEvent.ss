@@ -7,11 +7,11 @@
 					<div class="hero-event-image-container small-screen">
 						<a href="$Link" class="img-shadow">
 							<% if Image %>
-								<% with/loopImage %>
-									<% with/loopCroppedImage(235,151) %>
+								<% loop Image %>
+									<% loop CroppedImage(235,151) %>
 									<img itemprop="photo" src="$URL" />
-									<% end_with/loop%>
-								<% end_with/loop%>
+									<% end_loop %>
+								<% end_loop %>
 							<% else %>
 								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
 							<% end_if %>
@@ -37,7 +37,7 @@
 							</div><!-- end hero-event-text-->
 							<div class="hero-event-when">
 					    		<h2>Date(s)</h2>
-										<% with/loopDateAndTime %>
+										<% loop DateAndTime %>
 											<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
 												<% if EndDate %>
 												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
@@ -49,15 +49,15 @@
 												until $EndTime.Nice
 												<% end_if %>
 											</p>
-										<% end_with/loop%>
+										<% end_loop %>
 								
 							</div><!-- end hero-event-when -->
 							<% if Sponsors %>
 				    				<div class="sponsors">
 				    				<h2>Sponsors</h2>
-						    			<% with/loopSponsors %>
+						    			<% loop Sponsors %>
 						    			<p><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %> </p>
-						    			<% end_with/loop%>
+						    			<% end_loop %>
 					    			</p>
 					    			</div>
 					    	<% end_if %>
@@ -68,7 +68,7 @@
 							
 							<div id="detail_event_description_map">
 								<p><% if Location %>{$Location} <br /><% end_if %>
-							<% with/loopVenues %>
+							<% loop Venues %>
 								$Title <a href="$Link">view more events here &raquo;</a></p>
 								 
 								<p>
@@ -82,7 +82,7 @@
 								
 								<% end_if %>
 								<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
-							<% end_with/loop%>
+							<% end_loop %>
 							</div> <!-- end detail_event_description_map -->
 						<% end_if %>
 						
@@ -95,13 +95,13 @@
 									<div class="hero-event-where">
 								
 										<p>
-										<% with/loopVenues %>
+										<% loop Venues %>
 											<p class="venues">
 											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
 											@ <a href="$Link"><span itemprop="name">$Title</span></a>
 											</span>
 											</p>
-										<% end_with/loop%>		
+										<% end_loop %>		
 										</p>
 												
 										<% if Cost %>
@@ -123,11 +123,11 @@
 					<div class="hero-event-image-container big-screen">
 						<a href="$Link" class="img-shadow">
 							<% if Image %>
-								<% with/loopImage %>
-									<% with/loopCroppedImage(730,462) %>
+								<% loop Image %>
+									<% loop CroppedImage(730,462) %>
 									<img itemprop="photo" src="$URL" />
-									<% end_with/loop%>
-								<% end_with/loop%>
+									<% end_loop %>
+								<% end_loop %>
 							<% else %>
 								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
 							<% end_if %>
@@ -152,9 +152,9 @@
 					    		<div class="categories">
 				    				<h2>Tagged as:</h2>
 				    					<p>
-						    			<% with/loopAllCategories %>
+						    			<% loop AllCategories %>
 						    			<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %>
-						    			<% end_with/loop%></p>
+						    			<% end_loop %></p>
 					    			</p>
 					    			</div>
 					    	
@@ -285,7 +285,7 @@ function initialize() {
 	  
     var place = null;
     
-    <% with/loopVenues %>
+    <% loop Venues %>
     var address = "$Address";
     
     <% if Lat %>
@@ -310,7 +310,7 @@ function initialize() {
       }
     });
     <% end_if %>
-    <% end_with/loop%>
+    <% end_loop %>
 
 } 
 

@@ -47,16 +47,16 @@ html,body,td {
 						  $Content
 						  </td></tr></table>
 						</td></tr>
-<% with/loopFeaturedEvent %>
+<% loop FeaturedEvent %>
 						<tr width="598" bgcolor="#444" style="border-style: solid; border-weight: 1px; border-color:#8f9ca1">
 							<td width="600" colspan="2" style="padding: 0px; margin:0px; border: 1px solid #8f9ca1;">
 								<center>
 								<a href="$AbsoluteLink">
-								<% with/loopImage %>
-			  					<% with/loopCroppedImage(598,350) %>
+								<% loop Image %>
+			  					<% loop CroppedImage(598,350) %>
 									<img src="$AbsoluteURL" alt="Feature" border="0" alt="Featured Event">
-			  					<% end_with/loop%>
-								<% end_with/loop%>
+			  					<% end_loop %>
+								<% end_loop %>
 								</a>
 								</center>
 								
@@ -65,17 +65,17 @@ html,body,td {
 								<table><tr><td width="600">
 								<div style="padding:0; margin:0; color: #FFF;">
 									<span style="font-size: 18px;text-transform: uppercase; color:#ffd520; font-weight: normal;">Where?</span>
-									$Location <% with/loopVenues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_with/loop%>
+									$Location <% loop Venues %><% if First %>$Title<% else %>, $Title<% end_if %><% end_loop %>
 								</div>
 								<div style="padding:0; margin:0; color: #FFF;">
 									<span style="font-size: 18px; text-transform: uppercase; color:#ffd520; font-weight: normal">When?</span>
-									<% with/loopDateAndTime %> 
+									<% loop DateAndTime %> 
 		    							<span style="color: #FFF;">$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    							<% if StartTime %> at $StartTime.nice<% end_if %>
 		    							<% if EndDate %> -
 		    			 					<span style="color: #FFF;">$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			 				<% end_if %> 
-	    							<% end_with/loop%>
+	    							<% end_loop %>
 	    						</div>
 	    						</td><td valign="top">
 									<a href="$AbsoluteLink" style="text-decoration:none; padding:0; margin:10px 0px 0px 0px; color: #fff !important;">
@@ -88,7 +88,7 @@ html,body,td {
 												
 						</tbody>						
 					</table>
-<% end_with/loop%>
+<% end_loop %>
 <!-- main content ends -->
 
 <!-- happening next/about section -->
@@ -96,17 +96,17 @@ html,body,td {
 	<tr><td align="center">
 	<img src="http://afterclass.uiowa.edu/themes/afterclass2/images/coming_soon.png" width="500">
 	<% if Event1 %>
-	<% with/loopEvent1 %>
+	<% loop Event1 %>
 		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
 		<h3 style="padding:0px 0px 10px 0px; margin:0px; color: #FFF5D1 !important;"><a href="$AbsoluteLink" style="color: #FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
-				<% with/loopDateAndTime %> 
+				<% loop DateAndTime %> 
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    			<% if EndDate %> -
 		    				<span>$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			<% end_if %> 
-	    		<% end_with/loop%> at <% with/loopVenues %>$Title<% end_with/loop%>
+	    		<% end_loop %> at <% loop Venues %>$Title<% end_loop %>
 	    		<div style="padding: 6px 15px 0px 0px; font-size: 13px; color: #fff !important;">
 	    			$Content.Summary(20) <a href="$Link" style="text-decoration: none; font-size: 13px;color: #FFF5D1 !important;font-weight: bold;">(more)</a>
 	    		</div>
@@ -118,20 +118,20 @@ html,body,td {
 		</div>
 		</td></tr>
 		</table>
-	<% end_with/loop%>
+	<% end_loop %>
 	<% end_if %>
 	<% if Event2 %>
-	<% with/loopEvent2 %>
+	<% loop Event2 %>
 		<table bgcolor="#292929" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
 		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
-				<% with/loopDateAndTime %>
+				<% loop DateAndTime %>
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    			<% if EndDate %> -
 		    				<span>$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			<% end_if %>
-	    		<% end_with/loop%> at <% with/loopVenues %>$Title<% end_with/loop%>
+	    		<% end_loop %> at <% loop Venues %>$Title<% end_loop %>
 	    		<div style="padding: 6px 15px 0px 0px; font-size: 13px; color: #FFF !important;">
 	    			$Content.Summary(20) <a href="$Link" style="text-decoration: none; font-size: 13px;color: #FFF5D1 !important;font-weight: bold;">(more)</a>
 	    		</div>
@@ -143,20 +143,20 @@ html,body,td {
 		</div>
 		</td></tr>
 		</table>
-	<% end_with/loop%>
+	<% end_loop %>
 	<% end_if %>
 	<% if Event3 %>
-	<% with/loopEvent3 %>
+	<% loop Event3 %>
 		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
 		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
-				<% with/loopDateAndTime %> 
+				<% loop DateAndTime %> 
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    			<% if EndDate %> -
 		    				<span>$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			<% end_if %> 
-	    		<% end_with/loop%> at <% with/loopVenues %>$Title<% end_with/loop%>
+	    		<% end_loop %> at <% loop Venues %>$Title<% end_loop %>
 	    		<div style="padding: 6px 15px 0px 0px; font-size: 13px; color: #FFF !important;">
 	    			$Content.Summary(20) <a href="$Link" style="text-decoration: none; font-size: 13px;color: #FFF5D1 !important;font-weight: bold;">(more)</a>
 	    		</div>
@@ -168,20 +168,20 @@ html,body,td {
 		</div>
 		</td></tr>
 		</table>
-	<% end_with/loop%>
+	<% end_loop %>
 	<% end_if %>
 	<% if Event4 %>
-	<% with/loopEvent4 %>
+	<% loop Event4 %>
 		<table bgcolor="#292929" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
 		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 			<div style="font-size: 16px; color: #fff !important;">
-				<% with/loopDateAndTime %>
+				<% loop DateAndTime %>
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    			<% if EndDate %> -
 		    				<span>$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			<% end_if %>
-	    		<% end_with/loop%> at <% with/loopVenues %>$Title<% end_with/loop%>
+	    		<% end_loop %> at <% loop Venues %>$Title<% end_loop %>
 	    			<div style="padding: 6px 15px 0px 0px; font-size: 13px; color: #FFF !important;">
 	    			$Content.Summary(20) <a href="$Link" style="text-decoration: none; font-size: 13px;color: #FFF5D1 !important;font-weight: bold;">(more)</a>
 	    		</div>
@@ -194,20 +194,20 @@ html,body,td {
 		</div>
 		</td></tr>
 		</table>
-	<% end_with/loop%>
+	<% end_loop %>
 	<% end_if %>
 	<% if Event5 %>
-	<% with/loopEvent5 %>
+	<% loop Event5 %>
 		<table bgcolor="#323232" style="border: 1px solid #555; padding: 15px 10px 15px 10px; text-align: left;">
 		<tr width="550"><td width="400" valign="top">
 		<h3 style="padding:0px 0px 10px 0px; color: #FFF5D1 !important; margin:0px;"><a href="$AbsoluteLink" style="color:#FFF5D1 !important; font-size:24px; text-decoration: none;">$Title</a></h3>
 		<div style="font-size: 16px; color: #fff !important;">
-				<% with/loopDateAndTime %> 
+				<% loop DateAndTime %> 
 		    		<span>$StartDate.Format(D), $StartDate.Format(M). $StartDate.DayOfMonth</span>
 		    			<% if EndDate %> -
 		    				<span>$EndDate.Format(D), $EndDate.Format(M). $EndDate.DayOfMonth</span>
 		    			<% end_if %> 
-	    		<% end_with/loop%> at <% with/loopVenues %>$Title<% end_with/loop%>
+	    		<% end_loop %> at <% loop Venues %>$Title<% end_loop %>
 	    		<div style="padding: 6px 15px 0px 0px; font-size: 13px; color: #FFF !important;">
 	    			$Content.Summary(20) <a href="$Link" style="text-decoration: none; font-size: 13px;color: #FFF5D1 !important;font-weight: bold;">(more)</a>
 	    		</div>
@@ -220,7 +220,7 @@ html,body,td {
 		</div>
 		</td></tr>
 		</table>
-	<% end_with/loop%>
+	<% end_loop %>
 	<% end_if %>
 	
 	</td></tr>
@@ -233,11 +233,11 @@ html,body,td {
 			<h2 style="color: #ffd520 !important; font-size: 30px; margin:0; padding:0;">$ImageHeading</h2>
 			<% if Image %>
 			  <div style="padding: 5px 0px;"><a href="$ImageLink">
-				<% with/loopImage %>
-			  	<% with/loopCroppedImage(250,187) %>
+				<% loop Image %>
+			  	<% loop CroppedImage(250,187) %>
 					<img src="$AbsoluteURL" alt="Recent Pics" border="0" alt="StudyBreak">
-			 	<% end_with/loop%>
-				<% end_with/loop%>
+			 	<% end_loop %>
+				<% end_loop %>
 			  </a></div>
 			<% end_if %>
 		</td>
@@ -285,11 +285,11 @@ html,body,td {
 <table style="margin: 10px 0px 10px 0px; background: #333; border: 1px solid #555;" width="600">
 	<tr><td>
 		<a href="$BookstoreImageLink">
-			<% with/loopBookstoreImage %>
-			  <% with/loopCroppedImage(590,200) %>
+			<% loop BookstoreImage %>
+			  <% loop CroppedImage(590,200) %>
 				<img src="$AbsoluteURL" alt="Ad" border="0" alt="University Book Store">
-			  <% end_with/loop%>
-			<% end_with/loop%>
+			  <% end_loop %>
+			<% end_loop %>
 		</a>
 	</td></tr>
 </table>

@@ -1,16 +1,16 @@
 <section id="secondary_event_list">
-	<% with/loopEvents %>
+	<% loop Events %>
 		<div class="secondary_event">
 								
-				<% with/loopEvent %>
+				<% loop Event %>
 					<a href="$Link">
 					<% if Image %>
 						<img src="$Image.MediumImage.URL"/>
 					<% else %>
 						<img src="$ThemeDir/images/placeholder_medium.png" />
 					<% end_if %>
-					<h2><strong>$Title</strong> <% if Venues %>@ <% with/loopVenues %>$Title<br/><% end_with/loop%><% end_if %></h2></a>
-				<% end_with/loop%><!-- end control event -->
+					<h2><strong>$Title</strong> <% if Venues %>@ <% loop Venues %>$Title<br/><% end_loop %><% end_if %></h2></a>
+				<% end_loop %><!-- end control event -->
 			</div>
-	<% end_with/loop%><!-- end control events -->
+	<% end_loop %><!-- end control events -->
 </section>
