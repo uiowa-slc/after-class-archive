@@ -1,12 +1,12 @@
 <?php
 
 class AfterClassEvent extends CalendarEvent {
-	static $many_many = array (
+	private static $many_many = array (
 		"Sponsors" => "Sponsor",
 		"Venues" => "Venue",
 		"Eventtypes" => "Eventtype"
 	);
-	public static $db = array(
+	private static $db = array(
 		'Title' =>'Text',
 		'Location' => 'Text',
 		'Cost' => 'Text',
@@ -19,19 +19,19 @@ class AfterClassEvent extends CalendarEvent {
 		'facebook_published' => 'Boolean',
 		'MoreInfoLink' => 'Text'
 	);
-	static $has_one = array(
+	private static $has_one = array(
 		'Image' => 'SizedImage'
 	);
 	
-	static $defaults = array (
+	private static $defaults = array (
 		"ParentID" => 6
 	);
 	
 	//static $icon = self::getCMSIcon();
 	
-	static $default_parent = "events"; // URLSegment of default parent node.
-	static $can_be_root = false;
-	static $allowed_children = "none";
+	private static $default_parent = "events"; // URLSegment of default parent node.
+	private static $can_be_root = false;
+	private static $allowed_children = "none";
 		
 
 	
@@ -46,12 +46,6 @@ NOTE:  - replace with ClassName::get(
 	}
 
 	public function AllCategories(){
-		//$categories = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Category", "")
 		
 		$categories = new ArrayList();
 		$category_ids = array();
@@ -127,40 +121,6 @@ NOTE:  - replace with ClassName::get()->First()
 			return $eventSet;
 		}
 	}
-	
-	public function facebook_publish() {
- 		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
- 		$url = 'https://graph.facebook.com/319621914746674/feed';
- 		$message = $this->data()->Title;
- 		foreach($this->data()->DateAndTime() as $time) {
- 			$message = $message . ' - ';
- 			$date = new DateTime($time->StartDate);
- 			$message = $message . ' ' . $date->format('F d');
- 			if ($time->EndDate) {
- 				$date = new DateTime($time->EndDate);
- 				$message = $message . ' to ' . $date->format('F d');
- 			}
- 		}
- 		$fields = array(
- 			'access_token' => urlencode("AAADc6v8HNekBAGxX0KBswrxm7itBjiC5xuNHpXEaxQJRxmKgYbxZC6luSf9pKD7m3n5MLpgfkeV92H1oTZAav1DUwAz3LD26vePiAQ5aouXt7OeuaZA"),
- 			'message' => urlencode($message),
- 			'link' => urlencode($this->data()->AbsoluteLink()),
- 			'picture' => urlencode($this->data()->Image()->MediumImage()->AbsoluteURL)
-        );
-        $fields_string = "";
-        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-		rtrim($fields_string,'&');
- 		$ch = curl_init();
- 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
- 		curl_setopt($ch,CURLOPT_URL,$url);
-		curl_setopt($ch,CURLOPT_POST,count($fields));
-		curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
-		//execute post
-		$result = curl_exec($ch);
-		//close connection
-		curl_close($ch);
-		return true;
-	}
 
 	public function DateAndTimeLimited($num = 3){
 		$datesTimes = $this->DateAndTime();
@@ -216,39 +176,12 @@ NOTE:  - replace with ClassName::get()->First()
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
 		
-/* -------------------------------------------------------- */
-/* Rewriting the URL Field Group to move it to the main tab */
-/* -------------------------------------------------------- */
-		
-		$url_fieldgroup = new FieldGroup(_t('SiteTree.URL', "URL"),
-							new LabelField('BaseUrlLabel',Controller::join_links (
-								Director::absoluteBaseURL(),
-								(self::nested_urls() && $this->ParentID ? $this->Parent()->RelativeLink(true) : null)
-							)),
-							/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new UniqueRestrictedTextField
-NOTE:  Removed: use custom fields instead. 
-### @@@@ ########### @@@@ ###
-*/new UniqueRestrictedTextField("URLSegment",
-								"URLSegment",
-								"SiteTree",
-								_t('SiteTree.VALIDATIONURLSEGMENT1', "Another page is using that URL. URL must be unique for each page"),
-								"[^A-Za-z0-9-]+",
-								"-",
-								_t('SiteTree.VALIDATIONURLSEGMENT2', "URLs can only be made up of letters, digits and hyphens."),
-								"",
-								"",
-								"",
-								50
-							),
-							new LabelField('TrailingSlashLabel',"/"));
 		
 /* ----------------------------------- */
 /* Add/Re-Add Content and Other Fields */
 /* ----------------------------------- */
 		
-		$f->addFieldToTab("Root.Main", $url_fieldgroup);
+		
 		$f->addFieldToTab('Root.Main', /*
 ### @@@@ UPGRADE REQUIRED @@@@ ###
 FIND: new ImageField(
@@ -306,12 +239,13 @@ NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor argument
 /* ------------- */
 /* Sponsor Table */
 /* ------------- */
+
 		$sponsorTablefield = /*
 ### @@@@ UPGRADE REQUIRED @@@@ ###
 FIND: new ManyManyComplexTableField
 NOTE:  check syntax  
 ### @@@@ ########### @@@@ ###
-*/new GridField((
+*/new GridField(
         	$this,
         	'Sponsors',
         	'Sponsor',
@@ -322,11 +256,8 @@ NOTE:  check syntax
         	null,
         	$sort = "Title ASC"
       	);
-		$sponsorTablefield->setAddTitle( 'Sponsor' );
-		$sponsorTablefield->showPagination = false;
 		
 		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));
-
 		$f->addFieldToTab( 'Root.Sponsors', $sponsorTablefield );
 		
 /* ----------- */
@@ -341,7 +272,7 @@ NOTE:  check syntax
 FIND: new ManyManyComplexTableField
 NOTE:  check syntax  
 ### @@@@ ########### @@@@ ###
-*/new GridField((
+*/new GridField(
         	$this,
         	'Venues',
         	'Venue',
@@ -355,9 +286,6 @@ NOTE:  check syntax
       	$f->addFieldToTab('Root.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
 
 		$f->addFieldToTab('Root.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
-		$venueTablefield->setAddTitle( 'Venue' );
-		$venueTablefield->showPagination = false;
-
 		$f->addFieldToTab( 'Root.VenueOrBuilding', $venueTablefield );
 		
 /* ---------------- */		
@@ -369,7 +297,7 @@ NOTE:  check syntax
 FIND: new ManyManyComplexTableField
 NOTE:  check syntax  
 ### @@@@ ########### @@@@ ###
-*/new GridField((
+*/new GridField(
         	$this,
         	'Eventtypes',
         	'Eventtype',
@@ -380,8 +308,6 @@ NOTE:  check syntax
         	null,
         	$sort = 'Title ASC'
       	);
-		$eventTypeTablefield->setAddTitle( 'Event Type' );
-		$eventTypeTablefield->showPagination = false;
 
 		$f->addFieldToTab('Root.EventTypes', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
 		$f->addFieldToTab( 'Root.EventTypes', $eventTypeTablefield);
@@ -437,45 +363,8 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 	public static $url_handlers = array(
             'fbpublish' => 'fbpublish'
             );
- 	//static $allowed_actions = array ("fbpublish", );
- 	
-	
-	
- 	
- 	public function fbpublish() {
- 		//page = a.post("https://graph.facebook.com/#{self.password}/feed?access_token=#{self.token}&message=#{message}&link=#{url}&picture=#{picture}")
- 		$url = 'https://graph.facebook.com/319621914746674/feed';
- 		$fields = array(
- 			'access_token' => urlencode("AAADc6v8HNekBAGxX0KBswrxm7itBjiC5xuNHpXEaxQJRxmKgYbxZC6luSf9pKD7m3n5MLpgfkeV92H1oTZAav1DUwAz3LD26vePiAQ5aouXt7OeuaZA"),
- 			'message' => urlencode($this->data()->Title),
- 			'link' => urlencode("http://hulk.imu.uiowa.edu" . $this->data()->Link()),
- 			'picture' => urlencode("http://hulk.imu.uiowa.edu" . $this->data()->Image()->MediumImage()->URL)
-        );
-        $fields_string = "";
-        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-		rtrim($fields_string,'&');
- 		$ch = curl_init();
- 		curl_setopt($ch,CURLOPT_URL,$url);
-		curl_setopt($ch,CURLOPT_POST,count($fields));
-		curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
-		//execute post
-		$result = curl_exec($ch);
-		//close connection
-		curl_close($ch);
- 		$Data = array(
-	      'Tokens' => $result
-	    );
- 		return $this->customise($Data)->renderWith(array('AfterClassCallback', 'Page'));
- 	}
-
 
 	public function AllCategories(){
-	//	$categories = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Category", "")
 	
 	$categories = new ArrayList();
 	$category_ids = array();

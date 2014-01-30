@@ -54,18 +54,8 @@ class AfterClassNewsletter extends Page {
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 		
-		//$fields->addFieldToTab('Root.Main', /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new HtmlEditorField
-NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor arguments must now be set using setters on the instance of the field.  
-### @@@@ ########### @@@@ ###
-*/new HtmlEditorField('IntroText'));
-		$fields->addFieldToTab('Root.Main', /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ImageField(
-NOTE:  Check Syntax 
-### @@@@ ########### @@@@ ###
-*/new UploadField('Image','Flickr or Youtube Image 250 x 187'));
+
+		$fields->addFieldToTab('Root.Main',new UploadField('Image','Flickr or Youtube Image 250 x 187'));
 		$fields->addFieldToTab('Root.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
 		$fields->addFieldToTab('Root.Main',new TextField('ImageLink','Flickr or Youtube link.') );
 	/*	

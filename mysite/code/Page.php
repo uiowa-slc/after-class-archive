@@ -1,10 +1,10 @@
 <?php
 class Page extends SiteTree {
 
-	public static $db = array(
+	private static $db = array(
 	);
 
-	public static $has_one = array(
+	private static $has_one = array(
 	
 		"SecondaryContent" => "HTMLText"
 	
@@ -331,13 +331,13 @@ NOTE:  - replace with ClassName::get(
 		return "/admin/show/".$this->ID."/";
 	}
 	
-	public function handleRequest(SS_HTTPRequest $request) { 
+	/*public function handleRequest(SS_HTTPRequest $request) { 
 		$ret = parent::handleRequest($request); 
 		$temp=$ret->getBody(); 
 		$temp = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $temp); 
 		$ret->setBody($temp); 
 		return $ret; 
-	} 
+	} */
 	
 	public function RandomTagline(){
 		$config = SiteConfig::current_site_config(); 
