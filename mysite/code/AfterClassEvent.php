@@ -49,6 +49,14 @@ NOTE:  - replace with ClassName::get(
 */DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
 	}
 
+
+	/* Making this function available in the model by duplicating it from the controller. Crazy? MAYBE. */ 
+	public function DateAndTime() {
+		return DataList::create($this->getDateTimeClass())
+			->filter("EventID", $this->ID)
+			->sort("\"StartDate\" ASC");
+	}
+
 	public function AllCategories(){
 		
 		$categories = new ArrayList();

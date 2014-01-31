@@ -237,7 +237,7 @@ NOTE:  - replace with ClassName::get()->First()
 	}
 	
 	
- 	/* Return a venue, or list of venues, meow. */
+ 	/* Return a venue, or list of venues. */
  	function venues() {
  		$VenueName = addslashes($this->urlParams['Venue']);
  		if ($VenueName) {
@@ -265,7 +265,7 @@ NOTE:  - replace with ClassName::get(
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  		}
  	}
- 	/* Return a sponsor or list of sponsors, meow. */
+ 	/* Return a sponsor or list of sponsors. */
  	function sponsors() {
  		$SponsorName = addslashes($this->urlParams['Sponsor']);
  		if ($SponsorName) {
@@ -293,7 +293,7 @@ NOTE:  - replace with ClassName::get(
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  		}
  	}
- 	/* Return a category or list of eventtypes, meow. */
+ 	/* Return a category or list of eventtypes. */
  	function categories() {
  		$CategoryName = addslashes($this->urlParams['Category']);
  		if ($CategoryName) {
