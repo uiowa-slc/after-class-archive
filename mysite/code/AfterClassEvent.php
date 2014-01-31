@@ -1,11 +1,7 @@
 <?php
 
 class AfterClassEvent extends CalendarEvent {
-	private static $many_many = array (
-		"Sponsors" => "Sponsor",
-		"Venues" => "Venue",
-		"Eventtypes" => "Eventtype"
-	);
+
 	private static $db = array(
 		'Title' =>'Text',
 		'Location' => 'Text',
@@ -25,6 +21,14 @@ class AfterClassEvent extends CalendarEvent {
 	
 	private static $defaults = array (
 		"ParentID" => 6
+	);
+
+	private static $many_many = array (
+		"Categories" => "Category",
+		"Sponsors" => "Sponsor",
+		"Venues" => "Venue",
+		"Eventtypes" => "Eventtype"
+
 	);
 	
 	//static $icon = self::getCMSIcon();
@@ -73,17 +77,6 @@ NOTE:  - replace with ClassName::get()->byID($id)
 	
 	}
 	
-	public function RandomEventType(){
-		$event_type = $this->getComponents('Eventtypes', '', 'RAND()', '', 1);
-		
-		if($event_type){
-		
-			return $event_type;
-		}
-
-	
-	
-	}
 	
 	function RelatedEvents() {
 
@@ -130,12 +123,7 @@ NOTE:  - replace with ClassName::get()->byID($id)
 /* ----------------------------------- */
 		
 		
-		$f->addFieldToTab('Root.Main', /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ImageField(
-NOTE:  Check Syntax 
-### @@@@ ########### @@@@ ###
-*/new UploadField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab('Root.Main', new UploadField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		
 		
 
@@ -146,12 +134,7 @@ NOTE:  Check Syntax
 
 		
 		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
-		$f->addFieldToTab('Root.Main',/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new HtmlEditorField
-NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor arguments must now be set using setters on the instance of the field.  
-### @@@@ ########### @@@@ ###
-*/new HtmlEditorField('Content','Event Description') );
+		$f->addFieldToTab('Root.Main',new HtmlEditorField('Content','Event Description') );
 		
 		$date_instructions = '
 		
@@ -188,6 +171,21 @@ NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor argument
 /* Sponsor Table */
 /* ------------- */
 
+		$sponsorsMap = array();
+		foreach(Sponsor::get() as $sponsor) {
+			$sponsorsMap[$sponsor->ID] = $sponsor->Title;
+		}
+
+		asort($sponsorsMap);
+		
+		$sponsorsField = ListboxField::create('Sponsors', 'Sponsors')
+			->setMultiple(true)
+			->setSource($sponsorsMap)
+			->setAttribute(
+				'data-placeholder', 
+				'Add Sponsors'
+			);
+
 		/*$sponsorTablefield = new GridField(
         	$this,
         	'Sponsors',
@@ -200,8 +198,9 @@ NOTE:  $form, $maxLength, $rightTitle, $rows/$cols optional constructor argument
         	$sort = "Title ASC"
       	);
 		
-		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));
-		$f->addFieldToTab( 'Root.Sponsors', $sponsorTablefield );*/
+		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));*/
+
+		$f->addFieldToTab( 'Root.Sponsors', $sponsorsField );
 		
 /* ----------- */
 /* Venue Table */

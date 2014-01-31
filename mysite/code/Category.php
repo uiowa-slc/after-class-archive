@@ -1,10 +1,13 @@
 <?php
 class Category extends DataObject {
-	public static $db = array(
+	private static $db = array(
 		"Title" => "Text",
 		"AltTitle" => "Text",
 		"URLSlug" => "Text",
 		"Showmenu" => "Boolean"
+	);
+	private static $belongs_many_many = array(
+		"AfterClassEvents" => "AfterClassEvent"
 	);
 	function getCMSFields_forPopup() {
 		$fields = new FieldList();

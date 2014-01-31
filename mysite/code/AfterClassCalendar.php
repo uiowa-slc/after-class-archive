@@ -33,30 +33,15 @@ class AfterClassCalendar extends Calendar {
 		$fields->removeFieldFromTab("Root.Main", "Content");
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad1URL", "Ad 1 External Link"));
-		$fields->addFieldToTab("Root.Ads", /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ImageField(
-NOTE:  Check Syntax 
-### @@@@ ########### @@@@ ###
-*/new UploadField("Ad1Image","Ad 1 Image (same dimensions as newsletter ad)"));
+		$fields->addFieldToTab("Root.Ads", new UploadField("Ad1Image","Ad 1 Image (same dimensions as newsletter ad)"));
 		
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad2Title", "Ad 2 Title / Alt Text"));
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad2URL", "Ad 2 External Link"));
-		$fields->addFieldToTab("Root.Ads", /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ImageField(
-NOTE:  Check Syntax 
-### @@@@ ########### @@@@ ###
-*/new UploadField("Ad2Image", "Ad 2 Image (same dimensions as newsletter ad) "));
+		$fields->addFieldToTab("Root.Ads", new UploadField("Ad2Image", "Ad 2 Image (same dimensions as newsletter ad) "));
 		
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad3Title", "Ad 3 Title / Alt Text"));
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad3URL", "Ad 3 External Link"));
-		$fields->addFieldToTab("Root.Ads", /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new ImageField(
-NOTE:  Check Syntax 
-### @@@@ ########### @@@@ ###
-*/new UploadField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
+		$fields->addFieldToTab("Root.Ads", new UploadField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
 
 		$fields->addFieldToTab("Root.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
 		/* $name, $title = "", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = null, $parentID = 0, $cache = false */
@@ -68,16 +53,6 @@ NOTE:  Check Syntax
 		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent3ID", "Featured Event 3", "SiteTree"));*/
 		
 		return $fields;
-	}
-	public function UEvents() {
-		$e = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("AfterClassEvent")->toArray();;
-		CalendarUtil::date_sort($e);
-		return $e;
 	}
 
 	public function Eventtype() {
@@ -141,7 +116,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		}
 	}
  	 public static $url_handlers = array(
-            //'tag/$Tag' => 'tag'
             'categories/$Category' => 'categories',
             'venues/$Venue' => 'venues',
             'sponsors/$Sponsor' => 'sponsors',

@@ -9,7 +9,7 @@ class Page extends SiteTree {
 		"SecondaryContent" => "HTMLText"
 	
 	);
-	public function getEventtypes() {
+	public function AllEventtypes() {
 		return /*
 ### @@@@ UPGRADE REQUIRED @@@@ ###
 FIND: DataObject::get(
@@ -17,7 +17,7 @@ NOTE:  - replace with ClassName::get(
 ### @@@@ ########### @@@@ ###
 */DataObject::get('Eventtype');
 	}
-	public function getVenues() {
+	public function AllVenues() {
 		return /*
 ### @@@@ UPGRADE REQUIRED @@@@ ###
 FIND: DataObject::get(
@@ -25,7 +25,7 @@ NOTE:  - replace with ClassName::get(
 ### @@@@ ########### @@@@ ###
 */DataObject::get('Venue','','Title ASC');
 	}
-	public function getSponsors() {
+	public function AllSponsors() {
 		return /*
 ### @@@@ UPGRADE REQUIRED @@@@ ###
 FIND: DataObject::get(
