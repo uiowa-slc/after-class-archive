@@ -136,6 +136,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		foreach($events as $event) {
 			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
 			$event->Description = strip_tags($event->EventContent());
+			$event->AllLocations = $event->Event()->Venues();
 		}
 		
 		//remove duplicates from the feed.

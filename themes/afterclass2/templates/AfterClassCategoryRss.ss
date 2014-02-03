@@ -3,21 +3,24 @@
 	<channel>
 		<title>Upcoming Events for Happening Now</title>
 		<link>http://afterclass.uiowa.edu/events/</link>
-		<atom:link href="http://hulk.imu.uiowa.edu/afterclass_dev/events/" rel="self" type="application/rss+xml" />
+		<atom:link href="http://afterclass.uiowa.edu/events/" rel="self" type="application/rss+xml" />
 		<description></description>
 		
 		<% control Events %>
 		<item>
 				<description>$Description </description>
-        		<% control Event %><title>$Title</title>
-				<link>{$BaseHref}{$URLSegment}</link>
-				<pubDate>Thu, 19 Jan 2012 14:21:15 -0600</pubDate>
-				<guid>{$BaseHref}{$URLSegment}</guid>
-				<cost>$Cost</cost>
-				<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
-				<location>$Location</location><% end_control %>
+        		<% control Event %>
+	        		<title>$Title</title>
+					<link>{$BaseHref}{$URLSegment}</link>
+					<pubDate>$Created</pubDate>
+					<guid>{$BaseHref}{$URLSegment}</guid>
+					<cost>$Cost</cost>
+					<image>$Image.AbsoluteURL</image>
+					<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
+				<% end_control %>
+				<location><% if Event.Location %>$Event.Location - <% end_if %><% control AllLocations %>$Title <% end_control %></location>
 				<dates>$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %></dates>
-				<% if Venues %><venues><% control Venues %>$Title<br/><% end_control %></venues><% end_if %>
+				
 		</item>
 		<% end_control %>
 		
