@@ -9,6 +9,7 @@ class Category extends DataObject {
 	private static $belongs_many_many = array(
 		"AfterClassEvents" => "AfterClassEvent"
 	);
+	
 	function getCMSFields_forPopup() {
 		$fields = new FieldList();
 		$fields->push( new TextField( 'Title' ) );

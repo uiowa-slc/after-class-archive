@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "c1da3532e471f059585d7c56670b4e3de69ab97d"
+                "reference": "35a07647186a910b725fca9290b13ca2e265491a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/c1da3532e471f059585d7c56670b4e3de69ab97d",
-                "reference": "c1da3532e471f059585d7c56670b4e3de69ab97d",
+                "url": "https://api.github.com/repos/composer/installers/zipball/35a07647186a910b725fca9290b13ca2e265491a",
+                "reference": "35a07647186a910b725fca9290b13ca2e265491a",
                 "shasum": ""
             },
             "replace": {
@@ -86,7 +86,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-01-28 16:49:00"
+            "time": "2014-01-31 16:53:31"
         },
         {
             "name": "md/division-bar",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display.git",
-                "reference": "5c4e6331bf64b209314635ee81143d1fffaaacca"
+                "reference": "2db5b02adcba412be9ad24fc7243782034a3aca5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/5c4e6331bf64b209314635ee81143d1fffaaacca",
-                "reference": "5c4e6331bf64b209314635ee81143d1fffaaacca",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/2db5b02adcba412be9ad24fc7243782034a3aca5",
+                "reference": "2db5b02adcba412be9ad24fc7243782034a3aca5",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +150,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/rss-display/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/rss-display/issues"
             },
-            "time": "2013-10-30 21:08:49"
+            "time": "2014-01-31 18:53:35"
         },
         {
             "name": "silverstripe-themes/simple",
