@@ -29,5 +29,7 @@ HtmlEditorConfig::get('cms')->insertButtonsBefore(
 /* Paste as Plain Text By Default */
 HtmlEditorConfig::get('cms')->setOption('paste_text_sticky',true);
 HtmlEditorConfig::get('cms')->setOption('paste_text_sticky_default',true);
+Director::set_environment_type("dev");
+
 
 FulltextSearchable::enable();
