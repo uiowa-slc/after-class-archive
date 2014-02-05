@@ -12,7 +12,12 @@ class CalendarEventExtension extends DataExtension {
 	private static $many_many = array (
 		"Categories" => "Category"
 	);
-
+	
+	public function UpcomingDatesAndRanges($limit = 3)
+	{
+		return
+	}
+	
 	public function updateCMSFields(FieldList $fields) {
 
 		$categoriesMap = array();
