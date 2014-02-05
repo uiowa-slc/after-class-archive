@@ -10,28 +10,13 @@ class Page extends SiteTree {
 	
 	);
 	public function AllEventtypes() {
-		return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get('Eventtype');
+		return Eventtypes::get();
 	}
 	public function AllVenues() {
-		return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get('Venue','','Title ASC');
+		return Venue::get()->sort('Title ASC');
 	}
 	public function AllSponsors() {
-		return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get('Sponsor', '','Title ASC');
+		return Sponsor::get()->sort('Title ASC');
 	}
 		
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
@@ -48,12 +33,7 @@ function allPagesToCache() {
     // Get each page type to define its sub-urls
     $urls = array();
     // memory intensive depending on number of pages
-    $pages = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Page");
+    $pages = Page::get();
     $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage');
 
     foreach($pages as $page) {
@@ -215,46 +195,26 @@ class Page_Controller extends ContentController {
 	
 	public function MonthLink()
 	  {
-	  	$calendar = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("AfterClassCalendar");
+	  	$calendar = AfterClassCalendar::get();
 	    $d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".$d->firstDayOfMonth()->format('Ym');
 	  }
 	public function TodayLink()
 	  {
-	  	$calendar = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("AfterClassCalendar");
+	  	$calendar = AfterClassCalendar::get()->First();
 	    $d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".date("Ymd");
 	  }	  
 	  public function WeekLink()
 	  {
-	  	$calendar = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("AfterClassCalendar");
+	  	$calendar = AfterClassCalendar::get()->First();
 	  	$d = new sfDate();
 		return $calendar->AbsoluteLink()."view/".$d->firstDayOfWeek()->format('Ymd')."/".$d->finalDayOfWeek()->format('Ymd');
 	  }
 	  
 	  public function WeekendLink()
 	  {
-	  	$calendar = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("AfterClassCalendar");
+	  	$calendar = AfterClassCalendar::get()->First();
 	  	$d = new sfDate();
 			// Saturday? Dial back to Friday
 	  	if($d->format('w') == 6)

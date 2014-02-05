@@ -49,24 +49,13 @@ function Form() {
 		$form->saveInto($orientationPerson);
 		$orientationPerson->signup_source = $this->URLSegment;
 		$orientationPerson->write();
-		/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: Director::redirect(
-NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
-### @@@@ ########### @@@@ ###
-*/$this->redirect($this->URLSegment.'/');
+		Controller::curr()->redirect($this->URLSegment.'/');
 	}
 	public function show() {
 	
 	if(Permission::check("ADMIN")){
 		if($this){
-			$mr = "first,last,email,signupsource,created<br />";
-			$records = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("OrientationPerson",null,"id DESC",null,3000);
+			$mr = OrientationPerson::get()->sort('DESC')->limit(3000);
 			foreach ($records as $record) {
 				if ($record->signup_source == $this->URLSegment) {
 					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
@@ -75,12 +64,7 @@ NOTE:  - replace with ClassName::get(
 			return $mr;
 		}
 	}else {
-		/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: Director::redirect(
-NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
-### @@@@ ########### @@@@ ###
-*/$this->redirect("home/");
+		Controller::curr()->redirect("home/");
 	
 	}
 }

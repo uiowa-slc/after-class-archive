@@ -41,14 +41,8 @@ class AfterClassEvent extends CalendarEvent {
 	
 	public function UpcomingDatesAndRanges($limit = 3)
 	{
-		return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
+		return DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
 	}
-
 
 	/* Making this function available in the model by duplicating it from the controller. Crazy? MAYBE. */ 
 	public function DateAndTime() {
@@ -72,12 +66,7 @@ NOTE:  - replace with ClassName::get(
 		$category_ids = array_merge($category_ids, $eventtypes->getIDList());
 		
 		foreach($category_ids as $category_id){
-			$category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_by_id(
-NOTE:  - replace with ClassName::get()->byID($id)  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_by_id("Category", $category_id);
+			$category = Category::get()->byID($category_id);
 			$categories->push($category);
 		
 		}
@@ -319,12 +308,7 @@ class AfterClassEvent_Controller extends CalendarEvent_Controller {
 	$category_ids = array_merge($category_ids, $eventtypes->getIDList());
 	
 	foreach($category_ids as $category_id){
-		$category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_by_id(
-NOTE:  - replace with ClassName::get()->byID($id)  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_by_id("Category", $category_id);
+		$category = Category::get()->byID($category_id);
 		$categories->push($category);
 	
 	}

@@ -39,12 +39,7 @@ class AddEventPage_Controller extends Page_Controller {
             new TextField('Cost','How much does it cost to attend?'),
             new TextField('Content','Describe what the event is about.'),
             new TextField('Sponsor','Who is sponsoring or hosting the event?'),
-            /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: new FileField
-NOTE:  $folderName optional constructor argument must now be set using a setter on the instance of the field. 
-### @@@@ ########### @@@@ ###
-*/new FileField('Image','Event Image (730 x 462 pixels is preferred)'),
+            new FileField('Image','Event Image (730 x 462 pixels is preferred)'),
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')
         );
@@ -97,15 +92,8 @@ NOTE:  $folderName optional constructor argument must now be set using a setter 
 		
 		
 		$email->send();
-
         
-        
-        /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: Director::redirect(
-NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
-### @@@@ ########### @@@@ ###
-*/$this->redirect('/thanks');
+        Controller::curr()->redirect('./thanks');
 		
 	}
 }

@@ -56,28 +56,13 @@ class AfterClassCalendar extends Calendar {
 	}
 
 	public function Eventtype() {
-	    return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Eventtype");
+	    return Eventtype::get();
 	}
 	public function Sponsor() {
-	    return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Sponsor");
+	    return Sponsor::get();
 	}
 	public function Venue() {
-	    return /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Venue");
+	    return Venue::get();
 	}
 	
 	
@@ -168,22 +153,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		$events = new ArrayList();
 		$CategoryName = addslashes($this->urlParams['Category']);
 		if (strpos(strtolower($CategoryName),"-") === false) {
-		  $Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
+		  $Category = Category::get()->First();
 		  $events = $Category->events();
 		} else {
 		  $Categories = explode("-",$CategoryName);
 		  foreach ($Categories as $CatName) {
-		  	$Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Category", "URLSlug = '".$CatName."'");
+		  	$Category = Category::get()->First("Category", "URLSlug = '".$CatName."'"); 
 		  	$CatEvents = $Category->events();
 		  	$events->merge($CatEvents);
 		  }
@@ -241,24 +216,14 @@ NOTE:  - replace with ClassName::get()->First()
  	function venues() {
  		$VenueName = addslashes($this->urlParams['Venue']);
  		if ($VenueName) {
- 			$Venue = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Venue", "URLSlug = '".$VenueName."'");
+ 			$Venue = Venue::get()->First();
  			$Data = array(
 	      		'Category' => $Venue,
 	      		'CategoryName' => $VenueName
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  		} else {
- 			$Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Venue");
+ 			$Category = Venue::get();
  			$Data = array(
 				'Category' => $Category
 	    	);
@@ -269,24 +234,14 @@ NOTE:  - replace with ClassName::get(
  	function sponsors() {
  		$SponsorName = addslashes($this->urlParams['Sponsor']);
  		if ($SponsorName) {
- 			$Sponsor = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Sponsor", "URLSlug = '".$SponsorName."'");
+ 			$Sponsor = Sponsor::get()->First();
  			$Data = array(
 	      	'Category' => $Sponsor,
 	      	'CategoryName' => $SponsorName
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  		} else {
- 			$Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Sponsor");
+ 			$Category = Sponsor::get();
  			$Data = array(
 	    	  'Category' => $Category
 	    	);
@@ -297,19 +252,9 @@ NOTE:  - replace with ClassName::get(
  	function categories() {
  		$CategoryName = addslashes($this->urlParams['Category']);
  		if ($CategoryName) {
- 			$Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Category", "URLSlug = '".$CategoryName."'");
+ 			$Category = Category::get()->First();
  			if (!($Category)) {
- 				$Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Category", "Title = '".$CategoryName."'");
+ 				$Category = Category::get();
  			}
  			$Data = array(
 				'Category' => $Category,
@@ -317,12 +262,7 @@ NOTE:  - replace with ClassName::get()->First()
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
  		} else {
- 			$Category = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("Eventtype");
+ 			$Category = Eventtype::get();
  			$Data = array(
 	      	'Category' => $Category
 	    	);
@@ -331,20 +271,10 @@ NOTE:  - replace with ClassName::get(
  	}
 
  	function sponsor() {
-		/*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: Director::redirect(
-NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
-### @@@@ ########### @@@@ ###
-*/$this->redirect('./events/sponsors/');
+		Controller::curr()->redirect('./events/sponsors/');
  	}
  	function venue() {
- 	    /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: Director::redirect(
-NOTE: this should be a controller class, otherwise use Controller::curr()->redirect 
-### @@@@ ########### @@@@ ###
-*/$this->redirect('./events/venues/');
+ 	   Controller::curr()->redirect('./events/venues/');
  	}
  	
  	public function dynamicNews(){
