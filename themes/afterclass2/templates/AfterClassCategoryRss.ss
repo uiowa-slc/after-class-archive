@@ -11,9 +11,9 @@
 				<description>$Description </description>
         		<% control Event %>
 	        		<title>$Title</title>
-					<link>{$BaseHref}{$URLSegment}</link>
+					<link>{$AbsoluteLink}</link>
 					<pubDate>$Created</pubDate>
-					<guid>{$BaseHref}{$URLSegment}</guid>
+					<guid>{$AbsoluteLink}</guid>
 					<cost>$Cost</cost>
 					<image>$Image.AbsoluteURL</image>
 					<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
