@@ -407,12 +407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "a9b49e01650e3d04c53164e2264c64aa12fd5ded"
+                "reference": "f90b997c29fbdb63b5feb92642ac57900c53e2ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/a9b49e01650e3d04c53164e2264c64aa12fd5ded",
-                "reference": "a9b49e01650e3d04c53164e2264c64aa12fd5ded",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/f90b997c29fbdb63b5feb92642ac57900c53e2ac",
+                "reference": "f90b997c29fbdb63b5feb92642ac57900c53e2ac",
                 "shasum": ""
             },
             "require": {
@@ -436,7 +436,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-01-24 01:37:01"
+            "time": "2014-02-02 23:10:44"
         },
         {
             "name": "sunnysideup/upgrade_silverstripe",

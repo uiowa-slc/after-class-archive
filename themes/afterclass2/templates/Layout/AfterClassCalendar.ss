@@ -52,11 +52,11 @@
 		<div class="news-entries">
 			<% loop dynamicNews %>
 				<div class="news-entry $EvenOdd">
-					$Image
+					$Smallimage
 					<h3><a href="$Link">$Title</a></h3>
-					<div class="news-posted-on">posted on $PublishedDate.Format(F n), $PublishedDate.Format(Y) by $Author</div>
+					<div class="news-posted-on">posted on $Date.Format(F n), $Date.Format(Y) by $Author</div>
 					<div class="news-text">
-						<p>$Content.Summary(50)</p>
+						<p>$Description.Summary(50)</p>
 					</div>
 					<div class="read-more">
 						<p><a href="$Link">Read More</a></p>
