@@ -61,7 +61,7 @@ function Form() {
 	if(Permission::check("ADMIN")){
 		if($this){
 			$mr = "first,last,email,signupsource,created<br />";
-			$records = HawkeyeCaucusPerson:get()->sort("DESC")->limit(3000);
+			$records = HawkeyeCaucusPerson::get()->sort("DESC")->limit(3000);
 			foreach ($records as $record) {
 				if ($record->signup_source == $this->URLSegment) {
 					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
