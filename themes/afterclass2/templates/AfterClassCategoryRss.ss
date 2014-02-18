@@ -18,7 +18,13 @@
 					<image>$Image.AbsoluteURL</image>
 					<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
 				<% end_control %>
-				<location><% if Event.Location %>$Event.Location - <% end_if %><% control AllLocations %>$Title <% end_control %></location>
+				<location><% if Event.Location %>$Event.Location - <% end_if %>
+				<% if Event.Venues %>
+				<% control Event.Venues %>
+				$Title
+				<% end_control %>
+				<% end_if %>
+				</location>
 				<dates>$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %></dates>
 				
 		</item>
