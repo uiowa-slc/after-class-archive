@@ -21,10 +21,9 @@
 
 <div class="row">
 <div id="left-column" class="span7">
-<% if action = view %>
+<% if $action == "show" %>
 	<h1 class="date-header">Events for $DateHeader</h1>
-	<% if Events %>
-	<% else %>
+	<% if not $Events %>
 		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/category/">categories</a>, <a href="{$BaseHref}events/venue">venues</a>, and <a href="{$BaseHref}events/sponsor/">sponsors</a> for full event listings.</p>
 	<% end_if %><!-- end if events -->
 <% else %>
@@ -35,9 +34,9 @@
 	<h2>What's up next</h2>
 	<div class="event-cards">
 		<% loop AllEventsWithoutDuplicates %>
-			<% loop Event %>
+			<% with Event %>
 				<% include EventCard %>
-			<% end_loop %>
+			<% end_with %>
 		<% end_loop %> <%-- end control Upcoming Events --%>
 	</div> <!--end event-cards -->
 	</div>

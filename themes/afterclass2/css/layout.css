@@ -430,14 +430,14 @@ h6 a {
 #page_content.AfterClassCalendar.index .container,
 #page_content.AfterClassEvent.index .container,
 #page_content.FeaturedAfterClassEvent.index,
-#page_content.AfterClassCalendar.view .container,
+#page_content.AfterClassCalendar.show .container,
 #page_content.AfterClassEvent .container { margin-top: 0 }
-#page_content.AfterClassCalendar.view #event-card-list h2 { display: none }
-#page_content.AfterClassCalendar.view #approaching-deadlines { display: none }
-#page_content.AfterClassCalendar.view #the-news { display: none }
-#page_content.AfterClassCalendar.view #categories { display: none }
-#page_content.AfterClassCalendar.view .hero-event { display: none }
-#page_content.AfterClassCalendar.view .flex-control-nav { display: none; }
+#page_content.AfterClassCalendar.show #event-card-list h2 { display: none }
+#page_content.AfterClassCalendar.show #approaching-deadlines { display: none }
+#page_content.AfterClassCalendar.show #the-news { display: none }
+#page_content.AfterClassCalendar.show #categories { display: none }
+#page_content.AfterClassCalendar.show .hero-event { display: none }
+#page_content.AfterClassCalendar.show .flex-control-nav { display: none; }
 #page_navigation {
     text-align: center;
     background-image: linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
@@ -618,8 +618,8 @@ h6 a {
     /*margin-bottom: 200px;*/
     color: #333;
 }
-#home_feature.view { width: 900px }
-#upcoming_events.view { width: 900px }
+#home_feature.show { width: 900px }
+#upcoming_events.show { width: 900px }
 #home_feature .event_text { width: 354px }
 #home_feature div:first-of-type { display: block }
 #upcoming_events {
@@ -1691,8 +1691,8 @@ a.read-more-link { color: #ADD7E2 }
     text-align: right;
 }
 .read-more a:hover { color: #dabe59 }
-.view-all-posts-link { text-align: right }
-.view-all-posts-link a { color: white }
+.show-all-posts-link { text-align: right }
+.show-all-posts-link a { color: white }
 .feature-background-wrapper {
     /*background-color: #1D1C1C; */
     background-position: bottom;
@@ -2125,7 +2125,7 @@ a.button:active {
     #page_content.AfterClassCalendar.index .container,
     #page_content.AfterClassEvent.index .container,
     #page_content.FeaturedAfterClassEvent.index,
-    #page_content.AfterClassCalendar.view .container,
+    #page_content.AfterClassCalendar.show .container,
     #page_content.AfterClassEvent .container {
         /*margin-top: 20px;*/
     }

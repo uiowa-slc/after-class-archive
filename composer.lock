@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4d3ec0ae8a1a39812f43abc3f1cd4438",
+    "hash": "99a70440cb4963e921b33b3a1e6f25cd",
     "packages": [
         {
             "name": "composer/installers",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "35a07647186a910b725fca9290b13ca2e265491a"
+                "reference": "9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/35a07647186a910b725fca9290b13ca2e265491a",
-                "reference": "35a07647186a910b725fca9290b13ca2e265491a",
+                "url": "https://api.github.com/repos/composer/installers/zipball/9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94",
+                "reference": "9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94",
                 "shasum": ""
             },
             "replace": {
@@ -86,7 +86,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-01-31 16:53:31"
+            "time": "2014-02-12 21:21:55"
         },
         {
             "name": "md/division-bar",
@@ -241,12 +241,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-event-calendar.git",
-                "reference": "7bebe3cfcdd0a9c832b31f008e97397498f9b16d"
+                "reference": "23998919331413903c0d032daf44c4dcb9dba840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-event-calendar/zipball/7bebe3cfcdd0a9c832b31f008e97397498f9b16d",
-                "reference": "7bebe3cfcdd0a9c832b31f008e97397498f9b16d",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-event-calendar/zipball/23998919331413903c0d032daf44c4dcb9dba840",
+                "reference": "23998919331413903c0d032daf44c4dcb9dba840",
                 "shasum": ""
             },
             "require": {
@@ -276,7 +276,7 @@
                 "events",
                 "silverstripe"
             ],
-            "time": "2014-01-25 23:57:35"
+            "time": "2014-02-10 22:09:22"
         },
         {
             "name": "silverstripe/framework",
@@ -330,12 +330,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillu/silverstripe-recaptcha.git",
-                "reference": "13f24e9b9d25f97154739c2b012ecd3ae17f4b81"
+                "reference": "830b192c17b11e0cc91f175a514ea3b3d16ddb4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/13f24e9b9d25f97154739c2b012ecd3ae17f4b81",
-                "reference": "13f24e9b9d25f97154739c2b012ecd3ae17f4b81",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/830b192c17b11e0cc91f175a514ea3b3d16ddb4b",
+                "reference": "830b192c17b11e0cc91f175a514ea3b3d16ddb4b",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +362,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2013-12-19 19:18:36"
+            "time": "2014-02-15 20:46:22"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -370,12 +370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "645b435ceacbebd66de1a80127384ba7b253c2f3"
+                "reference": "b3af63e38721de2cd6237fd39f8aeeef45ff6578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/645b435ceacbebd66de1a80127384ba7b253c2f3",
-                "reference": "645b435ceacbebd66de1a80127384ba7b253c2f3",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/b3af63e38721de2cd6237fd39f8aeeef45ff6578",
+                "reference": "b3af63e38721de2cd6237fd39f8aeeef45ff6578",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2013-09-02 09:44:06"
+            "time": "2014-02-15 10:00:42"
         },
         {
             "name": "silverstripe/userforms",
@@ -407,12 +407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "f90b997c29fbdb63b5feb92642ac57900c53e2ac"
+                "reference": "97ff8b252c1e8709c42238d80ef25431f4c45d03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/f90b997c29fbdb63b5feb92642ac57900c53e2ac",
-                "reference": "f90b997c29fbdb63b5feb92642ac57900c53e2ac",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/97ff8b252c1e8709c42238d80ef25431f4c45d03",
+                "reference": "97ff8b252c1e8709c42238d80ef25431f4c45d03",
                 "shasum": ""
             },
             "require": {
@@ -436,7 +436,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-02-02 23:10:44"
+            "time": "2014-02-17 10:02:19"
         },
         {
             "name": "sunnysideup/upgrade_silverstripe",
@@ -486,9 +486,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "silverstripe/event-calendar": 20
+    },
     "platform": {
         "php": ">=5.3.2"
     },

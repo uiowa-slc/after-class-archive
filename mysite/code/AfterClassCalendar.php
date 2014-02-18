@@ -45,9 +45,9 @@ class AfterClassCalendar extends Calendar {
 
 		$fields->addFieldToTab("Root.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
 		/* $name, $title = "", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = null, $parentID = 0, $cache = false */
-		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent1ID", $title = "Featured Event 1", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
+		/*$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent1ID", $title = "Featured Event 1", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
 		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent2ID", $title = "Featured Event 2", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
-		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent3ID", $title = "Featured Event 3", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
+		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent3ID", $title = "Featured Event 3", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));*/
 		/*$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent1ID", "Featured Event 1", "SiteTree", null, null, null, null, 6));
 		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent2ID", "Featured Event 2", "SiteTree"));
 		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent3ID", "Featured Event 3", "SiteTree"));*/
@@ -89,6 +89,13 @@ class AfterClassCalendar extends Calendar {
 	
 	}
 
+/* Dirty hack to get a controller function into the model. Bad SilverStripe. */
+ /* public function AllEventsWithoutDuplicates(){ 
+      $controller = new AfterClassCalendar_Controller; 
+      $controller->init(); 
+       
+      return $controller->AllEventsWithoutDuplicates(); 
+   }*/
 	
 }
  
@@ -200,8 +207,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	
 	function AllEventsWithoutDuplicates() {
 		$calendar = $this->owner;
-		$events = $calendar->getEventList('1900-01-01','3000-01-01');
 
+		$start_date = date( "d/m/Y", time() );
+		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
+		//$events = $calendar->getEventList('1900-01-01','3000-01-01');
+		$events =  parent::Events(null,$start_date,$start_date,false,1000);
 		$eventsArray= $events->ToArray();
 
 		$eventsArrayList = new ArrayList($eventsArray);

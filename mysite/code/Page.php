@@ -10,8 +10,11 @@ class Page extends SiteTree {
 	
 	);
 	public function AllEventtypes() {
-		return Eventtypes::get();
+		return Eventtype::get();
 	}
+
+
+
 	public function AllVenues() {
 		return Venue::get()->sort('Title ASC');
 	}
@@ -54,7 +57,6 @@ function allPagesToCache() {
   }
  
  /**
- 
    * Get a list of URLs to cache related to this page
    */
   function subPagesToCache() {
@@ -82,6 +84,31 @@ function allPagesToCache() {
     return $urls;
   }
 
+  public function Calendar(){
+  	return AfterClassCalendar::get()->First();
+  }
+
+	public function TrendingEventtypes(){
+
+		$calendar = AfterClassCalendar::get()->First();
+		$events = $calendar->UpcomingEvents();
+
+		$eventsArrayList = new ArrayList($events->toArray());
+		$typesArrayList = new ArrayList();
+
+		foreach($eventsArrayList as $event){
+			$singleEvent = $event->Event();
+			
+			foreach($singleEvent->Eventtypes() as $type){
+				$typesArrayList->push($type);
+			}
+		}
+
+		$typesArrayList->removeDuplicates();
+
+		return $typesArrayList;
+
+	}
 }
 class Page_Controller extends ContentController {
 
@@ -122,25 +149,26 @@ class Page_Controller extends ContentController {
 		Requirements::block('division-bar/js/_division-bar.js');
 		//Requirements::block('FRAMEWORK_DIR/thirdparty/jquery/jquery.js'); 
 
-		/*
-		Requirements::block('event_calendar/javascript/locale/date_en.js'); 
+		
+		/*Requirements::block('event_calendar/javascript/locale/date_en.js'); 
 		Requirements::block('event_calendar/javascript/jquery.date.js'); 
 		Requirements::block('event_calendar/javascript/jquery.datePicker.js'); 
 		Requirements::block('event_calendar/javascript/calendar_core.js'); 
-		Requirements::block('event_calendar/javascript/calendar_widget.js');
-		 */
+		Requirements::block('event_calendar/javascript/calendar_widget.js');*/
+		
 		
 		$jsFiles = array(
-				'themes/afterclass2/js/modernizr-2.0.6.min.js',
+				//'themes/afterclass2/js/modernizr-2.0.6.min.js',
 			   // 'themes/afterclass2/js/jquery.min.js',
 			   // 'themes/afterclass2/js/jquery-migrate.js',
-			    'FRAMEWORK_DIR/thirdparty/jquery/jquery.js',
-			   
-			   	'event_calendar/javascript/calendar_core.js',
+			   //'FRAMEWORK_DIR/thirdparty/jquery/jquery.js',
+			    'themes/afterclass2/js/jquery1.4.2.js',
+
+			   	/*'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',
 			    'event_calendar/javascript/jquery.date.js',
 			    'event_calendar/javascript/jquery.datePicker.js',
-			    'event_calendar/javascript/calendar_widget.js',
+			    'event_calendar/javascript/calendar_widget.js',*/
 			    
 			    /*'themes/afterclass2/js/canvasplay/CanvasController.js',
 			    'themes/afterclass2/js/canvasplay/DisplayObject.js',
@@ -165,7 +193,7 @@ class Page_Controller extends ContentController {
 			    
 			    'themes/afterclass2/js/stars.js',*/
 			    
-			    'themes/afterclass2/js/jquery.min.js',
+			    
 				'division-bar/js/division-bar.js',
 			    'themes/afterclass2/js/jquery.sticky-div.js',
 			    'themes/afterclass2/js/fancybox/jquery.fancybox.pack.js',

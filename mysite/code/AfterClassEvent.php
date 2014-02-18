@@ -27,7 +27,7 @@ class AfterClassEvent extends CalendarEvent {
 		"Categories" => "Category",
 		"Sponsors" => "Sponsor",
 		"Venues" => "Venue",
-		"Eventtypes" => "Eventtype"
+		"EventTypes" => "Eventtype"
 
 	);
 	
@@ -96,12 +96,7 @@ class AfterClassEvent extends CalendarEvent {
 
 		$f->fieldByName('Root.Main')->setTitle('Event Details');
 		$f->fieldByName('Root.Main.Title')->setTitle('Event Name');
-		$f->removeFieldFromTab('Root.Content', 'MenuTitle'); // remove a field from a tab
-		$f->removeFieldFromTab('Root.Content', 'Content'); // remove a field from a tab
-		$f->removeFieldFromTab('Root.Metadata', 'URL'); 
-		$f->removeFieldFromTab('Root.Content', 'Metadata'); // remove a field from a tab	
-		$f->removeFieldFromTab('Root.Content', 'GoogleSitemap'); // remove a field from a tab
-		
+
 		
 		
 /* ------------------------------------------------- */
@@ -197,49 +192,51 @@ class AfterClassEvent extends CalendarEvent {
 		
 		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));*/
 
-		$f->addFieldToTab( 'Root.Sponsors', $sponsorsField );
+		$f->addFieldToTab( 'Root.Main', $sponsorsField, "Content" );
 		
-/* ----------- */
+/* ------------- */
 /* Venue Table */
-/* ----------- */
+/* ------------- */
 
-	/*	$venueInstructions = '<h2>Instructions</h2><p>Every venue <em>must</em> have a somewhat complete address for Google Maps to work properly (example: Iowa Memorial Union, Iowa City, IA). Zip code is optional, but you NEED Iowa City, IA in each address. <br />The address field works as a search term on Google, and will give unexpected results with an incomplete address.</p>';
-		
-		
-		$venueTablefield = new GridField(
-        	$this,
-        	'Venues',
-        	'Venue',
-        	array(
-       		'Title' => 'Title'
-        	),
-        	'getCMSFields_forPopup',
-        	null,
-        	$sort = "Title ASC"
-      	);
-      	$f->addFieldToTab('Root.VenueOrBuilding', new LiteralField('VenueInstructions', $venueInstructions));
+		$VenuesMap = array();
+		foreach(Venue::get() as $Venue) {
+			$VenuesMap[$Venue->ID] = $Venue->Title;
+		}
 
-		$f->addFieldToTab('Root.VenueOrBuilding', new HeaderField("Venue Header","Venue(s) or building the event is in."));
-		$f->addFieldToTab( 'Root.VenueOrBuilding', $venueTablefield );*/
+		asort($VenuesMap);
 		
-/* ---------------- */		
+		$VenuesField = ListboxField::create('Venues', 'Venues')
+			->setMultiple(true)
+			->setSource($VenuesMap)
+			->setAttribute(
+				'data-placeholder', 
+				'Add Venues'
+			);
+
+
+		$f->addFieldToTab( 'Root.Main', $VenuesField, "Content" );
+		
+/* ------------- */
 /* Event Type Table */
-/* ---------------- */	
-	
-		/*$eventTypeTablefield = new GridField(
-        	$this,
-        	'Eventtypes',
-        	'Eventtype',
-        	array(
-       		'Title' => 'Title'
-        	),
-        	'getCMSFields_forPopup',
-        	null,
-        	$sort = 'Title ASC'
-      	);
+/* ------------- */
 
-		$f->addFieldToTab('Root.EventTypes', new HeaderField("EventTypeHeader","Event Type / Other Categories"));
-		$f->addFieldToTab( 'Root.EventTypes', $eventTypeTablefield);*/
+		$EventtypesMap = array();
+		foreach(Eventtype::get() as $Eventtype) {
+			$EventtypesMap[$Eventtype->ID] = $Eventtype->Title;
+		}
+
+		asort($EventtypesMap);
+		
+		$EventtypesField = ListboxField::create('Eventtypes', 'Eventtypes')
+			->setMultiple(true)
+			->setSource($EventtypesMap)
+			->setAttribute(
+				'data-placeholder', 
+				'Add Eventtypes'
+			);
+
+
+		$f->addFieldToTab( 'Root.Main', $EventtypesField, "Content" );
 		
 		return $f;
 	}

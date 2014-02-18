@@ -6,7 +6,7 @@
 		"silverstripe/cms": "3.1.2",
 		"silverstripe/framework": "3.1.2",
 		"silverstripe-themes/simple": "*",
-		"silverstripe/event-calendar": "*",
+		"silverstripe/event-calendar": "dev-master",
 		"silverstripe/userforms" : "*",
 		"silverstripe/recaptcha" : "*",
 		"silverstripe/spamprotection" : "*",
