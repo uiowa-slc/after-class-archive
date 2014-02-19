@@ -3,12 +3,12 @@
 </header>
 <div id="single-page-content">
 
-<div>
-
 $Content
 $Form
 
 $addEventForm
+<div>
+
 
 </div>
 </div>

@@ -1,7 +1,9 @@
 <div class="secondary-nav">
 		
 			<div id="calendar-filter-form">
+				<% with Calendar %>
 				$CalendarWidget
+				<% end_with %>
 			</div>
 			<div class="filters">
 				<form id="SearchForm_SearchForm" action="{$BaseHref}events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
@@ -13,11 +15,11 @@
 				</form>
 
 				<h3>Trending Categories</h3>
-					<% with Calendar %>
+					
 						<p><% loop TrendingEventtypes %>
-								<a href="$Link">$Title</a> | 
+								<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
 						<% end_loop %></p>
-					<% end_with %>
+				
 				<h3>View Events By</h3>
 				<ul>
 					<li><a href="{$BaseHref}events/categories/">Categories</a></li>

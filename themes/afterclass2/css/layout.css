@@ -1851,6 +1851,14 @@ a.read-more-link { color: #ADD7E2 }
     color: white;
     margin: 0;
 }
+
+@media only screen and (min-width: 768px) { 
+    .date-header {
+        margin: 0.5em 0;
+    }
+
+}
+
 #Form_CalendarFilterForm { color: white }
 #StartDayStartMonthStartYear .fieldgroupField { float: left }
 #StartDayStartMonthStartYear label {

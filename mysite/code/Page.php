@@ -162,7 +162,8 @@ class Page_Controller extends ContentController {
 			   // 'themes/afterclass2/js/jquery.min.js',
 			   // 'themes/afterclass2/js/jquery-migrate.js',
 			   //'FRAMEWORK_DIR/thirdparty/jquery/jquery.js',
-			    'themes/afterclass2/js/jquery1.4.2.js',
+			   'framework/thirdparty/jquery/jquery.js',
+			    //'themes/afterclass2/js/jquery1.4.2.js',
 
 			   	/*'event_calendar/javascript/calendar_core.js',
 			    'event_calendar/javascript/locale/date_en.js',

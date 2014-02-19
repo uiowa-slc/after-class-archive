@@ -27,7 +27,7 @@ class AfterClassEvent extends CalendarEvent {
 		"Categories" => "Category",
 		"Sponsors" => "Sponsor",
 		"Venues" => "Venue",
-		"EventTypes" => "Eventtype"
+		"Eventtypes" => "Eventtype"
 
 	);
 	
