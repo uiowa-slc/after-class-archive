@@ -132,16 +132,22 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	
  	# EventDate, EventLocation, EventCost
  	public function newrss() {
+ 	
+ 	
 		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
 		foreach($events as $event) {
 			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
 			$event->Description = strip_tags($event->EventContent());
-			$event->AllLocations = $event->Event()->Venues();
+			//$event->AllLocations = $event->Event()->Venues();
 		}
 		
 		//remove duplicates from the feed.
 		
 		$events->removeDuplicates("EventID");
+		
+		if(Director::isDev()) {
+			//print_r($events);
+		}
 		
 		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
 		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");

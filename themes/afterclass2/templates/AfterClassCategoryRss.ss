@@ -8,9 +8,11 @@
 		
 		<% control Events %>
 		<item>
-				<description>$Description </description>
+				
+				<id>$ID</id>
         		<% control Event %>
 	        		<title>$Title</title>
+	        		<description>$Content.XML</description>
 					<link>{$AbsoluteLink}</link>
 					<pubDate>$Created</pubDate>
 					<guid>{$AbsoluteLink}</guid>
@@ -18,12 +20,7 @@
 					<image>$Image.AbsoluteURL</image>
 					<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
 				<% end_control %>
-				<location><% if Event.Location %>$Event.Location - <% end_if %>
-				<% if Event.Venues %>
-				<% control Event.Venues %>
-				$Title
-				<% end_control %>
-				<% end_if %>
+				<location><% if Event.Location %>$Event.Location - <% end_if %><% if Event.Venues %><% control Event.Venues %>$Title <% end_control %><% end_if %>
 				</location>
 				<dates>$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %></dates>
 				
