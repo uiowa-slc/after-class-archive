@@ -10,9 +10,11 @@
 		"silverstripe/userforms" : "*",
 		"silverstripe/recaptcha" : "*",
 		"silverstripe/spamprotection" : "*",
+		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
-		"sunnysideup/upgrade_silverstripe" : "*"
+		"sunnysideup/upgrade_silverstripe" : "*",
+		"unclecheese/dashboard" : "*"
 
 	},
 	"config": {

@@ -9,7 +9,7 @@ class CleanupEventsBuildTask extends BuildTask {
   function init() { 
       parent::init(); 
       // Unless called from the command line, all CliControllers need ADMIN privileges 
-      if(!Director::is_cli() && !Permission::check("ADMIN") && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR']) { 
+      if(!Director::is_cli() && !Permission::check("ADMIN")) { 
          return Security::permissionFailure(); 
       } 
    }
@@ -20,36 +20,21 @@ class CleanupEventsBuildTask extends BuildTask {
     function cleanupEvents() {
     
     	/* get our parent pages */
-    	$archivePage = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("Page", "URLSegment = 'archive'");
-    	$calendarPage = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get_one(
-NOTE:  - replace with ClassName::get()->First()  
-### @@@@ ########### @@@@ ###
-*/DataObject::get_one("AfterClassCalendar");
-    	
+    	$archivePage = Page::get()->filter(array("URLSegment" => "archive"))->First();
+    	$calendarPage = AfterClassCalendar::get()->First();
+
     	if($archivePage){
     		
     		echo "Archive page found, its ID is:".$archivePage->ID."<br />";
     		echo "Checking Events:<br />
+
     		<ul>";
-    		$eventPages = /*
-### @@@@ UPGRADE REQUIRED @@@@ ###
-FIND: DataObject::get(
-NOTE:  - replace with ClassName::get(  
-### @@@@ ########### @@@@ ###
-*/DataObject::get("AfterClassEvent", 'ParentID = '.$calendarPage->ID);
-    		
+    		$eventPages = AfterClassEvent::get()->filter(array("ParentID" => $calendarPage->ID));
     		
     		/* check all dates for each event */
     		foreach($eventPages as $eventPage){
     		
-    			if($eventPage->UpcomingDatesAndRanges()){
+    			if($eventPage->UpcomingDatesAndRanges()->First()){
     				$eventPage->archiveStatus = "still_new";
     			}else{
 	    			$eventPage->archiveStatus = "old";

@@ -48,7 +48,6 @@
 <!-- end left-column -->
 <div id="right-column" class="span5">
 
-
 	<div id="the-news">
 		<h2><a href="http://imu.uiowa.edu/news">After Class: student news</a></h2>
 		<div class="news-entries">

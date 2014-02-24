@@ -89,21 +89,26 @@ function allPagesToCache() {
   }
 
 	public function TrendingEventtypes(){
-
 		$calendar = AfterClassCalendar::get()->First();
-		$events = $calendar->UpcomingEvents();
+		$events = $calendar->getEventList();
+
+		print_r($events);
 
 		$eventsArrayList = new ArrayList($events->toArray());
 		$typesArrayList = new ArrayList();
 
+
 		foreach($eventsArrayList as $event){
 			$singleEvent = $event->Event();
+			$eventTypes = $event->Eventtypes();
+
 			
-			foreach($singleEvent->Eventtypes() as $type){
+			foreach($eventTypes as $type){
 				$typesArrayList->push($type);
 			}
 		}
 
+		
 		$typesArrayList->removeDuplicates();
 
 		return $typesArrayList;

@@ -44,13 +44,22 @@ class AfterClassCalendar extends Calendar {
 		$fields->addFieldToTab("Root.Ads", new UploadField("Ad3Image", "Ad 3 Image (same dimensions as newsletter ad)"));
 
 		$fields->addFieldToTab("Root.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
-		/* $name, $title = "", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = null, $parentID = 0, $cache = false */
-		/*$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent1ID", $title = "Featured Event 1", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
-		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent2ID", $title = "Featured Event 2", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));
-		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField($name = "FeaturedEvent3ID", $title = "Featured Event 3", $sourceClass = "SiteTree", $value = "", $labelField = "Title", $form = null, $emptyString = "None", $parentID = 6, $cache = false));*/
-		/*$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent1ID", "Featured Event 1", "SiteTree", null, null, null, null, 6));
-		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent2ID", "Featured Event 2", "SiteTree"));
-		$fields->addFieldToTab('Root.Main', new SimpleTreeDropdownField("FeaturedEvent3ID", "Featured Event 3", "SiteTree"));*/
+		
+		$FeaturedEvent1Field = new TreeDropdownField( "FeaturedEvent1ID", "Featured Event 1", 'AfterClassEvent');
+		$FeaturedEvent1Field->setTreeBaseId = 6;
+
+		$fields->addFieldToTab("Root.Main", $FeaturedEvent1Field);
+
+		$FeaturedEvent2Field = new TreeDropdownField( "FeaturedEvent2ID", "Featured Event 2", 'AfterClassEvent');
+		$FeaturedEvent2Field->setTreeBaseId = 6;
+
+		$fields->addFieldToTab("Root.Main", $FeaturedEvent2Field);
+
+		$FeaturedEvent3Field = new TreeDropdownField( "FeaturedEvent3ID", "Featured Event 3", 'AfterClassEvent');
+		$FeaturedEvent3Field->setTreeBaseId = 6;
+
+		$fields->addFieldToTab("Root.Main", $FeaturedEvent3Field);	
+
 		
 		return $fields;
 	}
@@ -75,7 +84,10 @@ class AfterClassCalendar extends Calendar {
 		$events[] = $this->FeaturedEvent3();
 		
 		foreach($events as $event){
-			if($event->UpcomingDatesAndRanges()){
+			$eventUpcomingDate = $event->UpcomingDatesAndRanges()->First();
+			
+			if(($eventUpcomingDate) && ($eventUpcomingDate->EventID != 0)){
+
 				$eventSet->push($event);
 			}
 		}
@@ -88,14 +100,6 @@ class AfterClassCalendar extends Calendar {
 		}
 	
 	}
-
-/* Dirty hack to get a controller function into the model. Bad SilverStripe. */
- /* public function AllEventsWithoutDuplicates(){ 
-      $controller = new AfterClassCalendar_Controller; 
-      $controller->init(); 
-       
-      return $controller->AllEventsWithoutDuplicates(); 
-   }*/
 	
 }
  
@@ -111,7 +115,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             'categories/$Category' => 'categories',
             'venues/$Venue' => 'venues',
             'sponsors/$Sponsor' => 'sponsors',
-            'categoriesrss/$Category' => 'categoriesrss',
             'categories/$Category/rss' => 'categoriesrss',
 
             );
@@ -260,9 +263,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	}
  	/* Return a category or list of eventtypes. */
  	function categories() {
+
+ 		$urlFilter = new URLSegmentFilter();
  		$CategoryName = addslashes($this->urlParams['Category']);
+
  		if ($CategoryName) {
- 			$Category = Category::get()->First();
+ 			$Category = Category::get()->filter(array('Title' => $CategoryName))->First();
  			if (!($Category)) {
  				$Category = Category::get();
  			}

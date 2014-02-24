@@ -15,10 +15,25 @@
 				</form>
 
 				<h3>Trending Categories</h3>
-					
-						<p><% loop TrendingEventtypes %>
+					<p>
+							<a href="http://afterclass.uiowa.edu/events/categories/Campus Events">Campus Events</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Movies">Movies</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Lecture">Lecture</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Sales">Sales</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Wellness">Wellness</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Music">Music</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Recreation">Recreation</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Dance">Dance</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Food">Food</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Comedy">Comedy</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Performance">Performance</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Multicultural Events">Multicultural Events</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Competition">Competition</a>,  
+							<a href="http://afterclass.uiowa.edu/events/categories/Intramural Sports">Intramural Sports</a>,  
+					</p>					
+						<%--<p><% loop TrendingEventtypes %>
 								<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
-						<% end_loop %></p>
+						<% end_loop %></p>--%>
 				
 				<h3>View Events By</h3>
 				<ul>

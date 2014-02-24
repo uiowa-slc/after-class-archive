@@ -22,22 +22,25 @@ class Category extends DataObject {
 	
 	function Events($limit = null) {
 
-		$ids = array();
-		// Get IDs of all events in this category.
-		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
+		$eventArrayList = new ArrayList($this->AfterClassEvents()->toArray());
 
-		// Setup filter
+		foreach($eventArrayList as $event){
+			if($event->UpcomingDatesAndRanges->First()){
+				
+			}
+		}
+
+		/*$ids = array();
+		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
 		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
-		// Get the calendar
 		$calendar = AfterClassCalendar::get()->First();
-		// Get the events from the calendar
 		if (empty($ids)) {
 			return false;
 		} else {
 			$events = $calendar->Events($filter,null,null,null,$limit);
 			$events->removeDuplicates('EventID');
 			return $events;
-		}
+		}*/
 
 	}
 	

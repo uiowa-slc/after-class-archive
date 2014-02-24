@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "99a70440cb4963e921b33b3a1e6f25cd",
+    "hash": "88699874a069ff869f4b690f7820200c",
     "packages": [
         {
             "name": "composer/installers",
@@ -330,12 +330,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillu/silverstripe-recaptcha.git",
-                "reference": "830b192c17b11e0cc91f175a514ea3b3d16ddb4b"
+                "reference": "ac7db259142dba769a76541fc156ef57b82f2970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/830b192c17b11e0cc91f175a514ea3b3d16ddb4b",
-                "reference": "830b192c17b11e0cc91f175a514ea3b3d16ddb4b",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/ac7db259142dba769a76541fc156ef57b82f2970",
+                "reference": "ac7db259142dba769a76541fc156ef57b82f2970",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +362,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-02-15 20:46:22"
+            "time": "2014-02-18 21:11:57"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -370,12 +370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "b3af63e38721de2cd6237fd39f8aeeef45ff6578"
+                "reference": "35a6ad160cab24820c3b755cfaabcbcfb0163c90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/b3af63e38721de2cd6237fd39f8aeeef45ff6578",
-                "reference": "b3af63e38721de2cd6237fd39f8aeeef45ff6578",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/35a6ad160cab24820c3b755cfaabcbcfb0163c90",
+                "reference": "35a6ad160cab24820c3b755cfaabcbcfb0163c90",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-02-15 10:00:42"
+            "time": "2014-02-19 09:11:39"
         },
         {
             "name": "silverstripe/userforms",
@@ -477,6 +477,88 @@
                 "upgrading"
             ],
             "time": "2013-11-17 22:04:50"
+        },
+        {
+            "name": "unclecheese/betterbuttons",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
+                "reference": "3fab81c5a9e5003fd87484bf3456edba3ea8e540"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/3fab81c5a9e5003fd87484bf3456edba3ea8e540",
+                "reference": "3fab81c5a9e5003fd87484bf3456edba3ea8e540",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com",
+                    "homepage": "http://leftandmain.com"
+                }
+            ],
+            "description": "Adds new form actions and buttons to GridField detail form for usability enhancements.",
+            "keywords": [
+                "buttons",
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2013-12-03 20:10:27"
+        },
+        {
+            "name": "unclecheese/dashboard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-dashboard.git",
+                "reference": "295bdc0d841a5c853750398073a0b4d554a4d2b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-dashboard/zipball/295bdc0d841a5c853750398073a0b4d554a4d2b9",
+                "reference": "295bdc0d841a5c853750398073a0b4d554a4d2b9",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "replace": {
+                "silverstripe/dashboard": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "dashboard"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com",
+                    "homepage": "http://leftandmain.com"
+                }
+            ],
+            "description": "Adds a dashboard to the SilverStripe CMS",
+            "keywords": [
+                "cms",
+                "dashboard",
+                "module",
+                "silverstripe"
+            ],
+            "time": "2014-02-11 09:06:17"
         }
     ],
     "packages-dev": [

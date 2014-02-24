@@ -39,9 +39,13 @@ class AfterClassEvent extends CalendarEvent {
 		
 
 	
-	public function UpcomingDatesAndRanges($limit = 3)
+	public function UpcomingDatesAndRanges($limit = 0)
 	{
-		return DataObject::get($this->getDateTimeClass(),"EventID = {$this->ID} AND (StartDate >= DATE(NOW()) OR EndDate >= DATE(NOW()))","StartDate ASC","",$limit);	
+		return DataList::create($this->data()->getDateTimeClass())
+			->filter("EventID", $this->ID)
+			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")
+			->sort("\"StartDate\" ASC")
+			->limit($limit);
 	}
 
 	/* Making this function available in the model by duplicating it from the controller. Crazy? MAYBE. */ 
