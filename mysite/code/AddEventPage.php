@@ -2,8 +2,6 @@
 class AddEventPage extends Page {
 	public static $db = array(
 	
-	
-	
 	);
 	public static $has_one = array(
 	);

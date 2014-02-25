@@ -1,8 +1,5 @@
 <?php
 class Venue extends Category {
-	private static $belongs_many_many = array(
-		"AfterClassEvents" => "AfterClassEvent"
-	);
 	private static $db = array(
 		"Information" => "HTMLText",
 		"Address" => "Varchar(255)",
@@ -11,8 +8,12 @@ class Venue extends Category {
 		"WebsiteURL" => "Text",
 		"Lat" => "Varchar(255)",
 		"Lng" => "Varchar(255)",
-		
 	);
+	
+	private static $belongs_many_many = array(
+		"AfterClassEvents" => "AfterClassEvent"
+	);
+	
 	function getCMSFields_forPopup() {
 		$fields = parent::getCMSFields_forPopup();
 		$fields->push( new HtmlEditorField( 'Information' ) );

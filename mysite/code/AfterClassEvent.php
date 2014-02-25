@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 class AfterClassEvent extends CalendarEvent {
 
@@ -24,11 +24,9 @@ class AfterClassEvent extends CalendarEvent {
 	);
 
 	private static $many_many = array (
-		"Categories" => "Category",
 		"Sponsors" => "Sponsor",
 		"Venues" => "Venue",
 		"Eventtypes" => "Eventtype"
-
 	);
 	
 	//static $icon = self::getCMSIcon();

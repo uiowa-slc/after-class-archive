@@ -1,4 +1,3 @@
-
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
 <script type="text/javascript" src="{$ThemeDir}/js//jquery.min.js"></script>
 
@@ -146,13 +145,12 @@ function locate() {
     $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
   }  
 
-	
   var infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
-  <% loop Venues %>
-    <% if Events %>
-
+  
+  <% loop AllVenues %>
+    <% if AfterClassEvents %>
   //geo-coding to convert our addresses to usable longitude/latitude  
   var geocoder;
   geocoder = new google.maps.Geocoder();
@@ -165,7 +163,7 @@ function locate() {
       position: venueLatLng
     });
     google.maps.event.addListener(marker, 'click', function () {
-	infowindow.setContent("<% loop Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
+	infowindow.setContent("<% loop AfterClassEvents.limit(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop AfterClassEvent %><h2>$Title</h2><% end_loop %> </a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
 	infowindow.open(map, this);
 	});
   <% else %>
@@ -179,7 +177,7 @@ function locate() {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<% loop Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
+		infowindow.setContent("<% loop AfterClassEvents(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
 		infowindow.open(map, this);
 		});
 		

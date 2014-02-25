@@ -28,10 +28,14 @@ class NearMePage_Controller extends Page_Controller {
 	);
 
 	public function init() {
-		parent::init();
-		
+		parent::init();	
 		      Requirements::block('themes/afterclass2/js/jquery.min.js'); 
-
-
 	}
+	
+	public function Venues() {
+		return Venue::get()->sort('Title ASC');
+	}
+	
+	
 }
+

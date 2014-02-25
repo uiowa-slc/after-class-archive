@@ -7,7 +7,6 @@ class Category extends DataObject {
 		"Showmenu" => "Boolean"
 	);
 	private static $belongs_many_many = array(
-		"AfterClassEvents" => "AfterClassEvent"
 	);
 	
 	function getCMSFields_forPopup() {
@@ -20,7 +19,7 @@ class Category extends DataObject {
 	}
 	
 	
-	function Events($limit = null) {
+	public function Events($limit = null) {
 
 		$eventArrayList = new ArrayList($this->AfterClassEvents()->toArray());
 

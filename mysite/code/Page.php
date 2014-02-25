@@ -13,11 +13,10 @@ class Page extends SiteTree {
 		return Eventtype::get();
 	}
 
-
-
 	public function AllVenues() {
 		return Venue::get()->sort('Title ASC');
 	}
+	
 	public function AllSponsors() {
 		return Sponsor::get()->sort('Title ASC');
 	}
