@@ -22,12 +22,17 @@ class Category extends DataObject {
 	public function Events($limit = null) {
 
 		$eventArrayList = new ArrayList($this->AfterClassEvents()->toArray());
+		$upcomingEventArrayList = new ArrayList();
 
 		foreach($eventArrayList as $event){
-			if($event->UpcomingDatesAndRanges->First()){
-				
+			$upcomingDatesAndRanges = $event->UpcomingDatesAndRanges();
+
+			if($upcomingDatesAndRanges->exists()){
+				$upcomingEventArrayList->push($event);
 			}
 		}
+
+		return $upcomingEventArrayList;
 
 		/*$ids = array();
 		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));

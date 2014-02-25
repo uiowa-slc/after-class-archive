@@ -294,8 +294,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	}
  	
  	public function dynamicNews(){
-	 	
-	 	$events = $this->AllEventsWithoutDuplicates();
+	 	$calendar = AfterClassCalendar::get()->First();
+
+	 	$events = $calendar->AllEventsWithoutDuplicates();
 	 	$count = $events->Count();
 	 	$count = floor($count/3);
 	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');

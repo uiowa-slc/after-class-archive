@@ -37,9 +37,7 @@
 		<% if Events %>
 			<% loop Events %>
 			<div class="event-cards">
-				<% loop Event %>
-					<% include EventCard %>
-				<% end_loop %>
+				<% include EventCard %>
 			</div>
 			<% end_loop %>
 			<div style="clear: both"></div>

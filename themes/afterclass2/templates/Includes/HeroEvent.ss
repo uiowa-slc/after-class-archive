@@ -1,7 +1,7 @@
 <div class="feature-background-wrapper row">
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
 
-			<div class="hero-event-image-container span7">
+			<div class="hero-event-image-container span8">
 						<a href="$Link" class="img-shadow">
 							<% if Image %>
 								<% loop Image %>
@@ -16,7 +16,7 @@
 						<div class="clear"></div>
 					</div>
 					
-					<div class="hero-event-content span5">
+					<div class="hero-event-content span4">
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<div class="clear"></div>
 					<div class="hero-event-details">
