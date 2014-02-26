@@ -111,15 +111,19 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			return false;
 		}
 	}
- 	 public static $url_handlers = array(
+ 	 private static $url_handlers = array(
             'categories/$Category' => 'categories',
             'venues/$Venue' => 'venues',
             'sponsors/$Sponsor' => 'sponsors',
             'categories/$Category/rss' => 'categoriesrss',
-
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "venues", "sponsors");
+ 	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "venues", "sponsors", "feed");
  	
+ 	public function feed(){
+ 		$events = $this->AllEventsWithoutDuplicates();
+ 		return $this->customise( $events )->renderWith("JsonFeed");
+ 	}
+
  	# EventDate, EventLocation, EventCost
  	public function newrss() {
 		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
@@ -216,10 +220,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		//$events = $calendar->getEventList('1900-01-01','3000-01-01');
 		$events =  parent::Events(null,$start_date,$start_date,false,1000);
 		$eventsArray= $events->ToArray();
-
 		$eventsArrayList = new ArrayList($eventsArray);
 		$eventsArrayList->removeDuplicates('EventID');
-
 
 		return $eventsArrayList;
 	}
