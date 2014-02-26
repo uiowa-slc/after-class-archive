@@ -171,7 +171,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			foreach($venues as $venueNum => $venue){
  				$venuesArray[$venueNum]["name"] = $venue->AltTitle ? $venue->AltTitle : $venue->Title;
  				$venuesArray[$venueNum]["address"] = $venue->Address;
- 				$venuesArray[$venueNum]["info"] = $venue->Info;
+ 				$venuesArray[$venueNum]["info"] = $venue->Information;
  				$venuesArray[$venueNum]["contact_email"] = $venue->Email;
  				$venuesArray[$venueNum]["contact_phone"] = $venue->Phone;
  				$venuesArray[$venueNum]["website_link"] = $venue->WebsiteURL;
@@ -184,7 +184,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
  			foreach($eventTypes as $eventTypeNum => $eventType){
  				$eventTypesArray[$eventTypeNum]["name"] = $eventType->Title;
- 				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Info;
+ 				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Information;
  			}
 
   			$sponsorsArray = array();
@@ -192,7 +192,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
  			foreach($sponsors as $sponsorNum => $sponsor){
  				$sponsorsArray[$sponsorNum]["name"] = $sponsor->Title;
- 				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Info;
+ 				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Information;
  				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
  			}
  			
@@ -219,6 +219,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		}
 
  		echo json_encode($data);
+ 	}
+
+ 	public function getRssFeed(){
+
+
  	}
 
  	# EventDate, EventLocation, EventCost
