@@ -122,12 +122,72 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	public function feed(){
  		$events = $this->AllEventsWithoutDuplicates();
 
- 		//print_r($events);
  		$data = array();
 
  		foreach($events as $eventNum => $event){
+
+ 			/* Get Dates in  an array for later */
+ 			$datesArray = array();
+ 			$dates = $event->DateTimes();
+ 			foreach($dates as $dateNum => $date){
+ 				$datesArray[$dateNum]["start_date"] = $date->StartDate;
+ 				$datesArray[$dateNum]["start_time"] = $date->StartTime;
+ 				$datesArray[$dateNum]["end_date"] = $date->EndDate;
+ 				$datesArray[$dateNum]["end_time"] = $date->EndTime;
+ 				$datesArray[$dateNum]["all_day"] = $date->AllDay;
+ 			}
+
+ 			$venuesArray = array();
+ 			$venues = $event->Venues();
+
+ 			foreach($venues as $venueNum => $venue){
+ 				$venuesArray[$venueNum]["name"] = $venue->AltTitle ? $venue->AltTitle : $venue->Title;
+ 				$venuesArray[$venueNum]["address"] = $venue->Address;
+ 				$venuesArray[$venueNum]["info"] = $venue->Info;
+ 				$venuesArray[$venueNum]["contact_email"] = $venue->Email;
+ 				$venuesArray[$venueNum]["contact_phone"] = $venue->Phone;
+ 				$venuesArray[$venueNum]["website_link"] = $venue->WebsiteURL;
+ 				$venuesArray[$venueNum]["latitude"] = $venue->Lat;
+ 				$venuesArray[$venueNum]["longitude"] = $venue->Lng;
+ 			}
+
+ 			$eventTypesArray = array();
+ 			$eventTypes = $event->eventTypes();
+
+ 			foreach($eventTypes as $eventTypeNum => $eventType){
+ 				$eventTypesArray[$eventTypeNum]["name"] = $eventType->Title;
+ 				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Info;
+ 			}
+
+  			$sponsorsArray = array();
+ 			$sponsors = $event->sponsors();
+
+ 			foreach($sponsors as $sponsorNum => $sponsor){
+ 				$sponsorsArray[$sponsorNum]["name"] = $sponsor->Title;
+ 				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Info;
+ 				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
+ 			}
  			
  			$data["events"][$eventNum]["id"] = $event->ID;
+ 			$data["events"][$eventNum]["name"] = $event->Title;
+ 			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
+ 			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
+ 			if($event->Image()){
+ 				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
+ 				//$data["events"][$eventNum]["small_image"] = $event->Image()->SmallImage() ? $event->Image->SmallImage()->getAbsoluteURL(): null;
+ 			}
+ 			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
+ 			$data["events"][$eventNum]["dates"] = $datesArray;
+ 			$data["events"][$eventNum]["price"] = $event->Cost;
+ 			$data["events"][$eventNum]["location"] = $event->Location;
+ 			$data["events"][$eventNum]["venues"] = $venuesArray;
+ 			$data["events"][$eventNum]["sponsors"] = $sponsorsArray;
+ 			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
+
+
+
+ 			unset($datesArray);
+
  		}
 
  		echo json_encode($data);
