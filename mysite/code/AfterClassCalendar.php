@@ -138,6 +138,10 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			case "json":
  				return $this->getJsonFeed($events);
  				break;
+ 			default:
+ 				return $this->getJsonFeed($events);
+ 				break;
+
  		}
 
  	}
