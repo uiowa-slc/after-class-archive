@@ -37,9 +37,7 @@
 	<% end_if %>
 	<div class="event-cards">
 		<% loop AllEventsWithoutDuplicates %>
-			<% with Event %>
-				<% include EventCard %>
-			<% end_with %>
+			<% include EventCard %>
 		<% end_loop %> <%-- end control Upcoming Events --%>
 	</div> <!--end event-cards -->
 	</div>

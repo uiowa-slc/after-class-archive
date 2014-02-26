@@ -21,7 +21,7 @@
                      "contact_phone":"{$Phone}",
                      "website_link":"{$WebsiteURL}",
                      "lat":"{$Lat}",
-                     "lng":"{$lng}"
+                     "lng":"{$Lng}"
                   }<% if not $Last %>,<% end_if %>
                <% end_loop %>}
             ],

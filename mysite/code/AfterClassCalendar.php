@@ -121,7 +121,16 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	
  	public function feed(){
  		$events = $this->AllEventsWithoutDuplicates();
- 		return $this->customise( $events )->renderWith("JsonFeed");
+
+ 		//print_r($events);
+ 		$data = array();
+
+ 		foreach($events as $eventNum => $event){
+ 			
+ 			$data["events"][$eventNum]["id"] = $event->ID;
+ 		}
+
+ 		echo json_encode($data);
  	}
 
  	# EventDate, EventLocation, EventCost
@@ -213,17 +222,22 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	}
 	
 	function AllEventsWithoutDuplicates() {
-		$calendar = $this->owner;
 
 		$start_date = date( "d/m/Y", time() );
 		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
-		//$events = $calendar->getEventList('1900-01-01','3000-01-01');
-		$events =  parent::Events(null,$start_date,$start_date,false,1000);
-		$eventsArray= $events->ToArray();
-		$eventsArrayList = new ArrayList($eventsArray);
-		$eventsArrayList->removeDuplicates('EventID');
+		$eventDateTimes = $this->getEventList(
+			sfDate::getInstance()->date(),
+			sfDate::getInstance()->addYear(10)->date(),
+			null,
+			null
+		);
+		$events = new ArrayList();
 
-		return $eventsArrayList;
+		foreach($eventDateTimes as $eventDateTime){
+			$events->push($eventDateTime->Event());
+		}
+		$events->removeDuplicates('ID');
+		return $events;
 	}
 	
 	
