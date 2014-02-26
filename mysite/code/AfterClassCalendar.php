@@ -116,12 +116,36 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             'venues/$Venue' => 'venues',
             'sponsors/$Sponsor' => 'sponsors',
             'categories/$Category/rss' => 'categoriesrss',
+            'feed/$Type' => 'Feed',
+            'categories/$Category/feed/$Type' => 'Feed'
             );
- 	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "venues", "sponsors", "feed");
+ 	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "venues", "sponsors", "Feed");
  	
- 	public function feed(){
- 		$events = $this->AllEventsWithoutDuplicates();
+ 	
+ 	public function Feed(){
 
+ 		$feedType = addslashes($this->urlParams['Type']);
+
+ 		if(array_key_exists('Category', $this->urlParams)){
+ 			$categoryTitle = $this->urlParams['Category'];
+ 			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
+ 			$events = $category->Events();
+ 		}else{
+ 			$events = $this->AllEventsWithoutDuplicates();
+ 		}
+ 		
+ 		switch($feedType){
+ 			case "json":
+ 				return $this->getJsonFeed($events);
+ 				break;
+ 		}
+
+ 	}
+
+ 	public function getJsonFeed($events){
+ 		if(!isset($events)){
+ 			$events = $this->AllEventsWithoutDuplicates();
+ 		}
  		$data = array();
 
  		foreach($events as $eventNum => $event){
