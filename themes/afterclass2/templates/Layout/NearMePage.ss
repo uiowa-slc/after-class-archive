@@ -155,15 +155,17 @@ function locate() {
   var geocoder;
   geocoder = new google.maps.Geocoder();
   var address = "$Address";
-  
+  var eventSummary = "";
+  var eventBubble = "<% loop AfterClassEvents %><h3><a href='$Link'>$Title</a></h3><p style='margin: 2px 0px;'> <br> $Cost <% if $MoreInfoLink %> <a href='$MoreInfoLink' target='_blank'>More Info...</a> <% end_if %></p><div><img src='$Image.URL' /></div><% end_loop %>";
   <% if Lat %>
     var venueLatLng = new google.maps.LatLng($Lat, $Lng);
+    
     var marker = new google.maps.Marker({
       map: map,
       position: venueLatLng
     });
     google.maps.event.addListener(marker, 'click', function () {
-	infowindow.setContent("<% loop AfterClassEvents.limit(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop AfterClassEvent %><h2>$Title</h2><% end_loop %> </a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
+	infowindow.setContent(eventBubble);
 	infowindow.open(map, this);
 	});
   <% else %>
@@ -177,7 +179,7 @@ function locate() {
             position: results[0].geometry.location
         });
 		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<% loop AfterClassEvents(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
+		infowindow.setContent();//"<% loop AfterClassEvents(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% loop Event %>$Title<% end_loop%> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_loop %><strong><a href='$Link'>$Title</a></strong>");
 		infowindow.open(map, this);
 		});
 		
