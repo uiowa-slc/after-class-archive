@@ -1527,7 +1527,7 @@ h6 a {
 .event-card h3 span.homepage-cancel-reason { font-size: 0.8em }
 .event-card h3 a {
     /*color: #E6E2DF;*/
-    color: #ADD7E2;
+    color: #CDEBF3;
 }
 .event-card h3 a:hover { color: #7BCDF0 }
 a.event-header-category {
@@ -1614,7 +1614,6 @@ a.read-more-link { color: #ADD7E2 }
     width: 100%;
 }
 .event-card-image img {
-    border: 1px solid #666;
     width: 100%;
 }
 .event-card-image .more-event-info img { border: none }
@@ -1631,13 +1630,16 @@ a.read-more-link { color: #ADD7E2 }
     padding: 0;
     margin: 0;
     }
-.event-card-meta .dates li { /*float: left;_NO__DOTCOMMA__AFTER__*/ }
+.event-card-meta .dates li { display: inline;}
+.event-card-meta .dates li time:after {content: ", ";}
+.event-card-meta .dates li time.range:after, .event-card-meta .dates li time.last:after {content: none;}
 .event-card-bottom { margin: 5px 0 }
 .event-share-container { display: none }
 .where ul {
     margin: 0;
     /*margin-left: 10px;*/
     padding: 0;
+    display: inline;
     /*list-style-type: square;*/
 }
 .tags {
@@ -2320,10 +2322,9 @@ a.button:active {
     .event-card {
         font-size: 90%;
         width: 31.3%;
-        height: 320px;
         float: left;
         padding: 1%;
-        height: 300px;
+        height: 200px;
         overflow: hidden;
         border: none;
     }
@@ -2333,7 +2334,14 @@ a.button:active {
     .event-card h3 { float: none; }
 
     .category .event-card { width: 24%; padding-left: 0; }
-    .event-card-content { padding: 0 }
+    .event-card-content { 
+        padding: 0;
+        margin-top: -50px;
+        background-color: rgba(29, 28, 28, 0.65);
+        text-shadow: 0 1px 0 #333;
+        position: relative;
+        min-height: 100px;
+     }
     .event-card-desc p { display: none }
     .event-card-header { display: none }
     .event-card h3.big-cell { display: none }
