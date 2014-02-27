@@ -2312,7 +2312,7 @@ a.button:active {
         }*/
     #page_header p { font-size: 1.2em }
 }
-@media only screen and (min-width: 1200px) { 
+@media only screen and (min-width: 1023px) { 
     .hero-event-content {
         /*width: 37%;*/
     }

@@ -50,7 +50,7 @@
 										</li>
 									<% end_loop %>
 											<% if DateAndTime.Count > "2" %>
-												<li> <a href="$Link">more dates</a></li>
+												<li> <a href="$Link">more dates </a></li>
 											<% end_if %>
 								<% end_if %> <!-- end if Event.UpcomingDates(1) -->
 							</ul>
