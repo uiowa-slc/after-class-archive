@@ -446,8 +446,6 @@ h6 a {
     background-image: -webkit-linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
     background-image: -ms-linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
     background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.14, rgb(37,34,34)), color-stop(0.57, rgb(40,36,37)) );
-    border-bottom: 1px solid rgba(68, 68, 68, 0.39);
-    border-top: 1px solid rgba(68, 68, 68, 0.39);
     box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.6);
     /*background: #2791ae;;
     background: -moz-linear-gradient(top, #2791ae 0%, #23839d 100%);
@@ -501,10 +499,10 @@ h6 a {
 #page_navigation ul>li a.subscribe-link { color: #7BCDF0 }
 #page_navigation ul>li a {
     display: block;
-    padding-top: 15px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     color: #EBE5E6;
     text-decoration: none;
     display: block;
@@ -512,10 +510,10 @@ h6 a {
     font-weight: normal !important;
     text-transform: lowercase;
     font-size: 0.7em;
-    border-right: 1px solid rgba(68, 68, 68, 0.39);
+   
 }
 #page_navigation ul li.first a {
-    border-left: 1px solid rgba(68, 68, 68, 0.39);
+
 }
 
 #page_navigation ul li a#calendar-expand:after {
@@ -549,27 +547,32 @@ h6 a {
 }
 #page_navigation ul li.add a { color: #E8CA66 }
 #page_navigation ul>li a:hover {
-    -webkit-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
+  /*  -webkit-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     -moz-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     -o-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
     -ms-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
-    box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
+    box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);*/
 }
 #page_navigation ul>li a:active {
-    -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+  /*  -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -moz-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -o-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -ms-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
-    box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+    box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);*/
 }
-#page_navigation ul>li a:hover { background-color: #342836 }
+#page_navigation ul>li a:hover { 
+
+    background-image: url('../images/nav_under.png');
+
+     }
 #page_navigation ul>li a#calendar-expand.active {
-    background-color: #342836;
+ /*   background-color: #342836;
     -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -moz-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -o-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     -ms-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
+    */
 }
 #page_navigation ul ul {
     position: absolute;
@@ -586,11 +589,8 @@ h6 a {
     padding: 10px;
     height: auto;
 }
-#page_navigation ul li a.external {
-        background-image: url(../images/external_link.png);
-        background-repeat: no-repeat;
-        background-position-x: 55%;
-        background-position-y: 50%;
+#page_navigation ul li a.external:after {
+    content: "\u2193";
 
 }
 #page_navigation ul ul span { display: block }
@@ -650,12 +650,11 @@ h6 a {
 }
 
 #page_navigation .filters ul li {
-	border-top: 1px solid rgba(68, 68, 68, 0.39);
-	border-bottom: 1px solid rgba(68, 68, 68, 0.39);
+
 }
 
 #page_navigation .filters ul li:nth-child(1) {
-	border-left: 1px solid rgba(68, 68, 68, 0.39);
+
 }
 
 #upcoming_events #upcoming_event_list {
@@ -2073,7 +2072,7 @@ a.button:active {
     }
 
     #page_header .big_header { top: 10px }
-    #page_header .big_header a img { width: 50% }
+    #page_header .big_header a img { width: 40% }
     #page_header p {
         display: block;
         margin-left: 60px;
@@ -2229,7 +2228,7 @@ a.button:active {
     #page_navigation ul li.add { display: block }
     a.event-header-category { display: block }
     #studentlife-bar { display: block }
-    #page_header { height: 235px }
+    
     #page_header .container { background-position-y: 90% }
     /* Main Navigation */
     #page_navigation ul li {
@@ -2238,7 +2237,8 @@ a.button:active {
         /* margin-left: 20px;*/
     }
     #page_navigation ul li a { font-size: 1.1em }
-    #page_navigation ul>li.first { display: inline }
+    #page_navigation ul>li.first { display: inline;  }
+    #page_navigation ul>li.first a {}
     .more-event-info {
         border: 1px solid #666;
         background: #2488A3;
@@ -2313,6 +2313,8 @@ a.button:active {
     #page_header p { font-size: 1.2em }
 }
 @media only screen and (min-width: 1023px) { 
+
+    #page_header { height: 170px }
     .hero-event-content {
         /*width: 37%;*/
     }
@@ -2392,9 +2394,10 @@ a.button:active {
     #page_header .container {
         background: url("../images/header-buildings.png");
         /* width: 80%;*/
-        background-position-y: 130%;
-        background-position-x: 160%;
+        background-position-y: 20%;
+        background-position-x: 100%;
         background-repeat: no-repeat;
+        background-size: 80%;
     }
     .homepage-content { padding: 0 }
 }
