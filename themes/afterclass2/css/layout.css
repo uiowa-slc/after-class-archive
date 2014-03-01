@@ -590,7 +590,7 @@ h6 a {
     height: auto;
 }
 #page_navigation ul li a.external:after {
-    content: "\u2193";
+    content: "";
 
 }
 #page_navigation ul ul span { display: block }
@@ -2008,7 +2008,7 @@ a.button:active {
     }
 
     #page_navigation ul ul {
-        width: 280px;
+        width: 100px;
         font-size: 0.8em;
     }
     #page_navigation ul li.weekend { display: block }
