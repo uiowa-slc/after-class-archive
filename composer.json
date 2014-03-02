@@ -14,7 +14,8 @@
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
 		"sunnysideup/upgrade_silverstripe" : "*",
-		"unclecheese/dashboard" : "*"
+		"unclecheese/dashboard" : "*",
+		"silverstripe/staticpublisher": "dev-master"
 
 	},
 	"config": {

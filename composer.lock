@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "88699874a069ff869f4b690f7820200c",
+    "hash": "042da805900b8e3ef5eef65cf29e908c",
     "packages": [
         {
             "name": "composer/installers",
@@ -127,12 +127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display.git",
-                "reference": "2db5b02adcba412be9ad24fc7243782034a3aca5"
+                "reference": "697ac0e01906ebca415e0bd127633096b85ec18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/2db5b02adcba412be9ad24fc7243782034a3aca5",
-                "reference": "2db5b02adcba412be9ad24fc7243782034a3aca5",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/697ac0e01906ebca415e0bd127633096b85ec18c",
+                "reference": "697ac0e01906ebca415e0bd127633096b85ec18c",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/rss-display/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/rss-display/issues"
             },
-            "time": "2014-01-31 18:53:35"
+            "time": "2014-02-28 18:42:16"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -403,17 +403,56 @@
             "time": "2014-02-19 09:11:39"
         },
         {
+            "name": "silverstripe/staticpublisher",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe-labs/silverstripe-staticpublisher.git",
+                "reference": "efb7b1dc9413b01faf081b5df218baefdedd0c2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-staticpublisher/zipball/efb7b1dc9413b01faf081b5df218baefdedd0c2b",
+                "reference": "efb7b1dc9413b01faf081b5df218baefdedd0c2b",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io",
+                    "homepage": "http://wilr.github.com"
+                },
+                {
+                    "name": "Sam Minnee",
+                    "email": "sam@silverstripe.com"
+                }
+            ],
+            "description": "StaticPublisher provides an extensions for exporting a SilverStripe application to either a local or remote file systems.",
+            "keywords": [
+                "export",
+                "publisher",
+                "silverstripe-labs",
+                "static"
+            ],
+            "time": "2014-02-28 20:09:48"
+        },
+        {
             "name": "silverstripe/userforms",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "97ff8b252c1e8709c42238d80ef25431f4c45d03"
+                "reference": "45e4b1c037b9ab1eaab03de4154a16f31856ea9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/97ff8b252c1e8709c42238d80ef25431f4c45d03",
-                "reference": "97ff8b252c1e8709c42238d80ef25431f4c45d03",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/45e4b1c037b9ab1eaab03de4154a16f31856ea9d",
+                "reference": "45e4b1c037b9ab1eaab03de4154a16f31856ea9d",
                 "shasum": ""
             },
             "require": {
@@ -437,7 +476,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-02-17 10:02:19"
+            "time": "2014-02-27 05:21:31"
         },
         {
             "name": "sunnysideup/upgrade_silverstripe",
@@ -570,7 +609,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "silverstripe/event-calendar": 20
+        "silverstripe/event-calendar": 20,
+        "silverstripe/staticpublisher": 20
     },
     "platform": {
         "php": ">=5.3.2"

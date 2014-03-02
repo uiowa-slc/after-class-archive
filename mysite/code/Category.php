@@ -32,6 +32,8 @@ class Category extends DataObject {
 			}
 		}
 
+//		print_r($upcomingEventArrayList);
+
 		return $upcomingEventArrayList;
 
 		/*$ids = array();

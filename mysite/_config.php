@@ -18,6 +18,7 @@ i18n::set_locale('en_US');
 
 // enable nested URLs for this site (e.g. page/sub-page/)
 SiteTree::enable_nested_urls();
+Object::add_extension("SiteTree", "FilesystemPublisher('cache/', 'html')");
 //echo $_SERVER['REMOTE_ADDR'];
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(

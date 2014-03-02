@@ -48,7 +48,8 @@ function allPagesToCache() {
     
     $urls[] = 'events/categories/';
     $urls[] = 'events/sponsors/';
-    $urls[] = 'events/venues/';     
+    $urls[] = 'events/venues/';
+ 
     // add any custom URLs which are not SiteTree instances
     //$urls[] = "sitemap.xml";
  
