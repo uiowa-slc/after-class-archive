@@ -28,7 +28,7 @@ class AfterClassCalendar extends Calendar {
 	'AfterClassEvent'
 	);
 	
-		function getCMSFields() {
+	function getCMSFields() {
 		$fields =parent::getCMSFields();
 		$fields->removeFieldFromTab("Root.Main", "Content");
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
@@ -59,7 +59,6 @@ class AfterClassCalendar extends Calendar {
 		$FeaturedEvent3Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent3Field);	
-
 		
 		return $fields;
 	}
@@ -73,11 +72,9 @@ class AfterClassCalendar extends Calendar {
 	public function Venue() {
 	    return Venue::get();
 	}
-	
+
 	function FeaturedEvents() {
-	
 		$eventSet = new ArrayList();
-		
 		$events[] = $this->FeaturedEvent1();
 		$events[] = $this->FeaturedEvent2();
 		$events[] = $this->FeaturedEvent3();
@@ -96,12 +93,16 @@ class AfterClassCalendar extends Calendar {
 		else{ 
 			return false;	
 		}
-	
 	}
-	
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {
+
+ 	public function init() {
+		RSSFeed::linkToFeed($this->Link() . "feed/rss", "RSS Feed of this calendar");
+		parent::init();
+	}
+
 	public function Home() {
 		if($this->action == 'index'){
 			return true;
@@ -111,14 +112,32 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	}
  	 private static $url_handlers = array(
             'categories/$Category/$FeedType' => 'categories',
-            'venues/' => 'venues',
-            'sponsors/' => 'sponsors',
+            'categories/feed/$FeedType' => "categories",
+            'venues' => 'venues',
+            'sponsors' => 'sponsors',
             'feed/$Type' => 'Feed',
             //legacy urls:
             'categoriesrss/$Category' => 'categoriesrss',
             );
  	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
  	
+ 	function AllEventsWithoutDuplicates() {
+		$start_date = date( "d/m/Y", time() );
+		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
+		$eventDateTimes = $this->getEventList(
+			sfDate::getInstance()->date(),
+			sfDate::getInstance()->addYear(10)->date(),
+			null,
+			null
+		);
+		$events = new ArrayList();
+		foreach($eventDateTimes as $eventDateTime){
+			$events->push($eventDateTime->Event());
+		}
+		$events->removeDuplicates('ID');
+		return $events;
+	}	
+
  	public function Feed(){
  		$feedType = addslashes($this->urlParams['Type']);
 
@@ -147,9 +166,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		if(!isset($categories)){
  			$categories = Category::get();
  		}
-
  		$data = array();
-
  		foreach($categories as $catNum => $category){
  			$data["categories"][$catNum]['id'] = $category->ID;
  			$data["categories"][$catNum]['name'] = $category->Title;
@@ -225,7 +242,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
  				//$data["events"][$eventNum]["small_image"] = $event->Image()->SmallImage() ? $event->Image->SmallImage()->getAbsoluteURL(): null;
  			}
-
  			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
  			$data["events"][$eventNum]["dates"] = $datesArray;
  			$data["events"][$eventNum]["price"] = $event->Cost;
@@ -235,12 +251,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
  			unset($datesArray);
  		}
-
  		echo json_encode($data);
  	}
-
  	public function getRSSFeed($events) {
-
 		//remove duplicates from the feed.
 		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
 		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
@@ -269,26 +282,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	function getCategoryByName($name){
 		return Category::get()->filter(array('Title' => $name))->First();
 	}
-	
-	function AllEventsWithoutDuplicates() {
-
-		$start_date = date( "d/m/Y", time() );
-		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
-		$eventDateTimes = $this->getEventList(
-			sfDate::getInstance()->date(),
-			sfDate::getInstance()->addYear(10)->date(),
-			null,
-			null
-		);
-		$events = new ArrayList();
-
-		foreach($eventDateTimes as $eventDateTime){
-			$events->push($eventDateTime->Event());
-		}
-		$events->removeDuplicates('ID');
-		return $events;
-	}
-	
  	public function types() {
  			$Category = Eventtype::get();
  			$Data = array(
@@ -300,12 +293,10 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	/* Return a list of venues. */
  	public function venues($request) {
  			$Category = Venue::get();
-
  			$Data = array(
  				'Title' => 'Venues',
 				'Category' => $Category
 	    	);
-	    	
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
  	}
  	/* Return a list of sponsors. */
@@ -319,7 +310,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	}
  	/* Return a category or list of eventtypes. */
  	public function categories($request) {
-
  		$urlFilter = new URLSegmentFilter();
  		$CategoryName = addslashes($this->urlParams['Category']);
  		$feedType = $this->urlParams['FeedType'];
@@ -335,12 +325,14 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 				'Category' => $Category,
 				'CategoryName' => $CategoryName
 	    	);
-
 	    	$events = $Category->Events();
  			//render the category listing with a json or rss feed or default to a normal HTML page.
  			switch($feedType){
  				case "rss":
  					return $this->getRSSFeed($events);
+ 					break;
+ 				case "json":
+ 					return $this->getJsonFeed($events);
  					break;
  				default:
  					return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
@@ -348,10 +340,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
  			//else if there's no category name aka when we're just listing the categories.
  		} else {
-
  			$Categories = Category::get();
  			$feedType = $request->getVar('feed');
-
  			switch($feedType){
  				case "json":
  					return $this->getCategoriesJsonFeed($Categories);
@@ -364,31 +354,20 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		 		}
  			}
  		}
- 	
  	public function dynamicNews(){
 	 	$calendar = AfterClassCalendar::get()->First();
-
 	 	$events = $calendar->AllEventsWithoutDuplicates();
 	 	$count = $events->Count();
 	 	$count = floor($count/3);
 	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
-	 	
 	 	return $news;
-	 	
  	}
- 	
- 	public function init() {
-		RSSFeed::linkToFeed($this->Link() . "rss", "RSS Feed of this calendar");
-		parent::init();
-	}
 
-//Legacy functions for getting the RSS feeds. So we don't break various feeds on other sites. 
+	//Legacy functions for getting the RSS feeds. So we don't break various feeds on other sites. 
 	public function newrss(){
 		$events = $this->AllEventsWithoutDuplicates();
 		return $this->getRSSFeed($events);
 	}
-	
- 	
  	public function categoriesrss() {
  		$category = $this->getCategoryByName($this->urlParams['Category']);
  		$events = $category->Events();

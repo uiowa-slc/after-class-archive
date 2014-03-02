@@ -214,3 +214,4 @@ ErrorDocument 500 /assets/error-500.html
 </IfModule>
 ### SILVERSTRIPE END ###
 php_flag display_errors 1
+php_value max_execution_time 259200

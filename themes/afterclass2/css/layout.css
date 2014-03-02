@@ -439,7 +439,6 @@ h6 a {
 #page_content.AfterClassCalendar.show .hero-event { display: none }
 #page_content.AfterClassCalendar.show .flex-control-nav { display: none; }
 #page_navigation {
-    text-align: center;
     background-image: linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
     background-image: -o-linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
     background-image: -moz-linear-gradient(bottom, rgb(37,34,34) 14%, rgb(40,36,37) 57%);
@@ -642,7 +641,7 @@ h6 a {
 #upcoming_events #upcoming_events_header p { font-size: 0.8em }
 
 #calendar-filter-form {
-
+    padding: 10px;
 }
 
 .filters {
@@ -1079,14 +1078,13 @@ h6 a {
     /*margin-left: 15px;*/
 }
 #SearchForm_SearchForm_Search {
-    background-color: #272424;
+    background-color: #0A0A0A;
     /*border: 1px solid #232020;;
     box-shadow: 0px 0px 0px 1px #332e2f;*/
     border: none;
     color: #EBE5E6;
     font-size: 0.7em;
     padding: 5px;
-    background-image: url(../images/search_icon.png);
     background-position: 98% 6px;
     background-repeat: no-repeat;
     display: block;
@@ -1265,7 +1263,7 @@ h6 a {
 .big-screen { display: none }
 .hero-event {
     color: #DDD7D8;
-    padding: 0 2%;
+    /*padding: 0 2%;*/
     /* border: 1px solid #444;  */
     /*margin-top: 5px;*/
     /*padding: 1%;*/
@@ -1471,7 +1469,7 @@ h6 a {
 #event-card-list h2 {
     font-weight: normal;
     font-size: 2.2em;
-    padding: 0.3em 0;
+    /*padding: 0.3em 0;*/
     border-bottom: 2px solid #21d0e8;
     margin-bottom: 1em;
     color: #9cdfe8;
@@ -1662,7 +1660,7 @@ a.read-more-link { color: #ADD7E2 }
 #the-news h2 {
     border-bottom: 2px solid #e9cb67;
  /*   margin: 1em 0; */
-    padding: 0.3em 0;
+ /*   padding: 0.3em 0; */
     text-align: left;
     font-size: 2.2em;
     text-transform: lowercase;
@@ -1857,6 +1855,8 @@ a.read-more-link { color: #ADD7E2 }
 }
 
 @media only screen and (min-width: 768px) { 
+
+
     .date-header {
         margin: 0.5em 0;
     }
@@ -2025,10 +2025,7 @@ a.button:active {
 @media only screen and (min-width: 594px) { 
 
     #page_navigation ul li a.subscribe-link { display: block }
-    #calendar-filter-form {
-	float: left;
-	width: 50%;
-}
+
 
 .filters {
 	display: block;
@@ -2039,7 +2036,7 @@ a.button:active {
 }
 }
 @media only screen and (min-width: 768px) { 
-
+#calendar-filter-form { padding: 0; }
 .connect{
 	float:left;
 	width:100%;

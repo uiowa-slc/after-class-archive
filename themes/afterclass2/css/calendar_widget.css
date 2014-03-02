@@ -38,7 +38,7 @@ table.calendar-widget-table {
 	font-size: 1.3em ;
 	background: none ;
 	font-family: 'Open Sans', sans ;
-	width: 50%;
+	width: 100%;
 }
 table.calendar-widget-table th {
 	color: #C6F5FF ;
@@ -91,6 +91,7 @@ table.calendar-widget-table {
   /*  border-collapse: separate; */
     border-spacing: 3px;
     margin:2px auto;
+    margin-bottom: 20px;
 
 }
 table.calendar-widget-table th {
