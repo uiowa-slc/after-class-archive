@@ -37,7 +37,8 @@ tagfield/
 rss-display/
 upgrade_silverstripe/
 themes/afterclass2/combinedfiles/allcombined.js
-
 themes/afterclass2/combinedfiles/combinedCSS.css
-
 themes/afterclass2/combinedfiles/combinedCSS.css
+staticpublisher/
+cache/
+html/
