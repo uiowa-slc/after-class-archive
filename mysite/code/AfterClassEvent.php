@@ -78,9 +78,25 @@ class AfterClassEvent extends CalendarEvent {
 	
 	
 	function RelatedEvents() {
-		$calendar = AfterClassCalendar::get()->First();
+		//$calendar = AfterClassCalendar::get()->First();
 
-		return $calendar->Children()->limit(5);
+		$categories = $this->AllCategories();
+		$events = new ArrayList();
+
+		foreach($categories as $key => $category){
+			$catEvent = $category->Events()->exclude(array('ID' => $this->ID))->sort('RAND()')->First();
+			if($catEvent){
+				if($catEvent->exists()){
+					$events->push($catEvent);
+				}
+			}
+		}
+
+		$events->removeDuplicates();
+
+		return $events;
+
+		//return $calendar->Children()->limit(5);
 
 
 		// TODO: rewrite this Function

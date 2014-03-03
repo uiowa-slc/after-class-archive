@@ -483,7 +483,7 @@ h6 a {
 }
 #page_navigation ul li ul li.no-events span { color: #8f8f8f }
 #page_navigation ul li ul li.no-events span:hover { color: #8f8f8f }
-#page_navigation ul li ul li a:hover { background-color: #6c5370 }
+#page_navigation ul li ul li a:hover { background-color: #6c5370; background-image: none !important; }
 #page_navigation ul li ul { float: none }
 /* hide home button on mobile nav */
 #page_navigation ul>li.first { display: none }
@@ -560,9 +560,7 @@ h6 a {
     box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);*/
 }
 #page_navigation ul>li a:hover { 
-
     background-image: url('../images/nav_under.png');
-
      }
 #page_navigation ul>li a#calendar-expand.active {
  /*   background-color: #342836;
