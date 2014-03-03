@@ -1,7 +1,7 @@
-<div class="feature-background-wrapper row">
+<div class="feature-background-wrapper">
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
 
-			<div class="hero-event-image-container span8">
+			<div class="hero-event-image-container">
 						<a href="$Link" class="img-shadow">
 							<% if Image %>
 								<% loop Image %>
@@ -16,13 +16,13 @@
 						<div class="clear"></div>
 					</div>
 					
-					<div class="hero-event-content span4">
+					<div class="hero-event-content">
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<div class="clear"></div>
 					<div class="hero-event-details">
 							<div class="hero-event-text">
 							
-								<p>$getSummaryHTML(30)</p>
+								<p>$Content.Summary(30) <a href="$Link">Continue reading</a></p>
 				 
 							</div><!-- end hero-event-text-->
 							<div class="hero-event-essential-text">						       
@@ -30,8 +30,6 @@
 							    <% if CancelReason %>
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
-								<p><a href="$Link">read more</a></p>
-								
 							</div>
 							
 								<div class="hero-event-specifics">

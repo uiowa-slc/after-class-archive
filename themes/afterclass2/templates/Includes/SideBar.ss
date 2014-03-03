@@ -1,5 +1,5 @@
 <div id="the-news">
-	<h2><a href="news/">Student news</a></h2>
+	<h2><a href="news/">Student life at iowa</a></h2>
 		<div class="news-entries">
 			<% loop $RSSDisplay("5", "http://afterclass.uiowa.edu/news/feed/") %>
 				<div class="news-entry $EvenOdd">

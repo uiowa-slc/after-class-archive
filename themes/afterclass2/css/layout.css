@@ -596,13 +596,10 @@ h6 a {
 #page_navigation ul li:hover ul { left: auto }
 #page_navigation span { color: #333 }
 #page_content {
-    background-image: url("../images/binding_dark.png");
     background-repeat: repeat;
-    /* background-position: center bottom;*/
-    padding: 7px;
+    padding: 0 7px;
 }
 #page_content.AfterClassEvent {
-    background-color: #252525;
     box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16) inset;
 }
 #page_content div.container {
@@ -897,32 +894,8 @@ h6 a {
     border: 1px solid #555555;
 }
 .map-container { height: 300px }
-#detail_related_events {
-    color: #555555;
-    /* margin-bottom: 180px; */
-    overflow: auto;
-}
-#detail_related_events h2 {
-    text-transform: uppercase;
-    color: #EBE5E6;
-    font-size: 2em;
-    margin: 20px 0 15px 0;
-}
-#detail_related_events .related_event {
-    float: left;
-    width: 201px;
-    margin: 0 12px 0 12px;
-}
-#detail_related_events .related_event a { text-decoration: none }
-#detail_related_events .related_event a h3 {
-    text-decoration: none;
-    color: #EBE5E6;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 1.1em;
-    margin-top: 5px;
-}
-#detail_related_events .related_event a h3 strong { display: block }
+
+
 /* Helpers stay on bottom */
 /* =============================================================================
    Non-semantic helper classes
@@ -1135,7 +1108,7 @@ h6 a {
     margin-bottom: 0;
 }
 .event_details { margin-bottom: 20px }
-.date-link { padding: 3px }
+.date-link { }
 .share p {
     text-align: center;
     font-family: 'SketchBlock-Bold';
@@ -1296,7 +1269,7 @@ h6 a {
     float: right;
     margin: 10px;
 }
-.hero-event-content { color: #ebe5e6 }
+.hero-event-content { color: #ebe5e6;  }
 .hero-event-text .event_categories { padding: 10px }
 .hero-event-content p { margin: 10px 0 }
 .hero-event-details {
@@ -1324,7 +1297,6 @@ h6 a {
     /*text-align: center;*/
     padding: 0px;
     /*width: 75%;*/
-    float: left;
     color: #95d5f0;
     font-size: 1.2em;
 }
@@ -1449,13 +1421,10 @@ h6 a {
 .event-card.canceled h3 a { color: #eaeaea }
 .event-card.canceled h3 a:hover { color: #dfdfdf }
 .event-card:hover {
-    background-color: rgba(36, 36, 36, 0.57);
     cursor: pointer;
-    box-shadow: 0px -10px 75px rgba(14, 14, 14, 0.80) inset;
 }
 .event-card:active {
-    background-color: rgba(36, 36, 36, 0.57);
-    box-shadow: 0px -10px 85px rgba(10, 10, 10, 1) inset;
+
 }
 .event-card-content { /* padding: 10px */}
 .event-card-content { color: white }
@@ -1589,7 +1558,6 @@ a:active.event-header-category {
     box-shadow: inset 0px 4px 15px 1px rgba(51, 51, 51, 0.9);
 }
 .more-event-info-link { float: right }
-.addthis_toolbox { display: none }
 .addthis_button_facebook_like {
     margin-top: -2px;
     margin-right: 5px;
@@ -1656,6 +1624,15 @@ a.read-more-link { color: #ADD7E2 }
     color: #c6f5ff;
 }
 .tags-container h4 { margin: 2px 0 }
+
+/* Related Events Sidebar Stuff */
+#related-events .event-card{
+    height: 100px;
+}
+#related-events .event-card .event-card-meta{
+    display: none;
+}
+
 #the-news { }
 #the-news h2 {
     border-bottom: 2px solid #e9cb67;
@@ -1922,17 +1899,15 @@ textarea {
 }
 
 .button {
-	padding: 10px;
-	background: #42758C url(button.png) repeat-x bottom;
+	padding: 3px;
+	background: #0A8FC9;
 	border: none;
 	color: #FFF;
 	font-weight: bold;
-	text-shadow: 1px 1px #666;
-	display: block;
-	float: left;
-	clear: left;
+	display: inline-block;
 	margin: 0.5em 0;
-	border: 1px solid rgba(68, 68, 68, 0.39);
+    text-transform: uppercase;
+    font-size: 0.8em;
 
 }
 #single-page-content a.button, a.button{ 
@@ -1943,20 +1918,11 @@ a.button:hover {
 }
 
 a.button:hover {
-    -webkit-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
-    -moz-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
-    -o-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
-    -ms-box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);
-    box-shadow: inset 0px 4px 40px 1px rgba(10, 10,10, 0.5);	
-    
+
 }
 
 a.button:active {
-    -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
-    -moz-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
-    -o-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
-    -ms-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
-    box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);	
+
 }
 
 #mapcanvas a {
@@ -2014,7 +1980,7 @@ a.button:active {
     #page_navigation ul li.weekend { display: block }
 
     .hero-event-image-container {
-    	float: right;
+    	
     }
 	.hero-event.homepage .hero-event-text{
 		display: none;
@@ -2036,6 +2002,7 @@ a.button:active {
 }
 }
 @media only screen and (min-width: 768px) { 
+
 #calendar-filter-form { padding: 0; }
 .connect{
 	float:left;
@@ -2063,9 +2030,23 @@ a.button:active {
      /*   float: right; */
     }
     .hero-event-image-container img { width: 100% }
-    .hero-event-content {
-        width: 80%;
-        float: left;
+    .hero-event-content { margin-top: -100px; position: relative;
+      /*  background-color: rgba(29, 28, 28, 0.85);*/
+        padding-left: 10px;
+        padding-right: 10px;
+
+        background-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0, rgba(29, 28, 28, 0.85)),
+            color-stop(1, rgb(29, 28, 28))
+        );
+        background-image: -o-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background-image: -moz-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background-image: -webkit-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background-image: -ms-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background-image: linear-gradient(to bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
     }
 
     #page_header .big_header { top: 10px }
@@ -2103,26 +2084,19 @@ a.button:active {
 	    font-size: 3em;
     }
     .hero-event-content {
-        width: 38%;
-        float: right;
-        /*padding: 1%;*/
     }
 
     .hero-event-image-container {
-        width: 61%;
-        float: left;
+
     }
     /* individual page version */
     .AfterClassEvent .hero-event-content,
     .FeaturedAfterClassEvent .hero-event-content {
-        width: 49%;
-        float: left;
+
     }
     .AfterClassEvent .hero-event-image-container,
     .FeaturedAfterClassEvent .hero-event-image-container {
-        width: 49%;
-        float: right;
-        margin: 2em 0;
+
     }
     .hero-event img { float: right }
     .hero-event-where {
@@ -2138,9 +2112,10 @@ a.button:active {
     #page_content.AfterClassEvent .container {
         /*margin-top: 20px;*/
     }
-    #detail_event_description_map {
+    #detail_event_description_map h2{
         /*float: right;
         width: 49%;*/
+        margin: 0.5em;
     }
     #detail_event_description_info {
         float: left;
@@ -2484,9 +2459,6 @@ a.button:active {
     padding: 5px 0px 0px 0px;
 }
 
-#detail_related_events h2 {
-	margin-left: 20px;
-}
 
 #recaptcha_table {
   background: #FFFFFF;

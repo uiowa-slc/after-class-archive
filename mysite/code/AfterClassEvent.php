@@ -78,6 +78,10 @@ class AfterClassEvent extends CalendarEvent {
 	
 	
 	function RelatedEvents() {
+		$calendar = AfterClassCalendar::get()->First();
+
+		return $calendar->Children()->limit(5);
+
 
 		// TODO: rewrite this Function
 
