@@ -93,14 +93,7 @@ class AfterClassEvent extends CalendarEvent {
 		}
 
 		$events->removeDuplicates();
-
 		return $events;
-
-		//return $calendar->Children()->limit(5);
-
-
-		// TODO: rewrite this Function
-
 	}
 
 	function getCMSActions() {
@@ -135,12 +128,7 @@ class AfterClassEvent extends CalendarEvent {
 /* ----------------------------------- */
 /* Add/Re-Add Content and Other Fields */
 /* ----------------------------------- */
-		
-		
 		$f->addFieldToTab('Root.Main', new UploadField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
-		
-		
-
 		$f->addFieldToTab('Root.Main',new TextField('MoreInfoLink','A link for more information') );
 		$f->addFieldToTab('Root.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
@@ -167,12 +155,7 @@ class AfterClassEvent extends CalendarEvent {
 <p>Example: A poster sale or a book buyback</p>
 <p>Chose "Add a Date" then enter the Start Date and the End Date for the event. Start Time and End Time must be blank. For these event types, you must describe the hours for the event in the Event Description.</p> ';
 		
-		
-		
-		
 		$f->insertBefore(new LiteralField('DatesInstructions', $date_instructions), 'DateTimes');
-		
-		
 		
 		if($this->Submittername != '' ){
 			$f->addFieldToTab('Root.DatesandTimes', new LiteralField('SubmittedDates','<p>Suggested Date(s) from Submitter: <strong style="font-size: 18px">'.$this->Submitterdate.'</strong></p>'));

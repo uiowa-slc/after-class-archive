@@ -72,7 +72,14 @@ class AfterClassCalendar extends Calendar {
 	public function Venue() {
 	    return Venue::get();
 	}
-
+	
+	public function UpcomingDatesAndRanges($limit = 0)
+	{
+		return DataList::create("CalendarDateTime")
+			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")
+			->sort("\"StartDate\" ASC")
+			->limit($limit);
+	}
 	function FeaturedEvents() {
 		$eventSet = new ArrayList();
 		$events[] = $this->FeaturedEvent1();
@@ -122,6 +129,13 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
  	
  	function AllEventsWithoutDuplicates() {
+
+ 		$events = $this->AllEvents();
+		$events->removeDuplicates('ID');
+		return $events;
+	}
+
+	function AllEvents(){
 		$start_date = date( "d/m/Y", time() );
 		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
 		$eventDateTimes = $this->getEventList(
@@ -134,21 +148,23 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		foreach($eventDateTimes as $eventDateTime){
 			$events->push($eventDateTime->Event());
 		}
-		$events->removeDuplicates('ID');
 		return $events;
-	}	
+	}
 
  	public function Feed(){
  		$feedType = addslashes($this->urlParams['Type']);
 
+ 		//If we have Category in the URL params, get events from a category only
  		if(array_key_exists('Category', $this->urlParams)){
  			$categoryTitle = $this->urlParams['Category'];
  			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
  			$events = $category->Events();
+ 		//else get all events	
  		}else{
- 			$events = $this->UpcomingEvents();
+ 			
+ 			$events = $this->AllEvents();
  		}
- 		
+ 		//Determine which feed we're going to output
  		switch($feedType){
  			case "json":
  				return $this->getJsonFeed($events);
