@@ -1,3 +1,5 @@
+<div class="row">
+<div id="left-column" class="span8">
 
 <% if $action == "index" %>
 	<% if FeaturedEvents %>
@@ -22,8 +24,6 @@
 	<% end_if %> <!-- end if featured events -->
 <% end_if %>
 
-<div class="row">
-<div id="left-column" class="span8">
 <% if $action != "index" %>
 	<h1 class="date-header">Events for $DateHeader</h1>
 	<% if not $Events %>
