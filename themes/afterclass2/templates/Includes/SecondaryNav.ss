@@ -1,20 +1,17 @@
-<div class="secondary-nav row">
-		
-			<div class="span8">
-				<% with Calendar %>
-				$CalendarWidget
-				<% end_with %>
-			</div>
-			<div class="span4">
+<div class="secondary-nav row-fluid">
+
 				<div id="calendar-filter-form">
+
 					<form id="SearchForm_SearchForm" action="{$BaseHref}events/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
 						<fieldset>
 							<legend></legend>
 								<div id="Search" class="field text  nolabel"><div class="middleColumn"><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" placeholder="Search for an event"></div></div>
-								<input class="action " id="SearchForm_SearchForm_action_results" type="submit" name="action_results" value="Go" title="Go">
+								<input class="action" id="SearchForm_SearchForm_action_results" type="search" results="5" name="action_results" value="Go" title="Go">
 						</fieldset>
 					</form>
-
+				<% with Calendar %>
+					$CalendarWidget
+				<% end_with %>
 					<h3>Trending Categories</h3>
 						<p>
 								<a href="http://afterclass.uiowa.edu/events/categories/Campus Events">Campus Events</a>,  
@@ -36,12 +33,12 @@
 									<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
 							<% end_loop %></p>--%>
 					
-					<h3>View Events By</h3>
-					<ul>
-						<li><a href="{$BaseHref}events/categories/">Categories</a></li>
-						<li><a href="{$BaseHref}events/sponsors/">Sponsors</a></li>
-						<li><a href="{$BaseHref}events/venues/">Venues</a></li>
-					</ul>
+					<h3>View Upcoming Events List By</h3>
+
+						<a href="{$BaseHref}events/categories/" class="button">Event Type</a>
+						<a href="{$BaseHref}events/sponsors/" class="button">Sponsor</a>
+						<a href="{$BaseHref}events/venues/" class="button">Venue</a>
+
 				</div>
 			</div>
-		</div>
+	

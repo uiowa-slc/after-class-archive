@@ -1,3 +1,6 @@
+<div class="container-fluid">
+<% include SecondaryNav %>
+</div>
 <div id="the-news">
 	<h2><a href="news/">Student life at iowa</a></h2>
 		<div class="news-entries">
@@ -14,7 +17,7 @@
 			<% end_loop %>
 		</div>
 		<!-- end news-entries -->
-		<p class="view-all-posts-link"><a href="news/">view all posts &raquo;</a></p>
+		<p class="view-all-posts-link"><a href="news/" class="button">view all posts &raquo;</a></p>
 	</div>
 	<!-- end the-news -->	
 	<div id="facebook-like-box">

@@ -192,13 +192,14 @@ class AfterClassEvent extends CalendarEvent {
 
 		asort($sponsorsMap);
 		
-		$sponsorsField = ListboxField::create('Sponsors', 'Sponsors')
+		$sponsorsField = ListboxField::create('Sponsors', 'Sponsors <a href="admin/sponsors/" target="_blank">Add/Edit</a>')
 			->setMultiple(true)
 			->setSource($sponsorsMap)
 			->setAttribute(
 				'data-placeholder', 
 				'Add Sponsors'
 			);
+
 
 		/*$sponsorTablefield = new GridField(
         	$this,
@@ -227,7 +228,7 @@ class AfterClassEvent extends CalendarEvent {
 
 		asort($VenuesMap);
 		
-		$VenuesField = ListboxField::create('Venues', 'Venues')
+		$VenuesField = ListboxField::create('Venues', 'Venues <a href="admin/venues/" target="_blank">Add/Edit</a>')
 			->setMultiple(true)
 			->setSource($VenuesMap)
 			->setAttribute(
@@ -249,7 +250,7 @@ class AfterClassEvent extends CalendarEvent {
 
 		asort($EventtypesMap);
 		
-		$EventtypesField = ListboxField::create('Eventtypes', 'Eventtypes')
+		$EventtypesField = ListboxField::create('Eventtypes', 'Eventtypes <a href="admin/eventtypes/" target="_blank">Add/Edit</a>')
 			->setMultiple(true)
 			->setSource($EventtypesMap)
 			->setAttribute(

@@ -460,7 +460,7 @@ h6 a {
 
 /* Secondary Nav Styles */
 
-.secondary-nav {
+#page_navigation .secondary-nav {
 	 display: none;
 }
 
@@ -1315,7 +1315,7 @@ h6 a {
     padding: 10px;
     border: 1px solid #555;*/
 }
-.hero-event-where { display: none }
+.hero-event-where {}
 .hero-event-when {
 
 }
@@ -1830,8 +1830,6 @@ a.read-more-link { color: #ADD7E2 }
 }
 
 @media only screen and (min-width: 768px) { 
-
-
     .date-header {
         margin: 0.5em 0;
     }
@@ -1907,6 +1905,9 @@ textarea {
     text-transform: uppercase;
     font-size: 0.8em;
 
+}
+.button.get-directions{
+    background: #23A767;
 }
 #single-page-content a.button, a.button{ 
 	color: #fff;
@@ -2068,7 +2069,6 @@ a.button:active {
         /*width: 36%;*/
     }
     #SearchForm_SearchForm_Search {
-        background-image: url('../images/search_icon.png');
         background-color: #1d1a1b;
         width: 100%;
         font-size: 1em;
@@ -2098,10 +2098,7 @@ a.button:active {
     }
     .hero-event img { float: right }
     .hero-event-where {
-        float: right;
-        text-align: right;
-        width: 40%;
-        margin-left: 20px;
+
     }
     #page_content.AfterClassCalendar.index .container,
     #page_content.AfterClassEvent.index .container,

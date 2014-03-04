@@ -82,9 +82,10 @@
 				<% end_if %>
 				<p>
 				<% if Address %>
-				<a class="button" href="http://maps.apple.com/?q=$Address">Get Directions</a><% end_if %>
+					<a class="button get-directions" href="http://maps.apple.com/?q=$Address" target="_blank">Get Directions</a>
+				<% end_if %>
 				<% if WebsiteURL %>
-				<a class="button" href="$WebsiteURL">Venue website</a>
+					<a class="button" href="$WebsiteURL">Venue website</a>
 				<% end_if %>
 				<a href="$Link" class="button">More events here</a>
 				</p>

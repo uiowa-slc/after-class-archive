@@ -9,8 +9,6 @@
 	border: 1px solid rgba(68, 68, 68, 0.39);
 	background-color: #1D1B1F;
 	margin-bottom: 0.5em;
-	box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.1) inset;	
-	
 }
 #calendar-widget img {position:absolute;top:50%;left:50%;margin:-16px 0 0 -16px;}
 /* widget positioning */
@@ -55,7 +53,6 @@ table.calendar-widget-table td {
 	border: 1px solid #444 ;
 	background-color: #302742;
 	cursor: pointer;
-	box-shadow: 0px -10px 75px rgba(14, 14, 14, 0.4) inset;
 }
 table.calendar-widget-table td.other-month {
 
@@ -63,20 +60,19 @@ table.calendar-widget-table td.other-month {
 	background: none ;
 }
 table.calendar-widget-table td.today {
-	color: #EACC5F ;
+	color: #EACC5F;
 	font-weight: strong ;
+	background: #033F80;
 }
 table.calendar-widget-table td.selected {
-	background: #9bd;
-	color: #333;
+	background: #4C3D69;
 }
 table.calendar-widget-table td.selected:hover {
 	background: #6ad;
 	color: #fff;
 }
 table.calendar-widget-table td:hover, table.calendar-widget-table td.dp-hover {
-	background: #59DFF1;
-	color: #333;
+	background: #4C3D69;
 }
 table.calendar-widget-table td.disabled, table.calendar-widget-table td.disabled:hover {
 	background: #eee;
@@ -99,10 +95,21 @@ table.calendar-widget-table th {
 	padding: 10px 5px;
 	border:0;
 }
+table.calendar-widget-table .calendar-header td{
+	font-size: 0.7em;
+	background: none;
+	padding: 3px;
+	border: none;
+}
 table.calendar-widget-table td {
 	padding: 0.5em 0.3em;
 	text-align: center;
 	border: 1px solid #444;
+}
+table.calendar-widget-table td.hasEvent:before {
+	color: #7BCDF0;
+	content: "\2022";
+	padding-right: 3px;
 }
 
 /* For the popup */
