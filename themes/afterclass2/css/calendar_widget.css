@@ -33,9 +33,8 @@ div.dp-popup a.disabled {
 }
 table.calendar-widget-table {
 	height: 150px ;
-	font-size: 1.3em ;
+	font-size: 1em ;
 	background: none ;
-	font-family: 'Open Sans', sans ;
 	width: 100%;
 }
 table.calendar-widget-table th {
@@ -50,8 +49,6 @@ table.calendar-widget-table thead {
 table.calendar-widget-table td {
 	color: white;
 	padding: 0.8em 0.5em;
-	border: 1px solid #444 ;
-	background-color: #302742;
 	cursor: pointer;
 }
 table.calendar-widget-table td.other-month {
@@ -91,7 +88,7 @@ table.calendar-widget-table {
 
 }
 table.calendar-widget-table th {
-	font-weight: bold;
+	font-weight: normal;
 	padding: 10px 5px;
 	border:0;
 }
@@ -104,14 +101,22 @@ table.calendar-widget-table .calendar-header td{
 table.calendar-widget-table td {
 	padding: 0.5em 0.3em;
 	text-align: center;
-	border: 1px solid #444;
 }
 table.calendar-widget-table td.hasEvent:before {
 	color: #7BCDF0;
 	content: "\2022";
 	padding-right: 3px;
 }
-
+@media only screen and (min-width: 1024px) { 
+	table.calendar-widget-table td {
+		position: relative;
+	}
+	table.calendar-widget-table td.hasEvent:before {
+		position: absolute;
+		left: 45%;
+		top: 55%;
+	}
+}
 /* For the popup */
 
 /* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */

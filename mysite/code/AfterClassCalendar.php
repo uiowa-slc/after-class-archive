@@ -146,7 +146,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
  			$events = $category->Events();
  		}else{
- 			$events = $this->AllEventsWithoutDuplicates();
+ 			$events = $this->UpcomingEvents();
  		}
  		
  		switch($feedType){
@@ -182,6 +182,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		}
 	 echo json_encode($data);
  	}
+
  	public function getJsonFeed($events){
  		if(!isset($events)){
  			$events = $this->UpcomingEvents();

@@ -285,9 +285,9 @@ input[type="submit"] {
 input[type="checkbox"],
 input[type="radio"] { box-sizing: border-box }
 input[type="search"] {
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 /* 
  * Remove inner padding and border in FF3/4
@@ -1909,6 +1909,11 @@ textarea {
 .button.get-directions{
     background: #23A767;
 }
+
+.button.tag{
+    background: #4C3D69;
+}
+
 #single-page-content a.button, a.button{ 
 	color: #fff;
 }
@@ -2066,7 +2071,9 @@ a.button:active {
         /*width: 80%;*/
     }
     #secondary-nav {
-        /*width: 36%;*/
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;         /* Opera/IE 8+ *//
     }
     #SearchForm_SearchForm_Search {
         background-color: #1d1a1b;

@@ -50,6 +50,7 @@
 					
 				</div><!-- end hero-event-text-->
 				<div class="hero-event-when">
+					<h2>Upcoming Date<% if UpcomingDatesAndRanges.Count > 1 %>s<% end_if %></h2>
 					<% loop UpcomingDatesAndRanges %>
 						<p class="$FirstLast"> <a href="{$BaseHref}events/show/$StartDate.Format("Y-m-d")" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
 							<% if EndDate %>
@@ -125,7 +126,7 @@
 			<div class="categories">
 					<p><strong>Tagged as:</strong>
 					<% loop AllCategories %>
-					<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %>
+					<a href="$Link" class="button tag">$Title.LimitCharacters(25)</a>
 					<% end_loop %></p>
 				</p>
 				</div>
