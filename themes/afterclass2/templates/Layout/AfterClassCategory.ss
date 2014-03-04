@@ -1,3 +1,5 @@
+<div class="row">
+<div class="span8">
 <header id="secondary_header">
 	<% if Category.AltTitle %>
 	<h1>$Category.AltTitle</h1>
@@ -5,7 +7,7 @@
 	<h1> $Category.Title </h1>
 	<% end_if %>
 </header>
-<div id="category-content" class="category">
+<div class="category">
 	<div class="about-category">
 		<% with Category %>
 		<div class="category-content">
@@ -28,10 +30,9 @@
 		<style>
 			.where {
 			display: none;
-
 		}
 		</style>
-<% end_if %>
+	<% end_if %>
 
 	<div class="category-list">
 		<% if Events %>
@@ -44,6 +45,11 @@
 		<% else %>
 			No events currently listed.
 		<% end_if %>
-	</div>
-</div>
+	</div><!-- end category-list -->
+</div><!-- end category -->
 <% end_with %>
+</div><!-- end span8 -->
+<div class="span4">
+	<% include SideBar %>
+</div>
+</div><!-- end row -->

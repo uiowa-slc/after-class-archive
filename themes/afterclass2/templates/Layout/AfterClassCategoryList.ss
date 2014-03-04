@@ -15,15 +15,12 @@
 </header>
 
 <div id="category-list-content">
-	<ul>
-	<% loop Category %><% if Events %><% if AltTitle %><li><a href="#$Title">$AltTitle</a></li><% else %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_if %> <% end_loop %>
-	</ul>
+	
+	<% loop Category %><% if Events %><% if AltTitle %><a href="#$Title" class="button tag">$AltTitle</a></li><% else %><a href="#$Title" class="button tag">$Title</a><% end_if %> <% end_if %> <% end_loop %>
 	<hr />
 	<% loop Category %>
 		<div class="category">
 			<% if Events %>
-			
-
 		<h2 id="$Title">
 		<% if ClassName = Eventtype %>
 		$Title
