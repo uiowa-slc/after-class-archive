@@ -38,4 +38,3 @@ class NearMePage_Controller extends Page_Controller {
 	
 	
 }
-

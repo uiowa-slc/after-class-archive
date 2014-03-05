@@ -27,20 +27,28 @@
 <% if $action != "index" %>
 	<h1 class="date-header">Events for $DateHeader</h1>
 	<% if not $Events %>
-		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/category/">categories</a>, <a href="{$BaseHref}events/venue">venues</a>, and <a href="{$BaseHref}events/sponsor/">sponsors</a> for full event listings.</p>
+		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/categories/">categories</a>, <a href="{$BaseHref}events/venues">venues</a>, and <a href="{$BaseHref}events/sponsors/">sponsors</a> for full event listings.</p>
 	<% end_if %><!-- end if events -->
 <% end_if %>
 <div style="clear: both"></div>
 <div id="event-card-list">
 	<% if $action == "index" %>
-	<h2>What's up next</h2>
+		<h2>What's up next</h2>
+		<div class="event-cards">
+			<% loop AllEventsWithoutDuplicates %>
+				<% include EventCard %>
+			<% end_loop %> <%-- end control Upcoming Events --%>
+		</div> <!--end event-cards -->
+	<% else %><%-- if we're not using the index action, list the calendar's default events for dates, date ranges, etc --%>
+		<div class="event-cards">
+			<% loop Events %>
+				<% with Event %>
+					<% include EventCard %>
+				<% end_with %>
+			<% end_loop %> <%-- end control Upcoming Events --%>
+		</div> <!--end event-cards -->	
 	<% end_if %>
-	<div class="event-cards">
-		<% loop AllEventsWithoutDuplicates %>
-			<% include EventCard %>
-		<% end_loop %> <%-- end control Upcoming Events --%>
-	</div> <!--end event-cards -->
-	</div>
+</div>
 	<!-- end event-card-list -->
 </div>
 <!-- end left-column -->

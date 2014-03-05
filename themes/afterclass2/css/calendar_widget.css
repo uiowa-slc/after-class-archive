@@ -41,6 +41,18 @@ table.calendar-widget-table th {
 	color: #C6F5FF ;
 	border-spacing: 4px 4px 0;
 }
+table.calendar-widget-table th:after {
+	clear: both;
+}
+table.calendar-widget-table th .prev, table.calendar-widget-table th .next{
+	font-size: 1.3em;
+}
+table.calendar-widget-table th .prev{
+	float: left;
+}
+table.calendar-widget-table th .next {
+	float: right;
+}
 
 table.calendar-widget-table thead {
 	text-align: center;

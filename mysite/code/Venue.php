@@ -25,5 +25,9 @@ class Venue extends Category {
 		$fields->push( new TextField('Lng') );
 		return $fields;
 	}
+
+	public function DirectionsLink(){
+		return "http://maps.apple.com/?q=".$this->Address;
+	}
 	
 }

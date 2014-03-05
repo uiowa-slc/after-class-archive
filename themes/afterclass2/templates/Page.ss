@@ -30,7 +30,7 @@ document.createElement('hgroup');
 	<div class="container" id="canvas-container">
 		<!--<canvas id="canvas"></canvas>-->
 		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
-	    <p class="subheader">$RandomTagline</p>
+	    <p class="subheader">the best of ui's culture, events, and nightlife</p>
 	</div>
 </header>
 

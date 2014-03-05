@@ -210,7 +210,7 @@ ErrorDocument 500 /assets/error-500.html
 	RewriteCond %{REQUEST_URI} ^(.*)$
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_URI} !\.php$
-	RewriteRule .* framework/main.php?url=%1&%{QUERY_STRING} [L]
+  RewriteRule .* staticpublisher/main.php?url=%1&%{QUERY_STRING} [L]
 </IfModule>
 ### SILVERSTRIPE END ###
 php_flag display_errors 1

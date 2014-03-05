@@ -50,7 +50,7 @@
 					
 				</div><!-- end hero-event-text-->
 				<div class="hero-event-when">
-					<h2>Upcoming Date<% if UpcomingDatesAndRanges.Count > 1 %>s<% end_if %></h2>
+					<h2>Date<% if UpcomingDatesAndRanges.Count > 1 %>s<% end_if %></h2>
 					<% loop UpcomingDatesAndRanges %>
 						<p class="$FirstLast"> <a href="{$BaseHref}events/show/$StartDate.Format("Y-m-d")" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
 							<% if EndDate %>
@@ -67,8 +67,12 @@
 				</div><!-- end hero-event-when -->
 				
 			</div><!-- end hero-event-details -->
+			<% if RelatedEvents %>
+				<% include RelatedEvents %>
+			<% end_if %>
 		</div><!-- end hero-event-content-->
 	</div><!-- end hero-event -->
+
 </div><!-- end span8 -->
 
 
@@ -83,7 +87,7 @@
 				<% end_if %>
 				<p>
 				<% if Address %>
-					<a class="button get-directions" href="http://maps.apple.com/?q=$Address" target="_blank">Get Directions</a>
+					<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
 				<% end_if %>
 				<% if WebsiteURL %>
 					<a class="button" href="$WebsiteURL">Venue website</a>
@@ -94,23 +98,6 @@
 			<p><% if Location %>{$Location}<% end_if %><p>
 		</div> <!-- end detail_event_description_map -->
 	<% end_if %>
-
-	<div class="hero-event-specifics">
-		<div class="hero-event-where">
-			<p>
-				<% loop Venues %>
-					<p class="venues">
-					<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-					@ <a href="$Link"><span itemprop="name">$Title</span></a>
-					</span>
-					</p>
-				<% end_loop %>		
-			</p>
-			<% if Cost %>
-				<p class="admission-price">Admission: <a href="$Link">$Cost </a></p>
-			<% end_if %>	
-		</div><!-- end hero-event-where -->
-	</div><!-- end hero-event-specifics -->
 	<hr />
 	<% include AddThis %>
 	<hr />
@@ -133,9 +120,7 @@
 		<% end_if %>
 	<hr />
 	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
-	<% if RelatedEvents %>
-		<% include RelatedEvents %>
-	<% end_if %>
+
 </div><!-- end span4-->
 </div><!-- end row -->
 	

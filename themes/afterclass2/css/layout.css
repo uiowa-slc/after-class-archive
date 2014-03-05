@@ -1003,6 +1003,7 @@ h6 a {
 
 .category h2 {
 	font-size: 1.9em;
+    margin: 0.5em 0;
 }
 
 
@@ -1253,7 +1254,6 @@ h6 a {
     height: 2px;
 }
 .hero-event img {
-    border: 1px solid #666;
     width: 100%;
 }
 .hero-event img.featured-logo {
@@ -1276,7 +1276,6 @@ h6 a {
 }
 .hero-event-details img { max-width: 100% }
 .hero-event img {
-    border: 1px solid #444;
     /*margin-top: 15px;*/
     border-top: none;
 }
@@ -1438,7 +1437,7 @@ h6 a {
     font-size: 2.2em;
     /*padding: 0.3em 0;*/
     border-bottom: 2px solid #21d0e8;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     color: #9cdfe8;
     text-align: left;
     text-transform: lowercase;
@@ -1493,6 +1492,10 @@ h6 a {
     /*color: #E6E2DF;*/
     color: #CDEBF3;
 }
+.event-card p.dates-times {
+    margin: 0.5em 0;
+}
+
 .event-card h3 a:hover { color: #7BCDF0 }
 a.event-header-category {
     color: #eeeeef;
@@ -1623,10 +1626,6 @@ a.read-more-link { color: #ADD7E2 }
 }
 .tags-container h4 { margin: 2px 0 }
 
-/* Related Events Sidebar Stuff */
-#related-events .event-card{
-    height: 100px;
-}
 #related-events .event-card .event-card-meta{
     display: none;
 }
@@ -1914,6 +1913,8 @@ textarea {
     background: #4C3D69;
 }
 
+
+
 #single-page-content a.button, a.button{ 
 	color: #fff;
 }
@@ -2103,7 +2104,6 @@ a.button:active {
     .FeaturedAfterClassEvent .hero-event-image-container {
 
     }
-    .hero-event img { float: right }
     .hero-event-where {
 
     }
@@ -2190,6 +2190,7 @@ a.button:active {
 	}   
 }
 @media only screen and (min-width: 960px) { 
+    
     #page_content { padding: 0 }
     .container,
     .logos { /*width: 960px !important*/ }
@@ -2287,7 +2288,9 @@ a.button:active {
     #page_header p { font-size: 1.2em }
 }
 @media only screen and (min-width: 1023px) { 
-
+    .button.more-dates{
+            float: right;
+        }
     #page_header { height: 170px }
     .hero-event-content {
         /*width: 37%;*/
@@ -2304,12 +2307,17 @@ a.button:active {
         overflow: hidden;
         border: none;
     }
+
+    .event-card p.dates-times {
+        font-size: 0.8em;
+        margin: 0;
+    }
     
 
 
     .event-card h3 { float: none; }
 
-    .category .event-card { width: 24%; padding-left: 0; }
+    .category .event-card { width: 24%; padding-left: 0; height:140px; }
     .event-card-content { 
         padding: 0;
         margin-top: -50px;

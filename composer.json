@@ -13,7 +13,6 @@
 		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
-		"sunnysideup/upgrade_silverstripe" : "*",
 		"unclecheese/dashboard" : "*",
 		"silverstripe/staticpublisher": "dev-master"
 
