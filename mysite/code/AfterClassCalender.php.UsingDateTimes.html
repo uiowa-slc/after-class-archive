@@ -151,13 +151,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		return $events;
 	}
 
-	function UpcomingDatesAndRanges(){
-		$dates = DataList::create("CalendarDateTime")
-			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")
-			->sort("\"StartDate\" ASC");
-
-		return $dates->toArray();
-	}
+	
 
  	public function Feed(){
  		$feedType = addslashes($this->urlParams['Type']);
@@ -175,13 +169,13 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		//Determine which feed we're going to output
  		switch($feedType){
  			case "json":
- 				return $this->getJsonFeed($this->UpcomingDatesAndRanges());
+ 				return $this->getJsonFeed($this->UpcomingEvents(1000));
  				break;
  			case "rss":
  				return $this->getRSSFeed($events);
  				break;
  			default:
- 				return $this->getJsonFeed($this->UpcomingDatesAndRanges());
+ 				return $this->getJsonFeed($this->UpcomingEvents(1000));
  				break;
  		}
 
@@ -208,7 +202,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	}
 
  	public function getJsonFeed($eventDates){
- 		if(!isset($eventDates)){
+ 		print_r($eventDates);
+ 		if(!isset($events)){
  			$eventDates = $this->UpcomingEvents();
  		}
  		$data = array();
@@ -218,10 +213,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			/* Get Dates in  an array for later */
  			/*$datesArray = array();
  			$dates = $event->DateTimes();*/
- 			$event = AfterClassEvent::get()->filter(array("ID" => $eventDate->Event()->ID))->First();
-
- 			if($event){
-
+ 			$event = $eventDate->Event();
 
 			$datesArray[0]["start_date"] = $eventDate->StartDate;
 			$datesArray[0]["start_time"] = $eventDate->StartTime;
@@ -278,7 +270,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["events"][$eventDateNum]["event_types"] = $eventTypesArray;
  			unset($datesArray);
  		}
- 	}
  		echo json_encode($data);
  	}
  	public function getRSSFeed($events) {

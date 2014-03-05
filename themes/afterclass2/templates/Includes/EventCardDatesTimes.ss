@@ -17,6 +17,6 @@
 			<a href="$Link" ><span itemprop="name">$Title.LimitCharacters(25)</span></a>
 		</span>	
 	<% end_loop %>	
-	<% if DateAndTime.Count > "2" %><a href="$Link" class="button more-dates">more dates</a> <% end_if %>
+	<% if UpcomingDatesAndRanges.Count > "1" %><a href="$Link" class="button more-dates">more dates</a> <% end_if %>
 </p>
 
