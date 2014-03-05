@@ -151,14 +151,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		return $events;
 	}
 
-	function UpcomingDatesAndRanges(){
-		$dates = DataList::create("CalendarDateTime")
-			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")
-			->sort("\"StartDate\" ASC");
-
-		return $dates->toArray();
-	}
-
  	public function Feed(){
  		$feedType = addslashes($this->urlParams['Type']);
 
@@ -175,13 +167,13 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		//Determine which feed we're going to output
  		switch($feedType){
  			case "json":
- 				return $this->getJsonFeed($this->UpcomingDatesAndRanges());
+ 				return $this->getJsonFeed($events);
  				break;
  			case "rss":
  				return $this->getRSSFeed($events);
  				break;
  			default:
- 				return $this->getJsonFeed($this->UpcomingDatesAndRanges());
+ 				return $this->getJsonFeed($events);
  				break;
  		}
 
@@ -207,27 +199,25 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	 echo json_encode($data);
  	}
 
- 	public function getJsonFeed($eventDates){
- 		if(!isset($eventDates)){
- 			$eventDates = $this->UpcomingEvents();
+ 	public function getJsonFeed($events){
+ 		if(!isset($events)){
+ 			$events = $this->UpcomingEvents();
  		}
  		$data = array();
 
- 		foreach($eventDates as $eventDateNum => $eventDate){
+ 		foreach($events as $eventNum => $event){
 
  			/* Get Dates in  an array for later */
- 			/*$datesArray = array();
- 			$dates = $event->DateTimes();*/
- 			$event = AfterClassEvent::get()->filter(array("ID" => $eventDate->Event()->ID))->First();
+ 			$datesArray = array();
+ 			$dates = $event->DateTimes();
 
- 			if($event){
-
-
-			$datesArray[0]["start_date"] = $eventDate->StartDate;
-			$datesArray[0]["start_time"] = $eventDate->StartTime;
-			$datesArray[0]["end_date"] = $eventDate->EndDate;
-			$datesArray[0]["end_time"] = $eventDate->EndTime;
-			$datesArray[0]["all_day"] = $eventDate->AllDay;
+ 			foreach($dates as $dateNum => $date){
+ 				$datesArray[$dateNum]["start_date"] = $date->StartDate;
+ 				$datesArray[$dateNum]["start_time"] = $date->StartTime;
+ 				$datesArray[$dateNum]["end_date"] = $date->EndDate;
+ 				$datesArray[$dateNum]["end_time"] = $date->EndTime;
+ 				$datesArray[$dateNum]["all_day"] = $date->AllDay;
+ 			}
 
  			$venuesArray = array();
  			$venues = $event->Venues();
@@ -261,24 +251,23 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
  			}
  			
- 			$data["events"][$eventDateNum]["id"] = $event->ID;
- 			$data["events"][$eventDateNum]["name"] = $event->Title;
- 			$data["events"][$eventDateNum]["link"] = $event->AbsoluteLink();
- 			$data["events"][$eventDateNum]["more_info_link"] = $event->MoreInfoLink;
+ 			$data["events"][$eventNum]["id"] = $event->ID;
+ 			$data["events"][$eventNum]["name"] = $event->Title;
+ 			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
+ 			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
  			if($event->Image()){
- 				$data["events"][$eventDateNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
+ 				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
  				//$data["events"][$eventNum]["small_image"] = $event->Image()->SmallImage() ? $event->Image->SmallImage()->getAbsoluteURL(): null;
  			}
- 			$data["events"][$eventDateNum]["cancel_note"] = $event->CancelReason;
- 			$data["events"][$eventDateNum]["date"] = $datesArray;
- 			$data["events"][$eventDateNum]["price"] = $event->Cost;
- 			$data["events"][$eventDateNum]["location"] = $event->Location;
- 			$data["events"][$eventDateNum]["venues"] = $venuesArray;
- 			$data["events"][$eventDateNum]["sponsors"] = $sponsorsArray;
- 			$data["events"][$eventDateNum]["event_types"] = $eventTypesArray;
+ 			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
+ 			$data["events"][$eventNum]["dates"] = $datesArray;
+ 			$data["events"][$eventNum]["price"] = $event->Cost;
+ 			$data["events"][$eventNum]["location"] = $event->Location;
+ 			$data["events"][$eventNum]["venues"] = $venuesArray;
+ 			$data["events"][$eventNum]["sponsors"] = $sponsorsArray;
+ 			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
  			unset($datesArray);
  		}
- 	}
  		echo json_encode($data);
  	}
  	public function getRSSFeed($events) {
