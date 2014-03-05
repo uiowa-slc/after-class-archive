@@ -67,6 +67,7 @@
 				</div><!-- end hero-event-when -->
 				
 			</div><!-- end hero-event-details -->
+			<hr />
 			<% if RelatedEvents %>
 				<% include RelatedEvents %>
 			<% end_if %>
