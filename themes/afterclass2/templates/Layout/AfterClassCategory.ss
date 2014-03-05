@@ -6,7 +6,6 @@
 	<% else %>
 	<h1> $Category.Title </h1>
 	<% end_if %>
-	<p>$Category.ClassName</p>
 </header>
 <div class="category">
 	<div class="about-category">

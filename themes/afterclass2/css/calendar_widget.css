@@ -104,11 +104,16 @@ table.calendar-widget-table th {
 	padding: 10px 5px;
 	border:0;
 }
+table.calendar-widget-table th a {
+	color: white;
+	font-weight: normal;
+}
 table.calendar-widget-table .calendar-header td{
 	font-size: 0.7em;
 	background: none;
 	padding: 3px;
 	border: none;
+	color: #969696;
 }
 table.calendar-widget-table td {
 	padding: 0.5em 0.3em;

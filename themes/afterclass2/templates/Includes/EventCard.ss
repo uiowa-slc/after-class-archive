@@ -9,7 +9,7 @@
 			</h3>
 			<% if Eventtypes %>
 				<% loop Eventtypes.First %>
-					<a class="event-header-category" href="$Link">$Title</a>
+					<a class="event-header-category button tag" href="$Link">$Title</a>
 				<% end_loop %>
 			<% end_if %>
 			<div style="clear: both"></div>
