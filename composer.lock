@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "042da805900b8e3ef5eef65cf29e908c",
+    "hash": "2e87cc84a831d6ee59164dc4b8d7dc79",
     "packages": [
         {
             "name": "composer/installers",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "4127333b03e8b4c08d081958548aae5419d1a2fa"
+                "reference": "848de789c66ac609e7b2862c3500dd708afb72ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/4127333b03e8b4c08d081958548aae5419d1a2fa",
-                "reference": "4127333b03e8b4c08d081958548aae5419d1a2fa",
+                "url": "https://api.github.com/repos/composer/installers/zipball/848de789c66ac609e7b2862c3500dd708afb72ce",
+                "reference": "848de789c66ac609e7b2862c3500dd708afb72ce",
                 "shasum": ""
             },
             "replace": {
@@ -87,7 +87,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-02-24 04:21:34"
+            "time": "2014-03-04 04:29:18"
         },
         {
             "name": "md/division-bar",
@@ -477,46 +477,6 @@
                 "userforms"
             ],
             "time": "2014-02-27 05:21:31"
-        },
-        {
-            "name": "sunnysideup/upgrade_silverstripe",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-upgrade_silverstripe.git",
-                "reference": "877c8adef4ccb7512881d0c6b2472178ce21d2c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-upgrade_silverstripe/zipball/877c8adef4ccb7512881d0c6b2472178ce21d2c3",
-                "reference": "877c8adef4ccb7512881d0c6b2472178ce21d2c3",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "homepage": "https://github.com/sunnysideup",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "some rough-and-ready tools to help you upgrade to the next version of Silverstripe",
-            "homepage": "http://www.silverstripe-webdevelopment.com",
-            "keywords": [
-                "silverstripe",
-                "upgrade",
-                "upgrading"
-            ],
-            "time": "2013-11-17 22:04:50"
         },
         {
             "name": "unclecheese/betterbuttons",

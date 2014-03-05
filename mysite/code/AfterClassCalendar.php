@@ -45,17 +45,17 @@ class AfterClassCalendar extends Calendar {
 
 		$fields->addFieldToTab("Root.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
 		
-		$FeaturedEvent1Field = new TreeDropdownField( "FeaturedEvent1ID", "Featured Event 1", 'AfterClassEvent');
+		$FeaturedEvent1Field = new TreeDropdownField( "FeaturedEvent1ID", "Featured Event 1", 'Page');
 		$FeaturedEvent1Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent1Field);
 
-		$FeaturedEvent2Field = new TreeDropdownField( "FeaturedEvent2ID", "Featured Event 2", 'AfterClassEvent');
+		$FeaturedEvent2Field = new TreeDropdownField( "FeaturedEvent2ID", "Featured Event 2", 'Page');
 		$FeaturedEvent2Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent2Field);
 
-		$FeaturedEvent3Field = new TreeDropdownField( "FeaturedEvent3ID", "Featured Event 3", 'AfterClassEvent');
+		$FeaturedEvent3Field = new TreeDropdownField( "FeaturedEvent3ID", "Featured Event 3", 'Page');
 		$FeaturedEvent3Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent3Field);	
