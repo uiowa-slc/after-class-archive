@@ -18,7 +18,7 @@ i18n::set_locale('en_US');
 
 // enable nested URLs for this site (e.g. page/sub-page/)
 SiteTree::enable_nested_urls();
-Object::add_extension("SiteTree", "FilesystemPublisher('static-cache/', 'html')");
+Object::add_extension("SiteTree", "FilesystemPublisher('cache/', 'html')");
 Object::add_extension("CalendarDateTime", "CalendarDateTimeExtension");
 
 //echo $_SERVER['REMOTE_ADDR'];
