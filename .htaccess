@@ -177,41 +177,52 @@ FileETag None
 
 </IfModule>
 
-### SILVERSTRIPE START ###
-<Files *.ss>
-	Order deny,allow
-	Deny from all
-	Allow from 127.0.0.1
-</Files>
+RewriteEngine On
 
-<Files web.config>
-	Order deny,allow
-	Deny from all
-</Files>
+## CONFIG FOR DEV ENVIRONMENTS
 
-# This denies access to all yml files, since developers might include sensitive
-# information in them. See the docs for work-arounds to serve some yaml files
-<Files *.yml>
-	Order allow,deny
-	Deny from all
-</Files>
+# Cached content - after-class subdirectory
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteCond %{QUERY_STRING} ^$
+RewriteCond %{REQUEST_URI} ^/after-class/(.*)$
+RewriteCond %{REQUEST_URI} /after-class/(.*[^/])/?$
+RewriteCond %{DOCUMENT_ROOT}/after-class/cache/%1.html -f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /after-class/cache/%1.html [L]
 
-ErrorDocument 404 /assets/error-404.html
-ErrorDocument 500 /assets/error-500.html
+# Cached content - homepage
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteCond %{QUERY_STRING} ^$
+RewriteCond %{REQUEST_URI} ^/after-class/?$
+RewriteCond /after-class/cache/index.html -f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /after-class/cache/index.html [L]
 
-<IfModule mod_rewrite.c>
-	SetEnv HTTP_MOD_REWRITE On
-	RewriteEngine On
+## CONFIG FOR TEST/LIVE ENVIRONMENTS
 
-	RewriteRule ^vendor(/|$) - [F,L,NC]
-	RewriteRule silverstripe-cache(/|$) - [F,L,NC]
-	RewriteRule composer\.(json|lock) - [F,L,NC]
-	
-	RewriteCond %{REQUEST_URI} ^(.*)$
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_URI} !\.php$
-  RewriteRule .* staticpublisher/main.php?url=%1&%{QUERY_STRING} [L]
-</IfModule>
+# Cached content - live webserver
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteCond %{QUERY_STRING} ^$
+RewriteCond %{REQUEST_URI} /(.*[^/])/?$
+RewriteCond %{DOCUMENT_ROOT}/cache/%1.html -f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /cache/%1.html [L]
+
+# Cached content - homepage
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteCond %{QUERY_STRING} ^$
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{DOCUMENT_ROOT}/cache/index.html -f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /cache/index.html [L]
+
+## DYNAMIC CONFIG
+
+# Dynamic content
+RewriteCond %{REQUEST_URI} !(\.gif)|(\.jpg)|(\.png)|(\.css)|(\.js)|(\.php)$
+RewriteCond %{REQUEST_URI} ^(.*)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* staticpublisher/main.php?url=%1&%{QUERY_STRING} [L]
 ### SILVERSTRIPE END ###
 php_flag display_errors 1
 php_value max_execution_time 259200
