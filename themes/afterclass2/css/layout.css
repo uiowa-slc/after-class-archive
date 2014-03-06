@@ -1344,8 +1344,9 @@ h6 a {
     /* this looks okay-ish but a normal inner shadow is prolly better */
     /*-webkit-box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);;
     box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/
-    -webkit-box-shadow: inset 0px 0px 30px 3px rgba(5, 5, 5, 0.45);
-    box-shadow: inset 0px 0px 30px 3px rgba(5, 5, 5, 0.45);
+    -webkit-box-shadow: inset 0px -60px 50px 3px #1D1D1D;
+    box-shadow: inset 0px -60px 50px 3px #1D1D1D;
+    
 }
 .img-shadow img { float: right }
 .homefeatureitem .event_text a:hover { color: #dbb700 }
