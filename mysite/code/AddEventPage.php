@@ -83,7 +83,7 @@ class AddEventPage_Controller extends Page_Controller {
 					
 				</ul>
 				
-				<p><a href="http://afterclass.uiowa.edu/admin/show/'.$event->ID.'">Approve it (or don\'t) here</a></p>';
+				<p><a href="http://afterclass.uiowa.edu/admin/pages/show/'.$event->ID.'">Approve it (or don\'t) here</a></p>';
 			
 		
 		$email = new Email($from, $to, $subject, $body);
