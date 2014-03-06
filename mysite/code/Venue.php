@@ -1,9 +1,6 @@
 <?php
 class Venue extends Category {
-	public static $belongs_many_many = array(
-		"AfterClassEvents" => "AfterClassEvent"
-	);
-	public static $db = array(
+	private static $db = array(
 		"Information" => "HTMLText",
 		"Address" => "Varchar(255)",
 		"Email" => "Varchar(255)",
@@ -11,11 +8,15 @@ class Venue extends Category {
 		"WebsiteURL" => "Text",
 		"Lat" => "Varchar(255)",
 		"Lng" => "Varchar(255)",
-		
 	);
+	
+	private static $belongs_many_many = array(
+		"AfterClassEvents" => "AfterClassEvent"
+	);
+	
 	function getCMSFields_forPopup() {
 		$fields = parent::getCMSFields_forPopup();
-		$fields->push( new HTMLEditorField( 'Information' ) );
+		$fields->push( new HtmlEditorField( 'Information' ) );
 		$fields->push( new TextField('Address') );
 		$fields->push( new TextField('Email', 'Contact Email Address') );
 		$fields->push( new TextField('Phone', 'Phone Number') );
@@ -23,6 +24,10 @@ class Venue extends Category {
 		$fields->push( new TextField('Lat') );
 		$fields->push( new TextField('Lng') );
 		return $fields;
+	}
+
+	public function DirectionsLink(){
+		return "http://maps.apple.com/?q=".$this->Address;
 	}
 	
 }

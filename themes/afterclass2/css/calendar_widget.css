@@ -9,8 +9,6 @@
 	border: 1px solid rgba(68, 68, 68, 0.39);
 	background-color: #1D1B1F;
 	margin-bottom: 0.5em;
-	box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.1) inset;	
-	
 }
 #calendar-widget img {position:absolute;top:50%;left:50%;margin:-16px 0 0 -16px;}
 /* widget positioning */
@@ -33,52 +31,59 @@ div.dp-popup a {
 div.dp-popup a.disabled {
 	color: #aaa;
 }
-table.jCalendar {
+table.calendar-widget-table {
 	height: 150px ;
-	font-size: 1.3em ;
+	font-size: 1em ;
 	background: none ;
-	font-family: 'Open Sans', sans ;
-	width: 50%;
+	width: 100%;
 }
-table.jCalendar th {
+table.calendar-widget-table th {
 	color: #C6F5FF ;
 	border-spacing: 4px 4px 0;
 }
+table.calendar-widget-table th:after {
+	clear: both;
+}
+table.calendar-widget-table th .prev, table.calendar-widget-table th .next{
+	font-size: 1.3em;
+}
+table.calendar-widget-table th .prev{
+	float: left;
+}
+table.calendar-widget-table th .next {
+	float: right;
+}
 
-table.jCalendar thead {
+table.calendar-widget-table thead {
 	text-align: center;
 }
 
-table.jCalendar td {
+table.calendar-widget-table td {
 	color: white;
 	padding: 0.8em 0.5em;
-	border: 1px solid #444 ;
-	background-color: #302742;
 	cursor: pointer;
-	box-shadow: 0px -10px 75px rgba(14, 14, 14, 0.4) inset;
 }
-table.jCalendar td.other-month {
+table.calendar-widget-table td.other-month {
 
 	color: #aaa;
 	background: none ;
 }
-table.jCalendar td.today {
-	color: #EACC5F ;
+table.calendar-widget-table td.today {
+	color: #EACC5F;
 	font-weight: strong ;
+	background: #033F80;
 }
-table.jCalendar td.selected {
-	background: #9bd;
-	color: #333;
+table.calendar-widget-table td.selected {
+	background: #4C3D69;
 }
-table.jCalendar td.selected:hover {
+table.calendar-widget-table td.selected:hover {
 	background: #6ad;
 	color: #fff;
 }
-table.jCalendar td:hover, table.jCalendar td.dp-hover {
-	background: #59DFF1;
-	color: #333;
+table.calendar-widget-table td:hover, table.calendar-widget-table td.dp-hover {
+	background: #4C3D69;
 }
-table.jCalendar td.disabled, table.jCalendar td.disabled:hover {
+table.calendar-widget-table td.disabled, table.calendar-widget-table td.disabled:hover {
 	background: #eee;
 	color: #888;
 }
@@ -86,24 +91,49 @@ table.jCalendar td.disabled, table.jCalendar td.disabled:hover {
 
 
 /* table borders, font and padding */
-table.jCalendar {
+table.calendar-widget-table {
 	border:0;
   /*  border-collapse: separate; */
     border-spacing: 3px;
     margin:2px auto;
+    margin-bottom: 20px;
 
 }
-table.jCalendar th {
-	font-weight: bold;
+table.calendar-widget-table th {
+	font-weight: normal;
 	padding: 10px 5px;
 	border:0;
 }
-table.jCalendar td {
+table.calendar-widget-table th a {
+	color: white;
+	font-weight: normal;
+}
+table.calendar-widget-table .calendar-header td{
+	font-size: 0.7em;
+	background: none;
+	padding: 3px;
+	border: none;
+	color: #969696;
+}
+table.calendar-widget-table td {
 	padding: 0.5em 0.3em;
 	text-align: center;
-	border: 1px solid #444;
 }
-
+table.calendar-widget-table td.hasEvent:before {
+	color: #7BCDF0;
+	content: "\2022";
+	padding-right: 3px;
+}
+@media only screen and (min-width: 1024px) { 
+	table.calendar-widget-table td {
+		position: relative;
+	}
+	table.calendar-widget-table td.hasEvent:before {
+		position: absolute;
+		left: 45%;
+		top: 55%;
+	}
+}
 /* For the popup */
 
 /* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */

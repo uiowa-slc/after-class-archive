@@ -2,8 +2,6 @@
 class AddEventPage extends Page {
 	public static $db = array(
 	
-	
-	
 	);
 	public static $has_one = array(
 	);
@@ -32,7 +30,7 @@ class AddEventPage_Controller extends Page_Controller {
     	}
 	}
 	public function addEventForm() {
-		$fields = new FieldSet(
+		$fields = new FieldList(
             new TextField('Title','Name of the event'),
             new TextField('Location','Location of the event'),
             new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
@@ -43,13 +41,13 @@ class AddEventPage_Controller extends Page_Controller {
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')
         );
-        $actions = new FieldSet(
+        $actions = new FieldList(
             new FormAction('addEvent', 'Submit')
         );
         $validator = new RequiredFields('Title','Location','Cost','Submitterdate', 'Description','Submittername','Submitteremail','Submitterdate');
      	$form = new Form($this, 'addEventForm', $fields, $actions, $validator);
      	
-     	SpamProtectorManager::update_form($form);
+     	//$form->enableSpamProtection();
         return $form;
 	}
 	function addEvent($data, $form) {
@@ -92,10 +90,8 @@ class AddEventPage_Controller extends Page_Controller {
 		
 		
 		$email->send();
-
         
-        
-        Director::redirect('/thanks');
+        Controller::curr()->redirect('./thanks');
 		
 	}
 }

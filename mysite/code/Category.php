@@ -1,13 +1,16 @@
 <?php
 class Category extends DataObject {
-	public static $db = array(
+	private static $db = array(
 		"Title" => "Text",
 		"AltTitle" => "Text",
 		"URLSlug" => "Text",
 		"Showmenu" => "Boolean"
 	);
+	private static $belongs_many_many = array(
+	);
+	
 	function getCMSFields_forPopup() {
-		$fields = new FieldSet();
+		$fields = new FieldList();
 		$fields->push( new TextField( 'Title' ) );
 		$fields->push( new TextField( 'AltTitle' ) );
 		$fields->push( new TextField( 'URLSlug', 'Use underscores for spaces. Do not use dashes.' ) );
@@ -16,23 +19,35 @@ class Category extends DataObject {
 	}
 	
 	
-	function Events($limit = null) {
-		$ids = array();
-		// Get IDs of all events in this category.
+	public function Events($limit = null) {
+
+		$eventArrayList = new ArrayList($this->AfterClassEvents()->toArray());
+		$upcomingEventArrayList = new ArrayList();
+
+		foreach($eventArrayList as $event){
+			$upcomingDatesAndRanges = $event->UpcomingDatesAndRanges();
+
+			if($upcomingDatesAndRanges->exists()){
+				$upcomingEventArrayList->push($event);
+			}
+		}
+
+//		print_r($upcomingEventArrayList);
+
+		return $upcomingEventArrayList;
+
+		/*$ids = array();
 		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
-		
-		// Setup filter
 		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
-		// Get the calendar
-		$calendar = DataObject::get_one("AfterClassCalendar");
-		// Get the events from the calendar
+		$calendar = AfterClassCalendar::get()->First();
 		if (empty($ids)) {
 			return false;
 		} else {
 			$events = $calendar->Events($filter,null,null,null,$limit);
 			$events->removeDuplicates('EventID');
 			return $events;
-		}
+		}*/
+
 	}
 	
 	function Link(){

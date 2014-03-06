@@ -20,14 +20,24 @@ class EraseOldEventsBuildTask extends BuildTask {
     function cleanupEvents() {
     
     	/* get our parent pages */
-    	$archivePage = DataObject::get_one("Page", "URLSegment = 'archive'");
+    	$archivePage = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get_one(
+NOTE:  - replace with ClassName::get()->First()  
+### @@@@ ########### @@@@ ###
+*/DataObject::get_one("Page", "URLSegment = 'archive'");
     	
     	if($archivePage){
     		
     		echo "Archive page found, its ID is:".$archivePage->ID."<br />";
     		echo "Checking archived Events:<br />
     		<ul>";
-    		$eventPages = DataObject::get("AfterClassEvent", 'ParentID = '.$archivePage->ID);
+    		$eventPages = /*
+### @@@@ UPGRADE REQUIRED @@@@ ###
+FIND: DataObject::get(
+NOTE:  - replace with ClassName::get(  
+### @@@@ ########### @@@@ ###
+*/DataObject::get("AfterClassEvent", 'ParentID = '.$archivePage->ID);
     		
     		
     		/* check all dates for each event */

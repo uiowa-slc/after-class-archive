@@ -29,12 +29,12 @@ class Orientation2012Page_Controller extends Page_Controller {
 	
 function Form() {
 		//
-		$myForm = new Form($this, "Form", new FieldSet(
+		$myForm = new Form($this, "Form", new FieldList(
 			new TextField("first_name", "Your First Name"),
 			new TextField("last_name","Last Name"),
 			new TextField("email","Email Address"),
  			new HiddenField("facebook_id")
-		), new FieldSet(
+		), new FieldList(
 			new FormAction("SignupAction","Get Connected!")
 		), new RequiredFields());
 		$myForm->disableSecurityToken();
@@ -49,14 +49,13 @@ function Form() {
 		$form->saveInto($orientationPerson);
 		$orientationPerson->signup_source = $this->URLSegment;
 		$orientationPerson->write();
-		Director::redirect($this->URLSegment.'/');
+		Controller::curr()->redirect($this->URLSegment.'/');
 	}
 	public function show() {
 	
 	if(Permission::check("ADMIN")){
 		if($this){
-			$mr = "first,last,email,signupsource,created<br />";
-			$records = DataObject::get("OrientationPerson",null,"id DESC",null,3000);
+			$mr = OrientationPerson::get()->sort('DESC')->limit(3000);
 			foreach ($records as $record) {
 				if ($record->signup_source == $this->URLSegment) {
 					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
@@ -65,7 +64,7 @@ function Form() {
 			return $mr;
 		}
 	}else {
-		Director::redirect("home/");
+		Controller::curr()->redirect("home/");
 	
 	}
 }

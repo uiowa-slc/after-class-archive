@@ -4,7 +4,7 @@
 
 
 <header id="secondary_header">
-	<h1>Events Nearby</h1>
+  <h1>Events Nearby</h1>
 </header>
 <div id="single-page-content">
       <p id="status">Finding your location....</p>
@@ -34,46 +34,46 @@ function makeMarker(options){
 
 function locate() {
 
-	 // Create an array of styles.
-	var styles = [
-		 
-	{
-	    "stylers": [
-	      { "weight": 2.7 },
-	      { "saturation": -71 },
-	      { "invert_lightness": true },
-	      { "visibility": "on" },
-	      { "hue": "#8800ff" }
-	    ]
-	  },{
-	    "elementType": "geometry",
-	    "stylers": [
-	      { "weight": 1.6 },
-	      { "lightness": -20 },
-	      { "saturation": -13 },
-	      { "gamma": 1.33 }
-	    ]
-	  },{
-	    "featureType": "road",
-	    "elementType": "geometry.fill",
-	    "stylers": [
-	      { "color": "#000000" },
-	      { "weight": 3.6 },
-	      { "hue": "#a200ff" },
-	      { "lightness": 38 },
-	      { "saturation": -4 }
-	    ]
-	  },{
-	    "featureType": "water",
-	    "stylers": [
-	      { "hue": "#00b2ff" },
-	      { "lightness": -2 },
-	      { "saturation": 27 }
-	    ]
-	  }
-	 ];
+   // Create an array of styles.
+  var styles = [
+     
+  {
+      "stylers": [
+        { "weight": 2.7 },
+        { "saturation": -71 },
+        { "invert_lightness": true },
+        { "visibility": "on" },
+        { "hue": "#8800ff" }
+      ]
+    },{
+      "elementType": "geometry",
+      "stylers": [
+        { "weight": 1.6 },
+        { "lightness": -20 },
+        { "saturation": -13 },
+        { "gamma": 1.33 }
+      ]
+    },{
+      "featureType": "road",
+      "elementType": "geometry.fill",
+      "stylers": [
+        { "color": "#000000" },
+        { "weight": 3.6 },
+        { "hue": "#a200ff" },
+        { "lightness": 38 },
+        { "saturation": -4 }
+      ]
+    },{
+      "featureType": "water",
+      "stylers": [
+        { "hue": "#00b2ff" },
+        { "lightness": -2 },
+        { "saturation": 27 }
+      ]
+    }
+   ];
 
-	 var styledMap = new google.maps.StyledMapType(styles,
+   var styledMap = new google.maps.StyledMapType(styles,
     {name: "Styled Map"});
   /*var s = document.querySelector('#status');
   s.innerHTML = "IMU!";
@@ -103,32 +103,32 @@ function locate() {
   if(navigator.geolocation) {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
-		initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-		 iowacity = new google.maps.LatLng(41.661736, -91.540017)
+    initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+     iowacity = new google.maps.LatLng(41.661736, -91.540017)
 
-		var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowacity);
-		
-		
-		// If the current position is too far away from Iowa City, just default to centering around Iowa City
-		
-		if(distanceFromInitialLocation < 32186.9){
-		
-			map.setCenter(initialLocation);
-			
-			
-			var image = 'themes/afterclass2/images/position-indicator.png';
-			var initalMarker = new google.maps.Marker({
-				position: initialLocation,
-				map: map,
-				icon: image
-			});  
-			initalMarker.setMap(map);
-			$('#status').text("Your location is indicated on the map with this icon:");
-			$('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
-		}else {
-			$('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
+    var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowacity);
+    
+    
+    // If the current position is too far away from Iowa City, just default to centering around Iowa City
+    
+    if(distanceFromInitialLocation < 32186.9){
+    
+      map.setCenter(initialLocation);
+      
+      
+      var image = 'themes/afterclass2/images/position-indicator.png';
+      var initalMarker = new google.maps.Marker({
+        position: initialLocation,
+        map: map,
+        icon: image
+      });  
+      initalMarker.setMap(map);
+      $('#status').text("Your location is indicated on the map with this icon:");
+      $('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
+    }else {
+      $('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
 
-		}
+    }
       
     }, function() {
       handleNoGeolocation(browserSupportFlag);
@@ -141,16 +141,16 @@ function locate() {
   }
   
   function handleNoGeolocation(errorFlag) {
-	initialLocation = iowacity;
+  initialLocation = iowacity;
     map.setCenter(initialLocation);
     $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
   }  
 
-	
+  
   var infowindow = new google.maps.InfoWindow({
   content: "holding..."
   });
-  <% control Venues %>
+  <% loop Venues %>
     <% if Events %>
 
   //geo-coding to convert our addresses to usable longitude/latitude  
@@ -165,31 +165,31 @@ function locate() {
       position: venueLatLng
     });
     google.maps.event.addListener(marker, 'click', function () {
-	infowindow.setContent("<% control Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %><strong><a href='$Link'>$Title</a></strong>");
-	infowindow.open(map, this);
-	});
+  infowindow.setContent("<% loop Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'>$Title - <% loop UpcomingDatesAndRanges.Limit(1) %>$StartDate.NiceUs<% end_loop %></a></div><% end_loop %><strong><a href='$Link'>@ $Title</a></strong>");
+  infowindow.open(map, this);
+  });
   <% else %>
     geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
         //map.setCenter(results[0].geometry.location);
 
-		//var testLatLng = new google.maps.LatLng(41.661736, -91.540017);
-		var marker = new google.maps.Marker({
+    //var testLatLng = new google.maps.LatLng(41.661736, -91.540017);
+    var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
         });
-		google.maps.event.addListener(marker, 'click', function () {
-		infowindow.setContent("<% control Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'><% control Event %>$Title<% end_control %> - $StartDate.format(M). $StartDate.format(j)</a></div><% end_control %><strong><a href='$Link'>$Title</a></strong>");
-		infowindow.open(map, this);
-		});
-		
+    google.maps.event.addListener(marker, 'click', function () {
+    infowindow.setContent("<% loop Events(2) %><div style='font-size:13px;padding:2px 0px;'><a href='$Link'>$Title  - <% loop UpcomingDatesAndRanges.Limit(1) %>$StartDate.NiceUs<% end_loop %></a></div><% end_loop %><strong><a href='$Link'>@ $Title</a></strong>");
+    infowindow.open(map, this);
+    });
+    
       } else {
         //alert("Geocode was not successful for the following reason: " + status);
       }
     });
   <% end_if %>
   <% end_if %>
-  <% end_control %>
+  <% end_loop %>
 }
 
 function error(msg) {
@@ -202,10 +202,10 @@ function error(msg) {
 
 /*$(document).ready(function() {
   if (navigator.geolocation) {
-	  navigator.geolocation.getCurrentPosition(success, error);
-	} else {
-	  error('not supported');
-	}
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else {
+    error('not supported');
+  }
 });*/
 $(document).ready(function() {
   locate();

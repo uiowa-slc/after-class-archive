@@ -1,208 +1,131 @@
+<div class="row">
 <div class="feature-background-wrapper">
+<div class="span8">
 	<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
-					<div class="hero-event-content">
-					<h1><span itemprop="summary">$Title</span></h1>
-					<div class="clear"></div>
-					
-					<div class="hero-event-image-container small-screen">
-						<a href="$Link" class="img-shadow">
-							<% if Image %>
-								<% control Image %>
-									<% control CroppedImage(235,151) %>
-									<img itemprop="photo" src="$URL" />
-									<% end_control %>
-								<% end_control %>
-							<% else %>
-								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
-							<% end_if %>
-						</a>
-						<div class="clear"></div>
-					
-					</div>
-					
-					<div class="hero-event-details">
-							<div class="hero-event-text">	
-									$Content
-								<% if Cost %>
-				            		<p><strong>Price:</strong> $Cost</p>
-				            	<% end_if %>
-							    <% if CancelReason %>
-									<p><strong>Note: $CancelReason</strong></p>
-								<% end_if %>
-								<% if MoreInfoLink %>
-									<p><a href="$MoreInfoLink" class="button" target="_blank">More information &raquo;</a></p>
-								<% end_if %>
-								<div class="clear"></div>
+		<div class="hero-event-image-container big-screen">
+			<a href="$Link" class="img-shadow">
+				<% if Image %>
+					<% loop Image %>
+						<% loop CroppedImage(730,462) %>
+							<img itemprop="photo" src="$URL" />
+						<% end_loop %>
+					<% end_loop %>
+				<% else %>
+					<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
+				<% end_if %>
+			</a>
 
-							</div><!-- end hero-event-text-->
-							<div class="hero-event-when">
-					    		<h2>Date(s)</h2>
-										<% control DateAndTime %>
-											<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
-												<% if EndDate %>
-												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
-												<% end_if %>
-												<% if StartTime %>
-												at $StartTime.Nice
-												<% end_if %>
-												<% if EndTime %>
-												until $EndTime.Nice
-												<% end_if %>
-											</p>
-										<% end_control %>
-								
-							</div><!-- end hero-event-when -->
-							<% if Sponsors %>
-				    				<div class="sponsors">
-				    				<h2>Sponsors</h2>
-						    			<% control Sponsors %>
-						    			<p><a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %> </p>
-						    			<% end_control %>
-					    			</p>
-					    			</div>
-					    	<% end_if %>
-	
-				
-							<% if Venues %>
-							<h2>Location</h2>
-							
-							<div id="detail_event_description_map">
-								<p><% if Location %>{$Location} <br /><% end_if %>
-							<% control Venues %>
-								$Title <a href="$Link">view more events here &raquo;</a></p>
-								 
-								<p>
-								
-								<div class="row"><div class="span6"><% if Address %><a class="button" href="http://maps.apple.com/?q=$Address">Get Directions &raquo;</a><% end_if %></div>
-								<div class="span6"><% if WebsiteURL %><a class="button" href="$WebsiteURL">Visit the $Title Website &raquo;</a><% end_if %></div></div>
-								</p>
-<div class="clear"></div>								
-								<% if Address %>
-									<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
-								
-								<% end_if %>
-								<p><a href="{$BaseHref}feedback/" class=" button report-problem-link fancybox.iframe">Report a problem with this event</a></p>
-							<% end_control %>
-							</div> <!-- end detail_event_description_map -->
-						<% end_if %>
-						
-			
+			<div class="clear"></div>
+		</div><!-- end hero-event-image-container -->	
 
-							
-								<div class="hero-event-specifics">
-	
-									
-									<div class="hero-event-where">
-								
-										<p>
-										<% control Venues %>
-											<p class="venues">
-											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-											@ <a href="$Link"><span itemprop="name">$Title</span></a>
-											</span>
-											</p>
-										<% end_control %>		
-										</p>
-												
-										<% if Cost %>
-											<p class="admission-price">Admission: <a href="$Link">$Cost </a></p>
-										<% end_if %>	
-									</div><!-- end hero-event-where -->
-									<div class="clear"></div>
-
-			
-								</div><!-- end hero-event-specifics -->
-							</div><!-- end hero-event-text -->
-				
-											    
-							<div class="clear"></div>	
-
-					</div><!-- end hero-event-content -->
-				
-					
-					<div class="hero-event-image-container big-screen">
-						<a href="$Link" class="img-shadow">
-							<% if Image %>
-								<% control Image %>
-									<% control CroppedImage(730,462) %>
-									<img itemprop="photo" src="$URL" />
-									<% end_control %>
-								<% end_control %>
-							<% else %>
-								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
-							<% end_if %>
-						</a>
-										
-						
-					<div class="clear"></div>
-					
-							<h2>Share This</h2>
-							<!-- AddThis Button BEGIN -->
-							<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-							<a class="addthis_button_preferred_1"></a>
-							<a class="addthis_button_preferred_2"></a>
-							<a class="addthis_button_preferred_3"></a>
-							<a class="addthis_button_preferred_4"></a>
-							<a class="addthis_button_compact"></a>
-							<a class="addthis_counter addthis_bubble_style"></a>
-							</div>
-							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
-						
-					    	<% if AllCategories %>
-					    		<div class="categories">
-				    				<h2>Tagged as:</h2>
-				    					<p>
-						    			<% control AllCategories %>
-						    			<a href="$Link">$Title</a><% if Last %><% else %>, <% end_if %>
-						    			<% end_control %></p>
-					    			</p>
-					    			</div>
-					    	
-					    	<% end_if %>
-					</div>
+		<div class="hero-event-content">
+			<h1><span itemprop="summary">$Title</span></h1>	
+			<div class="hero-event-image-container small-screen">
+				<a href="$Link" class="img-shadow">
+					<% if Image %>
+						<% loop Image %>
+							<% loop CroppedImage(235,151) %>
+							<img itemprop="photo" src="$URL" />
+							<% end_loop %>
+						<% end_loop %>
+					<% else %>
+						<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
+					<% end_if %>
+				</a>
 				<div class="clear"></div>
-				<hr />
-				<div class="row location-social">
-				<div class="container">
-					<% include RelatedEvents %>
-				</div>
-<div class="hero-event-social span12">
-
-							<!-- AddThis Button END -->
-							<!--<div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
-										addthis:title="{$Title}"
-										addthis:description="{$Content}">
-								<a class="addthis_button_facebook_like"></a>
-								<a class="addthis_button_tweet"></a>    
-								<a class="addthis_button_google_plusone_share"></a>
-								
-								<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
-						
-						    </div>
-						    -->
-						    <h2>Comments</h2>
-							<!--<div class="fb-comments" data-href="$AbsoluteLink" data-width="470" data-num-posts="10" data-colorscheme="dark"></div>-->
-							    <div id="disqus_thread"></div>
-							    <script type="text/javascript">
-							        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-							        var disqus_shortname = 'after-class'; // required: replace example with your forum shortname
-							
-							        /* * * DON'T EDIT BELOW THIS LINE * * */
-							        (function() {
-							            var dsq = document.createElement('script'); 
-							            dsq.type = 'text/javascript'; dsq.async = true;
-							            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-							            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-							        })();
-							    </script>
-							    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-							    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-						</div><!-- end hero-event-social span12 -->
-						<div class="clear"></div>
-					</div><!-- end row -->
+			</div><!-- end hero-event-image-container small-screen -->
 					
-			
+			<div class="hero-event-details">
+				<div class="hero-event-text">	
+					$Content
+					<% if Cost %>
+	            		<p><strong>Price:</strong> $Cost</p>
+	            	<% end_if %>
+				    <% if CancelReason %>
+						<p><strong>Note: $CancelReason</strong></p>
+					<% end_if %>
+					<% if MoreInfoLink %>
+						<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
+					<% end_if %>
+					
+				</div><!-- end hero-event-text-->
+				<div class="hero-event-when">
+					<h2>Date<% if UpcomingDatesAndRanges.Count > 1 %>s<% end_if %></h2>
+					<% loop UpcomingDatesAndRanges %>
+						<p class="$FirstLast"> <a href="{$BaseHref}events/show/$StartDate.Format("Y-m-d")" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+							<% if EndDate %>
+							until <a href="{$BaseHref}events/show/$EndDate.Format("Y-m-d")" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+							<% end_if %>
+							<% if StartTime %>
+							at $StartTime.Nice
+							<% end_if %>
+							<% if EndTime %>
+							until $EndTime.Nice
+							<% end_if %>
+						</p>
+					<% end_loop %>
+				</div><!-- end hero-event-when -->
+				
+			</div><!-- end hero-event-details -->
+			<hr />
+			<% if RelatedEvents %>
+				<% include RelatedEvents %>
+			<% end_if %>
+		</div><!-- end hero-event-content-->
+	</div><!-- end hero-event -->
+
+</div><!-- end span8 -->
+
+
+<div class="span4">
+	<% if Venues || Location %>
+		<div id="detail_event_description_map">	
+			<% loop Venues %>
+				<h2>@ $Title</h2>
+				<div class="clear"></div>								
+				<% if Address %>
+					<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
+				<% end_if %>
+				<p>
+				<% if Address %>
+					<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
+				<% end_if %>
+				<% if WebsiteURL %>
+					<a class="button" href="$WebsiteURL">Venue website</a>
+				<% end_if %>
+				<a href="$Link" class="button">More events here</a>
+				</p>
+			<% end_loop %>
+			<p><% if Location %>{$Location}<% end_if %><p>
+		</div> <!-- end detail_event_description_map -->
+	<% end_if %>
+	<hr />
+	<% include AddThis %>
+	<hr />
+		<% if Sponsors %>
+			<div class="sponsors">
+				<p><strong>Sponsored by:</strong><% loop Sponsors %>
+				<a href="$Link">$Title</a><br />
+				<% end_loop %></p>
+			</p>
+			</div>
+		<% end_if %>
+		<% if AllCategories %>
+			<div class="categories">
+					<p><strong>Tagged as:</strong>
+					<% loop AllCategories %>
+					<a href="$Link" class="button tag">$Title.LimitCharacters(25)</a>
+					<% end_loop %></p>
+				</p>
+				</div>
+		<% end_if %>
+	<hr />
+	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+
+</div><!-- end span4-->
+</div><!-- end row -->
+	
+	
 	
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
 </script>
@@ -285,7 +208,7 @@ function initialize() {
 	  
     var place = null;
     
-    <% control Venues %>
+    <% loop Venues %>
     var address = "$Address";
     
     <% if Lat %>
@@ -310,7 +233,7 @@ function initialize() {
       }
     });
     <% end_if %>
-    <% end_control %>
+    <% end_loop %>
 
 } 
 
@@ -319,10 +242,8 @@ window.onload = initialize();
 
 
 </script>
-
-
-<div class="clear"></div>
 </div><!-- end hero-event -->
+</div><!-- end row -->
 
 
 
