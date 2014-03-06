@@ -36,7 +36,13 @@
 			</div><!-- end hero-event-image-container small-screen -->
 					
 			<div class="hero-event-details">
-				<div class="hero-event-text">	
+				<div class="hero-event-text">
+					<p>
+						<% if UpcomingDatesAndRanges.Count > 1 %><strong>Next Date:</strong><% end_if %>
+						<% loop UpcomingDatesAndRanges.First %>
+							<% include HeroDateTimes %>
+						<% end_loop %>
+					</p>
 					$Content
 					<% if Cost %>
 	            		<p><strong>Price:</strong> $Cost</p>
@@ -49,22 +55,15 @@
 					<% end_if %>
 					
 				</div><!-- end hero-event-text-->
+				<% if UpcomingDatesAndRanges.Count > 1 %>
 				<div class="hero-event-when">
-					<h2>Date<% if UpcomingDatesAndRanges.Count > 1 %>s<% end_if %></h2>
+					<h2>All Dates</h2>
 					<% loop UpcomingDatesAndRanges %>
-						<p class="$FirstLast"> <a href="{$BaseHref}events/show/$StartDate.Format("Y-m-d")" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
-							<% if EndDate %>
-							until <a href="{$BaseHref}events/show/$EndDate.Format("Y-m-d")" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
-							<% end_if %>
-							<% if StartTime %>
-							at $StartTime.Nice
-							<% end_if %>
-							<% if EndTime %>
-							until $EndTime.Nice
-							<% end_if %>
+						<p class="$FirstLast"><% include HeroDateTimes %>
 						</p>
 					<% end_loop %>
 				</div><!-- end hero-event-when -->
+				<% end_if %>
 				
 			</div><!-- end hero-event-details -->
 			<hr />

@@ -512,7 +512,7 @@ h6 a {
    
 }
 #page_navigation ul li.first a {
-
+    text-align:center;
 }
 
 #page_navigation ul li a#calendar-expand:after {
