@@ -27,7 +27,7 @@
 			<div class="event-card-content">
 			<h3 class="small-cell">
 				<a href="$Link">
-					<span>$Title.LimitCharacters(30)</span><% if Event.CancelReason %>
+					<span>$Title.LimitCharacters(40)</span><% if Event.CancelReason %>
 					<div class="homepage-cancel-reason">
 						Note: $Event.CancelReason</d><% end_if %>
 				</a>
