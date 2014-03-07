@@ -24,7 +24,7 @@
 								<p>$Content.Summary(30) <a href="$Link">Continue reading</a></p>
 							</div><!-- end hero-event-text-->
 							<div class="hero-event-essential-text">						       
-				            	<% if Cost %><p>$Cost</p><% end_if %>
+				            	<% if Cost %><p><strong>Price: </strong>$Cost</p><% end_if %>
 							    <% if CancelReason %>
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
@@ -52,6 +52,9 @@
 										<% end_if %>	
 									</div><!-- end herp-event-where -->
 									<div class="clear"></div>
+									<% if MoreInfoLink %>
+										<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
+									<% end_if %>
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
 						 <div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"

@@ -21,7 +21,6 @@
 		<div class="hero-event-content">
 			<h1><span itemprop="summary">$Title</span></h1>	
 			<div class="hero-event-image-container small-screen">
-				<a href="$Link" class="img-shadow">
 					<% if Image %>
 						<% loop Image %>
 							<% loop CroppedImage(235,151) %>
@@ -31,7 +30,6 @@
 					<% else %>
 						<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
 					<% end_if %>
-				</a>
 				<div class="clear"></div>
 			</div><!-- end hero-event-image-container small-screen -->
 					

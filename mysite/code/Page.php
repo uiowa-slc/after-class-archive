@@ -80,6 +80,9 @@ class Page extends SiteTree {
 	  	$urls[] = 'events/feed/json';
 	  	$urls[] = 'events/feed/';
 
+	  	$urls[] = 'events/weekend/';
+	  	$urls[] = 'events/today/';
+
 	    return $urls;
 	  }
 	 

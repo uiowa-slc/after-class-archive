@@ -3,7 +3,7 @@
 							until <a href="{$BaseHref}events/show/$EndDate.Format("Y-m-d")" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
 							<% end_if %>
 							<% if StartTime %>
-							at $StartTime.Nice
+							<% if $EndDate %>starting<% end_if %> at $StartTime.Nice
 							<% end_if %>
 							<% if EndTime %>
 							until $EndTime.Nice
