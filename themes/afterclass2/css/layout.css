@@ -559,9 +559,30 @@ h6 a {
     -ms-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
     box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);*/
 }
-#page_navigation ul>li a:hover { 
+.first a:hover { 
+    background-image: url('../images/nav_underdef.png');
+}
+#news a:hover { 
+    background-image: url('../images/nav_underdef.png');
+}
+.today a:hover { 
+    background-image: url('../images/nav_underTod.png');
+}
+.weekend a:hover { 
+    background-image: url('../images/nav_underWeeknd.png');
+}
+.suscribe a:hover { 
+    background-image: url('../images/nav_underSusc.png');
+}
+.add a:hover { 
     background-image: url('../images/nav_under.png');
-     }
+}
+.about-after-class a:hover { 
+    background-image: url('../images/nav_underdef.png');
+}
+.nearby a:hover {
+	background-image: url('../images/nav_underdef.png');
+}
 #page_navigation ul>li a#calendar-expand.active {
  /*   background-color: #342836;
     -webkit-box-shadow: inset 0px 4px 9px 1px rgba(10, 10,10, 0.3);
