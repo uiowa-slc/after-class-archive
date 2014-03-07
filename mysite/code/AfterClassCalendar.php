@@ -275,7 +275,14 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
  			unset($datesArray);
  		}
- 		echo json_encode($data);
+
+ 		//echo json_encode($data);
+
+ 		$jsonData = array(
+ 			"JsonFeed" => json_encode($data)
+ 			);
+
+ 		return $this->customise($jsonData)->renderWith(array('JsonFeed'));
  	}
  	public function getRSSFeed($events) {
 		//remove duplicates from the feed.

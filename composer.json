@@ -8,8 +8,6 @@
 		"silverstripe-themes/simple": "*",
 		"silverstripe/event-calendar": "dev-master",
 		"silverstripe/userforms" : "*",
-		"silverstripe/recaptcha" : "*",
-		"silverstripe/spamprotection" : "*",
 		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",

@@ -44,17 +44,35 @@ class Page extends SiteTree {
 		    	}
 		    }
 	    }
+
+		$previousMonth = new DateTime();
+		$previousMonth->modify('first day of last month');
+		$previousMonthString = $previousMonth->format( 'Ym' );
+
+	    $currentMonth = new DateTime();
+	    $currentMonthString = $currentMonth->format('Ym');
+
+	    $nextMonth = new DateTime();
+		$nextMonth->modify( 'first day of next month' );
+		$nextMonthString = $nextMonth->format( 'Ym' );
+
+
 	    $urls[] = 'events/categories/';
 	    $urls[] = 'events/sponsors/';
 	    $urls[] = 'events/venues/';
-	    // add any custom URLs which are not SiteTree instances
-	    //$urls[] = "sitemap.xml";
+
+	  	$urls[] = 'events/monthjson/'.$previousMonthString.'/';
+	  	$urls[] = 'events/monthjson/'.$currentMonthString.'/';
+	  	$urls[] = 'events/monthjson/'.$nextMonthString.'/';
+
+	  	$urls[] = 'events/feed/json';
+	  	$urls[] = 'events/feed/';
+
 	    return $urls;
 	  }
 	 
 	function subPagesToCache() {
 		$urls = array();
-	    // add current page
 		$urls[] = $this->Link();
 		return $urls;
 	}
@@ -148,7 +166,7 @@ class Page_Controller extends ContentController {
 	}
 	
 	function results($data, $form){
-	        $data = array(
+	     $data = array(
 	            'Results' => $form->getResults(),
 	            'Query' => $form->getSearchQuery(),
 	            'Title' => 'Search Results'
