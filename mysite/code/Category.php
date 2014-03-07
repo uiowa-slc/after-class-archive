@@ -32,26 +32,11 @@ class Category extends DataObject {
 			}
 		}
 
-//		print_r($upcomingEventArrayList);
-
 		return $upcomingEventArrayList;
-
-		/*$ids = array();
-		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
-		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
-		$calendar = AfterClassCalendar::get()->First();
-		if (empty($ids)) {
-			return false;
-		} else {
-			$events = $calendar->Events($filter,null,null,null,$limit);
-			$events->removeDuplicates('EventID');
-			return $events;
-		}*/
 
 	}
 	
 	function Link(){
-	
 		$base_url = Director::absoluteBaseURL();
 		return $base_url."events/categories/".$this->Title; 
 	}

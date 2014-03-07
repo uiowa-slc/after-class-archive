@@ -13,6 +13,18 @@ class Page extends SiteTree {
 		return Eventtype::get();
 	}
 
+	public function ActiveEventtypes(){
+		$eventTypes = Eventtype::get();
+		$eventTypesArrayList = new ArrayList();
+
+		foreach($eventTypes as $eventType){
+			if($eventType->Events()->First()){
+				$eventTypesArrayList->push($eventType);
+			}
+		}
+		return $eventTypesArrayList;
+	}
+
 	public function AllVenues() {
 		return Venue::get()->sort('Title ASC');
 	}
