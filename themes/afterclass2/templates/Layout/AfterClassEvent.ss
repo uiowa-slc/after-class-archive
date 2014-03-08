@@ -59,11 +59,13 @@
 				</div><!-- end hero-event-text-->
 				
 				<div class="hero-event-when">
+				<% if $DateAndTime.Count > 1 %>
 					<h2>All Dates</h2>
-					<% loop DateAndTime %>
-						<p class="$FirstLast"><% include HeroDateTimes %>
-						</p>
-					<% end_loop %>
+						<% loop $DateAndTime %>
+							<p class="$FirstLast"><% include HeroDateTimes %>
+							</p>
+						<% end_loop %>
+				<% end_if %>
 				</div><!-- end hero-event-when -->
 				
 				
