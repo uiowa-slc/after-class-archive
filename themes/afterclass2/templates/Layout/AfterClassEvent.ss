@@ -57,7 +57,7 @@
 					<% end_if %>
 					
 				</div><!-- end hero-event-text-->
-				<% if DateTimes.Count > 1 %>
+				
 				<div class="hero-event-when">
 					<h2>All Dates</h2>
 					<% loop DateTimes %>
@@ -65,7 +65,7 @@
 						</p>
 					<% end_loop %>
 				</div><!-- end hero-event-when -->
-				<% end_if %>
+				
 				
 			</div><!-- end hero-event-details -->
 			<hr />
