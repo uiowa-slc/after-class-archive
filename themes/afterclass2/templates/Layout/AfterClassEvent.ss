@@ -60,7 +60,7 @@
 				
 				<div class="hero-event-when">
 					<h2>All Dates</h2>
-					<% loop DateTimes %>
+					<% loop DateAndTime %>
 						<p class="$FirstLast"><% include HeroDateTimes %>
 						</p>
 					<% end_loop %>
