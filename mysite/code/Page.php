@@ -46,7 +46,8 @@ class Page extends SiteTree {
 	    // Get each page type to define its sub-urls
 	    $urls = array();
 	    // memory intensive depending on number of pages
-	    $pages = Page::get()->filter(array('ParentID:not' => 177));
+	    //$pages = Page::get()->filter(array('ParentID:not' => 177));
+	    $pages = Page::get();
 	    $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage');
 
 	    foreach($pages as $page) {
