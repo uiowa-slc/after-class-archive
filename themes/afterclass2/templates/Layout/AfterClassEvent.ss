@@ -60,7 +60,7 @@
 				<% if UpcomingDatesAndRanges.Count > 1 %>
 				<div class="hero-event-when">
 					<h2>All Dates</h2>
-					<% loop UpcomingDatesAndRanges %>
+					<% loop DateTimes %>
 						<p class="$FirstLast"><% include HeroDateTimes %>
 						</p>
 					<% end_loop %>
