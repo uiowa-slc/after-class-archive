@@ -46,10 +46,7 @@
 											@ <a href="$Link"><span itemprop="name">$Title</span></a>
 											</span>
 											</p>
-										<% end_loop %>		
-										<% if Cost %>
-											<p class="admission-price">Admission: <a href="$Link">$Cost </a></p>
-										<% end_if %>	
+										<% end_loop %>
 									</div><!-- end herp-event-where -->
 									<div class="clear"></div>
 									<% if MoreInfoLink %>
