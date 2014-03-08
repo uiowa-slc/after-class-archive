@@ -37,9 +37,13 @@
 				<div class="hero-event-text">
 					<p>
 						<% if UpcomingDatesAndRanges.Count > 1 %><strong>Next Date:</strong><% end_if %>
+						<% if UpcomingDatesAndRanges %>
 						<% loop UpcomingDatesAndRanges.First %>
 							<% include HeroDateTimes %>
 						<% end_loop %>
+						<% else %>
+							No upcoming dates.
+						<% end_if %>
 					</p>
 					$Content
 					<% if Cost %>
