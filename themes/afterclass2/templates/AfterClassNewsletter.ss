@@ -515,24 +515,22 @@
 								<p style="margin: 1em 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 20px;line-height: 150%;text-align: left;">
 
 									<strong>When:</strong> 
-							
-										<% if DateAndTimeLimited(2) %>
-										<% loop DateAndTimeLimited(2) %>
-											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
-											<% if StartTime %>
-										at $StartTime.Nice
-											<% end_if %>
-											<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
-											<% end_if %>				
-											<% end_loop %>
 										
-											<% if DateAndTimeMoreThan(2) %>
-											<br />	
-												<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
+										<% loop $DateAndTime.Limit(2) %>
+											<p class="$FirstLast"> <a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
 												<% end_if %>
-												<% end_if %> 
-												<br />
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
+											</p>
+										<% end_loop %>				
+										<% if $DateAndTime.Count > "2" %>
+											<a href="{$Link}#dates" class="button">more dates</a>
+										<% end_if %>
+									
+											
 												<br />
 												<% if Venues %>
 												<strong>Location: </strong>
@@ -632,23 +630,20 @@
                         <h3 style="margin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !important;"><a href="$AbsoluteLink" style="text-decoration: none;">$Title</a></h3>
 						<p style="margin: 1em 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
 							<p class="$FirstLast"> <strong>When:</strong> 
-							<% if DateAndTimeLimited(2) %>
-								
-								<% loop DateAndTimeLimited(1) %>
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
-									<% if StartTime %>
-										at $StartTime.Nice
-									<% end_if %>
-									<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
-									<% end_if %>				
-								<% end_loop %>
+							<% loop $DateAndTime.Limit(1) %>
+											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+												<% end_if %>
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
 										
-								<% if DateAndTimeMoreThan(2) %>
-									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
-								<% end_if %>
-								<% end_if %> 
-								
+									<% end_loop %>		
+										
+								<% if $DateAndTime.Count > "3" %>
+											<a href="{$Link}#dates" class="button">more dates</a>
+								<% end_if %>								
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
@@ -710,21 +705,21 @@
 
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
-								<% if DateAndTimeLimited(2) %>
-								<% loop DateAndTimeLimited(1) %>
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
-									<% if StartTime %>
-										at $StartTime.Nice
-									<% end_if %>
-									<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
-									<% end_if %>				
-								<% end_loop %>
+									<% loop $DateAndTime.Limit(1) %>
+											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+												<% end_if %>
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
 										
-								<% if DateAndTimeMoreThan(2) %>
-									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
+									<% end_loop %>		
+										
+								<% if $DateAndTime.Count > "3" %>
+											<a href="{$Link}#dates" class="button">more dates</a>
 								<% end_if %>
-								<% end_if %> 
+								
 								
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
@@ -786,22 +781,20 @@
 
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
-								<% if DateAndTimeLimited(2) %>
-								<% loop DateAndTimeLimited(1) %>
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
-									<% if StartTime %>
-										at $StartTime.Nice
-									<% end_if %>
-									<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
-									<% end_if %>				
-								<% end_loop %>
+								<% loop $DateAndTime.Limit(1) %>
+											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+												<% end_if %>
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
 										
-								<% if DateAndTimeMoreThan(2) %>
-									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
+									<% end_loop %>		
+										
+								<% if $DateAndTime.Count > "3" %>
+											<a href="{$Link}#dates" class="button">more dates</a>
 								<% end_if %>
-								<% end_if %> 
-								
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
@@ -862,21 +855,20 @@
 
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
-								<% if DateAndTimeLimited(2) %>
-								<% loop DateAndTimeLimited(1) %>
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
-									<% if StartTime %>
-										at $StartTime.Nice
-									<% end_if %>
-									<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
-									<% end_if %>				
-								<% end_loop %>
+								<% loop $DateAndTime.Limit(1) %>
+											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+												<% end_if %>
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
 										
-								<% if DateAndTimeMoreThan(2) %>
-									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
+									<% end_loop %>		
+										
+								<% if $DateAndTime.Count > "3" %>
+											<a href="{$Link}#dates" class="button">more dates</a>
 								<% end_if %>
-								<% end_if %> 
 								
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
@@ -938,22 +930,20 @@
 
 							<p class="$FirstLast"> <strong>When:</strong> 
 							
-								<% if DateAndTimeLimited(2) %>
-								<% loop DateAndTimeLimited(1) %>
-									<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(M) $StartDate.format(j)</time> </a> 
-									<% if StartTime %>
-										at $StartTime.Nice
-									<% end_if %>
-									<% if EndDate %>
-										until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"> <time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(M) $EndDate.format(j)</time> </a> 
-									<% end_if %>				
-								<% end_loop %>
+								<% loop $DateAndTime.Limit(1) %>
+											<a href="{$BaseHref}events/view/$StartDate.Format(Ymd)" class="date-link"><time itemprop="startDate" datetime="$StartDate.format(c)">$StartDate.format(l), $StartDate.format(F) $StartDate.format(j)</time></a>
+												<% if EndDate %>
+												until <a href="{$BaseHref}events/view/$EndDate.Format(Ymd)" class="date-link"><time itemprop="endDate" datetime="$EndDate.format(c)">$EndDate.format(l), $EndDate.format(F) $EndDate.format(j)</time></a>
+												<% end_if %>
+												<% if StartTime %>
+												at $StartTime.Nice
+												<% end_if %>
 										
-								<% if DateAndTimeMoreThan(2) %>
-									<br />	<a href="$Link" class="more-dates-link">more dates &raquo;</a> 
+									<% end_loop %>		
+										
+								<% if $DateAndTime.Count > "3" %>
+											<a href="{$Link}#dates" class="button">more dates</a>
 								<% end_if %>
-								<% end_if %> 
-								
 								<% if Venues %>
 									<p class="$FirstLast"><strong> Location:</strong>
 										<% if Location %>{$Location}<% end_if %>
