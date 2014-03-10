@@ -346,7 +346,11 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		if(isset($this->urlParams['Category'])){
  			$CategoryName = addslashes($this->urlParams['Category']);
  		}
- 		$feedType = $this->urlParams['FeedType'];
+ 		if(isset($this->urlParams['FeedType'])){
+ 			$feedType = $this->urlParams['FeedType'];
+ 		}else{
+ 			$feedType = "page";
+ 		}
 
 
  			//if we have a category name url param, filter events by the category's name

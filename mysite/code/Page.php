@@ -48,7 +48,7 @@ class Page extends SiteTree {
 	    // memory intensive depending on number of pages
 	    //$pages = Page::get()->filter(array('ParentID:not' => 177));
 	    $pages = Page::get();
-	    $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage');
+	    $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage', 'AfterClassNewsletter');
 
 	    foreach($pages as $page) {
 	    	if(!in_array($page->ClassName, $ignored)) {
