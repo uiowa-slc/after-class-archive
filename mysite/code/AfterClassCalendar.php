@@ -118,7 +118,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		}
 	}
  	 private static $url_handlers = array(
-            'categories/$Category/$FeedType' => 'categories',
+            'categories/$Category/feed/$FeedType' => 'categories',
             'categories/feed/$FeedType' => "categories",
             'venues' => 'venues',
             'sponsors' => 'sponsors',
@@ -342,11 +342,15 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	/* Return a category or list of eventtypes. */
  	public function categories($request) {
  		$urlFilter = new URLSegmentFilter();
- 		$CategoryName = addslashes($this->urlParams['Category']);
+
+ 		if(isset($this->urlParams['Category'])){
+ 			$CategoryName = addslashes($this->urlParams['Category']);
+ 		}
  		$feedType = $this->urlParams['FeedType'];
 
+
  			//if we have a category name url param, filter events by the category's name
-	 		if ($CategoryName) {
+	 		if(isset($CategoryName)) {
 	 			$Category = $this->getCategoryByName($CategoryName);
 	 		if (!($Category)) {
 				$Category = Category::get();
@@ -357,6 +361,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 				'CategoryName' => $CategoryName
 	    	);
 	    	$events = $Category->Events();
+
  			//render the category listing with a json or rss feed or default to a normal HTML page.
  			switch($feedType){
  				case "rss":
@@ -372,7 +377,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			//else if there's no category name aka when we're just listing the categories.
  		} else {
  			$Categories = Category::get();
- 			$feedType = $request->getVar('feed');
+ 			
  			switch($feedType){
  				case "json":
  					return $this->getCategoriesJsonFeed($Categories);
