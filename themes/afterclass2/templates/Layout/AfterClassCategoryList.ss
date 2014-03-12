@@ -1,18 +1,9 @@
 <div class="row">
 	<div class="span8">
 		<header id="secondary_header">
-			<% loop Category %>
 
-				<% if First %>
-					<% if ClassName = Sponsor %>
-						<h1>Event Sponsors</h1>
-					<% else_if ClassName = Venue %>
-						<h1>Venues</h1>
-					<% else %>
-						<h1>Trending Categories</h1>
-					<% end_if %>
-				<% end_if %>
-			<% end_loop %>
+			<h1>$Action</h1>
+
 		</header>
 
 		<div id="category-list-content">

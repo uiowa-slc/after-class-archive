@@ -118,8 +118,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		}
 	}
  	 private static $url_handlers = array(
-            'categories/$Category/feed/$FeedType' => 'categories',
-            'categories/feed/$FeedType' => "categories",
+            'categories//$Category/feed/$FeedType' => 'categories',
+            'categories/feed//$FeedType' => "categories",
+            'categories/$Category' => 'categories',
             'venues' => 'venues',
             'sponsors' => 'sponsors',
             'feed/$Type' => 'Feed',
