@@ -1,0 +1,245 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+<script type="text/javascript" src="{$ThemeDir}/js//jquery.min.js"></script>
+
+
+<header id="secondary_header">
+	<h1>Events Nearby</h1>
+</header>
+<div id="single-page-content">
+      <p id="status">Finding your location....</p>
+
+$Content
+$Form
+
+</div>
+
+<div>
+	<ul style="padding-left: 0px;" id="nearest_events">
+		<% loop Venues.limit(15) %>
+		<% if AfterClassEvents %>
+		<li style="list-style: none;" data-lat="$Lat" data-lng="$Lng" data-address="$Address" data-nodeid="$ID">
+		<div><h2> $Title </h2> <p>at $Lat, $Lng </p> </div> 
+		<% loop AfterClassEvents.limit(3) %>
+			<section style="border: solid white 1px; padding: 3px;">
+			<div class="meta" style="">
+				<div class="location">location: $Location </div>
+			</div>
+			<div>		
+				<h3><a href='$Link'>$Title</a></h3>	
+				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae consectetur urna, in aliquet diam. Mauris mi dui, porta eu consectetur sit amet, venenatis eu magna. </p> 
+				<p>	Price: $Cost</p>
+				<p> <% if UpcomingDatesandRanges %> Time: <% loop UpcomingDatesandRanges.limit(1) %> $StartDate.nice() @ $StartTime.nice() <% end_loop %> 
+					<% end_if %></p>
+					<% if $MoreInfoLink %> 		
+					<a href='$MoreInfoLink' target='_blank'>More Info...</a> 		
+					<% end_if %>		
+			</div>		
+			<div style="float: right;">
+				<img src='' /> 
+			</div>
+			</section>	
+		</li>	
+		<hr>	
+		<% end_loop %>	
+		<% end_if %>
+		<% end_loop %>
+	</ul>
+</div>
+
+
+<script>
+
+var markerArray = [];
+var infoWindow = null;
+function makeMarker(options){
+   var pushPin = new google.maps.Marker({map:map});
+   pushPin.setOptions(options);
+   google.maps.event.addListener(pushPin, 'click', function(){
+     infoWindow.setOptions(options);
+     infoWindow.open(map, pushPin);
+   });
+   markerArray.push(pushPin);
+   return pushPin;
+}
+
+function locate() {
+	 // Create an array of styles.
+	var styles = [		 
+	{
+	    "stylers": [
+	      { "weight": 2.7 },
+	      { "saturation": -71 },
+	      { "invert_lightness": true },
+	      { "visibility": "on" },
+	      { "hue": "#8800ff" }
+	    ]
+	  },{
+	    "elementType": "geometry",
+	    "stylers": [
+	      { "weight": 1.6 },
+	      { "lightness": -20 },
+	      { "saturation": -13 },
+	      { "gamma": 1.33 }
+	    ]
+	  },{
+	    "featureType": "road",
+	    "elementType": "geometry.fill",
+	    "stylers": [
+	      { "color": "#000000" },
+	      { "weight": 3.6 },
+	      { "hue": "#a200ff" },
+	      { "lightness": 38 },
+	      { "saturation": -4 }
+	    ]
+	  },{
+	    "featureType": "water",
+	    "stylers": [
+	      { "hue": "#00b2ff" },
+	      { "lightness": -2 },
+	      { "saturation": 27 }
+	    ]
+	}
+	];
+	
+	var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+	var mapWidth = "100%";
+    var mapcanvas = document.createElement('div');	
+	mapcanvas.id = 'mapcanvas';
+	mapcanvas.style.height = '600px';
+	mapcanvas.style.width = mapWidth;
+	
+	jQuery('#single-page-content').append(mapcanvas);
+	
+	var iowacity = new google.maps.LatLng(41.661736, -91.540017)
+	var myLatlng = iowacity;
+	var myOptions = {
+	    zoom: 15,
+	    center: myLatlng,
+	    panControl: true,
+	    mapTypeControl: false,
+	    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(jQuery("#mapcanvas"), myOptions);
+	map.mapTypes.set('map_style', styledMap);
+	map.setMapTypeId('map_style'); 
+	
+	// Try W3C Geolocation (Preferred)
+	if(navigator.geolocation) {
+	    browserSupportFlag = true;
+	    navigator.geolocation.getCurrentPosition(function(position) {
+			initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+			iowacity = new google.maps.LatLng(41.661736, -91.540017)
+	
+			var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowacity);
+			
+			// If the current position is too far away from Iowa City, just default to centering around Iowa City	
+			if(distanceFromInitialLocation < 32186.9){
+				map.setCenter(initialLocation);
+				var image = 'themes/afterclass2/images/position-indicator.png';
+				var initalMarker = new google.maps.Marker({
+					position: initialLocation,
+					map: map,
+					icon: image
+				});  
+				initalMarker.setMap(map);
+				$('#status').text("Your location is indicated on the map with this icon:");
+				$('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
+			}else {
+				$('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
+			}	      
+	    }, function() {
+	      handleNoGeolocation(browserSupportFlag);
+	    });
+	} else {
+		// Browser doesn't support Geolocation
+	    browserSupportFlag = false;
+	    handleNoGeolocation(browserSupportFlag);
+	}
+  
+    function handleNoGeolocation(errorFlag) {   	
+		initialLocation = iowacity;
+	    map.setCenter(initialLocation);
+	    $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
+	}  
+
+	var infowindow = new google.maps.InfoWindow({
+ 		content: "holding..."
+ 	});
+  
+ 	//geo-coding to convert our addresses to usable longitude/latitude  
+ 	var geocoder = new google.maps.Geocoder();
+
+  	var nearbyEvents = jQuery('#nearest_events').children();
+  	//console.log(nearbyEvents)
+  	nearbyEvents.each(function() {
+  	
+	  	//console.log(jQuery( this ).html() );
+	  	
+	  	var address = jQuery(this).data('address');
+	  	var venueLat = '';
+	  	venueLat = jQuery(this).data('lat');
+	  	var venueLng = jQuery(this).data('lng');
+	    var venueLatLng = new google.maps.LatLng(venueLat, venueLng);
+	    
+	    var marker = new google.maps.Marker({
+	      position: venueLatLng,
+	      map: map
+	    });
+	    
+	    var nodeid = jQuery(this).data('nodeid');
+	    console.log(nodeid + " nodeid");
+	    var eventNode = jQuery('#' + nodeid);
+	    console.log(eventNode)
+	    	    
+	    google.maps.event.addListener(marker, 'click', function () {
+	    	if (!infoWindow) {
+		    	infoWindow = new google.maps.InfoWindow();
+	    	}
+			infowindow.setContent(eventNode);
+			infowindow.open(map, marker);
+		});
+		if (venueLat == '' ) {
+			Geocoder.geocode({'address': address}, function(results, status) {
+		    if (status == google.maps.GeocoderStatus.OK) {
+		        map.setCenter(results[0].geometry.location);
+				var testLatLng = new google.maps.LatLng(41.661736, -91.540017);
+				var marker = new google.maps.Marker({
+		            map: map,
+		            position: results[0].geometry.location
+		        });
+				google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(jQuery('#' + nodeId));		
+				infowindow.open(map, this);
+				});
+				
+		      } else {
+		        alert("Geocode was not successful for the following reason: " + status);
+		      }
+		    });			
+		 }
+	});
+}
+
+function error(msg) {
+  /*var s = document.querySelector('#status');
+  s.innerHTML = typeof msg == 'string' ? msg : "failed";
+  s.className = 'fail';*/
+  
+  // console.log(arguments);
+}
+
+/*$(document).ready(function() {
+  if (navigator.geolocation) {
+	  navigator.geolocation.getCurrentPosition(success, error);
+	} else {
+	  error('not supported');
+	}
+});*/
+
+$(document).ready(function() {
+  locate();
+});
+</script>
+

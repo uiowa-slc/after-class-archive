@@ -36,6 +36,10 @@ class NearMePage_Controller extends Page_Controller {
 		return Venue::get()->sort('Title ASC');
 	}
 	
+	public function EventSummary() {
+		
+	}
+	
 	
 }
 

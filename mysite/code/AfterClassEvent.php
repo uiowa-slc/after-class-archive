@@ -243,6 +243,19 @@ class AfterClassEvent extends CalendarEvent {
 		return $f;
 	}
 	
+	public function nearMeSummary () {
+		$NoHTML = strip_tags($this->Content);
+		$bad_guys = array("\"", "\n");
+		$raw_fixed = str_replace($bad_guys, "&nbsp;", $NoHTML);
+		$line = $raw_fixed;
+		if (preg_match('/^.{1,200}\b/s', $raw_fixed, $match))
+		{
+			$line = $match[0];
+		}
+		return substr($line, 0);
+	}
+	
+	
 	 	 /* 
    * limits words to a number, but tries to validate the code 
    */ 

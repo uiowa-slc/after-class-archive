@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94"
+                "reference": "4127333b03e8b4c08d081958548aae5419d1a2fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94",
-                "reference": "9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94",
+                "url": "https://api.github.com/repos/composer/installers/zipball/4127333b03e8b4c08d081958548aae5419d1a2fa",
+                "reference": "4127333b03e8b4c08d081958548aae5419d1a2fa",
                 "shasum": ""
             },
             "replace": {
@@ -57,6 +57,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "WolfCMS",
                 "agl",
                 "annotatecms",
                 "cakephp",
@@ -86,7 +87,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-02-12 21:21:55"
+            "time": "2014-02-24 04:21:34"
         },
         {
             "name": "md/division-bar",
@@ -126,12 +127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display.git",
-                "reference": "2db5b02adcba412be9ad24fc7243782034a3aca5"
+                "reference": "697ac0e01906ebca415e0bd127633096b85ec18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/2db5b02adcba412be9ad24fc7243782034a3aca5",
-                "reference": "2db5b02adcba412be9ad24fc7243782034a3aca5",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/697ac0e01906ebca415e0bd127633096b85ec18c",
+                "reference": "697ac0e01906ebca415e0bd127633096b85ec18c",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +151,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/rss-display/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/rss-display/issues"
             },
-            "time": "2014-01-31 18:53:35"
+            "time": "2014-02-28 18:42:16"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -407,12 +408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "97ff8b252c1e8709c42238d80ef25431f4c45d03"
+                "reference": "45e4b1c037b9ab1eaab03de4154a16f31856ea9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/97ff8b252c1e8709c42238d80ef25431f4c45d03",
-                "reference": "97ff8b252c1e8709c42238d80ef25431f4c45d03",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/45e4b1c037b9ab1eaab03de4154a16f31856ea9d",
+                "reference": "45e4b1c037b9ab1eaab03de4154a16f31856ea9d",
                 "shasum": ""
             },
             "require": {
@@ -436,7 +437,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-02-17 10:02:19"
+            "time": "2014-02-27 05:21:31"
         },
         {
             "name": "sunnysideup/upgrade_silverstripe",
@@ -484,12 +485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "3fab81c5a9e5003fd87484bf3456edba3ea8e540"
+                "reference": "c9efbda464463fc1801b98e89c891808bcb45b9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/3fab81c5a9e5003fd87484bf3456edba3ea8e540",
-                "reference": "3fab81c5a9e5003fd87484bf3456edba3ea8e540",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/c9efbda464463fc1801b98e89c891808bcb45b9b",
+                "reference": "c9efbda464463fc1801b98e89c891808bcb45b9b",
                 "shasum": ""
             },
             "require": {
@@ -513,7 +514,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2013-12-03 20:10:27"
+            "time": "2014-02-23 00:21:17"
         },
         {
             "name": "unclecheese/dashboard",

@@ -18,7 +18,7 @@ class Category extends DataObject {
 		return $fields;
 	}
 	
-	
+	/*
 	public function Events($limit = null) {
 
 		$eventArrayList = new ArrayList($this->AfterClassEvents()->toArray());
@@ -29,7 +29,7 @@ class Category extends DataObject {
 			}
 		}
 
-		/*$ids = array();
+		$ids = array();
 		$ids = array_merge($ids,$this->AfterClassEvents()->column('ID'));
 		$filter = "`CalendarDateTime`.EventID IN (" . implode(',',$ids) . ")";
 		$calendar = AfterClassCalendar::get()->First();
@@ -39,9 +39,9 @@ class Category extends DataObject {
 			$events = $calendar->Events($filter,null,null,null,$limit);
 			$events->removeDuplicates('EventID');
 			return $events;
-		}*/
+		}
 
-	}
+	}*/
 	
 	function Link(){
 	
