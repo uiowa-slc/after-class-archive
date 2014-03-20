@@ -78,8 +78,6 @@ class AfterClassEvent extends CalendarEvent {
 	
 	
 	function RelatedEvents() {
-		//$calendar = AfterClassCalendar::get()->First();
-
 		$categories = $this->AllCategories();
 		$events = new ArrayList();
 
@@ -132,7 +130,7 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Main',new TextField('MoreInfoLink','A link for more information') );
 		$f->addFieldToTab('Root.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
-				$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
+				$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/pages/edit/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
 
 		
 		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
@@ -183,20 +181,6 @@ class AfterClassEvent extends CalendarEvent {
 				'Add Sponsors'
 			);
 
-
-		/*$sponsorTablefield = new GridField(
-        	$this,
-        	'Sponsors',
-        	'Sponsor',
-        	array(
-       		'Title' => 'Title'
-        	),
-        	'getCMSFields_forPopup',
-        	null,
-        	$sort = "Title ASC"
-      	);
-		
-		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));*/
 
 		$f->addFieldToTab( 'Root.Main', $sponsorsField, "Content" );
 		
