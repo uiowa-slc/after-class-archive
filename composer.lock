@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "18b03fee20a3d939761970ca92c7d439",
+    "hash": "634bb41fc32a87d7192b4f0cd8b0d500",
     "packages": [
         {
             "name": "composer/installers",
@@ -242,12 +242,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-event-calendar.git",
-                "reference": "23998919331413903c0d032daf44c4dcb9dba840"
+                "reference": "842bbfdd674f5a7b63ca54c1e0a2fea6615852af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-event-calendar/zipball/23998919331413903c0d032daf44c4dcb9dba840",
-                "reference": "23998919331413903c0d032daf44c4dcb9dba840",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-event-calendar/zipball/842bbfdd674f5a7b63ca54c1e0a2fea6615852af",
+                "reference": "842bbfdd674f5a7b63ca54c1e0a2fea6615852af",
                 "shasum": ""
             },
             "require": {
@@ -277,7 +277,7 @@
                 "events",
                 "silverstripe"
             ],
-            "time": "2014-02-10 22:09:22"
+            "time": "2014-03-10 22:02:32"
         },
         {
             "name": "silverstripe/framework",
@@ -326,6 +326,77 @@
             "time": "2014-03-02 19:54:18"
         },
         {
+            "name": "silverstripe/mathspamprotection",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-mathspamprotection.git",
+                "reference": "ef8eb2606f7f0c72e260606d11b1207448b8d853"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/ef8eb2606f7f0c72e260606d11b1207448b8d853",
+                "reference": "ef8eb2606f7f0c72e260606d11b1207448b8d853",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/spamprotection": "dev-master"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io",
+                    "homepage": "http://wilr.github.com"
+                }
+            ],
+            "description": "This module provides a simple math protection mechanism for prevent spam from your forms.Includes an EditableMathSpamField to integrate with the UserForms module.",
+            "keywords": [
+                "mathspamprotection",
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2014-02-18 21:24:13"
+        },
+        {
+            "name": "silverstripe/spamprotection",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
+                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/39f7f0be454af5f67f2789c6e7691221896fa313",
+                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Saophalkun Ponlu",
+                    "email": "phalkunz@silverstripe.com"
+                },
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io",
+                    "homepage": "http://wilr.github.com"
+                }
+            ],
+            "description": "Spam protection module for SilverStripe.",
+            "keywords": [
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2014-03-07 07:38:25"
+        },
+        {
             "name": "silverstripe/staticpublisher",
             "version": "dev-master",
             "source": {
@@ -370,12 +441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "45e4b1c037b9ab1eaab03de4154a16f31856ea9d"
+                "reference": "6937d65a07a7c1d3c61287933086d33c8fd30a4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/45e4b1c037b9ab1eaab03de4154a16f31856ea9d",
-                "reference": "45e4b1c037b9ab1eaab03de4154a16f31856ea9d",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/6937d65a07a7c1d3c61287933086d33c8fd30a4c",
+                "reference": "6937d65a07a7c1d3c61287933086d33c8fd30a4c",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +470,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-02-27 05:21:31"
+            "time": "2014-03-17 09:34:10"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -448,7 +519,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "silverstripe/event-calendar": 20,
-        "silverstripe/staticpublisher": 20
+        "silverstripe/staticpublisher": 20,
+        "silverstripe/spamprotection": 20,
+        "silverstripe/mathspamprotection": 20
     },
     "platform": {
         "php": ">=5.3.2"

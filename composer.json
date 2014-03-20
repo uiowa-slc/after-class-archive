@@ -11,7 +11,9 @@
 		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
-		"silverstripe/staticpublisher": "dev-master"
+		"silverstripe/staticpublisher": "dev-master",
+		"silverstripe/spamprotection": "dev-master",
+		"silverstripe/mathspamprotection": "dev-master"
 
 	},
 	"config": {

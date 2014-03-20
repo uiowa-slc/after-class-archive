@@ -9,12 +9,9 @@ class Category extends DataObject {
 	private static $belongs_many_many = array(
 	);
 	
-	function getCMSFields_forPopup() {
+	function getCMSFields() {
 		$fields = new FieldList();
 		$fields->push( new TextField( 'Title' ) );
-		$fields->push( new TextField( 'AltTitle' ) );
-		$fields->push( new TextField( 'URLSlug', 'Use underscores for spaces. Do not use dashes.' ) );
-		$fields->push( new CheckboxField('Showmenu', 'Show in Main Menu?') );
 		return $fields;
 	}
 	
