@@ -1435,8 +1435,8 @@ h6 a {
 	border-top: none;
 }
 .event-card .placeholder-image {
-    height: 250px;
-    width: 158px;
+    width: 250px;
+    height: 158px;
 }
 
 .event-card.canceled { background-color: #3e3e3e }
