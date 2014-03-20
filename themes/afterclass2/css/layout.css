@@ -1434,6 +1434,10 @@ h6 a {
 .event-card:nth-child(1){
 	border-top: none;
 }
+.event-card .placeholder-image {
+    height: 250px;
+    width: 158px;
+}
 
 .event-card.canceled { background-color: #3e3e3e }
 .event-card.canceled h3 a { color: #eaeaea }

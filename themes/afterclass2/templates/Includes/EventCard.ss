@@ -22,7 +22,7 @@
 							<% loop CroppedImage(250,158) %><img class="" itemprop="photo" src="$URL" /><% end_loop %>
 						<% end_loop %>
 					<% else %>
-						<img src="{$ThemeDir}/images/placeholder.png" />
+						<img src="{$ThemeDir}/images/placeholder.png" class="placeholder-image" />
 					<% end_if %>
 					</a>
 				</div><!-- end event-card-image -->
