@@ -30,7 +30,7 @@
 							<% include HeroDateTimes %>
 						<% end_loop %>
 						<% else %>
-							No upcoming dates. This event has already happened.
+							No upcoming dates.
 						<% end_if %>
 					</p>
 					
