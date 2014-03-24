@@ -2186,8 +2186,6 @@ a.button:active {
 
 
     .event-card h3 { float: none; }
-
-    .category .event-card { width: 24%; padding-left: 0; height:140px; }
     .event-card-content { 
         padding: 0;
         margin-top: -10px;

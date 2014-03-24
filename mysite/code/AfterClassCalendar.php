@@ -170,7 +170,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		//else get all events	
  		}else{
  			
- 			$events = $this->AllEvents();
+ 			$events = $this->AllEventsWithoutDuplicates();
  		}
  		//Determine which feed we're going to output
  		switch($feedType){
@@ -217,7 +217,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
  			/* Get Dates in  an array for later */
  			$datesArray = array();
- 			$dates = $event->DateTimes();
+ 			$dates = $event->UpcomingDatesAndRanges();
 
  			foreach($dates as $dateNum => $date){
  				$datesArray[$dateNum]["start_date"] = $date->StartDate;
@@ -263,9 +263,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["events"][$eventNum]["name"] = $event->Title;
  			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
  			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
- 			if($event->Image()){
+ 			if($event->Image()->exists()){
  				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
- 				//$data["events"][$eventNum]["small_image"] = $event->Image()->SmallImage() ? $event->Image->SmallImage()->getAbsoluteURL(): null;
  			}
  			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
  			$data["events"][$eventNum]["dates"] = $datesArray;
