@@ -56,7 +56,7 @@
 							</div><!-- end hero-event-text -->
 						 <div class="addthis_toolbox addthis_default_style"	addthis:url="{$AbsoluteLink}"
 									addthis:title="{$Title}"
-									addthis:description="">
+									addthis:description="{$Content}">
 							<a class="addthis_button_facebook_like"></a>
 							<a class="addthis_button_twitter"></a>    
 							<a class="addthis_button_google_plusone_share"></a>

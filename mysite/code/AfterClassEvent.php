@@ -137,21 +137,12 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Main',new HtmlEditorField('Content','Event Description') );
 		
 		$date_instructions = '
-		
 		<h2>For Events Happening Just Once</h2>
-		<p>Choose "Add a Date" and enter the Start Date, Start Time, and End Time (end time is optional).<em>The End Date should be blank</strong>.</em>
-
- 
-<h2>Events that Have Multiple "Ranges" (mostly CAB and Bijou Films)</h2>
-<p>Sometimes a film will play for multiple ranges. They might play one day, skip a day or two, and then play for another range of time. Example: Inception could play on March 1, then March 3 and March 4. In this example, add a date and start time for March 1, then add another date range that starts with March 3, and ends with March 4 <strong>with no start/end times</strong>.</p>
-<p>Another Example: Back to the Future might play on April 11, 12, 13, take a day off, then resume on 14, 15. We would just put this in two date ranges: April 11-13, and April 14-15 with NO start/end times.</p>
-
- 
-
-<h2>For Events that span several consecutive days with fairly similar start/end times</h2>
-
-<p>Example: A poster sale or a book buyback</p>
-<p>Chose "Add a Date" then enter the Start Date and the End Date for the event. Start Time and End Time must be blank. For these event types, you must describe the hours for the event in the Event Description.</p> ';
+		<p>Choose "Add a Date" and enter the Start Date, Start Time, and End Time (end time is optional).The End Date should be blank.</p>
+		<h2>For Events that span several consecutive days or happen multiple days in a row</h2>
+		<p>(Example: A poster sale or a CAB film)</p>
+		<p>Choose "Add a Date" then enter the Start Date and the End Date for the event. Start Time and End Time must be blank.</p>
+		<p>For these event types, you must describe the times of each event in the Event Description.</p> ';
 		
 		$f->insertBefore(new LiteralField('DatesInstructions', $date_instructions), 'DateTimes');
 		
