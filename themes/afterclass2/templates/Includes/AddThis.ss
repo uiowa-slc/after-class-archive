@@ -1,5 +1,5 @@
 <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_32x32_style" addthis:url="{$AbsoluteLink}" addthis:title="{$Title}" addthis:description="{$Content}">
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="{$AbsoluteLink}">
 	<a class="addthis_button_preferred_1"></a>
 	<a class="addthis_button_preferred_2"></a>
 	<a class="addthis_button_preferred_3"></a>
