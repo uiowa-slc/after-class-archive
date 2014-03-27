@@ -29,14 +29,28 @@ class AfterClassEvent extends CalendarEvent {
 		"Eventtypes" => "Eventtype"
 	);
 	
-	//static $icon = self::getCMSIcon();
-	
 	private static $default_parent = "events"; // URLSegment of default parent node.
 	private static $can_be_root = false;
 	private static $allowed_children = "none";
-		
 
-	
+    public function getStatusFlags(){
+        $flags = parent::getStatusFlags();
+        if($this->isUserSubmitted()){
+        	$flags['isUserSubmitted'] = "Submitted";
+    	}
+    	if(!$this->UpcomingDatesAndRanges()->First()){
+    		$flags['noUpcomingDatesAndRanges'] = "No Upcoming Dates";
+    	}
+        return $flags;
+    }
+	public function isUserSubmitted(){
+		if($this->Submittername != ""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	public function UpcomingDatesAndRanges($limit = 0)
 	{
 		return DataList::create($this->data()->getDateTimeClass())
@@ -110,8 +124,6 @@ class AfterClassEvent extends CalendarEvent {
 		$f->fieldByName('Root.Main')->setTitle('Event Details');
 		$f->fieldByName('Root.Main.Title')->setTitle('Event Name');
 
-		
-		
 /* ------------------------------------------------- */
 /* Only show submitter information if it's available */
 /* ------------------------------------------------- */
@@ -121,8 +133,6 @@ class AfterClassEvent extends CalendarEvent {
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
-		
-		
 /* ----------------------------------- */
 /* Add/Re-Add Content and Other Fields */
 /* ----------------------------------- */
@@ -130,12 +140,9 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Main',new TextField('MoreInfoLink','A link for more information') );
 		$f->addFieldToTab('Root.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
-				$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/pages/edit/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
-
-		
+		$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/pages/edit/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
 		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
 		$f->addFieldToTab('Root.Main',new HtmlEditorField('Content','Event Description') );
-		
 		$date_instructions = '
 		<h2>For Events Happening Just Once</h2>
 		<p>Choose "Add Calendar Date Time" and enter the Start Date, Start Time, and End Time (end time is optional).The End Date should be blank.</p>
@@ -151,7 +158,6 @@ class AfterClassEvent extends CalendarEvent {
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
 		}
-		
 /* ------------- */
 /* Sponsor Table */
 /* ------------- */
@@ -160,9 +166,7 @@ class AfterClassEvent extends CalendarEvent {
 		foreach(Sponsor::get() as $sponsor) {
 			$sponsorsMap[$sponsor->ID] = $sponsor->Title;
 		}
-
 		asort($sponsorsMap);
-		
 		$sponsorsField = ListboxField::create('Sponsors', 'Sponsors <a href="admin/sponsors/" target="_blank">Add/Edit</a>')
 			->setMultiple(true)
 			->setSource($sponsorsMap)
@@ -170,8 +174,6 @@ class AfterClassEvent extends CalendarEvent {
 				'data-placeholder', 
 				'Add Sponsors'
 			);
-
-
 		$f->addFieldToTab( 'Root.Main', $sponsorsField, "Content" );
 		
 /* ------------- */
@@ -182,9 +184,7 @@ class AfterClassEvent extends CalendarEvent {
 		foreach(Venue::get() as $Venue) {
 			$VenuesMap[$Venue->ID] = $Venue->Title;
 		}
-
 		asort($VenuesMap);
-		
 		$VenuesField = ListboxField::create('Venues', 'Venues <a href="admin/venues/" target="_blank">Add/Edit</a>')
 			->setMultiple(true)
 			->setSource($VenuesMap)
@@ -192,8 +192,6 @@ class AfterClassEvent extends CalendarEvent {
 				'data-placeholder', 
 				'Add Venues'
 			);
-
-
 		$f->addFieldToTab( 'Root.Main', $VenuesField, "Content" );
 		
 /* ------------- */
@@ -204,9 +202,7 @@ class AfterClassEvent extends CalendarEvent {
 		foreach(Eventtype::get() as $Eventtype) {
 			$EventtypesMap[$Eventtype->ID] = $Eventtype->Title;
 		}
-
 		asort($EventtypesMap);
-		
 		$EventtypesField = ListboxField::create('Eventtypes', 'Eventtypes <a href="admin/eventtypes/" target="_blank">Add/Edit</a>')
 			->setMultiple(true)
 			->setSource($EventtypesMap)
@@ -214,10 +210,7 @@ class AfterClassEvent extends CalendarEvent {
 				'data-placeholder', 
 				'Add Eventtypes'
 			);
-
-
 		$f->addFieldToTab( 'Root.Main', $EventtypesField, "Content" );
-		
 		return $f;
 	}
 	
@@ -266,31 +259,26 @@ class AfterClassEvent extends CalendarEvent {
 }
 
 class AfterClassEvent_Controller extends CalendarEvent_Controller {
+
 	public static $url_handlers = array(
-            'fbpublish' => 'fbpublish'
-            );
+		'fbpublish' => 'fbpublish'
+	);
 
 	public function AllCategories(){
-	
-	$categories = new ArrayList();
-	$category_ids = array();
-	
-	$sponsors = $this->Sponsors();
-	$category_ids = array_merge($category_ids, $sponsors->getIDList());
-	
-	$venues = $this->Venues();
-	$category_ids = array_merge($category_ids, $venues->getIDList());
-	
-	$eventtypes = $this->EventTypes();
-	$category_ids = array_merge($category_ids, $eventtypes->getIDList());
-	
-	foreach($category_ids as $category_id){
-		$category = Category::get()->byID($category_id);
-		$categories->push($category);
-	
-	}
-	return $categories;
-	
+		$categories = new ArrayList();
+		$category_ids = array();
+		$sponsors = $this->Sponsors();
+		$category_ids = array_merge($category_ids, $sponsors->getIDList());
+		$venues = $this->Venues();
+		$category_ids = array_merge($category_ids, $venues->getIDList());
+		$eventtypes = $this->EventTypes();
+		$category_ids = array_merge($category_ids, $eventtypes->getIDList());
+		foreach($category_ids as $category_id){
+			$category = Category::get()->byID($category_id);
+			$categories->push($category);
+		}
+		return $categories;
+		
 	}
 
 }

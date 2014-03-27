@@ -1,0 +1,16 @@
+.status-noUpcomingDatesAndRanges{
+	color: #ADADAD;
+}
+.tree-holder.jstree-apple .status-noUpcomingDatesAndRanges a, .tree-holder.jstree-apple .status-noUpcomingDatesAndRanges a:link, .cms-tree.jstree-apple .status-noUpcomingDatesAndRanges a, .cms-tree.jstree-apple .status-noUpcomingDatesAndRanges a:link {
+	color: #ADADAD;
+}
+.status-isUserSubmitted {
+	color: #9B3EDA;
+}
+.tree-holder.jstree-apple .status-isUserSubmitted a, .tree-holder.jstree-apple .status-isUserSubmitted a:link, .cms-tree.jstree-apple .status-isUserSubmitted a, .cms-tree.jstree-apple .status-isUserSubmitted a:link {
+	color: #9B3EDA;
+}
+.cms-tree.jstree-apple span.badge.status-isUserSubmitted{
+	border: 1px solid #9B3EDA;
+	background-color: #f3e1ff;
+}
