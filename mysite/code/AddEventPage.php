@@ -29,14 +29,16 @@ class AddEventPage_Controller extends Page_Controller {
     		return false;
     	}
 	}
+	
 	public function addEventForm() {
+	
 		$fields = new FieldList(
             new TextField('Title','Name of the event'),
             new TextField('Location','Location of the event'),
             new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
             new TextField('Cost','How much does it cost to attend?'),
-            new TextField('Content','Describe what the event is about.'),
-            new TextField('Sponsor','Who is sponsoring or hosting the event?'),
+            new TextareaField('Content','Describe what the event is about.'),
+            new TextField('SubmitterSponsor','List your sponsors here'),
             new FileField('Image','Event Image (730 x 462 pixels is preferred)'),
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')

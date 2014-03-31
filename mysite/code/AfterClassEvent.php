@@ -13,7 +13,8 @@ class AfterClassEvent extends CalendarEvent {
 		'status' => 'Text',
 		'facebook_publishdate' => 'Date',
 		'facebook_published' => 'Boolean',
-		'MoreInfoLink' => 'Text'
+		'MoreInfoLink' => 'Text',
+		'SubmitterSponsor' => 'Text'
 	);
 	private static $has_one = array(
 		'Image' => 'SizedImage'
@@ -193,7 +194,7 @@ class AfterClassEvent extends CalendarEvent {
       	);
 		
 		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));*/
-
+		$f->addFieldtoTab( 'Root.Main', new TextField('SubmitterSponsor','Submitted Sponsor')); 
 		$f->addFieldToTab( 'Root.Main', $sponsorsField, "Content" );
 		
 /* ------------- */
