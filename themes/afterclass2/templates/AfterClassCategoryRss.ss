@@ -13,6 +13,7 @@
 				<pubDate>$Created</pubDate>
 				<guid>{$BaseHref}{$URLSegment}</guid>
 				<cost>$Cost</cost>
+				<image>$Image.AbsoluteURL</image>
 				<smallimage>$Image.SmallImage.AbsoluteURL</smallimage>
 				<location>$Location</location>
 				<dates><% loop UpcomingDatesAndRanges.Limit(1) %>$StartDate.format(M j)<% if EndDate %> - $EndDate.format(M j)<% end_if %><% end_loop %></dates>

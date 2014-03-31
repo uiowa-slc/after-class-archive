@@ -1212,7 +1212,7 @@ h6 a {
     float: right;
     margin: 10px;
 }
-.hero-event-content { color: #ebe5e6; margin-top: -70px; position: relative; background: rgba(29, 29, 29, 0.39);  }
+.hero-event-content { color: #ebe5e6; position: relative; background: rgba(29, 29, 29, 0.85);  }
 .hero-event-text .event_categories { padding: 10px }
 .hero-event-content p { margin: 10px 0 }
 .hero-event-details {
