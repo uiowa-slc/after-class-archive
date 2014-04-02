@@ -266,6 +266,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			if($event->Image()->exists()){
  				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
  			}
+ 			//$data["events"][$eventNum]["description"] = $event->Content;
  			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
  			$data["events"][$eventNum]["dates"] = $datesArray;
  			$data["events"][$eventNum]["price"] = $event->Cost;
@@ -276,11 +277,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			unset($datesArray);
  		}
 
- 		//echo json_encode($data);
-
  		$jsonData = array(
  			"JsonFeed" => json_encode($data)
- 			);
+ 		);
 
  		return $this->customise($jsonData)->renderWith(array('JsonFeed'));
  	}
