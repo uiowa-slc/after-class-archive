@@ -33,7 +33,7 @@ class AfterClassEvent extends CalendarEvent {
 	private static $can_be_root = false;
 	private static $allowed_children = "none";
 
-    public function getStatusFlags(){
+    public function getStatusFlags($cached = true){
         $flags = parent::getStatusFlags();
         if($this->isUserSubmitted()){
         	$flags['isUserSubmitted'] = "Submitted";
