@@ -16,7 +16,8 @@ class AfterClassEvent extends CalendarEvent {
 		'MoreInfoLink' => 'Text'
 	);
 	private static $has_one = array(
-		'Image' => 'SizedImage'
+		'Image' => 'SizedImage',
+		"Primary Sponsor" => "Sponsor"
 	);
 	
 	private static $defaults = array (
@@ -33,7 +34,7 @@ class AfterClassEvent extends CalendarEvent {
 	private static $can_be_root = false;
 	private static $allowed_children = "none";
 
-    public function getStatusFlags(){
+   public function getStatusFlags(){
         $flags = parent::getStatusFlags();
         if($this->isUserSubmitted()){
         	$flags['isUserSubmitted'] = "Submitted";
@@ -43,6 +44,7 @@ class AfterClassEvent extends CalendarEvent {
     	}
         return $flags;
     }
+    
 	public function isUserSubmitted(){
 		if($this->Submittername != ""){
 			return true;
