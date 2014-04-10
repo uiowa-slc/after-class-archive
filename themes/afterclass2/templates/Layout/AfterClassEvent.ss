@@ -71,7 +71,9 @@
 <div class="span4">
 	<% if Venues || Location %>
 		<div id="detail_event_description_map">	
+			<% if Location %><p>{$Location}</p><% end_if %>
 			<% loop Venues %>
+				
 				<h2>@ $Title</h2>
 				<div class="clear"></div>								
 				<% if Address %>
@@ -87,11 +89,17 @@
 				<a href="$Link" class="button">More events here</a>
 				</p>
 			<% end_loop %>
-			<p><% if Location %>{$Location}<% end_if %><p>
+			
 		</div> <!-- end detail_event_description_map -->
 	<% end_if %>
 	<hr />
 	<% include AddThis %>
+	<hr />
+	<% with $PrimarySponsor %>
+		<div>
+			<img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/>
+		</div>
+	<% end_with %>
 	<hr />
 		<% if Sponsors %>
 			<div class="sponsors">

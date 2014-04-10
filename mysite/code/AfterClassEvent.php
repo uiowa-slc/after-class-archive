@@ -182,8 +182,8 @@ class AfterClassEvent extends CalendarEvent {
 /* ------------- */
 /* Main Sponser Field */
 /* ------------- */
-		$mainSponsor = new DropdownField('SponsorID','Primary Sponsor', Sponsor::get()->map());
-		$mainSponsor->setEmptyString('(Select one)');
+		//$mainSponsor->setEmptyString('(Select one)');
+		$mainSponsor = new DropdownField('PrimarySponsorID','Primary Sponsor', Sponsor::get()->map());
 		$f->addFieldToTab( 'Root.Main', $mainSponsor, "Content");
 
 /* ------------- */

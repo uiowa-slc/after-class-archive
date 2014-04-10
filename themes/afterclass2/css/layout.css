@@ -1057,6 +1057,11 @@ h6 a {
 .event_details .sponsors p {
     margin-top: 10px;
     margin-bottom: 0;
+   
+}
+
+.PrimarySponsorImg {
+	width: 100%; 
 }
 .event_details { margin-bottom: 20px }
 .date-link { }
