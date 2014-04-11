@@ -150,7 +150,7 @@ class AfterClassEvent extends CalendarEvent {
 		<h2>For Events Happening Just Once</h2>
 		<p>Choose "Add Calendar Date Time" and enter the Start Date, Start Time, and End Time (end time is optional).The End Date should be blank.</p>
 		<h2>For Events that span several consecutive days or happen multiple days in a row</h2>
-		<p><em>(Example: A poster sale or a CAB film)</em> After the parentheses under the second heading, change it to: "Choose "Add Calendar Date Time" and enter each film showing/event as a separate date/time. Select the Start Date and Time for each event. A movie with 8 showings, will have 8 separate date/time listings."</p> ';
+		<p><em>(Example: A poster sale or a CAB film)</em> Choose "Add Calendar Date Time" and enter each film showing/event as a separate date/time. Select the Start Date and Time for each event. A movie with 8 showings, will have 8 separate date/time listings.</p> ';
 		
 		$f->insertBefore(new LiteralField('DatesInstructions', $date_instructions), 'DateTimes');
 		
