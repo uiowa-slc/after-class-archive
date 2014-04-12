@@ -94,6 +94,7 @@
 	<% end_if %>
 	<hr />
 	<% include AddThis %>
+<% if $PrimarySponsor %>
 	<hr />
 	<% with $PrimarySponsor %>
 		<div>
@@ -101,6 +102,7 @@
 		</div>
 	<% end_with %>
 	<hr />
+<% end_if %>
 		<% if Sponsors %>
 			<div class="sponsors">
 				<p><strong>Sponsored by:</strong><% loop Sponsors %>
