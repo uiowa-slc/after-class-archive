@@ -71,10 +71,11 @@
 <div class="span4">
 	<% if Venues || Location %>
 		<div id="detail_event_description_map">	
-			<% if Location %><p>{$Location}</p><% end_if %>
+			
 			<% loop Venues %>
 				
 				<h2>@ $Title</h2>
+				<% if Top.Location %><p>{$Top.Location}</p><% end_if %>
 				<div class="clear"></div>								
 				<% if Address %>
 					<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>

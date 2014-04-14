@@ -2011,7 +2011,7 @@ a.button:active {
     #detail_event_description_map h2{
         /*float: right;
         width: 49%;*/
-        margin: 0.5em;
+        /*margin: 0.5em;*/
     }
     #detail_event_description_info {
         float: left;
