@@ -94,7 +94,7 @@
 	<% end_if %>
 	<hr />
 	<% include AddThis %>
-<% if $PrimarySponsor %>
+<% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
 	<hr />
 	<% with $PrimarySponsor %>
 		<div>
