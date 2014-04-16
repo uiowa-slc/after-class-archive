@@ -40,10 +40,13 @@
 				    <% if CancelReason %>
 						<p><strong>Note: $CancelReason</strong></p>
 					<% end_if %>
+					<% if FacebookEventLink %>
+						<p><a href="$FacebookEventLink" class="fbButton" target="_blank">Facebook Event</a></p>
+					<% end_if %>
+					$Content
 					<% if MoreInfoLink %>
 						<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
 					<% end_if %>
-					$Content
 				</div><!-- end hero-event-text-->
 				
 				<div class="hero-event-when">

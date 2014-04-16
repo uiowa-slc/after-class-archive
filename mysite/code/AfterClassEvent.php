@@ -13,7 +13,8 @@ class AfterClassEvent extends CalendarEvent {
 		'status' => 'Text',
 		'facebook_publishdate' => 'Date',
 		'facebook_published' => 'Boolean',
-		'MoreInfoLink' => 'Text'
+		'MoreInfoLink' => 'Text',
+		'FacebookEventLink' => 'Text'
 	);
 	private static $has_one = array(
 		'Image' => 'SizedImage',
@@ -145,6 +146,7 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
 		$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/pages/edit/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
 		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
+		$f->addFieldToTab('Root.Main',new TextField('FacebookEventLink', "Facebook Event Link"));
 		$f->addFieldToTab('Root.Main',new HtmlEditorField('Content','Event Description') );
 		$date_instructions = '
 		<h2>For Events Happening Just Once</h2>
@@ -159,6 +161,7 @@ class AfterClassEvent extends CalendarEvent {
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submittername','Name of submitter.') );
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitteremail','Email of submitter.') );
 			$f->addFieldToTab('Root.SubmissionInfo',new TextField('Submitterdate','Suggested Dates.') );
+			
 		}
 /* ------------- */
 /* Sponsor Table */
