@@ -128,6 +128,7 @@
 <header id="secondary_header">
 	<h1>Events Nearby</h1>
 </header>
+
 <div id="single-page-content">
       <p id="status">Finding your location....</p>
 
@@ -136,10 +137,23 @@ $Form
 
 </div>
 
-<div id="venue_list">
-	<%-- holder for venues --%>
-</div>
 
+<div class='container-fluid' id='venuesWithEvents'>
+<% loop VenuesWithEvents %>
+	<% if AfterClassEvents %>
+		<section class="row-fluid venue" id='$ID' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title="$Title">		
+			<h2 style='text-decoration: underline;'>$Title</h2>	
+			<% loop AfterClassEvents.limit(3) %>
+			<div data-title='$Title' data-link='$Link' data-image='$Image' data-cancel='$CancelReason' data-cost='$Cost' <% if Sponsors %><% loop Sponsors %> data-sponsor='$Sponsors' <% end_loop %> <% end_if %> <% loop UpcomingDatesAndRanges() %> data-startdate='$StartDate' data-starttime='$StartTime' <% end_loop %> >
+			<% include EventCard %>	
+			</div>	
+			<% end_loop %>
+		</section>
+	<% end_if %>
+<% end_loop %>	
+</div>
+				
+	
 <script>
 var markerArray = [];
 var infoWindow = null;
@@ -155,7 +169,8 @@ function makeMarker(options){
 }
 
 function locate() {
-	 // Create an array of styles.
+	// map generation
+	// Create an array of styles.
 	var styles = [		 
 	{
 	    "stylers": [
@@ -196,14 +211,12 @@ function locate() {
     var mapcanvas = document.createElement('div');	
 		mapcanvas.id = 'mapcanvas';
 		mapcanvas.style.height = '600px';
-		mapcanvas.style.width = '100%';
-	
+		mapcanvas.style.width = '100%';	
 	jQuery('#single-page-content').append(mapcanvas);
-	
-	var iowacity = new google.maps.LatLng(41.661736, -91.540017);
+	var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 	var nearMeMapOptions = {
 	    zoom: 17,
-	    center: iowacity,
+	    center: iowaCity,
 	    panControl: false,
 	    mapTypeControl: false,
 	    //navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
@@ -213,109 +226,155 @@ function locate() {
 	var map = new google.maps.Map(document.getElementById("mapcanvas"), nearMeMapOptions);
 		map.mapTypes.set('map_style', styledMap);
 		map.setMapTypeId('map_style');
-		
+			
 	// Try W3C Geolocation (Preferred)
-	if(navigator.geolocation) {
-	    browserSupportFlag = true;
-	    navigator.geolocation.getCurrentPosition(function(position) {
-			initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-			iowacity = new google.maps.LatLng(41.661736, -91.540017);
 	
-			var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowacity);	
-			// If the current position is too far away from Iowa City, just default to centering around Iowa City	
-			if(distanceFromInitialLocation < 32186.9){
-				map.setCenter(initialLocation);
-				var image = 'themes/afterclass2/images/position-indicator.png';
-				var initalMarker = new google.maps.Marker({
-					position: initialLocation,
-					map: map,
-					icon: image
-				});  
-				initalMarker.setMap(map);
-				$('#status').text("Your location is indicated on the map with this icon:");
-				$('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
-			}else {
-				$('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
-			}	      
-	    }, function() {
-	      handleNoGeolocation(browserSupportFlag);
-	    });
-	} else {
-		// Browser doesn't support Geolocation
-	    browserSupportFlag = false;
-	    handleNoGeolocation(browserSupportFlag);
+	var initialLocation;
+	
+	function getInitLocal(callback) {
+		if(navigator.geolocation) {
+			console.log("Browser DOES support Geolocation");
+		    browserSupportFlag = true;
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		    	console.log("in getCurrentPosition");
+		    	
+				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				
+				var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowaCity);	
+				// If the current position is too far away from Iowa City, just default to centering around Iowa City	
+				if(distanceFromInitialLocation < 32186.9){
+					map.setCenter(initialLocation);
+					var image = 'themes/afterclass2/images/position-indicator.png';
+					var initalMarker = new google.maps.Marker({
+						position: initialLocation,
+						map: map,
+						icon: image
+					});  
+					initalMarker.setMap(map);
+					$('#status').text("Your location is indicated on the map with this icon:");
+					$('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
+				}else {
+					$('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
+				}
+				console.log("finished getinitlocal");
+				callback(initialLocation, pinAndDist);								  
+		    }, function() {
+		      handleNoGeolocation(browserSupportFlag);
+		    });	     
+		} else {
+			// Browser doesn't support Geolocation
+			console.log("Browser doesn't support Geolocation");
+		    browserSupportFlag = false;
+		    var initialLocation = handleNoGeolocation(browserSupportFlag);
+		}
+		
+		console.log('getinitlocal last line');	
 	}
-  
-    function handleNoGeolocation(errorFlag) {   	
-		initialLocation = iowacity;
+	venueCount = jQuery("#venuesWithEvents section").length;
+	countVenue = 0;
+	
+	function venueGen(initLocal, callback) {
+		console.log("begin venueGen");
+				
+		jQuery('.venue').each(function(index, element) {
+			var title = jQuery(this).data("title");
+			var lat = jQuery(this).data("lat");
+			var lng = jQuery(this).data("lng");
+			var address = jQuery(this).data("address");
+			var venueLatLng;
+			var venueDistance;
+			var venue = this;
+			
+			if(lat && lng) {
+				countVenue = ++countVenue;
+				venueLatLng = new google.maps.LatLng(lat, lng);
+				callback(initLocal, venueLatLng, venue, 'had lat');
+			} else {
+				geocoder.geocode( { 'address': address}, function(results, status) {
+					countVenue = ++countVenue;
+					if (status == google.maps.GeocoderStatus.OK) {
+						venueLatLng = results[0].geometry.location;
+						callback(initLocal, venueLatLng, venue  , 'no lat');
+					}				
+				});
+			}			
+		});
+		
+	}
+		
+	function pinAndDist(initLocal, venueLatLng, venue, from) {
+		console.log('begin pinAndDist: ' + from);
+		var venueDistance = google.maps.geometry.spherical.computeDistanceBetween(initLocal, venueLatLng);	
+		var venueID = venue.id;
+		venueFromMe[venueID] = venueDistance;
+		
+		var marker = new google.maps.Marker({
+				position: venueLatLng,
+				map: map
+			});	
+					    
+		var eventsHere = [];
+		var eventsHereString = '';
+		var eventBubbleString = '';
+		
+		jQuery(venue).children('div').each(function(index, Element) {
+			var eventTitle = jQuery(this).data('title');
+			var eventImage = jQuery(this).data('image');
+			var eventCancel = jQuery(this).data('cancel');
+			var eventLink = jQuery(this).data('link');
+			var eventCost = jQuery(this).data('cost');
+			var startDate = jQuery(this).data('startdate');
+			var startTime = jQuery(this).data('starttime');
+
+			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <p> cost: " + eventCost + " Time: " + startTime + "</div>";
+			eventsHere.push(eventStringSeg);
+		});
+		
+		eventsHereString = eventsHere.join();
+		eventBubbleString = "div class='event_bubble'>" +
+				"<div class='upcomingEvents'>" +
+				eventsHereString +
+				"</div>" +
+				"</div>";
+	
+	    google.maps.event.addListener(marker, 'click', function () {
+	  		infowindow.setContent(eventBubbleString);
+	  		infowindow.open(map, this);	
+		});
+		
+		if(countVenue == venueCount) {
+			nearestVenues = [];
+			for (var venueID in venueFromMe) {
+				nearestVenues.push([venueID, venueFromMe[venueID]])
+			}	
+			nearestVenues.sort(function(a,b) {return a[1] - b[1]})
+			for (var v=0; v < nearestVenues.length; v++) {
+				//console.log('sorting...');
+				var vid = nearestVenues[v];
+				jQuery("#venuesWithEvents").append( jQuery("#" + vid) );
+			}
+		}		
+	}
+	
+	var venueFromMe = {};
+	
+	function handleNoGeolocation(errorFlag) {   	
+		initialLocation = iowaCity;
 	    map.setCenter(initialLocation);
 	    $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
+	    console.log("in handleNoGeo: " + initialLocation);
+	    return initialLocation;
 	}  
-	
+		
 	var infowindow = new google.maps.InfoWindow({
-	content: "holding..."
+		content: "holding...",
+		maxWidth: 380
 		});
 	
-    var geocoder;	
-	geocoder = new google.maps.Geocoder();
-	var address = "$Address";
+	var geocoder = new google.maps.Geocoder();
 	
-	<% loop Venues %>
-	<% if AfterClassEvents %>	
-	
-	//jQuery('#venue_list').prepend("<div id='$ID' class='venue_section'><h2 style='text-decoration: underline;'>$Title</h2></div>");
-	
-	<% loop AfterClassEvents %>
-	
-	/*
-	jQuery("#{$Up.ID}").append("<h3> $Title </h3>");
-	jQuery("#{$Up.ID}").append("<p> $nearMeSummary <a href='$link'>...more...</a></p>");
-	jQuery("#{$Up.ID}").append("Cost: $Cost");
-	*/
-		
-	<% if $Up.Lat %>
-    var venueLatLng = new google.maps.LatLng($Up.Lat, $Up.Lng);
-    var marker = new google.maps.Marker({
-      map: map,
-      position: venueLatLng
-    });
-   	<% else %>
-	//geo-coding to convert our addresses to usable longitude/latitude  
-    geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-    var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-    } else {
-        //alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-    <% end_if %>
-	google.maps.event.addListener(marker, 'click', function () {
-	infowindow.setContent("<div class='event_bubble'>" +
-				"<div class='event_deets'>" +
-				"<h3><a href=$Link>$Title</a></h3>" +
-				"<ul>" +
-				"<% if $CancelReason %><li class='canceled'>Canceled: $CancelReason </li><% end_if %>" +
-				"<% if $Cost %><li> Cost: $Cost </li><% end_if %>" +
-				"<li><% loop UpcomingDatesAndRanges.limit(1) %><% if $StartDate %>On: $StartDate.NiceUs <% end_if %><% if $StartTime %> @ $StartTime <% end_if %><% end_loop %></li>" +
-				"</ul>" +					
-				"<p> $nearMeSummary <a href='$Link'>...Read More...</a>" +
-				"</div>"+
-				"<div class='event_pic'>" +
-				"<img src='http://afterclass.uiowa.edu/assets/Uploads/_resampled/CroppedImage730462-547622501983886527472867626312n.jpg' />" +
-				"</div>" +
-				"</div>" +
-				"<div class='more_events_here'>" +
-				//"<p id='$Up.ID'> More Events Upcoming Here:  </p>" +
-				"</div>");
-	infowindow.open(map, this);
-	});
-	//set First to fill in content on string, others only fill in more events section. 
-	<% end_loop %>
-	<% end_if %>
-	<% end_loop %>
+	getInitLocal(venueGen);
+
 }
 
 function error(msg) {
@@ -338,6 +397,4 @@ $(document).ready(function() {
   locate();
 });
 
-
 </script>
-

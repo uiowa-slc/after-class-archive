@@ -1,7 +1,7 @@
 <?php
 class JSONFeedExtension extends DataExtension{
 
-	public function JSONRSSDisplay($numItems = 30, $feedURL="http://afterclass.uiowa.edu/events/feed/json") {
+	public function JSONRSSDisplay($feedURL="http://afterclass.uiowa.edu/events/feed/json") {
 		
 		$outfeed = new ArrayList();
 		

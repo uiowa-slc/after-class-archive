@@ -32,14 +32,13 @@ class NearMePage_Controller extends Page_Controller {
 		      Requirements::block('themes/afterclass2/js/jquery.min.js'); 
 	}
 	
-	public function Venues() {
+	public function AfterClassEvents(){
+		return AfterClassEvent::get();
+	}
+	
+	public function VenuesWithEvents() {	
 		return Venue::get()->sort('Title ASC');
+		//I'd like to just return venues that have upcoming events. How to do this? 
+		//return Venue::get()->filter(array('AfterClassEvent.ID:GreaterThan' => 0));
 	}
-	
-	public function EventSummary() {
-		
-	}
-	
-	
-}
-
+} 

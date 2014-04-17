@@ -28,7 +28,7 @@ class AfterClassCalendar extends Calendar {
 	'AfterClassEvent'
 	);
 	
-		function getCMSFields() {
+	function getCMSFields() {
 		$fields =parent::getCMSFields();
 		$fields->removeFieldFromTab("Root.Main", "Content");
 		$fields->addFieldToTab("Root.Ads", new TextField("Ad1Title", "Ad 1 Title / Alt Text"));
