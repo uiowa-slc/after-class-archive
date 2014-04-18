@@ -98,6 +98,7 @@
 	<% end_if %>
 	<hr />
 	<% include AddThis %>
+<!--
 <% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
 	<hr />
 	<% with $PrimarySponsor %>
@@ -107,6 +108,7 @@
 	<% end_with %>
 	<hr />
 <% end_if %>
+-->
 		<% if Sponsors %>
 			<div class="sponsors">
 				<p><strong>Sponsored by:</strong><% loop Sponsors %>
