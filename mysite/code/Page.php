@@ -5,8 +5,7 @@ class Page extends SiteTree {
 	);
 
 	private static $has_one = array(
-	
-		"SecondaryContent" => "HTMLText"
+
 	
 	);
 	public function AllEventtypes() {
