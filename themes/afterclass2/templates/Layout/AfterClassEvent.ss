@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row <% if $PrimarySponsor %>sponsor-$PrimarySponsor.ID<% end_if %>">
 <div class="feature-background-wrapper">
 <div class="span8">
 	<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
@@ -41,7 +41,7 @@
 						<p><strong>Note: $CancelReason</strong></p>
 					<% end_if %>
 					<% if FacebookEventLink %>
-						<p><a href="$FacebookEventLink" class="fbButton" target="_blank">Facebook Event</a></p>
+						<p><a href="$FacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
 					<% end_if %>
 					$Content
 					<% if MoreInfoLink %>
@@ -70,20 +70,19 @@
 
 </div><!-- end span8 -->
 
-
 <div class="span4">
 	<% if Venues || Location %>
 		<div id="detail_event_description_map">	
-			
 			<% loop Venues %>
-				
-				<h2>@ $Title</h2>
-				<% if Top.Location %><p>{$Top.Location}</p><% end_if %>
-				<div class="clear"></div>								
-				<% if Address %>
-					<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
-				<% end_if %>
-				<p>
+				<div class="location-info">
+					<% if Top.Location %><p>{$Top.Location}</p><% end_if %>
+					<h2>@ <a href="$Link" class="button tag">$Title</a></h2>
+					<div class="clear"></div>								
+					<% if Address %>
+						<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
+					<% end_if %>
+					<p>
+				</div>
 				<% if Address %>
 					<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
 				<% end_if %>
@@ -98,21 +97,23 @@
 	<% end_if %>
 	<hr />
 	<% include AddThis %>
-<!--
+<hr />
 <% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
-	<hr />
+	
 	<% with $PrimarySponsor %>
-		<div>
+		<% if $LinkURL %>
+			<a href="$LinkURL" target="_blank"><img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/></a>
+		<% else %>
 			<img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/>
-		</div>
+		<% end_if %>
+
 	<% end_with %>
-	<hr />
 <% end_if %>
--->
+
 		<% if Sponsors %>
 			<div class="sponsors">
 				<p><strong>Sponsored by:</strong><% loop Sponsors %>
-				<a href="$Link">$Title</a><br />
+				<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
 				<% end_loop %></p>
 			</p>
 			</div>

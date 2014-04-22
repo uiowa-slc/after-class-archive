@@ -131,7 +131,7 @@ h2 a { font-weight: normal }
    ========================================================================== */
 abbr[title] { border-bottom: 1px dotted }
 b,
-strong { font-weight: bold }
+strong { font-weight: normal; }
 blockquote { margin: 1em 40px }
 dfn { font-style: italic }
 hr {
@@ -838,6 +838,7 @@ h6 a {
     min-height: 450px;
     padding: 2%;
 }
+
 #detail_event_description a { color: #bfa7c5 }
 #detail_event_description a:hover { color: #e7d3ec }
 #detail_event_description h2 {
@@ -856,6 +857,15 @@ h6 a {
     border: 1px solid #555555;
 }
 .map-container { height: 300px }
+
+#detail_event_description_map {
+    margin-top: 10px;
+}
+
+.location-info p, .location-info h2{
+    margin: 5px 0;
+
+}
 
 
 /* Helpers stay on bottom */
@@ -1062,6 +1072,8 @@ h6 a {
 
 .PrimarySponsorImg {
 	width: 100%; 
+    margin: auto;
+    display: block;
 }
 .event_details { margin-bottom: 20px }
 .date-link { }
@@ -1303,6 +1315,28 @@ h6 a {
 .img-shadow img { float: right }
 .homefeatureitem .event_text a:hover { color: #dbb700 }
 
+/* Primary Sponsor Styles */
+
+/* CAB */
+.sponsor-15 h1{
+    color: #EA212E;
+}
+
+.sponsor-15 strong {
+    color: #A7A7A7;
+}
+
+.sponsor-15 a{
+    color: #D82213; 
+}
+.sponsor-15 a.button.tag {
+    background: #97372F;
+    color: white;
+}
+
+.sponsor-15 .hero-event h2 {
+    color: #C5C5C5;
+}
 
 /* FlexSlider Necessary Styles
 *********************************/ 
