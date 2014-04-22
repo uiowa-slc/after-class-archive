@@ -76,7 +76,7 @@
 			<% loop Venues %>
 				<div class="location-info">
 					<% if Top.Location %><p>{$Top.Location}</p><% end_if %>
-					<h2>@ <a href="$Link" class="button tag">$Title</a></h2>
+					<h2><a href="$Link" class="button tag">@ $Title</a></h2>
 					<div class="clear"></div>								
 					<% if Address %>
 						<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
