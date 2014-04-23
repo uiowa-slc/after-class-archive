@@ -326,7 +326,11 @@ function locate() {
 			var startDate = jQuery(this).data('startdate');
 			var startTime = jQuery(this).data('starttime');
 
+			
+			
+
 			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <p> cost: " + eventCost + " Time: " + startTime + "</div>";
+					
 			eventsHere.push(eventStringSeg);
 		});
 		

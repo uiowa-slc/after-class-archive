@@ -129,6 +129,7 @@ class AfterClassEvent extends CalendarEvent {
 
 		
 		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
+		$f->addFieldtoTab( 'Root.Main', new TextField('SubmitterSponsor','Submitted Sponsor')); 
 		$f->addFieldToTab('Root.Main',new HtmlEditorField('Content','Event Description') );
 		
 		$date_instructions = '
@@ -194,7 +195,7 @@ class AfterClassEvent extends CalendarEvent {
       	);
 		
 		$f->addFieldToTab('Root.Sponsors', new HeaderField("SponsorHeader","Sponsors"));*/
-		$f->addFieldtoTab( 'Root.Main', new TextField('SubmitterSponsor','Submitted Sponsor')); 
+
 		$f->addFieldToTab( 'Root.Main', $sponsorsField, "Content" );
 		
 /* ------------- */
