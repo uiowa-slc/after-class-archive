@@ -14,16 +14,21 @@ class Venue extends Category {
 		"AfterClassEvents" => "AfterClassEvent"
 	);
 	
-	function getCMSFields_forPopup() {
-		$fields = parent::getCMSFields_forPopup();
-		$fields->push( new HtmlEditorField( 'Information' ) );
+	function getCMSFields() {
+		$fields = parent::getCMSFields();
+		
 		$fields->push( new TextField('Address') );
 		$fields->push( new TextField('Email', 'Contact Email Address') );
 		$fields->push( new TextField('Phone', 'Phone Number') );
 		$fields->push( new TextField('WebsiteURL','Website Address') );
-		$fields->push( new TextField('Lat') );
-		$fields->push( new TextField('Lng') );
+		$fields->push( new TextField('Lat', 'Latitude') );
+		$fields->push( new TextField('Lng', 'Longitude') );
+		$fields->push( new HtmlEditorField( 'Information' ) );
 		return $fields;
+	}
+
+	public function DirectionsLink(){
+		return "http://maps.apple.com/?q=".$this->Address;
 	}
 	
 }

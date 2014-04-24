@@ -3,18 +3,17 @@
 	"description": "The SilverStripe Framework Installer",
 	"require": {
 		"php": ">=5.3.2",
-		"silverstripe/cms": "3.1.2",
-		"silverstripe/framework": "3.1.2",
+		"silverstripe/cms": "3.1.4",
+		"silverstripe/framework": "3.1.4",
 		"silverstripe-themes/simple": "*",
 		"silverstripe/event-calendar": "dev-master",
 		"silverstripe/userforms" : "*",
-		"silverstripe/recaptcha" : "*",
-		"silverstripe/spamprotection" : "*",
 		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
-		"sunnysideup/upgrade_silverstripe" : "*",
-		"unclecheese/dashboard" : "*"
+		"silverstripe/staticpublisher": "dev-master",
+		"silverstripe/spamprotection": "dev-master",
+		"silverstripe/mathspamprotection": "dev-master"
 
 	},
 	"config": {

@@ -10,8 +10,8 @@ class Eventtype extends Category {
 		"LinkURL" => "Text"
 	);
 	
-	function getCMSFields_forPopup() {
-		$fields = parent::getCMSFields_forPopup();
+	function getCMSFields() {
+		$fields = parent::getCMSFields();
 		$fields->push( new TextField('LinkURL', 'Website Address') );
 		$fields->push( new HtmlEditorField( 'Information' ) );
 		return $fields;

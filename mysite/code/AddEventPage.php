@@ -35,6 +35,7 @@ class AddEventPage_Controller extends Page_Controller {
 		$fields = new FieldList(
             new TextField('Title','Name of the event'),
             new TextField('Location','Location of the event'),
+            new TextField('MoreInfoLink','Website or Link that has more information about the event'),
             new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
             new TextField('Cost','How much does it cost to attend?'),
             new TextareaField('Content','Describe what the event is about.'),
@@ -49,7 +50,7 @@ class AddEventPage_Controller extends Page_Controller {
         $validator = new RequiredFields('Title','Location','Cost','Submitterdate', 'Description','Submittername','Submitteremail','Submitterdate');
      	$form = new Form($this, 'addEventForm', $fields, $actions, $validator);
      	
-     	//$form->enableSpamProtection();
+     	$form->enableSpamProtection();
         return $form;
 	}
 	function addEvent($data, $form) {
@@ -58,6 +59,7 @@ class AddEventPage_Controller extends Page_Controller {
 
         $form->saveInto($event);
         
+        $event->write();
         $event->writeToStage("Stage");
         Session::set('Submitted', true);
         
@@ -78,6 +80,7 @@ class AddEventPage_Controller extends Page_Controller {
 					<li><strong>Title:</strong> '.$event->Title.'</li>
 					<li><strong>Submitted By:</strong> '.$event->Submittername.'['.$event->Submitteremail.']</li>
 					<li><strong>Date:</strong> '.$event->Submitterdate.'</li>
+					<li><strong>Website or More Info Link:</strong> '.$event->MoreInfoLink.'</li>
 					<li><strong>Location:</strong> '.$event->Location.'</li>
 					<li><strong>Cost:</strong> '.$event->Cost.'</li>
 					<li><strong>Sponsored By:</strong> '.$event->Sponsor.'</li>
@@ -85,7 +88,7 @@ class AddEventPage_Controller extends Page_Controller {
 					
 				</ul>
 				
-				<p><a href="http://afterclass.uiowa.edu/admin/show/'.$event->ID.'">Approve it (or don\'t) here</a></p>';
+				<p><a href="http://afterclass.uiowa.edu/admin/pages/edit/show/'.$event->ID.'">Approve it (or don\'t) here</a></p>';
 			
 		
 		$email = new Email($from, $to, $subject, $body);

@@ -1,7 +1,6 @@
 <!doctype html>
 
 <head>
-
 	<% base_tag %>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
@@ -30,8 +29,8 @@ document.createElement('hgroup');
 <header id="page_header">
 	<div class="container" id="canvas-container">
 		<!--<canvas id="canvas"></canvas>-->
-		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" /></a></div>
-	    <p class="subheader">$RandomTagline</p>
+		<div class="big_header"><a href="$BaseHref"><img src="{$ThemeDir}/images/afterclass_logo.png" alt = "AfterClass Logo"/></a></div>
+	    <p class="subheader">the best of ui's culture, events, and nightlife</p>
 	</div>
 </header>
 

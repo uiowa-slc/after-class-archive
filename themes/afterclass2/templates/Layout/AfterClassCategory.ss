@@ -1,3 +1,5 @@
+<div class="row">
+<div class="span8">
 <header id="secondary_header">
 	<% if Category.AltTitle %>
 	<h1>$Category.AltTitle</h1>
@@ -5,7 +7,7 @@
 	<h1> $Category.Title </h1>
 	<% end_if %>
 </header>
-<div id="category-content" class="category">
+<div class="category">
 	<div class="about-category">
 		<% with Category %>
 		<div class="category-content">
@@ -15,8 +17,8 @@
 			<% if Phone %><p>$Phone</p><% end_if %>
 			<% if Email %><a href="mailto: $Email">$Email</a></p><% end_if %>
 			<% if LinkURL %><p><a class="button" href="$LinkURL" target="_blank">Visit Website &raquo; </a></p><% end_if %>
-			<% if WebsiteURL %><p><a class="button" href="$WebsiteURL" target="_blank">Visit the $Title Website &raquo;</a></p>
-			<a class="button" href="http://www.google.com/maps?f=d&daddr=$Address">Get Directions &raquo; </a></p><% end_if %>
+			<% if WebsiteURL %><p><a class="button" href="$WebsiteURL" target="_blank">Visit the $Title Website</a></p>
+			<a class="button get-directions" href="http://www.google.com/maps?f=d&daddr=$Address" target="_blank">Get Directions</a></p><% end_if %>
 			<% end_if %>
 			<div class="clear"></div>
 		</div><!-- end category-content -->
@@ -28,24 +30,26 @@
 		<style>
 			.where {
 			display: none;
-
 		}
 		</style>
-<% end_if %>
+	<% end_if %>
 
 	<div class="category-list">
 		<% if Events %>
 			<% loop Events %>
 			<div class="event-cards">
-				<% loop Event %>
-					<% include EventCard %>
-				<% end_loop %>
+				<% include EventCard %>
 			</div>
 			<% end_loop %>
 			<div style="clear: both"></div>
 		<% else %>
 			No events currently listed.
 		<% end_if %>
-	</div>
-</div>
+	</div><!-- end category-list -->
+</div><!-- end category -->
 <% end_with %>
+</div><!-- end span8 -->
+<div class="span4">
+	<% include SideBar %>
+</div>
+</div><!-- end row -->

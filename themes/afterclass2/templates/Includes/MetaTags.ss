@@ -21,30 +21,7 @@
 	<meta property="og:site_name" content="After Class"/>
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
-	<title><% if $CategoryName %>$Category.Title
-		<% loop $Category %>
-		<% if $ClassName == "Sponsor" %>
-		- University of Iowa Event Sponsor - 
-		<% else_if $ClassName == "Venue" %>
-		- Event Venue - 
-		<% else_if $ClassName == "Category" %>
-		- Upcoming -
-		<% end_if %>
-		<% end_loop %>
-	<% else %>
-		<% loop Category %><% if First %>
-		<% if $ClassName == "Sponsor" %>
-		Event Sponsors - 
-		<% else_if $ClassName == "Venue" %>
-		Venues - 
-		<% else %>
-		Categories - 
-		<% end_if %>
-		<% end_if %><% end_loop %>
-	<% end_if %>
-	<% if ClassName == "AfterClassEvent" %>
-	$Title - 
-	<% end_if %>
+	<title>$Title - 
 	After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
 	<% if Content %>
 		<meta name="description" content="$Content.NoHTML">

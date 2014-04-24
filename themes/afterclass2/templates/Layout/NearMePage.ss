@@ -139,7 +139,7 @@ $Form
 
 
 <div class='container-fluid' id='venuesWithEvents'>
-<% loop VenuesWithEvents %>
+<% loop Venues %>
 	<% if AfterClassEvents %>
 		<section class="row-fluid venue" id='$ID' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title="$Title">		
 			<h2 style='text-decoration: underline;'>$Title</h2>	

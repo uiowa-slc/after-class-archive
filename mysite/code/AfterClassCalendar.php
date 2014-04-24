@@ -45,21 +45,20 @@ class AfterClassCalendar extends Calendar {
 
 		$fields->addFieldToTab("Root.Main", new LiteralField("FeaturedEventLabel", "<h2>Feature these events on the homepage</h2> <p>If none of the events below have upcoming dates, they will not show up on the homepage.</p>"));
 		
-		$FeaturedEvent1Field = new TreeDropdownField( "FeaturedEvent1ID", "Featured Event 1", 'AfterClassEvent');
+		$FeaturedEvent1Field = new TreeDropdownField( "FeaturedEvent1ID", "Featured Event 1", 'Page');
 		$FeaturedEvent1Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent1Field);
 
-		$FeaturedEvent2Field = new TreeDropdownField( "FeaturedEvent2ID", "Featured Event 2", 'AfterClassEvent');
+		$FeaturedEvent2Field = new TreeDropdownField( "FeaturedEvent2ID", "Featured Event 2", 'Page');
 		$FeaturedEvent2Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent2Field);
 
-		$FeaturedEvent3Field = new TreeDropdownField( "FeaturedEvent3ID", "Featured Event 3", 'AfterClassEvent');
+		$FeaturedEvent3Field = new TreeDropdownField( "FeaturedEvent3ID", "Featured Event 3", 'Page');
 		$FeaturedEvent3Field->setTreeBaseId = 6;
 
 		$fields->addFieldToTab("Root.Main", $FeaturedEvent3Field);	
-
 		
 		return $fields;
 	}
@@ -74,11 +73,15 @@ class AfterClassCalendar extends Calendar {
 	    return Venue::get();
 	}
 	
-	
+	public function UpcomingDatesAndRanges($limit = 0)
+	{
+		return DataList::create("CalendarDateTime")
+			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")
+			->sort("\"StartDate\" ASC")
+			->limit($limit);
+	}
 	function FeaturedEvents() {
-	
 		$eventSet = new ArrayList();
-		
 		$events[] = $this->FeaturedEvent1();
 		$events[] = $this->FeaturedEvent2();
 		$events[] = $this->FeaturedEvent3();
@@ -87,7 +90,6 @@ class AfterClassCalendar extends Calendar {
 			$eventUpcomingDate = $event->UpcomingDatesAndRanges()->First();
 			
 			if(($eventUpcomingDate) && ($eventUpcomingDate->EventID != 0)){
-
 				$eventSet->push($event);
 			}
 		}
@@ -98,12 +100,16 @@ class AfterClassCalendar extends Calendar {
 		else{ 
 			return false;	
 		}
-	
 	}
-	
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {
+
+ 	public function init() {
+		RSSFeed::linkToFeed($this->Link() . "feed/rss", "RSS Feed of this calendar");
+		parent::init();
+	}
+
 	public function Home() {
 		if($this->action == 'index'){
 			return true;
@@ -111,202 +117,306 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			return false;
 		}
 	}
- 	 public static $url_handlers = array(
+ 	 private static $url_handlers = array(
+            'categories//$Category/feed/$FeedType' => 'categories',
+            'categories/feed//$FeedType' => "categories",
             'categories/$Category' => 'categories',
-            'venues/$Venue' => 'venues',
-            'sponsors/$Sponsor' => 'sponsors',
-            'categories/$Category/rss' => 'categoriesrss',
-
+            'venues' => 'venues',
+            'sponsors' => 'sponsors',
+            'feed/$Type' => 'Feed',
+            //legacy urls:
+            'categoriesrss/$Category' => 'categoriesrss',
             );
- 	static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss", "venues", "sponsors");
+ 	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
  	
- 	# EventDate, EventLocation, EventCost
- 	public function newrss() {
-		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
-		foreach($events as $event) {
-			$event->Title = strip_tags($event->_Dates()) . " : " . $event->EventTitle();
-			$event->Description = strip_tags($event->EventContent());
-		}
-		
-		//remove duplicates from the feed.
-		
-		$events->removeDuplicates("EventID");
-		
-		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
-		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
-		
-		if(is_int($rss->lastModified)) {
-			HTTP::register_modification_timestamp($rss->lastModified);
-			header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $rss->lastModified) . ' GMT');
-		}
-		if(!empty($rss->etag)) {
-			HTTP::register_etag($rss->etag);
-		}
-		$xml = str_replace('&nbsp;', '&#160;', $rss->renderWith('RSSFeed'));
-		$xml = preg_replace('/<!--(.|\s)*?-->/', '', $xml);
-		$xml = trim($xml);
-		HTTP::add_cache_headers();
-		header("Content-type: text/xml");
+ 	function AllEventsWithoutDuplicates() {
 
- 		$Data = array(
-	      'Events' => $events
-	    );
-		
-		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
-		return "";
+ 		$events = $this->AllEvents();
+		$events->removeDuplicates('ID');
+		return $events;
 	}
-	
- 	
- 	public function categoriesrss() {
-		$events = $this->data()->UpcomingEvents(null,$this->DefaultEventDisplay);
-		
-		$events = new ArrayList();
-		$CategoryName = addslashes($this->urlParams['Category']);
-		if (strpos(strtolower($CategoryName),"-") === false) {
-		  $Category = Category::get()->First();
-		  $events = $Category->events();
-		} else {
-		  $Categories = explode("-",$CategoryName);
-		  foreach ($Categories as $CatName) {
-		  	$Category = Category::get()->First("Category", "URLSlug = '".$CatName."'"); 
-		  	$CatEvents = $Category->events();
-		  	$events->merge($CatEvents);
-		  }
-		  $e = $events->toArray();
-		  CalendarUtil::date_sort($e);
-		  $events = new ArrayList($e);
-		}
-		
-		$events->removeDuplicates();
 
-		foreach($events as $event) {
-			$event->Title = strip_tags($event->EventTitle());
-			$event->Description = strip_tags($event->EventContent());
-		}
-		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
-		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
-		
-		if(is_int($rss->lastModified)) {
-			HTTP::register_modification_timestamp($rss->lastModified);
-			header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $rss->lastModified) . ' GMT');
-		}
-		if(!empty($rss->etag)) {
-			HTTP::register_etag($rss->etag);
-		}
-		$xml = str_replace('&nbsp;', '&#160;', $rss->renderWith('RSSFeed'));
-		$xml = preg_replace('/<!--(.|\s)*?-->/', '', $xml);
-		$xml = trim($xml);
-		HTTP::add_cache_headers();
-		header("Content-type: text/xml");
-		//echo $xml;
-		
- 		$Data = array(
-	      'Events' => $events
-	    );
-		
-		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
-		return "";
-	}
-	
-	function AllEventsWithoutDuplicates() {
-		$calendar = $this->owner;
-
+	function AllEvents(){
 		$start_date = date( "d/m/Y", time() );
 		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
-		//$events = $calendar->getEventList('1900-01-01','3000-01-01');
-		$events =  parent::Events(null,$start_date,$start_date,false,1000);
-		$eventsArray= $events->ToArray();
-
-		$eventsArrayList = new ArrayList($eventsArray);
-		$eventsArrayList->removeDuplicates('EventID');
-
-
-		return $eventsArrayList;
+		$eventDateTimes = $this->getEventList(
+			sfDate::getInstance()->date(),
+			sfDate::getInstance()->addYear(10)->date(),
+			null,
+			null
+		);
+		$events = new ArrayList();
+		foreach($eventDateTimes as $eventDateTime){
+			$events->push($eventDateTime->Event());
+		}
+		return $events;
 	}
-	
-	
- 	/* Return a venue, or list of venues. */
- 	function venues() {
- 		$VenueName = addslashes($this->urlParams['Venue']);
- 		if ($VenueName) {
- 			$Venue = Venue::get()->First();
+	function UpcomingDatesAndRanges(){
+		$dates = DataList::create("CalendarDateTime")
+			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")
+			->sort("\"StartDate\" ASC");
+
+		return $dates->toArray();
+	}
+
+ 	public function Feed(){
+ 		$feedType = addslashes($this->urlParams['Type']);
+
+ 		//If we have Category in the URL params, get events from a category only
+ 		if(array_key_exists('Category', $this->urlParams)){
+ 			$categoryTitle = $this->urlParams['Category'];
+ 			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
+ 			$events = $category->Events();
+ 		//else get all events	
+ 		}else{
+ 			
+ 			$events = $this->AllEventsWithoutDuplicates();
+ 		}
+ 		//Determine which feed we're going to output
+ 		switch($feedType){
+ 			case "json":
+ 				return $this->getJsonFeed($events);
+ 				break;
+ 			case "rss":
+ 				return $this->getRSSFeed($events);
+ 				break;
+ 			default:
+ 				return $this->getJsonFeed($events);
+ 				break;
+ 		}
+
+ 	}
+ 	public function getCategoriesJsonFeed($categories){
+ 		if(!isset($categories)){
+ 			$categories = Category::get();
+ 		}
+ 		$data = array();
+ 		foreach($categories as $catNum => $category){
+ 			$data["categories"][$catNum]['id'] = $category->ID;
+ 			$data["categories"][$catNum]['name'] = $category->Title;
+ 			$data["categories"][$catNum]['kind'] = $category->ClassName;
+ 			$data["categories"][$catNum]['has_upcoming_events'] = $category->Events()->exists();
+ 			$data["categories"][$catNum]['address'] = $category->Address;
+ 			$data["categories"][$catNum]['info'] = $category->Information;
+ 			$data["categories"][$catNum]["contact_email"] = $category->Email;
+ 			$data["categories"][$catNum]["contact_phone"] = $category->Phone;
+ 			$data["categories"][$catNum]["website_link"] = $category->WebsiteURL;
+ 			$data["categories"][$catNum]["latitude"] = $category->Lat;
+ 			$data["categories"][$catNum]["longitude"] = $category->Lng;			
+ 		}
+	 echo json_encode($data);
+ 	}
+
+ 	public function getJsonFeed($events){
+ 		if(!isset($events)){
+ 			$events = $this->UpcomingEvents();
+ 		}
+ 		$data = array();
+
+ 		foreach($events as $eventNum => $event){
+
+ 			/* Get Dates in  an array for later */
+ 			$datesArray = array();
+ 			$dates = $event->UpcomingDatesAndRanges();
+
+ 			foreach($dates as $dateNum => $date){
+ 				$datesArray[$dateNum]["start_date"] = $date->StartDate;
+ 				$datesArray[$dateNum]["start_time"] = $date->StartTime;
+ 				$datesArray[$dateNum]["end_date"] = $date->EndDate;
+ 				$datesArray[$dateNum]["end_time"] = $date->EndTime;
+ 				$datesArray[$dateNum]["all_day"] = $date->AllDay;
+ 			}
+
+ 			$venuesArray = array();
+ 			$venues = $event->Venues();
+
+ 			foreach($venues as $venueNum => $venue){
+ 				$venuesArray[$venueNum]["id"] = $venue->AltTitle ? $venue->AltTitle : $venue->ID;
+ 				$venuesArray[$venueNum]["name"] = $venue->AltTitle ? $venue->AltTitle : $venue->Title;
+ 				$venuesArray[$venueNum]["address"] = $venue->Address;
+ 				$venuesArray[$venueNum]["info"] = $venue->Information;
+ 				$venuesArray[$venueNum]["contact_email"] = $venue->Email;
+ 				$venuesArray[$venueNum]["contact_phone"] = $venue->Phone;
+ 				$venuesArray[$venueNum]["website_link"] = $venue->WebsiteURL;
+ 				$venuesArray[$venueNum]["latitude"] = $venue->Lat;
+ 				$venuesArray[$venueNum]["longitude"] = $venue->Lng;
+ 			}
+
+ 			$eventTypesArray = array();
+ 			$eventTypes = $event->eventTypes();
+
+ 			foreach($eventTypes as $eventTypeNum => $eventType){
+ 				$eventTypesArray[$eventTypeNum]["name"] = $eventType->Title;
+ 				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Information;
+ 			}
+
+  			$sponsorsArray = array();
+ 			$sponsors = $event->sponsors();
+
+ 			foreach($sponsors as $sponsorNum => $sponsor){
+ 				$sponsorsArray[$sponsorNum]["name"] = $sponsor->Title;
+ 				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Information;
+ 				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
+ 			}
+ 			
+ 			$data["events"][$eventNum]["id"] = $event->ID;
+ 			$data["events"][$eventNum]["name"] = $event->Title;
+ 			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
+ 			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
+ 			if($event->Image()->exists()){
+ 				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
+ 			}
+ 			//$data["events"][$eventNum]["description"] = $event->Content;
+ 			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
+ 			$data["events"][$eventNum]["dates"] = $datesArray;
+ 			$data["events"][$eventNum]["price"] = $event->Cost;
+ 			$data["events"][$eventNum]["location"] = $event->Location;
+ 			$data["events"][$eventNum]["venues"] = $venuesArray;
+ 			$data["events"][$eventNum]["sponsors"] = $sponsorsArray;
+ 			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
+ 			unset($datesArray);
+ 		}
+
+ 		$jsonData = array(
+ 			"JsonFeed" => json_encode($data)
+ 		);
+
+ 		return $this->customise($jsonData)->renderWith(array('JsonFeed'));
+ 	}
+ 	public function getRSSFeed($events) {
+		//remove duplicates from the feed.
+		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
+		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
+		
+		if(is_int($rss->lastModified)) {
+			HTTP::register_modification_timestamp($rss->lastModified);
+			header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $rss->lastModified) . ' GMT');
+		}
+		if(!empty($rss->etag)) {
+			HTTP::register_etag($rss->etag);
+		}
+		$xml = str_replace('&nbsp;', '&#160;', $rss->renderWith('RSSFeed'));
+		$xml = preg_replace('/<!--(.|\s)*?-->/', '', $xml);
+		$xml = trim($xml);
+		HTTP::add_cache_headers();
+		header("Content-type: text/xml");
+
+ 		$Data = array(
+	      'Events' => $events
+	    );
+		
+		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
+		return "";
+	}
+
+	function getCategoryByName($name){
+		return Category::get()->filter(array('Title' => $name))->First();
+	}
+ 	public function types() {
+ 			$Category = Eventtype::get();
  			$Data = array(
-	      		'Category' => $Venue,
-	      		'CategoryName' => $VenueName
-	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
- 		} else {
- 			$Category = Venue::get();
- 			$Data = array(
+ 				'Title' => 'Venues',
 				'Category' => $Category
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
- 		}
- 	}
- 	/* Return a sponsor or list of sponsors. */
- 	function sponsors() {
- 		$SponsorName = addslashes($this->urlParams['Sponsor']);
- 		if ($SponsorName) {
- 			$Sponsor = Sponsor::get()->First();
+ 	}	
+ 	/* Return a list of venues. */
+ 	public function venues($request) {
+ 			$Category = Venue::get();
  			$Data = array(
-	      	'Category' => $Sponsor,
-	      	'CategoryName' => $SponsorName
+ 				'Title' => 'Venues',
+				'Category' => $Category
 	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
- 		} else {
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	}
+ 	/* Return a list of sponsors. */
+ 	public function sponsors() {
  			$Category = Sponsor::get();
  			$Data = array(
+ 			  'Title' => 'Sponsors',
 	    	  'Category' => $Category
 	    	);
  			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
- 		}
  	}
  	/* Return a category or list of eventtypes. */
- 	function categories() {
-
+ 	public function categories($request) {
  		$urlFilter = new URLSegmentFilter();
- 		$CategoryName = addslashes($this->urlParams['Category']);
 
- 		if ($CategoryName) {
- 			$Category = Category::get()->filter(array('Title' => $CategoryName))->First();
- 			if (!($Category)) {
- 				$Category = Category::get();
- 			}
+ 		if(isset($this->urlParams['Category'])){
+ 			$CategoryName = addslashes($this->urlParams['Category']);
+ 		}
+ 		if(isset($this->urlParams['FeedType'])){
+ 			$feedType = $this->urlParams['FeedType'];
+ 		}else{
+ 			$feedType = "page";
+ 		}
+
+
+ 			//if we have a category name url param, filter events by the category's name
+	 		if(isset($CategoryName)) {
+	 			$Category = $this->getCategoryByName($CategoryName);
+	 		if (!($Category)) {
+				$Category = Category::get();
+			}
  			$Data = array(
+ 				'Title' => $Category->Title,
 				'Category' => $Category,
 				'CategoryName' => $CategoryName
 	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+	    	$events = $Category->Events();
+
+ 			//render the category listing with a json or rss feed or default to a normal HTML page.
+ 			switch($feedType){
+ 				case "rss":
+ 					return $this->getRSSFeed($events);
+ 					break;
+ 				case "json":
+ 					return $this->getJsonFeed($events);
+ 					break;
+ 				default:
+ 					return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+ 			}
+
+ 			//else if there's no category name aka when we're just listing the categories.
  		} else {
- 			$Category = Eventtype::get();
- 			$Data = array(
-	      	'Category' => $Category
-	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 			$Categories = Category::get();
+ 			
+ 			switch($feedType){
+ 				case "json":
+ 					return $this->getCategoriesJsonFeed($Categories);
+ 				default:
+ 					$Data = array(
+		 			'Title' => 'Event Types',
+			      	'Category' => $Categories
+			    	);
+		 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+		 		}
+ 			}
  		}
+ 	public function dynamicNews(){
+	 	$calendar = AfterClassCalendar::get()->First();
+	 	$events = $calendar->AllEventsWithoutDuplicates();
+	 	$count = $events->Count();
+	 	$count = floor($count/3);
+	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
+	 	return $news;
  	}
 
+	//Legacy functions for getting the RSS feeds. So we don't break various feeds on other sites. 
+	public function newrss(){
+		$events = $this->AllEventsWithoutDuplicates();
+		return $this->getRSSFeed($events);
+	}
+ 	public function categoriesrss() {
+ 		$category = $this->getCategoryByName($this->urlParams['Category']);
+ 		$events = $category->Events();
+ 		return $this->getRSSFeed($events);
+	}
  	function sponsor() {
 		Controller::curr()->redirect('./events/sponsors/');
  	}
  	function venue() {
  	   Controller::curr()->redirect('./events/venues/');
  	}
- 	
- 	public function dynamicNews(){
-	 	
-	 	$events = $this->AllEventsWithoutDuplicates();
-	 	$count = $events->Count();
-	 	$count = floor($count/3);
-	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
-	 	
-	 	return $news;
-	 	
- 	}
- 	
- 	public function init() {
-		RSSFeed::linkToFeed($this->Link() . "rss", "RSS Feed of this calendar");
-		parent::init();
-	}
  
  }

@@ -1,54 +1,52 @@
+<div class="row">
+	<div class="span8">
+		<header id="secondary_header">
 
-<header id="secondary_header">
-	<% loop Category %><% if First %>
-	<% if ClassName = Sponsor %>
-	<h1>Event Sponsors</h1>
-	<% else_if ClassName = Venue %>
-	<h1>Venues</h1>
-	<% else %>
-	<h1>Trending Categories</h1>
-	<% end_if %>
-	<% end_if %><% end_loop %>
-</header>
+			<h1>$Action</h1>
 
-<div id="category-list-content">
-	<ul>
-	<% loop Category %><% if Events %><% if AltTitle %><li><a href="#$Title">$AltTitle</a></li><% else %><li><a href="#$Title">$Title</a></li><% end_if %> <% end_if %> <% end_loop %>
-	</ul>
-	<hr />
-	<% loop Category %>
-		<div class="category">
-			<% if Events %>
+		</header>
+
+		<div id="category-list-content">
 			
-
-		<h2 id="$Title">
-		<% if ClassName = Eventtype %>
-		$Title
-		<% else %>
-		<% if AltTitle %> $AltTitle <a href="$Link">(more information)</a> <% else %> $Title <a href="$Link">(more information)</a> <% end_if %>
-		<% end_if %>
-		</h2>
-				<% if Information %><p>$Information</p><% end_if %>
-				<% if Address %><a href="#" target="_blank" class="button">Get Directions</a><% end_if %>
-				<div class="clear"></div>
-				<% if LinkURL %><p><a href="$LinkURL" class="button">Visit their website</a></p><% end_if %>
-				<div class="clear"></div>
-				<% if Events %>
-				<% loop Events %>
-						<% loop Event %>
+			<% loop Category %><% if Events %><% if AltTitle %><a href="#$Title" class="button tag">$AltTitle</a></li><% else %><a href="#$Title" class="button tag">$Title</a><% end_if %> <% end_if %> <% end_loop %>
+			<% loop Category %>
+			<% if Events %>
+				<hr />
+				<div class="category">
+					
+				<h2 id="$Title">
+				<a href="$Link">
+					<% if ClassName = Eventtype %>
+					$Title
+					<% else %>
+						<% if AltTitle %>$AltTitle<% else %>$Title<% end_if %>
+					<% end_if %>
+				</a>
+				</h2>
+						<% if Information %><p>$Information</p><% end_if %>
+						<p><a href="$Link" class="button">More Info</a>
+						<% if Address %><a href="$DirectionsLink" target="_blank" class="button get-directions">Get Directions</a><% end_if %>
+						<% if LinkURL %><a href="$LinkURL" class="button">Visit Website</a><% end_if %></p>
+						<div class="clear"></div>
+						<% if Events %>
+						<% loop Events.Limit(3) %>
 							<% include EventCard %>	
 						<% end_loop %>
-				<% end_loop %>
-				<% else %>
-					No events currently listed.
-				<% end_if %>
-					<div class="clear"></div>
-				
-						<p class="clearfix"><a href="#" class="top-link">Back to top</a></p>	
-				<% end_if %> <%-- end if there are any events --%>
-				<div class="clear"></div>
-				
+						<% else %>
+							No events currently listed.
+						<% end_if %>
+						<div class="clear"></div>
+						
+						<div class="clear"></div>
+						
 
+				</div>
+			<% end_if %> <%-- end if there are any events --%>
+				
+			<% end_loop %>
 		</div>
-	<% end_loop %>
+	</div>
+	<div class="span4">
+		<% include SideBar %>
+	</div>
 </div>

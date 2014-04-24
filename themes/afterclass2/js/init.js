@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
 	 	padding: 0
 	 });*/
 	 
-	 $(".secondary-nav").hide();
+	 $("#page_navigation .secondary-nav").hide();
 	// $("#calendar-expand").inner
 	$("#canvas").height($("#page_header").height());
 	$("#canvas").width($("#page_header").width()/2);
