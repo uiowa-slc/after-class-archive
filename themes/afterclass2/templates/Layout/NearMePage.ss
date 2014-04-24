@@ -126,12 +126,12 @@
 </style>
 
 <header id="secondary_header">
-	<h1>Events Nearby</h1>
+	<p style='list-style:none; display: inline-block; margin: 0 0 3px 0;'><span id='mapStart' style='font-size: 1em; vertical-align: middle;'></span>&nbsp;<span id='mapMark' style='font-size: 1em; vertical-align: middle; '></span></p>
+
 </header>
 
 <div id="single-page-content">
-      <p id="status">Finding your location....</p>
-
+   
 $Content
 $Form
 
@@ -143,8 +143,8 @@ $Form
 	<% if AfterClassEvents %>
 		<section class="row-fluid venue" id='$ID' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title="$Title">		
 			<h2 style='text-decoration: underline;'>$Title</h2>	
-			<% loop AfterClassEvents.limit(3) %>
-			<div data-title='$Title' data-link='$Link' data-image='$Image' data-cancel='$CancelReason' data-cost='$Cost' <% if Sponsors %><% loop Sponsors %> data-sponsor='$Sponsors' <% end_loop %> <% end_if %> <% loop UpcomingDatesAndRanges() %> data-startdate='$StartDate' data-starttime='$StartTime' <% end_loop %> >
+			<% loop AfterClassEvents.limit(6) %>
+			<div data-title='$Title' data-link='$Link' data-image='$Image' data-cancel='$CancelReason' data-cost='$Cost' <% if Sponsors %><% loop Sponsors %> data-sponsor='$Sponsors' <% end_loop %> <% end_if %> <% loop UpcomingDatesAndRanges() %> data-startdate='$StartDate.Nice' data-starttime='$StartTime.Nice' <% end_loop %> >
 			<% include EventCard %>	
 			</div>	
 			<% end_loop %>
@@ -238,8 +238,8 @@ function locate() {
 		    navigator.geolocation.getCurrentPosition(function(position) {
 		    	console.log("in getCurrentPosition");
 		    	
-				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-				
+				//initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				initialLocation = new google.maps.LatLng(41.664468, -91.535157)
 				var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowaCity);	
 				// If the current position is too far away from Iowa City, just default to centering around Iowa City	
 				if(distanceFromInitialLocation < 32186.9){
@@ -251,10 +251,12 @@ function locate() {
 						icon: image
 					});  
 					initalMarker.setMap(map);
-					$('#status').text("Your location is indicated on the map with this icon:");
-					$('#status').append("<img src='themes/afterclass2/images/position-indicator.png' />");
+					$('#mapStart').prepend("Your location is indicated on the map with this icon: ");
+					$('#mapStart').append("<img src='themes/afterclass2/images/position-indicator.png' />");
+					$('#mapMark').prepend("To see nearby, upcoming events, touch a marker: ");
+					$('#mapMark').append("<img src='themes/afterclass2/images/marker.png' />");
 				}else {
-					$('#status').text("You're too far away from Iowa City. Here are events in Iowa City");
+					$('#mapLoaded').text("You're too far away from Iowa City. Here are events in Iowa City");
 				}
 				console.log("finished getinitlocal");
 				callback(initialLocation, pinAndDist);								  
@@ -303,9 +305,10 @@ function locate() {
 	}
 		
 	function pinAndDist(initLocal, venueLatLng, venue, from) {
-		console.log('begin pinAndDist: ' + from);
+		//console.log('begin pinAndDist: ' + from);
 		var venueDistance = google.maps.geometry.spherical.computeDistanceBetween(initLocal, venueLatLng);	
 		var venueID = venue.id;
+		var venueName = jQuery('#' + venueID).data("title");
 		venueFromMe[venueID] = venueDistance;
 		
 		var marker = new google.maps.Marker({
@@ -317,6 +320,8 @@ function locate() {
 		var eventsHereString = '';
 		var eventBubbleString = '';
 		
+		eventsHere.push("<h2>" + venueName + "</h2>");
+		
 		jQuery(venue).children('div').each(function(index, Element) {
 			var eventTitle = jQuery(this).data('title');
 			var eventImage = jQuery(this).data('image');
@@ -324,18 +329,17 @@ function locate() {
 			var eventLink = jQuery(this).data('link');
 			var eventCost = jQuery(this).data('cost');
 			var startDate = jQuery(this).data('startdate');
-			var startTime = jQuery(this).data('starttime');
+			var startTime = jQuery(this).data('starttime');	
 
-			
-			
-
-			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <p> cost: " + eventCost + " Time: " + startTime + "</div>";
+			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul style='list-style:none; color: black; padding-left: 0; margin: 3px 1px;;'><li> Cost: " + eventCost + "</li>" + "<li> Date: " + startDate + "</li>" + "<li> Time: " + startTime + "</li>" + "</ul></div>";
 					
 			eventsHere.push(eventStringSeg);
 		});
 		
-		eventsHereString = eventsHere.join();
-		eventBubbleString = "div class='event_bubble'>" +
+		console.log(eventsHere);
+		eventsHereString = eventsHere.join(' ');
+		console.log(eventsHereString);
+		eventBubbleString = "<div class='event_bubble'>" +
 				"<div class='upcomingEvents'>" +
 				eventsHereString +
 				"</div>" +
