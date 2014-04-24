@@ -1,4 +1,4 @@
-<div class="row <% if $PrimarySponsor %>sponsor-$PrimarySponsor.ID<% end_if %>">
+<div class="row">
 <div class="feature-background-wrapper">
 <div class="span8">
 	<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
@@ -97,18 +97,18 @@
 	<% end_if %>
 	<hr />
 	<% include AddThis %>
-<hr />
-<% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
-	
-	<% with $PrimarySponsor %>
-		<% if $LinkURL %>
-			<a href="$LinkURL" target="_blank"><img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/></a>
-		<% else %>
-			<img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/>
-		<% end_if %>
+	<hr />
+	<div class="<% if $PrimarySponsor %>sponsor-$PrimarySponsor.ID<% end_if %>">
+	<% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
+		<% with $PrimarySponsor %>
+			<% if $LinkURL %>
+				<a href="$LinkURL" target="_blank"><img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/></a>
+			<% else %>
+				<img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/>
+			<% end_if %>
 
-	<% end_with %>
-<% end_if %>
+		<% end_with %>
+	<% end_if %>
 
 		<% if Sponsors %>
 			<div class="sponsors">
@@ -129,7 +129,7 @@
 		<% end_if %>
 	<hr />
 	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
-
+	</div><!-- end sponsor-x -->
 </div><!-- end span4-->
 </div><!-- end row -->
 	

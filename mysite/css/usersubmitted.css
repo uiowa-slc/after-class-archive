@@ -1,12 +1,17 @@
+/* Gray event title if no upcoming dates and ranges */
 .status-noUpcomingDatesAndRanges{
 	color: #ADADAD;
 }
+/* Gray SiteTree label if no upcoming dates and ranges */
 .tree-holder.jstree-apple .status-noUpcomingDatesAndRanges a, .tree-holder.jstree-apple .status-noUpcomingDatesAndRanges a:link, .cms-tree.jstree-apple .status-noUpcomingDatesAndRanges a, .cms-tree.jstree-apple .status-noUpcomingDatesAndRanges a:link {
 	color: #ADADAD;
 }
+
+/* Purple event title if is user submitted */
 .status-isUserSubmitted {
 	color: #9B3EDA;
 }
+/* Purple SiteTree label if is user submitted */
 .tree-holder.jstree-apple .status-isUserSubmitted a, .tree-holder.jstree-apple .status-isUserSubmitted a:link, .cms-tree.jstree-apple .status-isUserSubmitted a, .cms-tree.jstree-apple .status-isUserSubmitted a:link {
 	color: #9B3EDA;
 }
@@ -14,6 +19,12 @@
 	border: 1px solid #9B3EDA;
 	background-color: #f3e1ff;
 }
+
+/* green event title if user submitted and has no dates / not scheduled */
+.tree-holder.jstree-apple .status-isUserSubmitted.status-unscheduledUserSubmitted a, .tree-holder.jstree-apple .status-isUserSubmitted.status-unscheduledUserSubmitted a:link, .cms-tree.jstree-apple .status-isUserSubmitted.status-unscheduledUserSubmitted a, .cms-tree.jstree-apple .status-isUserSubmitted.status-unscheduledUserSubmitted a:link {
+	color: #14B127;
+}
+/* additional padding to center the label */
 .tree-holder.jstree-apple span.badge, .cms-tree.jstree-apple span.badge{
 	padding-top: 2px;
 }

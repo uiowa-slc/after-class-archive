@@ -44,6 +44,9 @@ class AfterClassEvent extends CalendarEvent {
     	if(!$this->UpcomingDatesAndRanges()->First()){
     		$flags['noUpcomingDatesAndRanges'] = "No Upcoming Dates";
     	}
+    	if(($this->isUserSubmitted()) && ($this->DateTimes()->count() == 0)){
+    		$flags['unscheduledUserSubmitted'] = "Unscheduled";
+    	}
         return $flags;
     }
     
