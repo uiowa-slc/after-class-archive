@@ -57,6 +57,7 @@ class AddEventPage_Controller extends Page_Controller {
 
         $form->saveInto($event);
         
+        $event->write();
         $event->writeToStage("Stage");
         Session::set('Submitted', true);
         
@@ -77,7 +78,7 @@ class AddEventPage_Controller extends Page_Controller {
 					<li><strong>Title:</strong> '.$event->Title.'</li>
 					<li><strong>Submitted By:</strong> '.$event->Submittername.'['.$event->Submitteremail.']</li>
 					<li><strong>Date:</strong> '.$event->Submitterdate.'</li>
-					<li><strong>Website or More Info Link:</strong>'.$event->MoreInfoLink.'</li>
+					<li><strong>Website or More Info Link:</strong> '.$event->MoreInfoLink.'</li>
 					<li><strong>Location:</strong> '.$event->Location.'</li>
 					<li><strong>Cost:</strong> '.$event->Cost.'</li>
 					<li><strong>Sponsored By:</strong> '.$event->Sponsor.'</li>
