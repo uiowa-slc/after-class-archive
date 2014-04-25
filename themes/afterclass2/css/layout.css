@@ -1835,7 +1835,7 @@ textarea {
 }
 
 .button {
-	padding: 3px;
+	padding: 0.35em 0.5em;
 	background: #0A8FC9;
 	border: none;
 	color: #FFF;
