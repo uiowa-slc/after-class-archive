@@ -14,7 +14,7 @@ class AfterClassEvent extends CalendarEvent {
 		'facebook_publishdate' => 'Date',
 		'facebook_published' => 'Boolean',
 		'MoreInfoLink' => 'Text',
-		'SubmitterSponsor' => 'Text'
+		'SubmitterSponsor' => 'Text',
 		'FacebookEventLink' => 'Text'
 
 	);

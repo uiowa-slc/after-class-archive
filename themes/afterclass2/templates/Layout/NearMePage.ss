@@ -51,6 +51,14 @@
 	padding-left: 10px;
 }
 
+.event-card {
+	height: 100%;
+		
+}
+
+.event-card-content {
+	min-height: 1px;
+}
 
 @media only screen and (max-width: 500px) {
 	.event_bubble {
@@ -101,6 +109,10 @@
 		padding-left: 10px;
 	}
 	
+	.event-card {
+		height: 100%;	
+	}
+	
 }
 
 .venue_section {
@@ -125,6 +137,7 @@
 
 </style>
 
+
 <header id="secondary_header">
 	<p style='list-style:none; display: inline-block; margin: 0 0 3px 0;'><span id='mapStart' style='font-size: 1em; vertical-align: middle;'></span>&nbsp;<span id='mapMark' style='font-size: 1em; vertical-align: middle; '></span></p>
 
@@ -140,10 +153,10 @@ $Form
 
 <div class='container-fluid' id='venuesWithEvents'>
 <% loop Venues %>
-	<% if AfterClassEvents %>
-		<section class="row-fluid venue" id='$ID' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title="$Title">		
+	<% if Events %>
+		<section class="row-fluid venue" id='$ID' data-link='$Link' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title="$Title">		
 			<h2 style='text-decoration: underline;'>$Title</h2>	
-			<% loop AfterClassEvents.limit(6) %>
+			<% loop Events.limit(6) %>
 			<div data-title='$Title' data-link='$Link' data-image='$Image' data-cancel='$CancelReason' data-cost='$Cost' <% if Sponsors %><% loop Sponsors %> data-sponsor='$Sponsors' <% end_loop %> <% end_if %> <% loop UpcomingDatesAndRanges() %> data-startdate='$StartDate.Nice' data-starttime='$StartTime.Nice' <% end_loop %> >
 			<% include EventCard %>	
 			</div>	
@@ -309,6 +322,7 @@ function locate() {
 		var venueDistance = google.maps.geometry.spherical.computeDistanceBetween(initLocal, venueLatLng);	
 		var venueID = venue.id;
 		var venueName = jQuery('#' + venueID).data("title");
+		var venueLink = jQuery('#' + venueID).data("link");
 		venueFromMe[venueID] = venueDistance;
 		
 		var marker = new google.maps.Marker({
@@ -320,7 +334,7 @@ function locate() {
 		var eventsHereString = '';
 		var eventBubbleString = '';
 		
-		eventsHere.push("<h2>" + venueName + "</h2>");
+		eventsHere.push("<h2><a href='" + venueLink + "'>" + venueName + "</a></h2>");
 		
 		jQuery(venue).children('div').each(function(index, Element) {
 			var eventTitle = jQuery(this).data('title');

@@ -33,7 +33,9 @@ class NearMePage_Controller extends Page_Controller {
 	}
 	
 	public function AfterClassEvents(){
-		return AfterClassEvent::get();
+		$calendar = AfterClassCalendar::get()->First();
+		print_r('hello');
+		return $calendar->AllEventsWithoutDuplicates();
 	}
 	
 	public function Venues() {	
