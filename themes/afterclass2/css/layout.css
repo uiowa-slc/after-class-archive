@@ -1593,7 +1593,7 @@ a.read-more-link { color: #ADD7E2 }
     color: #fff5d1;
     margin: 0;
 }
-#the-news h3 a { color: #fff5d1 }
+#the-news h3 a { color: white; }
 #the-news h3 a:hover { color: #e5dcbc }
 #the-news .news-entry {
     color: #E6E2DF;
@@ -1608,7 +1608,7 @@ a.read-more-link { color: #ADD7E2 }
 }
 .news-entries {
 }
-.news-posted-on { color: #f9e091 }
+.news-posted-on { color: #999 }
 .read-more a {
     color: #ffde68;
     display: block;
