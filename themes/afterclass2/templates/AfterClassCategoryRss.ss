@@ -10,7 +10,7 @@
 				<title>$Title</title>
 				<description>$Content.Summary(50)</description>
 				<link>{$BaseHref}{$URLSegment}</link>
-				<pubDate>$Created</pubDate>
+				<pubDate></pubDate>
 				<guid>{$BaseHref}{$URLSegment}</guid>
 				<cost>$Cost</cost>
 				<image>$Image.AbsoluteURL</image>
