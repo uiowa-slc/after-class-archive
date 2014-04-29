@@ -1024,7 +1024,7 @@ h6 a {
     background-position: 98% 6px;
     background-repeat: no-repeat;
     display: block;
-    width: 96%;
+    width: 100%;
 }
 #SearchForm_SearchForm_Search:hover{
     cursor: pointer;
