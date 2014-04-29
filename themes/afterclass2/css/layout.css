@@ -1029,6 +1029,9 @@ h6 a {
 #SearchForm_SearchForm_Search:hover{
     cursor: pointer;
 }
+#SearchForm_SearchForm_Search:hover:focus{
+    cursor: auto;
+}
 }
 .date-link:hover {
    /* color: #006079;*/
