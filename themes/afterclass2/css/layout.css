@@ -1013,6 +1013,10 @@ h6 a {
     margin-top: 5px;
     /*margin-left: 15px;*/
 }
+
+#Search input {
+    background: #333;
+}
 #SearchForm_SearchForm_Search {
     border: none;
     color: #EBE5E6;
@@ -1021,7 +1025,7 @@ h6 a {
     background-position: 98% 6px;
     background-repeat: no-repeat;
     display: block;
-    width: 96%;
+    width: 100%;
 }
 #SearchForm_SearchForm_Search:hover{
     cursor: pointer;
