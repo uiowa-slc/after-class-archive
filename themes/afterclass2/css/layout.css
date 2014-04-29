@@ -1133,7 +1133,6 @@ h6 a {
 #Form_addEventForm fieldset .file { padding: 20px 0px 0px 0px }
 #Form_addEventForm fieldset input.text {
     font-size: 1.1em;
-    width: 80%;
     padding: 10px;
     background: #333;
     border: 1px solid #555;
@@ -1913,7 +1912,6 @@ a.button:active {
     #page_navigation ul li a { font-size: 1em }
     #SearchForm_SearchForm_Search {
         background-image: none;
-        width: 80%;
         margin-top: 3px;
     }
     .event-card-desc { width: 60% }
