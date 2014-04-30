@@ -263,6 +263,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["events"][$eventNum]["name"] = $event->Title;
  			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
  			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
+ 			$data["events"][$eventNum]["facebook_event_link"] = $event->FacebookEventLink;
+ 			
  			if($event->Image()->exists()){
  				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
  			}
