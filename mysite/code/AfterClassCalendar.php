@@ -25,7 +25,7 @@ class AfterClassCalendar extends Calendar {
  	
  	);
 	static $allowed_children = array (
-	'AfterClassEvent'
+		'AfterClassEvent'
 	);
 	
 	function getCMSFields() {
