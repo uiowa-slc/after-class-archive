@@ -1141,6 +1141,7 @@ h6 a {
     border: 1px solid #555;
     color: #E8CA66;
     border-image: initial;
+    width: 96%; 
 }
 #Form_addEventForm_action_addEvent {
     font-size: 1.6em;

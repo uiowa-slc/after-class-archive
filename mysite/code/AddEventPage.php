@@ -34,6 +34,7 @@ class AddEventPage_Controller extends Page_Controller {
             new TextField('Title','Name of the event'),
             new TextField('Location','Location of the event'),
             new TextField('MoreInfoLink','Website or Link that has more information about the event'),
+            new TextField('FacebookEventLink', 'Facebook event page with more information'),
             new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
             new TextField('Cost','How much does it cost to attend?'),
             new TextField('Content','Describe what the event is about.'),
@@ -57,8 +58,8 @@ class AddEventPage_Controller extends Page_Controller {
 
         $form->saveInto($event);
         
-        $event->write();
         $event->writeToStage("Stage");
+        $event->write();
         Session::set('Submitted', true);
         
         
@@ -79,6 +80,7 @@ class AddEventPage_Controller extends Page_Controller {
 					<li><strong>Submitted By:</strong> '.$event->Submittername.'['.$event->Submitteremail.']</li>
 					<li><strong>Date:</strong> '.$event->Submitterdate.'</li>
 					<li><strong>Website or More Info Link:</strong> '.$event->MoreInfoLink.'</li>
+					<li><strong>Facebook Event Link:</strong> '.$event->FacebookEventLink.'</li>
 					<li><strong>Location:</strong> '.$event->Location.'</li>
 					<li><strong>Cost:</strong> '.$event->Cost.'</li>
 					<li><strong>Sponsored By:</strong> '.$event->Sponsor.'</li>
