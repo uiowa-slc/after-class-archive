@@ -60,6 +60,17 @@
 	min-height: 1px;
 }
 
+.infobox-header {
+	margin: 5px 0 5px 0;;
+	padding: 1px 3px 1px 0 !important;
+	
+.infobox-list {
+	list-style:none; 
+	color: black; 
+	padding-left: 0; 
+	margin: 3px 1px;
+}
+
 @media only screen and (max-width: 500px) {
 	.event_bubble {
 		max-width: 320px;
@@ -154,10 +165,10 @@ $Form
 <div class='container-fluid' id='venuesWithEvents'>
 <% loop Venues %>
 	<% if Events %>
-		<section class="row-fluid venue" id='$ID' data-link='$Link' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title="$Title">		
-			<h2 style='text-decoration: underline;'>$Title</h2>	
+		<section class='row-fluid venue' id='$ID' data-link='$Link' <% if $Lat && $Lng %> data-lat='$Lat' data-lng='$Lng' <% else %> data-address='$Address' <% end_if %> data-title='$Title'>		
+			<h2>$Title</h2>	
 			<% loop Events.limit(6) %>
-			<div data-title='$Title' data-link='$Link' data-image='$Image' data-cancel='$CancelReason' data-cost='$Cost' <% if Sponsors %><% loop Sponsors %> data-sponsor='$Sponsors' <% end_loop %> <% end_if %> <% loop UpcomingDatesAndRanges() %> data-startdate='$StartDate.Nice' data-starttime='$StartTime.Nice' <% end_loop %> >
+			<div data-title='$Title' data-link='$Link' data-image='$Image' data-cancel='$CancelReason' data-cost='$Cost' <% if Sponsors %><% loop Sponsors %> data-sponsor='$Sponsors' <% end_loop %><% end_if %> <% loop UpcomingDatesAndRanges() %> data-startdate='$StartDate.Day(), $StartDate.Month() $StartDate.DayOfMonth()' data-starttime='$StartTime.Nice' <% end_loop %> >
 			<% include EventCard %>	
 			</div>	
 			<% end_loop %>
@@ -168,6 +179,7 @@ $Form
 				
 	
 <script>
+"use strict";
 var markerArray = [];
 var infoWindow = null;
 function makeMarker(options){
@@ -247,7 +259,7 @@ function locate() {
 	function getInitLocal(callback) {
 		if(navigator.geolocation) {
 			console.log("Browser DOES support Geolocation");
-		    browserSupportFlag = true;
+		    var browserSupportFlag = true;
 		    navigator.geolocation.getCurrentPosition(function(position) {
 		    	console.log("in getCurrentPosition");
 		    	
@@ -285,8 +297,8 @@ function locate() {
 		
 		console.log('getinitlocal last line');	
 	}
-	venueCount = jQuery("#venuesWithEvents section").length;
-	countVenue = 0;
+	var venueCount = jQuery("#venuesWithEvents section").length;
+	var countVenue = 0;
 	
 	function venueGen(initLocal, callback) {
 		console.log("begin venueGen");
@@ -334,7 +346,7 @@ function locate() {
 		var eventsHereString = '';
 		var eventBubbleString = '';
 		
-		eventsHere.push("<h2><a href='" + venueLink + "'>" + venueName + "</a></h2>");
+		eventsHere.push("<h2 class='infobox-header'><a href='" + venueLink + "'>" + venueName + "</a></h2>");
 		
 		jQuery(venue).children('div').each(function(index, Element) {
 			var eventTitle = jQuery(this).data('title');
@@ -345,7 +357,7 @@ function locate() {
 			var startDate = jQuery(this).data('startdate');
 			var startTime = jQuery(this).data('starttime');	
 
-			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul style='list-style:none; color: black; padding-left: 0; margin: 3px 1px;;'><li> Cost: " + eventCost + "</li>" + "<li> Date: " + startDate + "</li>" + "<li> Time: " + startTime + "</li>" + "</ul></div>";
+			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul class='infobox-list'>" + "<li> Date: " + startDate + "</li>" + "<li> Time: " + startTime + "</li>" + "<li> Cost: " + eventCost + "</li>" + "</ul></div>";
 					
 			eventsHere.push(eventStringSeg);
 		});
