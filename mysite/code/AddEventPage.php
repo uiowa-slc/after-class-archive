@@ -54,12 +54,18 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 	function addEvent($data, $form) {
 		$event = new AfterClassEvent();
-	    $event->setParent(6);
+	    $event->ParentID = 6;
 
         $form->saveInto($event);
         
-        $event->writeToStage("Stage");
         $event->write();
+        $event->writeToStage("Stage");
+
+        $event->publish("Stage", "Live");
+
+        $event->deleteFromStage('Live');
+        
+
         Session::set('Submitted', true);
         
         
