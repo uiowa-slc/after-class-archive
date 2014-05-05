@@ -89,7 +89,9 @@
 				<% if WebsiteURL %>
 					<a class="button" href="$WebsiteURL">Venue website</a>
 				<% end_if %>
-				<a href="$Link" class="button">More events here</a>
+				<% if Events %>
+					<a href="$Link" class="button">More events here</a>
+				<% end_if %>
 				</p>
 			<% end_loop %>
 			
