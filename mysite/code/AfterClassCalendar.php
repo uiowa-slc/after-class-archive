@@ -193,7 +193,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		$data = array();
  		foreach($categories as $catNum => $category){
  			$data["categories"][$catNum]['id'] = $category->ID;
- 			$data["categories"][$catNum]['name'] = $category->Title;
+ 			$data["categories"][$catNum]['title'] = $category->Title;
  			$data["categories"][$catNum]['kind'] = $category->ClassName;
  			$data["categories"][$catNum]['has_upcoming_events'] = $category->Events()->exists();
  			$data["categories"][$catNum]['address'] = $category->Address;

@@ -68,7 +68,6 @@ class AddEventPage_Controller extends Page_Controller {
 
         Session::set('Submitted', true);
         
-        
         //Email notification
 		
 		if($event->Submitteremail){
