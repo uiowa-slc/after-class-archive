@@ -166,6 +166,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  		if(array_key_exists('Category', $this->urlParams)){
  			$categoryTitle = $this->urlParams['Category'];
  			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
+
  			$events = $category->Events();
  		//else get all events	
  		}else{
@@ -196,6 +197,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["categories"][$catNum]['title'] = $category->Title;
  			$data["categories"][$catNum]['kind'] = $category->ClassName;
  			$data["categories"][$catNum]['has_upcoming_events'] = $category->Events()->exists();
+ 			$data["categories"][$catNum]['feed_url'] = $category->jsonFeedLink();
  			$data["categories"][$catNum]['address'] = $category->Address;
  			$data["categories"][$catNum]['info'] = $category->Information;
  			$data["categories"][$catNum]["contact_email"] = $category->Email;
@@ -356,10 +358,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
  			//if we have a category name url param, filter events by the category's name
 	 		if(isset($CategoryName)) {
-	 			$Category = $this->getCategoryByName($CategoryName);
-	 		if (!($Category)) {
-				$Category = Category::get();
-			}
+	 			if(is_numeric($CategoryName)){
+	 				$Category = Category::get()->filter(array('ID' => $CategoryName))->First();
+	 			}else{
+	 				$Category = $this->getCategoryByName($CategoryName);
+	 			}
+
  			$Data = array(
  				'Title' => $Category->Title,
 				'Category' => $Category,
