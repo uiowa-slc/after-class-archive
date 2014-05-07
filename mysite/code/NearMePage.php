@@ -30,6 +30,7 @@ class NearMePage_Controller extends Page_Controller {
 	public function init() {
 		parent::init();	
 		      Requirements::block('themes/afterclass2/js/jquery.min.js'); 
+		      Requirements::javascript('themes/afterclass2/js/nearby.js');
 	}
 	
 	public function AfterClassEvents(){
