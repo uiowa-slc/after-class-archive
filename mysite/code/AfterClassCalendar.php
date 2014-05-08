@@ -341,7 +341,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$venues = $event->Venues();
 
  			foreach($venues as $venueNum => $venue){
- 				$venuesArray[$venueNum]["id"] = $venue->AltTitle ? $venue->AltTitle : $venue->ID;
+ 				$venuesArray[$venueNum]["id"] = $venue->ID;
  				$venuesArray[$venueNum]["name"] = $venue->AltTitle ? $venue->AltTitle : $venue->Title;
  				$venuesArray[$venueNum]["address"] = $venue->Address;
  				$venuesArray[$venueNum]["info"] = $venue->Information;
@@ -356,6 +356,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$eventTypes = $event->eventTypes();
 
  			foreach($eventTypes as $eventTypeNum => $eventType){
+ 				$eventTypesArray[$eventTypeNum]["id"] = $eventType->ID;
  				$eventTypesArray[$eventTypeNum]["name"] = $eventType->Title;
  				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Information;
  			}
@@ -364,6 +365,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$sponsors = $event->sponsors();
 
  			foreach($sponsors as $sponsorNum => $sponsor){
+ 				$sponsorsArray[$sponsorNum]["id"] = $sponsor->ID;
  				$sponsorsArray[$sponsorNum]["name"] = $sponsor->Title;
  				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Information;
  				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
@@ -419,7 +421,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	/*****************************/
 	/* Legacy RSS Feeds  *********/
 	/*****************************/	
-	
+
 	public function newrss(){
 		$events = $this->AllEventsWithoutDuplicates();
 		return $this->getRSSFeed($events);
