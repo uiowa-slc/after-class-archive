@@ -67,17 +67,27 @@ class Page extends SiteTree {
 		$nextMonth->modify( 'first day of next month' );
 		$nextMonthString = $nextMonth->format( 'Ym' );
 
+		
 
 	    $urls[] = 'events/categories/';
 	    $urls[] = 'events/sponsors/';
 	    $urls[] = 'events/venues/';
 
+	    $categories = Category::get()->map()->toArray();
+	    //print_r($categories);
+	    foreach($categories as $key => $category){
+	    	$urls[] = 'events/categories/'.$key.'/feed/json';
+	    }
+
 	  	$urls[] = 'events/monthjson/'.$previousMonthString.'/';
 	  	$urls[] = 'events/monthjson/'.$currentMonthString.'/';
 	  	$urls[] = 'events/monthjson/'.$nextMonthString.'/';
 
+	  	//$urls[] = 'events/feed/rss';
 	  	$urls[] = 'events/feed/json';
 	  	$urls[] = 'events/feed/';
+
+	  	$urls[] = 'events/categories/feed/json';
 
 	  	$urls[] = 'events/weekend/';
 	  	$urls[] = 'events/today/';
@@ -122,7 +132,6 @@ class Page_Controller extends ContentController {
 		 
 		//Set the folder to our theme so that relative image paths work
 		Requirements::set_combined_files_folder($themeFolder . '/combinedfiles');
-		
 		Requirements::block('event_calendar/css/calendar_widget.css'); 
 		Requirements::block('division-bar/js/_division-bar.js');
 

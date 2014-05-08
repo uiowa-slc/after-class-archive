@@ -129,6 +129,10 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             );
  	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
  	
+ 	/*****************************/
+	/* General Utility Functions */
+	/*****************************/	
+
  	function AllEventsWithoutDuplicates() {
 
  		$events = $this->AllEvents();
@@ -158,6 +162,110 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
 		return $dates->toArray();
 	}
+
+	function getCategoryByName($name){
+		return Category::get()->filter(array('Title' => $name))->First();
+	}
+
+ 	public function dynamicNews(){
+	 	$calendar = AfterClassCalendar::get()->First();
+	 	$events = $calendar->AllEventsWithoutDuplicates();
+	 	$count = $events->Count();
+	 	$count = floor($count/3);
+	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
+	 	return $news;
+ 	}
+
+
+	/*************************/
+	/* Routing Methods Below */
+	/*************************/
+
+ 	public function types() {
+ 			$Category = Eventtype::get();
+ 			$Data = array(
+ 				'Title' => 'Venues',
+				'Category' => $Category
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	}	
+ 	/* Return a list of venues. */
+ 	public function venues($request) {
+ 			$Category = Venue::get();
+ 			$Data = array(
+ 				'Title' => 'Venues',
+				'Category' => $Category
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	}
+ 	/* Return a list of sponsors. */
+ 	public function sponsors() {
+ 			$Category = Sponsor::get();
+ 			$Data = array(
+ 			  'Title' => 'Sponsors',
+	    	  'Category' => $Category
+	    	);
+ 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+ 	}
+ 	/* Return a category or list of eventtypes. */
+ 	public function categories($request) {
+ 		$urlFilter = new URLSegmentFilter();
+
+ 		if(isset($this->urlParams['Category'])){
+ 			$CategoryName = addslashes($this->urlParams['Category']);
+ 		}
+ 		if(isset($this->urlParams['FeedType'])){
+ 			$feedType = $this->urlParams['FeedType'];
+ 		}else{
+ 			$feedType = "page";
+ 		}
+
+		//if we have a category name url param, filter events by the category's name
+ 		if(isset($CategoryName)) {
+ 			if(is_numeric($CategoryName)){
+ 				$Category = Category::get()->filter(array('ID' => $CategoryName))->First();
+ 			}else{
+ 				$Category = $this->getCategoryByName($CategoryName);
+ 			}
+			$Data = array(
+				'Title' => $Category->Title,
+				'Category' => $Category,
+				'CategoryName' => $CategoryName
+    		);
+    		$events = $Category->Events();
+
+			//render the category listing with a json or rss feed or default to a normal HTML page.
+			switch($feedType){
+				case "rss":
+					return $this->getRSSFeed($events);
+					break;
+				case "json":
+					return $this->getJsonFeed($events);
+					break;
+				default:
+					return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+			}
+
+ 			//else if there's no category name aka when we're just listing the categories.
+ 		} else {
+ 			$Categories = Category::get();
+ 			
+ 			switch($feedType){
+ 				case "json":
+ 					return $this->getCategoriesJsonFeed($Categories);
+ 				default:
+ 					$Data = array(
+		 			'Title' => 'Event Types',
+			      	'Category' => $Categories
+			    	);
+		 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
+		 		}
+ 			}
+ 		}
+
+ 	/*****************************/
+	/* RSS And JSON Feed Methods */
+	/*****************************/	
 
  	public function Feed(){
  		$feedType = addslashes($this->urlParams['Type']);
@@ -206,7 +314,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$data["categories"][$catNum]["latitude"] = $category->Lat;
  			$data["categories"][$catNum]["longitude"] = $category->Lng;			
  		}
-	 echo json_encode($data);
+	 return json_encode($data);
  	}
 
  	public function getJsonFeed($events){
@@ -281,11 +389,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			unset($datesArray);
  		}
 
- 		$jsonData = array(
- 			"JsonFeed" => json_encode($data)
- 		);
-
- 		return $this->customise($jsonData)->renderWith(array('JsonFeed'));
+ 		return json_encode($data);
  	}
  	public function getRSSFeed($events) {
 		//remove duplicates from the feed.
@@ -312,103 +416,10 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
 		return "";
 	}
-
-	function getCategoryByName($name){
-		return Category::get()->filter(array('Title' => $name))->First();
-	}
- 	public function types() {
- 			$Category = Eventtype::get();
- 			$Data = array(
- 				'Title' => 'Venues',
-				'Category' => $Category
-	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
- 	}	
- 	/* Return a list of venues. */
- 	public function venues($request) {
- 			$Category = Venue::get();
- 			$Data = array(
- 				'Title' => 'Venues',
-				'Category' => $Category
-	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
- 	}
- 	/* Return a list of sponsors. */
- 	public function sponsors() {
- 			$Category = Sponsor::get();
- 			$Data = array(
- 			  'Title' => 'Sponsors',
-	    	  'Category' => $Category
-	    	);
- 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
- 	}
- 	/* Return a category or list of eventtypes. */
- 	public function categories($request) {
- 		$urlFilter = new URLSegmentFilter();
-
- 		if(isset($this->urlParams['Category'])){
- 			$CategoryName = addslashes($this->urlParams['Category']);
- 		}
- 		if(isset($this->urlParams['FeedType'])){
- 			$feedType = $this->urlParams['FeedType'];
- 		}else{
- 			$feedType = "page";
- 		}
-
-
- 			//if we have a category name url param, filter events by the category's name
-	 		if(isset($CategoryName)) {
-	 			if(is_numeric($CategoryName)){
-	 				$Category = Category::get()->filter(array('ID' => $CategoryName))->First();
-	 			}else{
-	 				$Category = $this->getCategoryByName($CategoryName);
-	 			}
-
- 			$Data = array(
- 				'Title' => $Category->Title,
-				'Category' => $Category,
-				'CategoryName' => $CategoryName
-	    	);
-	    	$events = $Category->Events();
-
- 			//render the category listing with a json or rss feed or default to a normal HTML page.
- 			switch($feedType){
- 				case "rss":
- 					return $this->getRSSFeed($events);
- 					break;
- 				case "json":
- 					return $this->getJsonFeed($events);
- 					break;
- 				default:
- 					return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
- 			}
-
- 			//else if there's no category name aka when we're just listing the categories.
- 		} else {
- 			$Categories = Category::get();
- 			
- 			switch($feedType){
- 				case "json":
- 					return $this->getCategoriesJsonFeed($Categories);
- 				default:
- 					$Data = array(
-		 			'Title' => 'Event Types',
-			      	'Category' => $Categories
-			    	);
-		 			return $this->customise($Data)->renderWith(array('AfterClassCategoryList', 'Page'));
-		 		}
- 			}
- 		}
- 	public function dynamicNews(){
-	 	$calendar = AfterClassCalendar::get()->First();
-	 	$events = $calendar->AllEventsWithoutDuplicates();
-	 	$count = $events->Count();
-	 	$count = floor($count/3);
-	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
-	 	return $news;
- 	}
-
-	//Legacy functions for getting the RSS feeds. So we don't break various feeds on other sites. 
+ 	/*****************************/
+	/* Legacy RSS Feeds  *********/
+	/*****************************/	
+	
 	public function newrss(){
 		$events = $this->AllEventsWithoutDuplicates();
 		return $this->getRSSFeed($events);
