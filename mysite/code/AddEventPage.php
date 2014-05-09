@@ -39,7 +39,7 @@ class AddEventPage_Controller extends Page_Controller {
             new TextField('Cost','How much does it cost to attend?'),
             new TextareaField('Content','Describe what the event is about.'),
             new TextField('Sponsor','Who is sponsoring or hosting the event?'),
-            new FileField('Image','Event Image. Please upload JPG, PNG, GIF image formats only. Do no attach PDFs to this form. (730 x 462 pixels is preferred)'),
+            new FileField('Image','Event Image. We accept JPG, PNG, GIF image formats only. Please do not attach PDFs to this form. (730 x 462 pixels is preferred)'),
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')
         );
