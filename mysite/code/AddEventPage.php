@@ -33,14 +33,17 @@ class AddEventPage_Controller extends Page_Controller {
 	public function addEventForm() {
 	
 		$fields = new FieldList(
-            new TextField('Title','Name of the event'),
-            new TextField('Location','Location of the event'),
-            new TextField('MoreInfoLink','Website or Link that has more information about the event'),
-            new TextField('Submitterdate','Date(s) AND Time(s) of the event'),
+            new TextField('Title',"What's the name of the event?"),
+            new TextField('Location',"Where's the event located?"),
+            new TextField('MoreInfoLink',"What's a website or link that has more information about the event?"),
+            new TextField('FacebookEventLink', 'If applicable, please give us a <span class="fbButton" href="#">Facebook Event Link</span>'),
+            new TextField('Submitterdate',"When's the event happening? We need both the Date(s) AND Time(s) of the event."),
             new TextField('Cost','How much does it cost to attend?'),
             new TextareaField('Content','Describe what the event is about.'),
-            new TextField('SubmitterSponsor','List your sponsors here'),
-            new FileField('Image','Event Image (730 x 462 pixels is preferred)'),
+
+            new TextField('SubmitterSponsor','Who is sponsoring or hosting the event?'),
+            new FileField('Image','Event Image. We accept JPG, PNG, GIF image formats only. Please do not attach PDFs to this form. (730 x 462 pixels is preferred)'),
+
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')
         );
@@ -55,14 +58,19 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 	function addEvent($data, $form) {
 		$event = new AfterClassEvent();
-	    $event->setParent(6);
+	    $event->ParentID = 6;
 
         $form->saveInto($event);
         
         $event->write();
         $event->writeToStage("Stage");
-        Session::set('Submitted', true);
+
+        $event->publish("Stage", "Live");
+
+        $event->deleteFromStage('Live');
         
+
+        Session::set('Submitted', true);
         
         //Email notification
 		
@@ -81,6 +89,7 @@ class AddEventPage_Controller extends Page_Controller {
 					<li><strong>Submitted By:</strong> '.$event->Submittername.'['.$event->Submitteremail.']</li>
 					<li><strong>Date:</strong> '.$event->Submitterdate.'</li>
 					<li><strong>Website or More Info Link:</strong> '.$event->MoreInfoLink.'</li>
+					<li><strong>Facebook Event Link:</strong> '.$event->FacebookEventLink.'</li>
 					<li><strong>Location:</strong> '.$event->Location.'</li>
 					<li><strong>Cost:</strong> '.$event->Cost.'</li>
 					<li><strong>Sponsored By:</strong> '.$event->Sponsor.'</li>

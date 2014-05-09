@@ -340,6 +340,9 @@ h5 a,
 h6 a {
     font-family: 'Doppio One', monospace;
 }
+h2{
+    font-size: 1.3em;
+}
 #right-column {
     margin-top: 0;
 }
@@ -718,19 +721,15 @@ h6 a {
     padding: 5px 0;
     margin: 5px 0;
     color: #C4E1F1;
-    font-size: 3em;
+    font-size: 1.8em;
     text-transform: capitalize;
+    line-height: 1;
 }
 #secondary_header h1 span {
     color: #555;
     font-size: 1.5em;
 }
-#secondary_header h2 {
-    color: #333;
-    font-family: SketchBlock-Bold, sans-serif;
-    font-size: 1.3em;
-    border-bottom: 1px solid #555;
-}
+
 #secondary_feature {
     background-image: url(../images/dark_leather.png);
     background-color: #555555;
@@ -1030,6 +1029,9 @@ h6 a {
 #SearchForm_SearchForm_Search:hover{
     cursor: pointer;
 }
+#SearchForm_SearchForm_Search:hover:focus{
+    cursor: auto;
+}
 }
 .date-link:hover {
    /* color: #006079;*/
@@ -1125,7 +1127,7 @@ h6 a {
 #mc-embedded-subscribe { margin-left: 5px }
 #Form_addEventForm {
     border-image: initial;
-    color: #E8CA66;
+    color: #EBEBEB;
 }
 #Form_addEventForm fieldset label {
     font-size: 1.1em;
@@ -1134,12 +1136,12 @@ h6 a {
 #Form_addEventForm fieldset .file { padding: 20px 0px 0px 0px }
 #Form_addEventForm fieldset input.text {
     font-size: 1.1em;
-    width: 80%;
     padding: 10px;
     background: #333;
     border: 1px solid #555;
     color: #E8CA66;
     border-image: initial;
+    width: 96%; 
 }
 #Form_addEventForm_action_addEvent {
     font-size: 1.6em;
@@ -1591,13 +1593,14 @@ a.read-more-link { color: #ADD7E2 }
     text-align: left;
     font-size: 2.2em;
     text-transform: lowercase;
+    margin: 10px 0;
 }
 #the-news h3 {
     font-size: 1.5em;
     color: #fff5d1;
     margin: 0;
 }
-#the-news h3 a { color: #fff5d1 }
+#the-news h3 a { color: white; }
 #the-news h3 a:hover { color: #e5dcbc }
 #the-news .news-entry {
     color: #E6E2DF;
@@ -1612,7 +1615,7 @@ a.read-more-link { color: #ADD7E2 }
 }
 .news-entries {
 }
-.news-posted-on { color: #f9e091 }
+.news-posted-on { color: #999 }
 .read-more a {
     color: #ffde68;
     display: block;
@@ -1839,7 +1842,7 @@ textarea {
 }
 
 .button {
-	padding: 3px;
+	padding: 0.35em 0.5em;
 	background: #0A8FC9;
 	border: none;
 	color: #FFF;
@@ -1922,7 +1925,6 @@ a.button:active {
     #page_navigation ul li a { font-size: 1em }
     #SearchForm_SearchForm_Search {
         background-image: none;
-        width: 80%;
         margin-top: 3px;
     }
     .event-card-desc { width: 60% }
@@ -2168,6 +2170,10 @@ a.button:active {
         float: right;
         margin-top: 3px;
     }
+    #secondary_header h1 {
+        font-size: 2.5em;
+
+    }
     #feedback-link {
         position: fixed;
         left: 0px;
@@ -2177,6 +2183,7 @@ a.button:active {
     
 	#the-news h3 {
 	    font-size: 1.8em;
+        line-height: 1.1;
 	}
     .addthis_toolbox {
     	clear: both;
@@ -2353,9 +2360,7 @@ a.button:active {
     img { page-break-inside: avoid }
     img { max-width: 100% !important }
 }
-.text label,
-.date label,
-.checkboxset >label,
+.field label,
 .Actions input {
     display: block;
     margin: 10px 0px 0px 0px;

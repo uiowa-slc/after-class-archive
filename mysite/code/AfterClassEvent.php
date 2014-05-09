@@ -10,9 +10,6 @@ class AfterClassEvent extends CalendarEvent {
 		'Submitteremail' => 'Text',
 		'Submitterdate' => 'Text',
 		'CancelReason' => 'Text',
-		'status' => 'Text',
-		'facebook_publishdate' => 'Date',
-		'facebook_published' => 'Boolean',
 		'MoreInfoLink' => 'Text',
 		'SubmitterSponsor' => 'Text',
 		'FacebookEventLink' => 'Text'
