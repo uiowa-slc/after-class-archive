@@ -209,6 +209,9 @@ function locate() {
 				var vid = nearestVenues[v];
 				jQuery("#venuesWithEvents").append( jQuery("#" + vid) );
 			}
+			
+			widthChange(mq)
+			mq.addListener(widthChange)
 		}		
 	}
 		
@@ -220,7 +223,7 @@ function locate() {
 	}  
 			
 	getInitLocal(venueGen);
-
+	
 }
 
 function error(msg) {
@@ -230,18 +233,14 @@ function error(msg) {
 }
 
 // media query change
-function WidthChange(mq) {
+function widthChange(mq) {
 	if (mq.matches) {
-		console.log('trying to change to 600!');
 		mapcanvas.style.height = '600px';
 	}
 	else {
-		console.log('trying to change to 300!');
 		mapcanvas.style.height = '300px';
 	}
 }
-
-
 
 
 
