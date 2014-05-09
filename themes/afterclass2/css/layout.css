@@ -340,6 +340,9 @@ h5 a,
 h6 a {
     font-family: 'Doppio One', monospace;
 }
+h2{
+    font-size: 1.3em;
+}
 #right-column {
     margin-top: 0;
 }
@@ -718,19 +721,15 @@ h6 a {
     padding: 5px 0;
     margin: 5px 0;
     color: #C4E1F1;
-    font-size: 3em;
+    font-size: 1.8em;
     text-transform: capitalize;
+    line-height: 1;
 }
 #secondary_header h1 span {
     color: #555;
     font-size: 1.5em;
 }
-#secondary_header h2 {
-    color: #333;
-    font-family: SketchBlock-Bold, sans-serif;
-    font-size: 1.3em;
-    border-bottom: 1px solid #555;
-}
+
 #secondary_feature {
     background-image: url(../images/dark_leather.png);
     background-color: #555555;
@@ -1127,7 +1126,7 @@ h6 a {
 #mc-embedded-subscribe { margin-left: 5px }
 #Form_addEventForm {
     border-image: initial;
-    color: #E8CA66;
+    color: #EBEBEB;
 }
 #Form_addEventForm fieldset label {
     font-size: 1.1em;
@@ -1593,6 +1592,7 @@ a.read-more-link { color: #ADD7E2 }
     text-align: left;
     font-size: 2.2em;
     text-transform: lowercase;
+    margin: 4px 0;
 }
 #the-news h3 {
     font-size: 1.5em;
@@ -2161,6 +2161,10 @@ a.button:active {
         float: right;
         margin-top: 3px;
     }
+    #secondary_header h1 {
+        font-size: 2.5em;
+
+    }
     #feedback-link {
         position: fixed;
         left: 0px;
@@ -2170,6 +2174,7 @@ a.button:active {
     
 	#the-news h3 {
 	    font-size: 1.8em;
+        line-height: 1.1;
 	}
     .addthis_toolbox {
     	clear: both;
@@ -2346,9 +2351,7 @@ a.button:active {
     img { page-break-inside: avoid }
     img { max-width: 100% !important }
 }
-.text label,
-.date label,
-.checkboxset >label,
+.field label,
 .Actions input {
     display: block;
     margin: 10px 0px 0px 0px;

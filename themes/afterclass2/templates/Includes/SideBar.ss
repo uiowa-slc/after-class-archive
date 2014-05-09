@@ -1,11 +1,9 @@
 <div class="container-fluid hidden-phone hidden-tablet">
 <% include SecondaryNav %>
 </div>
-<hr />
 	<div id="facebook-like-box">
-	<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fuistudentlife&amp;widthamp;height=600&amp;show_faces=true&amp;colorscheme=dark&amp;stream=true&amp;show_border=false&amp;header=false&amp;appId=584926258188205&border_color=%23444444" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:600px;" allowTransparency="true"></iframe>
+		<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fuistudentlife&amp;widthamp;height=600&amp;show_faces=true&amp;colorscheme=dark&amp;stream=true&amp;show_border=false&amp;header=false&amp;appId=584926258188205&border_color=%23444444" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:600px;" allowTransparency="true"></iframe>
 	</div>
-<hr />
 <div id="the-news">
 	<h2><a href="news/">Student life at iowa</a></h2>
 		<div class="news-entries">
