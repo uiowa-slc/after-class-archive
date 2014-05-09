@@ -242,8 +242,6 @@ function widthChange(mq) {
 	}
 }
 
-
-
 /*
 $(document).ready(function() {
   if (navigator.geolocation) {
