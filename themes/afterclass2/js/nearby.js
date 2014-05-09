@@ -1,6 +1,8 @@
 "use strict";
+var mq = window.matchMedia( "(min-width: 480px)" );	
 var markerArray = [];
 var infoWindow = null;
+
 function makeMarker(options){
    var pushPin = new google.maps.Marker({map:map});
    pushPin.setOptions(options);
@@ -51,7 +53,11 @@ function locate() {
 	    ]
 	}
 	];
-	var mq = window.matchMedia( "(min-width: 481px)" );	
+	var infowindow = new google.maps.InfoWindow({
+		content: "holding...",
+		maxWidth: 340
+		});	
+	var geocoder = new google.maps.Geocoder();	
 	var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
     var mapcanvas = document.createElement('div');	
 		mapcanvas.id = 'mapcanvas';
@@ -86,7 +92,6 @@ function locate() {
 			//console.log("Browser DOES support Geolocation");
 		    var browserSupportFlag = true;
 		    navigator.geolocation.getCurrentPosition(function(position) {
-		    	
 				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 				//initialLocation = new google.maps.LatLng(41.664468, -91.535157)
 				var distanceFromInitialLocation = google.maps.geometry.spherical.computeDistanceBetween(initialLocation,iowaCity);	
@@ -156,13 +161,11 @@ function locate() {
 		var venueID = venue.id;
 		var venueName = jQuery('#' + venueID).data("title");
 		var venueLink = jQuery('#' + venueID).data("link");
-		venueFromMe[venueID] = venueDistance;
-		
+			venueFromMe[venueID] = venueDistance;		
 		var marker = new google.maps.Marker({
 				position: venueLatLng,
 				map: map
-			});	
-					    
+			});				    
 		var eventsHere = [];
 		var eventsHereString = '';
 		var eventBubbleString = '';
@@ -192,6 +195,7 @@ function locate() {
 	    google.maps.event.addListener(marker, 'click', function () {
 	  		infowindow.setContent(eventBubbleString);
 	  		infowindow.open(map, this);	
+	  		//infowindow.maxWidth(200);
 		});
 		
 		if(countVenue == venueCount) {
@@ -214,14 +218,7 @@ function locate() {
 	    $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
 	    return initialLocation;
 	}  
-		
-	var infowindow = new google.maps.InfoWindow({
-		content: "holding...",
-		maxWidth: 360
-		});
-	
-	var geocoder = new google.maps.Geocoder();
-	
+			
 	getInitLocal(venueGen);
 
 }
@@ -231,6 +228,22 @@ function error(msg) {
   s.innerHTML = typeof msg == 'string' ? msg : "failed";
   s.className = 'fail';
 }
+
+// media query change
+function WidthChange(mq) {
+	if (mq.matches) {
+		console.log('trying to change to 600!');
+		mapcanvas.style.height = '600px';
+	}
+	else {
+		console.log('trying to change to 300!');
+		mapcanvas.style.height = '300px';
+	}
+}
+
+
+
+
 
 /*
 $(document).ready(function() {
