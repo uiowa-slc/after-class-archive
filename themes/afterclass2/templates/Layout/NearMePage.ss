@@ -5,13 +5,20 @@
     <div class="span12 map-content">
       <div class="map-container">
       </div>
+      
       <div class="map-jumplist">
+        <% if $ActiveVenues %>
         <p>See events at:
           <% loop $ActiveVenues %>
               <a href = "#{$ID}" class="button tag">$Title.LimitCharacters(20)</a>
           <% end_loop %>
         </p>
+        <% else %>
+          <p>We can't find any events you right now.</p>
+        <% end_if %>
+
       </div>
+      
     </div>
 </div>
 
