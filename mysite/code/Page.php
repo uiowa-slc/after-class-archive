@@ -167,6 +167,7 @@ class Page_Controller extends ContentController {
 			$themeFolder .'/js/fancybox/jquery.fancybox.css',
 			$themeFolder . '/css/foundation-icons.css',
 			$themeFolder . '/css/nearby.css',
+			'division-bar/css/_division-bar.css'
 
 		);
 		Requirements::combine_files("combinedCSS.css", $cssFiles);
