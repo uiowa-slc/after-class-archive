@@ -416,7 +416,7 @@ h2{
 #page_content.FeaturedAfterClassEvent.index,
 #page_content.AfterClassCalendar.show .container,
 #page_content.AfterClassEvent .container { margin-top: 0 }
-#page_content.AfterClassCalendar.show #event-card-list h2 { display: none }
+#page_content.AfterClassCalendar.show .event-card-list h2 { display: none }
 #page_content.AfterClassCalendar.show #approaching-deadlines { display: none }
 #page_content.AfterClassCalendar.show #the-news { display: none }
 #page_content.AfterClassCalendar.show #categories { display: none }
@@ -855,7 +855,6 @@ h2{
     margin: 0 30px 20px 30px;
     border: 1px solid #555555;
 }
-.map-container { height: 300px }
 
 #detail_event_description_map {
     margin-top: 10px;
@@ -1012,6 +1011,7 @@ h2{
     margin-top: 5px;
     /*margin-left: 15px;*/
 }
+
 #Search input {
     background: #333;
 }
@@ -1416,12 +1416,12 @@ h2{
 }
 .event-card-content { color: white }
 .event-card.first { margin-top: 0; padding-left: 0; }
-#event-card-list {
+.event-card-list {
 }
 .event-card:nth-child(1), .event-cards:nth-child(3n){
 	padding-left: 0;
 }
-#event-card-list h2 {
+.event-card-list h2 {
     font-weight: normal;
     font-size: 2.2em;
     border-bottom: 2px solid #21d0e8;
@@ -1462,7 +1462,7 @@ h2{
     color: #222;
    
 }
-#event-card-list .event-card.canceled h3 {  }
+.event-card-list .event-card.canceled h3 {  }
 .event-card h3 {
     font-size: 1.3em;
     display: block;
@@ -1888,10 +1888,7 @@ a.button:active {
 
 }
 
-#mapcanvas a {
-	color: #348eb4;
-	
-}
+
 
 #status img {
 	position: absolute;

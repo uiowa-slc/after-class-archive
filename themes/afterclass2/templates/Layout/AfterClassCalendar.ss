@@ -31,7 +31,7 @@
 	<% end_if %><!-- end if events -->
 <% end_if %>
 <div style="clear: both"></div>
-<div id="event-card-list">
+<div class="event-card-list">
 	<% if $action == "index" %>
 		<h2>What's up next</h2>
 		<div class="event-cards">

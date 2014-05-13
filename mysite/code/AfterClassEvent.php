@@ -11,7 +11,9 @@ class AfterClassEvent extends CalendarEvent {
 		'Submitterdate' => 'Text',
 		'CancelReason' => 'Text',
 		'MoreInfoLink' => 'Text',
+		'SubmitterSponsor' => 'Text',
 		'FacebookEventLink' => 'Text'
+
 	);
 	private static $has_one = array(
 		'Image' => 'SizedImage',
@@ -146,6 +148,7 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );
 		$f->addFieldToTab('Root.Main',new LiteralField('FeaturedRedirect','<p><a href="admin/pages/edit/show/6/" target="_blank">To feature this event, add it as one of the featured events under "Events" by going here &raquo;</a></p>') );
 		$f->addFieldToTab('Root.Main',new TextField('CancelReason','If this event is canceled/full, enter the reason here. Example: "Class is full!"') );
+		$f->addFieldtoTab( 'Root.Main', new TextField('SubmitterSponsor','Submitted Sponsor')); 
 		$f->addFieldToTab('Root.Main',new TextField('FacebookEventLink', "Facebook Event Link"));
 		$f->addFieldToTab('Root.Main',new HtmlEditorField('Content','Event Description') );
 		$date_instructions = '
@@ -226,6 +229,19 @@ class AfterClassEvent extends CalendarEvent {
 		$f->addFieldToTab( 'Root.Main', $EventtypesField, "Content" );
 		return $f;
 	}
+	
+	public function nearMeSummary () {
+		$NoHTML = strip_tags($this->Content);
+		$bad_guys = array("\"", "\n");
+		$raw_fixed = str_replace($bad_guys, "&nbsp;", $NoHTML);
+		$line = $raw_fixed;
+		if (preg_match('/^.{1,200}\b/s', $raw_fixed, $match))
+		{
+			$line = $match[0];
+		}
+		return substr($line, 0);
+	}
+	
 	
 	 	 /* 
    * limits words to a number, but tries to validate the code 

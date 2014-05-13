@@ -101,6 +101,35 @@ class AfterClassCalendar extends Calendar {
 			return false;	
 		}
 	}
+	
+	//
+	
+	function AllEventsWithoutDuplicates() {
+
+ 		$events = $this->AllEvents();
+		$events->removeDuplicates('ID');
+		return $events;
+	}
+
+	function AllEvents(){
+		$start_date = date( "d/m/Y", time() );
+		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
+		$eventDateTimes = $this->getEventList(
+			sfDate::getInstance()->date(),
+			sfDate::getInstance()->addYear(10)->date(),
+			null,
+			null
+		);
+		$events = new ArrayList();
+		foreach($eventDateTimes as $eventDateTime){
+			$events->push($eventDateTime->Event());
+		}
+		return $events;
+	}
+	
+	
+	
+	
 }
  
 class AfterClassCalendar_Controller extends Calendar_Controller {
@@ -129,32 +158,13 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             );
  	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
  	
+
  	/*****************************/
 	/* General Utility Functions */
 	/*****************************/	
 
- 	function AllEventsWithoutDuplicates() {
-
- 		$events = $this->AllEvents();
-		$events->removeDuplicates('ID');
-		return $events;
-	}
-
-	function AllEvents(){
-		$start_date = date( "d/m/Y", time() );
-		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
-		$eventDateTimes = $this->getEventList(
-			sfDate::getInstance()->date(),
-			sfDate::getInstance()->addYear(10)->date(),
-			null,
-			null
-		);
-		$events = new ArrayList();
-		foreach($eventDateTimes as $eventDateTime){
-			$events->push($eventDateTime->Event());
-		}
-		return $events;
-	}
+	
+	
 	function UpcomingDatesAndRanges(){
 		$dates = DataList::create("CalendarDateTime")
 			->where("\"StartDate\" >= DATE(NOW()) OR \"EndDate\" >= DATE(NOW())")

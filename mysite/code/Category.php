@@ -28,9 +28,7 @@ class Category extends DataObject {
 				$upcomingEventArrayList->push($event);
 			}
 		}
-
 		return $upcomingEventArrayList;
-
 	}
 
 	public function JsonFeedLink(){
