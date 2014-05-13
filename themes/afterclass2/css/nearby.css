@@ -25,7 +25,8 @@
     position: absolute;
     padding: 5px;
     z-index: 1000;
-    background: rgba(29, 28, 28, 0.59);
+    background: rgba(29, 28, 28, 0.3);
+    font-size: 0.85em;
     width: 100%;
   }
 }
