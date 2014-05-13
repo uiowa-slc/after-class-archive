@@ -187,7 +187,7 @@ function locate() {
 
 			var eventStringSeg = 
 			"<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul class='infobox-list'>" + 
-					"<li> Next Date: " + startDate + ", " + startTime + ((eventCost  !== "") ? ", Cost: " + eventCost : "") + "</li>" 
+					"<li>" + startDate + ", " + startTime + ((eventCost  !== "") ? ", Cost: " + eventCost : "") + "</li>" 
 				+ "</ul></div>";
 					
 			eventsHere.push(eventStringSeg);
