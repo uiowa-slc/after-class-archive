@@ -6,7 +6,8 @@
 		<% with Calendar %>
 			$CalendarWidget
 		<% end_with %>
-	
+	<h3>Find Events Near You!</h3>
+	<p><a href="nearby/" class="button">See all events nearby</a></p>
 	<% cached %>
 		<p>
 		<strong>Trending:</strong>

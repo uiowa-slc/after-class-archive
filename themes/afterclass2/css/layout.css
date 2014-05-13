@@ -865,6 +865,9 @@ h2{
 
 }
 
+.location-info .map-container{
+    height: 300px;
+}
 
 /* Helpers stay on bottom */
 /* =============================================================================
