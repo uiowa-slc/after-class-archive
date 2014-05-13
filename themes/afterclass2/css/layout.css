@@ -855,7 +855,6 @@ h2{
     margin: 0 30px 20px 30px;
     border: 1px solid #555555;
 }
-.map-container { height: 300px }
 
 #detail_event_description_map {
     margin-top: 10px;
@@ -1888,18 +1887,7 @@ a.button:hover {
 a.button:active {
 
 }
-#mapcanvas h3 {
-	font-size: 1.33em;
-	margin: 0;
-}
-#mapcanvas a {
-	color: #348eb4;
-	font-size: inherit;
-}
 
-#mapcanvas p {
-	color: #000;
-}
 
 
 #status img {
