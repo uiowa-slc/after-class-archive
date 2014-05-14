@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "00a0aadb02c6409f2d369011fe86a596",
+    "hash": "e06a6a2096eb759d629e6d7f3fac35dc",
     "packages": [
         {
             "name": "composer/installers",
@@ -154,6 +154,46 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/rss-display/issues"
             },
             "time": "2014-03-21 15:04:28"
+        },
+        {
+            "name": "rywa/silverstripe-foundation-forms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ryanwachtl/silverstripe-foundation-forms.git",
+                "reference": "48a4e9c7943629e9e5385544dcabd83fc0621c15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/48a4e9c7943629e9e5385544dcabd83fc0621c15",
+                "reference": "48a4e9c7943629e9e5385544dcabd83fc0621c15",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/framework": ">=3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "foundationforms"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT Open Source License"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Wachtl",
+                    "homepage": "http://ryanwachtl.com"
+                }
+            ],
+            "description": "SilverStripe 3 Forms Compatible with Zurb Foundation Framework",
+            "keywords": [
+                "Forms",
+                "silverstripe",
+                "zurbfoundation"
+            ],
+            "time": "2014-02-22 22:15:47"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -526,7 +566,8 @@
         "silverstripe/event-calendar": 20,
         "silverstripe/staticpublisher": 20,
         "silverstripe/spamprotection": 20,
-        "silverstripe/mathspamprotection": 20
+        "silverstripe/mathspamprotection": 20,
+        "rywa/silverstripe-foundation-forms": 20
     },
     "platform": {
         "php": ">=5.3.2"

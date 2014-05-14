@@ -1,5 +1,5 @@
 <div class="row">
-<div id="left-column" class="span8">
+<div id="left-column" class="medium-8 columns">
 
 <% if $action == "index" %>
 	<% if FeaturedEvents %>
@@ -52,7 +52,7 @@
 	<!-- end event-card-list -->
 </div>
 <!-- end left-column -->
-<div id="right-column" class="span4">
+<div id="right-column" class="medium-4 columns">
 	<% include SideBar %>
 </div>
 <!-- end right-column -->

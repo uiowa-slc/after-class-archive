@@ -1,4 +1,4 @@
-<div class="container-fluid hidden-phone hidden-tablet">
+<div class="show-for-medium-up">
 <% include SecondaryNav %>
 </div>
 	<div id="facebook-like-box">

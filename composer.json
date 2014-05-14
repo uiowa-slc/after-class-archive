@@ -13,7 +13,8 @@
 		"md/rss-display" : "*",
 		"silverstripe/staticpublisher": "dev-master",
 		"silverstripe/spamprotection": "dev-master",
-		"silverstripe/mathspamprotection": "dev-master"
+		"silverstripe/mathspamprotection": "dev-master",
+		"rywa/silverstripe-foundation-forms" : "dev-master"
 
 	},
 	"config": {

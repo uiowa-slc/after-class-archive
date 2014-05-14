@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="span8">
+	<div class="medium-8 columns">
 		<header id="secondary_header">
 
 			<h1>$Action</h1>
@@ -46,7 +46,7 @@
 			<% end_loop %>
 		</div>
 	</div>
-	<div class="span4">
+	<div class="medium-4 columns">
 		<% include SideBar %>
 	</div>
 </div>

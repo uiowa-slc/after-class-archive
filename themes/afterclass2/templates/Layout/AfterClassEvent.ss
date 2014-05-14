@@ -1,6 +1,6 @@
 <div class="row">
 <div class="feature-background-wrapper">
-<div class="span8">
+<div class="medium-8 columns">
 	<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
 		<div class="hero-event-image-container">
 			<a href="$Link" class="img-shadow">
@@ -68,9 +68,9 @@
 		</div><!-- end hero-event-content-->
 	</div><!-- end hero-event -->
 
-</div><!-- end span8 -->
+</div><!-- end medium-8 columns -->
 
-<div class="span4">
+<div class="medium-4 columns">
 	<% if Venues || Location %>
 		<div id="detail_event_description_map">	
 			<% loop Venues %>
@@ -132,7 +132,7 @@
 	<hr />
 	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
 	</div><!-- end sponsor-x -->
-</div><!-- end span4-->
+</div><!-- end medium-4 columns-->
 </div><!-- end row -->
 	
 	
