@@ -4,23 +4,22 @@
 	<% base_tag %>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+	<link href='{$ThemeDir}/css/master.css' rel='stylesheet' type='text/css'>
 	<!--<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />-->
 	<% include MetaTags %>
 
-<!--[if lt IE 9]>
-<script>
-document.createElement('header');
-document.createElement('nav');
-document.createElement('section');
-document.createElement('article');
-document.createElement('aside');
-document.createElement('footer');
-document.createElement('hgroup');
-</script>
-<![endif]-->
+	<!--[if lt IE 9]>
+	<script>
+	document.createElement('header');
+	document.createElement('nav');
+	document.createElement('section');
+	document.createElement('article');
+	document.createElement('aside');
+	document.createElement('footer');
+	document.createElement('hgroup');
+	</script>
+	<![endif]-->
 
-
-</style>
 <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 <body>
@@ -40,21 +39,11 @@ document.createElement('hgroup');
 <div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>">
 	<div class="container clearfix">
 	$Layout
-	
-    <div>
-	
-	</div>
-	
    </div>
 </div>
 <% include Footer %>
 
-<% if CurrentMember %>
-	<% if EditUrl %>
-		<div id="editpage"><a id="edit-link" target="_blank" href="$EditURL">Edit This</a></div>
-	<% end_if %>
-<% end_if %>
-
+<script src="{$ThemeDir}/build/build.js"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

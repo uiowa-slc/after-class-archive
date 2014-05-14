@@ -1,0 +1,195 @@
+.container {
+    margin: auto;
+}
+#right-column {
+    margin-top: 0;
+}
+#right-column h2 img { width: 55.5% }
+#left-column {
+    margin-top: 0;
+}
+#left-column h2 img { width: 50% }
+#left-column h2 { text-transform: lowercase;}
+#left-column p.homepage-message { color: white }
+
+#page_content.AfterClassCalendar.index .container,
+#page_content.AfterClassEvent.index .container,
+#page_content.FeaturedAfterClassEvent.index,
+#page_content.AfterClassCalendar.show .container,
+#page_content.AfterClassEvent .container { margin-top: 0 }
+#page_content.AfterClassCalendar.show .event-card-list h2 { display: none }
+#page_content.AfterClassCalendar.show #approaching-deadlines { display: none }
+#page_content.AfterClassCalendar.show #the-news { display: none }
+#page_content.AfterClassCalendar.show #categories { display: none }
+#page_content.AfterClassCalendar.show .hero-event { display: none }
+#page_content.AfterClassCalendar.show .flex-control-nav { display: none; }
+#page_content {
+    background-repeat: repeat;
+    padding: 0 7px;
+}
+#page_content.AfterClassEvent {
+    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16) inset;
+}
+#page_content div.container {
+    /*padding-top: 30px;*/
+    /*z-index: 1;*/
+    padding-bottom: 100px;
+}
+#single-page-content {
+    min-height: 200px;
+}
+
+#single-page-content h2 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2E2E2E;
+    color: #C1B5CE;
+}
+#single-page-content.category h2 { border-bottom: none }
+#single-page-content h3 { color: #7BACB9 }
+#single-page-content a { color: #d7b548 }
+#single-page-content a:hover { color: #d2af3c }
+
+#secondary_header h1 {
+    padding: 5px 0;
+    margin: 5px 0;
+    color: #C4E1F1;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    line-height: 1;
+}
+#secondary_header h1 span {
+    color: #555;
+    font-size: 1.5em;
+}
+
+.hide { display: none }
+
+.email { width: 280px }
+.big-screen { display: none }
+
+
+#facebook-like-box {
+    overflow: hidden;
+}
+
+#facebook-like-box * {
+    width: 100% !important;
+}
+.addthis_button_facebook_like {
+    margin-top: -2px;
+    margin-right: 5px;
+}
+
+.date-header {
+    color: white;
+    margin: 0;
+}
+
+@media only screen and (min-width: 768px) { 
+    .date-header {
+        margin: 0.5em 0;
+    }
+
+}
+
+
+
+/* Feedback Image */
+#feedback-link { display: none }
+#feedback-link img { display: block }
+
+
+.fancybox-wrap {
+	border: 1px solid #302E2E;
+	
+}
+
+.button {
+	padding: 0.35em 0.5em;
+	background: #0A8FC9;
+	border: none;
+	color: #FFF;
+	display: inline-block;
+	margin: 0.3em 0;
+    text-transform: uppercase;
+    font-size: 0.8em;
+
+}
+
+.fbButton {
+	padding: 3px;
+	background: #3b5998;
+	border: none;
+	color: #FFF;
+	display: inline-block;
+	margin: 0.3em 0;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.button.get-directions{
+    background: #23A767;
+}
+
+.button.tag{
+    background: #4C3D69;
+}
+
+
+#single-page-content a.button, a.button{ 
+	color: #fff;
+}
+a.button:hover {
+	color: #ddd;
+}
+
+
+
+#status img {
+	position: absolute;
+	margin: 0 1em;
+}
+
+@media only screen and (min-width: 768px) { 
+
+    .small-screen { display: none }
+    .big-screen { display: block }
+    #left-column {
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    
+    #page_content { padding: 0 }
+    
+    #secondary_header h1 {
+        font-size: 2.5em;
+
+    }
+    #feedback-link {
+        display: block;
+        position: fixed;
+        left: 0px;
+        top: 300px;
+        border: 1px solid #555;
+    }
+    
+    .addthis_toolbox {
+    	clear: both;
+        margin: 3px 0;
+        display: block;
+    }
+
+}
+@media only screen and (min-width: 1024px) { 
+    body { font-size: 1em }
+  
+}
+
+@media only screen and (min-width: 1023px) { 
+    .button.more-dates{
+            float: right;
+        }
+  
+}

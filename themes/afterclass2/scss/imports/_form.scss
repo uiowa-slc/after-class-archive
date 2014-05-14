@@ -1,0 +1,51 @@
+#Form_Form {
+    color: #ffde68;
+}
+#Form_Form label {
+    font-size: 1.1em;
+    padding: 10px 0;
+    display: block;
+}
+#Form_Form input.text {
+    font-size: 1.1em;
+    width: 80%;
+    padding: 10px;
+    background: #333;
+    border: 1px solid #555;
+    color: #ffe898;
+}
+#Form_Form_action_process {
+    font-size: 1.2em;
+    width: 200px;
+    padding: 20px;
+}
+.field label,
+.Actions input {
+    display: block;
+    margin: 10px 0px 0px 0px;
+}
+.checkboxsetfield {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.checkboxsetfield li {
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+}
+
+/* Feedback Form */
+#feedback-form-container { }
+#feedback-form-container p {
+    margin: 0;
+    padding: 0;
+    color: #FFE898;
+    text-align: center;
+}
+.field.email { width: 100% }
+textarea {
+    width: 100%;
+    background: #333;
+    border: 1px solid #555;
+    color: #FFE898;
+}
