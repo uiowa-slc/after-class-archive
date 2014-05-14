@@ -27,8 +27,11 @@ module.exports = function(grunt) {
     concat: {
       js:{
         src: [
-        'framework/thirdparty/jquery/jquery.js',
         'division-bar/js/division-bar.js',
+        'event_calendar/javascript/calendar.js',
+        'event_calendar/javascript/calendar_widget.js',
+        'event_calendar/javascript/lang/calendar_en.js',
+        'event_calendar/javascript/calendar_widget_init.js',
         '<%=globalConfig.themeDir %>/js/vendor/**/*.js',
         '<%=globalConfig.themeDir %>/js/vendor/*.js',
         '<%=globalConfig.themeDir %>/js/*.js'],
