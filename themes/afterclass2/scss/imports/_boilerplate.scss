@@ -46,9 +46,9 @@ video {
 /* ======================================================================
     Min Width 1200px
 ========================================================================= */
-@media only screen and (min-width:1200px) { 
+@media only screen and (min-width:1280px) { 
     .wrapper {
-        width: 80em !important;
+        width: 1280px !important;
         max-width: intrinsic !important;
     }
 }

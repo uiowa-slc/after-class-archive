@@ -1,10 +1,10 @@
 /* Some Division Bar Fixes */
 input.division-search-input[type="search"], input.division-search-input[type="search"]:focus {
-    margin: 0;
-    height: auto;
-    background: white;
-    color: black;
-    padding: 0.3em;
+    margin: 0 !important;
+    height: auto !important;
+    background: white !important; 
+    color: black !important;
+    padding: 0.3em !important;
 }
 .container {
     margin: auto;
