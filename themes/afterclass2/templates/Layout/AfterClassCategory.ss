@@ -1,5 +1,5 @@
 <div class="row">
-<div class="span8">
+<div class="medium-8 columns">
 <header id="secondary_header">
 	<% if Category.AltTitle %>
 	<h1>$Category.AltTitle</h1>
@@ -48,8 +48,8 @@
 	</div><!-- end category-list -->
 </div><!-- end category -->
 <% end_with %>
-</div><!-- end span8 -->
-<div class="span4">
+</div><!-- end medium-8 columns -->
+<div class="medium-4 columns">
 	<% include SideBar %>
 </div>
 </div><!-- end row -->

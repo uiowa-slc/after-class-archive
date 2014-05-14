@@ -1,6 +1,6 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
   <div class="row">
-    <div class="span12 map-content">
+    <div class="large-12 map-content">
       <div class="map-container">
       </div>
       

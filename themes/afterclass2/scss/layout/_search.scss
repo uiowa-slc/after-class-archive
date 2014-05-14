@@ -7,13 +7,12 @@
 #Search input {
     background: #333;
 }
+
 #SearchForm_SearchForm_Search {
     border: none;
     color: #EBE5E6;
     font-size: 0.7em;
     padding: 5px;
-    background-position: 98% 6px;
-    background-repeat: no-repeat;
     display: block;
     width: 100%;
 }
@@ -32,7 +31,23 @@
 #SearchResults li {
     margin: 10px 0;
     padding: 10px;
-  }
+}
+
+/* Search that's in the page nav */
+#page_navigation #Search {
+    margin: 0
+}
+#page_navigation #Search input {
+    background: none;
+    box-shadow: none;
+    margin:0;
+}
+
+#page_navigation #Search input:focus {
+    background: #222;
+}
+
+
 @media only screen and (min-width: 480px) { 
  #SearchForm_SearchForm_Search {
         background-image: none;

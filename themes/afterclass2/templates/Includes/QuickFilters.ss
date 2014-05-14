@@ -1,12 +1,4 @@
-<div class="secondary-nav row-fluid">
-	<div class="secondary-search-form">
-		<% include Search %>
-	</div>
-	
-		<% with Calendar %>
-			$CalendarWidget
-		<% end_with %>
-	<h3>Find Events Near You!</h3>
+<h3>Find Events Near You!</h3>
 	<p><a href="nearby/" class="button">See all events nearby</a></p>
 	<% cached %>
 		<p>
@@ -26,5 +18,3 @@
 	<a href="{$BaseHref}events/categories/" class="button">Event Type</a>
 	<a href="{$BaseHref}events/sponsors/" class="button">Sponsor</a>
 	<a href="{$BaseHref}events/venues/" class="button">Venue</a></p>	
-</div>
-	

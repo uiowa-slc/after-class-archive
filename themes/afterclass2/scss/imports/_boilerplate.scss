@@ -48,7 +48,7 @@ video {
 ========================================================================= */
 @media only screen and (min-width:1200px) { 
     .wrapper {
-        width: 1170px !important;
+        width: 80em !important;
         max-width: intrinsic !important;
     }
 }
@@ -119,13 +119,7 @@ a:active {
     font-weight: normal;
 }
 h2 a { font-weight: normal }
-#upcoming_event_list .event .event_text a { color: #555 }
-.event_text a:hover { color: #d7bb58 }
-#page_navigation a { font-weight: normal }
-#page_navigation img.new {
-    position: absolute;
-    margin-top: -50px;
-}
+
 /* =============================================================================
    Typography
    ========================================================================== */
@@ -302,25 +296,16 @@ textarea {
 /* Colors for form validity */
 input:invalid,
 textarea:invalid { background-color: #f0dddd }
-/* =============================================================================
-   Tables
-   ========================================================================== */
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-body {
-    background-color: #1D1C1C;
-}
-@font-face {
-    font-family: 'SketchBlock-Bold';
-    src: url("../fonts/1327B9_0.eot?#iefix") format("embedded-opentype"), url("../fonts/1327B9_0.woff") format("woff"), url("../fonts/1327B9_0.ttf") format("truetype"), url("../fonts/1327B9_0.svg#wf") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
+
 body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+    background-color: #1D1C1C;
 }
 h1,
 h2,
