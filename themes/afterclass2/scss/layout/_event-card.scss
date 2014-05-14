@@ -1,34 +1,4 @@
-
-.event-card {
-    padding: 10px 0;
-    border-bottom: 1px solid #312f2f;
-    border-top: 1px solid rgba(0, 0, 0, 0.72);
-}
-
-.event-card:nth-child(1){
-	border-top: none;
-}
-.event-card .placeholder-image {
-    width: 250px;
-    height: 158px;
-}
-
-.event-card.canceled { background-color: #3e3e3e }
-.event-card.canceled h3 a { color: #eaeaea }
-.event-card.canceled h3 a:hover { color: #dfdfdf }
-.event-card:hover {
-    cursor: pointer;
-}
-.event-card:active {
-
-}
-.event-card-content { color: white }
-.event-card.first { margin-top: 0; padding-left: 0; }
-.event-card-list {
-}
-.event-card:nth-child(1), .event-cards:nth-child(3n){
-	padding-left: 0;
-}
+.event-card-list {}
 .event-card-list h2 {
     font-weight: normal;
     font-size: 2.2em;
@@ -38,15 +8,66 @@
     text-align: left;
     text-transform: lowercase;
 }
+.event-card {
+    padding: 10px 0;
+    border-bottom: 1px solid #312f2f;
+    border-top: 1px solid rgba(0, 0, 0, 0.72);
+}
+
+.event-card:nth-child(1) {
+    border-top: none;
+}
+
+.event-card .placeholder-image {
+    width: 250px;
+    height: 158px;
+}
+
+.event-card.canceled {
+    background-color: #3e3e3e;
+}
+
+.event-card.canceled h3 a {
+    color: #eaeaea;
+}
+
+.event-card.canceled h3 a:hover {
+    color: #dfdfdf;
+}
+
+.event-card:hover {
+    cursor: pointer;
+}
+
+.event-card:active {}
+
+.event-card-content {
+    color: white;
+}
+
+.event-card.first {
+    margin-top: 0;
+    padding-left: 0;
+}
+
+
+.event-card:nth-child(1), .event-cards:nth-child(3n) {
+    padding-left: 0;
+}
+
+
+
 .event-card-desc p {
     margin: 0;
     font-family: 'Open Sans', sans;
     padding-bottom: 10px;
 }
+
 .event-card-desc {
     float: left;
     font-size: 1em;
 }
+
 .event-card-desc .more-dates-link {
     display: block;
     margin: 5px 0;
@@ -58,38 +79,54 @@
     text-align: center;
     font-weight: normal;
 }
-.event-card-desc .more-dates-link { color: white }
+
+.event-card-desc .more-dates-link {
+    color: white;
+}
+
 .event-card-desc .more-dates-link:hover {
     color: #dfdfdf;
-  
 }
-.event-card.canceled .event-card-header { }
+
+.event-card.canceled .event-card-header {}
+
 .event-card-header {
     padding: 5px 0;
     margin: 0;
     color: #222;
-   
 }
-.event-card-list .event-card.canceled h3 {  }
+
+.event-card-list .event-card.canceled h3 {}
+
 .event-card h3 {
     font-size: 1.3em;
     display: block;
-    float: left; 
+    float: left;
     color: #E6E2DF;
     margin: 0;
 }
-.event-card h3.small-cell { display: none }
-.event-card h3 span.homepage-cancel-reason { font-size: 0.8em }
+
+.event-card h3.small-cell {
+    display: none;
+}
+
+.event-card h3 span.homepage-cancel-reason {
+    font-size: 0.8em;
+}
+
 .event-card h3 a {
     color: #CDEBF3;
 }
+
 .event-card p.dates-times {
     margin: 0.5em 0;
 }
 
-.event-card h3 a:hover { color: #7BCDF0 }
-a.event-header-category {
+.event-card h3 a:hover {
+    color: #7BCDF0;
+}
 
+a.event-header-category {
     float: right;
     display: none;
 }
@@ -99,48 +136,79 @@ a.event-header-category {
     font-family: 'Open Sans', sans;
     font-size: 0.9em;
 }
-.event-card-meta ul { list-style-type: none }
-.event-card-meta a { color: #D0C2D0 }
-.event-card-meta a:hover { color: #c49ec4 }
+
+.event-card-meta ul {
+    list-style-type: none;
+}
+
+.event-card-meta a {
+    color: #D0C2D0;
+}
+
+.event-card-meta a:hover {
+    color: #c49ec4;
+}
+
 .event-card-meta h4 {
     margin: 0;
     color: #ffd51d;
 }
+
 .event-card-image {
     float: right;
     margin-left: 10px;
     width: 100%;
 }
+
 .event-card-image img {
     width: 100%;
 }
-.event-card-image .more-event-info img { border: none }
 
-.event-card-bottom { margin: 5px 0 }
+.event-card-image .more-event-info img {
+    border: none;
+}
 
+.event-card-bottom {
+    margin: 5px 0;
+}
 
-#related-events .event-card .event-card-meta{
+#related-events .event-card .event-card-meta {
     display: none;
 }
-@media only screen and (min-width: 480px) { 
-    .event-card-desc { width: 60% }
-    .event-card-image { width: 150px }
 
+@media only screen and (min-width: 480px) {
+    .event-card-desc {
+        width: 60%;
+    }
+    .event-card-image {
+        width: 150px;
+    }
 }
-@media only screen and (min-width: 850px) { 
 
-
- 	.hero-event.homepage .hero-event-text{
-		display: block;
-	}   
+@media only screen and (min-width: 850px) {
+    .hero-event.homepage .hero-event-text {
+        display: block;
+    }
 }
-@media only screen and (min-width: 960px) { 
-	a.event-header-category { display: block }
-	.event-card h3 { font-size: 1.5em;}
-}
-@media only screen and (min-width: 1023px) { 
-.event-card-desc { width: 100%;  }
 
+@media only screen and (min-width: 960px) {
+    a.event-header-category {
+        display: block;
+    }
+    .event-card h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (min-width: 1023px) {
+    .event-card-desc {
+        width: 100%;
+    }
+    .event-card-list.large {
+        .event-card{
+            height: 250px;
+        }
+    }
     .event-card {
         font-size: 90%;
         width: 31.3%;
@@ -150,30 +218,33 @@ a.event-header-category {
         overflow: hidden;
         border: none;
     }
-
     .event-card p.dates-times {
         font-size: 0.8em;
         margin: 0;
     }
-
-    .event-card p.dates-times .button{
+    .event-card p.dates-times .button {
         margin: 0;
     }
-    
-
-
-    .event-card h3 { float: none; }
-    .event-card-content { 
+    .event-card h3 {
+        float: none;
+    }
+    .event-card-content {
         padding: 0;
         margin-top: -10px;
         background-color: rgba(29, 28, 28, 0.65);
         text-shadow: 0 1px 0 #333;
         position: relative;
         min-height: 100px;
-     }
-    .event-card-desc p { display: none }
-    .event-card-header { display: none }
-    .event-card h3.big-cell { display: none }
+    }
+    .event-card-desc p {
+        display: none;
+    }
+    .event-card-header {
+        display: none;
+    }
+    .event-card h3.big-cell {
+        display: none;
+    }
     .event-card h3.small-cell {
         display: block;
         font-size: 1.3em;
@@ -184,6 +255,7 @@ a.event-header-category {
         float: none;
         margin: 0;
     }
-
-    a.event-header-category { display: none }
+    a.event-header-category {
+        display: none;
+    }
 }

@@ -136,7 +136,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 
  	public function init() {
 		RSSFeed::linkToFeed($this->Link() . "feed/rss", "RSS Feed of this calendar");
-		parent::init();
+		Page_Controller::init();
 	}
 
 	public function Home() {
@@ -162,8 +162,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	/*****************************/
 	/* General Utility Functions */
 	/*****************************/	
-
-	
 	
 	function UpcomingDatesAndRanges(){
 		$dates = DataList::create("CalendarDateTime")
@@ -185,7 +183,6 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
 	 	return $news;
  	}
-
 
 	/*************************/
 	/* Routing Methods Below */
