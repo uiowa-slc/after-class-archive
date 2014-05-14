@@ -439,7 +439,19 @@ h2{
 #page_navigation .secondary-nav {
 	 display: none;
 }
+#secondary-nav {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ *//
+}
 
+.secondary-nav h3 {
+    margin: 0;
+}
+
+.secondary-nav p {
+    margin: 0.5em 0;
+}
 
 #page_navigation ul {
     margin: 0;
@@ -2018,11 +2030,7 @@ a.button:active {
 
     #Search {
     }
-    #secondary-nav {
-        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-        box-sizing: border-box;         /* Opera/IE 8+ *//
-    }
+
     #SearchForm_SearchForm_Search {
         background: none;
         width: 100%;
@@ -2241,6 +2249,10 @@ a.button:active {
 
     .event-card p.dates-times {
         font-size: 0.8em;
+        margin: 0;
+    }
+
+    .event-card p.dates-times .button{
         margin: 0;
     }
     

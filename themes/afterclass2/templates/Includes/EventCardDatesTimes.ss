@@ -14,7 +14,7 @@
 			<span> @ </span>
 		<% end_if %>
 		<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-			<a href="$Link" ><span itemprop="name">$Title.LimitCharacters(25)</span></a>
+			<a href="$Link" class="tag button" ><span itemprop="name">$Title.LimitCharacters(25)</span></a>
 		</span>	
 	<% end_loop %>	
 	<% if UpcomingDatesAndRanges.Count > "1" %><a href="$Link" class="button more-dates">more dates</a> <% end_if %>
