@@ -7,8 +7,7 @@
 
 	<title>Orientation  - After Class: The Best of UI's Culture, Events and Nightlife</title>
 
-	
-	<% require themedCSS(orientation) %>
+	<link href="{$ThemeDir}/css/master.css" rel='stylesheet' type='text/css'>
 	 
 	<script src="{$ThemeDir}/js/jquery.min.js"></script>
 	<script src="{$ThemeDir}/js/modernizr-2.0.6.min.js"></script>

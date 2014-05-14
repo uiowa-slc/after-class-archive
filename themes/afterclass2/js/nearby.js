@@ -1,5 +1,4 @@
 "use strict";
-var mq = window.matchMedia( "(min-width: 480px)" );	
 var markerArray = [];
 var infoWindow = null;
 
@@ -62,13 +61,8 @@ function locate() {
     var mapcanvas = document.createElement('div');	
 		mapcanvas.id = 'mapcanvas';
 		mapcanvas.class = 'map-canvas';
-		if (mq.matches) {
-			mapcanvas.style.height = '600px';
-		} else {
-			mapcanvas.style.height = '300px';
-		}
 		mapcanvas.style.width = '100%';	
-	jQuery('.map-container').append(mapcanvas);
+	jQuery('.NearMePage .map-container').append(mapcanvas);
 	var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 	var nearMeMapOptions = {
 	    zoom: 15,
@@ -216,9 +210,6 @@ function locate() {
 				var vid = nearestVenues[v];
 				jQuery("#venuesWithEvents").append( jQuery("#" + vid) );
 			}
-			
-			widthChange(mq)
-			mq.addListener(widthChange)
 		}		
 	}
 		
@@ -239,17 +230,8 @@ function error(msg) {
   s.className = 'fail';
 }
 
-// media query change
-function widthChange(mq) {
-	if (mq.matches) {
-		mapcanvas.style.height = '600px';
-	}
-	else {
-		mapcanvas.style.height = '300px';
-	}
-}
-
-
 $(document).ready(function() {
-  locate();
+	if( $('.NearMePage .map-container').length ){
+		locate();
+	}
 });

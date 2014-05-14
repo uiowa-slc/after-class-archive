@@ -140,49 +140,19 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
-		$themeFolder = $this->ThemeDir();
 		 
-		//Set the folder to our theme so that relative image paths work
-		Requirements::set_combined_files_folder($themeFolder . '/combinedfiles');
-		Requirements::block('event_calendar/css/calendar_widget.css'); 
+		//Block all requirements because we're building them with grunt now.
+		Requirements::block('event_calendar/css/calendar_widget.css');
+		Requirements::block('event_calendar/css/calendar.css');
+
 		Requirements::block('division-bar/js/_division-bar.js');
-
-		
-		$jsFiles = array(
-
-			   'framework/thirdparty/jquery/jquery.js',
-				'division-bar/js/division-bar.js',
-			    'themes/afterclass2/js/jquery.sticky-div.js',
-			    'themes/afterclass2/js/fancybox/jquery.fancybox.pack.js',
-			    'themes/afterclass2/js/flexslider/jquery.flexslider-min.js',
-			    'themes/afterclass2/js/mailchimp.js',
-			    'themes/afterclass2/js/init.js',
-			);
-
-		//Add all the files to combine into an array
-		$cssFiles = array(
-		    $themeFolder . '/css/layout.css',
-		    $themeFolder . '/css/grid.css',
-		    $themeFolder . '/css/calendar_widget.css',
-			$themeFolder .'/js/fancybox/jquery.fancybox.css',
-			$themeFolder . '/css/foundation-icons.css',
-			$themeFolder . '/css/nearby.css',
-			'division-bar/css/_division-bar.css'
-
-		);
-		Requirements::combine_files("combinedCSS.css", $cssFiles);
-		Requirements::combine_files(
-			'allcombined.js',$jsFiles);
+		Requirements::block('framework/thirdparty/jquery/jquery.js');
+		Requirements::block('event_calendar/javascript/calendar.js');
+		Requirements::block('event_calendar/javascript/calendar_widget.js');
+		Requirements::block('event_calendar/javascript/lang/calendar_en.js');
+		Requirements::block('event_calendar/javascript/calendar_widget_init.js');
 	
  	}
-	
-	public function iswindows() {
-		if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),"windows") === false) {
-		  return false;
-		} else {
-		  return true;
-		}
-	}
 	
 	function results($data, $form){
 	     $data = array(

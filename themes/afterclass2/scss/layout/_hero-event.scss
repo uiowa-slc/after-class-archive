@@ -1,0 +1,149 @@
+.hero-event {
+    color: #DDD7D8;
+    /*padding: 0 2%;*/
+    /* border: 1px solid #444;  */
+    /*margin-top: 5px;*/
+    /*padding: 1%;*/
+    /*background-color: #443349;*/
+    /*background-color: rgba(49,39,41,0.95);*/
+}
+
+.hero-event.single { /*padding: 1%;_NO__DOTCOMMA__AFTER__*/ }
+
+.hero-event.homepage h1 { margin: 5px 0 }
+.hero-event hr {
+    border-top: 1px solid #3C3B3B;
+    color: #0E0E0E;
+    height: 2px;
+}
+.hero-event img {
+    width: 100%;
+}
+.hero-event img.featured-logo {
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: -30px;
+}
+.home-feature-share #share-area {
+    width: 240px;
+    float: right;
+    margin: 10px;
+}
+.hero-event-content { color: #ebe5e6; position: relative; background: rgba(29, 29, 29, 0.85);  }
+.hero-event-text .event_categories { padding: 10px }
+.hero-event-content p { margin: 10px 0 }
+.hero-event-details {
+    /*width: 300px;;
+    float: right;*/
+}
+.hero-event-details img { max-width: 100% }
+.hero-event img {
+    /*margin-top: 15px;*/
+    border-top: none;
+}
+.hero-event a {
+    /*color: #c09bc0;*/
+    /*font-weight: bold;*/
+}
+.hero-event a:hover {
+    /*color: #e5b9e5;*/
+    
+}
+.hero-event strong {  color: #e5b9e5; }
+.hero-event h1 {
+    margin: 0.3em 0;
+    /*border-bottom: #ffde68 1px solid;*/
+    /*text-align: center;*/
+    padding: 0px;
+    /*width: 75%;*/
+    color: #95d5f0;
+    font-size: 1.2em;
+}
+.hero-event h1 a {
+    font-size: 1.2em;
+    color: #95D5F0;
+}
+.hero-event h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+    color: #E6D9B1;
+}
+.hero-event-specifics {
+    margin: 10px 0;
+}
+
+.hero-event-when p { display: none }
+.hero-event-when p.first { display: block }
+.hero-event-content a.more-event-info {
+    color: white;
+    font-weight: normal;
+    display: none;
+}
+.hero-event-image-container {
+    /*width: 20%;*/
+    /*float: right;*/
+    overflow: hidden;
+}
+.hero-event #share-area {
+    float: left;
+    margin: 0;
+}
+.hero-event .more-event-info { /*height: 23px;_NO__DOTCOMMA__AFTER__*/ }
+.img-shadow {
+    position: relative;
+    width: 100%;
+    float: right;
+}
+.img-shadow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* this looks okay-ish but a normal inner shadow is prolly better */
+    /*-webkit-box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);;
+    box-shadow: inset 20px 0px 20px 3px rgba(38, 38, 38, 1);*/
+   /* -webkit-box-shadow: inset 0px -60px 50px 3px #1D1D1D;
+    box-shadow: inset 0px -60px 50px 3px #1D1D1D;*/
+    
+}
+.img-shadow img { float: right }
+.homefeatureitem .event_text a:hover { color: #dbb700 }
+
+.feature-background-wrapper {
+    background-position: bottom;
+    background-repeat: none;
+}
+
+@media only screen and (min-width: 480px) { 
+    .hero-event.homepage .hero-event-text{
+        display: none;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .hero-event { padding: 0 }
+    .hero-event h1 { font-size: 2em }
+    .hero-event.single h1 {
+        font-size: 3em;
+    }
+    .hero-event-image-container img { width: 100% }
+    .hero-event-content { margin-top: -50px; position: relative;
+      /*  background-color: rgba(29, 28, 28, 0.85);*/
+        padding-right: 10px;
+        background-color: #1D1C1C;
+        background: -o-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background: -moz-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background: -ms-linear-gradient(bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+        background: linear-gradient(to bottom, rgba(29, 28, 28, 0.85) 0%, rgb(29, 28, 28) 100%);
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .hero-event h1 a { font-size: 1.4em }
+    /* Hero / Featured Event */
+    .hero-event-content a.more-event-info { display: block }
+    .hero-event-when p { display: block }
+}

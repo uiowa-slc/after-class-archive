@@ -1,0 +1,39 @@
+#single-page-content.category {
+}
+
+.category-content .category-information { margin-bottom: 10px }
+.category h2 {
+	font-size: 1.9em;
+    margin: 0.5em 0;
+}
+
+
+.category .top-link {
+	display: block;
+	text-align: right;
+}
+
+.category-content {
+    float: left;
+}
+.category-content p {
+    font-size: 0.9em;
+    margin: 4px 0;
+}
+
+.event_categories {
+    bottom: 20px;
+    background: rgba(39,39,39,0.4);
+}
+.event_categories a { color: #ffde68 }
+.event_categories ul {
+    margin: 0;
+    padding: 0;
+}
+.event_categories li { display: inline }
+.event_categories li.first {
+    margin: 0;
+    padding: 0;
+}
+
+.category-list li { color: white }

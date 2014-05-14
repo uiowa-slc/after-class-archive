@@ -41,4 +41,4 @@
 			<meta name="keywords" content="Iowa City Movies, Iowa City Concerts, Lectures, and Campus Events" />
 		<% end_if %>
 	<% end_if %>
-	<meta name="author" content="IMU Marketing &amp; Design">
+	<meta name="author" content="Student Life Marketing &amp; Design">
