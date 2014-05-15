@@ -26,7 +26,6 @@
 					<p>
 						<% include HeroDateTimes %>
 					</p>
-					
 					<% if Cost %>
 	            		<p><strong>Price:</strong> $Cost</p>
 	            	<% end_if %>
@@ -36,6 +35,7 @@
 					<% if FacebookEventLink %>
 						<p><a href="$FacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
 					<% end_if %>
+					<% include AddThis %>
 					$Content
 					<% if MoreInfoLink %>
 						<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
@@ -93,9 +93,6 @@
 			
 		</div> <!-- end detail_event_description_map -->
 	<% end_if %>
-	<hr />
-	<% include AddThis %>
-	<hr />
 	<div class="<% if $PrimarySponsor %>sponsor-$PrimarySponsor.ID<% end_if %>">
 	<% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
 		<% with $PrimarySponsor %>

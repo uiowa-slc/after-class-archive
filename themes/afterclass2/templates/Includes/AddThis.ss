@@ -1,10 +1,6 @@
-<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="{$AbsoluteLink}">
-	<a class="addthis_button_preferred_1"></a>
-	<a class="addthis_button_preferred_2"></a>
-	<a class="addthis_button_preferred_3"></a>
-	<a class="addthis_button_preferred_4"></a>
-	<a class="addthis_button_compact"></a>
-	<a class="addthis_counter addthis_bubble_style"></a>
-</div>
-		
+<div class="addthis_toolbox addthis_default_style" addthis:url="{$AbsoluteLink}">
+	<a class="addthis_button_facebook_like"></a>
+	<a class="addthis_button_twitter"></a>    
+	<a class="addthis_button_google_plusone_share"></a>
+	<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
+</div><!-- end addthis_toolbox -->
