@@ -43,7 +43,7 @@
 										<% loop Venues %>
 											<p class="venues">
 											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-											@ <a href="$Link"><span itemprop="name">$Title</span></a>
+											 <a href="$Link" class="button tag">@ <span itemprop="name">$Title</span></a>
 											</span>
 											</p>
 										<% end_loop %>
