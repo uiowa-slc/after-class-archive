@@ -6,7 +6,7 @@
 							<% if Image %>
 								<% loop Image %>
 									<% loop CroppedImage(730,462) %>
-									<img itemprop="photo" src="$URL" />
+										<img itemprop="photo" src="$URL" />
 									<% end_loop %>
 								<% end_loop %>
 							<% else %>
@@ -31,12 +31,7 @@
 							</div>
 								<div class="hero-event-specifics">
 									<div class="hero-event-when">
-										<% loop $DateAndTime.Limit(3) %>
-											<% include HeroDateTimes %>
-										<% end_loop %>				
-										<% if $DateAndTime.Count > "3" %>
-											<a href="{$Link}#dates" class="button">more dates</a>
-										<% end_if %>
+										<% include HeroDateTimes %>
 									</div><!-- end hero-event-when -->
 									
 									<div class="hero-event-where">
@@ -54,12 +49,7 @@
 									<% end_if %>
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-text -->
-						 <div class="addthis_toolbox addthis_default_style" addthis:url="{$AbsoluteLink}">
-							<a class="addthis_button_facebook_like"></a>
-							<a class="addthis_button_twitter"></a>    
-							<a class="addthis_button_google_plusone_share"></a>
-							<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
-					    </div><!-- end addthis_toolbox -->
+						<% include AddThis %>
 					
 						<div class="clear"></div>	
 					</div><!-- end hero-event-content -->

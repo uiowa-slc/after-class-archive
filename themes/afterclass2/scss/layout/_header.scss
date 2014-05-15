@@ -51,7 +51,7 @@
     background-position-x: 100%;
     background-position-y: 75%;
     height: 100%;
-    background-size: 50%;
+    background-size: 100%;
 }
 
 #page_header a {
@@ -161,7 +161,7 @@
 
 /*#page_navigation ul>li#news { display: none }*/
 #page_navigation ul>li.about-after-class {
-    display: none;
+
 }
 
 #page_navigation ul>li a.subscribe-link {
@@ -191,7 +191,7 @@
     display: block;
     font-weight: normal !important;
     text-transform: lowercase;
-    font-size: 0.6em;
+    font-size: 0.7em;
 }
 
 #page_navigation ul li.first a {
@@ -314,6 +314,9 @@
 }
 
 @media only screen and (min-width: 480px) {
+    #page_header .row {
+        background-size: 75%;
+    }
     #page_navigation ul {
         float: left;
     }
@@ -389,10 +392,10 @@
     }
     #page_header .row {
         background: url("../images/header-buildings-medium.png");
-        background-position-y: 75%;
+        background-position-y: 58%;
         background-position-x: 100%;
         background-repeat: no-repeat;
-        background-size: 45%;
+        background-size: 55%;
     }
     #page_navigation ul>li.first strong {
         display: block;

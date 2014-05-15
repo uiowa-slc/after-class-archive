@@ -24,14 +24,7 @@
 			<div class="hero-event-details">
 				<div class="hero-event-text">
 					<p>
-						<% if UpcomingDatesAndRanges.Count > 1 %><strong>Next Date:</strong><% end_if %>
-						<% if UpcomingDatesAndRanges %>
-						<% loop UpcomingDatesAndRanges.First %>
-							<% include HeroDateTimes %>
-						<% end_loop %>
-						<% else %>
-							No upcoming dates.
-						<% end_if %>
+						<% include HeroDateTimes %>
 					</p>
 					
 					<% if Cost %>
@@ -52,10 +45,13 @@
 				<div class="hero-event-when">
 				<% if $DateAndTime.Count > 1 %>
 					<h2>All Dates</h2>
+						<ul>
 						<% loop $DateAndTime %>
-							<p class="$FirstLast"><% include HeroDateTimes %>
-							</p>
+							<li class="$FirstLast">
+								<% include DateTimesList %>
+							</li>
 						<% end_loop %>
+						</ul>
 				<% end_if %>
 				</div><!-- end hero-event-when -->
 				

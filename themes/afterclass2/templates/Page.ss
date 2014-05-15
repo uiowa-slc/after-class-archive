@@ -1,7 +1,8 @@
 <!doctype html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<% base_tag %>
-	<link href='{$ThemeDir}/css/master.css' rel='stylesheet' type='text/css'>
+	<% require themedCSS("master") %>
 	<% include MetaTags %>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>

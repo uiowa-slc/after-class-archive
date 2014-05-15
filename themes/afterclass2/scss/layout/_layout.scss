@@ -143,6 +143,12 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     background: #4C3D69;
 }
 
+.button.more-dates {
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
 
 #single-page-content a.button, a.button{ 
 	color: #fff;
@@ -197,7 +203,7 @@ a.button:hover {
 
 @media only screen and (min-width: 1023px) { 
     .button.more-dates{
-            float: right;
+           
         }
   
 }
