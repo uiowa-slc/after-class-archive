@@ -7,8 +7,3 @@
 	</div>
 </header>
 <% include Nav %>
-<div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>">
-	<div class="container clearfix">
-	$Layout
-   </div>
-</div>
