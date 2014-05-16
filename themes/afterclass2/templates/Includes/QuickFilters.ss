@@ -1,6 +1,11 @@
-<% if $URLSegment != "nearby" %><h3>Find Events Near You!</h3>
-	<p><a href="nearby/" class="button">See all events nearby</a></p>
-<% end_if %>
+	<p>
+		<% if $URLSegment != "nearby" %>
+			<a href="nearby/" class="button">See all events nearby</a>
+		<% end_if %>
+		<a href="add/" class="button">Add Your Event</a>
+	</p>
+
+
 	<% cached %>
 		<p>
 		<strong>Trending:</strong>

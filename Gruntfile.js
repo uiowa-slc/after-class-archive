@@ -76,10 +76,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-simple-watch');
 
   // Default task(s).
   // Note: order of tasks is very important
-  grunt.registerTask('default', ['compass', 'concat', 'uglify', 'simple-watch']);
+  grunt.registerTask('default', ['compass', 'concat', 'uglify', 'watch']);
 
 };
