@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e06a6a2096eb759d629e6d7f3fac35dc",
+    "hash": "b977ef611df57fbeac3a4ded02cf7cdb",
     "packages": [
         {
             "name": "composer/installers",
@@ -122,6 +122,52 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
             "time": "2014-04-17 14:30:01"
+        },
+        {
+            "name": "md/event-calendar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar.git",
+                "reference": "20d04d6865e74878738c490dfeeb6545c181c516"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-event-calendar/zipball/20d04d6865e74878738c490dfeeb6545c181c516",
+                "reference": "20d04d6865e74878738c490dfeeb6545c181c516",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "silverstripe/cms": ">=3.1",
+                "silverstripe/framework": ">=3.1"
+            },
+            "replace": {
+                "silverstripe/event-calendar": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "event_calendar"
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Carlino",
+                    "homepage": "http://leftandmain.com"
+                }
+            ],
+            "description": "Event Calendar for the SilverStripe CMS",
+            "keywords": [
+                "events",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/unclecheese/silverstripe-event-calendar/issues",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar/tree/master"
+            },
+            "time": "2014-05-16 21:38:41"
         },
         {
             "name": "md/rss-display",
@@ -277,49 +323,6 @@
                 "silverstripe"
             ],
             "time": "2014-05-12 23:13:44"
-        },
-        {
-            "name": "silverstripe/event-calendar",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/unclecheese/silverstripe-event-calendar.git",
-                "reference": "e9d28420ba910f7da057fdb6758f561dbafd885c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-event-calendar/zipball/e9d28420ba910f7da057fdb6758f561dbafd885c",
-                "reference": "e9d28420ba910f7da057fdb6758f561dbafd885c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "silverstripe/cms": ">=3.1",
-                "silverstripe/framework": ">=3.1"
-            },
-            "replace": {
-                "silverstripe/event-calendar": "*"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "event_calendar"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Aaron Carlino",
-                    "homepage": "http://leftandmain.com"
-                }
-            ],
-            "description": "Event Calendar for the SilverStripe CMS",
-            "keywords": [
-                "events",
-                "silverstripe"
-            ],
-            "time": "2014-04-29 22:23:32"
         },
         {
             "name": "silverstripe/framework",
@@ -486,12 +489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "b54e7fa4c6f8370b7d88643a70dc34b8ae03c47e"
+                "reference": "bce1da2d7184c3371718919eb31ecd6b05da5cac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/b54e7fa4c6f8370b7d88643a70dc34b8ae03c47e",
-                "reference": "b54e7fa4c6f8370b7d88643a70dc34b8ae03c47e",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/bce1da2d7184c3371718919eb31ecd6b05da5cac",
+                "reference": "bce1da2d7184c3371718919eb31ecd6b05da5cac",
                 "shasum": ""
             },
             "require": {
@@ -515,7 +518,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-04-25 13:53:45"
+            "time": "2014-05-15 09:16:24"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -563,7 +566,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "silverstripe/event-calendar": 20,
+        "md/event-calendar": 20,
         "silverstripe/staticpublisher": 20,
         "silverstripe/spamprotection": 20,
         "silverstripe/mathspamprotection": 20,
