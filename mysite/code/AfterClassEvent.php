@@ -142,7 +142,7 @@ class AfterClassEvent extends CalendarEvent {
 /* ----------------------------------- */
 /* Add/Re-Add Content and Other Fields */
 /* ----------------------------------- */
-		$f->addFieldToTab('Root.Main', new UploadField('Image','Event Image (<strong style="font-size: 14px">730x462 is preferred or 16:9 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
+		$f->addFieldToTab('Root.Main', new UploadField('Image','Event Image (<strong style="font-size: 14px"><span style="color: red;">New Dimensions May 2014</span> 837x523 pixels is preferred or 16:10 ratio</strong> pixels is preferred, also try to keep the file size under 1MB--optimally 100k)'));
 		$f->addFieldToTab('Root.Main',new TextField('MoreInfoLink','A link for more information') );
 		$f->addFieldToTab('Root.Main',new TextField('Location','Room Name or Number') );
 		$f->addFieldToTab('Root.Main',new TextField('Cost','Admission Cost (examples: "Free", "$5")') );

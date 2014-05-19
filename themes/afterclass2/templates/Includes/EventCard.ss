@@ -19,7 +19,7 @@
 					<a href="$Link">
 					<% if Image %>
 						<% loop Image %>
-							<% loop CroppedImage(250,158) %><img class="" itemprop="photo" src="$URL" /><% end_loop %>
+							<% loop CroppedImage(253,158) %><img class="" itemprop="photo" src="$URL" /><% end_loop %>
 						<% end_loop %>
 					<% else %>
 						<img src="{$ThemeDir}/images/placeholder.png" class="placeholder-image" />

@@ -51,7 +51,7 @@
 }
 
 
-.event-card:nth-child(1), .event-cards:nth-child(3n) {
+.event-card:nth-child(1), .event-card:nth-child(4n+4) {
     padding-left: 0;
 }
 

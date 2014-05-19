@@ -6,7 +6,7 @@
 			<a href="$Link" class="img-shadow">
 				<% if Image %>
 					<% loop Image %>
-						<% loop CroppedImage(730,462) %>
+						<% loop CroppedImage(837,523) %>
 							<img itemprop="photo" src="$URL" />
 						<% end_loop %>
 					<% end_loop %>

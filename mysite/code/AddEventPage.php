@@ -31,7 +31,9 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 	
 	public function addEventForm() {
-	
+		$uploadField = new FileField('Image','Event Image. We accept JPG, PNG, GIF image formats only. (837 x 523 pixels is preferred) <strong>Please do not attach PDFs to this form. </strong> ');
+		$uploadField->allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+
 		$fields = new FieldList(
             new TextField('Title',"What's the name of the event?"),
             new TextField('Location',"Where's the event located?"),
@@ -42,8 +44,7 @@ class AddEventPage_Controller extends Page_Controller {
             new TextareaField('Content','Describe what the event is about.'),
 
             new TextField('SubmitterSponsor','Who is sponsoring or hosting the event?'),
-            new FileField('Image','Event Image. We accept JPG, PNG, GIF image formats only. Please do not attach PDFs to this form. (730 x 462 pixels is preferred)'),
-
+            $uploadField,
             new TextField('Submittername','What is your name in case we need more info?'),
             new TextField('Submitteremail','What is your email address in case we need more info?')
         );
