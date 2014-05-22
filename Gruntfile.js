@@ -10,18 +10,18 @@ module.exports = function(grunt) {
     globalConfig: globalConfig,
     pkg: grunt.file.readJSON('package.json'),
     
-    //compile the sass
 
-    compass: {
-      dist: {                   // Target
+    sass: {
+      dist: { 
+        files: {
+          '<%=globalConfig.themeDir %>/css/master.css' : '<%=globalConfig.themeDir %>/scss/master.scss'
+        },                  // Target
         options: {              // Target options
-          sassDir: ['<%=globalConfig.themeDir %>/scss'],
-          cssDir: '<%=globalConfig.themeDir %>/css',
-          environment: 'production'
+          style: 'compressed',
+          sourcemap: 'true',
         }
       }
     },
-
     //concat all the files into the build folder
 
     concat: {
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['<%=globalConfig.themeDir %>/scss/*.scss', '<%=globalConfig.themeDir %>/scss/**/*.scss'],
-        tasks: ['compass'],
+        tasks: ['sass'],
         options: {
           spawn: true,
         }
@@ -74,11 +74,11 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
   // Note: order of tasks is very important
-  grunt.registerTask('default', ['compass', 'concat', 'uglify', 'watch']);
+  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'watch']);
 
 };

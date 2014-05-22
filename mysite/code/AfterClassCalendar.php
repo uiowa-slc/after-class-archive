@@ -247,6 +247,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 					return $this->getRSSFeed($events);
 					break;
 				case "json":
+					//$this->getResponse()->addHeader("Content-Type", "application/json; charset=utf-8");
 					return $this->getJsonFeed($events);
 					break;
 				default:
@@ -426,7 +427,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		return "";
 	}
  	/*****************************/
-	/* Legacy RSS Feeds  *********/
+	/***** Legacy RSS Feeds  *****/
 	/*****************************/	
 
 	public function newrss(){
