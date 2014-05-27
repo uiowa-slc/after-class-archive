@@ -11,7 +11,7 @@
 				<div class="news-entry $EvenOdd">
 					$Smallimage
 					<h3><a href="$Link">$Title</a></h3>
-					<div class="news-posted-on">$Date.Format(F n), $Date.Format(Y) by $Author</div>
+					<p class="news-posted-on">$Date.Format(F n), $Date.Format(Y) by $Author</p>
 					<div class="news-text">
 						<p>$Description.Summary(50) <a href="$Link">Continue Reading</a></p>
 					</div>
