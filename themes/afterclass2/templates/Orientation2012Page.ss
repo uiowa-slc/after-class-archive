@@ -17,15 +17,12 @@
 
 	<div class="container-fluid">
 	
-		<div class="row">
-			<div class="medium-12 columns ">
-				<img src="{$ThemeDir}/images/after-class-logo.jpg" class="orientation-header" />	
-				<img src="{$ThemeDir}/images/orientation/never-miss.png" class="orientation-tagline" />
+		<div class="row orientation-form">
+			<div class="medium-6 columns after-logo ">
+				<img src="{$ThemeDir}/images/after-class-logo.png" class="orientation-header" />	
+				
 			</div>
-	
-		</div>
-		<div class="row">
-			<div class="medium-12 columns">
+			<div class="medium-6 columns after-form">
 				$Form	
 			</div>
 		</div>
