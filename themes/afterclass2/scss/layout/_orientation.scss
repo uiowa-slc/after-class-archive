@@ -1,94 +1,21 @@
-.orientation-container {
-	width: 1000px;
-	margin: auto;
-	min-height: 1000px;
-	
-}
-.orientation-container p {
-	color: #FEE89A;
-
-}
-.orientation-container h1 {
-	font-family: 'SketchBlock-Bold', sans;
-	color: #ffd026;
-	font-size: 130px;
-	margin: 3px 0;
-}
-.orientation-header {
-	display: block;
-	float: left;
-}
-
-.orientation-facebook {
-	margin: 20px 0;
-}
-.orientation-facebook iframe {
-	margin: auto;
-	display: block;
-	background: url(../images/dark_leather.png);
-}
-.orientation-form {
-	display: block;
-	//float: right;
-	width: 100%;
-}
-.orientation-form #Form_Form {
-	background: none;
-	border: none;
-	padding: 0;
-}
-.orientation-form #Form_Form input.text {
-	font-size: 16px;
-	padding: 2px;
-	width: 100%;
-}
-
-.orientation-steps {
-	color: #ffd026;
-	font-size: 32px;
-
+body.orientation{
+	background-color: #35314A;
 }
 
 
-
-.orientation-steps li {
-
-	padding: 20px 0;
-
+.orientation-form 
+{
+	background-color: #35314a;
+	margin-top: 159px;
 }
 
-.orientation-header {
-	width: 100%; 
+.after-logo 
+{
+	padding: 25px; 
 }
 
-.orientation-button {
-	padding: 20px;
-	background: #268FAB url(button.png) repeat-x bottom; 
-	border: none; 
-	color: #fff; 
-	font-weight: bold; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	text-shadow: 1px 1px #666;
-}
-
-.orientation-button.logout {
-	background: #694a5f;
-
-}
-
-.orientation-steps li a:hover{
-	color: #efefef;
-
-}
-
-.orientation-tagline {
-	display: block;
-	padding: 30px 0;
-
-}
-
-.clear {
-	clear: both;
-
+.after-form
+{
+	//padding-top: 72px;
+	padding: 75px 25px 25px 25px; 
 }
