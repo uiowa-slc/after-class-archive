@@ -1,5 +1,6 @@
 <?php
 class AddEventPage extends Page {
+	
 	public static $db = array(
 	
 	);
@@ -15,6 +16,7 @@ class AddEventPage extends Page {
 	}
 	
 }
+
 class AddEventPage_Controller extends Page_Controller {
 	public static $allowed_actions = array (
 		"addEventForm"
@@ -49,10 +51,12 @@ class AddEventPage_Controller extends Page_Controller {
         );
         $validator = new RequiredFields('Title','Location','Cost','Submitterdate', 'Description','Submittername','Submitteremail','Submitterdate');
      	$form = new Form($this, 'addEventForm', $fields, $actions, $validator);
-     	
      	$form->enableSpamProtection();
+     	
         return $form;
+        
 	}
+	
 	function addEvent($data, $form) {
 		$event = new AfterClassEvent();
 	    $event->setParent(6);
@@ -63,7 +67,6 @@ class AddEventPage_Controller extends Page_Controller {
         $event->writeToStage("Stage");
         Session::set('Submitted', true);
         
-        
         //Email notification
 		
 		if($event->Submitteremail){
@@ -71,6 +74,7 @@ class AddEventPage_Controller extends Page_Controller {
 		}else {
 			$from = "After Class Submissions";
 		}
+		
 		$to = "dustin-quam@uiowa.edu, benjamin-lewis@uiowa.edu, afterclass@uiowa.edu";
 		$subject = "[AC]".$event->Title;
 		$body = '<p>Someone submitted an After Class Event. This is the event information:</p>
@@ -90,13 +94,10 @@ class AddEventPage_Controller extends Page_Controller {
 				
 				<p><a href="http://afterclass.uiowa.edu/admin/pages/edit/show/'.$event->ID.'">Approve it (or don\'t) here</a></p>';
 			
-		
 		$email = new Email($from, $to, $subject, $body);
-		
 		
 		$email->send();
         
         Controller::curr()->redirect('./thanks');
-		
 	}
 }
