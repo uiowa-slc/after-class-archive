@@ -125,9 +125,7 @@ class AfterClassCalendar extends Calendar {
 			$events->push($eventDateTime->Event());
 		}
 		return $events;
-	}
-	
-	
+	}	
 	
 	
 }
