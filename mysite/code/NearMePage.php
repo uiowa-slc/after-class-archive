@@ -33,14 +33,5 @@ class NearMePage_Controller extends Page_Controller {
 		      Requirements::javascript('themes/afterclass2/js/nearby.js');
 	}
 	
-	public function AfterClassEvents(){
-		$calendar = AfterClassCalendar::get()->First();
-		print_r('hello');
-		return $calendar->AllEventsWithoutDuplicates();
-	}
-	
-	public function Venues() {	
-		return Venue::get()->sort('Title ASC');
-	}
 } 
 

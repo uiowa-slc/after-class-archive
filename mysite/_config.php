@@ -28,7 +28,7 @@ HtmlEditorConfig::get('cms')->insertButtonsBefore(
     'removeformat'
 );
 
-
+Requirements::set_force_js_to_bottom(true);
 /* Paste as Plain Text By Default */
 HtmlEditorConfig::get('cms')->setOption('paste_text_sticky',true);
 HtmlEditorConfig::get('cms')->setOption('paste_text_sticky_default',true);

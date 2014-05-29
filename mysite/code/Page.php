@@ -8,22 +8,17 @@ class Page extends SiteTree {
 
 	
 	);
-	public function AllEventtypes() {
-		return Eventtype::get();
-	}
 
 	public function ActiveEventtypes(){
-		$eventTypes = Eventtype::get();
-		$eventTypesArrayList = new ArrayList();
-
-		foreach($eventTypes as $eventType){
-			if($eventType->Events()->First()){
-				$eventTypesArrayList->push($eventType);
-			}
-		}
-		return $eventTypesArrayList;
+		return $this->ActiveCategories("Eventtype");
 	}
 
+	public function ActiveVenues(){
+		return $this->ActiveCategories("Venue");
+	}
+	public function ActiveSponsors(){
+		return $this->ActiveCategories("Sponsor");
+	}
 	public function AllVenues() {
 		return Venue::get()->sort('Title ASC');
 	}
@@ -31,7 +26,24 @@ class Page extends SiteTree {
 	public function AllSponsors() {
 		return Sponsor::get()->sort('Title ASC');
 	}
+	public function AllEventtypes() {
+		return Eventtype::get();
+	}
 		
+
+	public function ActiveCategories($category){
+		$categories = $category::get();
+		$categoriesArrayList = new ArrayList();
+
+		foreach($categories as $category){
+			if($category->Events()->First()){
+				$categoriesArrayList->push($category);
+			}
+		}
+		return $categoriesArrayList;		
+	}
+
+
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
 		//get our template
 		$template = new SSViewer('NewsletterForm');
@@ -67,17 +79,27 @@ class Page extends SiteTree {
 		$nextMonth->modify( 'first day of next month' );
 		$nextMonthString = $nextMonth->format( 'Ym' );
 
+		
 
 	    $urls[] = 'events/categories/';
 	    $urls[] = 'events/sponsors/';
 	    $urls[] = 'events/venues/';
 
+	    $categories = Category::get()->map()->toArray();
+	    //print_r($categories);
+	    foreach($categories as $key => $category){
+	    	$urls[] = 'events/categories/'.$key.'/feed/json';
+	    }
+
 	  	$urls[] = 'events/monthjson/'.$previousMonthString.'/';
 	  	$urls[] = 'events/monthjson/'.$currentMonthString.'/';
 	  	$urls[] = 'events/monthjson/'.$nextMonthString.'/';
 
+	  	//$urls[] = 'events/feed/rss';
 	  	$urls[] = 'events/feed/json';
 	  	$urls[] = 'events/feed/';
+
+	  	$urls[] = 'events/categories/feed/json';
 
 	  	$urls[] = 'events/weekend/';
 	  	$urls[] = 'events/today/';
@@ -122,7 +144,6 @@ class Page_Controller extends ContentController {
 		 
 		//Set the folder to our theme so that relative image paths work
 		Requirements::set_combined_files_folder($themeFolder . '/combinedfiles');
-		
 		Requirements::block('event_calendar/css/calendar_widget.css'); 
 		Requirements::block('division-bar/js/_division-bar.js');
 
@@ -145,6 +166,7 @@ class Page_Controller extends ContentController {
 		    $themeFolder . '/css/calendar_widget.css',
 			$themeFolder .'/js/fancybox/jquery.fancybox.css',
 			$themeFolder . '/css/foundation-icons.css',
+			$themeFolder . '/css/nearby.css',
 
 		);
 		Requirements::combine_files("combinedCSS.css", $cssFiles);

@@ -25,7 +25,7 @@ class AfterClassCalendar extends Calendar {
  	
  	);
 	static $allowed_children = array (
-	'AfterClassEvent'
+		'AfterClassEvent'
 	);
 	
 	function getCMSFields() {
@@ -159,9 +159,10 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
  	
 
-	
-	
-	
+ 	/*****************************/
+	/* General Utility Functions */
+	/*****************************/	
+
 	
 	
 	function UpcomingDatesAndRanges(){
@@ -172,159 +173,24 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		return $dates->toArray();
 	}
 
- 	public function Feed(){
- 		$feedType = addslashes($this->urlParams['Type']);
-
- 		//If we have Category in the URL params, get events from a category only
- 		if(array_key_exists('Category', $this->urlParams)){
- 			$categoryTitle = $this->urlParams['Category'];
- 			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
- 			$events = $category->Events();
- 		//else get all events	
- 		}else{
- 			
- 			$events = $this->AllEventsWithoutDuplicates();
- 		}
- 		//Determine which feed we're going to output
- 		switch($feedType){
- 			case "json":
- 				return $this->getJsonFeed($events);
- 				break;
- 			case "rss":
- 				return $this->getRSSFeed($events);
- 				break;
- 			default:
- 				return $this->getJsonFeed($events);
- 				break;
- 		}
-
- 	}
- 	public function getCategoriesJsonFeed($categories){
- 		if(!isset($categories)){
- 			$categories = Category::get();
- 		}
- 		$data = array();
- 		foreach($categories as $catNum => $category){
- 			$data["categories"][$catNum]['id'] = $category->ID;
- 			$data["categories"][$catNum]['name'] = $category->Title;
- 			$data["categories"][$catNum]['kind'] = $category->ClassName;
- 			$data["categories"][$catNum]['has_upcoming_events'] = $category->Events()->exists();
- 			$data["categories"][$catNum]['address'] = $category->Address;
- 			$data["categories"][$catNum]['info'] = $category->Information;
- 			$data["categories"][$catNum]["contact_email"] = $category->Email;
- 			$data["categories"][$catNum]["contact_phone"] = $category->Phone;
- 			$data["categories"][$catNum]["website_link"] = $category->WebsiteURL;
- 			$data["categories"][$catNum]["latitude"] = $category->Lat;
- 			$data["categories"][$catNum]["longitude"] = $category->Lng;			
- 		}
-	 echo json_encode($data);
- 	}
-
- 	public function getJsonFeed($events){
- 		if(!isset($events)){
- 			$events = $this->UpcomingEvents();
- 		}
- 		$data = array();
-
- 		foreach($events as $eventNum => $event){
-
- 			/* Get Dates in  an array for later */
- 			$datesArray = array();
- 			$dates = $event->UpcomingDatesAndRanges();
-
- 			foreach($dates as $dateNum => $date){
- 				$datesArray[$dateNum]["start_date"] = $date->StartDate;
- 				$datesArray[$dateNum]["start_time"] = $date->StartTime;
- 				$datesArray[$dateNum]["end_date"] = $date->EndDate;
- 				$datesArray[$dateNum]["end_time"] = $date->EndTime;
- 				$datesArray[$dateNum]["all_day"] = $date->AllDay;
- 			}
-
- 			$venuesArray = array();
- 			$venues = $event->Venues();
-
- 			foreach($venues as $venueNum => $venue){
- 				$venuesArray[$venueNum]["id"] = $venue->AltTitle ? $venue->AltTitle : $venue->ID;
- 				$venuesArray[$venueNum]["name"] = $venue->AltTitle ? $venue->AltTitle : $venue->Title;
- 				$venuesArray[$venueNum]["address"] = $venue->Address;
- 				$venuesArray[$venueNum]["info"] = $venue->Information;
- 				$venuesArray[$venueNum]["contact_email"] = $venue->Email;
- 				$venuesArray[$venueNum]["contact_phone"] = $venue->Phone;
- 				$venuesArray[$venueNum]["website_link"] = $venue->WebsiteURL;
- 				$venuesArray[$venueNum]["latitude"] = $venue->Lat;
- 				$venuesArray[$venueNum]["longitude"] = $venue->Lng;
- 			}
-
- 			$eventTypesArray = array();
- 			$eventTypes = $event->eventTypes();
-
- 			foreach($eventTypes as $eventTypeNum => $eventType){
- 				$eventTypesArray[$eventTypeNum]["name"] = $eventType->Title;
- 				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Information;
- 			}
-
-  			$sponsorsArray = array();
- 			$sponsors = $event->sponsors();
-
- 			foreach($sponsors as $sponsorNum => $sponsor){
- 				$sponsorsArray[$sponsorNum]["name"] = $sponsor->Title;
- 				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Information;
- 				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
- 			}
- 			
- 			$data["events"][$eventNum]["id"] = $event->ID;
- 			$data["events"][$eventNum]["name"] = $event->Title;
- 			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
- 			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
- 			if($event->Image()->exists()){
- 				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
- 			}
- 			//$data["events"][$eventNum]["description"] = $event->Content;
- 			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
- 			$data["events"][$eventNum]["dates"] = $datesArray;
- 			$data["events"][$eventNum]["price"] = $event->Cost;
- 			$data["events"][$eventNum]["location"] = $event->Location;
- 			$data["events"][$eventNum]["venues"] = $venuesArray;
- 			$data["events"][$eventNum]["sponsors"] = $sponsorsArray;
- 			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
- 			unset($datesArray);
- 		}
-
- 		$jsonData = array(
- 			"JsonFeed" => json_encode($data)
- 		);
-
- 		return $this->customise($jsonData)->renderWith(array('JsonFeed'));
- 	}
- 	public function getRSSFeed($events) {
-		//remove duplicates from the feed.
-		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
-		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
-		
-		if(is_int($rss->lastModified)) {
-			HTTP::register_modification_timestamp($rss->lastModified);
-			header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $rss->lastModified) . ' GMT');
-		}
-		if(!empty($rss->etag)) {
-			HTTP::register_etag($rss->etag);
-		}
-		$xml = str_replace('&nbsp;', '&#160;', $rss->renderWith('RSSFeed'));
-		$xml = preg_replace('/<!--(.|\s)*?-->/', '', $xml);
-		$xml = trim($xml);
-		HTTP::add_cache_headers();
-		header("Content-type: text/xml");
-
- 		$Data = array(
-	      'Events' => $events
-	    );
-		
-		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
-		return "";
-	}
-
 	function getCategoryByName($name){
 		return Category::get()->filter(array('Title' => $name))->First();
 	}
+
+ 	public function dynamicNews(){
+	 	$calendar = AfterClassCalendar::get()->First();
+	 	$events = $calendar->AllEventsWithoutDuplicates();
+	 	$count = $events->Count();
+	 	$count = floor($count/3);
+	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
+	 	return $news;
+ 	}
+
+
+	/*************************/
+	/* Routing Methods Below */
+	/*************************/
+
  	public function types() {
  			$Category = Eventtype::get();
  			$Data = array(
@@ -364,31 +230,31 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  			$feedType = "page";
  		}
 
-
- 			//if we have a category name url param, filter events by the category's name
-	 		if(isset($CategoryName)) {
-	 			$Category = $this->getCategoryByName($CategoryName);
-	 		if (!($Category)) {
-				$Category = Category::get();
-			}
- 			$Data = array(
- 				'Title' => $Category->Title,
+		//if we have a category name url param, filter events by the category's name
+ 		if(isset($CategoryName)) {
+ 			if(is_numeric($CategoryName)){
+ 				$Category = Category::get()->filter(array('ID' => $CategoryName))->First();
+ 			}else{
+ 				$Category = $this->getCategoryByName($CategoryName);
+ 			}
+			$Data = array(
+				'Title' => $Category->Title,
 				'Category' => $Category,
 				'CategoryName' => $CategoryName
-	    	);
-	    	$events = $Category->Events();
+    		);
+    		$events = $Category->Events();
 
- 			//render the category listing with a json or rss feed or default to a normal HTML page.
- 			switch($feedType){
- 				case "rss":
- 					return $this->getRSSFeed($events);
- 					break;
- 				case "json":
- 					return $this->getJsonFeed($events);
- 					break;
- 				default:
- 					return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
- 			}
+			//render the category listing with a json or rss feed or default to a normal HTML page.
+			switch($feedType){
+				case "rss":
+					return $this->getRSSFeed($events);
+					break;
+				case "json":
+					return $this->getJsonFeed($events);
+					break;
+				default:
+					return $this->customise($Data)->renderWith(array('AfterClassCategory', 'Calendar', 'Page'));
+			}
 
  			//else if there's no category name aka when we're just listing the categories.
  		} else {
@@ -406,16 +272,166 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 		 		}
  			}
  		}
- 	public function dynamicNews(){
-	 	$calendar = AfterClassCalendar::get()->First();
-	 	$events = $calendar->AllEventsWithoutDuplicates();
-	 	$count = $events->Count();
-	 	$count = floor($count/3);
-	 	$news = $this->RSSDisplay($count, 'http://afterclass.uiowa.edu/news/feed/');
-	 	return $news;
+
+ 	/*****************************/
+	/* RSS And JSON Feed Methods */
+	/*****************************/	
+
+ 	public function Feed(){
+ 		$feedType = addslashes($this->urlParams['Type']);
+
+ 		//If we have Category in the URL params, get events from a category only
+ 		if(array_key_exists('Category', $this->urlParams)){
+ 			$categoryTitle = $this->urlParams['Category'];
+ 			$category = Category::get()->filter(array('Title' => $categoryTitle))->First();
+
+ 			$events = $category->Events();
+ 		//else get all events	
+ 		}else{
+ 			
+ 			$events = $this->AllEventsWithoutDuplicates();
+ 		}
+ 		//Determine which feed we're going to output
+ 		switch($feedType){
+ 			case "json":
+ 				return $this->getJsonFeed($events);
+ 				break;
+ 			case "rss":
+ 				return $this->getRSSFeed($events);
+ 				break;
+ 			default:
+ 				return $this->getJsonFeed($events);
+ 				break;
+ 		}
+
+ 	}
+ 	public function getCategoriesJsonFeed($categories){
+ 		if(!isset($categories)){
+ 			$categories = Category::get();
+ 		}
+ 		$data = array();
+ 		foreach($categories as $catNum => $category){
+ 			$data["categories"][$catNum]['id'] = $category->ID;
+ 			$data["categories"][$catNum]['title'] = $category->Title;
+ 			$data["categories"][$catNum]['kind'] = $category->ClassName;
+ 			$data["categories"][$catNum]['has_upcoming_events'] = $category->Events()->exists();
+ 			$data["categories"][$catNum]['feed_url'] = $category->jsonFeedLink();
+ 			$data["categories"][$catNum]['address'] = $category->Address;
+ 			$data["categories"][$catNum]['info'] = $category->Information;
+ 			$data["categories"][$catNum]["contact_email"] = $category->Email;
+ 			$data["categories"][$catNum]["contact_phone"] = $category->Phone;
+ 			$data["categories"][$catNum]["website_link"] = $category->WebsiteURL;
+ 			$data["categories"][$catNum]["latitude"] = $category->Lat;
+ 			$data["categories"][$catNum]["longitude"] = $category->Lng;			
+ 		}
+	 return json_encode($data);
  	}
 
-	//Legacy functions for getting the RSS feeds. So we don't break various feeds on other sites. 
+ 	public function getJsonFeed($events){
+ 		if(!isset($events)){
+ 			$events = $this->UpcomingEvents();
+ 		}
+ 		$data = array();
+
+ 		foreach($events as $eventNum => $event){
+
+ 			/* Get Dates in  an array for later */
+ 			$datesArray = array();
+ 			$dates = $event->UpcomingDatesAndRanges();
+
+ 			foreach($dates as $dateNum => $date){
+ 				$datesArray[$dateNum]["start_date"] = $date->StartDate;
+ 				$datesArray[$dateNum]["start_time"] = $date->StartTime;
+ 				$datesArray[$dateNum]["end_date"] = $date->EndDate;
+ 				$datesArray[$dateNum]["end_time"] = $date->EndTime;
+ 				$datesArray[$dateNum]["all_day"] = $date->AllDay;
+ 			}
+
+ 			$venuesArray = array();
+ 			$venues = $event->Venues();
+
+ 			foreach($venues as $venueNum => $venue){
+ 				$venuesArray[$venueNum]["id"] = $venue->ID;
+ 				$venuesArray[$venueNum]["name"] = $venue->AltTitle ? $venue->AltTitle : $venue->Title;
+ 				$venuesArray[$venueNum]["address"] = $venue->Address;
+ 				$venuesArray[$venueNum]["info"] = $venue->Information;
+ 				$venuesArray[$venueNum]["contact_email"] = $venue->Email;
+ 				$venuesArray[$venueNum]["contact_phone"] = $venue->Phone;
+ 				$venuesArray[$venueNum]["website_link"] = $venue->WebsiteURL;
+ 				$venuesArray[$venueNum]["latitude"] = $venue->Lat;
+ 				$venuesArray[$venueNum]["longitude"] = $venue->Lng;
+ 			}
+
+ 			$eventTypesArray = array();
+ 			$eventTypes = $event->eventTypes();
+
+ 			foreach($eventTypes as $eventTypeNum => $eventType){
+ 				$eventTypesArray[$eventTypeNum]["id"] = $eventType->ID;
+ 				$eventTypesArray[$eventTypeNum]["name"] = $eventType->Title;
+ 				$eventTypesArray[$eventTypeNum]["info"] = $eventType->Information;
+ 			}
+
+  			$sponsorsArray = array();
+ 			$sponsors = $event->sponsors();
+
+ 			foreach($sponsors as $sponsorNum => $sponsor){
+ 				$sponsorsArray[$sponsorNum]["id"] = $sponsor->ID;
+ 				$sponsorsArray[$sponsorNum]["name"] = $sponsor->Title;
+ 				$sponsorsArray[$sponsorNum]["info"] = $sponsor->Information;
+ 				$sponsorsArray[$sponsorNum]["website_link"] = $sponsor->WebsiteURL;
+ 			}
+ 			
+ 			$data["events"][$eventNum]["id"] = $event->ID;
+ 			$data["events"][$eventNum]["name"] = $event->Title;
+ 			$data["events"][$eventNum]["link"] = $event->AbsoluteLink();
+ 			$data["events"][$eventNum]["more_info_link"] = $event->MoreInfoLink;
+ 			$data["events"][$eventNum]["facebook_event_link"] = $event->FacebookEventLink;
+ 			
+ 			if($event->Image()->exists()){
+ 				$data["events"][$eventNum]["image"] = $event->Image()->CroppedImage(730, 462) ? $event->Image()->CroppedImage(730, 462)->getAbsoluteURL(): $event->Image()->getAbsoluteURL();
+ 			}
+ 			//$data["events"][$eventNum]["description"] = $event->Content;
+ 			$data["events"][$eventNum]["cancel_note"] = $event->CancelReason;
+ 			$data["events"][$eventNum]["dates"] = $datesArray;
+ 			$data["events"][$eventNum]["price"] = $event->Cost;
+ 			$data["events"][$eventNum]["location"] = $event->Location;
+ 			$data["events"][$eventNum]["venues"] = $venuesArray;
+ 			$data["events"][$eventNum]["sponsors"] = $sponsorsArray;
+ 			$data["events"][$eventNum]["event_types"] = $eventTypesArray;
+ 			unset($datesArray);
+ 		}
+
+ 		return json_encode($data);
+ 	}
+ 	public function getRSSFeed($events) {
+		//remove duplicates from the feed.
+		$rss_title = $this->RSSTitle ? $this->RSSTitle : sprintf(_t("Calendar.UPCOMINGEVENTSFOR","Upcoming Events for %s"),$this->Title);
+		$rss = new RSSFeed($events, $this->Link(), $rss_title, "", "Title", "Description", "EventDate", "EventLocation");
+		
+		if(is_int($rss->lastModified)) {
+			HTTP::register_modification_timestamp($rss->lastModified);
+			header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $rss->lastModified) . ' GMT');
+		}
+		if(!empty($rss->etag)) {
+			HTTP::register_etag($rss->etag);
+		}
+		$xml = str_replace('&nbsp;', '&#160;', $rss->renderWith('RSSFeed'));
+		$xml = preg_replace('/<!--(.|\s)*?-->/', '', $xml);
+		$xml = trim($xml);
+		HTTP::add_cache_headers();
+		header("Content-type: text/xml");
+
+ 		$Data = array(
+	      'Events' => $events
+	    );
+		
+		echo trim(preg_replace('/<!--(.|\s)*?-->/', '', str_replace('&nbsp;', '&#160;', $this->customise($Data)->renderWith(array('AfterClassCategoryRss', 'Page')))));
+		return "";
+	}
+ 	/*****************************/
+	/* Legacy RSS Feeds  *********/
+	/*****************************/	
+
 	public function newrss(){
 		$events = $this->AllEventsWithoutDuplicates();
 		return $this->getRSSFeed($events);

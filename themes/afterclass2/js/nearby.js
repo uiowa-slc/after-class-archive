@@ -68,16 +68,20 @@ function locate() {
 			mapcanvas.style.height = '300px';
 		}
 		mapcanvas.style.width = '100%';	
-	jQuery('#single-page-content').append(mapcanvas);
+	jQuery('.map-container').append(mapcanvas);
 	var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 	var nearMeMapOptions = {
-	    zoom: 17,
+	    zoom: 15,
 	    center: iowaCity,
 	    panControl: false,
 	    mapTypeControl: false,
 	    //navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-	    disableDefaultUI: true,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	    disableDefaultUI: false,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP,
+	    streetViewControl: false,
+	    zoomControlOptions: {
+    		position: google.maps.ControlPosition.LEFT_BOTTOM
+  		}
 	};
 	var map = new google.maps.Map(document.getElementById("mapcanvas"), nearMeMapOptions);
 		map.mapTypes.set('map_style', styledMap);
@@ -170,7 +174,7 @@ function locate() {
 		var eventsHereString = '';
 		var eventBubbleString = '';
 		
-		eventsHere.push("<h2 class='infobox-header'><a href='" + venueLink + "'>" + venueName + "</a></h2>");
+		eventsHere.push("<a class='button tag' href='" + venueLink + "'>" + venueName + "</a>");
 		
 		jQuery(venue).children('div').each(function(index, Element) {
 			var eventTitle = jQuery(this).data('title');
@@ -181,7 +185,10 @@ function locate() {
 			var startDate = jQuery(this).data('startdate');
 			var startTime = jQuery(this).data('starttime');	
 
-			var eventStringSeg = "<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul class='infobox-list'>" + "<li> Date: " + startDate + "</li>" + "<li> Time: " + startTime + "</li>" + "<li> Cost: " + eventCost + "</li>" + "</ul></div>";
+			var eventStringSeg = 
+			"<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul class='infobox-list'>" + 
+					"<li>" + startDate + ", " + startTime + ((eventCost  !== "") ? ", Cost: " + eventCost : "") + "</li>" 
+				+ "</ul></div>";
 					
 			eventsHere.push(eventStringSeg);
 		});
@@ -242,15 +249,6 @@ function widthChange(mq) {
 	}
 }
 
-/*
-$(document).ready(function() {
-  if (navigator.geolocation) {
-	  navigator.geolocation.getCurrentPosition(success, error);
-	} else {
-	  error('not supported');
-	}
-});
-*/
 
 $(document).ready(function() {
   locate();
