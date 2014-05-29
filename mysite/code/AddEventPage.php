@@ -73,12 +73,9 @@ class AddEventPage_Controller extends Page_Controller {
 
         $event->deleteFromStage('Live');
         
-<<<<<<< HEAD
-=======
 
         Session::set('Submitted', true);
         
->>>>>>> e0fafe6236a847b3e184c3c4ce1480238e573321
         //Email notification
 		
 		if($event->Submitteremail){
