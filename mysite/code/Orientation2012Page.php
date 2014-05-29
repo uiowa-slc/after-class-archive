@@ -30,7 +30,7 @@ class Orientation2012Page_Controller extends Page_Controller {
 function Form() {
 		//
 		$myForm = new Form($this, "Form", new FieldList(
-			new TextField("first_name", "Your First Name"),
+			new TextField("first_name", "First Name"),
 			new TextField("last_name","Last Name"),
 			new TextField("email","Email Address"),
  			new HiddenField("facebook_id")
