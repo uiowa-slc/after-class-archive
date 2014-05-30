@@ -35,7 +35,7 @@ function Form() {
 			new TextField("email","Email Address"),
  			new HiddenField("facebook_id")
 		), new FieldList(
-			new FormAction("SignupAction","Get Connected!")
+			new FormAction("SignupAction","Subscribe")
 		), new RequiredFields());
 		$myForm->disableSecurityToken();
 		return $myForm;
