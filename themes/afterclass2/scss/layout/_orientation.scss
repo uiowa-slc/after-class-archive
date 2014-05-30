@@ -1,11 +1,15 @@
 body.orientation{
+	background-image: url('../images/orientation/tile.jpg');
 	background-color: #35314A;
 }
 
+.orientation-container{
+	background-color: #35314a;
+}
 
 .orientation-form 
 {
-	background-color: #35314a;
+	
 	margin-top: 159px;
 }
 
@@ -18,4 +22,8 @@ body.orientation{
 {
 	//padding-top: 72px;
 	padding: 75px 25px 25px 25px; 
+}
+
+.tile-container{
+
 }

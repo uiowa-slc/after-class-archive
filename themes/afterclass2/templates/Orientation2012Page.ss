@@ -1,11 +1,9 @@
 <!doctype html>
-
+<html>
 <head>
 	<% base_tag %>
 	<title>Orientation  - After Class: The Best of UI's Culture, Events and Nightlife</title>
-
 	<link href="{$ThemeDir}/css/master.css" rel='stylesheet' type='text/css'>
-	 
 </head>
 <body class="orientation">
 	<div class="orientation-container">
@@ -17,6 +15,9 @@
 				$Form	
 			</div>
 		</div>
+	</div>
+	<div class="tile-container">
+		
 	</div>
 </body>
 </html>

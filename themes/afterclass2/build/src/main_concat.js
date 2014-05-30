@@ -90,6 +90,7 @@ $(function() {
 			this.firstDay = new Date(this.year, this.month, 1);
 			this.startingDay = this.firstDay.getDay();
 			if($.CalendarWidget.settings.startOnMonday) {
+				if(this.startingDay === 0) this.startingDay=6; else 
 				this.startingDay--;
 			}			
 			this.monthLength = this.settings.calDaysInMonth[this.month];
@@ -227,7 +228,8 @@ $(function() {
 
 			var cell = 1;
 			var empties = 0;
-			var row_count = Math.ceil((this.startingDay+this.monthLength)/7);
+			var row_count = Math.ceil((this.monthLength+this.startingDay)/7);
+
 			for (var i = 0; i < row_count; i++) {
 				for (var j = 0; j <= 6; j++) {
 					date = "";
@@ -389,12 +391,16 @@ $('.calendar-widget').each(function() {
 
 		onMonthChange: function(month, year, calendar) {
 			var json;
-			m = calendar.pad(month);		
+			m = calendar.pad(month);
+			prev_month = calendar.pad(month+1);
+			next_month = calendar.pad(month-1);			
 			if(!loaded_months[year+m]) {
 				loadMonthJson(m, year);
 			}
 			json = loaded_months[year+m];
 			applyMonthJson(m, year);
+			applyMonthJson(prev_month, prev_year);
+			applyMonthJson(next_month, next_year);
 			setSelection(calendar);
 		},
 
@@ -446,6 +452,7 @@ $('.calendar-widget').each(function() {
 
 });
 })(jQuery);
+
 /*
  * jQuery FlexSlider v2.1
  * http://www.woothemes.com/flexslider/
