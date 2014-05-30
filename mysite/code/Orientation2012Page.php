@@ -5,7 +5,7 @@ class Orientation2012Page extends Page {
 	);
 	public static $has_one = array(
 	);
-	
+
 }
 class Orientation2012Page_Controller extends Page_Controller {
 
@@ -24,63 +24,62 @@ class Orientation2012Page_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
+	public static $allowed_actions = array ( "Form", "SignupAction"
 	);
-	
-function Form() {
+
+	function Form() {
 		//
-		$myForm = new Form($this, "Form", new FieldList(
-			new TextField("first_name", "First Name"),
-			new TextField("last_name","Last Name"),
-			new TextField("email","Email Address"),
- 			new HiddenField("facebook_id")
-		), new FieldList(
-			new FormAction("SignupAction","Subscribe")
-		), new RequiredFields());
+		$myForm = new Form( $this, "Form", new FieldList(
+				new TextField( "first_name", "First Name" ),
+				new TextField( "last_name", "Last Name" ),
+				new TextField( "email", "Email Address" ),
+				new HiddenField( "facebook_id" )
+			), new FieldList(
+				new FormAction( "SignupAction", "Subscribe" )
+			), new RequiredFields() );
 		$myForm->disableSecurityToken();
 		return $myForm;
 	}
- 
+
 	/**
-	* This function is called when the user submits the form.
-	*/
-	function SignupAction($data, $form) {
+	 * This function is called when the user submits the form.
+	 */
+	function SignupAction( $data, $form ) {
 		$orientationPerson = new OrientationPerson();
-		$form->saveInto($orientationPerson);
+		$form->saveInto( $orientationPerson );
 		$orientationPerson->signup_source = $this->URLSegment;
 		$orientationPerson->write();
-		Controller::curr()->redirect($this->URLSegment.'/');
+		Controller::curr()->redirect( $this->URLSegment.'/' );
 	}
 	public function show() {
-	
-	if(Permission::check("ADMIN")){
-		if($this){
-			$mr = OrientationPerson::get()->sort('DESC')->limit(3000);
-			foreach ($records as $record) {
-				if ($record->signup_source == $this->URLSegment) {
-					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
+
+		if ( Permission::check( "ADMIN" ) ) {
+			if ( $this ) {
+				$mr = OrientationPerson::get()->sort( 'DESC' )->limit( 3000 );
+				foreach ( $records as $record ) {
+					if ( $record->signup_source == $this->URLSegment ) {
+						$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
+					}
 				}
+				return $mr;
 			}
-			return $mr;
+		}else {
+			Controller::curr()->redirect( "home/" );
+
 		}
-	}else {
-		Controller::curr()->redirect("home/");
-	
 	}
-}
 
 
 	public function init() {
 		parent::init();
 
 	}
-	
-	/*public function Form() {
-		$form = parent::Form();
+
+	public function Thanks($request){
+
 		
-		
-	
-	}*/
-	
-	
+
+	}
+
+
 }

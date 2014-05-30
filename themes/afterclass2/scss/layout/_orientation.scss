@@ -4,12 +4,11 @@ body.orientation{
 }
 
 .orientation-container{
-	background-color: #010101;
+	background-color: rgba(19, 19, 19, 0.78);
 }
 
 .orientation-form 
 {
-	
 	margin-top: 159px;
 }
 
@@ -20,10 +19,17 @@ body.orientation{
 
 .after-form
 {
-	//padding-top: 72px;
-	padding: 75px 25px 25px 25px; 
+	padding: 0 25px 25px 25px; 
 }
 
-.tile-container{
-
+.alert-area{
+	font-size: 2em;
+	color: #A4DCF4;
+	margin: 0;
+	height: 75px;
+	padding: 1em 0;
+	margin: 1em 0;
+	p{
+		margin:0;
+	}
 }
