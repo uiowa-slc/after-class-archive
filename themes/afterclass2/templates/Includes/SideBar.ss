@@ -7,11 +7,11 @@
 <div id="the-news">
 	<h2><a href="news/">Student life at iowa</a></h2>
 		<div class="news-entries">
-			<% loop $RSSDisplay("5", "http://afterclass.uiowa.edu/news/feed/") %>
+			<% loop $RSSDisplay("5", "http://hulk.imu.uiowa.edu/student-life-at-iowa/news/rss") %>
 				<div class="news-entry $EvenOdd">
 					$Smallimage
 					<h3><a href="$Link">$Title</a></h3>
-					<p class="news-posted-on">$Date.Format(F n), $Date.Format(Y) by $Author</p>
+					<p class="news-posted-on">$Date.Format(F n), $Date.Format(Y) <!--- by $Author ---></p>
 					<div class="news-text">
 						<p>$Description.Summary(50) <a href="$Link">Continue Reading</a></p>
 					</div>
