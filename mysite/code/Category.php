@@ -30,7 +30,9 @@ class Category extends DataObject {
 		}
 		return $upcomingEventArrayList;
 	}
+	
 
+	
 	public function JsonFeedLink(){
 		$base_url = Director::absoluteBaseURL();
 		return $base_url."events/categories/".$this->ID.'/feed/json'; 
