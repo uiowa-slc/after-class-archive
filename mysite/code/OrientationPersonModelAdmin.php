@@ -22,9 +22,8 @@ class OrientationPersonModelAdmin extends ModelAdmin {
 	  	$list = parent::getList();
 	  	$params = $this->request->requestVar('q');
 	  	$firstofTheYear = date('Y').'-01-01';
-	  	
 	  	if($this->modelClass == 'OrientationPerson' && isset($params['AddedThisYear']) && $params['AddedThisYear']) {
-		  	$list = $list->filter(array('Created:GreaterThan' =>$firstofTheYear));
+		  	$list = $list->filter(array('Created:GreaterThan' => $firstofTheYear));
 	  	}
 	  	return $list;
   }
