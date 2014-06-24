@@ -20,7 +20,7 @@
 			<% end_loop %>
 		</div>
 		<!-- end news-entries -->
-		<p class="view-all-posts-link"><a href="news/" class="button">view all posts</a></p>
+		<p class="view-all-posts-link"><a href="http://studentlife.uiowa.edu/news/" target="_blank" class="button">view all posts</a></p>
 	</div>
 	<!-- end the-news -->	
 	<!-- categories -->
