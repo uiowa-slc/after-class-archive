@@ -52,8 +52,8 @@
     padding-left: 0;
 }
 
-.event-card:nth-child(1), .event-card:nth-child(4n+4) {
-    padding-left: 0;
+.event-card:nth-child(3){
+    padding-right: 0;
 }
 
 .event-card-desc p {
@@ -215,7 +215,7 @@ a.event-header-category {
         font-size: 90%;
         width: 33.3%;
         float: left;
-        padding: 1%;
+        padding: 0 0.5%;
         height: 240px;
         overflow: hidden;
         border: none;

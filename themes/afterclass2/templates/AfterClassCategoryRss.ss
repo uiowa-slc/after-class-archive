@@ -8,7 +8,7 @@
 		<% loop Events %>
 		<item>
 				<title>$Title</title>
-				<description>$Content.Summary(50)</description>
+				<description><![CDATA[<p><% loop UpcomingDatesAndRanges %><% include DateTimesList %><% end_loop %></p><p>$Content.Summary(50)</p>]]></description>
 				<link>{$BaseHref}{$URLSegment}</link>
 				<pubDate></pubDate>
 				<guid>{$BaseHref}{$URLSegment}</guid>

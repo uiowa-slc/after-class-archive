@@ -4,7 +4,7 @@
  */
 class OrientationPerson extends DataObject {
    
-	public static $db = array(
+	private static $db = array(
 		"first_name" => "Varchar",
 		"last_name" => "Varchar",
 		"email" => "Varchar",
@@ -13,6 +13,23 @@ class OrientationPerson extends DataObject {
 		);
 	static $has_one = array(					 
 	);  
+	
+	private static $field_labels = array(
+		'ID' => 'Name'
+	);
+	
+	private static $summary_fields = array (
+		'first_name',
+		'last_name',
+		'email',
+		'Created',
+		
+	);
+	
+    public function canView($member = null) {
+        return Permission::check('ADMIN');
+    }
+	
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 		return $fields;

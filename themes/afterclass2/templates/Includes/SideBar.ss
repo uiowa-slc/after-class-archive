@@ -7,7 +7,7 @@
 <div id="the-news">
 	<h2><a href="news/">Student life at iowa</a></h2>
 		<div class="news-entries">
-			<% loop $RSSDisplay("5", "http://hulk.imu.uiowa.edu/student-life-at-iowa/news/rss") %>
+			<% loop $RSSDisplay("5", "http://studentlife.uiowa.edu/news/rss") %>
 				<div class="news-entry $EvenOdd">
 					$Smallimage
 					<h3><a href="$Link">$Title</a></h3>

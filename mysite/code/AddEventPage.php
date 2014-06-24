@@ -39,7 +39,7 @@ class AddEventPage_Controller extends Page_Controller {
             new TextField('Location',"Where's the event located?"),
             new TextField('MoreInfoLink',"What's a website or link that has more information about the event?"),
             new TextField('FacebookEventLink', 'If applicable, please give us a <span class="fbButton" href="#">Facebook Event Link</span>'),
-            new TextField('Submitterdate',"When's the event happening? We need both the Date(s) AND Time(s) of the event."),
+            new TextareaField('Submitterdate',"Date AND Time(s) Please put all event date and times in this field. Do not submit this form more than once for each instance of the event."),
             new TextField('Cost','How much does it cost to attend?'),
             new TextareaField('Content','Describe what the event is about.'),
 
