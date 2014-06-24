@@ -10,7 +10,7 @@
 			<% loop $RSSDisplay("5", "http://studentlife.uiowa.edu/news/rss") %>
 				<div class="news-entry $EvenOdd">
 					$Smallimage
-					<h3><a href="$Link">$Title</a></h3>
+					<h3><a href="$Link" target="_blank">$Title</a></h3>
 					<p class="news-posted-on">$Date.Format(F n), $Date.Format(Y) <!--- by $Author ---></p>
 					<div class="news-text">
 						<p>$Description.Summary(50) <a href="$Link">Continue Reading</a></p>
