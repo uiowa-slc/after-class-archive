@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "11f7f8e82cbe1538721b72aa14bbd8007dde96e1"
+                "reference": "21c366259a61075dca55210fd78284fcfd648fb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/11f7f8e82cbe1538721b72aa14bbd8007dde96e1",
-                "reference": "11f7f8e82cbe1538721b72aa14bbd8007dde96e1",
+                "url": "https://api.github.com/repos/composer/installers/zipball/21c366259a61075dca55210fd78284fcfd648fb7",
+                "reference": "21c366259a61075dca55210fd78284fcfd648fb7",
                 "shasum": ""
             },
             "replace": {
@@ -92,7 +92,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-06-04 16:59:54"
+            "time": "2014-06-18 22:05:26"
         },
         {
             "name": "md/division-bar",
@@ -100,12 +100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "54d310c04df438f65954cef1e71ef11e22757fea"
+                "reference": "40b10008641a727d6ad05c2005e17a7b50e07393"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/54d310c04df438f65954cef1e71ef11e22757fea",
-                "reference": "54d310c04df438f65954cef1e71ef11e22757fea",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/40b10008641a727d6ad05c2005e17a7b50e07393",
+                "reference": "40b10008641a727d6ad05c2005e17a7b50e07393",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2014-06-06 17:39:37"
+            "time": "2014-06-18 14:30:05"
         },
         {
             "name": "md/event-calendar",
@@ -382,12 +382,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-mathspamprotection.git",
-                "reference": "0e916101e2435eea23a43d34027c154fd90fe544"
+                "reference": "bd581c7f7c1bfa0c83096a69d7cc0de27673f20f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/0e916101e2435eea23a43d34027c154fd90fe544",
-                "reference": "0e916101e2435eea23a43d34027c154fd90fe544",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/bd581c7f7c1bfa0c83096a69d7cc0de27673f20f",
+                "reference": "bd581c7f7c1bfa0c83096a69d7cc0de27673f20f",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-04-03 21:31:04"
+            "time": "2014-06-11 00:32:12"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -473,7 +473,7 @@
                     "homepage": "http://wilr.github.com"
                 },
                 {
-                    "name": "Sam Minnee",
+                    "name": "Sam Minnée",
                     "email": "sam@silverstripe.com"
                 }
             ],
@@ -492,17 +492,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "b75fc3c51eb60f4f23967a917a0feec98e4ed6e0"
+                "reference": "bf2411ea54ae660258dce0b63b0623e1777a8aaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/b75fc3c51eb60f4f23967a917a0feec98e4ed6e0",
-                "reference": "b75fc3c51eb60f4f23967a917a0feec98e4ed6e0",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/bf2411ea54ae660258dce0b63b0623e1777a8aaf",
+                "reference": "bf2411ea54ae660258dce0b63b0623e1777a8aaf",
                 "shasum": ""
             },
             "require": {
                 "silverstripe/cms": ">=3.1.0",
                 "silverstripe/framework": ">=3.1.0"
+            },
+            "suggest": {
+                "colymba/gridfield-bulk-editing-tools": "Allows for bulk management of form submissions"
             },
             "type": "silverstripe-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -521,7 +524,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-05-22 11:05:12"
+            "time": "2014-06-18 01:22:48"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -529,12 +532,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "fac8934f5a38cff5c28cfa4c7aeeb66b4fe2739e"
+                "reference": "e8849e30100956a233cf66a8cdb58d7d1440102e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/fac8934f5a38cff5c28cfa4c7aeeb66b4fe2739e",
-                "reference": "fac8934f5a38cff5c28cfa4c7aeeb66b4fe2739e",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/e8849e30100956a233cf66a8cdb58d7d1440102e",
+                "reference": "e8849e30100956a233cf66a8cdb58d7d1440102e",
                 "shasum": ""
             },
             "require": {
@@ -558,7 +561,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-06-03 20:45:12"
+            "time": "2014-06-10 23:56:05"
         }
     ],
     "packages-dev": [

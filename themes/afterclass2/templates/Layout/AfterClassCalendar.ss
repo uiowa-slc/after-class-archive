@@ -35,7 +35,7 @@
 	<% if $action == "index" %>
 		<h2>What's up next</h2>
 		<div class="event-cards">
-			<% loop AllEventsWithoutDuplicates %>
+			<% loop $AfterClassEvents %>
 				<% include EventCard %>
 			<% end_loop %> <%-- end control Upcoming Events --%>
 		</div> <!--end event-cards -->
