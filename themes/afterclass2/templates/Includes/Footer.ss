@@ -3,6 +3,7 @@
 		<div class="large-8 columns">
 			<div class="disability-statement"><p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:bret-gothe@uiowa.edu">Bret Gothe</a> in advance at 319-335-3132.</p></div>
 			<ul>
+				<li><a href="{$BaseHref}events">Calendar</a></li>
 				<li><a href="{$BaseHref}events/categories">Categories</a></li>
 				<li><a href="{$BaseHref}events/sponsors">Sponsors</a></li>
 				<li><a href="{$BaseHref}events/venues">Venues</a></li>
@@ -15,8 +16,7 @@
 			<div class="clear"></div>
 			<div id="footer-social-media">
 				<% include MailChimpForm %>
-				<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="AfterClass">Tweet</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				
 			</div>
 			
 		</div>
@@ -29,6 +29,8 @@
 			<p>319-335-3132<br />
 			<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
 			<a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a>
+			<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="AfterClass">Tweet</a>-->
 			</p>
 		</div>
 	</div>
