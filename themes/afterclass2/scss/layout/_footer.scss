@@ -1,5 +1,4 @@
 #page_footer {
-    min-height: 200px;
     background-color: black;
     margin-top: 0;
     border-top: 5px solid #E8CA66;
@@ -12,7 +11,7 @@
 
 #page_footer .row ul {
     margin: 0;
-    padding: 20px 0 0 0;
+    padding: 0;
     list-style: none;
 }
 
@@ -42,7 +41,26 @@
 }
 
 #mc_embed_signup {
+    margin-top: 15px;
     margin-bottom: 15px;
+
+    @media only screen and (min-width: 768px) {
+        margin: 0;
+    }
+
+    .email{
+        float: left;
+        width: 50%;
+    }
+    .btn{
+        @media only screen and (min-width: 768px) {
+            float: left;
+            padding: 0.3em;
+            margin-left: 10px;
+        }
+    }
+
+
 }
 
 .response {
@@ -65,7 +83,6 @@
 
 @media only screen and (min-width: 768px) {
     #footer-social-media {
-        float: left;
         margin-top: 20px;
     }
     #page_footer .row #ui_logo {

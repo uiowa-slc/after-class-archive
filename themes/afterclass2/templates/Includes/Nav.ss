@@ -4,7 +4,7 @@
 			<ul class="clearfix">
 				<li class="first" ><a href="{$BaseHref}">Calendar</a></li>
 				<li class="first moon-icon" ><a href="{$BaseHref}"><img src="{$ThemeDir}/images/moon_icon.png"></a></li>
-				<li id="news"><a href="news/">news</a></li>
+				<li id="news"><a href="http://studentlife.uiowa.edu/news/" target="_blank">news</a></li>
 				<li class= "nearby"><a href="nearby/" class="near-me-link">Nearby</a></li>
 				<% with Calendar %><li class="today"><a href="$Link(today)">Today</a></li><% end_with %>
 				<% with Calendar %><li class="weekend"><a href="$Link(weekend)">Weekend</a></li><% end_with %>
