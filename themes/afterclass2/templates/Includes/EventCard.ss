@@ -15,15 +15,9 @@
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
-				<div class="event-card-image">
+				<div class="event-card-image" style="background-image: url('$ImageURL')">
 					<a href="$Link">
-					<% if Image %>
-						<% loop Image %>
-							<% loop CroppedImage(253,158) %><img class="" itemprop="photo" src="$URL" /><% end_loop %>
-						<% end_loop %>
-					<% else %>
-						<img src="{$ThemeDir}/images/placeholder.png" class="placeholder-image" />
-					<% end_if %>
+
 					</a>
 				</div><!-- end event-card-image -->
 			<div class="event-card-content">

@@ -160,6 +160,10 @@ a.event-header-category {
     float: right;
     margin-left: 10px;
     width: 100%;
+    background-size: cover;
+    height: 272px;
+    background-position-x: 50%;
+    background-position-y: 50%;
 }
 
 .event-card-image img {
@@ -184,6 +188,7 @@ a.event-header-category {
     }
     .event-card-image {
         width: 150px;
+        height: 172px;
     }
 }
 
