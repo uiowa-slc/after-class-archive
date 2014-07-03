@@ -22,19 +22,19 @@
 					<p>
 						<% include HeroDateTimes %>
 					</p>
-					<% if Cost %>
+					<% if $Cost %>
 	            		<p><strong>Price:</strong> $Cost</p>
 	            	<% end_if %>
-				    <% if CancelReason %>
+				    <% if $CancelReason %>
 						<p><strong>Note: $CancelReason</strong></p>
 					<% end_if %>
-					<% if FacebookEventLink %>
+					<% if $FacebookEventLink %>
 						<p><a href="$FacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
 					<% end_if %>
 					<% include AddThis %>
 					<div id="truncontent">
 						$Content
-						<% if MoreInfoLink %>
+						<% if $MoreInfoLink %>
 						<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>						
 						<% end_if %>
 						<button id='truncswitch'>+</button>
@@ -58,7 +58,7 @@
 				
 			</div><!-- end hero-event-details -->
 			<hr />
-			<% if RelatedEvents %>
+			<% if $RelatedEvents %>
 				<% include RelatedEvents %>
 			<% end_if %>
 		</div><!-- end hero-event-content-->
@@ -67,29 +67,29 @@
 </div><!-- end medium-8 columns -->
 
 <div class="medium-4 columns">
-	<% if Venues || Location %>
+	<% if $Venue || $Location %>
 		<div id="detail_event_description_map">	
-			<% loop Venues %>
+			<% with $Venue %>
 				<div class="location-info">
-					<% if Top.Location %><p>{$Top.Location}</p><% end_if %>
+					<% if $Top.Location %><p>{$Top.Location}</p><% end_if %>
 					<h2><a href="$Link" class="button tag">@ $Title</a></h2>
 					<div class="clear"></div>								
-					<% if Address %>
+					<% if $Address %>
 						<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
 					<% end_if %>
 					<p>
 				</div>
-				<% if Address %>
+				<% if $Address %>
 					<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
 				<% end_if %>
-				<% if WebsiteURL %>
+				<% if $WebsiteURL %>
 					<a class="button" href="$WebsiteURL">Venue website</a>
 				<% end_if %>
-				<% if Events %>
+				<% if $Events %>
 					<a href="$Link" class="button">More events here</a>
 				<% end_if %>
 				</p>
-			<% end_loop %>
+			<% end_with %>
 			
 		</div> <!-- end detail_event_description_map -->
 	<% end_if %>
@@ -105,18 +105,18 @@
 		<% end_with %>
 	<% end_if %>
 
-		<% if Sponsors %>
+		<% if $Sponsors %>
 			<div class="sponsors">
-				<p><strong>Sponsored by:</strong><% loop Sponsors %>
+				<p><strong>Sponsored by:</strong><% loop $Sponsors %>
 				<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
 				<% end_loop %></p>
 			</p>
 			</div>
 		<% end_if %>
-		<% if AllCategories %>
+		<% if $AllCategories %>
 			<div class="categories">
 					<p><strong>Tagged as:</strong>
-					<% loop AllCategories %>
+					<% loop $AllCategories %>
 					<a href="$Link" class="button tag">$Title.LimitCharacters(25)</a>
 					<% end_loop %></p>
 				</p>
