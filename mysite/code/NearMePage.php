@@ -59,6 +59,8 @@ class NearMePage_Controller extends Page_Controller {
 			if($venue->Events()->First()){
 				$placesList->push($venue->parseVenue($place));
 			}
+
+
 		}
 
 		return $placesList;   
