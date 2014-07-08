@@ -39,7 +39,7 @@
 				<% include EventCard %>
 			<% end_loop %> <%-- end control Upcoming Events --%>
 		</div> <!--end event-cards -->
-	<% else %><%-- if we're not using the index action, list the calendar's default events for dates, date ranges, etc --%>
+	<% else %><%-- if we are not using the index action, list the calendars default events for dates, date ranges, etc --%>
 		<div class="event-cards">
 			<% loop Events %>
 				<% with Event %>

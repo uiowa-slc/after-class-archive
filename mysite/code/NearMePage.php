@@ -27,6 +27,37 @@ class NearMePage_Controller extends Page_Controller {
 	public static $allowed_actions = array (
 	);
 
+	/*public function PlaceList2(){
+
+		$calendar = LocalistCalendar::get()->First();
+		$allEvents = $calendar->EventList();
+
+		foreach($allEvents as $key => $event){
+			$venues[] = Array( $event->VenueTitle;
+
+		}
+
+
+	}*/
+
+	public function PlaceList( $feedURL = "places"){
+		$feedURL = LOCALIST_FEED_URL.$feedURL;
+		$placesList = new ArrayList();
+		$rawFeed = file_get_contents($feedURL);
+		$placesDecoded = json_decode($rawFeed, TRUE);
+		$placesArray = $placesDecoded['places'];
+	
+		foreach($placesArray as $place) {
+			$venue = new LocalistVenue();
+			$placesList->push($venue->parseVenue($place));
+		}
+
+		return $placesList;   
+
+	}
+
+	
+
 	public function init() {
 		parent::init();	
 	}

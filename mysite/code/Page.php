@@ -2,11 +2,11 @@
 class Page extends SiteTree {
 
 	private static $db = array(
+
 	);
 
 	private static $has_one = array(
 
-	
 	);
 
 	public function ActiveEventtypes(){
@@ -22,7 +22,6 @@ class Page extends SiteTree {
 	public function AllVenues() {
 		return Venue::get()->sort('Title ASC');
 	}
-	
 	public function AllSponsors() {
 		return Sponsor::get()->sort('Title ASC');
 	}
