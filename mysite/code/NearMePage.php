@@ -40,16 +40,25 @@ class NearMePage_Controller extends Page_Controller {
 
 	}*/
 
-	public function PlaceList( $feedURL = "places"){
+	public function PlaceList( $feedURL = "places/?pp=1000"){
+
+		$cache = new SimpleCache();
+
 		$feedURL = LOCALIST_FEED_URL.$feedURL;
+
+		//print_r($feedURL);
 		$placesList = new ArrayList();
-		$rawFeed = file_get_contents($feedURL);
+		$rawFeed = $cache->get_data("VenueList", $feedURL);
+
 		$placesDecoded = json_decode($rawFeed, TRUE);
 		$placesArray = $placesDecoded['places'];
 	
 		foreach($placesArray as $place) {
 			$venue = new LocalistVenue();
-			$placesList->push($venue->parseVenue($place));
+			$venue = $venue->parseVenue($place);
+			if($venue->Events()->First()){
+				$placesList->push($venue->parseVenue($place));
+			}
 		}
 
 		return $placesList;   
