@@ -53,11 +53,14 @@ class Page extends SiteTree {
 	}
 	
 	function allPagesToCache() {
+	    
+	    $urls = array('events/', 'about/', 'nearby');
+
 	    // Get each page type to define its sub-urls
-	    $urls = array();
+	    //$urls = array();
 	    // memory intensive depending on number of pages
-	    $pages = Page::get();
-	    $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage', 'AfterClassNewsletter');
+	   /* $pages = Page::get();
+	    $ignored = array('AfterClassEvent', 'UserDefinedForm', 'AddEventPage', 'FeedbackPage', 'AfterClassNewsletter');
 
 	    foreach($pages as $page) {
 	    	if(!in_array($page->ClassName, $ignored)) {
@@ -65,7 +68,7 @@ class Page extends SiteTree {
 		    		$urls = array_merge($urls, (array)$page->subPagesToCache());
 		    	}
 		    }
-	    }
+	    }*/
 
 		$previousMonth = new DateTime();
 		$previousMonth->modify('first day of last month');
@@ -80,28 +83,38 @@ class Page extends SiteTree {
 
 		
 
-	    $urls[] = 'events/categories/';
+	    /*$urls[] = 'events/categories/';
 	    $urls[] = 'events/sponsors/';
-	    $urls[] = 'events/venues/';
+	    $urls[] = 'events/venues/';*/
 
-	    $categories = Category::get()->map()->toArray();
-	    //print_r($categories);
+	   /* $categories = Category::get()->map()->toArray();
+
 	    foreach($categories as $key => $category){
 	    	$urls[] = 'events/categories/'.$key.'/feed/json';
-	    }
+	    }*/
 
 	  	$urls[] = 'events/monthjson/'.$previousMonthString.'/';
 	  	$urls[] = 'events/monthjson/'.$currentMonthString.'/';
 	  	$urls[] = 'events/monthjson/'.$nextMonthString.'/';
 
+	  	/* Cache all current events from master event list */
+
+	  	$calendar = LocalistCalendar::get()->First();
+	  	$events = $calendar->EventList();
+
+	  	foreach($events as $event){
+	  		$urls[] = 'events/event/'.$event->ID;
+	  	}
+
+
 	  	//$urls[] = 'events/feed/rss';
-	  	$urls[] = 'events/feed/json';
+	  /*	$urls[] = 'events/feed/json';
 	  	$urls[] = 'events/feed/';
 
 	  	$urls[] = 'events/categories/feed/json';
 
 	  	$urls[] = 'events/weekend/';
-	  	$urls[] = 'events/today/';
+	  	$urls[] = 'events/today/';*/
 
 	    return $urls;
 	  }

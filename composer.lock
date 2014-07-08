@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "21c366259a61075dca55210fd78284fcfd648fb7"
+                "reference": "9eb391bcafef76503d0bd4e585756391efc8740f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/21c366259a61075dca55210fd78284fcfd648fb7",
-                "reference": "21c366259a61075dca55210fd78284fcfd648fb7",
+                "url": "https://api.github.com/repos/composer/installers/zipball/9eb391bcafef76503d0bd4e585756391efc8740f",
+                "reference": "9eb391bcafef76503d0bd4e585756391efc8740f",
                 "shasum": ""
             },
             "replace": {
@@ -92,7 +92,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-06-18 22:05:26"
+            "time": "2014-06-27 16:11:39"
         },
         {
             "name": "md/division-bar",
@@ -473,7 +473,7 @@
                     "homepage": "http://wilr.github.com"
                 },
                 {
-                    "name": "Sam Minnée",
+                    "name": "Sam Minnee",
                     "email": "sam@silverstripe.com"
                 }
             ],
@@ -492,12 +492,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "bf2411ea54ae660258dce0b63b0623e1777a8aaf"
+                "reference": "73cfcc6791b125efee39c8d825cde178086942e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/bf2411ea54ae660258dce0b63b0623e1777a8aaf",
-                "reference": "bf2411ea54ae660258dce0b63b0623e1777a8aaf",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/73cfcc6791b125efee39c8d825cde178086942e8",
+                "reference": "73cfcc6791b125efee39c8d825cde178086942e8",
                 "shasum": ""
             },
             "require": {
@@ -524,7 +524,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-06-18 01:22:48"
+            "time": "2014-07-06 05:50:21"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -532,12 +532,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "e8849e30100956a233cf66a8cdb58d7d1440102e"
+                "reference": "90491bcb04c53bc0df68f947f7df11f886c89217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/e8849e30100956a233cf66a8cdb58d7d1440102e",
-                "reference": "e8849e30100956a233cf66a8cdb58d7d1440102e",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/90491bcb04c53bc0df68f947f7df11f886c89217",
+                "reference": "90491bcb04c53bc0df68f947f7df11f886c89217",
                 "shasum": ""
             },
             "require": {
@@ -561,7 +561,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-06-10 23:56:05"
+            "time": "2014-07-08 00:40:51"
         }
     ],
     "packages-dev": [
