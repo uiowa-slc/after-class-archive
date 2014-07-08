@@ -3,9 +3,7 @@
 		<% include Search %>
 	</div>
 	<div class="show-for-large-up">
-		<% with Calendar %>
-			$CalendarWidget
-		<% end_with %>
+		<%-- $CalendarWidget --%>
 	</div>
 	<% include QuickFilters %>
 </div>

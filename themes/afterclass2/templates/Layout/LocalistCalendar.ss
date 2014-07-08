@@ -25,8 +25,8 @@
 <% end_if %>
 
 <% if $action != "index" %>
-	<h1 class="date-header">Events for $DateHeader</h1>
-	<% if not $Events %>
+	<h1 class="date-header">Events for $DateRange</h1>
+	<% if not $EventList %>
 		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/categories/">categories</a>, <a href="{$BaseHref}events/venues">venues</a>, and <a href="{$BaseHref}events/sponsors/">sponsors</a> for full event listings.</p>
 	<% end_if %><!-- end if events -->
 <% end_if %>
