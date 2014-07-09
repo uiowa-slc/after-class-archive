@@ -112,11 +112,11 @@
 			</p>
 			</div>
 		<% end_if %>
-		<% if $AllCategories %>
+		<% if $Tags %>
 			<div class="categories">
 					<p><strong>Tagged as:</strong>
-					<% loop $AllCategories %>
-					<a href="$Link" class="button tag">$Title.LimitCharacters(25)</a>
+					<% loop $Tags %>
+					<a href="$Link" class="button tag">$Title</a>
 					<% end_loop %></p>
 				</p>
 				</div>
