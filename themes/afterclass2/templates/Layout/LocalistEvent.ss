@@ -119,7 +119,16 @@
 					<a href="$Link" class="button tag">$Title</a>
 					<% end_loop %></p>
 				</p>
-				</div>
+			</div>
+		<% end_if %>
+		<% if $Types %>
+			<div class="categories">
+					<p><strong>Categorized under:</strong>
+					<% loop $Types %>
+					<a href="$Link" class="button tag">$Title</a>
+					<% end_loop %></p>
+				</p>
+			</div>
 		<% end_if %>
 	<hr />
 	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
