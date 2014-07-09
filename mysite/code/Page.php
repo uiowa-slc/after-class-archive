@@ -131,7 +131,7 @@ class Page extends SiteTree {
 	    return $urls;
 	}
 	public function Calendar(){
-  		return AfterClassCalendar::get()->First();
+  		return LocalistCalendar::get()->First();
   	}
 	public function TrendingCategories(){
 		$categories = Category::get()->sort('RAND()');

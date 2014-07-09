@@ -3,13 +3,12 @@
 <div class="medium-8 columns">
 	<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
 		<div class="hero-event-image-container">
-			<a href="$Link" class="img-shadow">
+		
 				<% if ImageURL %>
 					<img itemprop="photo" src="$ImageURL" />
 				<% else %>
 					<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
 				<% end_if %>
-			</a>
 
 			<div class="clear"></div>
 		</div><!-- end hero-event-image-container -->	
