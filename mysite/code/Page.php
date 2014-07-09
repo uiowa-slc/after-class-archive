@@ -53,7 +53,7 @@ class Page extends SiteTree {
 	}
 	
 	function allPagesToCache() {
-	    
+	    $calendar = LocalistCalendar::get()->First();
 	    $urls = array('events/', 'about/', 'nearby/');
 
 	    // Get each page type to define its sub-urls
@@ -99,12 +99,22 @@ class Page extends SiteTree {
 
 	  	/* Cache all current events from master event list */
 
-	  	$calendar = LocalistCalendar::get()->First();
+	  	
 	  	$events = $calendar->EventList();
 
 	  	foreach($events as $event){
 	  		$urls[] = $event->Link();
 	  	}
+
+
+	  	/* Cache all Trending Tags */
+
+	  	$trendingTags = $calendar->TrendingTags();
+
+	  	foreach($trendingTags as $trendingTag){
+	  		$urls[] = $trendingTag->Link();
+	  	}
+
 
 
 	  	//$urls[] = 'events/feed/rss';
