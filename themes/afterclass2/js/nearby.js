@@ -1,4 +1,3 @@
-"use strict";
 var markerArray = [];
 var infoWindow = null;
 

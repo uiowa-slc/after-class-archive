@@ -75,7 +75,7 @@
 					<h2><a href="$Link" class="button tag">@ $Title</a></h2>
 					<div class="clear"></div>								
 					<% if $Address %>
-						<div class="map-container"><div id="map_canvas" style="width: 100%; height: 100%"></div></div>
+						<div class="map-container"><div id="mini-map" style="width: 100%; height: 100%" data-link="$LocalistLinl" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)></div></div>
 					<% end_if %>
 					<p>
 				</div>
@@ -125,126 +125,12 @@
 	<hr />
 	<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
 	</div><!-- end sponsor-x -->
+
 </div><!-- end medium-4 columns-->
 </div><!-- end row -->
-	
-	
-	
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false">
-</script>
-<script type="text/javascript">
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false"></script>
 
 
-  var place = null;
-  
-  function GetLocation(address) {
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'address': address }, function (results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        //ParseLocation(results[0].geometry.location);
-        return results[0].geometry.location;
-      } else {
-        alert('error: ' + status);
-      }
-    });
-  }
-  
-function initialize() {
-  
-  
-		 // Create an array of styles.
-		var styles = [
-			 
-		{
-		    "stylers": [
-		      { "weight": 2.7 },
-		      { "saturation": -71 },
-		      { "invert_lightness": true },
-		      { "visibility": "on" },
-		      { "hue": "#8800ff" }
-		    ]
-		  },{
-		    "elementType": "geometry",
-		    "stylers": [
-		      { "weight": 1.6 },
-		      { "lightness": -20 },
-		      { "saturation": -13 },
-		      { "gamma": 1.33 }
-		    ]
-		  },{
-		    "featureType": "road",
-		    "elementType": "geometry.fill",
-		    "stylers": [
-		      { "color": "#000000" },
-		      { "weight": 3.6 },
-		      { "hue": "#a200ff" },
-		      { "lightness": 38 },
-		      { "saturation": -4 }
-		    ]
-		  },{
-		    "featureType": "water",
-		    "stylers": [
-		      { "hue": "#00b2ff" },
-		      { "lightness": -2 },
-		      { "saturation": 27 }
-		    ]
-		  }
-		 ];
-	
-	  // Create a new StyledMapType object, passing it the array of styles,
-	  // as well as the name to be displayed on the map type control.
-	  var styledMap = new google.maps.StyledMapType(styles,
-	    {name: "Styled Map"});
-	
-	  // Create a map object, and include the MapTypeId to add
-	  // to the map type control.
-	  var mapOptions = {
-	    zoom: 11,
-	   scrollwheel: false,
-	   draggable: false,
-	    center: new google.maps.LatLng(55.6468, 37.581),
-	    mapTypeControlOptions: {
-	      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-	    }
-	  };
-	  
-	  
-    var place = null;
-    
-    <% loop Venues %>
-    var address = "$Address";
-    
-    <% if Lat %>
-    var place = new google.maps.LatLng($Lat, $Lng);
-    var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP, scrollwheel: false, draggable: false
-};
-    var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
-    var geomarker = new google.maps.Marker({ map: map, position: place });
-	  map.mapTypes.set('map_style', styledMap);
-	  map.setMapTypeId('map_style');
-    <% else %>
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'address': address }, function (results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-      place = results[0].geometry.location;
-      var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP,scrollwheel: false, draggable: false};
-      var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
-      var geomarker = new google.maps.Marker({ map: map, position: place });
-       
-	  map.mapTypes.set('map_style', styledMap);
-	  map.setMapTypeId('map_style');
-      }
-    });
-    <% end_if %>
-    <% end_loop %>
-
-} 
-
-window.onload = initialize();
-
-
-
-</script>
 </div><!-- end hero-event -->
 </div><!-- end row -->
 
