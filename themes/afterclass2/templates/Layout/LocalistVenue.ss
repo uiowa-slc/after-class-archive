@@ -8,7 +8,7 @@
 		
 		<div class="category-content">
 			<% if $Venue.Content %><p class="category-information">$Venue.Content</p><% end_if %>
-			<% if $Venue.Address %><p>
+			<% if $Venue.Address %><p></p><% end_if %>
 			<div class="clear"></div>
 			<% if $Venue.Phone %><p>$Phone</p><% end_if %>
 			<% if $Venue.Email %><a href="mailto: $Email">$Email</a></p><% end_if %>
