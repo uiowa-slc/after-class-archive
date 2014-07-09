@@ -54,7 +54,7 @@ class Page extends SiteTree {
 	
 	function allPagesToCache() {
 	    
-	    $urls = array('events/', 'about/', 'nearby');
+	    $urls = array('events/', 'about/', 'nearby/');
 
 	    // Get each page type to define its sub-urls
 	    //$urls = array();
@@ -103,7 +103,7 @@ class Page extends SiteTree {
 	  	$events = $calendar->EventList();
 
 	  	foreach($events as $event){
-	  		$urls[] = 'events/event/'.$event->ID;
+	  		$urls[] = $event->Link();
 	  	}
 
 
