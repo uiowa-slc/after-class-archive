@@ -4,7 +4,7 @@
 			<a href="{$Link}" class="date-link"><time itemprop="startDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
 		<% end_loop %>
 	<% end_if %>
-	<% if Location %><span> @ </span>{$Location}<% end_if %>
+	<% if Location %>{$Location}<% end_if %>
 	
 	<% if $Venue %>
 		<% with $Venue %>

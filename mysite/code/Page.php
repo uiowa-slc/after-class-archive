@@ -133,20 +133,7 @@ class Page extends SiteTree {
 	public function Calendar(){
   		return LocalistCalendar::get()->First();
   	}
-	public function TrendingCategories(){
-		$categories = Category::get()->sort('RAND()');
-		$trendingCats = new ArrayList();
 
-		foreach($categories as $category){
-			$catEvent = $category->Events()->First();
-
-			if($catEvent){
-				$trendingCats->push($category);
-			}
-		}
-
-		return $trendingCats;
-	}
 }
 class Page_Controller extends ContentController {
 
