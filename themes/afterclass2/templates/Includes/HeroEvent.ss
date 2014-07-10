@@ -21,7 +21,7 @@
 									<p><strong>Note: $CancelReason</strong></p>
 								<% end_if %>
 							</div>
-								<%--<div class="hero-event-specifics">
+								<div class="hero-event-specifics">
 									<div class="hero-event-when">
 										<% include HeroDateTimes %>
 									</div><!-- end hero-event-when -->
@@ -36,10 +36,10 @@
 										<% end_with %>
 									</div><!-- end herp-event-where -->
 									<div class="clear"></div>
-									<% if MoreInfoLink %>
-										<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
+									<% if $LocalistLink %>
+										<p><a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a></p>	
 									<% end_if %>
-								</div><!-- end hero-event-specifics --> --%>
+								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-details -->
 							<% include AddThis %>
 					

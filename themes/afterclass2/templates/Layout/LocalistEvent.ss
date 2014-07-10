@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="medium-8 columns">
 		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
-			
+
 			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('<% if $ImageURL %>$ImageURL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">
 				<div class="clear"></div>
 			</div><!-- end hero-event-image-container -->	
@@ -11,9 +11,7 @@
 						
 				<div class="hero-event-details">
 					<div class="hero-event-text">
-						<p>
-							<% include HeroDateTimes %>
-						</p>
+						<p><% include HeroDateTimes %></p>
 						<% if $Cost %>
 		            		<p><strong>Price:</strong> $Cost</p>
 		            	<% end_if %>
@@ -26,12 +24,14 @@
 						<% include AddThis %>
 						<div id="truncontent">
 							$Content
-							<% if $MoreInfoLink %>
-							<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>						
-							<% end_if %>
 							<button id="truncswitch">+</button>
 						</div>
-						
+						<% if $MoreInfoLink %>
+							<p><a href="$MoreInfoLink" class="button" target="_blank">View More Info on Event's Website</a></p>						
+						<% end_if %>
+						<% if $LocalistLink %>
+							<p><a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a></p>	
+						<% end_if %>
 					</div><!-- end hero-event-text-->
 					
 					<div class="hero-event-when">
@@ -62,25 +62,32 @@
 		<% if $Venue || $Location %>
 			<div id="detail_event_description_map">	
 				<div class="location-info">
-				<% with $Venue %>
-						<% if $Top.Location %><p>{$Top.Location}</p><% end_if %>
-						<h2><a href="$Link" class="button tag">@ $Title</a></h2>
-						<div class="clear"></div>								
-						<% if $Address %>
-							<div class="map-container"><div id="mini-map" style="width: 100%; height: 100%" data-link="$LocalistLinl" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)></div></div>
-						<% end_if %>
-						<p>
-					<% if $Address %>
-						<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
-					<% end_if %>
-					<% if $WebsiteURL %>
-						<a class="button" href="$WebsiteURL">Venue website</a>
-					<% end_if %>
-					<% if $Events %>
-						<a href="$Link" class="button">More events here</a>
-					<% end_if %>
-					</p>
-				<% end_with %><%-- end_with $Venue --%>
+					<% if $Location %><p>{$Location}</p><% end_if %>
+					<% if $Venue.Title %>
+						<% with $Venue %>
+							<h2>
+								<% if $Link %><a href="$Link" class="button tag">@ $Title</a>
+								<% else %>
+									@ $Title
+								<% end_if %>
+							</h2>
+							<div class="clear"></div>								
+							<% if $Address %>
+								<div class="map-container"><div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)></div></div>
+							<% end_if %>
+							<p>
+							<% if $Address %>
+								<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
+							<% end_if %>
+							<% if $WebsiteURL %>
+								<a class="button" href="$WebsiteURL">Venue website</a>
+							<% end_if %>
+							<% if $Events %>
+								<a href="$Link" class="button">More events here</a>
+							<% end_if %>
+							</p>
+						<% end_with %><%-- end_with $Venue --%>
+					<% end_if %><%-- end_if $Venue --%>
 				</div>
 			</div> <!-- end detail_event_description_map -->
 		<% end_if %>
