@@ -88,6 +88,24 @@
 
 .hero-event-image-container {
     overflow: hidden;
+    background-size: cover;
+    height: 250px;
+    background-position: 50% 50%;
+
+    a{
+        display: block;
+        height: 100%;
+    }
+
+    @media only screen and (min-width: 715px) {
+        height: 282px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        height: 523px;
+
+    }
+
 }
 
 .hero-event #share-area {

@@ -2,10 +2,10 @@
 <div id="left-column" class="medium-8 columns">
 
 <% if $action == "index" %>
-	<% if FeaturedEvents %>
+	<% if $FeaturedEvents %>
 		<div class="flexslider">
 			<div class="slides">
-				<% loop FeaturedEvents %>
+				<% loop $FeaturedEvents %>
 					<div class="slide">
 						<% include HeroEvent %>	
 					</div>
@@ -13,14 +13,9 @@
 			</div>
 		</div>
 	<% else %>
-			<% loop Events.First %>
-				<% loop Event %>
-					<% if CancelReason %>
-					<% else %>
-						<% include HeroEvent %>
-					<% end_if %><!-- end if cancelreason -->
-				<% end_loop %>
-			<% end_loop %>
+		<% loop $EventList.First %>
+			<% include HeroEvent %>
+		<% end_loop %>
 	<% end_if %> <!-- end if featured events -->
 <% end_if %>
 

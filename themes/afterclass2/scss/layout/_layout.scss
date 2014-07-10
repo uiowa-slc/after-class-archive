@@ -24,29 +24,10 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 #left-column h2 { text-transform: lowercase;}
 #left-column p.homepage-message { color: white }
 
-#page_content.AfterClassCalendar.index .container,
-#page_content.AfterClassEvent.index .container,
-#page_content.FeaturedAfterClassEvent.index,
-#page_content.AfterClassCalendar.show .container,
-#page_content.AfterClassEvent .container { margin-top: 0 }
-#page_content.AfterClassCalendar.show .event-card-list h2 { display: none }
-#page_content.AfterClassCalendar.show #approaching-deadlines { display: none }
-#page_content.AfterClassCalendar.show #the-news { display: none }
-#page_content.AfterClassCalendar.show #categories { display: none }
-#page_content.AfterClassCalendar.show .hero-event { display: none }
-#page_content.AfterClassCalendar.show .flex-control-nav { display: none; }
-#page_content {
-    background-repeat: repeat;
-    padding: 0 7px;
-}
 #page_content.AfterClassEvent {
     box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16) inset;
 }
-#page_content div.container {
-    /*padding-top: 30px;*/
-    /*z-index: 1;*/
-    padding-bottom: 100px;
-}
+
 #single-page-content {
     min-height: 200px;
 }

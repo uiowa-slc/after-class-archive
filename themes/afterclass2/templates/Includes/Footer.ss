@@ -16,22 +16,19 @@
 			<div class="clear"></div>
 			<div id="footer-social-media">
 				<% include MailChimpForm %>
-				
 			</div>
 			
 		</div>
 		<div class="large-4 columns">
 			<div id="dsl-info">
-			<div id="logo-container">
-				<a href="http://www.uiowa.edu" class="uiowa-logo"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a> 
-				<a href="http://studentlife.uiowa.edu/"><img src="{$ThemeDir}/images/dsl_logo.png" alt="The University of Iowa Logo" /></a>  
+				<div id="logo-container">
+					<a href="http://www.uiowa.edu" class="uiowa-logo"> <img src="{$ThemeDir}/images/ui_logo.png" alt="The University of Iowa Logo" /></a> 
+					<a href="http://studentlife.uiowa.edu/"><img src="{$ThemeDir}/images/dsl_logo.png" alt="The University of Iowa Logo" /></a>  
+				</div>
+				<p>319-335-3132<br />
+				<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
+				<a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a>
 			</div>
-			<p>319-335-3132<br />
-			<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
-			<a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a>
-			<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="AfterClass">Tweet</a>-->
-			</p>
 		</div>
 	</div>
 </footer>
