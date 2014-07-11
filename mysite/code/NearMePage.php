@@ -40,6 +40,9 @@ class NearMePage_Controller extends Page_Controller {
 
 	}*/
 
+	public function UsesGoogleMaps(){
+		return true;
+	}
 	public function PlaceList( $feedURL = "places/?pp=1000"){
 
 		$cache = new SimpleCache();

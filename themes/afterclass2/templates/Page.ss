@@ -24,6 +24,9 @@
    </div>
 </div>
 <% include Footer %>
+<% if UsesGoogleMaps %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+<% end_if %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="{$ThemeDir}/build/src/main_concat.js"></script>
 <script type="text/javascript">

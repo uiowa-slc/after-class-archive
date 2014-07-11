@@ -1,4 +1,3 @@
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
   <div class="row">
     <div class="large-8 columns map-content">
       <div class="map-container">
