@@ -12,7 +12,7 @@ function makeMarker(options){
    return pushPin;
 }
 
-function pinAndDist(initLocal, venueLatLng, venue, from) {
+function pinAndDist(initLocal, venueLatLng, venue) {
 	var venueDistance = google.maps.geometry.spherical.computeDistanceBetween(initLocal, venueLatLng);	
 	var venueID = venue.id;
 	var venueName = jQuery('#' + venueID).data("title");
@@ -39,7 +39,7 @@ function pinAndDist(initLocal, venueLatLng, venue, from) {
 
 		var eventStringSeg = 
 		"<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul class='infobox-list'>" + 
-				"<li>" + startDate + ", " + startTime + ((eventCost  !== "") ? ", Cost: " + eventCost : "") + "</li>" 
+			"<li>" + startDate + ", " + startTime + ((eventCost  !== "") ? ", Cost: " + eventCost : "") + "</li>" 
 			+ "</ul></div>";
 				
 		eventsHere.push(eventStringSeg);
@@ -84,13 +84,13 @@ function venueGen(initLocal, callback) {
 		if(lat && lng) {
 			countVenue = ++countVenue;
 			venueLatLng = new google.maps.LatLng(lat, lng);
-			callback(initLocal, venueLatLng, venue, 'had lat');
+			callback(initLocal, venueLatLng, venue);
 		} else {
 			geocoder.geocode( { 'address': address}, function(results, status) {
 				countVenue = ++countVenue;
 				if (status == google.maps.GeocoderStatus.OK) {
 					venueLatLng = results[0].geometry.location;
-					callback(initLocal, venueLatLng, venue  , 'no lat');
+					callback(initLocal, venueLatLng, venue);
 				}				
 			});
 		}			
