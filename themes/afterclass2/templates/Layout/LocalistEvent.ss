@@ -2,7 +2,7 @@
 	<div class="medium-8 columns">
 		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
 
-			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('<% if $ImageURL %>$ImageURL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">
+			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('<% if $Image %>$Image.URL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">
 				<div class="clear"></div>
 			</div><!-- end hero-event-image-container -->	
 

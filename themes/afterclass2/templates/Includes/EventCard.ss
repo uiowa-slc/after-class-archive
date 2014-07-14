@@ -15,7 +15,7 @@
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
-				<div class="event-card-image" style="background-image: url('$ImageURL')">
+				<div class="event-card-image" style="background-image: url('$Image.URL')">
 					<a href="$Link">
 
 					</a>
