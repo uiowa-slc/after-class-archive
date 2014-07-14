@@ -1,5 +1,13 @@
 var markerArray = [];
-var infoWindow = null;
+var infowindow = new google.maps.InfoWindow({
+	content: "holding...",
+	maxWidth: 340
+	});	
+var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
+var	countVenue = 0;
+var venueFromMe = {};
+var venueCount = jQuery("#venuesWithEvents section").length;
+
 
 function makeMarker(options){
    var pushPin = new google.maps.Marker({map:map});
@@ -100,9 +108,6 @@ function venueGen(initLocal, callback) {
 function getInitLocal(callback) {
 	var initialLocation;
 	//DON'T CHANGE IDs in NearMePage.ss
-	var venueCount = jQuery("#venuesWithEvents section").length;
-	var countVenue = 0;
-	var venueFromMe = {};
 	if(navigator.geolocation) {
 		//console.log("Browser DOES support Geolocation");
 	    var browserSupportFlag = true;
@@ -139,51 +144,10 @@ function getInitLocal(callback) {
 	}	
 }
 
-
-
 function genMap() {
 	// map generation
 	// Create an array of styles.
-	var styles = [ 
-	{
-	    "stylers": [
-	      { "weight": 2.7 },
-	      { "saturation": -71 },
-	      { "invert_lightness": true },
-	      { "visibility": "on" },
-	      { "hue": "#8800ff" }
-	    ]
-	  },{
-	    "elementType": "geometry",
-	    "stylers": [
-	      { "weight": 1.6 },
-	      { "lightness": -20 },
-	      { "saturation": -13 },
-	      { "gamma": 1.33 }
-	    ]
-	  },{
-	    "featureType": "road",
-	    "elementType": "geometry.fill",
-	    "stylers": [
-	      { "color": "#000000" },
-	      { "weight": 3.6 },
-	      { "hue": "#a200ff" },
-	      { "lightness": 38 },
-	      { "saturation": -4 }
-	    ]
-	  },{
-	    "featureType": "water",
-	    "stylers": [
-	      { "hue": "#00b2ff" },
-	      { "lightness": -2 },
-	      { "saturation": 27 }
-	    ]
-	}
-	];
-	var infowindow = new google.maps.InfoWindow({
-		content: "holding...",
-		maxWidth: 340
-		});	
+	
 	var geocoder = new google.maps.Geocoder();	
 	var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
     var mapcanvas = document.createElement('div');	
@@ -191,7 +155,6 @@ function genMap() {
 		mapcanvas.class = 'map-canvas';
 		mapcanvas.style.width = '100%';	
 	jQuery('.NearMePage .map-container').append(mapcanvas);
-	var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 	var nearMeMapOptions = {
 	    zoom: 15,
 	    center: iowaCity,
@@ -205,7 +168,7 @@ function genMap() {
     		position: google.maps.ControlPosition.LEFT_BOTTOM
   		}
 	};
-	var map = new google.maps.Map(document.getElementById("mapcanvas"), nearMeMapOptions);
+	map = new google.maps.Map(document.getElementById("mapcanvas"), nearMeMapOptions);
 		map.mapTypes.set('map_style', styledMap);
 		map.setMapTypeId('map_style');
 	

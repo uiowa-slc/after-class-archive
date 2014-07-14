@@ -1,4 +1,4 @@
-// Create an array of styles.
+// all map styles
 var styles = [	 
 	{
 	    "stylers": [
