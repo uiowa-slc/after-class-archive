@@ -62,15 +62,15 @@
 		<% if $Venue || $Location %>
 			<div id="detail_event_description_map">	
 				<div class="location-info">
-					<% if $Location %><p>{$Location}</p><% end_if %>
+					<% if $Location %><p>{$Location}<% end_if %>
 					<% if $Venue.Title %>
-						<% with $Venue %>
-							<h2>
-								<% if $Link %><a href="$Link" class="button tag">@ $Title</a>
-								<% else %>
-									@ $Title
-								<% end_if %>
-							</h2>
+						<% if not $Location %><p><% end_if %>
+							<% with $Venue %>
+									<% if $Link %><a href="$Link" class="button tag">@ $Title</a>
+									<% else %>
+										@ $Title 
+									<% end_if %>
+								</p>
 							<div class="clear"></div>								
 							<% if $Address %>
 								<div class="map-container"><div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)></div></div>
@@ -131,12 +131,5 @@
 			<hr />
 			<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
 		</div><!-- end sponsor-x -->
-
 	</div><!-- end medium-4 columns-->
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE&sensor=false"></script>
-
-	</div><!-- end row -->
-
-
-
-
+</div><!-- end row -->
