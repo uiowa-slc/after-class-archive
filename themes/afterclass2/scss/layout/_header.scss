@@ -1,6 +1,6 @@
 #page_header {
     background-image: url("../images/afterclass_illustration.jpg");
-    background-position: 140px 0;
+    background-position: 100px 0;
     background-size: contain;
     background-color: #272324;
     background-repeat: repeat-x;
@@ -426,6 +426,9 @@
 }
 
 @media only screen and (min-width: 1100px) {
+    #page_header {
+        height: 145px;
+    }
     #page_header p {
         font-size: 1.1em;
     }
