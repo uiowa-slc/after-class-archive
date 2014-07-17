@@ -11,6 +11,7 @@
 		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
+		"md/ac-json-events" : "dev-master",
 		"silverstripe/staticpublisher": "dev-master",
 		"silverstripe/spamprotection": "dev-master",
 		"silverstripe/mathspamprotection": "dev-master",
@@ -33,6 +34,11 @@
          {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar"       
-        }  
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"       
+        }
+
     ]
 }
