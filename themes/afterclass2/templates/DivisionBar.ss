@@ -1,5 +1,5 @@
 <div class="division-topbar row">
-    <div class="large-12">
+    <div class="large-12 columns">
         <div class="division-directory clearfix">
             <div class="dosl-wrapper clearfix">
                 <a href="http://studentlife.uiowa.edu/" class="dosl">
