@@ -38,11 +38,11 @@
 					<% include AddThis %>
 					<div id="truncontent">
 						$Content
-						<% if MoreInfoLink %>
-						<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>						
+						<% if MoreInfoLink %>					
 						<% end_if %>
-						<button id='truncswitch'>+</button>
+						<button id='truncswitch'>+ More</button>
 					</div>
+						<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>	
 					
 				</div><!-- end hero-event-text-->
 				
