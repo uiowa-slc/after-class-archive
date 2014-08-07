@@ -260,3 +260,9 @@ a.event-header-category {
         display: none;
     }
 }
+
+@media only screen and (min-width: 1200px) {
+   .event-card {
+        height: 225px;
+    }
+}
