@@ -473,7 +473,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			sfDate::getInstance()->addYear(10)->date(),
 			null,
 			null
-		)->Limit(4);
+		)->Limit(8);
 
 
 
@@ -506,7 +506,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			$eventList[$key]['Cost'] = (($eventDateTime->Event()->Cost) ? $eventDateTime->Event()->Cost : '');
 			$eventList[$key]['Hashtag'] = '';
 			$eventList[$key]['FacebookURL'] = (($eventDateTime->Event()->FacbookEventLink) ? $eventDateTime->Event()->FacbookEventLink : '');
-			$eventList[$key]['Departments'] = '';
+			$eventList[$key]['Departments'] = (($eventDateTime->Event()->Sponsors()->First()) ? $eventDateTime->Event()->Sponsors()->First()->Title : '');
 			$eventList[$key]['Audience'] = '';
 			$eventList[$key]['General Interest'] = 'After Class';
 			$eventList[$key]['Sponsor'] = (($eventDateTime->Event()->Sponsors()->First()) ? $eventDateTime->Event()->Sponsors()->First()->Title : '');
