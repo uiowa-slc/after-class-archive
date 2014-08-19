@@ -460,7 +460,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			'Contact Name',
 			'Contact Email',
 			'Notes for Approver',
-			'External ID'
+			//'External ID'
 		);
 		$eventList = array();
 		$masterCsvList = array();
@@ -474,7 +474,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			sfDate::getInstance()->addYear(10)->date(),
 			null,
 			null
-		)->Limit(8);
+		);
 
 
 
@@ -514,7 +514,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			$eventList[$key]['Contact Name'] = (($eventDateTime->Event()->Submittername) ? $eventDateTime->Event()->Submittername : '');
 			$eventList[$key]['Contact Email'] = (($eventDateTime->Event()->Submitteremail) ? $eventDateTime->Event()->Submitteremail : '');
 			$eventList[$key]['Notes for Approver'] = '';
-			$eventList[$key]['External ID'] = $eventDateTime->ID.'-'.$eventDateTime->StartDate;
+			//$eventList[$key]['External ID'] = $eventDateTime->Event()->ID.'-'.$eventDateTime->StartDate;
 
 			//...
 			//Add more conversions here.
