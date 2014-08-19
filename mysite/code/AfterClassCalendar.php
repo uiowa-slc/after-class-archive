@@ -459,7 +459,8 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			'Sponsor',
 			'Contact Name',
 			'Contact Email',
-			'Notes for Approver'
+			'Notes for Approver',
+			'External ID'
 		);
 		$eventList = array();
 		$masterCsvList = array();
@@ -513,6 +514,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			$eventList[$key]['Contact Name'] = (($eventDateTime->Event()->Submittername) ? $eventDateTime->Event()->Submittername : '');
 			$eventList[$key]['Contact Email'] = (($eventDateTime->Event()->Submitteremail) ? $eventDateTime->Event()->Submitteremail : '');
 			$eventList[$key]['Notes for Approver'] = '';
+			$eventList[$key]['External ID'] = $eventDateTime->StartDate;
 
 			//...
 			//Add more conversions here.
