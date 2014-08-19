@@ -514,7 +514,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			$eventList[$key]['Contact Name'] = (($eventDateTime->Event()->Submittername) ? $eventDateTime->Event()->Submittername : '');
 			$eventList[$key]['Contact Email'] = (($eventDateTime->Event()->Submitteremail) ? $eventDateTime->Event()->Submitteremail : '');
 			$eventList[$key]['Notes for Approver'] = '';
-			$eventList[$key]['External ID'] = $eventDateTime->Event()->ID.'-'.$eventDateTime->StartDate;
+			$eventList[$key]['External ID'] = $eventDateTime->ID.'-'.$eventDateTime->StartDate;
 
 			//...
 			//Add more conversions here.
