@@ -153,8 +153,9 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
             'feed/$Type' => 'Feed',
             //legacy urls:
             'categoriesrss/$Category' => 'categoriesrss',
+            'csv' => 'csv'
             );
- 	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed");
+ 	private static $allowed_actions = array ("categories", "view", "category", "sponsor", "venue", "newrss", "categoriesrss","types", "venues", "sponsors", "Feed", 'csv');
  	
 
  	/*****************************/
@@ -427,6 +428,113 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
  	/*****************************/
 	/***** Legacy RSS Feeds  *****/
 	/*****************************/	
+
+
+	public function csv(){
+
+		$fieldList = array(
+			'Title',
+			'Description',
+			'Date From',
+			'Date To',
+			'Recurrence',
+			'Start Time',
+			'End Time',
+			'Location',
+			'Address',
+			'City',
+			'State',
+			'Event Website',
+			'Room',
+			'Keywords',
+			'Tags',
+			'Photo URL',
+			'Ticket URL',
+			'Cost',
+			'Hashtag',
+			'FacebookURL',
+			'Departments',
+			'Audience',
+			'General Interest',
+			'Sponsor',
+			'Contact Name',
+			'Contact Email',
+			'Notes for Approver'
+		);
+		$eventList = array();
+		$masterCsvList = array();
+
+		$masterCsvList[0] = $fieldList;
+
+		$start_date = date( "d/m/Y", time() );
+		$end_date = date('Y-m-d',strtotime(date("Y-m-d", time()) . " + 365 day"));
+		$eventDateTimes = $this->getEventList(
+			sfDate::getInstance()->date(),
+			sfDate::getInstance()->addYear(10)->date(),
+			null,
+			null
+		);
+
+
+
+		foreach($eventDateTimes as $key => $eventDateTime){
+
+			$eventTypes = $eventDateTime->Event()->EventTypes();
+			$tags = '';
+
+			foreach($eventTypes as $eventType){
+				$tags .=', '.$eventType->Title;
+			}
+
+			$eventList[$key]['Title'] = (($eventDateTime->Event()->Title) ? $eventDateTime->Event()->Title : '');
+			$eventList[$key]['Description'] = (($eventDateTime->Event()->Content) ? $eventDateTime->Event()->Content : '');
+			$eventList[$key]['Date From'] = (($eventDateTime->StartDate) ? $eventDateTime->StartDate : '');
+			$eventList[$key]['Date To'] = (($eventDateTime->EndDate) ? $eventDateTime->EndDate : '' );
+			$eventList[$key]['Recurrence'] = '';
+			$eventList[$key]['Start Time'] = (($eventDateTime->StartTime) ? $eventDateTime->StartTime : '');
+			$eventList[$key]['End Time'] = (($eventDateTime->EndTime) ? $eventDateTime->EndTime : '');
+			$eventList[$key]['Location'] = (($eventDateTime->Event()->Venues()->First()) ? $eventDateTime->Event()->Venues()->First()->Title : '');
+			$eventList[$key]['Address'] = (($eventDateTime->Event()->Venues()->First()) ? $eventDateTime->Event()->Venues()->First()->Address : '');
+			$eventList[$key]['City'] = '';
+			$eventList[$key]['State'] = '';
+			$eventList[$key]['Event Website'] = (($eventDateTime->Event()->MoreInfoLink) ? $eventDateTime->Event()->MoreInfoLink : '');
+			$eventList[$key]['Room'] = (($eventDateTime->Event()->Location) ? $eventDateTime->Event()->Location : '');
+			$eventList[$key]['Keywords'] = '';
+			$eventList[$key]['Tags'] = (($tags) ? $tags : '');
+			$eventList[$key]['PhotoURL'] = (($eventDateTime->Event()->Image()) ? $eventDateTime->Event()->Image()->AbsoluteURL : '');
+			$eventList[$key]['TicketURL'] = '';
+			$eventList[$key]['Cost'] = (($eventDateTime->Event()->Cost) ? $eventDateTime->Event()->Cost : '');
+			$eventList[$key]['Hashtag'] = '';
+			$eventList[$key]['FacebookURL'] = (($eventDateTime->Event()->FacbookEventLink) ? $eventDateTime->Event()->FacbookEventLink : '');
+			$eventList[$key]['Departments'] = '';
+			$eventList[$key]['Audience'] = '';
+			$eventList[$key]['General Interest'] = 'After Class';
+			$eventList[$key]['Sponsor'] = (($eventDateTime->Event()->Sponsors()->First()) ? $eventDateTime->Event()->Sponsors()->First()->Title : '');
+			$eventList[$key]['Contact Name'] = (($eventDateTime->Event()->Submittername) ? $eventDateTime->Event()->Submittername : '');
+			$eventList[$key]['Contact Email'] = (($eventDateTime->Event()->Submitteremail) ? $eventDateTime->Event()->Submitteremail : '');
+			$eventList[$key]['Notes for Approver'] = '';
+
+			//...
+			//Add more conversions here.
+		}
+
+		//print_r($eventList);
+
+		foreach($eventList as $eventInList){
+			array_push($masterCsvList, $eventInList);
+		}
+
+		//print_r($masterCsvList);
+
+		$baseFolder = Director::baseFolder();
+		$handle = fopen($baseFolder.'/events.csv', 'w');
+		foreach ($masterCsvList as $fields) {
+		    fputcsv($handle, $fields);
+		}
+
+		fclose($handle);
+
+	}
 
 	public function newrss(){
 		$events = $this->AllEventsWithoutDuplicates();

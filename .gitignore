@@ -48,3 +48,5 @@ ac-json-events/
 foundationforms/
 
 ac-json-events/_config.php
+
+events.csv
