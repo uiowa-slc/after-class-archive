@@ -473,7 +473,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			sfDate::getInstance()->addYear(10)->date(),
 			null,
 			null
-		)->Last();
+		)->Limit(4);
 
 
 
