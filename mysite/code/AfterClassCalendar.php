@@ -473,7 +473,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			sfDate::getInstance()->addYear(10)->date(),
 			null,
 			null
-		);
+		)->Last();
 
 
 
@@ -483,7 +483,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			$tags = '';
 
 			foreach($eventTypes as $eventType){
-				$tags .=', '.$eventType->Title;
+				$tags .=$eventType->Title.', ';
 			}
 
 			$eventList[$key]['Title'] = (($eventDateTime->Event()->Title) ? $eventDateTime->Event()->Title : '');
