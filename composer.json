@@ -14,7 +14,8 @@
 		"silverstripe/staticpublisher": "dev-master",
 		"silverstripe/spamprotection": "dev-master",
 		"silverstripe/mathspamprotection": "dev-master",
-		"rywa/silverstripe-foundation-forms" : "dev-master"
+		"rywa/silverstripe-foundation-forms" : "dev-master",
+		"md/ac-json-events" : "dev-localist"
 
 	},
 	"config": {
@@ -33,6 +34,10 @@
          {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar"       
+        },
+         {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"       
         }  
     ]
 }

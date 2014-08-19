@@ -25,6 +25,7 @@
 		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/categories/">categories</a>, <a href="{$BaseHref}events/venues">venues</a>, and <a href="{$BaseHref}events/sponsors/">sponsors</a> for full event listings.</p>
 	<% end_if %><!-- end if events -->
 <% end_if %>
+
 <div style="clear: both"></div>
 <div class="event-card-list">
 	<% if $action == "index" %>
