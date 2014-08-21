@@ -1,8 +1,10 @@
-<div class="row">
+
+<div class="row main-content">
+	<div class="hero-event-image-container hide-for-medium-up" style="background-image: url('$Image.URL')"></div>
 	<div class="medium-8 columns">
 		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
 
-			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('<% if $Image %>$Image.URL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">
+			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('$Image.URL')">
 				<div class="clear"></div>
 			</div><!-- end hero-event-image-container -->	
 
@@ -58,7 +60,7 @@
 
 	</div><!-- end medium-8 columns -->
 
-	<div class="medium-4 columns">
+	<div class="medium-4 columns sidebar-sticky-content">
 		<% if $Venue || $Location %>
 			<div id="detail_event_description_map">	
 				<div class="location-info">
@@ -128,8 +130,15 @@
 							<% end_loop %></p>
 					</div>
 				<% end_if %>
+			<% if $ContactEmail %>
 			<hr />
-			<p><a href="{$BaseHref}feedback/" class="report-problem-link fancybox.iframe">Report a problem with this event</a></p>
+			<p><a href="mailto:$ContactEmail" class="report-problem-link">Questions about this event?
+				<% if $ContactName %>
+					Contact $ContactName
+				<% end_if %>
+				</a>
+			</p>
+			<% end_if %>
 		</div><!-- end sponsor-x -->
 	</div><!-- end medium-4 columns-->
 </div><!-- end row -->

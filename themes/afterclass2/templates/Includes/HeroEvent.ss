@@ -1,10 +1,8 @@
 <div class="feature-background-wrapper">
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
 
-			<div class="hero-event-image-container" style="background-image: url('<% if $Image %>$Image.URL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">
-						<a href="$Link" class="img-shadow">
-			
-						</a>
+			<div class="hero-event-image-container" style="background-image: url('$Image.URL')">
+						<a href="$Link" class="img-shadow"></a>
 						<div class="clear"></div>
 					</div>
 					
@@ -27,6 +25,7 @@
 									</div><!-- end hero-event-when -->
 									
 									<div class="hero-event-where">
+										<% if $Venue %>
 										<% with Venue %>
 											<p class="venues">
 											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
@@ -34,6 +33,7 @@
 											</span>
 											</p>
 										<% end_with %>
+										<% end_if %>
 									</div><!-- end herp-event-where -->
 									<div class="clear"></div>
 									<% if $LocalistLink %>

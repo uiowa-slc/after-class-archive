@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row main-content">
 <div id="left-column" class="medium-8 columns">
 
 <% if $action == "index" %>
@@ -40,7 +40,7 @@
 	<!-- end event-card-list -->
 </div>
 <!-- end left-column -->
-<div id="right-column" class="medium-4 columns">
+<div id="right-column" class="medium-4 columns sidebar-sticky-content">
 	<% include SideBar %>
 </div>
 <!-- end right-column -->

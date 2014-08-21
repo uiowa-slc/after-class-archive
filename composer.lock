@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "41cf781ed1271e25bf31b715416a349996aa2527"
+                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/41cf781ed1271e25bf31b715416a349996aa2527",
-                "reference": "41cf781ed1271e25bf31b715416a349996aa2527",
+                "url": "https://api.github.com/repos/composer/installers/zipball/74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
+                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
                 "shasum": ""
             },
             "replace": {
@@ -94,7 +94,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-07-22 17:04:15"
+            "time": "2014-08-18 20:00:12"
         },
         {
             "name": "md/ac-json-events",
@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "c5aeeea4905668e5c04453aa10e14cab198ca8de"
+                "reference": "f3d0058bf1add4d6d2fb1e7dee5c68ded09c9fc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/c5aeeea4905668e5c04453aa10e14cab198ca8de",
-                "reference": "c5aeeea4905668e5c04453aa10e14cab198ca8de",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/f3d0058bf1add4d6d2fb1e7dee5c68ded09c9fc6",
+                "reference": "f3d0058bf1add4d6d2fb1e7dee5c68ded09c9fc6",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/localist",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-07-17 15:04:20"
+            "time": "2014-08-19 16:53:29"
         },
         {
             "name": "md/division-bar",
@@ -525,12 +525,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "c3386b48b26fd8122af3da321aa8cb74238ec2b9"
+                "reference": "8e0947ead362e698063d307aec7c30b4ad2bb226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/c3386b48b26fd8122af3da321aa8cb74238ec2b9",
-                "reference": "c3386b48b26fd8122af3da321aa8cb74238ec2b9",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/8e0947ead362e698063d307aec7c30b4ad2bb226",
+                "reference": "8e0947ead362e698063d307aec7c30b4ad2bb226",
                 "shasum": ""
             },
             "require": {
@@ -556,7 +556,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-08-07 00:26:06"
+            "time": "2014-08-19 21:29:30"
         },
         {
             "name": "unclecheese/betterbuttons",
