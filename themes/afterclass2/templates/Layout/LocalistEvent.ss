@@ -1,7 +1,7 @@
 
 <div class="row main-content">
 	<div class="hero-event-image-container hide-for-medium-up" style="background-image: url('$Image.URL')"></div>
-	<div class="medium-8 columns">
+	<div class="medium-8 columns" id="left-column">
 		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
 
 			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('$Image.URL')">
