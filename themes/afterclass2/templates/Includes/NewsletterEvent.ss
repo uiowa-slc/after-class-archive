@@ -27,12 +27,11 @@
                     <td valign="top" class="mcnTextContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
                         <h3 style="margin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !important;"><a href="$AbsoluteLink" style="text-decoration: none;">$Title</a></h3>
 						<p style="margin: 1em 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
-							<p class="$FirstLast"> <strong>When:</strong> 
-							<% loop $DateAndTime.Limit(1) %>
-								<% include HeroDateTimes %>
-							<% end_loop %>		
+							<p class="$FirstLast">
+							
+								<% include HeroDateTimes %>	
 										
-								<% if $DateAndTime.Count > "3" %>
+								<% if $DateAndTime.Count > "1" %>
 											<a href="{$Link}#dates" class="button">more dates</a>
 								<% end_if %>								
 								<% if Venues %>
