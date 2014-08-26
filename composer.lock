@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7befbd0c430fc1cb084445436f0cf60b",
+    "hash": "889cd93b7bf7ec14ba5dd920356e17c6",
     "packages": [
         {
             "name": "composer/installers",
@@ -98,7 +98,7 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-master",
+            "version": "dev-old",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",

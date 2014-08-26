@@ -460,6 +460,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			'Contact Name',
 			'Contact Email',
 			'Notes for Approver',
+			'Created'
 			//'External ID'
 		);
 		$eventList = array();
@@ -474,9 +475,12 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			sfDate::getInstance()->addYear(10)->date(),
 			null,
 			null
-		);
+			);
+		//)->filter(array("Created:GreaterThan" => "2014-08-19"));
 
-
+		//$eventDateTimesFiltered = $eventDateTimes->Filter(array("Created:GreaterThan" => "2014-08-15 13:51:13"));
+		//print_r($eventDateTimes->toArray());
+		//Debug::show($eventDateTimesFiltered);
 
 		foreach($eventDateTimes as $key => $eventDateTime){
 
@@ -514,6 +518,7 @@ class AfterClassCalendar_Controller extends Calendar_Controller {
 			$eventList[$key]['Contact Name'] = (($eventDateTime->Event()->Submittername) ? $eventDateTime->Event()->Submittername : '');
 			$eventList[$key]['Contact Email'] = (($eventDateTime->Event()->Submitteremail) ? $eventDateTime->Event()->Submitteremail : '');
 			$eventList[$key]['Notes for Approver'] = '';
+			$eventList[$key]['Created'] = $eventDateTime->Created;
 			//$eventList[$key]['External ID'] = $eventDateTime->Event()->ID.'-'.$eventDateTime->StartDate;
 
 			//...
