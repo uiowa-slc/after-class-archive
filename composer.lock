@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8d85cf83ec31ef660e91d8c85c69c764",
+    "hash": "828565dc28e10e068eb2f3528f11d5f6",
     "packages": [
         {
             "name": "composer/installers",
@@ -98,16 +98,16 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-localist",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "f3d0058bf1add4d6d2fb1e7dee5c68ded09c9fc6"
+                "reference": "27cea2408e0048728606ff2ac5f815d98b8b58dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/f3d0058bf1add4d6d2fb1e7dee5c68ded09c9fc6",
-                "reference": "f3d0058bf1add4d6d2fb1e7dee5c68ded09c9fc6",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/27cea2408e0048728606ff2ac5f815d98b8b58dd",
+                "reference": "27cea2408e0048728606ff2ac5f815d98b8b58dd",
                 "shasum": ""
             },
             "require": {
@@ -123,10 +123,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/localist",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-08-19 16:53:29"
+            "time": "2014-08-27 17:08:31"
         },
         {
             "name": "md/division-bar",
@@ -525,12 +525,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "8e0947ead362e698063d307aec7c30b4ad2bb226"
+                "reference": "fcba06c1664e4c2ae5c7e2998719af92d5b0b63d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/8e0947ead362e698063d307aec7c30b4ad2bb226",
-                "reference": "8e0947ead362e698063d307aec7c30b4ad2bb226",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/fcba06c1664e4c2ae5c7e2998719af92d5b0b63d",
+                "reference": "fcba06c1664e4c2ae5c7e2998719af92d5b0b63d",
                 "shasum": ""
             },
             "require": {
@@ -541,6 +541,11 @@
                 "colymba/gridfield-bulk-editing-tools": "Allows for bulk management of form submissions"
             },
             "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
@@ -556,7 +561,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-08-19 21:29:30"
+            "time": "2014-08-25 06:42:29"
         },
         {
             "name": "unclecheese/betterbuttons",
