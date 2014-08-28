@@ -40,7 +40,7 @@
 	<!-- end event-card-list -->
 </div>
 <!-- end left-column -->
-<div id="right-column" class="medium-4 columns sidebar-sticky-content">
+<div id="right-column" class="medium-4 columns <% if $action == "index" %>sidebar-sticky-content<% end_if %>">
 	<% include SideBar %>
 </div>
 <!-- end right-column -->

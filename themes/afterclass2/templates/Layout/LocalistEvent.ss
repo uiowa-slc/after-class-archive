@@ -75,9 +75,10 @@
 								</p>
 							<div class="clear"></div>								
 							<% if $Address %>
-								<div class="map-container"><div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)></div></div>
+								<div class="map-container">
+									<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div></div>
 							<% end_if %>
-							<p>
+							<p class="venue-nav">
 							<% if $Address %>
 								<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
 							<% end_if %>
@@ -132,9 +133,11 @@
 				<% end_if %>
 			<% if $ContactEmail %>
 			<hr />
-			<p><a href="mailto:$ContactEmail" class="report-problem-link">Questions about this event?
+			<p>Questions about this event?
 				<% if $ContactName %>
-					Contact $ContactName
+					<a href="mailto:$ContactEmail" class="report-problem-link">Contact $ContactName</a>
+				<% else %>
+					<a href="mailto:$ContactEmail" class="report-problem-link">Email $ContactEmail</a>
 				<% end_if %>
 				</a>
 			</p>

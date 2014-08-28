@@ -9,40 +9,6 @@ class Page extends SiteTree {
 
 	);
 
-	public function ActiveEventtypes(){
-		return $this->ActiveCategories("Eventtype");
-	}
-
-	public function ActiveVenues(){
-		return $this->ActiveCategories("Venue");
-	}
-	public function ActiveSponsors(){
-		return $this->ActiveCategories("Sponsor");
-	}
-	public function AllVenues() {
-		return Venue::get()->sort('Title ASC');
-	}
-	public function AllSponsors() {
-		return Sponsor::get()->sort('Title ASC');
-	}
-	public function AllEventtypes() {
-		return Eventtype::get();
-	}
-		
-
-	public function ActiveCategories($category){
-		$categories = $category::get();
-		$categoriesArrayList = new ArrayList();
-
-		foreach($categories as $category){
-			if($category->Events()->First()){
-				$categoriesArrayList->push($category);
-			}
-		}
-		return $categoriesArrayList;		
-	}
-
-
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
 		//get our template
 		$template = new SSViewer('NewsletterForm');
