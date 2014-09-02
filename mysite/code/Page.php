@@ -129,14 +129,17 @@ class Page_Controller extends ContentController {
  	}
 	
 	function results($data, $form){
-	     $data = array(
-	            'Results' => $form->getResults(),
-	            'Query' => $form->getSearchQuery(),
-	            'Title' => 'Search Results'
-	        );
-	        $this->Query = $form->getSearchQuery();
-	     
-	        return $this->customise($data)->renderWith(array('Page_results', 'Page'));
+		$term = $form->getSearchQuery();
+		$calendar = $this->Calendar();
+		$events = $calendar->EventList('200', null, null, null, null,null, 'true', false, $term);
+
+		$data = array( 
+			"Results" => $events,
+			"Term" => $term
+		);
+
+	    return $this->customise( $data )->renderWith( array( 'LocalistCalendar_search', 'Page' ) );
+
 	}
 	function EditURL(){
 		return "/admin/pages/show/".$this->ID."/";

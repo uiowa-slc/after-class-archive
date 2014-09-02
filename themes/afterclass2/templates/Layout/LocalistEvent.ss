@@ -61,7 +61,7 @@
 	</div><!-- end medium-8 columns -->
 
 	<div class="medium-4 columns sidebar-sticky-content">
-		<% if $Venue || $Location %>
+		<% if $Venue.Title || $Location %>
 			<div id="detail_event_description_map">	
 				<div class="location-info">
 					<% if $Location %><p>{$Location}<% end_if %>
