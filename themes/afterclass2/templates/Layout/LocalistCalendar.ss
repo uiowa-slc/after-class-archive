@@ -5,7 +5,7 @@
 	<% if $FeaturedEvents %>
 		<div class="flexslider">
 			<div class="slides">
-				<% loop $FeaturedEvents %>
+				<% loop $FeaturedEvents.Limit(3) %>
 					<div class="slide">
 						<% include HeroEvent %>	
 					</div>

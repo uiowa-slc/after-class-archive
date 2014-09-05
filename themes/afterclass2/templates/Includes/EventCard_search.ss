@@ -26,7 +26,28 @@
 					<span>$Title.LimitCharacters(40)</span>
 				</a>
 			</h3>
-			<% include EventCardDatesTimes %>
+			<p class="dates-times">
+				<% if $Dates %>
+					<% loop $Dates.Limit(1) %>
+						<a href="{$Link}" class="date-link"><time itemprop="startDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
+					<% end_loop %>
+				<% end_if %>
+				<% if Location %>{$Location}<% end_if %>
+				
+				<% if $Venue %>
+					<% with $Venue %>
+						<span> @ </span>
+							<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+						<a href="$LocalistLink" class="tag button" ><span itemprop="name">$Title.LimitCharacters(25)</span></a>
+					</span>	
+					<% end_with %>
+				<% end_if %>	
+				<% if $Dates.Count > "1" %>
+					<a href="$LocalistLink" class="button more-dates">more dates</a> 
+				<% end_if %> 
+			</p>
+
+
 				<div class="event-card-desc">
 					<p>$Content.Summary(30) <a href="$LocalistLink" target="_blank">Continue reading</a></p>
 					<!-- end event-card-meta -->

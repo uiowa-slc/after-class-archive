@@ -25,20 +25,22 @@
 									</div><!-- end hero-event-when -->
 									
 									<div class="hero-event-where">
-										<% if $Venue %>
-										<% with Venue %>
+										<% if $Venue || $LocalistLink %>
 											<p class="venues">
-											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-											 <a href="$Link" class="button tag">@ <span itemprop="name">$Title</span></a>
-											</span>
+											<% if $Venue %>
+												<% with Venue %>
+												<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+												 <a href="$Link" class="button tag">@ <span itemprop="name">$Title</span></a>
+												</span>
+												<% end_with %>
+											<% end_if %>
+											<% if $LocalistLink %>
+												<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
+											<% end_if %>
 											</p>
-										<% end_with %>
 										<% end_if %>
-									</div><!-- end herp-event-where -->
-									<div class="clear"></div>
-									<% if $LocalistLink %>
-										<p><a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a></p>	
-									<% end_if %>
+									</div><!-- end hero-event-where -->
+		
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-details -->
 							<% include AddThis %>

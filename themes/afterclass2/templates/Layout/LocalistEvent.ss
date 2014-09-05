@@ -28,11 +28,15 @@
 							$Content
 							<button id="truncswitch">+</button>
 						</div>
-						<% if $MoreInfoLink %>
-							<p><a href="$MoreInfoLink" class="button" target="_blank">View More Info on Event's Website</a></p>						
-						<% end_if %>
-						<% if $LocalistLink %>
-							<p><a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a></p>	
+						<% if $MoreInfoLink || $LocalistLink %>
+							<p>
+								<% if $MoreInfoLink %>
+									<a href="$MoreInfoLink" class="button" target="_blank">View More Info on Event's Website</a>		
+								<% end_if %>
+								<% if $LocalistLink %>
+									<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
+								<% end_if %>
+							</p>
 						<% end_if %>
 					</div><!-- end hero-event-text-->
 					
