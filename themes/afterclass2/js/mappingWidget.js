@@ -21,13 +21,13 @@ function initialize() {
 	var mapOptions = {
 	    zoom: 11,
 	    scrollwheel: false,
-	    draggable: false,
+	    draggable: true,
+	    panControl: true,
 	    center: new google.maps.LatLng(55.6468, 37.581),
 	    mapTypeControlOptions: {
 	      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 	    }
 	  };
-
 	jQuery('#mini-map').each(function(index, element) {
 		var name = jQuery(this).data("title");
 		var lat = jQuery(this).data("lat");
@@ -38,7 +38,7 @@ function initialize() {
 
 		if (lat && lng) {
 			var place = new google.maps.LatLng(lat, lng);
-			var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP, scrollwheel: false, draggable: false };
+			var myOptions = {zoom: 16, center: place,mapTypeId: google.maps.MapTypeId.ROADMAP };
 	   		var map = new google.maps.Map(document.getElementById("mini-map"),myOptions);
 	   		var geomarker = new google.maps.Marker({ map: map, position: place });
 		    map.mapTypes.set('map_style', styledMap);
@@ -48,7 +48,7 @@ function initialize() {
 	  		geocoder.geocode({ 'address': address }, function (results, status) {
 		        if (status == google.maps.GeocoderStatus.OK) {
 			        place = results[0].geometry.location;
-			        var myOptions = {zoom: 16,center: place,mapTypeId: google.maps.MapTypeId.ROADMAP,scrollwheel: false, draggable: false};
+			        var myOptions = {zoom: 16, center: place,mapTypeId: google.maps.MapTypeId.ROADMAP };
 			        var map = new google.maps.Map(document.getElementById("mini-map"),myOptions);
 			        var geomarker = new google.maps.Marker({ map: map, position: place });  
 					map.mapTypes.set('map_style', styledMap);
