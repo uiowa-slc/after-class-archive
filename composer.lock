@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "c79927d586a1f14f2539843cb3a24e7813ddefec"
+                "reference": "190331ef27c9b637223f568cb11fe10fd68a8622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/c79927d586a1f14f2539843cb3a24e7813ddefec",
-                "reference": "c79927d586a1f14f2539843cb3a24e7813ddefec",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/190331ef27c9b637223f568cb11fe10fd68a8622",
+                "reference": "190331ef27c9b637223f568cb11fe10fd68a8622",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-08-29 19:17:57"
+            "time": "2014-09-08 18:52:23"
         },
         {
             "name": "md/division-bar",
@@ -487,12 +487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-staticpublisher.git",
-                "reference": "9bdf8e68d97c97459c3b52a26490cb8b0860be97"
+                "reference": "76ba1a8b25676bb1bc52ba40c14aa3fce5b71a22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-staticpublisher/zipball/9bdf8e68d97c97459c3b52a26490cb8b0860be97",
-                "reference": "9bdf8e68d97c97459c3b52a26490cb8b0860be97",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-staticpublisher/zipball/76ba1a8b25676bb1bc52ba40c14aa3fce5b71a22",
+                "reference": "76ba1a8b25676bb1bc52ba40c14aa3fce5b71a22",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +517,7 @@
                 "silverstripe-labs",
                 "static"
             ],
-            "time": "2014-08-03 10:04:35"
+            "time": "2014-09-03 09:04:56"
         },
         {
             "name": "silverstripe/userforms",
