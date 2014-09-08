@@ -34,7 +34,7 @@
 	<div class="event-cards">
 		<% loop $EventList %>
 			<% include EventCard %>
-		<% end_loop %> <%-- end control Upcoming Events --%>
+		<% end_loop %> <%-- end loop Upcoming Events --%>
 	</div> <!--end event-cards -->
 </div>
 	<!-- end event-card-list -->
