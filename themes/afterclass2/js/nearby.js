@@ -7,7 +7,7 @@ var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 var	countVenue = 0;
 var venueFromMe = {};
 var venueCount = jQuery("#venuesWithEvents section").length;
-
+var geocoder = new google.maps.Geocoder();
 
 function makeMarker(options){
    var pushPin = new google.maps.Marker({map:map});
@@ -65,6 +65,8 @@ function pinAndDist(initLocal, venueLatLng, venue) {
   		//infowindow.maxWidth(200);
 	});
 	
+	console.log('I have ' + venueName);
+
 	if(countVenue == venueCount) {
 		var nearestVenues = [];
 		for (var venueID in venueFromMe) {
@@ -79,7 +81,7 @@ function pinAndDist(initLocal, venueLatLng, venue) {
 	}		
 }
 
-function venueGen(initLocal, callback) {			
+function venueGen(initLocal, callback) {	
 	jQuery('.venue').each(function(index, element) {
 		var title = jQuery(this).data("title");
 		var lat = jQuery(this).data("lat");
@@ -92,15 +94,19 @@ function venueGen(initLocal, callback) {
 		if(lat && lng) {
 			countVenue = ++countVenue;
 			venueLatLng = new google.maps.LatLng(lat, lng);
+			console.log('latyes');
 			callback(initLocal, venueLatLng, venue);
 		} else {
-			geocoder.geocode( { 'address': address}, function(results, status) {
-				countVenue = ++countVenue;
-				if (status == google.maps.GeocoderStatus.OK) {
-					venueLatLng = results[0].geometry.location;
-					callback(initLocal, venueLatLng, venue);
-				}				
-			});
+			console.log('lat nO!' );
+			if (address != null) {
+				geocoder.geocode( { 'address': address}, function(results, status) {
+					countVenue = ++countVenue;
+					if (status == google.maps.GeocoderStatus.OK) {
+						venueLatLng = results[0].geometry.location;
+						callback(initLocal, venueLatLng, venue);
+					}				
+				});
+			}
 		}			
 	});	
 }
@@ -147,8 +153,7 @@ function getInitLocal(callback) {
 function genMap() {
 	// map generation
 	// Create an array of styles.
-	
-	var geocoder = new google.maps.Geocoder();	
+		
 	var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
     var mapcanvas = document.createElement('div');	
 		mapcanvas.id = 'mapcanvas';
