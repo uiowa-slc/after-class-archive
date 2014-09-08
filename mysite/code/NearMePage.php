@@ -43,34 +43,7 @@ class NearMePage_Controller extends Page_Controller {
 	public function UsesGoogleMaps(){
 		return true;
 	}
-	public function PlaceList( $feedURL = "places/?pp=1000"){
 
-		$cache = new SimpleCache();
-
-		$feedURL = LOCALIST_FEED_URL.$feedURL;
-
-		//print_r($feedURL);
-		$placesList = new ArrayList();
-		$rawFeed = $cache->get_data("VenueList", $feedURL);
-
-		$placesDecoded = json_decode($rawFeed, TRUE);
-		$placesArray = $placesDecoded['places'];
-	
-		foreach($placesArray as $place) {
-			$venue = new LocalistVenue();
-			$venue = $venue->parseVenue($place);
-			if($venue->Events()->First()){
-				$placesList->push($venue->parseVenue($place));
-			}
-
-
-		}
-
-		return $placesList;   
-
-	}
-
-	
 
 	public function init() {
 		parent::init();	

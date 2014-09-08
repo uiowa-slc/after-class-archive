@@ -1259,7 +1259,7 @@ function error(msg) {
   s.className = 'fail';
 }
 
-$(document).ready(function() {
+$(window).load(function() {
 	if( $('.NearMePage .map-container').length ){
 		genMap();
 	}

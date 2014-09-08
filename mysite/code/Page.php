@@ -19,8 +19,12 @@ class Page extends SiteTree {
 	}
 	
 	function allPagesToCache() {
-	    $calendar = LocalistCalendar::get()->First();
-	    $urls = array('events/', 'about/', 'nearby/');
+		$calendar = LocalistCalendar::get()->First();
+	    $calendarLink = $calendar->Link();
+
+	    $urls[] = $calendarLink;
+	    $urls[] = 'about/';
+	    $urls[] = 'nearby/';
 
 	    // Get each page type to define its sub-urls
 	    //$urls = array();
@@ -59,9 +63,9 @@ class Page extends SiteTree {
 	    	$urls[] = 'events/categories/'.$key.'/feed/json';
 	    }*/
 
-	  	$urls[] = 'events/monthjson/'.$previousMonthString.'/';
-	  	$urls[] = 'events/monthjson/'.$currentMonthString.'/';
-	  	$urls[] = 'events/monthjson/'.$nextMonthString.'/';
+	  	$urls[] = $calendarLink.'monthjson/'.$previousMonthString.'/';
+	  	$urls[] = $calendarLink.'monthjson/'.$currentMonthString.'/';
+	  	$urls[] = $calendarLink.'monthjson/'.$nextMonthString.'/';
 
 	  	/* Cache all current events from master event list */
 
