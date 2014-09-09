@@ -14,7 +14,7 @@
 					<% if First %>
 					<% else %>
 					<li class="$URLSegment">
-						<a href="$Link"><strong>$MenuTitle</strong></a>
+						<a href="$Link">$MenuTitle</a>
 						<% if Children %>
 							<ul>
 								<% loop Children %>
