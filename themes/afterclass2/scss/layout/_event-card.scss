@@ -190,7 +190,13 @@ a.event-header-category {
         width: 150px;
         height: 172px;
     }
+
 }
+
+@media only screen and (min-width: 767px) {
+
+}
+
 
 @media only screen and (min-width: 850px) {
     .hero-event.homepage .hero-event-text {
@@ -221,7 +227,7 @@ a.event-header-category {
         width: 33.3%;
         float: left;
         padding: 0 0.5%;
-        height: 205px;
+        height: 235px;
         overflow: hidden;
         border: none;
     }
@@ -263,6 +269,13 @@ a.event-header-category {
     }
     a.event-header-category {
         display: none;
+    }
+}
+
+
+@media only screen and (min-width: 1160px) {
+    .event-card {
+        height: 205px;
     }
 }
 
