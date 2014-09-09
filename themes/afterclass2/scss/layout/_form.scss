@@ -2,6 +2,10 @@ label {
     color: #eee;
 }
 
+label.left{
+    float: none !important;        
+}
+
 input {
     color: white;
 }

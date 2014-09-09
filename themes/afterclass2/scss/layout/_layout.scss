@@ -14,7 +14,13 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     margin: auto;
 }
 
+.row{
+    max-width: 1140px;
+    @media only screen and (min-width: 1300px) { 
+        max-width: 1200px;
 
+    }
+}
 #right-column {
     margin-top: 0;
 }
@@ -25,10 +31,6 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 #left-column h2 img { width: 50% }
 #left-column h2 { text-transform: lowercase;}
 #left-column p.homepage-message { color: white }
-
-#page_content.AfterClassEvent {
-    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16) inset;
-}
 
 #single-page-content {
     min-height: 200px;

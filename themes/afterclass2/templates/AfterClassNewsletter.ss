@@ -485,10 +485,10 @@
                             <!--image content-->                            
                                     <a href="$AbsoluteLink" title="" class="" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                     <% loop Image %>
-                                    <% loop CroppedImage(598,350) %>                                       
-                                        <img align="left" alt="$Title" src="$AbsoluteURL" width="600" style="max-width: 730px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
-                                        <% end_loop %>
-                                        <% end_loop %>                                                
+	                                    <% loop CroppedImage(598,350) %>                                       
+	                                        <img align="left" alt="$Title" src="$AbsoluteURL" width="600" style="max-width: 730px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
+	                                    <% end_loop %>
+                                    <% end_loop %>                                                
                                     </a>
                            
                             </td>
@@ -514,16 +514,11 @@
 								<a href="$AbsoluteLink" target="_self" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6dc6dd;font-weight: normal;text-decoration: none;">$Title</a></h1>
 								<p style="margin: 1em 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 20px;line-height: 150%;text-align: left;">
 
-									<strong>When:</strong> 
-										
-										<% loop $DateAndTime.Limit(1) %>
-											<% include HeroDateTimes %>
-										<% end_loop %>				
-										<% if $DateAndTime.Count > "1" %>
-											<a href="{$Link}#dates" class="button">more dates</a>
-										<% end_if %>
 									
-											
+										
+										
+											<% include HeroDateTimes %>			
+										
 												<br />
 												<% if Venues %>
 												<strong>Location: </strong>
@@ -560,7 +555,7 @@
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 <a class="mcnButton " title="View This Event" href="$AbsoluteLink" target="_self" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">View This Event</a>
-                                <% end_loop %>
+                                <% end_loop %><!-- end Loop Featured Event -->
                             </td>
                         </tr>
                     </tbody>
