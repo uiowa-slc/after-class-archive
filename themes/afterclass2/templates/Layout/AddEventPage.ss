@@ -5,7 +5,6 @@
 		</header>
 		<div id="single-page-content">
 			$Content
-			$addEventForm
 		</div>
 	</div>
 	<div class="medium-4 columns">
