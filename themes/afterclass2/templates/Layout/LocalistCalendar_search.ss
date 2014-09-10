@@ -6,7 +6,7 @@
 	<p>The following results are for all events on campus and clicking them will redirect you to events.uiowa.edu: </p>
 	<div class="event-cards">
 		<% loop $Results %>
-			<% include EventCard_search %>
+			<% include EventCard %>
 		<% end_loop %> <%-- end control Upcoming Events --%>
 	</div> <!--end event-cards -->
 	<% else %>
