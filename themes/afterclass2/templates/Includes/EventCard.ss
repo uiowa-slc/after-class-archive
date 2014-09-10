@@ -15,7 +15,7 @@
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
-				<div class="event-card-image" style="background-image: url('$Image.URL')">
+				<div class="event-card-image b-lazy" data-src="$Image.URL" style="background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)">
 					<a href="$Link">
 
 					</a>

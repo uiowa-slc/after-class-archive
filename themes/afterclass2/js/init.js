@@ -22,10 +22,9 @@ jQuery(document).ready(function($) {
         return false;
     });
 
-    /*$(".sidebar-sticky-content").stick_in_parent({
-		parent: '.container'
-	});*/
      $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
-     //$('.sidebar-sticky-content').stickySidebar();
+
+     var bLazy = new Blazy();
+
 });
 
