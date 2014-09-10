@@ -23,10 +23,10 @@
 						<% if $FacebookEventLink %>
 							<p><a href="$FacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
 						<% end_if %>
-						<% include AddThis %>
+						
 						<div id="truncontent">
 							$Content
-							<button id="truncswitch">+</button>
+							<button id="truncswitch">Read More +</button>
 						</div>
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
@@ -38,6 +38,7 @@
 								<% end_if %>
 							</p>
 						<% end_if %>
+						<% include AddThis %>
 					</div><!-- end hero-event-text-->
 					
 					<div class="hero-event-when">

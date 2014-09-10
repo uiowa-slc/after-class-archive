@@ -3,15 +3,8 @@
 		<div class="large-8 columns">
 			<div class="disability-statement"><p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:bret-gothe@uiowa.edu">Bret Gothe</a> in advance at 319-335-3132.</p></div>
 			<ul>
-				<li><a href="{$BaseHref}events">Calendar</a></li>
-				<li><a href="{$BaseHref}events/categories">Categories</a></li>
-				<li><a href="{$BaseHref}events/sponsors">Sponsors</a></li>
-				<li><a href="{$BaseHref}events/venues">Venues</a></li>
 				<li><a href="{$BaseHref}events/">All Events</a></li>
 				<li><a href="{$BaseHref}add/">Submit an Event</a></li>
-				<% if FutureDeadlines %>
-				<li><a href="{$BaseHref}deadlines/">Upcoming Deadlines</a></li>
-				<% end_if %>
 			</ul>
 			<div class="clear"></div>
 			<div id="footer-social-media">

@@ -26,20 +26,6 @@ class Page extends SiteTree {
 	    $urls[] = 'about/';
 	    $urls[] = 'nearby/';
 
-	    // Get each page type to define its sub-urls
-	    //$urls = array();
-	    // memory intensive depending on number of pages
-	   /* $pages = Page::get();
-	    $ignored = array('AfterClassEvent', 'UserDefinedForm', 'AddEventPage', 'FeedbackPage', 'AfterClassNewsletter');
-
-	    foreach($pages as $page) {
-	    	if(!in_array($page->ClassName, $ignored)) {
-	    		if($page->isPublished()){
-		    		$urls = array_merge($urls, (array)$page->subPagesToCache());
-		    	}
-		    }
-	    }*/
-
 		$previousMonth = new DateTime();
 		$previousMonth->modify('first day of last month');
 		$previousMonthString = $previousMonth->format( 'Ym' );
@@ -51,24 +37,11 @@ class Page extends SiteTree {
 		$nextMonth->modify( 'first day of next month' );
 		$nextMonthString = $nextMonth->format( 'Ym' );
 
-		
-
-	    /*$urls[] = 'events/categories/';
-	    $urls[] = 'events/sponsors/';
-	    $urls[] = 'events/venues/';*/
-
-	   /* $categories = Category::get()->map()->toArray();
-
-	    foreach($categories as $key => $category){
-	    	$urls[] = 'events/categories/'.$key.'/feed/json';
-	    }*/
-
 	  	$urls[] = $calendarLink.'monthjson/'.$previousMonthString.'/';
 	  	$urls[] = $calendarLink.'monthjson/'.$currentMonthString.'/';
 	  	$urls[] = $calendarLink.'monthjson/'.$nextMonthString.'/';
 
 	  	/* Cache all current events from master event list */
-
 	  	
 	  	$events = $calendar->EventList();
 
@@ -76,26 +49,15 @@ class Page extends SiteTree {
 	  		$urls[] = $event->Link();
 	  	}
 
-
 	  	/* Cache all Trending Tags */
-
 	  	$trendingTags = $calendar->TrendingTags();
 
 	  	foreach($trendingTags as $trendingTag){
 	  		$urls[] = $trendingTag->Link();
 	  	}
 
-
-
-	  	//$urls[] = 'events/feed/rss';
-	  /*	$urls[] = 'events/feed/json';
-	  	$urls[] = 'events/feed/';
-
-	  	$urls[] = 'events/categories/feed/json';
-
-	  	$urls[] = 'events/weekend/';
-	  	$urls[] = 'events/today/';*/
-
+		$urls[] = 'events/feed/json';
+		$urls[] = 'events/feed/';
 	    return $urls;
 	  }
 	 
