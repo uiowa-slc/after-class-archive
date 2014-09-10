@@ -2,47 +2,12 @@
 class Page extends SiteTree {
 
 	private static $db = array(
+
 	);
 
 	private static $has_one = array(
 
-	
 	);
-
-	public function ActiveEventtypes(){
-		return $this->ActiveCategories("Eventtype");
-	}
-
-	public function ActiveVenues(){
-		return $this->ActiveCategories("Venue");
-	}
-	public function ActiveSponsors(){
-		return $this->ActiveCategories("Sponsor");
-	}
-	public function AllVenues() {
-		return Venue::get()->sort('Title ASC');
-	}
-	
-	public function AllSponsors() {
-		return Sponsor::get()->sort('Title ASC');
-	}
-	public function AllEventtypes() {
-		return Eventtype::get();
-	}
-		
-
-	public function ActiveCategories($category){
-		$categories = $category::get();
-		$categoriesArrayList = new ArrayList();
-
-		foreach($categories as $category){
-			if($category->Events()->First()){
-				$categoriesArrayList->push($category);
-			}
-		}
-		return $categoriesArrayList;		
-	}
-
 
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
 		//get our template
@@ -54,19 +19,12 @@ class Page extends SiteTree {
 	}
 	
 	function allPagesToCache() {
-	    // Get each page type to define its sub-urls
-	    $urls = array();
-	    // memory intensive depending on number of pages
-	    $pages = Page::get();
-	    $ignored = array('UserDefinedForm', 'AddEventPage', 'FeedbackPage', 'AfterClassNewsletter');
+		$calendar = LocalistCalendar::get()->First();
+	    $calendarLink = $calendar->Link();
 
-	    foreach($pages as $page) {
-	    	if(!in_array($page->ClassName, $ignored)) {
-	    		if($page->isPublished()){
-		    		$urls = array_merge($urls, (array)$page->subPagesToCache());
-		    	}
-		    }
-	    }
+	    $urls[] = $calendarLink;
+	    $urls[] = 'about/';
+	    $urls[] = 'nearby/';
 
 		$previousMonth = new DateTime();
 		$previousMonth->modify('first day of last month');
@@ -79,31 +37,27 @@ class Page extends SiteTree {
 		$nextMonth->modify( 'first day of next month' );
 		$nextMonthString = $nextMonth->format( 'Ym' );
 
-		
+	  	$urls[] = $calendarLink.'monthjson/'.$previousMonthString.'/';
+	  	$urls[] = $calendarLink.'monthjson/'.$currentMonthString.'/';
+	  	$urls[] = $calendarLink.'monthjson/'.$nextMonthString.'/';
 
-	    $urls[] = 'events/categories/';
-	    $urls[] = 'events/sponsors/';
-	    $urls[] = 'events/venues/';
+	  	/* Cache all current events from master event list */
+	  	
+	  	$events = $calendar->EventList();
 
-	    $categories = Category::get()->map()->toArray();
-	    //print_r($categories);
-	    foreach($categories as $key => $category){
-	    	$urls[] = 'events/categories/'.$key.'/feed/json';
-	    }
+	  	foreach($events as $event){
+	  		$urls[] = $event->Link();
+	  	}
 
-	  	$urls[] = 'events/monthjson/'.$previousMonthString.'/';
-	  	$urls[] = 'events/monthjson/'.$currentMonthString.'/';
-	  	$urls[] = 'events/monthjson/'.$nextMonthString.'/';
+	  	/* Cache all Trending Tags */
+	  	$trendingTags = $calendar->TrendingTags();
 
-	  	//$urls[] = 'events/feed/rss';
-	  	$urls[] = 'events/feed/json';
-	  	$urls[] = 'events/feed/';
+	  	foreach($trendingTags as $trendingTag){
+	  		$urls[] = $trendingTag->Link();
+	  	}
 
-	  	$urls[] = 'events/categories/feed/json';
-
-	  	$urls[] = 'events/weekend/';
-	  	$urls[] = 'events/today/';
-
+		$urls[] = 'events/feed/json';
+		$urls[] = 'events/feed/';
 	    return $urls;
 	  }
 	 
@@ -119,22 +73,9 @@ class Page extends SiteTree {
 	    return $urls;
 	}
 	public function Calendar(){
-  		return AfterClassCalendar::get()->First();
+  		return LocalistCalendar::get()->First();
   	}
-	public function TrendingCategories(){
-		$categories = Category::get()->sort('RAND()');
-		$trendingCats = new ArrayList();
 
-		foreach($categories as $category){
-			$catEvent = $category->Events()->First();
-
-			if($catEvent){
-				$trendingCats->push($category);
-			}
-		}
-
-		return $trendingCats;
-	}
 }
 class Page_Controller extends ContentController {
 
@@ -154,14 +95,17 @@ class Page_Controller extends ContentController {
  	}
 	
 	function results($data, $form){
-	     $data = array(
-	            'Results' => $form->getResults(),
-	            'Query' => $form->getSearchQuery(),
-	            'Title' => 'Search Results'
-	        );
-	        $this->Query = $form->getSearchQuery();
-	     
-	        return $this->customise($data)->renderWith(array('Page_results', 'Page'));
+		$term = $form->getSearchQuery();
+		$calendar = $this->Calendar();
+		$events = $calendar->EventList('200', null, null, null, null,null, 'true', false, $term);
+
+		$data = array( 
+			"Results" => $events,
+			"Term" => $term
+		);
+
+	    return $this->customise( $data )->renderWith( array( 'LocalistCalendar_search', 'Page' ) );
+
 	}
 	function EditURL(){
 		return "/admin/pages/show/".$this->ID."/";

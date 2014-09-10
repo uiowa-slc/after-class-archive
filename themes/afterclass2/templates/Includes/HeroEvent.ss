@@ -1,18 +1,8 @@
 <div class="feature-background-wrapper">
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
 
-			<div class="hero-event-image-container">
-						<a href="$Link" class="img-shadow">
-							<% if Image %>
-								<% loop Image %>
-									<% loop CroppedImage(837,523) %>
-										<img itemprop="photo" src="$URL" />
-									<% end_loop %>
-								<% end_loop %>
-							<% else %>
-								<img itemprop="photo" src="$ThemeDir/images/placeholder.png" />
-							<% end_if %>
-						</a>
+			<div class="hero-event-image-container" style="background-image: url('$Image.URL')">
+						<a href="$Link" class="img-shadow"></a>
 						<div class="clear"></div>
 					</div>
 					
@@ -21,7 +11,7 @@
 					<div class="clear"></div>
 					<div class="hero-event-details">
 							<div class="hero-event-text">
-								<p>$Content.Summary(30) <a href="$Link">Continue reading</a></p>
+								<p>$Content<a href="$Link">Continue reading</a></p>
 							</div><!-- end hero-event-text-->
 							<div class="hero-event-essential-text">						       
 				            	<% if Cost %><p><strong>Price: </strong>$Cost</p><% end_if %>
@@ -35,20 +25,24 @@
 									</div><!-- end hero-event-when -->
 									
 									<div class="hero-event-where">
-										<% loop Venues %>
+										<% if $Venue || $LocalistLink %>
 											<p class="venues">
-											<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-											 <a href="$Link" class="button tag">@ <span itemprop="name">$Title</span></a>
-											</span>
+											<% if $Venue %>
+												<% with Venue %>
+												<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+												 <a href="$Link" class="button tag">@ <span itemprop="name">$Title</span></a>
+												</span>
+												<% end_with %>
+											<% end_if %>
+											<% if $LocalistLink %>
+												<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
+											<% end_if %>
 											</p>
-										<% end_loop %>
-									</div><!-- end herp-event-where -->
-									<div class="clear"></div>
-									<% if MoreInfoLink %>
-										<p><a href="$MoreInfoLink" class="button" target="_blank">More information</a></p>
-									<% end_if %>
+										<% end_if %>
+									</div><!-- end hero-event-where -->
+		
 								</div><!-- end hero-event-specifics -->
-							</div><!-- end hero-event-text -->
+							</div><!-- end hero-event-details -->
 							<% include AddThis %>
 					
 						<div class="clear"></div>	

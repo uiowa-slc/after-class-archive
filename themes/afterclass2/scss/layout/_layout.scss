@@ -1,3 +1,6 @@
+b, strong{
+    font-weight: bold;
+}
 /* Some Division Bar Fixes */
 input.division-search-input[type="search"], input.division-search-input[type="search"]:focus {
     margin: 0 !important;
@@ -17,7 +20,7 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 .row{
     max-width: 1140px;
     @media only screen and (min-width: 1300px) { 
-        max-width: 1200px;
+        max-width: 1280px;
 
     }
 }
@@ -32,28 +35,6 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 #left-column h2 { text-transform: lowercase;}
 #left-column p.homepage-message { color: white }
 
-#page_content.AfterClassCalendar.index .container,
-#page_content.AfterClassEvent.index .container,
-#page_content.FeaturedAfterClassEvent.index,
-#page_content.AfterClassCalendar.show .container,
-#page_content.AfterClassEvent .container { margin-top: 0 }
-#page_content.AfterClassCalendar.show .event-card-list h2 { display: none }
-#page_content.AfterClassCalendar.show #approaching-deadlines { display: none }
-#page_content.AfterClassCalendar.show #the-news { display: none }
-#page_content.AfterClassCalendar.show #categories { display: none }
-#page_content.AfterClassCalendar.show .hero-event { display: none }
-#page_content.AfterClassCalendar.show .flex-control-nav { display: none; }
-#page_content {
-    background-repeat: repeat;
-}
-#page_content.AfterClassEvent {
-    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16) inset;
-}
-#page_content div.container {
-    /*padding-top: 30px;*/
-    /*z-index: 1;*/
-    padding-bottom: 100px;
-}
 #single-page-content {
     min-height: 200px;
 }
@@ -67,7 +48,7 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 #single-page-content h3 { color: #7BACB9 }
 #single-page-content a { color: #d7b548 }
 #single-page-content a:hover { color: #d2af3c }
-
+#single-page-content img { padding: 10px; }
 #secondary_header h1 {
     padding: 5px 0;
     margin: 5px 0;
@@ -224,12 +205,20 @@ a.button:hover {
 
 @media only screen and (min-width: 1024px) { 
     body { font-size: 1em }
-  
+ 
 }
+
 
 @media only screen and (min-width: 1023px) { 
     .button.more-dates{
            
         }
   
+}
+
+
+@media only screen and (min-width: 1280px){
+    .sidebar-sticky-content.stuck {
+        width: 426.65625px;
+    }
 }

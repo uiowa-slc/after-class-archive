@@ -44,9 +44,7 @@ cache/
 html/
 news/
 mathspamprotection/
-ac-json-events/
 foundationforms/
-
-ac-json-events/_config.php
-
+ac-json-events/
 events.csv
+

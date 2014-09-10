@@ -27,6 +27,24 @@ class NearMePage_Controller extends Page_Controller {
 	public static $allowed_actions = array (
 	);
 
+	/*public function PlaceList2(){
+
+		$calendar = LocalistCalendar::get()->First();
+		$allEvents = $calendar->EventList();
+
+		foreach($allEvents as $key => $event){
+			$venues[] = Array( $event->VenueTitle;
+
+		}
+
+
+	}*/
+
+	public function UsesGoogleMaps(){
+		return true;
+	}
+
+
 	public function init() {
 		parent::init();	
 	}

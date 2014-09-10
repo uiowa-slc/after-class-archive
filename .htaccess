@@ -224,6 +224,7 @@ RewriteCond %{REQUEST_URI} ^(.*)$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule .* staticpublisher/main.php?url=%1&%{QUERY_STRING} [L]
 ### SILVERSTRIPE END ###
+
 php_flag display_errors 1
 php_value max_execution_time 259200
 php_value memory_limit 1024M

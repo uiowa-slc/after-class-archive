@@ -1,8 +1,8 @@
 #page_header {
     background-image: url("../images/afterclass_illustration.jpg");
-    background-position: 140px 0;
+    background-position: 100px 0;
     background-size: contain;
-    background-color: #272324;
+    background-color: #312D2E;
     background-repeat: repeat-x;
 }
 
@@ -15,6 +15,15 @@
     letter-spacing: -6px;
     text-shadow: 4px 4px 8px #000000;
     margin-left: -10px;
+
+    @media only screen and (min-width: 1024px) {
+        margin-top: 15px;
+    }
+
+    .subheader{
+        margin-top: 5px;
+    }
+
 }
 
 #page_header .big_header a {
@@ -62,23 +71,8 @@
     line-height: 0.6;
 }
 
-#page_navigation a {
-    font-weight: normal;
-}
-
-#page_navigation img.new {
-    position: absolute;
-    margin-top: -50px;
-}
-
 #page_navigation {
-    background-image: linear-gradient(bottom, rgb(37, 34, 34) 14%, rgb(40, 36, 37) 57%);
-    background-image: -o-linear-gradient(bottom, rgb(37, 34, 34) 14%, rgb(40, 36, 37) 57%);
-    background-image: -moz-linear-gradient(bottom, rgb(37, 34, 34) 14%, rgb(40, 36, 37) 57%);
-    background-image: -webkit-linear-gradient(bottom, rgb(37, 34, 34) 14%, rgb(40, 36, 37) 57%);
-    background-image: -ms-linear-gradient(bottom, rgb(37, 34, 34) 14%, rgb(40, 36, 37) 57%);
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.14, rgb(37, 34, 34)), color-stop(0.57, rgb(40, 36, 37)));
-    box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.6);
+   background-color: #312D2E;
 }
 
 /* Secondary Nav Styles */
@@ -426,6 +420,9 @@
 }
 
 @media only screen and (min-width: 1100px) {
+    #page_header {
+        height: 145px;
+    }
     #page_header p {
         font-size: 1.1em;
     }

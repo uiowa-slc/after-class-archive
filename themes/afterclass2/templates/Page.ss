@@ -10,14 +10,24 @@
 <% include DivisionBar %>
 <%--<a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>--%>
 <% include Header %>
+<% if $ImageURL %>
+      <div class="hero-event-image-container hide-for-medium-up" style="background-image: url('<% if $ImageURL %>$ImageURL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">
+            <a href="$Link" class="img-shadow">
+      
+            </a>
+            <div class="clear"></div>
+          </div>
+<% end_if %>
 <div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>">
   <div class="container clearfix">
     $Layout
    </div>
 </div>
 <% include Footer %>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{$ThemeDir}/build/build.js"></script>
+<script src="{$ThemeDir}/build/src/main_concat.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-426753-41']);

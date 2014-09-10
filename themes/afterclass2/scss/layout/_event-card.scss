@@ -1,3 +1,14 @@
+.b-lazy {
+    -webkit-transition: opacity 500ms ease-in-out;
+       -moz-transition: opacity 500ms ease-in-out;
+         -o-transition: opacity 500ms ease-in-out;
+            transition: opacity 500ms ease-in-out;
+             max-width: 100%;
+               opacity: 0;
+}
+.b-lazy.b-loaded {
+               opacity: 1;
+}
 .event-card-list {}
 
 .event-card-list h2 {
@@ -160,6 +171,10 @@ a.event-header-category {
     float: right;
     margin-left: 10px;
     width: 100%;
+    background-size: cover;
+    height: 272px;
+    background-position-x: 50%;
+    background-position-y: 50%;
 }
 
 .event-card-image img {
@@ -184,8 +199,15 @@ a.event-header-category {
     }
     .event-card-image {
         width: 150px;
+        height: 172px;
     }
+
 }
+
+@media only screen and (min-width: 767px) {
+
+}
+
 
 @media only screen and (min-width: 850px) {
     .hero-event.homepage .hero-event-text {
@@ -216,7 +238,7 @@ a.event-header-category {
         width: 33.3%;
         float: left;
         padding: 0 0.5%;
-        height: 205px;
+        height: 235px;
         overflow: hidden;
         border: none;
     }
@@ -258,6 +280,13 @@ a.event-header-category {
     }
     a.event-header-category {
         display: none;
+    }
+}
+
+
+@media only screen and (min-width: 1160px) {
+    .event-card {
+        height: 205px;
     }
 }
 
