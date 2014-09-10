@@ -15,7 +15,7 @@
 		"silverstripe/spamprotection": "dev-master",
 		"silverstripe/mathspamprotection": "dev-master",
 		"rywa/silverstripe-foundation-forms" : "dev-master",
-		"md/ac-json-events" : "dev-master"
+		"md/ac-json-events" : "dev-afterclass-links"
 
 	},
 	"config": {

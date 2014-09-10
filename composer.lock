@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f8ea1550b21a9be68cfa816fb8c6c38",
+    "hash": "05c2513960c2c90f71bb43857faf1dbd",
     "packages": [
         {
             "name": "composer/installers",
@@ -98,16 +98,16 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-master",
+            "version": "dev-afterclass-links",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "5f86a5812e05b0c048ec5964d62e392eff83c455"
+                "reference": "68b17bbb9ae32fa58554a7e83e3be245496ddc44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/5f86a5812e05b0c048ec5964d62e392eff83c455",
-                "reference": "5f86a5812e05b0c048ec5964d62e392eff83c455",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/68b17bbb9ae32fa58554a7e83e3be245496ddc44",
+                "reference": "68b17bbb9ae32fa58554a7e83e3be245496ddc44",
                 "shasum": ""
             },
             "require": {
@@ -123,10 +123,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/afterclass-links",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-09-10 16:50:51"
+            "time": "2014-09-10 20:35:22"
         },
         {
             "name": "md/division-bar",
