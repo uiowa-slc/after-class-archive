@@ -101,23 +101,9 @@
 		<% end_if %>
 
 		<%-- Sponsor Themed Area --%>
-
-		<div class="<% if $PrimarySponsor %>sponsor-$PrimarySponsor.ID<% end_if %>">
-			<% if $PrimarySponsor && $PrimarySponsor.LogoImage %>
-				<% with $PrimarySponsor %>
-					<% if $LinkURL %>
-						<a href="$LinkURL" target="_blank"><img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/></a>
-					<% else %>
-						<img src="$LogoImage.URL" alt="sponsor image for $Title" class="PrimarySponsorImg"/>
-					<% end_if %>
-
-				<% end_with %>
-			<% end_if %>
-				<% if $Sponsors %>
+				<% if $Sponsor %>
 					<div class="sponsors">
-						<p><strong>Sponsored by:</strong><% loop $Sponsors %>
-						<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
-						<% end_loop %></p>
+						<p><strong>Sponsored by: $Sponsor</strong></p>
 					</div>
 				<% end_if %>
 				<% if $Tags %>
@@ -147,6 +133,5 @@
 				</a>
 			</p>
 			<% end_if %>
-		</div><!-- end sponsor-x -->
 	</div><!-- end medium-4 columns-->
 </div><!-- end row -->
