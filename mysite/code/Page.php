@@ -25,9 +25,11 @@ class Page extends SiteTree {
 	    $urls[] = $calendarLink;
 	    $urls[] = $calendarLink.'show/today';
 	    $urls[] = $calendarLink.'show/weekend';
-	    
+
 	    $urls[] = 'about/';
 	    $urls[] = 'nearby/';
+	    $urls[] = 'add/';
+
 
 		$previousMonth = new DateTime();
 		$previousMonth->modify('first day of last month');
