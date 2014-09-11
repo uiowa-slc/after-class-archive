@@ -23,6 +23,9 @@ class Page extends SiteTree {
 	    $calendarLink = $calendar->Link();
 
 	    $urls[] = $calendarLink;
+	    $urls[] = $calendarLink.'show/today';
+	    $urls[] = $calendarLink.'show/weekend';
+	    
 	    $urls[] = 'about/';
 	    $urls[] = 'nearby/';
 
