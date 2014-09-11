@@ -21,7 +21,6 @@
 					<div class="clear"></div>
 				</div><!-- end category-content -->
 				<h2>$FilterHeader</h2>
-				<p><a href="$LocalistLink" class="button" target="_blank">More on events.uiowa.edu</a></p>
 				<div class="category-list">
 					<% if EventList %>
 					<% loop EventList %>
