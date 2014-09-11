@@ -21,7 +21,7 @@
 							<p><strong>Note: $CancelReason</strong></p>
 						<% end_if %>
 						<% if $FacebookEventLink %>
-							<p><a href="$FacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
+							<p><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
 						<% end_if %>
 						
 						<div id="truncontent">
