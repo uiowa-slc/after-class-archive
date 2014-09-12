@@ -1103,6 +1103,7 @@ function pinAndDist(initLocal, venueLatLng, venue) {
 	var eventsHere = [];
 	var eventsHereString = '';
 	var eventBubbleString = '';
+	var eventLimit = 6;
 	
 	eventsHere.push("<a class='button tag' href='" + venueLink + "'>" + venueName + "</a>");
 	
@@ -1121,6 +1122,10 @@ function pinAndDist(initLocal, venueLatLng, venue) {
 			+ "</ul></div>";
 				
 		eventsHere.push(eventStringSeg);
+
+		if (index >= eventLimit) {
+			return false;
+		}
 	});
 	
 	eventsHereString = eventsHere.join(' ');
@@ -1135,7 +1140,7 @@ function pinAndDist(initLocal, venueLatLng, venue) {
   		//infowindow.maxWidth(200);
 	});
 	
-	console.log('I have ' + venueName);
+	//console.log('I have ' + venueName);
 
 	if(countVenue == venueCount) {
 		var nearestVenues = [];
@@ -1164,10 +1169,10 @@ function venueGen(initLocal, callback) {
 		if(lat && lng) {
 			countVenue = ++countVenue;
 			venueLatLng = new google.maps.LatLng(lat, lng);
-			console.log('latyes');
+			//console.log('latyes');
 			callback(initLocal, venueLatLng, venue);
 		} else {
-			console.log('lat nO!' );
+			//console.log('lat nO!' );
 			if (address != null) {
 				geocoder.geocode( { 'address': address}, function(results, status) {
 					countVenue = ++countVenue;
