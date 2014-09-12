@@ -1,11 +1,18 @@
 <p class="dates-times">
 	<% if $Dates %>
 		<% loop $Dates.Limit(1) %>
-			<a href="{$Link}" class="date-link"><time itemprop="startDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
+			<% with $StartDateTime %>
+				<a href="{$Link}" class="date-link"><time itemprop="startDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
+			<% end_with %>
+			<% if $EndDate %>
+			 - 
+			<% with $EndDate %>
+				<a href="{$Link}" class="date-link"><time itemprop="endDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
+			<% end_with %>
+			<% end_if %>
 		<% end_loop %>
 	<% end_if %>
 	<% if Location %>{$Location}<% end_if %>
-	
 	<% if $Venue %>
 		<% with $Venue %>
 			<span> @ </span>
