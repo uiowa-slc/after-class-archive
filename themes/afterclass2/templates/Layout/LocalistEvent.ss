@@ -26,7 +26,7 @@
 						
 						<div id="truncontent">
 							$Content
-							<button id="truncswitch">Read More +</button>
+							<a id="truncswitch" class="button">Read More +</a>
 						</div>
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
