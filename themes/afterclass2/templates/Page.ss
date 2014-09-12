@@ -2,7 +2,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<% base_tag %>
-	<% require themedCSS("master") %>
+	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
 	<% include MetaTags %>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
@@ -27,7 +27,7 @@
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{$ThemeDir}/build/src/main_concat.js"></script>
+<script src="{$ThemeDir}/build/build.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-426753-41']);
