@@ -7,7 +7,7 @@
 <% end_with %>
 <% if $EndTime %>
 	<% with $EndTime %>
-		to $Format("g:i A")
+		- $Format("g:i A")
 	<% end_with %>
 <% end_if %>
 <% if $EndDate %>
