@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "05c2513960c2c90f71bb43857faf1dbd",
+    "hash": "7f8ea1550b21a9be68cfa816fb8c6c38",
     "packages": [
         {
             "name": "composer/installers",
@@ -98,16 +98,16 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-afterclass-links",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "7f87c26dd3e9e561cc48d11aacb948cc22f5baaa"
+                "reference": "a86c20aa500828ccd580efc85b4c5c4ad7a11779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/7f87c26dd3e9e561cc48d11aacb948cc22f5baaa",
-                "reference": "7f87c26dd3e9e561cc48d11aacb948cc22f5baaa",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/a86c20aa500828ccd580efc85b4c5c4ad7a11779",
+                "reference": "a86c20aa500828ccd580efc85b4c5c4ad7a11779",
                 "shasum": ""
             },
             "require": {
@@ -123,10 +123,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/afterclass-links",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-09-10 20:58:47"
+            "time": "2014-09-12 17:45:55"
         },
         {
             "name": "md/division-bar",
@@ -601,12 +601,8 @@
             "time": "2014-07-16 11:26:46"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "md/event-calendar": 20,
@@ -620,7 +616,5 @@
     "platform": {
         "php": ">=5.3.2"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
