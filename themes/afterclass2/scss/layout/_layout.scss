@@ -24,6 +24,19 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 
     }
 }
+
+.LocalistCalendar .row{
+    @media only screen and (min-width: 1440px) { 
+        max-width: 1400px;
+    }
+}
+
+.LocalistCalendar .row{
+    @media only screen and (min-width: 1660px) { 
+        max-width: 1600px;
+    }
+}
+
 #right-column {
     margin-top: 0;
 }
@@ -181,7 +194,7 @@ a.button:hover {
 
 @media only screen and (min-width: 960px) {
     
-    #page_content { padding: 0 }
+    #page_content { padding: 0; padding-bottom: 20px; }
     
     #secondary_header h1 {
         font-size: 2.5em;
@@ -216,9 +229,3 @@ a.button:hover {
   
 }
 
-
-@media only screen and (min-width: 1280px){
-    .sidebar-sticky-content.stuck {
-        width: 426.65625px;
-    }
-}

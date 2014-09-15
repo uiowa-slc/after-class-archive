@@ -56,8 +56,8 @@
 					
 					
 				</div><!-- end hero-event-details -->
-				<hr />
 				<% if $RelatedEvents %>
+				<hr />
 					<% include RelatedEvents %>
 				<% end_if %>
 			</div><!-- end hero-event-content-->
@@ -90,7 +90,7 @@
 							<% if $WebsiteURL %>
 								<a class="button" href="$WebsiteURL">Venue website</a>
 							<% end_if %>
-							<% if $Events %>
+							<% if $Link %>
 								<a href="$Link" class="button">More events here</a>
 							<% end_if %>
 							</p>

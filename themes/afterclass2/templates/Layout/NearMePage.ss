@@ -36,10 +36,11 @@
       </div>
       
     <% end_with %>
+
   </div>
 
   <div class="large-4 columns">
     <% include SecondaryNav %>
   </div>  
-
+  
 </div>

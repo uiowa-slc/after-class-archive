@@ -12,7 +12,6 @@
 			<% end_if %>
 		<% end_loop %>
 	<% end_if %>
-	<% if Location %>{$Location}<% end_if %>
 	<% if $Venue %>
 		<% with $Venue %>
 			<span> @ </span>
