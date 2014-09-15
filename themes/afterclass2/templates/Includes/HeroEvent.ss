@@ -10,9 +10,6 @@
 					<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
 					<div class="clear"></div>
 					<div class="hero-event-details">
-							<div class="hero-event-text">
-								<p>$Content<a href="$Link">Continue reading</a></p>
-							</div><!-- end hero-event-text-->
 							<div class="hero-event-essential-text">						       
 				            	<% if Cost %><p><strong>Price: </strong>$Cost</p><% end_if %>
 							    <% if CancelReason %>

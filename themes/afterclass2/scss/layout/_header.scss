@@ -137,9 +137,9 @@
 }
 
 /* hide home button on mobile nav */
-#page_navigation ul>li.first {
+/*#page_navigation ul>li.first {
     display: none;
-}
+}*/
 
 #page_navigation ul>li.first.moon-icon {
     display: block;
@@ -185,7 +185,7 @@
     display: block;
     font-weight: normal !important;
     text-transform: lowercase;
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
 #page_navigation ul li.first a {
