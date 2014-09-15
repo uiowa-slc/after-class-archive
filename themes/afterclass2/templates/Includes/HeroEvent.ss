@@ -31,9 +31,7 @@
 												</span>
 												<% end_with %>
 											<% end_if %>
-											<% if $LocalistLink %>
-												<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
-											<% end_if %>
+												<a href="$LocalistLink" class="button" target="_blank">Event Details</a>
 											</p>
 										<% end_if %>
 									</div><!-- end hero-event-where -->
