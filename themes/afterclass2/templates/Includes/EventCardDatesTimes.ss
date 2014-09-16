@@ -2,12 +2,12 @@
 	<% if $Dates %>
 		<% loop $Dates.Limit(1) %>
 			<% with $StartDateTime %>
-				<a href="{$Link}" class="date-link"><time itemprop="startDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
+				<a href="{$Up.Link}" class="date-link"><time itemprop="startDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
 			<% end_with %>
 			<% if $EndDate %>
 			 - 
 			<% with $EndDate %>
-				<a href="{$Link}" class="date-link"><time itemprop="endDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time></a>
+				<time itemprop="endDate" datetime="$Format(c)" class="$FirstLast">$Format(M) $Format(j)</time>
 			<% end_with %>
 			<% end_if %>
 		<% end_loop %>
