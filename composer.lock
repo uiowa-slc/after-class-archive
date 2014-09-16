@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "5787c815af6ce5505f867f0d321f513cc8d53b80"
+                "reference": "7f35256a907fc91afd142eb4fbb9e75b55d44646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/5787c815af6ce5505f867f0d321f513cc8d53b80",
-                "reference": "5787c815af6ce5505f867f0d321f513cc8d53b80",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/7f35256a907fc91afd142eb4fbb9e75b55d44646",
+                "reference": "7f35256a907fc91afd142eb4fbb9e75b55d44646",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-09-15 16:31:31"
+            "time": "2014-09-16 12:59:35"
         },
         {
             "name": "md/division-bar",
