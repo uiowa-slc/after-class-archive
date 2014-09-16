@@ -31,7 +31,7 @@
 												</span>
 												<% end_with %>
 											<% end_if %>
-												<a href="$LocalistLink" class="button" target="_blank">Event Details</a>
+												<a href="$Link" class="button" target="_blank">Event Details</a>
 											</p>
 										<% end_if %>
 									</div><!-- end hero-event-where -->
