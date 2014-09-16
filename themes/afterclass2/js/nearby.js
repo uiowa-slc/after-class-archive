@@ -204,7 +204,7 @@ function genMapCanvas() {
 	//afterclassMap styles located in MapStyles.js
 	var afterclassMap = new google.maps.StyledMapType(styles, {name: "AfterClass Style Map"});
 	var MapOptions = {
-	    zoom: 15,
+	    zoom: 16,
 	    center: iowaCity,
 	    panControl: false,
 	    mapTypeControl: false,
