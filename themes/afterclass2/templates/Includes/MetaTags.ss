@@ -4,7 +4,7 @@
 	<meta property="og:title" content="$Title"/>
 	<meta property="og:type" content="activity"/>
 	<meta property="og:image" content="$Image.URL"/>
-	<meta property="og:url" content="$AbsoluteLink"/>
+	<meta property="og:url" content="$AfterClassLink"/>
 	<meta property="og:site_name" content="After Class"/>
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
