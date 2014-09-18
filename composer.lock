@@ -104,12 +104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "19bbcf4d015b4df5ff9b50a0c8544cb6aa005763"
+                "reference": "a651bc909b7437d561301cb99c528bddb7d78f48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/19bbcf4d015b4df5ff9b50a0c8544cb6aa005763",
-                "reference": "19bbcf4d015b4df5ff9b50a0c8544cb6aa005763",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/a651bc909b7437d561301cb99c528bddb7d78f48",
+                "reference": "a651bc909b7437d561301cb99c528bddb7d78f48",
                 "shasum": ""
             },
             "require": {
@@ -125,10 +125,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/localist-newsletter",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-09-18 17:50:01"
+            "time": "2014-09-18 18:06:58"
         },
         {
             "name": "md/division-bar",
