@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067"
+                "reference": "5914f4a3e90a9176c93e5dd0c8ad2b3679fda6ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
+                "url": "https://api.github.com/repos/composer/installers/zipball/5914f4a3e90a9176c93e5dd0c8ad2b3679fda6ed",
+                "reference": "5914f4a3e90a9176c93e5dd0c8ad2b3679fda6ed",
                 "shasum": ""
             },
             "replace": {
@@ -59,6 +59,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "Thelia",
                 "WolfCMS",
                 "agl",
                 "annotatecms",
@@ -71,6 +72,7 @@
                 "drupal",
                 "elgg",
                 "fuelphp",
+                "grav",
                 "installer",
                 "joomla",
                 "kohana",
@@ -94,7 +96,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-08-18 20:00:12"
+            "time": "2014-09-16 22:11:26"
         },
         {
             "name": "md/ac-json-events",
@@ -102,12 +104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "7f35256a907fc91afd142eb4fbb9e75b55d44646"
+                "reference": "19bbcf4d015b4df5ff9b50a0c8544cb6aa005763"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/7f35256a907fc91afd142eb4fbb9e75b55d44646",
-                "reference": "7f35256a907fc91afd142eb4fbb9e75b55d44646",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/19bbcf4d015b4df5ff9b50a0c8544cb6aa005763",
+                "reference": "19bbcf4d015b4df5ff9b50a0c8544cb6aa005763",
                 "shasum": ""
             },
             "require": {
@@ -123,10 +125,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/localist-newsletter",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-09-16 12:59:35"
+            "time": "2014-09-18 17:50:01"
         },
         {
             "name": "md/division-bar",
