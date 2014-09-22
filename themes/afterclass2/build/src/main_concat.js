@@ -1023,7 +1023,7 @@ var infowindow = new google.maps.InfoWindow({
 var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 //var venueCount = $("#venuesWithEvents section").length;
 //var countVenue = 0;
-var venueFromMe = {};
+var venueFromUser = {};
 var userInitPosition;
 
 /* Helper Functions */
@@ -1058,10 +1058,11 @@ function handleNoGeolocation(errorFlag) {
 function sortVenues() {
 	// empty list to sort venues by distance
 	var nearestVenues = [];
-	for (var venueID in venueFromMe) {
-		nearestVenues.push([venueID, venueFromMe[venueID]])
+	// you can only do for-in loops on objects (as opposed to arrays) in js. who knew?
+	for (var venueID in venueFromUser) {
+		nearestVenues.push([venueID, venueFromUser[venueID]])
 	}	
-	nearestVenues.sort(function(a,b) {return a[1] - b[1]})
+	nearestVenues.sort(function(a,b) {return a[1] - b[1]});
 	$("#venuesWithEvents .clear").remove();
 	for (var v=0; v < nearestVenues.length; v++) {
 		//console.log('sorting...');
@@ -1153,11 +1154,11 @@ function venueGen() {
 			map: map
 		});	
 
-		console.log("I have " + title + " at " + venueLatLng);
+		//console.log("I have " + title + " at " + venueLatLng);
 		// fills 'infowindow' for each pin with list of events
 		addEventInfo( marker, venue );  
 
-		venueFromMe[venueID] = google.maps.geometry.spherical.computeDistanceBetween(userInitPosition, venueLatLng);
+		venueFromUser[venueID] = google.maps.geometry.spherical.computeDistanceBetween(userInitPosition, venueLatLng);
 
 	});	
 
@@ -1190,7 +1191,7 @@ function getInitLocal() {
 			}
 			venueGen();							  
 	    }, function(error) {
-	    	console.log('navigator failed');
+	    	//console.log('navigator failed');
 	    	var errorFlag = false;
 	    	userInitPosition = handleNoGeolocation(errorFlag)
 	    	map.setCenter(userInitPosition);
@@ -1201,7 +1202,7 @@ function getInitLocal() {
 	    	maximumAge: 0
 	    });	     
 	} else {
-		console.log("Browser does NOT support Geolocation");
+		//console.log("Browser does NOT support Geolocation");
 	    var browserSupportFlag = false;
 	    userInitPosition = handleNoGeolocation(browserSupportFlag);
 	    venueGen();
