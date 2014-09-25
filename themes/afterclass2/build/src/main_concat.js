@@ -1098,6 +1098,10 @@ function addEventInfo( marker, venue ) {
 
 		// sets maximum number of events per bubble to eventLimit
 		if (index >= eventLimit) {
+			
+			var seeMoreEvents = '<a href = "#' + venue.id + 'class ="button" > See More Events at: ' + venueName + '</a>';
+			eventsHere.push(seeMoreEvents);
+
 			return false;
 		}
 	});
@@ -1214,8 +1218,8 @@ function genMapCanvas() {
 
     var mapcanvas = document.createElement('div');	
 	 mapcanvas.id = 'mapcanvas';
-	 mapcanvas.class = 'map-canvas';
-	 mapcanvas.style.width = '100%';	
+	 //mapcanvas.class = 'map-canvas';
+	 //mapcanvas.style.width = '100%';	
 	$('.NearMePage .map-container').append(mapcanvas);
 
 	//afterclassMap styles located in MapStyles.js
@@ -1228,11 +1232,12 @@ function genMapCanvas() {
 	    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
 	    disableDefaultUI: false,
 	    mapTypeId: google.maps.MapTypeId.ROADMAP,
-	    streetViewControl: false,
+	    streetViewControl: true,
 	    zoomControlOptions: {
     		position: google.maps.ControlPosition.LEFT_BOTTOM
   		}
 	};
+
 	map = new google.maps.Map(document.getElementById("mapcanvas"), MapOptions);
 	 map.mapTypes.set('map_style', afterclassMap);
 	 map.setMapTypeId('map_style');
