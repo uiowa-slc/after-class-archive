@@ -8,28 +8,22 @@
 
 #mapcanvas {
 	height: 300px !important;
-	max-width: none !important;
+	max-width: none;
 }
 
 #mapcanvas img {
-	max-width: none !important;
+	max-width: none;
 }
 
 @media only screen and (min-width: 1024px) { 
 	#mapcanvas {
 		height: 600px !important;
-		max-width: none !important;
+		max-width: none;
 	}
 	
 	#mapcanvas img {
-		max-width: none !important;
+		max-width: none;
 	}
-}
-
-.gm-style img { max-width: none; }
-.gm-style label { width: auto; display: inline; }
-.map-jumplist p{
-  margin: 0;
 }
 
 @media only screen and (min-width: 1024px) { 
@@ -98,7 +92,7 @@ div.infowindow {
 }
 
 .infobox-header {
-	padding: 1px 3px 1px 0 !important;
+  padding: 1px 3px 1px 0 !important;
   font-size: 0.9em;
   margin: 0;
   text-transform: uppercase;
@@ -115,7 +109,6 @@ div.infowindow {
 	list-style: none;
 	color: black;	
 }
-
 
 .canceled {
 	color: #FF0000 !important;
@@ -144,9 +137,8 @@ div.infowindow {
   color: #000;
 } 
 
-	
 .event_bubble {
-	max-width: 320px;
+	max-width: none;
 	padding-right: 3px;
 	font-size: 0.6em;
 }
