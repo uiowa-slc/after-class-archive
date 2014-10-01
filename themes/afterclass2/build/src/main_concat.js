@@ -972,16 +972,6 @@ function initialize() {
 
 	// Create a map object, and include the MapTypeId to add
 	// to the map type control.
-	var mapOptions = {
-	    zoom: 11,
-	    scrollwheel: false,
-	    draggable: true,
-	    panControl: true,
-	    center: new google.maps.LatLng(55.6468, 37.581),
-	    mapTypeControlOptions: {
-	      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-	    }
-	  };
 	jQuery('#mini-map').each(function(index, element) {
 		var name = jQuery(this).data("title");
 		var lat = jQuery(this).data("lat");
@@ -989,11 +979,25 @@ function initialize() {
 		var address = jQuery(this).data("address");
 		var venueLatLng;
 		var venue = this;
+		
+		var mapOptions = {
+		    zoom: 15,
+		    //disableDefaultUI: true,
+		    scrollwheel: true,
+		    draggable: false,
+		    //panControl: true,
+		    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+		    center: new google.maps.LatLng(lat, lng),
+		    streetViewControl: true,
+		    mapTypeControlOptions: {
+		      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+		    }
+		};
 
 		if (lat && lng) {
 			var place = new google.maps.LatLng(lat, lng);
 			var myOptions = {zoom: 16, center: place,mapTypeId: google.maps.MapTypeId.ROADMAP };
-	   		var map = new google.maps.Map(document.getElementById("mini-map"),myOptions);
+	   		var map = new google.maps.Map(document.getElementById("mini-map"),mapOptions);
 	   		var geomarker = new google.maps.Marker({ map: map, position: place });
 		    map.mapTypes.set('map_style', styledMap);
 		    map.setMapTypeId('map_style');
@@ -1003,7 +1007,7 @@ function initialize() {
 		        if (status == google.maps.GeocoderStatus.OK) {
 			        place = results[0].geometry.location;
 			        var myOptions = {zoom: 16, center: place,mapTypeId: google.maps.MapTypeId.ROADMAP };
-			        var map = new google.maps.Map(document.getElementById("mini-map"),myOptions);
+			        var map = new google.maps.Map(document.getElementById("mini-map"),mapOptions);
 			        var geomarker = new google.maps.Marker({ map: map, position: place });  
 					map.mapTypes.set('map_style', styledMap);
 					map.setMapTypeId('map_style');
