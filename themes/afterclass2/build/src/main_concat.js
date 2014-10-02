@@ -888,39 +888,39 @@ var styles = [
 	    ]
 	  }
 ];
+
+
 if ( $("#truncontent").css("z-index") == 4){
-	$("#truncontent > p").each(function (index) {
-		if (index > 0) {
-			$(this).hide();
-		}
-	});
 	$("#truncswitch").css("display", "block");
-	$("#truncswitch").on("click", function() {
-		//if (flipper % 2 == 0) {
-		$("#truncontent > p").each(function (index) {
-			$(this).show();
-		});
-		$("#truncswitch").hide();
-	});	
+	var graphs = $('#truncontent').children('p');
+	graphs.each(function(index) {
+		if (index > 1) {
+			$(this).hide();
+		}		
+	});
 	
-	$(window).resize(function() {
-		if ( $("#truncontent").css("z-index") < 4){
-			$("#truncontent > p").each(function (index) {
-				if (index > 0) {
-				$(this).show();
-				}
+	var show = 0
+		
+	$("#truncswitch").click(function() {	
+		if (show == 0) {
+			graphs.each(function() {
+				$(this).show();	
 			});
-			$("#truncswitch").hide();
-		} else if ($("#truncontent").css("z-index") == 4) {
-			$("#truncontent > p").each(function (index) {
-				if (index > 0) {
-				$(this).hide();
-				}
-			});
-			$("#truncswitch").show();
+			$("#truncswitch").html("Read less -");
+			show = 1;
+		} else {
+			graphs.each(function(index) {
+				if (index > 1) {
+					$(this).hide();
+				}		
+			});	
+			$("#truncswitch").html("Read More +");
+			show = 0;
 		}
 	});	
 }
+
+
 jQuery(document).ready(function($) {
 
     $("#page_navigation .secondary-nav").hide();

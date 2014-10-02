@@ -28,6 +28,8 @@
 							$Content
 							<a id="truncswitch" class="button">Read More +</a>
 						</div>
+
+
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
 								<% if $MoreInfoLink %>
