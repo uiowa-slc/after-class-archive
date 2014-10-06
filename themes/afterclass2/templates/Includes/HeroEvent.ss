@@ -22,18 +22,20 @@
 									</div><!-- end hero-event-when -->
 									
 									<div class="hero-event-where">
-										<% if $Venue || $LocalistLink %>
+				
 											<p class="venues">
-											<% if $Venue %>
-												<% with Venue %>
-												<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
-												 <a href="$Link" class="button tag">@ <span itemprop="name">$Title</span></a>
-												</span>
+											<p><% if $Location %>{$Location} <% end_if %>
+											<% if $Venue.Title %>
+												<% with $Venue %>
+													<% if $Link %>@ <a href="$Link" class="button tag">$Title</a>
+													<% else %>
+														@ $Title 
+													<% end_if %>
 												<% end_with %>
 											<% end_if %>
+
 												<a href="$Link" class="button" target="_blank">Event Details</a>
 											</p>
-										<% end_if %>
 									</div><!-- end hero-event-where -->
 		
 								</div><!-- end hero-event-specifics -->

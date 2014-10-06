@@ -75,7 +75,7 @@
 					<% if $Venue.Title %>
 						<% if not $Location %><p><% end_if %>
 							<% with $Venue %>
-									<% if $Link %><a href="$Link" class="button tag">@ $Title</a>
+									<% if $Link %>@ <a href="$Link" class="button tag">$Title</a>
 									<% else %>
 										@ $Title 
 									<% end_if %>
