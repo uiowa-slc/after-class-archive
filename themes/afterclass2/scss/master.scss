@@ -6,7 +6,10 @@
 @import "imports/_helpers";
 @import "imports/_print";
 @import "imports/_font";
-@import "imports/_flex";
+
+/* Slick Slider and overrides */
+@import "../bower_components/slick-carousel/slick/slick";
+@import "imports/slick";
 
 /* Global Layout Styles */
 @import "layout/_layout";
