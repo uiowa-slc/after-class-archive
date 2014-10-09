@@ -33,7 +33,7 @@
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
 								<% if $MoreInfoLink %>
-									<a href="$MoreInfoLink" class="button" target="_blank">View More Info on Event's Website</a>		
+									<a href="$MoreInfoLink" class="button" target="_blank">Event Website</a>		
 								<% end_if %>
 								<% if $LocalistLink %>
 									<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
