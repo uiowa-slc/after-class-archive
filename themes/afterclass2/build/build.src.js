@@ -3212,7 +3212,7 @@ function addEventInfo( marker, venue ) {
 		// sets maximum number of events per bubble to eventLimit
 		if (index >= eventLimit) {
 			
-			var seeMoreEvents = '<a href = "#' + venue.id + 'class ="button" > See More Events at: ' + venueName + '</a>';
+			var seeMoreEvents = '<a href="' + venueLink + '"class ="button" > See More Events at: ' + venueName + '</a>';
 			eventsHere.push(seeMoreEvents);
 
 			return false;
