@@ -32,10 +32,12 @@ module.exports = function(grunt) {
         'event_calendar/javascript/calendar_widget.js',
         'event_calendar/javascript/lang/calendar_en.js',
         'event_calendar/javascript/calendar_widget_init.js',
+        '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
+        '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
         '<%=globalConfig.themeDir %>/js/vendor/**/*.js',
         '<%=globalConfig.themeDir %>/js/vendor/*.js',
         '<%=globalConfig.themeDir %>/js/*.js'],
-        dest: '<%=globalConfig.themeDir %>/build/src/main_concat.js'
+        dest: '<%=globalConfig.themeDir %>/build/build.src.js'
       }
     },
 
@@ -48,7 +50,7 @@ module.exports = function(grunt) {
       },
       my_target:{
         files:{
-        '<%=globalConfig.themeDir %>/build/build.js': ['<%=globalConfig.themeDir %>/build/src/main_concat.js'],
+        '<%=globalConfig.themeDir %>/build/build.js': ['<%=globalConfig.themeDir %>/build/build.src.js'],
         }
       }
     },

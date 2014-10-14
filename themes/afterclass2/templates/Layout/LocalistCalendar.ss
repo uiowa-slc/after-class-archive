@@ -3,14 +3,12 @@
 
 <% if $action == "index" %>
 	<% if $FeaturedEvents %>
-		<div class="flexslider">
-			<div class="slides">
-				<% loop $FeaturedEvents.Limit(3) %>
-					<div class="slide">
-						<% include HeroEvent %>	
-					</div>
-				<% end_loop %><!-- end control FeaturedEvents.First -->
-			</div>
+		<div class="slider">
+			<% loop $FeaturedEvents.Limit(3) %>
+				<div class="slide">
+					<% include HeroEvent %>	
+				</div>
+			<% end_loop %><!-- end control FeaturedEvents.First -->
 		</div>
 	<% else %>
 		<% loop $EventList.First %>

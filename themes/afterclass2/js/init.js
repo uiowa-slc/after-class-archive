@@ -4,12 +4,9 @@ jQuery(document).ready(function($) {
     // $("#calendar-expand").inner
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);
-    $('.flexslider').flexslider({
-        selector: ".slides > .slide",
-        touch: false,
-        animation: "slide",
-        controlNav: true,
-        directionNav: false,
+    $('.slider').slick({
+        dots: true,
+        arrows: false
     });
 
     $("#calendar-expand").click(function() {

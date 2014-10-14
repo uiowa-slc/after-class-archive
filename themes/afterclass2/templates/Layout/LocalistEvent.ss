@@ -33,7 +33,7 @@
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
 								<% if $MoreInfoLink %>
-									<a href="$MoreInfoLink" class="button" target="_blank">View More Info on Event's Website</a>		
+									<a href="$MoreInfoLink" class="button" target="_blank">Event Website</a>		
 								<% end_if %>
 								<% if $LocalistLink %>
 									<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
@@ -71,9 +71,8 @@
 		<% if $Venue.Title || $Location %>
 			<div id="detail_event_description_map">	
 				<div class="location-info">
-					<% if $Location %><p>{$Location}<% end_if %>
+					<p><% if $Location %>{$Location} <% end_if %>
 					<% if $Venue.Title %>
-						<% if not $Location %><p><% end_if %>
 							<% with $Venue %>
 									<% if $Link %>@ <a href="$Link" class="button tag">$Title</a>
 									<% else %>
@@ -83,7 +82,8 @@
 							<div class="clear"></div>								
 							<% if $Address %>
 								<div class="map-container">
-									<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div></div>
+									<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
+								</div>
 							<% end_if %>
 							<p class="venue-nav">
 							<% if $Address %>
