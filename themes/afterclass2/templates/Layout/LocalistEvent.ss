@@ -13,7 +13,23 @@
 						
 				<div class="hero-event-details">
 					<div class="hero-event-text">
-						<p><% include HeroDateTimes %></p>
+						<p>
+							<% include HeroDateTimes %>
+						</p>
+						<p>
+							<% if $Venue.Title || $Location %>
+								<% if $Location %><strong> In </strong> {$Location} <% end_if %>
+								<% if $Venue.Title %>
+									<% with $Venue %>
+										<% if $Link %>
+											@ <a href="$Link" class="button tag">$Title</a>
+										<% else %>
+											@ $Title 
+										<% end_if %>
+									<% end_with %>
+								<% end_if %>
+							<% end_if %>
+						</p>
 						<% if $Cost %>
 		            		<p><strong>Price:</strong> $Cost</p>
 		            	<% end_if %>
@@ -23,7 +39,7 @@
 						<% if $FacebookEventLink %>
 							<p><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
 						<% end_if %>
-						
+						<hr>
 						<div id="truncontent">
 							$Content
 							<a id="truncswitch" class="button">Read More +</a>
