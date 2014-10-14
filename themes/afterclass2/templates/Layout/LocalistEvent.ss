@@ -2,15 +2,15 @@
 <div class="row main-content">
 	<div class="hero-event-image-container hide-for-medium-up" style="background-image: url('$Image.URL')"></div>
 	<div class="medium-8 columns" id="left-column">
-		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">	
+		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">
 
 			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('$Image.URL')">
 				<div class="clear"></div>
-			</div><!-- end hero-event-image-container -->	
+			</div><!-- end hero-event-image-container -->
 
 			<div class="hero-event-content">
-				<h1><span itemprop="summary">$Title</span></h1>	
-						
+				<h1><span itemprop="summary">$Title</span></h1>
+
 				<div class="hero-event-details">
 					<div class="hero-event-text">
 						<p>
@@ -18,13 +18,13 @@
 						</p>
 						<p>
 							<% if $Venue.Title || $Location %>
-								<% if $Location %><strong> In </strong> {$Location} <% end_if %>
+								<% if $Location %><strong>Location: </strong> {$Location} <% end_if %>
 								<% if $Venue.Title %>
 									<% with $Venue %>
 										<% if $Link %>
 											@ <a href="$Link" class="button tag">$Title</a>
 										<% else %>
-											@ $Title 
+											@ $Title
 										<% end_if %>
 									<% end_with %>
 								<% end_if %>
@@ -49,7 +49,7 @@
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
 								<% if $MoreInfoLink %>
-									<a href="$MoreInfoLink" class="button" target="_blank">Event Website</a>		
+									<a href="$MoreInfoLink" class="button" target="_blank">Event Website</a>
 								<% end_if %>
 								<% if $LocalistLink %>
 									<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
@@ -58,7 +58,7 @@
 						<% end_if %>
 						<% include AddThis %>
 					</div><!-- end hero-event-text-->
-					
+
 					<div class="hero-event-when">
 					<% if $Dates.Count > 1 %>
 						<h2>All Dates</h2>
@@ -71,8 +71,8 @@
 							</ul>
 					<% end_if %>
 					</div><!-- end hero-event-when -->
-					
-					
+
+
 				</div><!-- end hero-event-details -->
 				<% if $RelatedEvents %>
 				<hr />
@@ -85,17 +85,17 @@
 
 	<div class="medium-4 columns sidebar-sticky-content">
 		<% if $Venue.Title || $Location %>
-			<div id="detail_event_description_map">	
+			<div id="detail_event_description_map">
 				<div class="location-info">
 					<p><% if $Location %>{$Location} <% end_if %>
 					<% if $Venue.Title %>
 							<% with $Venue %>
 									<% if $Link %>@ <a href="$Link" class="button tag">$Title</a>
 									<% else %>
-										@ $Title 
+										@ $Title
 									<% end_if %>
 								</p>
-							<div class="clear"></div>								
+							<div class="clear"></div>
 							<% if $Address %>
 								<div class="map-container">
 									<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
