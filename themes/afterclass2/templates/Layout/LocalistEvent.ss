@@ -16,9 +16,9 @@
 						<p>
 							<% include HeroDateTimes %>
 						</p>
-						<p>
+						<p> <strong> Location: </strong>
 							<% if $Venue.Title || $Location %>
-								<% if $Location %><strong> In </strong> {$Location} <% end_if %>
+								<% if $Location %> {$Location} <% end_if %>
 								<% if $Venue.Title %>
 									<% with $Venue %>
 										<% if $Link %>
