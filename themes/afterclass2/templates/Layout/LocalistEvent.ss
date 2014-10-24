@@ -1,18 +1,18 @@
 
 <div class="row main-content">
-	<div class="hero-event-image-container hide-for-medium-up" style="background-image: url('$Image.URL')"></div>
+	<div class="single-event-image-container hide-for-medium-up" style="background-image: url('$Image.URL')"></div>
 	<div class="medium-8 columns" id="left-column">
-		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">
+		<div class="single-event single" itemscope itemtype="http://data-vocabulary.org/Event">
 
-			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('$Image.URL')">
+			<div class="single-event-image-container show-for-medium-up" style="background-image: url('$Image.URL')">
 				<div class="clear"></div>
-			</div><!-- end hero-event-image-container -->
+			</div><!-- end single-event-image-container -->
 
-			<div class="hero-event-content">
+			<div class="single-event-content">
 				<h1><span itemprop="summary">$Title</span></h1>
 
-				<div class="hero-event-details">
-					<div class="hero-event-text">
+				<div class="single-event-details">
+					<div class="single-event-text">
 						<p>
 							<% include HeroDateTimes %>
 						</p>
@@ -57,9 +57,9 @@
 							</p>
 						<% end_if %>
 						<% include AddThis %>
-					</div><!-- end hero-event-text-->
+					</div><!-- end single-event-text-->
 
-					<div class="hero-event-when">
+					<div class="single-event-when">
 					<% if $Dates.Count > 1 %>
 						<h2>All Dates</h2>
 							<ul>
@@ -70,16 +70,16 @@
 							<% end_loop %>
 							</ul>
 					<% end_if %>
-					</div><!-- end hero-event-when -->
+					</div><!-- end single-event-when -->
 
 
-				</div><!-- end hero-event-details -->
+				</div><!-- end single-event-details -->
 				<% if $RelatedEvents %>
 				<hr />
 					<% include RelatedEvents %>
 				<% end_if %>
-			</div><!-- end hero-event-content-->
-		</div><!-- end hero-event -->
+			</div><!-- end single-event-content-->
+		</div><!-- end single-event -->
 
 	</div><!-- end medium-8 columns -->
 

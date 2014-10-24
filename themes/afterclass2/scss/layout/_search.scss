@@ -4,7 +4,7 @@
     /*margin-left: 15px;*/
 }
 
-#Search input {
+#Search input[type="search"] {
     background: #333;
 }
 
@@ -35,16 +35,16 @@
 
 /* Search that's in the page nav */
 #page_navigation #Search {
-    margin: 0
+    margin: 0;
 }
-#page_navigation #Search input {
-    background: none;
-    box-shadow: none;
-    margin:0;
-    margin-top: 2px;
+#page_navigation #Search input[type="search"] {
+    background: none !important;
+    box-shadow: none !important;
+    margin:0 !important;
+    margin-top: 2px !important;
 }
 
-#page_navigation #Search input:focus {
+#page_navigation #Search input[type="search"]:focus {
     
 }
 

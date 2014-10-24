@@ -1,5 +1,14 @@
-/* Grid and Flex Slider */
-@import "imports/_foundation-grid-utils";
+/* Foundation */
+
+@import "imports/settings";
+
+/* import foundation components
+-------------------------------------------*/
+
+@import "foundation/components/grid";
+@import "foundation/components/block-grid";
+@import "foundation/components/visibility";
+
 
 /* Basic Stuff */
 @import "imports/_boilerplate";
@@ -21,7 +30,7 @@
 @import "layout/_calendar-widget";
 @import "layout/_category";
 @import "layout/_event-card";
-@import "layout/_event";
+@import "layout/_single-event";
 @import "layout/_footer";
 @import "layout/_form";
 @import "layout/_header";

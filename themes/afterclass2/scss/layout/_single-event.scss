@@ -1,0 +1,250 @@
+.single-event {
+    color: #DDD7D8;
+}
+
+.single-event hr {
+    border-top: 1px solid #3C3B3B;
+    color: #0E0E0E;
+    height: 2px;
+}
+
+.single-event img {
+    width: 100%;
+}
+
+.single-event img.featured-logo {
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: -30px;
+}
+
+.home-feature-share #share-area {
+    width: 240px;
+    float: right;
+    margin: 10px;
+}
+
+.single-event-content {
+    color: #ebe5e6;
+    position: relative;
+}
+
+.single-event-text .event_categories {
+    padding: 10px;
+}
+
+.single-event-content p {
+    margin: 10px 0;
+}
+
+.single-event-details img {
+    max-width: 100%;
+}
+
+.single-event img {
+    border-top: none;
+}
+
+.single-event strong {
+    color: #e5b9e5;
+}
+
+.single-event h1 {
+    margin: 0.3em 0;
+    padding: 0px;
+    color: #95d5f0;
+    font-size: 1.2em;
+}
+
+.single-event h1 a {
+    font-size: 1.2em;
+    color: #95D5F0;
+}
+
+.single-event h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+    color: #E6D9B1;
+}
+
+.single-event-specifics {
+    margin: 10px 0;
+}
+
+.single-event-when p {
+    display: none;
+}
+
+.single-event-when p.first {
+    display: block;
+}
+
+.single-event-content a.more-event-info {
+    color: white;
+    font-weight: normal;
+    display: none;
+}
+
+.single-event-image-container {
+    overflow: hidden;
+    background-size: cover;
+    height: 250px;
+    background-position: 50% 35%;
+
+    a{
+        display: block;
+        height: 100%;
+    }
+
+    @media only screen and (min-width: 715px) {
+        height: 282px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        height: 523px;
+
+    }
+
+}
+
+.single-event #share-area {
+    float: left;
+    margin: 0;
+}
+
+.homefeatureitem .event_text a:hover {
+    color: #dbb700;
+}
+
+.feature-background-wrapper {
+    background-position: bottom;
+    background-repeat: none;
+}
+
+@media only screen and (min-width: 480px) {
+    .single-event.homepage .single-event-text {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .single-event {
+        padding: 0;
+    }
+    .single-event h1 {
+        font-size: 2em;
+        margin-top: -1em;
+        a,span{
+            background-color: #1D1D1C;
+            padding-right: 0.1em;
+        }
+    }
+    .single-event.single h1 {
+        font-size: 3em;
+        margin-top: -1em;
+    }
+    .single-event-image-container img {
+        width: 100%;
+    }
+    .single-event-content {
+        position: relative;
+        padding-right: 10px;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .single-event h1 {
+        margin-top: -1.5em;
+    }
+    .single-event h1 a {
+        font-size: 1.4em;
+    }
+    .single-event-content a.more-event-info {
+        display: block;
+    }
+    .single-event-when p {
+        display: block;
+    }
+}
+
+#detail_event_description {
+    min-height: 450px;
+    padding: 2%;
+}
+
+#detail_event_description a { color: #bfa7c5 }
+#detail_event_description a:hover { color: #e7d3ec }
+#detail_event_description h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+#detail_event_description p {
+    font-size: 1em;
+    font-family: "Open Sans", sans;
+}
+#detail_event_description img {
+    margin: 0 30px 20px 30px;
+    border: 1px solid #555555;
+}
+
+#detail_event_description_map {
+    margin-top: 10px;
+}
+
+.location-info p, .location-info h2{
+    margin: 5px 0;
+
+}
+
+.location-info.tag {
+	
+}
+
+.location-info .map-container{
+    height: 300px;
+}
+
+#map_canvas {
+    width: 100%;
+    border: 1px solid #444
+}
+
+
+#truncontent  {
+	position: relative;
+	z-index: 1;
+}
+
+#truncswitch.button {
+	background: #333;
+}
+
+@media only screen and (max-width : 480px) {
+	
+	#truncontent {
+		z-index: 4;
+		position: relative;
+		//4 for mobile (3 for tablet, 2 for small desktop, 1 for default)
+	}
+	
+}
+
+@media only screen and (min-width : 481px) {
+
+	#truncontent > p {
+		display: block;
+	}
+	
+}
+
+#truncswitch {
+	display: none;
+}
+
+.sponsors {
+	font-size: 1.3em;
+}

@@ -15,6 +15,7 @@
     font-weight: normal;
     font-size: 2.2em;
     border-bottom: 2px solid #21d0e8;
+    margin-top: 0;
     margin-bottom: 0.5em;
     color: #9cdfe8;
     text-align: left;
@@ -176,6 +177,7 @@ a.event-header-category {
     height: 222px;
     background-position-x: 50%;
     background-position-y: 50%;
+    background-repeat: no-repeat;
 }
 
 .event-card-image img {

@@ -1,21 +1,23 @@
+	<div class="marquee">
+	<% if $action == "index" %>
+		<% if $FeaturedEvents %>
+			<div class="slider">
+				<% loop $FeaturedEvents.Limit(6) %>
+					<div class="slide">
+						<% include HeroEvent %>
+					</div>
+				<% end_loop %><!-- end control FeaturedEvents.First -->
+			</div>
+		<% else %>
+			<% loop $EventList.First %>
+				<% include HeroEvent %>
+			<% end_loop %>
+		<% end_if %> <!-- end if featured events -->
+	<% end_if %>
+	</div>
 <div class="row main-content">
-<div id="left-column" class="medium-8 columns">
 
-<% if $action == "index" %>
-	<% if $FeaturedEvents %>
-		<div class="slider">
-			<% loop $FeaturedEvents.Limit(3) %>
-				<div class="slide">
-					<% include HeroEvent %>	
-				</div>
-			<% end_loop %><!-- end control FeaturedEvents.First -->
-		</div>
-	<% else %>
-		<% loop $EventList.First %>
-			<% include HeroEvent %>
-		<% end_loop %>
-	<% end_if %> <!-- end if featured events -->
-<% end_if %>
+<div id="left-column" class="medium-8 columns">
 
 <% if $action != "index" %>
 	<h1 class="date-header">$FilterHeader</h1>

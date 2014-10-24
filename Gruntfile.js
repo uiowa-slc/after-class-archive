@@ -19,6 +19,7 @@ module.exports = function(grunt) {
         options: {              // Target options
           style: 'compressed',
           sourcemap: 'true',
+          loadPath: '<%=globalConfig.themeDir %>/bower_components/foundation/scss/'
         }
       }
     },

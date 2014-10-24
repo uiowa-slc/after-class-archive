@@ -3039,9 +3039,15 @@ jQuery(document).ready(function($) {
     // $("#calendar-expand").inner
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);
+    $('.slider').show();
     $('.slider').slick({
-        dots: true,
-        arrows: false
+        centerMode: true,
+        dots: false,
+        arrows: true,
+        slidesToShow: 6,
+        autoplay: true,
+        speed: 1500,
+        centerPadding: '10px',
     });
 
     $("#calendar-expand").click(function() {

@@ -1,72 +1,98 @@
+.marquee{
+    margin: auto;
+}
+.slider{
+    display: none;
+}
 .hero-event {
     color: #DDD7D8;
+
+    h1 {
+        margin: 0.5em 0;
+        padding: 0px;
+        
+        font-size: 1.2em;
+        a {
+            font-size: 1.2em;
+            color: white;
+            background: #1C1B1B;
+        }
+    }
+    h2 {
+        font-size: 2em;
+        margin: 0.5em 0;
+        color: #E6D9B1;
+    }
+    strong {
+        color: #e5b9e5;
+    }
+    hr {
+        border-top: 1px solid #3C3B3B;
+        color: #0E0E0E;
+        height: 2px;
+    }
+
+    img {
+        width: 100%;
+        border-top: none;
+    }
+    img.featured-logo {
+        border: none;
+        position: absolute;
+        top: 10px;
+        left: -30px;
+    }
+
+    .hero-event-content {
+        color: #ebe5e6;
+        position: relative;
+        margin-top: -50px;
+        text-shadow: 0 0 10px #333;
+    }
+
+    @media only screen and (min-width: 480px) {
+
+    }
+    @media only screen and (min-width: 768px) {
+        padding: 10px 5px;
+        padding-bottom: 0;
+        h1 {
+            margin: 1em 0;
+            font-size: 1em;
+            text-align: center;
+            a,span{
+                //background-color: rgba(#1D1D1C, 0.3);
+                padding-right: 0.1em;
+            }
+        }
+
+    }
+
+    .hero-event-image-container {
+        overflow: hidden;
+        background-size: cover;
+        height: 200px;
+        background-position: 50% 35%;
+        -webkit-box-shadow: inset -16px 10px 26px -15px rgba(0,0,0,0.9);
+        -moz-box-shadow: inset -16px 10px 26px -15px rgba(0,0,0,0.9);
+        box-shadow: inset -16px 10px 26px -15px rgba(0,0,0,0.9);
+        a{
+            display: block;
+            height: 100%;
+        }
+
+        @media #{$large-up} {
+            height: 325px;
+        }
+        @media #{$xxlarge-up} {
+            height: 350px;
+        }
+    }
+
+
 }
 
-.hero-event hr {
-    border-top: 1px solid #3C3B3B;
-    color: #0E0E0E;
-    height: 2px;
-}
-
-.hero-event img {
-    width: 100%;
-}
-
-.hero-event img.featured-logo {
-    border: none;
-    position: absolute;
-    top: 10px;
-    left: -30px;
-}
-
-.home-feature-share #share-area {
-    width: 240px;
-    float: right;
-    margin: 10px;
-}
-
-.hero-event-content {
-    color: #ebe5e6;
-    position: relative;
-}
-
-.hero-event-text .event_categories {
-    padding: 10px;
-}
-
-.hero-event-content p {
-    margin: 10px 0;
-}
-
-.hero-event-details img {
-    max-width: 100%;
-}
-
-.hero-event img {
-    border-top: none;
-}
-
-.hero-event strong {
-    color: #e5b9e5;
-}
-
-.hero-event h1 {
-    margin: 0.3em 0;
-    padding: 0px;
-    color: #95d5f0;
-    font-size: 1.2em;
-}
-
-.hero-event h1 a {
-    font-size: 1.2em;
-    color: #95D5F0;
-}
-
-.hero-event h2 {
-    font-size: 2em;
-    margin: 0.5em 0;
-    color: #E6D9B1;
-}
+/* Old Stuff to delete :
 
 .hero-event-specifics {
     margin: 10px 0;
@@ -85,29 +111,6 @@
     font-weight: normal;
     display: none;
 }
-
-.hero-event-image-container {
-    overflow: hidden;
-    background-size: cover;
-    height: 250px;
-    background-position: 50% 35%;
-
-    a{
-        display: block;
-        height: 100%;
-    }
-
-    @media only screen and (min-width: 715px) {
-        height: 282px;
-    }
-
-    @media only screen and (min-width: 768px) {
-        height: 523px;
-
-    }
-
-}
-
 .hero-event #share-area {
     float: left;
     margin: 0;
@@ -116,47 +119,22 @@
 .homefeatureitem .event_text a:hover {
     color: #dbb700;
 }
+*/
 
-.feature-background-wrapper {
-    background-position: bottom;
-    background-repeat: none;
-}
+
+
 
 @media only screen and (min-width: 480px) {
     .hero-event.homepage .hero-event-text {
-        display: none;
+        //display: none;
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .hero-event {
-        padding: 0;
-    }
-    .hero-event h1 {
-        font-size: 2em;
-        margin-top: -1em;
-        a,span{
-            background-color: #1D1D1C;
-            padding-right: 0.1em;
-        }
-    }
-    .hero-event.single h1 {
-        font-size: 3em;
-        margin-top: -1em;
-    }
-    .hero-event-image-container img {
-        width: 100%;
-    }
-    .hero-event-content {
-        position: relative;
-        padding-right: 10px;
-    }
+
 }
 
 @media only screen and (min-width: 960px) {
-    .hero-event h1 {
-        margin-top: -1.5em;
-    }
     .hero-event h1 a {
         font-size: 1.4em;
     }
