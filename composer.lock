@@ -1,7 +1,8 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
     "hash": "7f8ea1550b21a9be68cfa816fb8c6c38",
     "packages": [
@@ -103,12 +104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "7b5eb5f4658eb0f5b2d0e98413af2956d5d4e903"
+                "reference": "9b4ad63163bf93125690d03614a9e825526e96f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/7b5eb5f4658eb0f5b2d0e98413af2956d5d4e903",
-                "reference": "7b5eb5f4658eb0f5b2d0e98413af2956d5d4e903",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/9b4ad63163bf93125690d03614a9e825526e96f7",
+                "reference": "9b4ad63163bf93125690d03614a9e825526e96f7",
                 "shasum": ""
             },
             "require": {
@@ -127,7 +128,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-10-17 20:05:20"
+            "time": "2014-10-19 06:19:38"
         },
         {
             "name": "md/division-bar",
@@ -135,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "40b10008641a727d6ad05c2005e17a7b50e07393"
+                "reference": "586402c87fac3b917fe8593560e88dcdcbe84e8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/40b10008641a727d6ad05c2005e17a7b50e07393",
-                "reference": "40b10008641a727d6ad05c2005e17a7b50e07393",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/586402c87fac3b917fe8593560e88dcdcbe84e8c",
+                "reference": "586402c87fac3b917fe8593560e88dcdcbe84e8c",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +160,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2014-06-18 14:30:05"
+            "time": "2014-10-20 19:41:10"
         },
         {
             "name": "md/event-calendar",
@@ -611,6 +612,7 @@
         "rywa/silverstripe-foundation-forms": 20,
         "md/ac-json-events": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.3.2"
     },
