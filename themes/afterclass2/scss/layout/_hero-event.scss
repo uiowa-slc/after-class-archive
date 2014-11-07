@@ -15,7 +15,7 @@
         a {
             font-size: 1.2em;
             color: white;
-            background: #1C1B1B;
+            //background: rgba(28, 27, 27, 0.21);
         }
     }
     h2 {
@@ -46,8 +46,21 @@
     .hero-event-content {
         color: #ebe5e6;
         position: relative;
-        margin-top: -50px;
+
         text-shadow: 0 0 10px #333;
+
+        @media #{$large-up} {
+            margin-top: -200px;
+            margin-bottom: 100px;
+
+            h1 small{
+                color: #888;
+                font-size: 0.7em;
+            }
+        }
+
+
+
     }
 
     @media only screen and (min-width: 480px) {

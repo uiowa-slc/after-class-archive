@@ -1,20 +1,20 @@
-	<div class="marquee">
-	<% if $action == "index" %>
-		<% if $FeaturedEvents %>
-			<div class="slider">
-				<% loop $FeaturedEvents.Limit(6) %>
-					<div class="slide">
-						<% include HeroEvent %>
-					</div>
-				<% end_loop %><!-- end control FeaturedEvents.First -->
-			</div>
-		<% else %>
-			<% loop $EventList.First %>
-				<% include HeroEvent %>
-			<% end_loop %>
-		<% end_if %> <!-- end if featured events -->
-	<% end_if %>
-	</div>
+<div class="marquee">
+<% if $action == "index" %>
+	<% if $FeaturedEvents %>
+		<div class="slider">
+			<% loop $EventList %>
+				<div class="slide">
+					<% include HeroEvent %>
+				</div>
+			<% end_loop %><!-- end control FeaturedEvents.First -->
+		</div>
+	<% else %>
+		<% loop $EventList.First %>
+			<% include HeroEvent %>
+		<% end_loop %>
+	<% end_if %> <!-- end if featured events -->
+<% end_if %>
+</div>
 <div class="row main-content">
 
 <div id="left-column" class="medium-8 columns">

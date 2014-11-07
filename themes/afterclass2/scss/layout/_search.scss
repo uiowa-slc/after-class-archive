@@ -1,11 +1,12 @@
 #SearchForm_SearchForm_action_results { display: none }
 #Search {
-    margin-top: 5px;
+    
     /*margin-left: 15px;*/
 }
 
-#Search input[type="search"] {
-    background: #333;
+#Search input {
+    -webkit-appearance: none;
+    background: #716B70;
 }
 
 #SearchForm_SearchForm_Search {
@@ -37,14 +38,14 @@
 #page_navigation #Search {
     margin: 0;
 }
-#page_navigation #Search input[type="search"] {
-    background: none !important;
-    box-shadow: none !important;
-    margin:0 !important;
-    margin-top: 2px !important;
+#page_navigation #Search input {
+    background: #716B70;
+    box-shadow: none;
+    margin:0;
+    margin-top: 8px;
 }
 
-#page_navigation #Search input[type="search"]:focus {
+#page_navigation #Search input:focus {
     
 }
 

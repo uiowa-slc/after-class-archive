@@ -4,7 +4,26 @@
 			<div class="clear"></div>
 		</div>
 		<div class="hero-event-content">
-			<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title</span></a></h1>
+			<h1><a href="$Link" itemprop="url"><span itemprop="summary">$Title <br />
+			<small><% loop $Dates.Limit(1) %>
+		<% with $StartDateTime %>
+			<a href="$Up.Link" class="date-link">
+				<time itemprop="startDate" datetime="$Format(c)">
+					$Format(D) $Format(M) $Format(j)
+				</time>
+			</a>
+		<% end_with %>
+		<% if $EndDate %>
+			-
+			<% with $EndDate %>
+				<time itemprop="endDate" datetime="$Format(c)">
+					$Format(D) $Format(M) $Format(j)
+				</time>
+			<% end_with %>
+		<% end_if %>
+		</small>
+
+	<% end_loop %></span></a></h1>
 			<%--<div class="clear"></div>
 			<div class="hero-event-details">
 				<div class="hero-event-essential-text">						       

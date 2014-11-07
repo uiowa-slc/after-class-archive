@@ -3040,14 +3040,33 @@ jQuery(document).ready(function($) {
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);
     $('.slider').show();
+
     $('.slider').slick({
-        centerMode: true,
+        centerMode: false,
         dots: false,
         arrows: true,
-        slidesToShow: 6,
+        slidesToShow: 3,
         autoplay: true,
         speed: 1500,
         centerPadding: '10px',
+
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+
     });
 
     $("#calendar-expand").click(function() {
