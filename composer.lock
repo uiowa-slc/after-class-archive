@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "09e2192a7cd08008e273355fddd38942d8de2992"
+                "reference": "8024be9aa3ee446272937f46a8807fa52b337767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/09e2192a7cd08008e273355fddd38942d8de2992",
-                "reference": "09e2192a7cd08008e273355fddd38942d8de2992",
+                "url": "https://api.github.com/repos/composer/installers/zipball/8024be9aa3ee446272937f46a8807fa52b337767",
+                "reference": "8024be9aa3ee446272937f46a8807fa52b337767",
                 "shasum": ""
             },
             "replace": {
@@ -96,7 +96,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-10-15 03:40:33"
+            "time": "2014-11-01 17:51:50"
         },
         {
             "name": "md/ac-json-events",
@@ -104,12 +104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "9b4ad63163bf93125690d03614a9e825526e96f7"
+                "reference": "05313a3eb585dd32d5530438a3173acc5dbd980c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/9b4ad63163bf93125690d03614a9e825526e96f7",
-                "reference": "9b4ad63163bf93125690d03614a9e825526e96f7",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/05313a3eb585dd32d5530438a3173acc5dbd980c",
+                "reference": "05313a3eb585dd32d5530438a3173acc5dbd980c",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-10-19 06:19:38"
+            "time": "2014-11-10 19:01:47"
         },
         {
             "name": "md/division-bar",
@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "586402c87fac3b917fe8593560e88dcdcbe84e8c"
+                "reference": "3f07eea2e1a31bf61e2d28f62e6d8c84232f724b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/586402c87fac3b917fe8593560e88dcdcbe84e8c",
-                "reference": "586402c87fac3b917fe8593560e88dcdcbe84e8c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/3f07eea2e1a31bf61e2d28f62e6d8c84232f724b",
+                "reference": "3f07eea2e1a31bf61e2d28f62e6d8c84232f724b",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2014-10-20 19:41:10"
+            "time": "2014-10-31 17:52:50"
         },
         {
             "name": "md/event-calendar",
@@ -418,12 +418,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-mathspamprotection.git",
-                "reference": "bd581c7f7c1bfa0c83096a69d7cc0de27673f20f"
+                "reference": "ae63604f08100435b11406741c08f4970a686fbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/bd581c7f7c1bfa0c83096a69d7cc0de27673f20f",
-                "reference": "bd581c7f7c1bfa0c83096a69d7cc0de27673f20f",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/ae63604f08100435b11406741c08f4970a686fbf",
+                "reference": "ae63604f08100435b11406741c08f4970a686fbf",
                 "shasum": ""
             },
             "require": {
@@ -434,8 +434,7 @@
             "authors": [
                 {
                     "name": "Will Rossiter",
-                    "email": "will@fullscreen.io",
-                    "homepage": "http://wilr.github.com"
+                    "email": "will@fullscreen.io"
                 }
             ],
             "description": "This module provides a simple math protection mechanism for prevent spam from your forms.Includes an EditableMathSpamField to integrate with the UserForms module.",
@@ -444,7 +443,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-06-11 00:32:12"
+            "time": "2014-11-05 02:52:42"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -526,12 +525,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "fcba06c1664e4c2ae5c7e2998719af92d5b0b63d"
+                "reference": "8303f27c39ac4fb5b7f9d11b19068d436d887244"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/fcba06c1664e4c2ae5c7e2998719af92d5b0b63d",
-                "reference": "fcba06c1664e4c2ae5c7e2998719af92d5b0b63d",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/8303f27c39ac4fb5b7f9d11b19068d436d887244",
+                "reference": "8303f27c39ac4fb5b7f9d11b19068d436d887244",
                 "shasum": ""
             },
             "require": {
@@ -562,7 +561,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2014-08-25 06:42:29"
+            "time": "2014-10-28 02:25:58"
         },
         {
             "name": "unclecheese/betterbuttons",
