@@ -3044,7 +3044,7 @@ jQuery(document).ready(function($) {
     $('.slider').slick({
         centerMode: false,
         dots: false,
-        arrows: true,
+        arrows: false,
         slidesToShow: 3,
         autoplay: true,
         speed: 1500,
@@ -3062,7 +3062,8 @@ jQuery(document).ready(function($) {
               breakpoint: 480,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                dots: false
               }
             }
           ]
