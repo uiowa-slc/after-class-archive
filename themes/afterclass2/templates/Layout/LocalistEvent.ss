@@ -15,9 +15,9 @@
 					<div class="single-event-text">
 						<p>
 							<% include HeroDateTimes %>
-						</p>
-						<p>
+							<% if $Dates.Count > 1 %><a href="#all-dates" class="button">More Dates</a><% end_if %>
 							<% if $Venue.Title || $Location %>
+							<br />
 								<% if $Location %><strong>Location: </strong> {$Location} <% end_if %>
 								<% if $Venue.Title %>
 									<% with $Venue %>
@@ -29,22 +29,24 @@
 									<% end_with %>
 								<% end_if %>
 							<% end_if %>
-						</p>
+					
 						<% if $Cost %>
-		            		<p><strong>Price:</strong> $Cost</p>
+		            		<br /><strong>Price:</strong> $Cost
 		            	<% end_if %>
 					    <% if $CancelReason %>
-							<p><strong>Note: $CancelReason</strong></p>
+							<br /><strong>Note: $CancelReason</strong>
 						<% end_if %>
 						<% if $FacebookEventLink %>
-							<p><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
+							<br /><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a>
 						<% end_if %>
+						</p>
 						<hr>
-						<div id="truncontent">
+						<div class="row">
+						<div id="truncontent" class="large-10 end">
 							$Content
 							<a id="truncswitch" class="button">Read More +</a>
 						</div>
-
+						</div>
 
 						<% if $MoreInfoLink || $LocalistLink %>
 							<p>
@@ -61,7 +63,7 @@
 
 					<div class="single-event-when">
 					<% if $Dates.Count > 1 %>
-						<h2>All Dates</h2>
+						<h2 id="all-dates">All Dates</h2>
 							<ul>
 							<% loop $Dates %>
 								<li class="$FirstLast">

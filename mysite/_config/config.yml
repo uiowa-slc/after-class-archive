@@ -20,3 +20,6 @@ SiteTree:
 LeftAndMain:
   extra_requirements_css:
     - 'mysite/css/usersubmitted.css'
+LocalistCalendar:
+  extensions:
+    - LocalistCalendarExtension
