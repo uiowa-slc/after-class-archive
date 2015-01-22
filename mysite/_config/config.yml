@@ -23,3 +23,6 @@ LeftAndMain:
 LocalistCalendar:
   extensions:
     - LocalistCalendarExtension
+Controller:
+  extensions:
+    - SS_MinifiedResponseExtension

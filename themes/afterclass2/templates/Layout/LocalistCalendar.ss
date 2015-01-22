@@ -2,7 +2,7 @@
 <% if $action == "index" %>
 	<% if $FeaturedEvents %>
 		<div class="slider">
-			<% loop $EventList %>
+			<% loop $FeaturedEvents %>
 				<div class="slide">
 					<% include HeroEvent %>
 				</div>

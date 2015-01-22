@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
     $('.slider').slick({
         centerMode: false,
         dots: false,
-        arrows: false,
+        arrows: true,
         slidesToShow: 3,
         autoplay: true,
         speed: 1500,
@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2,
+                arrows: false
               }
             },
             {
@@ -44,8 +45,12 @@ jQuery(document).ready(function($) {
         $(".secondary-nav").toggle();
         return false;
     });
+    /*$("#right-column").stick_in_parent({
+            parent: '.container',
+            bottom: false
 
-    // $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
+        });*/
+     $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
 
      var bLazy = new Blazy();
 
