@@ -17,19 +17,24 @@
     color: #DDD7D8;
 
     @media #{$medium-up} {
-        padding: $column-gutter*2 $column-gutter;
+        padding: $column-gutter $column-gutter/2
         h1 {
             margin: 1em 0;
             font-size: 1em;
-            text-align: center;
+            
             padding-right: 0.1em;
         }
+    }
+
+    @media #{$large-up}{
+         padding: $column-gutter*2 $column-gutter;
     }
 
     h1 {
         margin: 0.5em 0;
         padding: 0px;
         font-size: 1.2em;
+        text-align: center;
         @media #{$large-up} {
             font-size: 1.8em;
         }

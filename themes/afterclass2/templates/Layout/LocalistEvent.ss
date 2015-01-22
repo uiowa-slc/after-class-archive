@@ -42,7 +42,7 @@
 						</p>
 						<hr>
 						<div class="row">
-						<div id="truncontent" class="large-10 end">
+						<div id="truncontent" class="large-10 columns end">
 							$Content
 							<a id="truncswitch" class="button">Read More +</a>
 						</div>

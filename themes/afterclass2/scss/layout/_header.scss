@@ -13,8 +13,9 @@
         letter-spacing: -6px;
         text-shadow: 4px 4px 8px #000000;
         margin-left: -10px;
-        @media only screen and (max-width: 1160px) {
-            margin-top: 15px;
+        margin-top :10px;
+        @media #{$xlarge-up} {
+            margin-top: 0;
         }
 
         .subheader{
@@ -301,7 +302,7 @@
 @media only screen and (min-width: 768px) {
     #page_header {
         .big_header a img {
-            width: 30%;
+            width: 45%;
         }
         p {
             display: block;
@@ -332,7 +333,10 @@
 }
 
 @media only screen and (min-width: 960px) {
+
     #page_header {
+
+
         .row {
             background-position-y: 90%;
         }
@@ -374,6 +378,11 @@
 
 @media only screen and (min-width: 1024px) {
     #page_header {
+
+       .big_header a img {
+            width: 30%;
+        }
+
         height: 95px;
     }
 }
