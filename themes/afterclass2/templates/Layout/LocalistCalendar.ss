@@ -15,8 +15,23 @@
 	<% end_if %> <!-- end if featured events -->
 <% end_if %>
 </div>
-<div class="row main-content">
 
+	<% if $FeaturedCategories %>
+		<% loop $FeaturedCategories %>
+			<div class="row">
+				<div class="large-12 columns event-card-list-container">
+					<h2>$Title</h2>
+					<div class="event-card-slider">
+						<% loop $EventList %>
+							<% include EventCard %>
+						<% end_loop %>
+					</div>
+				</div>
+			</div>
+		<% end_loop %>
+	<% end_if %>
+
+<div class="row main-content">
 <div id="left-column" class="medium-8 columns">
 
 <% if $action != "index" %>
@@ -27,17 +42,16 @@
 <% end_if %>
 
 <div style="clear: both"></div>
-<div class="event-card-list">
-	<% if $action == "index" %>
+
+
+	<div class="event-card-list-container">
 		<h2>What's up next</h2>
-	<% end_if %>
-	<div class="event-cards">
-		<% loop $EventList %>
-			<% include EventCard %>
-		<% end_loop %> <%-- end loop Upcoming Events --%>
-	</div> <!--end event-cards -->
-</div>
-	<!-- end event-card-list -->
+		<ul class="event-card-list">
+			<% loop $EventList %>
+				<li><% include EventCard %></li>
+			<% end_loop %> <%-- end loop Upcoming Events --%>
+		</ul> <!--end event-cards -->
+	</div>
 </div>
 <!-- end left-column -->
 <div id="right-column" class="medium-4 columns <% if $action == "index" %>sidebar-sticky-content<% end_if %>">

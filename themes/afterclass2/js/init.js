@@ -4,13 +4,13 @@ jQuery(document).ready(function($) {
     // $("#calendar-expand").inner
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);
-    $('.slider').show();
 
+    $('.slider').show();
     $('.slider').slick({
         centerMode: false,
         dots: false,
         arrows: true,
-        slidesToShow: 3,
+        slidesToShow: 2,
         autoplay: true,
         speed: 1500,
         centerPadding: '10px',
@@ -35,6 +35,37 @@ jQuery(document).ready(function($) {
           ]
 
     });
+
+    $('.event-card-slider').show();
+     $('.event-card-slider').slick({
+            centerMode: false,
+            dots: false,
+            arrows: true,
+            slidesToShow: 4,
+            autoplay: false,
+            speed: 1500,
+            centerPadding: '10px',
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: false
+                  }
+                }
+              ]
+
+        });
+   
 
     $("#calendar-expand").click(function() {
         if ($(".secondary-nav").css('display') == 'none') {

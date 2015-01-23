@@ -17,7 +17,8 @@
     color: #DDD7D8;
 
     @media #{$medium-up} {
-        padding: $column-gutter $column-gutter/2
+         padding: $column-gutter/2;
+         padding-top: 0;
         h1 {
             margin: 1em 0;
             font-size: 1em;
@@ -27,7 +28,7 @@
     }
 
     @media #{$large-up}{
-         padding: $column-gutter*2 $column-gutter;
+
     }
 
     h1 {
@@ -96,10 +97,10 @@
             height: 100%;
         }
         @media #{$large-up} {
-            height: 325px;
+            height: 400px;
         }
         @media #{$xxlarge-up} {
-            height: 350px;
+            height: 425px;
         }
     }
 }
