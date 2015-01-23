@@ -2,7 +2,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="$Title.ATT" />
 <% if $SummaryContent %>
-	<meta property="og:description" content="$SummaryContent.ATT" />
+	<meta property="og:description" content="$SummaryContent.Summary(30).ATT" />
 <% else_if $Content %>
 	<meta property="og:description" content="$Content.ATT" />
 <% else %>
@@ -10,6 +10,6 @@
 <% end_if %>
 <meta property="og:url" content="$AfterClassLink.ATT" />
 <% if $Image %>
-<meta property="og:image" content="$Image.AbsoluteURL.ATT" />
+<meta property="og:image" content="$Image.URL.ATT" />
 <% end_if %>
 <meta name="author" content="Division of Student Life | The University of Iowa">

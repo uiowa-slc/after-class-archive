@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
+                "reference": "2d91dc9ce37bbf876cd408d483270a07001d8c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
+                "url": "https://api.github.com/repos/composer/installers/zipball/2d91dc9ce37bbf876cd408d483270a07001d8c7d",
+                "reference": "2d91dc9ce37bbf876cd408d483270a07001d8c7d",
                 "shasum": ""
             },
             "replace": {
@@ -59,6 +59,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
@@ -97,7 +98,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-11-29 01:29:17"
+            "time": "2015-01-21 21:08:45"
         },
         {
             "name": "md/ac-json-events",
@@ -105,12 +106,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "05313a3eb585dd32d5530438a3173acc5dbd980c"
+                "reference": "452f4273d96875aae7c46717644b470bee156a16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/05313a3eb585dd32d5530438a3173acc5dbd980c",
-                "reference": "05313a3eb585dd32d5530438a3173acc5dbd980c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/452f4273d96875aae7c46717644b470bee156a16",
+                "reference": "452f4273d96875aae7c46717644b470bee156a16",
                 "shasum": ""
             },
             "require": {
@@ -129,7 +130,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2014-11-10 19:01:47"
+            "time": "2015-01-23 16:53:54"
         },
         {
             "name": "md/division-bar",
