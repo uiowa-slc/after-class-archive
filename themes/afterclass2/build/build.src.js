@@ -3738,7 +3738,7 @@ window.onload = initialize();
 var markerArray = [];
 var infowindow = new google.maps.InfoWindow({
 	content: "holding...",
-	maxWidth: 340
+	maxWidth: 310
 	});	
 var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
 //var venueCount = $("#venuesWithEvents section").length;
@@ -3798,7 +3798,7 @@ function addEventInfo( marker, venue ) {
 	var eventsHere = [];
 	var eventsHereString = '';
 	var eventBubbleString = '';
-	var eventLimit = 5;
+	var eventLimit = 4;
 	
 	eventsHere.push("<a class='button tag' href='" + venueLink + "'>" + venueName + "</a>");
 	

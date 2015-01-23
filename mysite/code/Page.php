@@ -61,8 +61,6 @@ class Page extends SiteTree {
 	  		$urls[] = $trendingTag->Link();
 	  	}
 
-		$urls[] = 'events/feed/json';
-		$urls[] = 'events/feed/';
 	    return $urls;
 	  }
 	 

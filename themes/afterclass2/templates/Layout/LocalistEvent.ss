@@ -18,7 +18,7 @@
 							<% if $Dates.Count > 1 %><a href="#all-dates" class="button">More Dates</a><% end_if %>
 							<% if $Venue.Title || $Location %>
 							<br />
-								<% if $Location %><strong>Location: </strong> {$Location} <% end_if %>
+								<strong>Location: </strong> <% if $Location %>{$Location}<% end_if %>
 								<% if $Venue.Title %>
 									<% with $Venue %>
 										<% if $Link %>

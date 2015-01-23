@@ -85,7 +85,7 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 
 }
 /* Google Map Foundation Fixes */
-.gm-style div div *{ -webkit-transform: none !important; }
+//.gm-style div div *{ -webkit-transform: none !important; }
 .map-container img, object, embed { max-width: none; }
 
 #map_canvas embed { max-width: none; }

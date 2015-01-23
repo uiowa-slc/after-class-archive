@@ -30,7 +30,7 @@
 			</h3>
 			<% include EventCardDatesTimes %>
 				<div class="event-card-desc">
-					<p>$Content.Summary(30) <a href="$Link">Continue reading</a></p>
+					<p>$SummaryContent.Summary(30) <a href="$Link">Continue reading</a></p>
 					<!-- end event-card-meta -->
 				</div>
 				<!-- end event-card-desc -->

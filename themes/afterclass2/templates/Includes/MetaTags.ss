@@ -8,6 +8,5 @@
 	<meta property="og:site_name" content="After Class"/>
 	<meta property="og:app_id" content="242901859120617"/>
 	<% end_if %>
-	<title>$Title | 
-	After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
-	<meta name="author" content="Student Life Marketing &amp; Design">
+
+

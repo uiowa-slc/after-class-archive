@@ -3,7 +3,9 @@
 <head>
 	<% base_tag %>
 	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
-	<% include MetaTags %>
+	<% include OpenGraph %>
+    <title>$Title | 
+  After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 <body class="{$ClassName}">
