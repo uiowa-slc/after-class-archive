@@ -4,7 +4,7 @@
 <% if $SummaryContent %>
 	<meta property="og:description" content="$SummaryContent.Summary(30).ATT" />
 <% else_if $Content %>
-	<meta property="og:description" content="$Content.ATT" />
+	<meta property="og:description" content="$Content.Summary(30).ATT" />
 <% else %>
 	<meta property="og:description" content="After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!" />
 <% end_if %>
