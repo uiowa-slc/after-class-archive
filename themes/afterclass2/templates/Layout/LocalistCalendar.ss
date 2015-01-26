@@ -1,7 +1,7 @@
-<div class="marquee">
+<div class="marquee row">
 <% if $action == "index" %>
 	<% if $FeaturedEvents %>
-		<div class="slider">
+		<div class="slider large-12">
 			<% loop $FeaturedEvents %>
 				<div class="slide">
 					<% include HeroEvent %>
@@ -19,7 +19,7 @@
 	<% if $FeaturedCategories %>
 		<% loop $FeaturedCategories %>
 			<div class="row">
-				<div class="large-12 columns event-card-list-container">
+				<div class="large-12 columns event-card-list-container $FirstLast">
 					<h2>$Title</h2>
 					<div class="event-card-slider">
 						<% loop $EventList %>

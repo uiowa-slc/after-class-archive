@@ -1,6 +1,7 @@
 .event-card-slider{
 	.event-card{
-		padding: 0 $column-gutter/2;
+		padding: 0 $column-gutter;
+		padding-left: 0;
 
 		.event-card-image-container{
 			height: 200px;
