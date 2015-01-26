@@ -23,8 +23,53 @@
         margin-bottom: 0.5em;
         text-align: center;
         text-transform: uppercase;
-        background-color: #0D4F61;
+        background-color: $purple;
         padding: 5px;
+
+ 
+    }
+
+    .event-card-header-bar{
+        background-color: $purple;
+        padding: 5px;
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        text-align: center;
+        h2{
+            background: none;
+            margin: 0;
+            padding: 0;
+            display: inline;
+            font-size: rem-calc(40);
+        }
+
+        .calendar-menu{
+            
+  
+            .fi-calendar{
+                position: relative;
+                font-size: rem-calc(42);
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+           .fi-calendar:after{
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border: inset 5px;
+                border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
+                border-left-style: solid;
+                margin-right: 0.83333rem;
+                margin-top: -4.5px;
+                position: absolute;
+                top: 50%;
+                left: 36px;
+            }
+        }
+
     }
 }
 
@@ -45,6 +90,15 @@
             $per-row: 3,
             $spacing: $column-gutter
         );
+    }
+
+    &.large{
+        @media #{$large-up}{
+            @include block-grid(
+                $per-row: 4,
+                $spacing: $column-gutter
+            );
+        } 
     }
 }
 

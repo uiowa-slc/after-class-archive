@@ -83,7 +83,19 @@ jQuery(document).ready(function($) {
         });*/
      $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
 
-     var bLazy = new Blazy();
+    var bLazy = new Blazy();
+
+    var container = document.querySelector('#tile-grid');
+    var msnry;
+
+    imagesLoaded( container, function() {
+        msnry = new Masonry( container, {
+          columnWidth: 300,
+          itemSelector: '.item',
+          gutter: 20,
+          isFitWidth: true
+        })
+    });
 
 });
 

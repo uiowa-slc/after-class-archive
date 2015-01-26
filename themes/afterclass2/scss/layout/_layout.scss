@@ -10,24 +10,6 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     padding: 0.3em !important;
 }
 
-.division-topbar{
-    background: none;
-}
-.container {
-    margin: auto;
-}
-
-#right-column {
-    margin-top: 0;
-}
-#right-column h2 img { width: 55.5% }
-#left-column {
-    margin-top: 0;
-}
-#left-column h2 img { width: 50% }
-
-#left-column p.homepage-message { color: white }
-
 #single-page-content {
     min-height: 200px;
 }
@@ -111,7 +93,7 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 
 .button {
 	padding: 0.35em 0.5em;
-	background: #0A8FC9;
+	background: $primary-color;
 	border: none;
 	color: #FFF;
 	display: inline-block;
@@ -178,14 +160,6 @@ a.button:hover {
         font-size: 2.5em;
 
     }
-    #feedback-link {
-        display: block;
-        position: fixed;
-        left: 0px;
-        top: 300px;
-        border: 1px solid #555;
-    }
-    
     .addthis_toolbox {
     	clear: both;
         margin: 3px 0;
@@ -194,16 +168,4 @@ a.button:hover {
 
 }
 
-@media only screen and (min-width: 1024px) { 
-    body { font-size: 1em }
- 
-}
-
-
-@media only screen and (min-width: 1023px) { 
-    .button.more-dates{
-           
-        }
-  
-}
 

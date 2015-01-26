@@ -1,0 +1,10 @@
+#tile-grid{
+	padding-right: $column-gutter;
+	padding-top: $column-gutter;
+	padding-bottom: $column-gutter;
+	.item{
+		width: 300px;
+		margin-bottom: $column-gutter;
+	}
+
+}
