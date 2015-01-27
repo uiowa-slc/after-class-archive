@@ -212,9 +212,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8"><a class="prev" href="javascript:void(0);"> &laquo; </a>';
+			html += '<tr><th colspan="8"><a class="prev" href="#"> &laquo; </a>';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '<a class="next" href="javascript:void(0);"> &raquo; </a></th></tr>';
+			html += '<a class="next" href="#"> &raquo; </a></th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
@@ -13448,11 +13448,13 @@ jQuery(document).ready(function($) {
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);
 
+
+
     $('.slider').show();
     $('.slider').slick({
         centerMode: false,
         dots: false,
-        arrows: true,
+        arrows: false,
         slidesToShow: 3,
         autoplay: true,
         speed: 1500,
@@ -13487,7 +13489,7 @@ jQuery(document).ready(function($) {
     $('.event-card-slider').slick({
             centerMode: false,
             dots: false,
-            arrows: true,
+            arrows: false,
             slidesToShow: 4,
             slidesToScroll: 3,
             autoplay: false,
@@ -13514,11 +13516,9 @@ jQuery(document).ready(function($) {
 
         });
 
-    var sliderAfterChange = function(slider,i){
-      alert('hey');
-      bLazy.revalidate();
-    }
-   
+    $(".calendar-widget thead a").click(function(){
+        event.preventDefault();
+    })
 
     $("#calendar-expand").click(function() {
         if ($(".secondary-nav").css('display') == 'none') {
