@@ -1,4 +1,4 @@
-<div class="event-card $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
+<div class="event-card $EvenOdd $FirstLast <% if $MultipleOf(4) && not $First %>end-row<% end_if %><% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
 	<div class="event-card-header">
 		<% if Eventtypes %>
 			<% loop Eventtypes.First %>

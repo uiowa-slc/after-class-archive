@@ -1,15 +1,3 @@
-b, strong{
-    font-weight: bold;
-}
-/* Some Division Bar Fixes */
-input.division-search-input[type="search"], input.division-search-input[type="search"]:focus {
-    margin: 0 !important;
-    height: auto !important;
-    background: white !important; 
-    color: black !important;
-    padding: 0.3em !important;
-}
-
 #single-page-content {
     min-height: 200px;
 }
@@ -37,35 +25,15 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     font-size: 1.5em;
 }
 
-.hide { display: none }
-
-.email { width: 280px }
-.big-screen { display: none }
-
-
 #facebook-like-box {
     overflow: hidden;
-}
-
-#facebook-like-box * {
-    width: 100% !important;
-}
-.addthis_button_facebook_like {
-    margin-top: -2px;
-    margin-right: 5px;
-}
-
-.date-header {
-    color: white;
-    margin: 0;
-}
-
-@media only screen and (min-width: 768px) { 
-    .date-header {
-        margin: 0.5em 0;
+    *{
+        width: 100% !important;
     }
-
 }
+
+
+
 /* Google Map Foundation Fixes */
 //.gm-style div div *{ -webkit-transform: none !important; }
 .map-container img, object, embed { max-width: none; }
@@ -76,20 +44,6 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 
 #map_canvas object { max-width: none; }
 
-#status img {
-    position: absolute;
-    margin: 0 1em;
-}
-
-/* Feedback Image */
-#feedback-link { display: none }
-#feedback-link img { display: block }
-
-
-.fancybox-wrap {
-	border: 1px solid #302E2E;
-	
-}
 
 .button {
 	padding: 0.35em 0.5em;
@@ -135,37 +89,4 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 a.button:hover {
 	color: #ddd;
 }
-
-
-
-#status img {
-	position: absolute;
-	margin: 0 1em;
-}
-
-@media only screen and (min-width: 768px) { 
-
-    .small-screen { display: none }
-    .big-screen { display: block }
-    #left-column {
-        float: left;
-    }
-}
-
-@media only screen and (min-width: 960px) {
-    
-    #page_content { padding: 0; padding-bottom: 20px; }
-    
-    #secondary_header h1 {
-        font-size: 2.5em;
-
-    }
-    .addthis_toolbox {
-    	clear: both;
-        margin: 3px 0;
-        display: block;
-    }
-
-}
-
 

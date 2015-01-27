@@ -9,7 +9,7 @@
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 <body class="{$ClassName}">
-<% include DivisionBar %>
+<% include DivisionBarFoundation %>
 <%--<a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>--%>
 <% include Header %>
 <% if $ImageURL %>

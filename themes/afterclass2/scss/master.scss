@@ -2,17 +2,21 @@
 
 @import "imports/settings";
 
+@import "normalize";
+
 /* import foundation components
 -------------------------------------------*/
-
+@import "foundation/components/global";
 @import "foundation/components/grid";
 @import "foundation/components/block-grid";
 @import "foundation/components/visibility";
 @import "foundation/components/dropdown";
+@import "foundation/components/dropdown-buttons";
 @import "foundation/components/buttons";
-
+@import "foundation/components/type";
+@import "foundation/components/forms";
 /* Basic Stuff */
-@import "imports/_boilerplate";
+//@import "imports/_boilerplate";
 @import "imports/_helpers";
 @import "imports/_print";
 @import "imports/_font";
@@ -48,6 +52,6 @@
 @import "layout/_orientation";
 
 /* Division Bar */
-@import "../../../division-bar/css/_division-bar.css";
+@import "../../../division-bar/scss/division-bar-foundation";
 
 

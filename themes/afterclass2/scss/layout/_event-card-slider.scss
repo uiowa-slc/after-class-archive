@@ -6,6 +6,10 @@
 		.event-card-image-container{
 			height: 200px;
 		}
+
+		&.end-row{
+        	margin-right: -5px
+    	}
 	}
 
 }

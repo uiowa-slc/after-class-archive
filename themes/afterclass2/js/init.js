@@ -1,3 +1,4 @@
+$(document).foundation();
 jQuery(document).ready(function($) {
 
     $("#page_navigation .secondary-nav").hide();
@@ -10,7 +11,7 @@ jQuery(document).ready(function($) {
         centerMode: false,
         dots: false,
         arrows: true,
-        slidesToShow: 2,
+        slidesToShow: 3,
         autoplay: true,
         speed: 1500,
         centerPadding: '10px',
@@ -29,7 +30,7 @@ jQuery(document).ready(function($) {
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                dots: false
+                arrows: false
               }
             }
           ]
@@ -59,7 +60,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    dots: false
+                    arrows: false
                   }
                 }
               ]
@@ -85,6 +86,9 @@ jQuery(document).ready(function($) {
 
     var bLazy = new Blazy();
 
+
+
+/*
     var container = document.querySelector('#tile-grid');
     var msnry;
 
@@ -95,7 +99,7 @@ jQuery(document).ready(function($) {
           gutter: 20,
           isFitWidth: true
         })
-    });
+    });*/
 
 });
 

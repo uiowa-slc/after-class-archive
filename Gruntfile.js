@@ -29,6 +29,7 @@ module.exports = function(grunt) {
       js:{
         src: [
         'division-bar/js/division-bar.js',
+
         'event_calendar/javascript/calendar.js',
         'event_calendar/javascript/calendar_widget.js',
         'event_calendar/javascript/lang/calendar_en.js',
@@ -39,6 +40,7 @@ module.exports = function(grunt) {
         '<%=globalConfig.themeDir %>/bower_components/stickymojo/stickyMojo.js',
         '<%=globalConfig.themeDir %>/bower_components/masonry/dist/masonry.pkgd.js',
         '<%=globalConfig.themeDir %>/bower_components/imagesloaded/imagesloaded.pkgd.js',
+        '<%=globalConfig.themeDir %>/bower_components/foundation/js/foundation.js',
         '<%=globalConfig.themeDir %>/js/vendor/**/*.js',
         '<%=globalConfig.themeDir %>/js/vendor/*.js',
         '<%=globalConfig.themeDir %>/js/*.js'],

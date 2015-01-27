@@ -1,21 +1,30 @@
 #SearchForm_SearchForm_action_results { display: none }
-#Search {
-    
-    /*margin-left: 15px;*/
-}
 
-#Search input {
-    -webkit-appearance: none;
-    background: #716B70;
-}
-
-#SearchForm_SearchForm_Search {
+/* Search box */
+#SearchForm_SearchForm{
+    margin: 0;
     border: none;
     color: #EBE5E6;
     font-size: 0.7em;
     padding: 5px;
     display: block;
     width: 100%;
+    fieldset{
+        padding: 0;
+        border: none;
+        margin: 0;
+    }
+    input{
+        background: lighten($ground, 10);
+        box-shadow: none;
+        margin:0;
+        border-radius: 50px;
+        padding: 0;
+    }
+}
+
+#SearchForm_SearchForm_Search {
+
 }
 #SearchForm_SearchForm_Search:hover{
     cursor: pointer;
@@ -23,6 +32,8 @@
 #SearchForm_SearchForm_Search:hover:focus{
     cursor: auto;
 }
+
+/* Results */
 
 #SearchResults {
     list-style-type: none;
@@ -32,37 +43,4 @@
 #SearchResults li {
     margin: 10px 0;
     padding: 10px;
-}
-
-/* Search that's in the page nav */
-#page_navigation #Search {
-    margin: 0;
-}
-#page_navigation #Search input {
-    background: #413b3d;
-    box-shadow: none;
-    margin:0;
-    margin-top: 8px;
-}
-
-#page_navigation #Search input:focus {
-    
-}
-
-
-@media only screen and (min-width: 480px) { 
- #SearchForm_SearchForm_Search {
-        background-image: none;
-        margin-top: 3px;
-    }
-}
-
-@media only screen and (min-width: 768px) { 
-
-    #SearchForm_SearchForm_Search {
-        background: none;
-        width: 100%;
-        font-size: 1em;
-        margin-top: 10px;
-    }
 }
