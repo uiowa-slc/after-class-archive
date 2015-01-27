@@ -1,6 +1,8 @@
 $(document).foundation();
 jQuery(document).ready(function($) {
 
+    var bLazy = new Blazy();
+
     $("#page_navigation .secondary-nav").hide();
     // $("#calendar-expand").inner
     $("#canvas").height($("#page_header").height());
@@ -15,6 +17,10 @@ jQuery(document).ready(function($) {
         autoplay: true,
         speed: 1500,
         centerPadding: '10px',
+        onAfterChange: function(){
+          // do funky JS stuff here
+          bLazy.revalidate();
+        },
 
         responsive: [
             {
@@ -38,20 +44,21 @@ jQuery(document).ready(function($) {
     });
 
     $('.event-card-slider').show();
-     $('.event-card-slider').slick({
+    $('.event-card-slider').slick({
             centerMode: false,
             dots: false,
             arrows: true,
             slidesToShow: 4,
+            slidesToScroll: 3,
             autoplay: false,
-            speed: 1500,
+            speed: 500,
             centerPadding: '10px',
             responsive: [
                 {
                   breakpoint: 1024,
                   settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 1,
+                    slidesToScroll: 3,
                     arrows: false
                   }
                 },
@@ -66,6 +73,11 @@ jQuery(document).ready(function($) {
               ]
 
         });
+
+    var sliderAfterChange = function(slider,i){
+      alert('hey');
+      bLazy.revalidate();
+    }
    
 
     $("#calendar-expand").click(function() {
@@ -84,7 +96,7 @@ jQuery(document).ready(function($) {
         });*/
      $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
 
-    var bLazy = new Blazy();
+   
 
 
 
