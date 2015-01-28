@@ -100,10 +100,12 @@ $(function() {
 					this.monthLength = 29;
 				}
 			}
-			
-			html = this.generateHTML();
-			$(this.element).html(html);			
 
+			html = this.generateHTML();
+
+
+			$(this.element).html(html);			
+			//$(document).foundation('dropdown', 'reflow');
 			var calendar = this;
 
 			$('.prev', this.element).click(function() {
@@ -212,9 +214,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8"><a class="prev" href="#"> &laquo; </a>';
+			html += '<tr><th colspan="8"><button class="prev" href="javascript:void(0);"> &laquo; </button>';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '<a class="next" href="#"> &raquo; </a></th></tr>';
+			html += '<button class="next" href="javascript:void(0);"> &raquo; </button></th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
@@ -13438,7 +13440,12 @@ if ( $("#truncontent").css("z-index") == 4){
 }
 
 
-$(document).foundation();
+$(document).foundation({
+  dropdown: {
+    // specify the class used for active dropdowns
+    active_class: 'open'
+  }
+});
 jQuery(document).ready(function($) {
 
     var bLazy = new Blazy();
