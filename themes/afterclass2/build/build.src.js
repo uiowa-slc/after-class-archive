@@ -100,12 +100,33 @@ $(function() {
 					this.monthLength = 29;
 				}
 			}
-
+			
 			html = this.generateHTML();
+			console.log('hello, i was clicked');
+			//console.log(html);
+			
+			//currHTML = $(this.element).html();
+			//console.log(currHTML);
+			//$(this.element).replaceWith(html);
+			$(this.element).prepend(html);
+			console.log($(".calendar-widget-table").size());
 
+			if ($(".calendar-widget-table").size() > 2) {
+				console.log('countme');
+				$(".calendar-widget-table").last().remove();
 
-			$(this.element).html(html);			
-			//$(document).foundation('dropdown', 'reflow');
+			}
+			/*
+			if (currHTML.length == 0) {
+				$(this.element).prepend(html);
+			} else {
+				$(this.element).html(function(index, html) {
+					return html.replace(currHTML, html);
+				});
+				console.log('replaced');
+			}
+			*/
+
 			var calendar = this;
 
 			$('.prev', this.element).click(function() {
@@ -214,9 +235,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8"><button class="prev" href="javascript:void(0);"> &laquo; </button>';
+			html += '<tr><th colspan="8"><a class="prev" href="javascript:void(0);"> &laquo; </a>';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '<button class="next" href="javascript:void(0);"> &raquo; </button></th></tr>';
+			html += '<a class="next" href="javascript:void(0);"> &raquo; </a></th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
