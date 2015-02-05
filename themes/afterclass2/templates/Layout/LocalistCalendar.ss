@@ -1,5 +1,4 @@
 <%-- include TileGrid --%>
-
 <% if $action == "index" %>
 	<div class="marquee">
 	<% if $action == "index" %>
@@ -53,11 +52,12 @@
 								<h2>$FilterHeader</h2>
 							</div>
 							<div class="large-3 columns header-bar-menu right">
-								<a data-dropdown="calendar-drop" aria-controls="drop" aria-expanded="false" class="calendar-toggle dropdown"><i class="fi-calendar has-dropdown"></i></a><br>
-								<div id="calendar-drop" data-dropdown-content class="f-dropdown large" role="menu" aria-hidden="false" tabindex="-1" aria-autoclose="false">
-									<a class="prev" href="javascript:void(0);"> prev | </a><a class="next" href="javascript:void(0);"> next</a>
-								  	<% with $Calendar %>
-						 				$CalendarWidget 
+
+								<a data-dropdown="drop-calendar" aria-controls="drop-calendar" aria-expanded="false" class="calendar-toggle dropdown"><i class="fi-calendar has-dropdown"></i></a>
+								<div id="drop-calendar" class="f-dropdown large" role="menu" aria-hidden="false" tabindex="-1" aria-autoclose="false"data-dropdown-content >
+
+									<% with $Calendar %>
+					 					$CalendarWidget 
 									<% end_with %>
 								</div>
 								<!--<div class="calendar-toggle">

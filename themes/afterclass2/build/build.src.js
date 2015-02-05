@@ -13437,7 +13437,12 @@ if ( $("#truncontent").css("z-index") == 4){
 }
 
 
-$(document).foundation();
+$(document).foundation({
+  dropdown: {
+    // specify the class used for active dropdowns
+    active_class: 'open'
+  }
+});
 jQuery(document).ready(function($) {
 
     var bLazy = new Blazy();
