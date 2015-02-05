@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
             dots: false,
             arrows: false,
             slidesToShow: 4,
-            slidesToScroll: 3,
+            slidesToScroll: 4,
             autoplay: false,
             speed: 500,
             centerPadding: '10px',
@@ -61,6 +61,14 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
+                    arrows: false
+                  }
+                },
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     arrows: false
                   }
                 },
@@ -75,10 +83,6 @@ jQuery(document).ready(function($) {
               ]
 
         });
-
-    $(".calendar-widget thead a").click(function(){
-        event.preventDefault();
-    })
 
     $("#calendar-expand").click(function() {
         if ($(".secondary-nav").css('display') == 'none') {

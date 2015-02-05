@@ -25,6 +25,12 @@
         text-transform: uppercase;
         background-color: $purple;
         padding: 5px;
+
+        &.student-life{
+            background-color: white;
+            color: #222;
+            border-bottom: $gold 4px solid;
+        }
     }
 
     .event-card-header-bar{

@@ -83,7 +83,6 @@ $(function() {
     		return this.element;
     	},
 
-
 		setMonth: function(month, year) {
     		this.month = month;
     		this.year = year;
@@ -212,9 +211,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8"><a class="prev" href="#"> &laquo; </a>';
+			html += '<tr><th colspan="8">';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '<a class="next" href="#"> &raquo; </a></th></tr>';
+			html += '</th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
@@ -13491,7 +13490,7 @@ jQuery(document).ready(function($) {
             dots: false,
             arrows: false,
             slidesToShow: 4,
-            slidesToScroll: 3,
+            slidesToScroll: 4,
             autoplay: false,
             speed: 500,
             centerPadding: '10px',
@@ -13501,6 +13500,14 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
+                    arrows: false
+                  }
+                },
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     arrows: false
                   }
                 },
@@ -13515,10 +13522,6 @@ jQuery(document).ready(function($) {
               ]
 
         });
-
-    $(".calendar-widget thead a").click(function(){
-        event.preventDefault();
-    })
 
     $("#calendar-expand").click(function() {
         if ($(".secondary-nav").css('display') == 'none') {
