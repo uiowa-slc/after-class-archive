@@ -565,7 +565,6 @@
 
 <% include LocalistDivider %>
 <% include LocalistNewsletterShareButtons %>
-<% include LocalistDivider %>
 
 <!-- Start Nonfeatured Events -->
 <% if $MoreEventsTitle %>
