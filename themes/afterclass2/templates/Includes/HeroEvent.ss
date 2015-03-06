@@ -1,5 +1,5 @@
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
-		<div class="hero-event-image-container" style="background-image: url('$Image.URL')">
+		<div class="hero-event-image-container b-lazy" data-src="$Image.URL">
 			<a href="$Link" class="img-shadow"></a>
 			<div class="clear"></div>
 			<a href="$Link" itemprop="url">

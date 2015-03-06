@@ -4,9 +4,10 @@ $(document).foundation({
     active_class: 'open'
   }
 });
+
+var bLazy = new Blazy();
 jQuery(document).ready(function($) {
 
-    var bLazy = new Blazy();
 
     $("#page_navigation .secondary-nav").hide();
     // $("#calendar-expand").inner

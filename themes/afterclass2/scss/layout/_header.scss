@@ -348,7 +348,11 @@
             background-position-y: 58%;
             background-position-x: 100%;
             background-repeat: no-repeat;
-            background-size: 42%;
+            background-size: 50%;
+            @media #{$xlarge-up} {
+                background-size: 45%;
+            }
+
         }
     }
     #page_navigation ul {
@@ -380,10 +384,10 @@
     #page_header {
 
        .big_header a img {
-            width: 30%;
+            width: 47%;
         }
 
-        height: 95px;
+        height: 123px;
     }
 }
 
@@ -391,6 +395,9 @@
     #page_header {
         p {
             font-size: 1.1em;
+        }
+        .big_header a img {
+            width: 38%;
         }
     }
     #page_navigation ul li a {

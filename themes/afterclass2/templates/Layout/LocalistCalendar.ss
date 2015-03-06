@@ -22,11 +22,11 @@
 			<div class="row">
 				<div class="large-12 columns event-card-list-container $FirstLast">
 					<h2>$Title</h2>
-					<div class="event-card-slider">
+					<ul class="event-card-list large">
 						<% loop $EventList %>
-							<% include EventCard %>
+							<li><% include EventCard %></li>
 						<% end_loop %>
-					</div>
+					</ul>
 				</div>
 			</div>
 		<% end_loop %>

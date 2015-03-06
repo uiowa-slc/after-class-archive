@@ -170,12 +170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar.git",
-                "reference": "ccff028993f3fbb350af649cb9a3700e28218d77"
+                "reference": "2684152fb7c7b10803ba487c42649f76f6d037de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-event-calendar/zipball/ccff028993f3fbb350af649cb9a3700e28218d77",
-                "reference": "ccff028993f3fbb350af649cb9a3700e28218d77",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-event-calendar/zipball/2684152fb7c7b10803ba487c42649f76f6d037de",
+                "reference": "2684152fb7c7b10803ba487c42649f76f6d037de",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "issues": "https://github.com/unclecheese/silverstripe-event-calendar/issues",
                 "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar/tree/master"
             },
-            "time": "2014-05-23 15:03:51"
+            "time": "2015-01-30 15:30:17"
         },
         {
             "name": "md/rss-display",
@@ -248,12 +248,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rywa/silverstripe-foundation-forms.git",
-                "reference": "f475f952b8246af62b2dd8860fd519b892535648"
+                "reference": "6ec89d0a641b4eb68234bb5bdd22c29cccd17dd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/f475f952b8246af62b2dd8860fd519b892535648",
-                "reference": "f475f952b8246af62b2dd8860fd519b892535648",
+                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/6ec89d0a641b4eb68234bb5bdd22c29cccd17dd9",
+                "reference": "6ec89d0a641b4eb68234bb5bdd22c29cccd17dd9",
                 "shasum": ""
             },
             "require": {
@@ -286,7 +286,7 @@
                 "silverstripe",
                 "zurb foundation"
             ],
-            "time": "2015-01-10 06:10:42"
+            "time": "2015-01-27 18:10:19"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -426,12 +426,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-mathspamprotection.git",
-                "reference": "801da8bef6aedf1f9dcb098ef32f237ca0b3ab2c"
+                "reference": "5fcbe627421aa0122efc96c3be898e1ee2d5eccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/801da8bef6aedf1f9dcb098ef32f237ca0b3ab2c",
-                "reference": "801da8bef6aedf1f9dcb098ef32f237ca0b3ab2c",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/5fcbe627421aa0122efc96c3be898e1ee2d5eccd",
+                "reference": "5fcbe627421aa0122efc96c3be898e1ee2d5eccd",
                 "shasum": ""
             },
             "require": {
@@ -451,7 +451,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2015-01-04 00:12:48"
+            "time": "2015-01-27 20:11:23"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -620,6 +620,7 @@
         "md/ac-json-events": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.2"
     },

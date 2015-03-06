@@ -2,6 +2,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<% base_tag %>
+<style><% include CriticalCss %></style>
 	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
 	<% include OpenGraph %>
     <title>$Title | 
@@ -31,7 +32,21 @@
 <%-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <%-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> --%>
-<script src="{$ThemeDir}/build/build.src.js"></script>
+
+<script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "$ThemeDir/build/build.js";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
+
+
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-426753-41']);
