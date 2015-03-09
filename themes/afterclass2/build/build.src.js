@@ -1,13 +1,13 @@
-$(document).ready(function() {	
+$(document).ready(function() {
 
     // Hide the directory navigation
-    $('.division-directory').hide();
+    // $('.division-directory').hide();
 
 
     // Show/Hide the directory navigation on-click
     $('.directory-toggle').click(function() {
         $(this).toggleClass("active");
-        $('.division-directory').slideToggle();
+        $('.division-directory').toggleClass("active");
         return false;
     });
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
         $(this).toggleClass('active');
         $('.division-search').slideToggle();
         return false;
-    });    
+    });
 
 
     // For small screens - show the directory
@@ -82,7 +82,6 @@ $(function() {
     	getContainer: function() {
     		return this.element;
     	},
-
 
 		setMonth: function(month, year) {
     		this.month = month;
@@ -212,9 +211,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8"><a class="prev" href="javascript:void(0);"> &laquo; </a>';
+			html += '<tr><th colspan="8">';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '<a class="next" href="javascript:void(0);"> &raquo; </a></th></tr>';
+			html += '</th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
