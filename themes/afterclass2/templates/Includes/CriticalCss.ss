@@ -66,6 +66,15 @@ img{ display: inline-block; vertical-align: middle; }
  .show-for-large-up{ display: inherit !important; }
 .show-for-small-only, .hide-for-large-up{ display: none !important; }
 }
+@media print{
+*{ background-image: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
+a{ text-decoration: underline; }
+a[href]::after{ content: ' (', attr(href), ')'; }
+ img{ page-break-inside: avoid; }
+img{ max-width: 100% !important; }
+p, h2, h3{ orphans: 3; widows: 3; }
+h2, h3{ page-break-after: avoid; }
+}
 .f-dropdown{ position: absolute; left: -9999px; list-style-type: none; list-style-position: initial; list-style-image: initial; margin-left: 0px; outline-style: none; outline-width: initial; outline-color: initial; width: 100%; max-height: none; height: auto; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(49, 45, 46); border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: rgb(49, 45, 46); border-right-color: rgb(49, 45, 46); border-bottom-color: rgb(49, 45, 46); border-left-color: rgb(49, 45, 46); font-size: 0.875rem; z-index: 89; margin-top: 2px; max-width: 200px; background-position: initial initial; background-repeat: initial initial; }
 .f-dropdown::before{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-left-style: inset; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: rgb(49, 45, 46); border-left-color: transparent; border-bottom-style: solid; position: absolute; top: -12px; left: 10px; z-index: 89; }
 .f-dropdown::after{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-left-style: inset; border-top-width: 7px; border-right-width: 7px; border-bottom-width: 7px; border-left-width: 7px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: rgb(49, 45, 46); border-left-color: transparent; border-bottom-style: solid; position: absolute; top: -14px; left: 9px; z-index: 88; }
@@ -94,15 +103,6 @@ h1, h2, h3{ line-height: 1.4; }
 h1{ font-size: 2.75rem; }
 h2{ font-size: 2.3125rem; }
 h3{ font-size: 1.6875rem; }
-}
-@media print{
-*{ background-image: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-a{ text-decoration: underline; }
-a[href]::after{ content: ' (', attr(href), ')'; }
- img{ page-break-inside: avoid; }
-img{ max-width: 100% !important; }
-p, h2, h3{ orphans: 3; widows: 3; }
-h2, h3{ page-break-after: avoid; }
 }
 form{ margin-top: 0px; margin-right: 0px; margin-bottom: 1rem; margin-left: 0px; }
 label{ font-size: 0.875rem; color: rgb(77, 77, 77); cursor: pointer; display: block; font-weight: normal; line-height: 1.5; margin-bottom: 0px; }
