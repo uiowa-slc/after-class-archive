@@ -28,11 +28,13 @@
 /* Global Layout Styles */
 @import "layout/_layout";
 
+
 /* Calendar Module Styles */
 @import "../../../event_calendar/css/calendar.css";
 
 /* Specific Layouts */
-@import "layout/_calendar-widget";
+@import "layout/_calendar";
+//@import "layout/_calendar-widget";
 @import "layout/_category";
 @import "layout/_event-card";
 @import "layout/_blog-card";

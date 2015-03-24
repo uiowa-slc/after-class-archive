@@ -56,9 +56,9 @@
 								<a data-dropdown="drop-calendar" aria-controls="drop-calendar" aria-expanded="false" class="calendar-toggle dropdown"><i class="fi-calendar has-dropdown"></i></a>
 								<div id="drop-calendar" class="f-dropdown large" role="menu" aria-hidden="false" tabindex="-1" aria-autoclose="false"data-dropdown-content >
 
-									<% with $Calendar %>
+									<%-- with $Calendar %>
 					 					$CalendarWidget 
-									<% end_with %>
+									<% end_with --%>
 								</div>
 								<!--<div class="calendar-toggle">
 									<i class="fi-calendar has-dropdown"></i>

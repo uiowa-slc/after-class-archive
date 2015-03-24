@@ -30,19 +30,18 @@ module.exports = function(grunt) {
         src: [
         'division-bar/js/division-bar.js',
 
-        'event_calendar/javascript/calendar.js',
-        'event_calendar/javascript/calendar_widget.js',
-        'event_calendar/javascript/lang/calendar_en.js',
-        'event_calendar/javascript/calendar_widget_init.js',
+       // 'event_calendar/javascript/calendar.js',
+        //'event_calendar/javascript/calendar_widget.js',
+       // 'event_calendar/javascript/lang/calendar_en.js',
+        //'event_calendar/javascript/calendar_widget_init.js',
         '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
         '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
         '<%=globalConfig.themeDir %>/bower_components/sticky-kit/jquery.sticky-kit.js',
         '<%=globalConfig.themeDir %>/bower_components/stickymojo/stickyMojo.js',
-        '<%=globalConfig.themeDir %>/bower_components/masonry/dist/masonry.pkgd.js',
-        '<%=globalConfig.themeDir %>/bower_components/imagesloaded/imagesloaded.pkgd.js',
+        //'<%=globalConfig.themeDir %>/bower_components/masonry/dist/masonry.pkgd.js',
+        //'<%=globalConfig.themeDir %>/bower_components/imagesloaded/imagesloaded.pkgd.js',
         '<%=globalConfig.themeDir %>/bower_components/foundation/js/foundation.js',
-        '<%=globalConfig.themeDir %>/js/vendor/**/*.js',
-        '<%=globalConfig.themeDir %>/js/vendor/*.js',
+        '<%=globalConfig.themeDir %>/js/vendor/mailchimp.js',
         '<%=globalConfig.themeDir %>/js/*.js'],
         dest: '<%=globalConfig.themeDir %>/build/build.src.js'
       }
