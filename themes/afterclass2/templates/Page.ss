@@ -22,14 +22,10 @@
 <% include Footer %>
 
 
-<%-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<%-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> --%>
-
 <script type="text/javascript">
 function downloadJSAtOnload() {
 var element = document.createElement("script");
-element.src = "$ThemeDir/build/build.js";
+element.src = "$ThemeDir/build/build.src.js";
 document.body.appendChild(element);
 }
 if (window.addEventListener)
@@ -51,8 +47,9 @@ else window.onload = downloadJSAtOnload;
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script async type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+<script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
 </body>
 </html>

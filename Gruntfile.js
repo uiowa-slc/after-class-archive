@@ -29,7 +29,6 @@ module.exports = function(grunt) {
       js:{
         src: [
         'division-bar/js/division-bar.js',
-
        // 'event_calendar/javascript/calendar.js',
         //'event_calendar/javascript/calendar_widget.js',
        // 'event_calendar/javascript/lang/calendar_en.js',
@@ -52,7 +51,7 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        mangle: true
+        mangle: false
       },
       my_target:{
         files:{
@@ -101,6 +100,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   // Note: order of tasks is very important
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'criticalcss', 'watch']);
+  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'watch']);
 
 };
