@@ -101,7 +101,8 @@
 
     @media #{$medium-up}{
         @include block-grid(
-            $per-row: 2
+            $per-row: 2,
+            $spacing: $column-gutter
         );
 
     }
