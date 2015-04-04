@@ -9,7 +9,7 @@ $(document).foundation({
 jQuery(document).ready(function($) {
     var bLazy = new Blazy();
     bLazy.revalidate();
-    $("#page_navigation .secondary-nav").hide();
+    //$("#page_navigation .secondary-nav").hide();
     // $("#calendar-expand").inner
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);

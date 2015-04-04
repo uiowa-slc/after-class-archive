@@ -10,13 +10,13 @@
 
     @media #{$medium-up}{
         @include block-grid(
-            $per-row: 2
+            $per-row: 3
         );
 
     }
     @media #{$large-up}{
         @include block-grid(
-            $per-row: 3,
+            $per-row: 5,
             $spacing: $column-gutter
         );
     }
@@ -24,7 +24,7 @@
     &.large{
         @media #{$large-up}{
             @include block-grid(
-                $per-row: 4,
+                $per-row: 6,
                 $spacing: $column-gutter
             );
         } 
@@ -85,7 +85,7 @@
     .blog-card-image {
         width: 100%;
         background-size: cover;
-        height: 222px;
+        height: 150px;
         background-position-x: 50%;
         background-position-y: 50%;
         background-repeat: no-repeat;

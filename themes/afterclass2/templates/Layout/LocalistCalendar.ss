@@ -41,7 +41,7 @@
 
 					<h2 class="student-life">Student News</h2>
 						<ul class="blog-card-list large">
-							<% loop $RSSDisplay("4", "http://studentlife.uiowa.edu/news/rss/") %>
+							<% loop $RSSDisplay("6", "http://studentlife.uiowa.edu/news/rss/") %>
 								<li><% include BlogCard %></li>
 							<% end_loop %>
 						</ul>

@@ -1,9 +1,10 @@
 #page_header {
     background-position: 100px 0;
-    background-size: contain;
+    background-size: cover;
     background-color: #4A374D;
     background-repeat: repeat-x;
     @media #{$medium-up} {
+
         p {
             top: -15px;
         }
@@ -12,6 +13,7 @@
         height: 123px;
     }
     @media #{$xlarge-up} {
+         background-size: contain;
         p {
             font-size: 1.1em;
         }
@@ -27,6 +29,7 @@
         margin-left: -10px;
         margin-top: 10px;
         line-height: 0.6;
+        text-align: center;
         .subheader {
             margin-top: 5px;
         }
@@ -93,7 +96,7 @@
         @media #{$medium-up} {
            // background: url("../images/header-buildings-medium.png");
             background-position-y: 58%;
-            background-position-x: 100%;
+            background-position-x: 50%;
             background-repeat: no-repeat;
             background-size: 50%;
             @media #{$xlarge-up} {
@@ -125,24 +128,23 @@
 
 #page_navigation {
     background-color: #312D2E;
-    .secondary-nav {
-        display: none;
-    }
+    text-align: center;
+
 }
 
 #page_navigation ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    text-align: center;
+    display: inline-block;
     li {
-        float: left;
-        margin-left: 0;
+        display: inline-block;
         &.first {
-            margin-left: -7px;
+
         }
         ul {
             li {
-                float: none;
                 margin: 0;
                 text-align: left;
                 &.no-events span {
@@ -205,7 +207,7 @@
     }
     > li {
         &.first.moon-icon {
-            display: block;
+
         }
         &.moon-icon a {
             width: 30px;
@@ -215,20 +217,20 @@
         }
         &.about-after-class {}
         a.subscribe-link, &.add, &.weekend {
-            display: none;
+
         }
         a {
             &.subscribe-link {
                 color: #7BCDF0;
             }
-            display: block;
+
             padding-top: 10px;
             padding-left: 8px;
             padding-right: 8px;
             padding-bottom: 10px;
             color: #EBE5E6;
             text-decoration: none;
-            display: block;
+            display: inline-block;
             font-weight: normal !important;
             text-transform: lowercase;
             font-size: 0.8em;
@@ -257,29 +259,25 @@
             font-size: 0.8em;
         }
         li.weekend {
-            display: block;
+
         }
     }
     @media #{$medium-up} {
         > li.first {
             strong {
-                display: block;
+                display: inline-block;
             }
             &.moon-icon {
                 display: none;
             }
         }
         li {
-            &.add {
-                display: block;
-            }
-            float: left;
             a {
                 font-size: 1em;
             }
         }
         > li.first {
-            display: inline;
+            display: inline-block;
         }
     }
 }
@@ -329,13 +327,12 @@
             content: "";
         }
         ul span {
-            display: block;
+            display: inline-block;
         }
         li:hover ul {
             left: auto;
         }
         @media #{$small-up} {
-            float: left;
             li a {
                 font-size: 1em;
             }

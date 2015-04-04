@@ -1,11 +1,4 @@
-<div class="secondary-nav row-fluid">
-	<div class="secondary-search-form hide-for-large-up">
-		<% include Search %>
-	</div>
-	<% with Calendar %>
-		$CalendarWidget
-	<% end_with %>
-
+<div class="secondary-nav row-fluid show-for-large-up">
 	<% include QuickFilters %>
 </div>
 	
