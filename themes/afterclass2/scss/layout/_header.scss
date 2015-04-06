@@ -1,5 +1,5 @@
 #page_header {
-    background-position: 100px 0;
+    background-position: 147% 0;
     background-size: cover;
     background-color: #4A374D;
     background-repeat: repeat-x;
@@ -96,7 +96,7 @@
         @media #{$medium-up} {
            // background: url("../images/header-buildings-medium.png");
             background-position-y: 58%;
-            background-position-x: 50%;
+            background-position-x: 100%;
             background-repeat: no-repeat;
             background-size: 50%;
             @media #{$xlarge-up} {

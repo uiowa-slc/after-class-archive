@@ -270,7 +270,7 @@ input[type="text"], input[type="search"]{ background-color: rgb(51, 51, 51); col
 #page_header .row{ background-size: 75% ; }
 }
 @media only screen and (min-width: 40.063em){
-#page_header .row{ background-size: 50% ; background-position: 50% 58%; background-repeat: no-repeat no-repeat; }
+#page_header .row{ background-size: 50% ; background-position: 100% 58%; background-repeat: no-repeat no-repeat; }
 }
 @media only screen and (min-width: 40.063em) and (min-width: 90.063em){
 #page_header .row{ background-size: 45% ; }
@@ -286,10 +286,10 @@ input[type="text"], input[type="search"]{ background-color: rgb(51, 51, 51); col
 #page_navigation ul li.today a{ color: rgb(214, 232, 240); }
 #page_navigation ul li.weekend a{ color: rgb(189, 225, 240); }
 #page_navigation ul li.add a{ color: rgb(232, 202, 102); }
-#page_navigation ul > li a{ padding-top: 10px; padding-left: 8px; padding-right: 8px; padding-bottom: 10px; color: rgb(235, 229, 230); text-decoration: none; display: inline-block; font-weight: normal !important; text-transform: lowercase; font-size: 0.8em; }
+#page_navigation ul > li a{ padding-top: 10px; padding-left: 8px; padding-right: 8px; padding-bottom: 7px; color: rgb(235, 229, 230); text-decoration: none; display: inline-block; font-weight: normal !important; text-transform: lowercase; font-size: 0.8em; }
 #page_navigation ul > li a.subscribe-link{ color: rgb(123, 205, 240); }
 @media only screen and (min-width: 64.063em){
-#page_navigation ul > li a{ padding-left: 15px; padding-right: 15px; }
+#page_navigation ul > li a{ padding-left: 25px; padding-right: 25px; }
 }
 @media only screen{
 #page_navigation ul ul{ width: 100px; font-size: 0.8em; }
