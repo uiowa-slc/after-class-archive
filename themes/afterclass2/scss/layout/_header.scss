@@ -227,7 +227,13 @@
             padding-top: 10px;
             padding-left: 8px;
             padding-right: 8px;
-            padding-bottom: 10px;
+
+            @media #{$large-up}{
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            padding-bottom: 7px;
             color: #EBE5E6;
             text-decoration: none;
             display: inline-block;
