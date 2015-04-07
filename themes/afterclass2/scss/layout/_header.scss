@@ -1,5 +1,5 @@
 #page_header {
-    background-position: 147% 0;
+    background-position: 215% 0;
     background-size: cover;
     background-color: #4A374D;
     background-repeat: repeat-x;
@@ -10,7 +10,7 @@
         }
     }
     @media #{$large-up} {
-        height: 123px;
+        height: 145px;
     }
     @media #{$xlarge-up} {
          background-size: contain;
@@ -80,7 +80,6 @@
         }
         @media #{$medium-up} {
             display: block;
-            margin-left: 10%;
         }
     }
     .row {

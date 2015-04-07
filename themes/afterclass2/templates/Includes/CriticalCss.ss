@@ -78,6 +78,7 @@ h2, h3{ page-break-after: avoid; }
 @media only screen and (min-width: 40.063em){
  .button{ display: inline-block; }
 }
+.text-center{ text-align: center !important; }
 div, ul, li, h1, h2, h3, form, p{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 a{ color: rgb(232, 202, 102); text-decoration: none; line-height: inherit; }
 a img{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; }
@@ -242,12 +243,16 @@ label{ color: rgb(238, 238, 238); }
 input{ color: white; }
 input[type="text"], input[type="search"]{ background-color: rgb(51, 51, 51); color: white; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(102, 102, 102); border-right-color: rgb(102, 102, 102); border-bottom-color: rgb(102, 102, 102); border-left-color: rgb(102, 102, 102); }
  input[type="submit"]{ cursor: pointer; background-color: rgb(10, 143, 201); border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; font-size: 1.3em; padding-top: 0.5em; padding-right: 0.5em; padding-bottom: 0.5em; padding-left: 0.5em; }
-#page_header{ background-size: cover; background-color: rgb(74, 55, 77); background-position: 100px 0px; background-repeat: repeat no-repeat; }
+#page_header{ background-size: cover; background-color: rgb(74, 55, 77); background-position: 147% 0px; background-repeat: repeat no-repeat; }
+@media only screen and (min-width: 40.063em){
+#page_header p{ top: -15px; }
+}
 @media only screen and (min-width: 64.063em){
 #page_header{ height: 123px; }
 }
 @media only screen and (min-width: 90.063em){
 #page_header{ background-size: contain; }
+#page_header p{ font-size: 1.1em; }
 }
 #page_header .big_header{ position: relative; top: 0px; margin-right: 0px; margin-bottom: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; color: rgb(255, 208, 38); letter-spacing: -6px; text-shadow: rgb(0, 0, 0) 4px 4px 8px; margin-left: -10px; margin-top: 10px; line-height: 0.6; text-align: center; }
 #page_header .big_header a{ color: rgb(255, 208, 38); text-decoration: none; }
@@ -264,6 +269,10 @@ input[type="text"], input[type="search"]{ background-color: rgb(51, 51, 51); col
 @media only screen and (min-width: 90.063em){
 #page_header .big_header{ margin-top: 0px; }
 #page_header .big_header a img{ width: 38%; }
+}
+#page_header p{ left: 0px; font-size: 1em; color: rgb(208, 194, 208); text-transform: lowercase; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-shadow: rgba(0, 0, 0, 0.796875) 0px 1px 14px; display: none; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; margin-top: -10px; background-repeat: no-repeat no-repeat; }
+@media only screen and (min-width: 40.063em){
+#page_header p{ display: block; margin-left: 10%; }
 }
 #page_header .row{ height: 100%; background-size: 100% ; background-position: 100% 75%; background-repeat: no-repeat no-repeat; }
 @media only screen{
