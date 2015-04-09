@@ -4,3 +4,14 @@
         min-height: 440px;
     }
 }
+
+.LocalistCalendar{
+	.row{
+		max-width: 1600px;
+	}
+	#page_header {
+	    @media #{$large-up} {
+	        height: 165px;
+	    }
+	}
+}
