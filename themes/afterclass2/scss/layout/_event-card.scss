@@ -1,5 +1,4 @@
 .event-card-list-container{
-    margin: $column-gutter/2 0;
     &.first{
         margin-top: 0;
     }
@@ -7,7 +6,7 @@
         font-weight: normal;
         font-size: 2.2em;
         margin-top: 0;
-        margin-bottom: 0.5em;
+        margin-bottom: $column-gutter;
         text-align: center;
         text-transform: uppercase;
         background-color: $purple;
@@ -171,6 +170,7 @@
     }
 
     .event-card-content {
+        padding-top: 10px;
         color: white;
     }
 

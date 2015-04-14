@@ -2,7 +2,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<% base_tag %>
-<style><% include CriticalCss %></style>
+<style><%-- include CriticalCss --%></style>
 	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
 	<% include OpenGraph %>
     <title>$Title | 
