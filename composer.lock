@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d13b2e66a45a64b7d7a17b305c07724",
+    "hash": "895b63d59f0aa79f8032524a41e405e4",
     "packages": [
         {
             "name": "composer/installers",
@@ -103,16 +103,16 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-master",
+            "version": "dev-community-fb-events",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c"
+                "reference": "b5b33899c1d2ec58c2b134232564e143ec7f4a20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b5b33899c1d2ec58c2b134232564e143ec7f4a20",
+                "reference": "b5b33899c1d2ec58c2b134232564e143ec7f4a20",
                 "shasum": ""
             },
             "require": {
@@ -128,10 +128,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/community-fb-events",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2015-03-24 20:08:02"
+            "time": "2015-04-14 22:06:59"
         },
         {
             "name": "md/division-bar",
@@ -249,12 +249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ryanwachtl/silverstripe-foundation-forms.git",
-                "reference": "98bbd67f4f37892b65406a36de8debd3e54f7bb4"
+                "reference": "7fd35e59119c6036805de4d01bc53883560593bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/98bbd67f4f37892b65406a36de8debd3e54f7bb4",
-                "reference": "98bbd67f4f37892b65406a36de8debd3e54f7bb4",
+                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/7fd35e59119c6036805de4d01bc53883560593bf",
+                "reference": "7fd35e59119c6036805de4d01bc53883560593bf",
                 "shasum": ""
             },
             "require": {
@@ -287,7 +287,7 @@
                 "silverstripe",
                 "zurb foundation"
             ],
-            "time": "2015-03-04 01:56:50"
+            "time": "2015-04-05 16:08:59"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -295,12 +295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-themes/silverstripe-simple.git",
-                "reference": "67f1e236e1bc79ee2b66f2dfa437fb1ace663c9e"
+                "reference": "3cf638c170e649b6b122504c8f62d6d8946b853c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-themes/silverstripe-simple/zipball/67f1e236e1bc79ee2b66f2dfa437fb1ace663c9e",
-                "reference": "67f1e236e1bc79ee2b66f2dfa437fb1ace663c9e",
+                "url": "https://api.github.com/repos/silverstripe-themes/silverstripe-simple/zipball/3cf638c170e649b6b122504c8f62d6d8946b853c",
+                "reference": "3cf638c170e649b6b122504c8f62d6d8946b853c",
                 "shasum": ""
             },
             "require": {
@@ -323,7 +323,7 @@
                 "silverstripe",
                 "theme"
             ],
-            "time": "2015-04-02 02:32:53"
+            "time": "2015-04-09 03:18:37"
         },
         {
             "name": "silverstripe/cms",

@@ -29,7 +29,7 @@
 									<% end_with %>
 								<% end_if %>
 							<% end_if %>
-					
+							<br />
 						<% if $Cost %>
 		            		<br /><strong>Price:</strong> $Cost
 		            	<% end_if %>
@@ -37,7 +37,7 @@
 							<br /><strong>Note: $CancelReason</strong>
 						<% end_if %>
 						<% if $FacebookEventLink %>
-							<br /><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a>
+							<br />$FbAttendees attending <a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">Add to Facebook Calendar</a>
 						<% end_if %>
 						</p>
 						<hr>
