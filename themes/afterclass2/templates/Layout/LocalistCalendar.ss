@@ -41,7 +41,7 @@
 
 					<h2 class="student-life">Student News</h2>
 						<ul class="blog-card-list large">
-							<% loop $RSSDisplay("6", "http://studentlife.uiowa.edu/news/rss/") %>
+							<% loop $RSSDisplay("5", "http://studentlife.uiowa.edu/news/rss/") %>
 								<li><% include BlogCard %></li>
 							<% end_loop %>
 						</ul>
@@ -50,19 +50,6 @@
 						<div class="row">
 							<div class="large-6 columns large-offset-3">
 								<h2>$FilterHeader</h2>
-							</div>
-							<div class="large-3 columns header-bar-menu right">
-
-								<a data-dropdown="drop-calendar" aria-controls="drop-calendar" aria-expanded="false" class="calendar-toggle dropdown"><i class="fi-calendar has-dropdown"></i></a>
-								<div id="drop-calendar" class="f-dropdown large" role="menu" aria-hidden="false" tabindex="-1" aria-autoclose="false"data-dropdown-content >
-
-									<%-- with $Calendar %>
-					 					$CalendarWidget 
-									<% end_with --%>
-								</div>
-								<!--<div class="calendar-toggle">
-									<i class="fi-calendar has-dropdown"></i>
-								</div>-->
 							</div>
 						</div>
 					</div>
@@ -78,6 +65,7 @@
 				<% end_if %>
 			<% end_if %>
 			<ul class="event-card-list large">
+				<li><div class="event-card odd first"><% with $Calendar %>$CalendarWidget <% end_with %></div></li>
 				<% loop $EventList(30) %>
 					<li><% include EventCard %></li>
 				<% end_loop %>

@@ -20,6 +20,7 @@
    </div>
 </div>
 <% include Footer %>
+<% include MdBar %>
 
 
 <script type="text/javascript">

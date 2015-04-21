@@ -29,10 +29,10 @@ module.exports = function(grunt) {
       js:{
         src: [
         'division-bar/js/division-bar.js',
-       // 'event_calendar/javascript/calendar.js',
-        //'event_calendar/javascript/calendar_widget.js',
-       // 'event_calendar/javascript/lang/calendar_en.js',
-        //'event_calendar/javascript/calendar_widget_init.js',
+        'event_calendar/javascript/calendar.js',
+        'event_calendar/javascript/calendar_widget.js',
+        'event_calendar/javascript/lang/calendar_en.js',
+        'event_calendar/javascript/calendar_widget_init.js',
         '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
         '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
         '<%=globalConfig.themeDir %>/bower_components/sticky-kit/jquery.sticky-kit.js',

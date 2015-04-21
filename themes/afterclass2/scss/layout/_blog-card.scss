@@ -24,7 +24,7 @@
     &.large{
         @media #{$large-up}{
             @include block-grid(
-                $per-row: 6,
+                $per-row: 5,
                 $spacing: $column-gutter
             );
         } 

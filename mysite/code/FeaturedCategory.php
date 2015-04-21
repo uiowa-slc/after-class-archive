@@ -8,6 +8,7 @@ class FeaturedCategory extends DataObject {
 		'Title' => 'Text',
 		'SearchTerm' => 'Text',
 		'SortOrder' => 'Int',
+		'UseTagsOnly' => 'Boolean',
 
 	);
 	private static $has_one = array(
@@ -29,26 +30,44 @@ class FeaturedCategory extends DataObject {
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
+		$fields->renameField('UseTagsOnly', 'Strict search (events MUST be tagged with the search term)');
 		return $fields;
 	}
 
 	public function EventList() {
 		$calendar = LocalistCalendar::get()->First();
 
-		$events = $calendar->EventList(
-			$days = '200',
-			$startDate = null,
-			$endDate = null,
-			$venue = null,
-			$keyword = null,
-			$type = null,
-			$distinct = 'true',
-			$enableFilter = true,
-			$searchTerm = $this->SearchTerm
-		);
+		if ($this->UseTagsOnly) {
+			$events = $calendar->EventList(
+				$days = '200',
+				$startDate = null,
+				$endDate = null,
+				$venue = null,
+				$keyword = $this->SearchTerm,
+				$type = null,
+				$distinct = 'true',
+				$enableFilter = true,
+				$searchTerm = null
+			);
+		} else {
 
-		return $events;
+			$events = $calendar->EventList(
+				$days = '200',
+				$startDate = null,
+				$endDate = null,
+				$venue = null,
+				$keyword = null,
+				$type = null,
+				$distinct = 'true',
+				$enableFilter = true,
+				$searchTerm = $this->SearchTerm
+			);
 
+		}
+		if (isset($events)) {
+			$events->removeDuplicates();
+			return $events;
+		}
 	}
 }
 ?>

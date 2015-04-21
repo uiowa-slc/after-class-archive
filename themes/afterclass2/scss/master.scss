@@ -34,7 +34,7 @@
 
 /* Specific Layouts */
 @import "layout/_calendar";
-//@import "layout/_calendar-widget";
+@import "layout/_calendar-widget";
 @import "layout/_category";
 @import "layout/_event-card";
 @import "layout/_blog-card";
@@ -56,5 +56,5 @@
 
 /* Division Bar */
 @import "../../../division-bar/scss/division-bar-foundation";
-
+@import "../../../division-bar/scss/md-bar";
 
