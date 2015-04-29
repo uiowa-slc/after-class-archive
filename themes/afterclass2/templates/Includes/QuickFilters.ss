@@ -1,11 +1,11 @@
 
 	<% cached %>
 		<p>
-		<strong>Trending:</strong>
-		<% loop $TrendingTags.Limit(10) %>
+		<span class="button tag">Trending:</span>
+		<% loop $TrendingTags.Limit(6) %>
 				<a href="$Link(false)" class="button tag">$Title.LimitCharacters(20)</a>
 		<% end_loop %>
-		<% loop $TrendingTypes.Limit(10) %>
+		<% loop $TrendingTypes.Limit(6) %>
 			<a href = "$Link(false)" class="button tag">$Title.LimitCharacters(20)</a>
 		<% end_loop %>
 		</p>

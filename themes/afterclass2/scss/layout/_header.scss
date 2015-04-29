@@ -114,6 +114,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
 }
 
 .secondary-nav {
@@ -123,6 +124,12 @@
     p {
         margin: 0.5em 0;
     }
+    .button.tag{
+        background: none;
+        font-size: rem-calc(12);
+        color: white;
+    }
+
 }
 
 #page_navigation {
@@ -347,9 +354,6 @@
                 font-size: 1.1em;
             }
         }
-    }
-    span {
-        color: #333;
     }
 }
 
