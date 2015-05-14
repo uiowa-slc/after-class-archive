@@ -23,18 +23,7 @@
 <% include MdBar %>
 
 
-<script type="text/javascript">
-function downloadJSAtOnload() {
-var element = document.createElement("script");
-element.src = "$ThemeDir/build/build.js";
-document.body.appendChild(element);
-}
-if (window.addEventListener)
-window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent)
-window.attachEvent("onload", downloadJSAtOnload);
-else window.onload = downloadJSAtOnload;
-</script>
+
 
 
 <script type="text/javascript">
@@ -51,6 +40,18 @@ else window.onload = downloadJSAtOnload;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script async type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
+
+<script type="text/javascript">
+function downloadJSAtOnload() {
+  var build = document.createElement("script");
+  build.src = "$ThemeDir/build/build.src.js";
+  document.body.appendChild(build);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
 </body>
 </html>

@@ -1,3 +1,11 @@
+function loadEventGmaps() {
+	console.log('load script');
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=false&callback=initializeEventMap&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE';
+      document.body.appendChild(script);
+}
+
 function GetLocation(address) {
 	var geocoder = new google.maps.Geocoder();
 	geocoder.geocode({ 'address': address }, function (results, status) {
@@ -10,7 +18,7 @@ function GetLocation(address) {
 	});
 }
   
-function initialize() {
+function initializeEventMap() {
   
     // Create a new StyledMapType object, passing it the array of styles,
     // as well as the name to be displayed on the map type control.
@@ -62,5 +70,6 @@ function initialize() {
 	    }
 	});
 }
-
-window.onload = initialize();
+if( $('.LocalistEvent .map-container').length ){
+	window.onload = loadEventGmaps();
+}

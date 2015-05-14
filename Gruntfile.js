@@ -41,7 +41,12 @@ module.exports = function(grunt) {
         //'<%=globalConfig.themeDir %>/bower_components/imagesloaded/imagesloaded.pkgd.js',
         '<%=globalConfig.themeDir %>/bower_components/foundation/js/foundation.js',
         '<%=globalConfig.themeDir %>/js/vendor/mailchimp.js',
-        '<%=globalConfig.themeDir %>/js/*.js'],
+        '<%=globalConfig.themeDir %>/js/afterClassEventPage.js',
+        '<%=globalConfig.themeDir %>/js/MapStyles.js',
+        '<%=globalConfig.themeDir %>/js/mappingWidget.js',
+        '<%=globalConfig.themeDir %>/js/nearby.js',
+        '<%=globalConfig.themeDir %>/js/init.js'],
+
         dest: '<%=globalConfig.themeDir %>/build/build.src.js'
       }
     },
