@@ -1,4 +1,4 @@
-<div class="medium-4 columns sidebar-sticky-content">
+<div class="large-4 columns sidebar-sticky-content">
 		<% if $Venue.Title || $Location %>
 			<div id="detail_event_description_map">
 				<div class="location-info">
@@ -56,7 +56,6 @@
 				</div>
 			<% end_if %>
 			<% if $ContactEmail %>
-			<hr />
 			<p>Questions about this event?
 				<% if $ContactName %>
 					<a href="mailto:$ContactEmail" class="report-problem-link">Contact $ContactName</a>

@@ -1,15 +1,16 @@
 <%--DON'T CHANGE IDs or Class Names in this page, otherwise nearby.js will break)--%>
 <div class="row">
-  <div class="large-8 columns map-content">
+  <div class="large-12 columns map-content">
 
     <!-- map dom space -->
-    <p id="status"></p>
+    
     <div class="map-container">
     </div>
-
+    
     <% with $Calendar %>
 
       <div class="map-jumplist">
+        <p id="status"></p>
         <% if $ActiveVenueList %>
         <p>See events at:
           <% loop $ActiveVenueList %>
@@ -25,11 +26,13 @@
       <% loop $ActiveVenueList %>
         <div class="event-card-list venue large" id="$ID" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(40)">    
           <h2>$Title</h2>
+
+          <ul class="event-card-list large">
             <% loop $Events %>
-              <div data-title="$Title.limitCharacters(33)" data-link="$Link" data-image="$Image.URL" data-cost="$Cost" <% loop $Dates %> <% with $StartDateTime %> data-startdate="$Format(l), $Format(F) $Format(j)" data-starttime="$Format(g):$Format(i) $Format(A)" <% end_with %> <% end_loop %> "> 
-                <% include EventCard %> 
-              </div>  
+              <li><% include EventCard %></li>
             <% end_loop %>
+          </ul> 
+          
         </div>
         <div class="clear"></div>
       <% end_loop %>
@@ -37,10 +40,6 @@
       
     <% end_with %>
 
-  </div>
-
-  <div class="large-4 columns">
-    <% include SecondaryNav %>
-  </div>  
+  </div> 
   
 </div>
