@@ -21,6 +21,7 @@
 				<p>319-335-3132<br />
 				<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
 				<a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a>
+				<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <br /><a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a></p>
 			</div>
 		</div>
 	</div>
