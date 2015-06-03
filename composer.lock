@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d13b2e66a45a64b7d7a17b305c07724",
+    "hash": "84b93350d82a514bf0495fe360004252",
     "packages": [
         {
             "name": "composer/installers",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33"
+                "reference": "a66f93a541c2214b4865161426b077e2b7d951de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
-                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
+                "url": "https://api.github.com/repos/composer/installers/zipball/a66f93a541c2214b4865161426b077e2b7d951de",
+                "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
                 "shasum": ""
             },
             "replace": {
@@ -99,7 +99,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-03-26 16:11:30"
+            "time": "2015-04-21 19:54:55"
         },
         {
             "name": "md/ac-json-events",
@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c"
+                "reference": "a431403eb8fae7df711615212f0bea965136a0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/a431403eb8fae7df711615212f0bea965136a0a8",
+                "reference": "a431403eb8fae7df711615212f0bea965136a0a8",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2015-03-24 20:08:02"
+            "time": "2015-05-12 18:44:15"
         },
         {
             "name": "md/division-bar",
@@ -139,12 +139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "92415bc19c5105312c5939a5539a1a03a28a8611"
+                "reference": "1cf03adb6bc4005d2872065e86a8298d706443cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/92415bc19c5105312c5939a5539a1a03a28a8611",
-                "reference": "92415bc19c5105312c5939a5539a1a03a28a8611",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/1cf03adb6bc4005d2872065e86a8298d706443cd",
+                "reference": "1cf03adb6bc4005d2872065e86a8298d706443cd",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2015-04-20 15:14:19"
+            "time": "2015-05-06 20:09:33"
         },
         {
             "name": "md/event-calendar",
@@ -217,12 +217,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display.git",
-                "reference": "16ffe91c9baf3e73805c92a47dd79d84d51e7b58"
+                "reference": "8825a6fe897c5ee3d91611146c8c1834a0594964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/16ffe91c9baf3e73805c92a47dd79d84d51e7b58",
-                "reference": "16ffe91c9baf3e73805c92a47dd79d84d51e7b58",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/rss-display/zipball/8825a6fe897c5ee3d91611146c8c1834a0594964",
+                "reference": "8825a6fe897c5ee3d91611146c8c1834a0594964",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +241,50 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/rss-display/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/rss-display/issues"
             },
-            "time": "2015-01-09 22:03:58"
+            "time": "2015-04-28 20:02:10"
+        },
+        {
+            "name": "mediabeast/flat-admin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mediabeastnz/silverstripe-flat-admin.git",
+                "reference": "7ae99bd37585693b8d9eea86a26fa23957b811ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mediabeastnz/silverstripe-flat-admin/zipball/7ae99bd37585693b8d9eea86a26fa23957b811ab",
+                "reference": "7ae99bd37585693b8d9eea86a26fa23957b811ab",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "screenshots": [
+                    "http://i.imgur.com/JgaAw2G.png",
+                    "http://i.imgur.com/anH4Uv6.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Myles Beardsmore",
+                    "email": "mediabeastnz@gmail.com"
+                }
+            ],
+            "description": "Custom CSS theme for SilverStripe 3 Admin Interface",
+            "homepage": "https://github.com/mediabeastnz/silverstripe-flat-admin",
+            "keywords": [
+                "admin",
+                "flat",
+                "mediabeast",
+                "silverstripe",
+                "theme"
+            ],
+            "time": "2015-02-01 20:30:51"
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
@@ -460,12 +503,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "747a801ba5e394867c9891bdb8c53e92878a700b"
+                "reference": "9c649f0b6c56eec4c85bcd66094d165ef6333375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/747a801ba5e394867c9891bdb8c53e92878a700b",
-                "reference": "747a801ba5e394867c9891bdb8c53e92878a700b",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/9c649f0b6c56eec4c85bcd66094d165ef6333375",
+                "reference": "9c649f0b6c56eec4c85bcd66094d165ef6333375",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +539,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2015-03-24 23:59:49"
+            "time": "2015-05-05 05:19:21"
         },
         {
             "name": "silverstripe/staticpublisher",
@@ -504,12 +547,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-staticpublisher.git",
-                "reference": "4504fd0900763d63113f81fa7cb3522151f57d61"
+                "reference": "136cfea0399ca14a40ea3726ffda29c7df321a79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-staticpublisher/zipball/4504fd0900763d63113f81fa7cb3522151f57d61",
-                "reference": "4504fd0900763d63113f81fa7cb3522151f57d61",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-staticpublisher/zipball/136cfea0399ca14a40ea3726ffda29c7df321a79",
+                "reference": "136cfea0399ca14a40ea3726ffda29c7df321a79",
                 "shasum": ""
             },
             "require": {
@@ -534,7 +577,7 @@
                 "silverstripe-labs",
                 "static"
             ],
-            "time": "2015-03-10 03:17:43"
+            "time": "2015-05-11 03:09:33"
         },
         {
             "name": "silverstripe/userforms",
@@ -542,12 +585,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "83c2774c454174c98b519e6d5f9e51d9e3605753"
+                "reference": "740530d4e613b4460d6bcedb2984a9047d0508d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/83c2774c454174c98b519e6d5f9e51d9e3605753",
-                "reference": "83c2774c454174c98b519e6d5f9e51d9e3605753",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/740530d4e613b4460d6bcedb2984a9047d0508d3",
+                "reference": "740530d4e613b4460d6bcedb2984a9047d0508d3",
                 "shasum": ""
             },
             "require": {
@@ -578,7 +621,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2015-02-23 03:54:31"
+            "time": "2015-04-30 07:43:17"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -586,12 +629,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "ba7e5d19ddf774de05da6c33af76fdb76b49cc00"
+                "reference": "8d28b709cd12329a93c63db0ce17074faf5c397c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/ba7e5d19ddf774de05da6c33af76fdb76b49cc00",
-                "reference": "ba7e5d19ddf774de05da6c33af76fdb76b49cc00",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/8d28b709cd12329a93c63db0ce17074faf5c397c",
+                "reference": "8d28b709cd12329a93c63db0ce17074faf5c397c",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +657,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2015-02-24 21:00:10"
+            "time": "2015-05-12 10:54:06"
         }
     ],
     "packages-dev": [],
@@ -626,7 +669,8 @@
         "silverstripe/spamprotection": 20,
         "silverstripe/mathspamprotection": 20,
         "rywa/silverstripe-foundation-forms": 20,
-        "md/ac-json-events": 20
+        "md/ac-json-events": 20,
+        "mediabeast/flat-admin": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

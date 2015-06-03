@@ -1,14 +1,10 @@
-/* Global Variables */
-var markerArray = [];
-var infowindow = new google.maps.InfoWindow({
-	content: "holding...",
-	maxWidth: 310
-	});	
-var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
-//var venueCount = $("#venuesWithEvents section").length;
-//var countVenue = 0;
-var venueFromUser = {};
-var userInitPosition;
+function loadNearbyGmaps() {
+	console.log('load script');
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=false&callback=initializeNearby&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE';
+      document.body.appendChild(script);
+}
 
 /* Helper Functions */
 
@@ -31,20 +27,20 @@ function makeMarker(options){
    return pushPin;
 }
 
-function handleNoGeolocation(errorFlag) {   	
-	var userInitPosition = iowaCity;
+function handleNoGeolocation(errorFlag, defaultLocation) {   	
+	var userInitPosition = defaultLocation;
     $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
     return userInitPosition;
 }  
 
 /* End Helper Functions */
 
-function sortVenues() {
+function sortVenues(venues) {
 	// empty list to sort venues by distance
 	var nearestVenues = [];
 	// you can only do for-in loops on objects (as opposed to arrays) in js. who knew?
-	for (var venueID in venueFromUser) {
-		nearestVenues.push([venueID, venueFromUser[venueID]])
+	for (var venueID in venues) {
+		nearestVenues.push([venueID, venues[venueID]])
 	}	
 	nearestVenues.sort(function(a,b) {return a[1] - b[1]});
 	$("#venuesWithEvents .clear").remove();
@@ -56,6 +52,17 @@ function sortVenues() {
 	}
 }
 
+function makeMarker(options){
+   var pushPin = new google.maps.Marker({map:map});
+   pushPin.setOptions(options);
+   google.maps.event.addListener(pushPin, 'click', function(){
+     infoWindow.setOptions(options);
+     infoWindow.open(map, pushPin);
+   });
+   markerArray.push(pushPin);
+   return pushPin;
+}
+
 function addEventInfo( marker, venue ) {		
 	var venueName = $('#' + venue.id).data("title");
 	var venueLink = $('#' + venue.id).data("link");  
@@ -63,6 +70,10 @@ function addEventInfo( marker, venue ) {
 	var eventsHereString = '';
 	var eventBubbleString = '';
 	var eventLimit = 4;
+	var infowindow = new google.maps.InfoWindow({
+		content: "holding...",
+		maxWidth: 310
+		});	
 	
 	eventsHere.push("<a class='button tag' href='" + venueLink + "'>" + venueName + "</a>");
 	
@@ -111,7 +122,7 @@ function venueGen() {
 
 	//note: geocoder used to be global variable
 	var geocoder = new google.maps.Geocoder();
-
+	var venueFromUser = {};
 	$('.venue').each(function(index, element) {
 		var venue = this;
 		var venueID = venue.id;
@@ -120,6 +131,7 @@ function venueGen() {
 		var lng = $(this).data("lng");
 		var address = $(this).data("address");
 		var venueLatLng;
+		
 		
 		if(lat && lng) {
 			//console.log('venue has coords');
@@ -151,18 +163,18 @@ function venueGen() {
 	});	
 
 	/* when finished, sort venues divs on page. */
-	sortVenues();
+	sortVenues(venueFromUser);
 
 }
 
-function getInitLocal() {
+function getInitLocal(defaultLocation) {
 	//finds users location
 	if(navigator.geolocation) {
 		//console.log("Browser DOES support Geolocation");
 	    var browserSupportFlag = true;
 	    navigator.geolocation.getCurrentPosition(function(position) {
 	    	//console.log('geolocated');
-			userInitPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			var userInitPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var userDistanceFromIowaCity = google.maps.geometry.spherical.computeDistanceBetween(userInitPosition,iowaCity);	
 			// If the current position is too far away from Iowa City, just default to centering around Iowa City	
 			if (userDistanceFromIowaCity < 32186.9) {
@@ -179,9 +191,9 @@ function getInitLocal() {
 			}
 			venueGen();							  
 	    }, function(error) {
-	    	//console.log('navigator failed');
+	    	console.log(error);
 	    	var errorFlag = false;
-	    	userInitPosition = handleNoGeolocation(errorFlag)
+	    	userInitPosition = handleNoGeolocation(errorFlag, defaultLocation)
 	    	map.setCenter(userInitPosition);
 	    	venueGen();
 	    }, { 
@@ -190,15 +202,22 @@ function getInitLocal() {
 	    	maximumAge: 0
 	    });	     
 	} else {
-		//console.log("Browser does NOT support Geolocation");
+		console.log("Browser does NOT support Geolocation");
 	    var browserSupportFlag = false;
-	    userInitPosition = handleNoGeolocation(browserSupportFlag);
+	    userInitPosition = handleNoGeolocation(browserSupportFlag, defaultLocation);
 	    venueGen();
 	}	
 }
 
-function genMapCanvas() {
+function initializeNearby() {
 	// generates map styles, objects, DOM objects
+	/* Global Variables */
+	var markerArray = [];
+
+	var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
+	var venueCount = $("#venuesWithEvents section").length;
+	var countVenue = 0;
+	var userInitPosition;
 
     var mapcanvas = document.createElement('div');	
 	 mapcanvas.id = 'mapcanvas';
@@ -226,11 +245,10 @@ function genMapCanvas() {
 	 map.mapTypes.set('map_style', afterclassMap);
 	 map.setMapTypeId('map_style');
 	
-	//getInitLocal();
+	getInitLocal(iowaCity);
 }
 
-$(window).load(function() {
-	if( $('.NearMePage .map-container').length ){
-		genMapCanvas( getInitLocal() );
-	}
-});
+if( $('.NearMePage .map-container').length ){
+	window.onload = loadNearbyGmaps();
+}
+

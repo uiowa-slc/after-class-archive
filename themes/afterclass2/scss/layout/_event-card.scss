@@ -9,7 +9,7 @@
         margin-bottom: $column-gutter;
         text-align: center;
         text-transform: uppercase;
-        background-color: $purple;
+        background-color: $darkPurple;
         padding: 5px;
 
         &.student-life{
@@ -20,8 +20,8 @@
     }
 
     .event-card-header-bar{
-        background-color: $purple;
-        padding: 5px;
+        background-color: $darkPurple;
+        padding: 5px 0;
         margin-top: 0;
         margin-bottom: $column-gutter;
         text-align: center;
@@ -152,9 +152,9 @@
         margin: 0;
 
         a{
-            color: #CDEBF3;
+            color: $lightBlue;
             &:hover{
-                color: #7BCDF0;
+                color: $blue;
             }
         }
 

@@ -1,7 +1,27 @@
+.LocalistCalendar #page_header{
+    background-position: 215% 0;
+    background-size: cover; 
+    @media #{$xlarge-up} {
+        background-size: cover; 
+    }
+    @media #{$xxlarge-up} {
+         background-size: contain;
+    }    
+}
+
+.LocalistCalendar #page_header{
+    .row {
+        @media #{$medium-up} {
+           // background: url("../images/header-buildings-medium.png");
+            background-position-y: 58%;
+        }
+    }
+}
+
 #page_header {
     background-position: 215% 0;
     background-size: cover;
-    background-color: #4A374D;
+    background-color: $purple;
     background-repeat: repeat-x;
     @media #{$medium-up} {
 
@@ -12,7 +32,7 @@
     @media #{$large-up} {
         height: 128px;
     }
-    @media #{$xxlarge-up} {
+    @media #{$xlarge-up} {
          background-size: contain;
         p {
             font-size: 1.1em;
@@ -56,7 +76,7 @@
             }
         }
         @media #{$xlarge-up} {
-            margin-top: 0;
+            margin-top: 20px;
             a img {
                 width: 38%;
             }
@@ -126,16 +146,14 @@
     }
     .button.tag{
         background: none;
-        font-size: rem-calc(12);
+        font-size: rem-calc(10);
         color: white;
     }
 
 }
 
 #page_navigation {
-    background-color: #312D2E;
     text-align: center;
-
 }
 
 #page_navigation ul {

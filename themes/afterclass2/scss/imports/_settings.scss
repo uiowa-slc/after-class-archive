@@ -115,15 +115,16 @@ $include-html-global-classes: $include-html-classes;
 // $jet         : #222222;
 // $black       : #000000;
 
-$purple: #4C3D69;
-$lightBlue: #CDEBF3;
-$blue : #0A8FC9;
+$purple: #6C3B6A;
+$darkPurple: #4E2A52;
+$lightBlue: #94D6F5;
+$blue : #00ACFE;
 $green : #23A767;
 $gold: #E8CA66;
 $yellow: $gold;
 
 $lightGray: #EBE5E6;
-$darkGray: #1D1C1C;
+$darkGray: #212123;
 $ground: #312D2E;
 
 $primary-color: $purple;
@@ -392,7 +393,7 @@ $anchor-font-color: $gold;
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
  $block-grid-default-spacing: rem-calc(5);
-// $align-block-grid-to-grid: false;
+ $align-block-grid-to-grid: true;
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 // $block-grid-media-queries: true;

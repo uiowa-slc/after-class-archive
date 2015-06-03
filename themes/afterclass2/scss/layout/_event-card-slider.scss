@@ -1,6 +1,12 @@
 .event-card-slider{
+	visibility: hidden;
+	height: 320px;
+	&.slick-initialized{
+		visibility: visible;
+		height: auto;
+	}
 	.event-card{
-		padding: 0 $column-gutter;
+		padding: 0 $column-gutter/2;
 		padding-left: 0;
 
 		.event-card-image-container{

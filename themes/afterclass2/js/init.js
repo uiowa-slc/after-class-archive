@@ -90,7 +90,6 @@ jQuery(document).ready(function($) {
 
         });
 
-
     $("#calendar-expand").click(function() {
         if ($(".secondary-nav").css('display') == 'none') {
             $("#calendar-expand").addClass("active");
@@ -100,29 +99,6 @@ jQuery(document).ready(function($) {
         $(".secondary-nav").toggle();
         return false;
     });
-    /*$("#right-column").stick_in_parent({
-            parent: '.container',
-            bottom: false
-
-        });*/
-     $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
-
-   
-
-
-
-/*
-    var container = document.querySelector('#tile-grid');
-    var msnry;
-
-    imagesLoaded( container, function() {
-        msnry = new Masonry( container, {
-          columnWidth: 300,
-          itemSelector: '.item',
-          gutter: 20,
-          isFitWidth: true
-        })
-    });*/
 
 });
 

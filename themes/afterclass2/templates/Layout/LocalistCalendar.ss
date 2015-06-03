@@ -19,16 +19,18 @@
 	</div>
 	<% if $FeaturedCategories %>
 		<% loop $FeaturedCategories %>
-			<div class="row">
-				<div class="large-12 columns event-card-list-container $FirstLast">
-					<h2>$Title</h2>
-					<ul class="event-card-list large">
-						<% loop $EventList %>
-							<li><% include EventCard %></li>
-						<% end_loop %>
-					</ul>
+			<% if $EventList %>
+				<div class="row">
+					<div class="large-12 event-card-list-container columns $FirstLast">
+						<h2>$Title</h2>
+						<div class="event-card-slider loading">
+							<% loop $EventList %>
+								<div class="event-card"><% include EventCard %></div>
+							<% end_loop %>
+						</div>
+					</div>
 				</div>
-			</div>
+			<% end_if %>
 		<% end_loop %>
 	<% end_if %>
 <% end_if %>
@@ -37,15 +39,7 @@
 	<div class="large-12 columns">
 		<div class="event-card-list-container">
 			<div class="row">
-				<div class="large-12 columns blog-card-list-container">
-
-					<h2 class="student-life">Student News</h2>
-						<ul class="blog-card-list large">
-							<% loop $RSSDisplay("5", "http://studentlife.uiowa.edu/news/rss/") %>
-								<li><% include BlogCard %></li>
-							<% end_loop %>
-						</ul>
-
+				<div class="large-12 columns">
 					<div class="event-card-header-bar date-bar">
 						<div class="row">
 							<div class="large-6 columns large-offset-3">
@@ -53,6 +47,7 @@
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 
@@ -70,6 +65,17 @@
 					<li><% include EventCard %></li>
 				<% end_loop %>
 			</ul> 
+		</div>
+		<div class="row">
+
+			<div class="blog-card-list-container">
+				<h2 class="student-life">Student Life News</h2>
+				<ul class="blog-card-list large">
+					<% loop $RSSDisplay("5", "http://studentlife.uiowa.edu/news/rss/") %>
+						<li><% include BlogCard %></li>
+					<% end_loop %>
+				</ul>
+			</div>
 		</div>
 	</div>
 
