@@ -29,6 +29,7 @@
 									<% end_with %>
 								<% end_if %>
 							<% end_if %>
+
 					
 						<% if $Cost %>
 		            		<br /><strong>Price:</strong> $Cost
@@ -40,6 +41,9 @@
 							<br /><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a>
 						<% end_if %>
 						</p>
+						</div><!-- end single-event-when -->
+								<% include AddThis %>
+						</div>
 						<hr>
 						<div class="row">
 							<div class="large-8 columns end">
@@ -54,20 +58,32 @@
 										<% end_if %>
 									</p>
 								<% end_if %>
-							<div class="single-event-when">
+							<div>
+
+<%-- 
+							<ul class="accordion" data-accordion>
+							  <li class="accordion-navigation">
+							    <a href="#panel1a">Accordion 1</a>
+							    <div id="panel1a" class="content active">
+							      Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							    </div>
+							  </li>
+							</ul> --%>
 							<% if $Dates.Count > 1 %>
 								<h2 id="all-dates">All Dates</h2>
-									<ul>
-									<% loop $Dates %>
-										<li class="$FirstLast">
-											<% include DateTimesList %>
+									<ul class="accordion" data-accordion role="tablist">
+										<li class="accordion-navigation">
+										  <a href="#panel1a" role="tab" id="panel1d-heading" aria-controls="panel1d">View Dates</a>
+											<div id="panel1a" class="content" role="tabpanel" aria-labelledby="panel1d-heading">
+												<% loop $Dates %>
+													<% include DateTimesList %>
+														<br>														
+												<% end_loop %>
+								    		</div>
 										</li>
-									<% end_loop %>
 									</ul>
 							<% end_if %>
-							</div><!-- end single-event-when -->
-								<% include AddThis %>
-							</div>
+							
 							<% include EventSidebar %>
 
 						</div>

@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
     $('.slider').slick({
         centerMode: false,
         dots: false,
-        arrows: false,
+        arrows: true,
         slidesToShow: 3,
         autoplay: true,
         speed: 1500,
@@ -53,9 +53,10 @@ jQuery(document).ready(function($) {
 
     $('.event-card-slider').show();
     $('.event-card-slider').slick({
+            infinite: true,
             centerMode: false,
             dots: false,
-            arrows: false,
+            arrows: true,
             slidesToShow: 4,
             slidesToScroll: 4,
             autoplay: false,
@@ -67,7 +68,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    arrows: false
+                    arrows: true
                   }
                 },
                 {
@@ -75,7 +76,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    arrows: false
+                    arrows: true
                   }
                 },
                 {
@@ -83,7 +84,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    arrows: false
+                    arrows: true
                   }
                 }
               ]

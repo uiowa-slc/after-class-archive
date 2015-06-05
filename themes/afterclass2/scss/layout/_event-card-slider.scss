@@ -1,9 +1,25 @@
 .event-card-slider{
-	visibility: hidden;
 	height: 320px;
+    margin-left: 50px;
+    margin-right: 50px;
+          
+
+   @media only screen and (min-width: 100.0625em) {
+       
+        margin-left: 0px;
+        margin-right: 0px;
+      
+    }
+
+    
+  
+        
 	&.slick-initialized{
 		visibility: visible;
 		height: auto;
+
+
+
 	}
 	.event-card{
 		padding: 0 $column-gutter/2;
@@ -18,4 +34,10 @@
     	}
 	}
 
+
+
+
+
+
 }
+

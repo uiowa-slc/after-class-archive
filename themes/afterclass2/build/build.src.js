@@ -83,7 +83,6 @@ $(function() {
     		return this.element;
     	},
 
-
 		setMonth: function(month, year) {
     		this.month = month;
     		this.year = year;
@@ -212,9 +211,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8"><a class="prev" href="javascript:void(0);"> &laquo; </a>';
+			html += '<tr><th colspan="8">';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '<a class="next" href="javascript:void(0);"> &raquo; </a></th></tr>';
+			html += '</th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
@@ -318,6 +317,7 @@ $(function() {
     });
 
 })( jQuery );
+
 (function($) {
     $.CalendarWidget.setOptions({
         startOnMonday: false,
@@ -693,7 +693,7 @@ $('.calendar-widget').each(function() {
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.4.1
+ Version: 1.5.5
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -701,9 +701,7 @@ $('.calendar-widget').each(function() {
   Issues: http://github.com/kenwheeler/slick/issues
 
  */
-
 /* global window, document, define, jQuery, setInterval, clearInterval */
-
 (function(factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
@@ -759,8 +757,10 @@ $('.calendar-widget').each(function() {
                 pauseOnDotsHover: false,
                 respondTo: 'window',
                 responsive: null,
+                rows: 1,
                 rtl: false,
                 slide: '',
+                slidesPerRow: 1,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 speed: 500,
@@ -771,6 +771,7 @@ $('.calendar-widget').each(function() {
                 useCSS: true,
                 variableWidth: false,
                 vertical: false,
+                verticalSwiping: false,
                 waitForAnimate: true
             };
 
@@ -797,7 +798,8 @@ $('.calendar-widget').each(function() {
                 swipeLeft: null,
                 $list: null,
                 touchObject: {},
-                transformsEnabled: false
+                transformsEnabled: false,
+                unslicked: false
             };
 
             $.extend(_, _.initials);
@@ -808,16 +810,17 @@ $('.calendar-widget').each(function() {
             _.breakpoints = [];
             _.breakpointSettings = [];
             _.cssTransitions = false;
-            _.hidden = "hidden";
+            _.hidden = 'hidden';
             _.paused = false;
             _.positionProp = null;
             _.respondTo = null;
+            _.rowCount = 1;
             _.shouldClick = true;
             _.$slider = $(element);
             _.$slidesCache = null;
             _.transformType = null;
             _.transitionType = null;
-            _.visibilityChange = "visibilitychange";
+            _.visibilityChange = 'visibilitychange';
             _.windowWidth = 0;
             _.windowTimer = null;
 
@@ -831,18 +834,18 @@ $('.calendar-widget').each(function() {
             responsiveSettings = _.options.responsive || null;
 
             if (responsiveSettings && responsiveSettings.length > -1) {
-                _.respondTo = _.options.respondTo || "window";
+                _.respondTo = _.options.respondTo || 'window';
                 for (breakpoint in responsiveSettings) {
                     if (responsiveSettings.hasOwnProperty(breakpoint)) {
                         _.breakpoints.push(responsiveSettings[
                             breakpoint].breakpoint);
                         _.breakpointSettings[responsiveSettings[
-                            breakpoint].breakpoint] =
+                                breakpoint].breakpoint] =
                             responsiveSettings[breakpoint].settings;
                     }
                 }
                 _.breakpoints.sort(function(a, b) {
-                    if(_.options.mobileFirst === true) {
+                    if (_.options.mobileFirst === true) {
                         return a - b;
                     } else {
                         return b - a;
@@ -850,15 +853,12 @@ $('.calendar-widget').each(function() {
                 });
             }
 
-            if (typeof document.mozHidden !== "undefined") {
-                _.hidden = "mozHidden";
-                _.visibilityChange = "mozvisibilitychange";
-            } else if (typeof document.msHidden !== "undefined") {
-                _.hidden = "msHidden";
-                _.visibilityChange = "msvisibilitychange";
-            } else if (typeof document.webkitHidden !== "undefined") {
-                _.hidden = "webkitHidden";
-                _.visibilityChange = "webkitvisibilitychange";
+            if (typeof document.mozHidden !== 'undefined') {
+                _.hidden = 'mozHidden';
+                _.visibilityChange = 'mozvisibilitychange';
+            } else if (typeof document.webkitHidden !== 'undefined') {
+                _.hidden = 'webkitHidden';
+                _.visibilityChange = 'webkitvisibilitychange';
             }
 
             _.autoPlay = $.proxy(_.autoPlay, _);
@@ -879,7 +879,7 @@ $('.calendar-widget').each(function() {
             // Extracted from jQuery v1.11 source
             _.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
 
-            _.init();
+            _.init(true);
 
             _.checkResponsive(true);
 
@@ -925,7 +925,7 @@ $('.calendar-widget').each(function() {
         _.$slideTrack.append(_.$slides);
 
         _.$slides.each(function(index, element) {
-            $(element).attr("data-slick-index",index);
+            $(element).attr('data-slick-index', index);
         });
 
         _.$slidesCache = _.$slides;
@@ -934,17 +934,20 @@ $('.calendar-widget').each(function() {
 
     };
 
-    Slick.prototype.animateHeight = function(){
+    Slick.prototype.animateHeight = function() {
         var _ = this;
-        if(_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
+        if (_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
             var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
-            _.$list.animate({height: targetHeight},_.options.speed);
+            _.$list.animate({
+                height: targetHeight
+            }, _.options.speed);
         }
     };
 
     Slick.prototype.animateSlide = function(targetLeft, callback) {
 
-        var animProps = {}, _ = this;
+        var animProps = {},
+            _ = this;
 
         _.animateHeight();
 
@@ -1022,8 +1025,23 @@ $('.calendar-widget').each(function() {
     };
 
     Slick.prototype.asNavFor = function(index) {
-        var _ = this, asNavFor = _.options.asNavFor !== null ? $(_.options.asNavFor).slick('getSlick') : null;
-        if(asNavFor !== null) asNavFor.slideHandler(index, true);
+
+        var _ = this,
+            asNavFor = _.options.asNavFor;
+
+        if ( asNavFor && asNavFor !== null ) {
+            asNavFor = $(asNavFor).not(_.$slider);
+        }
+
+        if ( asNavFor !== null && typeof asNavFor === "object" ) {
+            asNavFor.each(function() {
+                var target = $(this).slick('getSlick');
+                if(!target.unslicked) {
+                    target.slideHandler(index, true);
+                }
+            });
+        }
+
     };
 
     Slick.prototype.applyTransition = function(slide) {
@@ -1147,7 +1165,7 @@ $('.calendar-widget').each(function() {
             _.$dots = $(dotString).appendTo(
                 _.options.appendDots);
 
-            _.$dots.find('li').first().addClass('slick-active').attr("aria-hidden","false");
+            _.$dots.find('li').first().addClass('slick-active').attr('aria-hidden', 'false');
 
         }
 
@@ -1157,13 +1175,15 @@ $('.calendar-widget').each(function() {
 
         var _ = this;
 
-        _.$slides = _.$slider.children(_.options.slide +
+        _.$slides = _.$slider.children(
             ':not(.slick-cloned)').addClass(
             'slick-slide');
         _.slideCount = _.$slides.length;
 
         _.$slides.each(function(index, element) {
-            $(element).attr("data-slick-index",index);
+            $(element)
+                .attr('data-slick-index', index)
+                .data('originalStyling', $(element).attr('style') || '');
         });
 
         _.$slidesCache = _.$slides;
@@ -1204,18 +1224,56 @@ $('.calendar-widget').each(function() {
 
     };
 
+    Slick.prototype.buildRows = function() {
+
+        var _ = this, a, b, c, newSlides, numOfSlides, originalSlides,slidesPerSection;
+
+        newSlides = document.createDocumentFragment();
+        originalSlides = _.$slider.children();
+
+        if(_.options.rows > 1) {
+            slidesPerSection = _.options.slidesPerRow * _.options.rows;
+            numOfSlides = Math.ceil(
+                originalSlides.length / slidesPerSection
+            );
+
+            for(a = 0; a < numOfSlides; a++){
+                var slide = document.createElement('div');
+                for(b = 0; b < _.options.rows; b++) {
+                    var row = document.createElement('div');
+                    for(c = 0; c < _.options.slidesPerRow; c++) {
+                        var target = (a * slidesPerSection + ((b * _.options.slidesPerRow) + c));
+                        if (originalSlides.get(target)) {
+                            row.appendChild(originalSlides.get(target));
+                        }
+                    }
+                    slide.appendChild(row);
+                }
+                newSlides.appendChild(slide);
+            };
+            _.$slider.html(newSlides);
+            _.$slider.children().children().children()
+                .css({
+                    'width':(100 / _.options.slidesPerRow) + "%",
+                    'display': 'inline-block'
+                });
+        };
+
+    };
+
     Slick.prototype.checkResponsive = function(initial) {
 
         var _ = this,
-            breakpoint, targetBreakpoint, respondToWidth;
+            breakpoint, targetBreakpoint, respondToWidth, triggerBreakpoint = false;
         var sliderWidth = _.$slider.width();
         var windowWidth = window.innerWidth || $(window).width();
-        if (_.respondTo === "window") {
-          respondToWidth = windowWidth;
-        } else if (_.respondTo === "slider") {
-          respondToWidth = sliderWidth;
-        } else if (_.respondTo === "min") {
-          respondToWidth = Math.min(windowWidth, sliderWidth);
+
+        if (_.respondTo === 'window') {
+            respondToWidth = windowWidth;
+        } else if (_.respondTo === 'slider') {
+            respondToWidth = sliderWidth;
+        } else if (_.respondTo === 'min') {
+            respondToWidth = Math.min(windowWidth, sliderWidth);
         }
 
         if (_.originalSettings.responsive && _.originalSettings
@@ -1242,40 +1300,50 @@ $('.calendar-widget').each(function() {
                     if (targetBreakpoint !== _.activeBreakpoint) {
                         _.activeBreakpoint =
                             targetBreakpoint;
-                        if(_.breakpointSettings[targetBreakpoint] === "unslick") {
-                            _.unslick();
+                        if (_.breakpointSettings[targetBreakpoint] === 'unslick') {
+                            _.unslick(targetBreakpoint);
                         } else {
                             _.options = $.extend({}, _.originalSettings,
                                 _.breakpointSettings[
                                     targetBreakpoint]);
-                            if(initial === true)
+                            if (initial === true) {
                                 _.currentSlide = _.options.initialSlide;
-                            _.refresh();
+                            }
+                            _.refresh(initial);
                         }
+                        triggerBreakpoint = targetBreakpoint;
                     }
                 } else {
                     _.activeBreakpoint = targetBreakpoint;
-                    if(_.breakpointSettings[targetBreakpoint] === "unslick") {
-                        _.unslick();
+                    if (_.breakpointSettings[targetBreakpoint] === 'unslick') {
+                        _.unslick(targetBreakpoint);
                     } else {
                         _.options = $.extend({}, _.originalSettings,
                             _.breakpointSettings[
                                 targetBreakpoint]);
-                        if(initial === true)
+                        if (initial === true) {
                             _.currentSlide = _.options.initialSlide;
-                        _.refresh();
+                        }
+                        _.refresh(initial);
                     }
+                    triggerBreakpoint = targetBreakpoint;
                 }
             } else {
                 if (_.activeBreakpoint !== null) {
                     _.activeBreakpoint = null;
                     _.options = _.originalSettings;
-                    if(initial === true)
+                    if (initial === true) {
                         _.currentSlide = _.options.initialSlide;
-                    _.refresh();
+                    }
+                    _.refresh(initial);
+                    triggerBreakpoint = targetBreakpoint;
                 }
             }
 
+            // only trigger breakpoints during an actual break. not on initialize.
+            if( !initial && triggerBreakpoint !== false ) {
+                _.$slider.trigger('breakpoint', [_, triggerBreakpoint]);
+            }
         }
 
     };
@@ -1287,7 +1355,14 @@ $('.calendar-widget').each(function() {
             indexOffset, slideOffset, unevenOffset;
 
         // If target is a link, prevent default action.
-        $target.is('a') && event.preventDefault();
+        if($target.is('a')) {
+            event.preventDefault();
+        }
+
+        // If target is not the <li> element (ie: a child), find the <li>.
+        if(!$target.is('li')) {
+            $target = $target.closest('li');
+        }
 
         unevenOffset = (_.slideCount % _.options.slidesToScroll !== 0);
         indexOffset = unevenOffset ? 0 : (_.slideCount - _.currentSlide) % _.options.slidesToScroll;
@@ -1297,7 +1372,7 @@ $('.calendar-widget').each(function() {
             case 'previous':
                 slideOffset = indexOffset === 0 ? _.options.slidesToScroll : _.options.slidesToShow - indexOffset;
                 if (_.slideCount > _.options.slidesToShow) {
-                    _.slideHandler(_.currentSlide  - slideOffset, false, dontAnimate);
+                    _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
                 }
                 break;
 
@@ -1310,9 +1385,10 @@ $('.calendar-widget').each(function() {
 
             case 'index':
                 var index = event.data.index === 0 ? 0 :
-                    event.data.index || $(event.target).parent().index() * _.options.slidesToScroll;
+                    event.data.index || $target.index() * _.options.slidesToScroll;
 
                 _.slideHandler(_.checkNavigable(index), false, dontAnimate);
+                $target.children().trigger("focus");
                 break;
 
             default:
@@ -1323,15 +1399,16 @@ $('.calendar-widget').each(function() {
 
     Slick.prototype.checkNavigable = function(index) {
 
-        var _ = this, navigables, prevNavigable;
+        var _ = this,
+            navigables, prevNavigable;
 
         navigables = _.getNavigableIndexes();
         prevNavigable = 0;
-        if(index > navigables[navigables.length -1]){
-            index = navigables[navigables.length -1];
+        if (index > navigables[navigables.length - 1]) {
+            index = navigables[navigables.length - 1];
         } else {
-            for(var n in navigables) {
-                if(index < navigables[n]) {
+            for (var n in navigables) {
+                if (index < navigables[n]) {
                     index = prevNavigable;
                     break;
                 }
@@ -1342,11 +1419,76 @@ $('.calendar-widget').each(function() {
         return index;
     };
 
+    Slick.prototype.cleanUpEvents = function() {
+
+        var _ = this;
+
+        if (_.options.dots && _.$dots !== null) {
+
+            $('li', _.$dots).off('click.slick', _.changeSlide);
+
+            if (_.options.pauseOnDotsHover === true && _.options.autoplay === true) {
+
+                $('li', _.$dots)
+                    .off('mouseenter.slick', $.proxy(_.setPaused, _, true))
+                    .off('mouseleave.slick', $.proxy(_.setPaused, _, false));
+
+            }
+
+        }
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+            _.$prevArrow && _.$prevArrow.off('click.slick', _.changeSlide);
+            _.$nextArrow && _.$nextArrow.off('click.slick', _.changeSlide);
+        }
+
+        _.$list.off('touchstart.slick mousedown.slick', _.swipeHandler);
+        _.$list.off('touchmove.slick mousemove.slick', _.swipeHandler);
+        _.$list.off('touchend.slick mouseup.slick', _.swipeHandler);
+        _.$list.off('touchcancel.slick mouseleave.slick', _.swipeHandler);
+
+        _.$list.off('click.slick', _.clickHandler);
+
+        $(document).off(_.visibilityChange, _.visibility);
+
+        _.$list.off('mouseenter.slick', $.proxy(_.setPaused, _, true));
+        _.$list.off('mouseleave.slick', $.proxy(_.setPaused, _, false));
+
+        if (_.options.accessibility === true) {
+            _.$list.off('keydown.slick', _.keyHandler);
+        }
+
+        if (_.options.focusOnSelect === true) {
+            $(_.$slideTrack).children().off('click.slick', _.selectHandler);
+        }
+
+        $(window).off('orientationchange.slick.slick-' + _.instanceUid, _.orientationChange);
+
+        $(window).off('resize.slick.slick-' + _.instanceUid, _.resize);
+
+        $('[draggable!=true]', _.$slideTrack).off('dragstart', _.preventDefault);
+
+        $(window).off('load.slick.slick-' + _.instanceUid, _.setPosition);
+        $(document).off('ready.slick.slick-' + _.instanceUid, _.setPosition);
+    };
+
+    Slick.prototype.cleanUpRows = function() {
+
+        var _ = this, originalSlides;
+
+        if(_.options.rows > 1) {
+            originalSlides = _.$slides.children().children();
+            originalSlides.removeAttr('style');
+            _.$slider.html(originalSlides);
+        }
+
+    };
+
     Slick.prototype.clickHandler = function(event) {
 
         var _ = this;
 
-        if(_.shouldClick === false) {
+        if (_.shouldClick === false) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
@@ -1354,7 +1496,7 @@ $('.calendar-widget').each(function() {
 
     };
 
-    Slick.prototype.destroy = function() {
+    Slick.prototype.destroy = function(refresh) {
 
         var _ = this;
 
@@ -1362,7 +1504,10 @@ $('.calendar-widget').each(function() {
 
         _.touchObject = {};
 
-        $('.slick-cloned', _.$slider).remove();
+        _.cleanUpEvents();
+
+        $('.slick-cloned', _.$slider).detach();
+
         if (_.$dots) {
             _.$dots.remove();
         }
@@ -1373,27 +1518,35 @@ $('.calendar-widget').each(function() {
             _.$nextArrow.remove();
         }
 
+        if (_.$slides) {
 
-        _.$slides.removeClass('slick-slide slick-active slick-center slick-visible')
-            .attr("aria-hidden","true")
-            .removeAttr('data-slick-index')
-            .css({
-                position: '',
-                left: '',
-                top: '',
-                zIndex: '',
-                opacity: '',
-                width: ''
-            });
+            _.$slides
+                .removeClass('slick-slide slick-active slick-center slick-visible')
+                .removeAttr('aria-hidden')
+                .removeAttr('data-slick-index')
+                .each(function(){
+                    $(this).attr('style', $(this).data('originalStyling'));
+                });
+
+            _.$slideTrack.children(this.options.slide).detach();
+
+            _.$slideTrack.detach();
+
+            _.$list.detach();
+
+            _.$slider.append(_.$slides);
+        }
+
+        _.cleanUpRows();
 
         _.$slider.removeClass('slick-slider');
         _.$slider.removeClass('slick-initialized');
 
-        _.$list.off('.slick');
-        $(window).off('.slick-' + _.instanceUid);
-        $(document).off('.slick-' + _.instanceUid);
+        _.unslicked = true;
 
-        _.$slider.html(_.$slides);
+        if(!refresh) {
+            _.$slider.trigger('destroy', [_]);
+        }
 
     };
 
@@ -1402,7 +1555,7 @@ $('.calendar-widget').each(function() {
         var _ = this,
             transition = {};
 
-        transition[_.transitionType] = "";
+        transition[_.transitionType] = '';
 
         if (_.options.fade === false) {
             _.$slideTrack.css(transition);
@@ -1481,15 +1634,19 @@ $('.calendar-widget').each(function() {
         var counter = 0;
         var pagerQty = 0;
 
-        if(_.options.infinite === true) {
-            pagerQty = Math.ceil(_.slideCount / _.options.slidesToScroll);
+        if (_.options.infinite === true) {
+            while (breakPoint < _.slideCount) {
+                ++pagerQty;
+                breakPoint = counter + _.options.slidesToShow;
+                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
+            }
         } else if (_.options.centerMode === true) {
             pagerQty = _.slideCount;
         } else {
-            while (breakPoint < _.slideCount){
+            while (breakPoint < _.slideCount) {
                 ++pagerQty;
                 breakPoint = counter + _.options.slidesToShow;
-                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll  : _.options.slidesToShow;
+                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
             }
         }
 
@@ -1515,7 +1672,7 @@ $('.calendar-widget').each(function() {
             }
             if (_.slideCount % _.options.slidesToScroll !== 0) {
                 if (slideIndex + _.options.slidesToScroll > _.slideCount && _.slideCount > _.options.slidesToShow) {
-                    if(slideIndex > _.slideCount) {
+                    if (slideIndex > _.slideCount) {
                         _.slideOffset = ((_.options.slidesToShow - (slideIndex - _.slideCount)) * _.slideWidth) * -1;
                         verticalOffset = ((_.options.slidesToShow - (slideIndex - _.slideCount)) * verticalHeight) * -1;
                     } else {
@@ -1525,13 +1682,13 @@ $('.calendar-widget').each(function() {
                 }
             }
         } else {
-            if(slideIndex + _.options.slidesToShow > _.slideCount) {
+            if (slideIndex + _.options.slidesToShow > _.slideCount) {
                 _.slideOffset = ((slideIndex + _.options.slidesToShow) - _.slideCount) * _.slideWidth;
                 verticalOffset = ((slideIndex + _.options.slidesToShow) - _.slideCount) * verticalHeight;
             }
         }
 
-        if (_.slideCount <= _.options.slidesToShow){
+        if (_.slideCount <= _.options.slidesToShow) {
             _.slideOffset = 0;
             verticalOffset = 0;
         }
@@ -1560,7 +1717,7 @@ $('.calendar-widget').each(function() {
             targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
 
             if (_.options.centerMode === true) {
-                if(_.options.infinite === false) {
+                if (_.options.infinite === false) {
                     targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex);
                 } else {
                     targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex + _.options.slidesToShow + 1);
@@ -1584,21 +1741,24 @@ $('.calendar-widget').each(function() {
 
     Slick.prototype.getNavigableIndexes = function() {
 
-        var _ = this, breakPoint = 0, counter = 0, indexes = [], max;
+        var _ = this,
+            breakPoint = 0,
+            counter = 0,
+            indexes = [],
+            max;
 
-        if(_.options.infinite === false) {
-            max = _.slideCount - _.options.slidesToShow + 1;
-            if (_.options.centerMode === true) max = _.slideCount;
+        if (_.options.infinite === false) {
+            max = _.slideCount;
         } else {
-            breakPoint = _.slideCount * -1;
-            counter = _.slideCount * -1;
+            breakPoint = _.options.slidesToScroll * -1;
+            counter = _.options.slidesToScroll * -1;
             max = _.slideCount * 2;
         }
 
-        while (breakPoint < max){
+        while (breakPoint < max) {
             indexes.push(breakPoint);
             breakPoint = counter + _.options.slidesToScroll;
-            counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll  : _.options.slidesToShow;
+            counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
         }
 
         return indexes;
@@ -1613,12 +1773,13 @@ $('.calendar-widget').each(function() {
 
     Slick.prototype.getSlideCount = function() {
 
-        var _ = this, slidesTraversed, swipedSlide, centerOffset;
+        var _ = this,
+            slidesTraversed, swipedSlide, centerOffset;
 
         centerOffset = _.options.centerMode === true ? _.slideWidth * Math.floor(_.options.slidesToShow / 2) : 0;
 
-        if(_.options.swipeToSlide === true) {
-            _.$slideTrack.find('.slick-slide').each(function(index, slide){
+        if (_.options.swipeToSlide === true) {
+            _.$slideTrack.find('.slick-slide').each(function(index, slide) {
                 if (slide.offsetLeft - centerOffset + ($(slide).outerWidth() / 2) > (_.swipeLeft * -1)) {
                     swipedSlide = slide;
                     return false;
@@ -1648,13 +1809,14 @@ $('.calendar-widget').each(function() {
 
     };
 
-    Slick.prototype.init = function() {
+    Slick.prototype.init = function(creation) {
 
         var _ = this;
 
         if (!$(_.$slider).hasClass('slick-initialized')) {
 
             $(_.$slider).addClass('slick-initialized');
+            _.buildRows();
             _.buildOut();
             _.setProps();
             _.startLoad();
@@ -1664,7 +1826,9 @@ $('.calendar-widget').each(function() {
             _.updateDots();
         }
 
-        _.$slider.trigger("init", [ _ ]);
+        if (creation) {
+            _.$slider.trigger('init', [_]);
+        }
 
     };
 
@@ -1695,14 +1859,8 @@ $('.calendar-widget').each(function() {
 
         if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.options.autoplay === true) {
             $('li', _.$dots)
-                .on('mouseenter.slick', function(){
-                    _.paused = true;
-                    _.autoPlayClear();
-                })
-                .on('mouseleave.slick', function(){
-                    _.paused = false;
-                    _.autoPlay();
-                });
+                .on('mouseenter.slick', $.proxy(_.setPaused, _, true))
+                .on('mouseleave.slick', $.proxy(_.setPaused, _, false));
         }
 
     };
@@ -1730,52 +1888,24 @@ $('.calendar-widget').each(function() {
 
         _.$list.on('click.slick', _.clickHandler);
 
-        if (_.options.autoplay === true) {
+        $(document).on(_.visibilityChange, $.proxy(_.visibility, _));
 
-            $(document).on(_.visibilityChange, function(){
-                _.visibility();
-            });
+        _.$list.on('mouseenter.slick', $.proxy(_.setPaused, _, true));
+        _.$list.on('mouseleave.slick', $.proxy(_.setPaused, _, false));
 
-            if( _.options.pauseOnHover === true ) {
-
-                _.$list.on('mouseenter.slick', function(){
-                    _.paused = true;
-                    _.autoPlayClear();
-                });
-                _.$list.on('mouseleave.slick', function(){
-                    _.paused = false;
-                    _.autoPlay();
-                });
-
-            }
-
-        }
-
-        if(_.options.accessibility === true) {
+        if (_.options.accessibility === true) {
             _.$list.on('keydown.slick', _.keyHandler);
         }
 
-        if(_.options.focusOnSelect === true) {
+        if (_.options.focusOnSelect === true) {
             $(_.$slideTrack).children().on('click.slick', _.selectHandler);
         }
 
-        $(window).on('orientationchange.slick.slick-' + _.instanceUid, function() {
-            _.checkResponsive();
-            _.setPosition();
-        });
+        $(window).on('orientationchange.slick.slick-' + _.instanceUid, $.proxy(_.orientationChange, _));
 
-        $(window).on('resize.slick.slick-' + _.instanceUid, function() {
-            if ($(window).width() !== _.windowWidth) {
-                clearTimeout(_.windowDelay);
-                _.windowDelay = window.setTimeout(function() {
-                    _.windowWidth = $(window).width();
-                    _.checkResponsive();
-                    _.setPosition();
-                }, 50);
-            }
-        });
+        $(window).on('resize.slick.slick-' + _.instanceUid, $.proxy(_.resize, _));
 
-        $('*[draggable!=true]', _.$slideTrack).on('dragstart', function(e){ e.preventDefault(); });
+        $('[draggable!=true]', _.$slideTrack).on('dragstart', _.preventDefault);
 
         $(window).on('load.slick.slick-' + _.instanceUid, _.setPosition);
         $(document).on('ready.slick.slick-' + _.instanceUid, _.setPosition);
@@ -1835,41 +1965,50 @@ $('.calendar-widget').each(function() {
         function loadImages(imagesScope) {
             $('img[data-lazy]', imagesScope).each(function() {
                 var image = $(this),
-                    imageSource = $(this).attr('data-lazy');
+                    imageSource = $(this).attr('data-lazy'),
+                    imageToLoad = document.createElement('img');
+
+                imageToLoad.onload = function() {
+                    image.animate({
+                        opacity: 1
+                    }, 200);
+                };
+                imageToLoad.src = imageSource;
 
                 image
-                  .load(function() { image.animate({ opacity: 1 }, 200); })
-                  .css({ opacity: 0 })
-                  .attr('src', imageSource)
-                  .removeAttr('data-lazy')
-                  .removeClass('slick-loading');
+                    .css({
+                        opacity: 0
+                    })
+                    .attr('src', imageSource)
+                    .removeAttr('data-lazy')
+                    .removeClass('slick-loading');
             });
         }
 
         if (_.options.centerMode === true) {
             if (_.options.infinite === true) {
-                rangeStart = _.currentSlide + (_.options.slidesToShow/2 + 1);
+                rangeStart = _.currentSlide + (_.options.slidesToShow / 2 + 1);
                 rangeEnd = rangeStart + _.options.slidesToShow + 2;
             } else {
-                rangeStart = Math.max(0, _.currentSlide - (_.options.slidesToShow/2 + 1));
-                rangeEnd = 2 + (_.options.slidesToShow/2 + 1) + _.currentSlide;
+                rangeStart = Math.max(0, _.currentSlide - (_.options.slidesToShow / 2 + 1));
+                rangeEnd = 2 + (_.options.slidesToShow / 2 + 1) + _.currentSlide;
             }
         } else {
             rangeStart = _.options.infinite ? _.options.slidesToShow + _.currentSlide : _.currentSlide;
             rangeEnd = rangeStart + _.options.slidesToShow;
-            if (_.options.fade === true ) {
-                if(rangeStart > 0) rangeStart--;
-                if(rangeEnd <= _.slideCount) rangeEnd++;
+            if (_.options.fade === true) {
+                if (rangeStart > 0) rangeStart--;
+                if (rangeEnd <= _.slideCount) rangeEnd++;
             }
         }
 
         loadRange = _.$slider.find('.slick-slide').slice(rangeStart, rangeEnd);
         loadImages(loadRange);
 
-          if (_.slideCount <= _.options.slidesToShow){
-              cloneRange = _.$slider.find('.slick-slide');
-              loadImages(cloneRange);
-          }else
+        if (_.slideCount <= _.options.slidesToShow) {
+            cloneRange = _.$slider.find('.slick-slide');
+            loadImages(cloneRange);
+        } else
         if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
             cloneRange = _.$slider.find('.slick-cloned').slice(0, _.options.slidesToShow);
             loadImages(cloneRange);
@@ -1912,6 +2051,15 @@ $('.calendar-widget').each(function() {
 
     };
 
+    Slick.prototype.orientationChange = function() {
+
+        var _ = this;
+
+        _.checkResponsive();
+        _.setPosition();
+
+    };
+
     Slick.prototype.pause = Slick.prototype.slickPause = function() {
 
         var _ = this;
@@ -1934,7 +2082,7 @@ $('.calendar-widget').each(function() {
 
         var _ = this;
 
-        _.$slider.trigger("afterChange", [ _, index]);
+        _.$slider.trigger('afterChange', [_, index]);
 
         _.animating = false;
 
@@ -1960,6 +2108,10 @@ $('.calendar-widget').each(function() {
 
     };
 
+    Slick.prototype.preventDefault = function(e) {
+        e.preventDefault();
+    };
+
     Slick.prototype.progressiveLazyLoad = function() {
 
         var _ = this,
@@ -1970,38 +2122,42 @@ $('.calendar-widget').each(function() {
         if (imgCount > 0) {
             targetImage = $('img[data-lazy]', _.$slider).first();
             targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').load(function() {
-                targetImage.removeAttr('data-lazy');
-                _.progressiveLazyLoad();
-                
-                if( _.options.adaptiveHeight === true ) {
-                    _.setPosition();
-                }
-            })
-         .error(function () {
-          targetImage.removeAttr('data-lazy');
-          _.progressiveLazyLoad();
-         });
+                    targetImage.removeAttr('data-lazy');
+                    _.progressiveLazyLoad();
+
+                    if (_.options.adaptiveHeight === true) {
+                        _.setPosition();
+                    }
+                })
+                .error(function() {
+                    targetImage.removeAttr('data-lazy');
+                    _.progressiveLazyLoad();
+                });
         }
 
     };
 
-    Slick.prototype.refresh = function() {
+    Slick.prototype.refresh = function( initializing ) {
 
         var _ = this,
             currentSlide = _.currentSlide;
 
-        _.destroy();
+        _.destroy(true);
 
         $.extend(_, _.initials);
 
         _.init();
 
-        _.changeSlide({
-            data: {
-                message: 'index',
-                index: currentSlide
-            }
-        }, true);
+        if( !initializing ) {
+
+            _.changeSlide({
+                data: {
+                    message: 'index',
+                    index: currentSlide
+                }
+            }, false);
+
+        }
 
     };
 
@@ -2038,7 +2194,7 @@ $('.calendar-widget').each(function() {
 
         _.initDotEvents();
 
-        if(_.options.focusOnSelect === true) {
+        if (_.options.focusOnSelect === true) {
             $(_.$slideTrack).children().on('click.slick', _.selectHandler);
         }
 
@@ -2046,8 +2202,22 @@ $('.calendar-widget').each(function() {
 
         _.setPosition();
 
-        _.$slider.trigger("reInit", [ _ ]);
+        _.$slider.trigger('reInit', [_]);
 
+    };
+
+    Slick.prototype.resize = function() {
+
+        var _ = this;
+
+        if ($(window).width() !== _.windowWidth) {
+            clearTimeout(_.windowDelay);
+            _.windowDelay = window.setTimeout(function() {
+                _.windowWidth = $(window).width();
+                _.checkResponsive();
+                if( !_.unslicked ) { _.setPosition(); }
+            }, 50);
+        }
     };
 
     Slick.prototype.removeSlide = Slick.prototype.slickRemove = function(index, removeBefore, removeAll) {
@@ -2067,7 +2237,7 @@ $('.calendar-widget').each(function() {
 
         _.unload();
 
-        if(removeAll === true) {
+        if (removeAll === true) {
             _.$slideTrack.children().remove();
         } else {
             _.$slideTrack.children(this.options.slide).eq(index).remove();
@@ -2088,7 +2258,8 @@ $('.calendar-widget').each(function() {
     Slick.prototype.setCSS = function(position) {
 
         var _ = this,
-            positionProps = {}, x, y;
+            positionProps = {},
+            x, y;
 
         if (_.options.rtl === true) {
             position = -position;
@@ -2136,17 +2307,12 @@ $('.calendar-widget').each(function() {
         _.listHeight = _.$list.height();
 
 
-        if(_.options.vertical === false && _.options.variableWidth === false) {
+        if (_.options.vertical === false && _.options.variableWidth === false) {
             _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
             _.$slideTrack.width(Math.ceil((_.slideWidth * _.$slideTrack.children('.slick-slide').length)));
 
         } else if (_.options.variableWidth === true) {
-            var trackWidth = 0;
-            _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
-            _.$slideTrack.children('.slick-slide').each(function(){
-                trackWidth += _.listWidth;
-            });
-            _.$slideTrack.width(Math.ceil(trackWidth) + 1);
+            _.$slideTrack.width(5000 * _.slideCount);
         } else {
             _.slideWidth = Math.ceil(_.listWidth);
             _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight(true) * _.$slideTrack.children('.slick-slide').length)));
@@ -2194,7 +2360,7 @@ $('.calendar-widget').each(function() {
 
         var _ = this;
 
-        if(_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
+        if (_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
             var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
             _.$list.css('height', targetHeight);
         }
@@ -2227,7 +2393,7 @@ $('.calendar-widget').each(function() {
             _.setFade();
         }
 
-        _.$slider.trigger("setPosition", [ _ ]);
+        _.$slider.trigger('setPosition', [_]);
 
     };
 
@@ -2247,38 +2413,38 @@ $('.calendar-widget').each(function() {
         if (bodyStyle.WebkitTransition !== undefined ||
             bodyStyle.MozTransition !== undefined ||
             bodyStyle.msTransition !== undefined) {
-            if(_.options.useCSS === true) {
+            if (_.options.useCSS === true) {
                 _.cssTransitions = true;
             }
         }
 
         if (bodyStyle.OTransform !== undefined) {
             _.animType = 'OTransform';
-            _.transformType = "-o-transform";
+            _.transformType = '-o-transform';
             _.transitionType = 'OTransition';
             if (bodyStyle.perspectiveProperty === undefined && bodyStyle.webkitPerspective === undefined) _.animType = false;
         }
         if (bodyStyle.MozTransform !== undefined) {
             _.animType = 'MozTransform';
-            _.transformType = "-moz-transform";
+            _.transformType = '-moz-transform';
             _.transitionType = 'MozTransition';
             if (bodyStyle.perspectiveProperty === undefined && bodyStyle.MozPerspective === undefined) _.animType = false;
         }
         if (bodyStyle.webkitTransform !== undefined) {
             _.animType = 'webkitTransform';
-            _.transformType = "-webkit-transform";
+            _.transformType = '-webkit-transform';
             _.transitionType = 'webkitTransition';
             if (bodyStyle.perspectiveProperty === undefined && bodyStyle.webkitPerspective === undefined) _.animType = false;
         }
         if (bodyStyle.msTransform !== undefined) {
             _.animType = 'msTransform';
-            _.transformType = "-ms-transform";
+            _.transformType = '-ms-transform';
             _.transitionType = 'msTransition';
             if (bodyStyle.msTransform === undefined) _.animType = false;
         }
         if (bodyStyle.transform !== undefined && _.animType !== false) {
             _.animType = 'transform';
-            _.transformType = "transform";
+            _.transformType = 'transform';
             _.transitionType = 'transition';
         }
         _.transformsEnabled = (_.animType !== null && _.animType !== false);
@@ -2291,20 +2457,20 @@ $('.calendar-widget').each(function() {
         var _ = this,
             centerOffset, allSlides, indexOffset, remainder;
 
-        _.$slider.find('.slick-slide').removeClass('slick-active').attr("aria-hidden","true").removeClass('slick-center');
+        _.$slider.find('.slick-slide').removeClass('slick-active').attr('aria-hidden', 'true').removeClass('slick-center');
         allSlides = _.$slider.find('.slick-slide');
 
         if (_.options.centerMode === true) {
 
             centerOffset = Math.floor(_.options.slidesToShow / 2);
 
-            if(_.options.infinite === true) {
+            if (_.options.infinite === true) {
 
                 if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
-                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active').attr("aria-hidden","false");
+                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active').attr('aria-hidden', 'false');
                 } else {
                     indexOffset = _.options.slidesToShow + index;
-                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active').attr("aria-hidden","false");
+                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active').attr('aria-hidden', 'false');
                 }
 
                 if (index === 0) {
@@ -2320,16 +2486,16 @@ $('.calendar-widget').each(function() {
         } else {
 
             if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
-                _.$slides.slice(index, index + _.options.slidesToShow).addClass('slick-active').attr("aria-hidden","false");
-            } else if ( allSlides.length <= _.options.slidesToShow ) {
-                allSlides.addClass('slick-active').attr("aria-hidden","false");
+                _.$slides.slice(index, index + _.options.slidesToShow).addClass('slick-active').attr('aria-hidden', 'false');
+            } else if (allSlides.length <= _.options.slidesToShow) {
+                allSlides.addClass('slick-active').attr('aria-hidden', 'false');
             } else {
-                remainder = _.slideCount%_.options.slidesToShow;
+                remainder = _.slideCount % _.options.slidesToShow;
                 indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
-                if(_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
-                    allSlides.slice(indexOffset-(_.options.slidesToShow-remainder), indexOffset + remainder).addClass('slick-active').attr("aria-hidden","false");
+                if (_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
+                    allSlides.slice(indexOffset - (_.options.slidesToShow - remainder), indexOffset + remainder).addClass('slick-active').attr('aria-hidden', 'false');
                 } else {
-                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active').attr("aria-hidden","false");
+                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active').attr('aria-hidden', 'false');
                 }
             }
 
@@ -2363,16 +2529,16 @@ $('.calendar-widget').each(function() {
                 }
 
                 for (i = _.slideCount; i > (_.slideCount -
-                    infiniteCount); i -= 1) {
+                        infiniteCount); i -= 1) {
                     slideIndex = i - 1;
                     $(_.$slides[slideIndex]).clone(true).attr('id', '')
-                        .attr('data-slick-index', slideIndex-_.slideCount)
+                        .attr('data-slick-index', slideIndex - _.slideCount)
                         .prependTo(_.$slideTrack).addClass('slick-cloned');
                 }
                 for (i = 0; i < infiniteCount; i += 1) {
                     slideIndex = i;
                     $(_.$slides[slideIndex]).clone(true).attr('id', '')
-                        .attr('data-slick-index', slideIndex+_.slideCount)
+                        .attr('data-slick-index', slideIndex + _.slideCount)
                         .appendTo(_.$slideTrack).addClass('slick-cloned');
                 }
                 _.$slideTrack.find('.slick-cloned').find('[id]').each(function() {
@@ -2385,16 +2551,36 @@ $('.calendar-widget').each(function() {
 
     };
 
+    Slick.prototype.setPaused = function(paused) {
+
+        var _ = this;
+
+        if (_.options.autoplay === true && _.options.pauseOnHover === true) {
+            _.paused = paused;
+            if (!paused) {
+                _.autoPlay();
+            } else {
+                _.autoPlayClear();
+            }
+        }
+    };
+
     Slick.prototype.selectHandler = function(event) {
 
         var _ = this;
-        var index = parseInt($(event.target).parents('.slick-slide').attr("data-slick-index"));
-        if(!index) index = 0;
 
-        if(_.slideCount <= _.options.slidesToShow){
-            _.$slider.find('.slick-slide').removeClass('slick-active').attr("aria-hidden","true");
-            _.$slides.eq(index).addClass('slick-active').attr("aria-hidden","false");
-            if(_.options.centerMode === true) {
+        var targetElement = $(event.target).is('.slick-slide') ?
+            $(event.target) :
+            $(event.target).parents('.slick-slide');
+
+        var index = parseInt(targetElement.attr('data-slick-index'));
+
+        if (!index) index = 0;
+
+        if (_.slideCount <= _.options.slidesToShow) {
+            _.$slider.find('.slick-slide').removeClass('slick-active').attr('aria-hidden', 'true');
+            _.$slides.eq(index).addClass('slick-active').attr("aria-hidden", "false");
+            if (_.options.centerMode === true) {
                 _.$slider.find('.slick-slide').removeClass('slick-center');
                 _.$slides.eq(index).addClass('slick-center');
             }
@@ -2405,7 +2591,7 @@ $('.calendar-widget').each(function() {
 
     };
 
-    Slick.prototype.slideHandler = function(index,sync,dontAnimate) {
+    Slick.prototype.slideHandler = function(index, sync, dontAnimate) {
 
         var targetSlide, animSlide, oldSlide, slideLeft, targetLeft = null,
             _ = this;
@@ -2435,9 +2621,9 @@ $('.calendar-widget').each(function() {
         _.currentLeft = _.swipeLeft === null ? slideLeft : _.swipeLeft;
 
         if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > _.getDotCount() * _.options.slidesToScroll)) {
-            if(_.options.fade === false) {
+            if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-                if(dontAnimate!==true) {
+                if (dontAnimate !== true) {
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -2447,9 +2633,9 @@ $('.calendar-widget').each(function() {
             }
             return;
         } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
-            if(_.options.fade === false) {
+            if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-                if(dontAnimate!==true) {
+                if (dontAnimate !== true) {
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -2482,7 +2668,7 @@ $('.calendar-widget').each(function() {
 
         _.animating = true;
 
-        _.$slider.trigger("beforeChange", [ _ , _.currentSlide, animSlide]);
+        _.$slider.trigger("beforeChange", [_, _.currentSlide, animSlide]);
 
         oldSlide = _.currentSlide;
         _.currentSlide = animSlide;
@@ -2493,7 +2679,7 @@ $('.calendar-widget').each(function() {
         _.updateArrows();
 
         if (_.options.fade === true) {
-            if(dontAnimate!==true) {
+            if (dontAnimate !== true) {
                 _.fadeSlide(animSlide, function() {
                     _.postSlide(animSlide);
                 });
@@ -2504,7 +2690,7 @@ $('.calendar-widget').each(function() {
             return;
         }
 
-        if(dontAnimate!==true) {
+        if (dontAnimate !== true) {
             _.animateSlide(targetLeft, function() {
                 _.postSlide(animSlide);
             });
@@ -2557,6 +2743,13 @@ $('.calendar-widget').each(function() {
         if ((swipeAngle >= 135) && (swipeAngle <= 225)) {
             return (_.options.rtl === false ? 'right' : 'left');
         }
+        if (_.options.verticalSwiping === true) {
+            if ((swipeAngle >= 35) && (swipeAngle <= 135)) {
+                return 'left';
+            } else {
+                return 'right';
+            }
+        }
 
         return 'vertical';
 
@@ -2564,7 +2757,8 @@ $('.calendar-widget').each(function() {
 
     Slick.prototype.swipeEnd = function(event) {
 
-        var _ = this, slideCount;
+        var _ = this,
+            slideCount;
 
         _.dragging = false;
 
@@ -2575,7 +2769,7 @@ $('.calendar-widget').each(function() {
         }
 
         if (_.touchObject.edgeHit === true) {
-            _.$slider.trigger("edge", [  _, _.swipeDirection()]);
+            _.$slider.trigger("edge", [_, _.swipeDirection()]);
         }
 
         if (_.touchObject.swipeLength >= _.touchObject.minSwipe) {
@@ -2586,7 +2780,7 @@ $('.calendar-widget').each(function() {
                     _.slideHandler(slideCount);
                     _.currentDirection = 0;
                     _.touchObject = {};
-                    _.$slider.trigger("swipe", [ _, "left"]);
+                    _.$slider.trigger("swipe", [_, "left"]);
                     break;
 
                 case 'right':
@@ -2594,11 +2788,11 @@ $('.calendar-widget').each(function() {
                     _.slideHandler(slideCount);
                     _.currentDirection = 1;
                     _.touchObject = {};
-                    _.$slider.trigger("swipe", [ _, "right"]);
+                    _.$slider.trigger("swipe", [_, "right"]);
                     break;
             }
         } else {
-            if(_.touchObject.startX !== _.touchObject.curX) {
+            if (_.touchObject.startX !== _.touchObject.curX) {
                 _.slideHandler(_.currentSlide);
                 _.touchObject = {};
             }
@@ -2611,9 +2805,9 @@ $('.calendar-widget').each(function() {
         var _ = this;
 
         if ((_.options.swipe === false) || ('ontouchend' in document && _.options.swipe === false)) {
-           return;
+            return;
         } else if (_.options.draggable === false && event.type.indexOf('mouse') !== -1) {
-           return;
+            return;
         }
 
         _.touchObject.fingerCount = event.originalEvent && event.originalEvent.touches !== undefined ?
@@ -2621,6 +2815,11 @@ $('.calendar-widget').each(function() {
 
         _.touchObject.minSwipe = _.listWidth / _.options
             .touchThreshold;
+
+        if (_.options.verticalSwiping === true) {
+            _.touchObject.minSwipe = _.listHeight / _.options
+                .touchThreshold;
+        }
 
         switch (event.data.action) {
 
@@ -2660,6 +2859,11 @@ $('.calendar-widget').each(function() {
         _.touchObject.swipeLength = Math.round(Math.sqrt(
             Math.pow(_.touchObject.curX - _.touchObject.startX, 2)));
 
+        if (_.options.verticalSwiping === true) {
+            _.touchObject.swipeLength = Math.round(Math.sqrt(
+                Math.pow(_.touchObject.curY - _.touchObject.startY, 2)));
+        }
+
         swipeDirection = _.swipeDirection();
 
         if (swipeDirection === 'vertical') {
@@ -2671,6 +2875,10 @@ $('.calendar-widget').each(function() {
         }
 
         positionOffset = (_.options.rtl === false ? 1 : -1) * (_.touchObject.curX > _.touchObject.startX ? 1 : -1);
+        if (_.options.verticalSwiping === true) {
+            positionOffset = _.touchObject.curY > _.touchObject.startY ? 1 : -1;
+        }
+
 
         swipeLength = _.touchObject.swipeLength;
 
@@ -2687,6 +2895,9 @@ $('.calendar-widget').each(function() {
             _.swipeLeft = curLeft + swipeLength * positionOffset;
         } else {
             _.swipeLeft = curLeft + (swipeLength * (_.$list.height() / _.listWidth)) * positionOffset;
+        }
+        if (_.options.verticalSwiping === true) {
+            _.swipeLeft = curLeft + swipeLength * positionOffset;
         }
 
         if (_.options.fade === true || _.options.touchMove === false) {
@@ -2755,20 +2966,22 @@ $('.calendar-widget').each(function() {
         if (_.$nextArrow && (typeof _.options.nextArrow !== 'object')) {
             _.$nextArrow.remove();
         }
-        _.$slides.removeClass('slick-slide slick-active slick-visible').attr("aria-hidden","true").css('width', '');
+        _.$slides.removeClass('slick-slide slick-active slick-visible').attr("aria-hidden", "true").css('width', '');
 
     };
 
-    Slick.prototype.unslick = function() {
+    Slick.prototype.unslick = function(fromBreakpoint) {
 
         var _ = this;
+        _.$slider.trigger('unslick', [_, fromBreakpoint]);
         _.destroy();
 
     };
 
     Slick.prototype.updateArrows = function() {
 
-        var _ = this, centerOffset;
+        var _ = this,
+            centerOffset;
 
         centerOffset = Math.floor(_.options.slidesToShow / 2);
 
@@ -2796,8 +3009,8 @@ $('.calendar-widget').each(function() {
 
         if (_.$dots !== null) {
 
-            _.$dots.find('li').removeClass('slick-active').attr("aria-hidden","true");
-            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('slick-active').attr("aria-hidden","false");
+            _.$dots.find('li').removeClass('slick-active').attr("aria-hidden", "true");
+            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('slick-active').attr("aria-hidden", "false");
 
         }
 
@@ -2807,38 +3020,41 @@ $('.calendar-widget').each(function() {
 
         var _ = this;
 
-        if( document[ _.hidden ] ) {
+        if (document[_.hidden]) {
             _.paused = true;
             _.autoPlayClear();
         } else {
-            _.paused = false;
-            _.autoPlay();
+            if (_.options.autoplay === true) {
+                _.paused = false;
+                _.autoPlay();
+            }
         }
 
     };
 
     $.fn.slick = function() {
-        var _ = this, opt = arguments[0], args = Array.prototype.slice.call(arguments,1), l = _.length, i = 0, ret;
-        for(i; i < l; i++) {
+        var _ = this,
+            opt = arguments[0],
+            args = Array.prototype.slice.call(arguments, 1),
+            l = _.length,
+            i = 0,
+            ret;
+        for (i; i < l; i++) {
             if (typeof opt == 'object' || typeof opt == 'undefined')
-                _[i].slick =  new Slick(_[i], opt);
+                _[i].slick = new Slick(_[i], opt);
             else
                 ret = _[i].slick[opt].apply(_[i].slick, args);
-                if (typeof ret != 'undefined') return ret;
+            if (typeof ret != 'undefined') return ret;
         }
         return _;
     };
 
-    $(function(){
-        $('[data-slick]').slick();
-    });
-
 }));
 
-// Generated by CoffeeScript 1.7.1
+// Generated by CoffeeScript 1.9.2
 
 /**
-@license Sticky-kit v1.1.1 | WTFPL | Leaf Corcoran 2014 | http://leafo.net
+@license Sticky-kit v1.1.2 | WTFPL | Leaf Corcoran 2015 | http://leafo.net
  */
 
 (function() {
@@ -2849,7 +3065,7 @@ $('.calendar-widget').each(function() {
   win = $(window);
 
   $.fn.stick_in_parent = function(opts) {
-    var elm, enable_bottoming, inner_scrolling, manual_spacer, offset_top, parent_selector, recalc_every, sticky_class, _fn, _i, _len;
+    var doc, elm, enable_bottoming, fn, i, inner_scrolling, len, manual_spacer, offset_top, parent_selector, recalc_every, sticky_class;
     if (opts == null) {
       opts = {};
     }
@@ -2866,15 +3082,17 @@ $('.calendar-widget').each(function() {
     if (sticky_class == null) {
       sticky_class = "is_stuck";
     }
+    doc = $(document);
     if (enable_bottoming == null) {
       enable_bottoming = true;
     }
-    _fn = function(elm, padding_bottom, parent_top, parent_height, top, height, el_float, detached) {
-      var bottomed, detach, fixed, last_pos, offset, parent, recalc, recalc_and_tick, recalc_counter, spacer, tick;
+    fn = function(elm, padding_bottom, parent_top, parent_height, top, height, el_float, detached) {
+      var bottomed, detach, fixed, last_pos, last_scroll_height, offset, parent, recalc, recalc_and_tick, recalc_counter, spacer, tick;
       if (elm.data("sticky_kit")) {
         return;
       }
       elm.data("sticky_kit", true);
+      last_scroll_height = doc.height();
       parent = elm.parent();
       if (parent_selector != null) {
         parent = parent.closest(parent_selector);
@@ -2893,6 +3111,7 @@ $('.calendar-widget').each(function() {
         if (detached) {
           return;
         }
+        last_scroll_height = doc.height();
         border_top = parseInt(parent.css("border-top-width"), 10);
         padding_top = parseInt(parent.css("padding-top"), 10);
         padding_bottom = parseInt(parent.css("padding-bottom"), 10);
@@ -2913,7 +3132,7 @@ $('.calendar-widget').each(function() {
           }).removeClass(sticky_class);
           restore = true;
         }
-        top = elm.offset().top - parseInt(elm.css("margin-top"), 10) - offset_top;
+        top = elm.offset().top - (parseInt(elm.css("margin-top"), 10) || 0) - offset_top;
         height = elm.outerHeight(true);
         el_float = elm.css("float");
         if (spacer) {
@@ -2937,16 +3156,22 @@ $('.calendar-widget').each(function() {
       offset = offset_top;
       recalc_counter = recalc_every;
       tick = function() {
-        var css, delta, scroll, will_bottom, win_height;
+        var css, delta, recalced, scroll, will_bottom, win_height;
         if (detached) {
           return;
         }
+        recalced = false;
         if (recalc_counter != null) {
           recalc_counter -= 1;
           if (recalc_counter <= 0) {
             recalc_counter = recalc_every;
             recalc();
+            recalced = true;
           }
+        }
+        if (!recalced && doc.height() !== last_scroll_height) {
+          recalc();
+          recalced = true;
         }
         scroll = win.scrollTop();
         if (last_pos != null) {
@@ -3069,9 +3294,9 @@ $('.calendar-widget').each(function() {
       elm.on("sticky_kit:detach", detach);
       return setTimeout(tick, 0);
     };
-    for (_i = 0, _len = this.length; _i < _len; _i++) {
-      elm = this[_i];
-      _fn($(elm));
+    for (i = 0, len = this.length; i < len; i++) {
+      elm = this[i];
+      fn($(elm));
     }
     return this;
   };
@@ -3380,42 +3605,52 @@ $('.calendar-widget').each(function() {
     }
   };
 
-  /*
-    https://github.com/paulirish/matchMedia.js
-  */
+  /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
 
-  window.matchMedia = window.matchMedia || (function ( doc ) {
+  window.matchMedia || (window.matchMedia = function() {
+      "use strict";
 
-    'use strict';
+      // For browsers that support matchMedium api such as IE 9 and webkit
+      var styleMedia = (window.styleMedia || window.media);
 
-    var bool,
-        docElem = doc.documentElement,
-        refNode = docElem.firstElementChild || docElem.firstChild,
-        // fakeBody required for <FF4 when executed in <head>
-        fakeBody = doc.createElement( 'body' ),
-        div = doc.createElement( 'div' );
+      // For those that don't support matchMedium
+      if (!styleMedia) {
+          var style       = document.createElement('style'),
+              script      = document.getElementsByTagName('script')[0],
+              info        = null;
 
-    div.id = 'mq-test-1';
-    div.style.cssText = 'position:absolute;top:-100em';
-    fakeBody.style.background = 'none';
-    fakeBody.appendChild(div);
+          style.type  = 'text/css';
+          style.id    = 'matchmediajs-test';
 
-    return function (q) {
+          script.parentNode.insertBefore(style, script);
 
-      div.innerHTML = '&shy;<style media="' + q + '"> #mq-test-1 { width: 42px; }</style>';
+          // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
+          info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
 
-      docElem.insertBefore( fakeBody, refNode );
-      bool = div.offsetWidth === 42;
-      docElem.removeChild( fakeBody );
+          styleMedia = {
+              matchMedium: function(media) {
+                  var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
 
-      return {
-        matches : bool,
-        media : q
+                  // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
+                  if (style.styleSheet) {
+                      style.styleSheet.cssText = text;
+                  } else {
+                      style.textContent = text;
+                  }
+
+                  // Test if media query is true or false
+                  return info.width === '1px';
+              }
+          };
+      }
+
+      return function(media) {
+          return {
+              matches: styleMedia.matchMedium(media || 'all'),
+              media: media || 'all'
+          };
       };
-
-    };
-
-  }( document ));
+  }());
 
   /*
    * jquery.requestAnimationFrame
@@ -3506,7 +3741,7 @@ $('.calendar-widget').each(function() {
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     media_queries : {
       'small'       : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -3806,7 +4041,7 @@ $('.calendar-widget').each(function() {
 
           if (query !== undefined) {
             Foundation.stylesheet.insertRule('@media ' +
-              Foundation.media_queries[media] + '{ ' + rule + ' }');
+              Foundation.media_queries[media] + '{ ' + rule + ' }', Foundation.stylesheet.cssRules.length);
           }
         }
       },
@@ -3822,7 +4057,19 @@ $('.calendar-widget').each(function() {
         var self = this,
             unloaded = images.length;
 
-        if (unloaded === 0) {
+        function pictures_has_height(images) {
+          var pictures_number = images.length;
+
+          for (var i = pictures_number - 1; i >= 0; i--) {
+            if(images.attr('height') === undefined) {
+              return false;
+            };
+          };
+
+          return true;
+        }
+
+        if (unloaded === 0 || pictures_has_height(images)) {
           callback(images);
         }
 
@@ -3931,11 +4178,12 @@ $('.calendar-widget').each(function() {
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       live_validate : true,
       validate_on_blur : true,
+      // validate_on: 'tab', // tab (when user tabs between fields), change (input changes), manual (call custom events) 
       focus_on_invalid : true,
       error_labels : true, // labels with a for="inputId" will recieve an `error` class
       error_class : 'error',
@@ -3953,7 +4201,8 @@ $('.calendar-widget').each(function() {
         // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
         email : /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/,
 
-        url : /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
+        // http://blogs.lse.ac.uk/lti/2008/04/23/a-regular-expression-to-match-any-url/
+        url: /^(https?|ftp|file|ssh):\/\/([-;:&=\+\$,\w]+@{1})?([-A-Za-z0-9\.]+)+:?(\d+)?((\/[-\+~%\/\.\w]+)?\??([-\+=&;%@\.\w]+)?#?([\w]+)?)?/,
         // abc.de
         domain : /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,8}$/,
 
@@ -3995,36 +4244,71 @@ $('.calendar-widget').each(function() {
 
       this.invalid_attr = this.add_namespace('data-invalid');
 
+      function validate(originalSelf, e) {
+        clearTimeout(self.timer);
+        self.timer = setTimeout(function () {
+          self.validate([originalSelf], e);
+        }.bind(originalSelf), settings.timeout);
+      }
+
+
       form
         .off('.abide')
-        .on('submit.fndtn.abide validate.fndtn.abide', function (e) {
+        .on('submit.fndtn.abide', function (e) {
           var is_ajax = /ajax/i.test(self.S(this).attr(self.attr_name()));
-          return self.validate(self.S(this).find('input, textarea, select').get(), e, is_ajax);
+          return self.validate(self.S(this).find('input, textarea, select').not(":hidden, [data-abide-ignore]").get(), e, is_ajax);
         })
-        .on('reset', function () {
-          return self.reset($(this));
+        .on('validate.fndtn.abide', function (e) {
+          if (settings.validate_on === 'manual') {
+            self.validate([e.target], e);
+          }
         })
-        .find('input, textarea, select')
+        .on('reset', function (e) {
+          return self.reset($(this), e);          
+        })
+        .find('input, textarea, select').not(":hidden, [data-abide-ignore]")
           .off('.abide')
           .on('blur.fndtn.abide change.fndtn.abide', function (e) {
-            if (settings.validate_on_blur === true) {
-              self.validate([this], e);
+            // old settings fallback
+            // will be deprecated with F6 release
+            if (settings.validate_on_blur && settings.validate_on_blur === true) {
+              validate(this, e);
+            }
+            // new settings combining validate options into one setting
+            if (settings.validate_on === 'change') {
+              validate(this, e);
             }
           })
           .on('keydown.fndtn.abide', function (e) {
-            if (settings.live_validate === true && e.which != 9) {
-              clearTimeout(self.timer);
-              self.timer = setTimeout(function () {
-                self.validate([this], e);
-              }.bind(this), settings.timeout);
+            // old settings fallback
+            // will be deprecated with F6 release
+            if (settings.live_validate && settings.live_validate === true && e.which != 9) {
+              validate(this, e);
             }
+            // new settings combining validate options into one setting
+            if (settings.validate_on === 'tab' && e.which === 9) {
+              validate(this, e);
+            }
+            else if (settings.validate_on === 'change') {
+              validate(this, e);
+            }
+          })
+          .on('focus', function (e) {
+            if (navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
+              $('html, body').animate({
+                  scrollTop: $(e.target).offset().top
+              }, 100);
+            } 
           });
     },
 
-    reset : function (form) {
-      form.removeAttr(this.invalid_attr);
-      $(this.invalid_attr, form).removeAttr(this.invalid_attr);
-      $('.' + this.settings.error_class, form).not('small').removeClass(this.settings.error_class);
+    reset : function (form, e) {
+      var self = this;
+      form.removeAttr(self.invalid_attr);
+
+      $('[' + self.invalid_attr + ']', form).removeAttr(self.invalid_attr);
+      $('.' + self.settings.error_class, form).not('small').removeClass(self.settings.error_class);
+      $(':input', form).not(':button, :submit, :reset, :hidden, [data-abide-ignore]').val('').removeAttr(self.invalid_attr);
     },
 
     validate : function (els, e, is_ajax) {
@@ -4039,14 +4323,14 @@ $('.calendar-widget').each(function() {
           if (this.settings.focus_on_invalid) {
             els[i].focus();
           }
-          form.trigger('invalid').trigger('invalid.fndtn.abide');
+          form.trigger('invalid.fndtn.abide');
           this.S(els[i]).closest('form').attr(this.invalid_attr, '');
           return false;
         }
       }
 
       if (submit_event || is_ajax) {
-        form.trigger('valid').trigger('valid.fndtn.abide');
+        form.trigger('valid.fndtn.abide');
       }
 
       form.removeAttr(this.invalid_attr);
@@ -4119,15 +4403,36 @@ $('.calendar-widget').each(function() {
           parent = direct_parent.parent();
         }
 
-        if (validator) {
-          valid = this.settings.validators[validator].apply(this, [el, required, parent]);
-          el_validations.push(valid);
-        }
-
         if (is_radio && required) {
           el_validations.push(this.valid_radio(el, required));
         } else if (is_checkbox && required) {
           el_validations.push(this.valid_checkbox(el, required));
+
+        } else if (validator) {
+          // Validate using each of the specified (space-delimited) validators.
+          var validators = validator.split(' ');
+          var last_valid = true, all_valid = true;
+          for (var iv = 0; iv < validators.length; iv++) {
+              valid = this.settings.validators[validators[iv]].apply(this, [el, required, parent])
+              el_validations.push(valid);
+              all_valid = valid && last_valid;
+              last_valid = valid;
+          }
+          if (all_valid) {
+              this.S(el).removeAttr(this.invalid_attr);
+              parent.removeClass('error');
+              if (label.length > 0 && this.settings.error_labels) {
+                label.removeClass(this.settings.error_class).removeAttr('role');
+              }
+              $(el).triggerHandler('valid');
+          } else {
+              this.S(el).attr(this.invalid_attr, '');
+              parent.addClass('error');
+              if (label.length > 0 && this.settings.error_labels) {
+                label.addClass(this.settings.error_class).attr('role', 'alert');
+              }
+              $(el).triggerHandler('invalid');
+          }
         } else {
 
           if (el_patterns[i][1].test(value) && valid_length ||
@@ -4138,7 +4443,6 @@ $('.calendar-widget').each(function() {
           }
 
           el_validations = [el_validations.every(function (valid) {return valid;})];
-
           if (el_validations[0]) {
             this.S(el).removeAttr(this.invalid_attr);
             el.setAttribute('aria-invalid', 'false');
@@ -4167,9 +4471,8 @@ $('.calendar-widget').each(function() {
             $(el).triggerHandler('invalid');
           }
         }
-        validations.push(el_validations[0]);
+        validations = validations.concat(el_validations);
       }
-      validations = [validations.every(function (valid) {return valid;})];
       return validations;
     },
 
@@ -4179,8 +4482,10 @@ $('.calendar-widget').each(function() {
 
       if (valid) {
         el.removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
+        $(el).triggerHandler('valid');
       } else {
         el.attr(this.invalid_attr, '').parent().addClass(this.settings.error_class);
+        $(el).triggerHandler('invalid');
       }
 
       return valid;
@@ -4213,8 +4518,10 @@ $('.calendar-widget').each(function() {
       for (var i = 0; i < count; i++) {
         if (valid) {
           this.S(group[i]).removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
+          $(group[i]).triggerHandler('valid');
         } else {
           this.S(group[i]).attr(this.invalid_attr, '').parent().addClass(this.settings.error_class);
+          $(group[i]).triggerHandler('invalid');
         }
       }
 
@@ -4262,6 +4569,14 @@ $('.calendar-widget').each(function() {
       }
 
       return valid;
+    },
+
+    reflow : function(scope, options) {
+      var self = this,
+          form = self.S('[' + this.attr_name() + ']').attr('novalidate', 'novalidate');
+          self.S(form).each(function (idx, el) {
+            self.events(el);
+          });
     }
   };
 }(jQuery, window, window.document));
@@ -4272,7 +4587,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       content_class : 'content',
@@ -4286,30 +4601,35 @@ $('.calendar-widget').each(function() {
       this.bindings(method, options);
     },
 
-    events : function () {
+    events : function (instance) {
       var self = this;
       var S = this.S;
+      self.create(this.S(instance));
+
       S(this.scope)
       .off('.fndtn.accordion')
-      .on('click.fndtn.accordion', '[' + this.attr_name() + '] > .accordion-navigation > a', function (e) {
+      .on('click.fndtn.accordion', '[' + this.attr_name() + '] > dd > a, [' + this.attr_name() + '] > li > a', function (e) {
         var accordion = S(this).closest('[' + self.attr_name() + ']'),
             groupSelector = self.attr_name() + '=' + accordion.attr(self.attr_name()),
             settings = accordion.data(self.attr_name(true) + '-init') || self.settings,
             target = S('#' + this.href.split('#')[1]),
-            aunts = $('> .accordion-navigation', accordion),
+            aunts = $('> dd, > li', accordion),
             siblings = aunts.children('.' + settings.content_class),
             active_content = siblings.filter('.' + settings.active_class);
 
         e.preventDefault();
 
         if (accordion.attr(self.attr_name())) {
-          siblings = siblings.add('[' + groupSelector + '] dd > ' + '.' + settings.content_class);
-          aunts = aunts.add('[' + groupSelector + '] .accordion-navigation');
+          siblings = siblings.add('[' + groupSelector + '] dd > ' + '.' + settings.content_class + ', [' + groupSelector + '] li > ' + '.' + settings.content_class);
+          aunts = aunts.add('[' + groupSelector + '] dd, [' + groupSelector + '] li');
         }
 
         if (settings.toggleable && target.is(active_content)) {
-          target.parent('.accordion-navigation').toggleClass(settings.active_class, false);
+          target.parent('dd, li').toggleClass(settings.active_class, false);
           target.toggleClass(settings.active_class, false);
+          S(this).attr('aria-expanded', function(i, attr){
+              return attr === 'true' ? 'false' : 'true';
+          });
           settings.callback(target);
           target.triggerHandler('toggled', [accordion]);
           accordion.triggerHandler('toggled', [target]);
@@ -4319,13 +4639,29 @@ $('.calendar-widget').each(function() {
         if (!settings.multi_expand) {
           siblings.removeClass(settings.active_class);
           aunts.removeClass(settings.active_class);
+          aunts.children('a').attr('aria-expanded','false');
         }
 
         target.addClass(settings.active_class).parent().addClass(settings.active_class);
         settings.callback(target);
         target.triggerHandler('toggled', [accordion]);
         accordion.triggerHandler('toggled', [target]);
+        S(this).attr('aria-expanded','true');
       });
+    },
+
+    create: function($instance) {
+      var self = this,
+          accordion = $instance,
+          aunts = $('> .accordion-navigation', accordion),
+          settings = accordion.data(self.attr_name(true) + '-init') || self.settings;
+
+      aunts.children('a').attr('aria-expanded','false');
+      aunts.has('.' + settings.content_class + '.' + settings.active_class).children('a').attr('aria-expanded','true');
+
+      if (settings.multi_expand) {
+        $instance.attr('aria-multiselectable','true');
+      }
     },
 
     off : function () {},
@@ -4340,7 +4676,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       callback : function () {}
@@ -4362,12 +4698,12 @@ $('.calendar-widget').each(function() {
         if (Modernizr.csstransitions) {
           alertBox.addClass('alert-close');
           alertBox.on('transitionend webkitTransitionEnd oTransitionEnd', function (e) {
-            S(this).trigger('close').trigger('close.fndtn.alert').remove();
+            S(this).trigger('close.fndtn.alert').remove();
             settings.callback();
           });
         } else {
           alertBox.fadeOut(300, function () {
-            S(this).trigger('close').trigger('close.fndtn.alert').remove();
+            S(this).trigger('close.fndtn.alert').remove();
             settings.callback();
           });
         }
@@ -4384,14 +4720,16 @@ $('.calendar-widget').each(function() {
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       templates : {
         viewing : '<a href="#" class="clearing-close">&times;</a>' +
           '<div class="visible-img" style="display: none"><div class="clearing-touch-label"></div><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
           '<p class="clearing-caption"></p><a href="#" class="clearing-main-prev"><span></span></a>' +
-          '<a href="#" class="clearing-main-next"><span></span></a></div>'
+          '<a href="#" class="clearing-main-next"><span></span></a></div>' +
+          '<img class="clearing-preload-next" style="display: none" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
+          '<img class="clearing-preload-prev" style="display: none" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />'
       },
 
       // comma delimited list of selectors that, on click, will close clearing,
@@ -4581,7 +4919,8 @@ $('.calendar-widget').each(function() {
           visible_image = self.S('.visible-img', container),
           image = self.S('img', visible_image).not($image),
           label = self.S('.clearing-touch-label', container),
-          error = false;
+          error = false,
+          loaded = {};
 
       // Event to disable scrolling on touch devices when Clearing is activated
       $('body').on('touchmove', function (e) {
@@ -4607,6 +4946,7 @@ $('.calendar-widget').each(function() {
       function cb (image) {
         var $image = $(image);
         $image.css('visibility', 'visible');
+        $image.trigger('imageVisible');
         // toggle the gallery
         body.css('overflow', 'hidden');
         root.addClass('clearing-blackout');
@@ -4625,9 +4965,17 @@ $('.calendar-widget').each(function() {
       if (!this.locked()) {
         visible_image.trigger('open.fndtn.clearing');
         // set the image to the selected thumbnail
-        image
-          .attr('src', this.load($image))
-          .css('visibility', 'hidden');
+        loaded = this.load($image);
+        if (loaded.interchange) {
+          image
+            .attr('data-interchange', loaded.interchange)
+            .foundation('interchange', 'reflow');
+        } else {
+          image
+            .attr('src', loaded.src)
+            .attr('data-interchange', '');
+        }
+        image.css('visibility', 'hidden');
 
         startLoad.call(this);
       }
@@ -4682,7 +5030,7 @@ $('.calendar-widget').each(function() {
         this.go(clearing, 'prev');
       }
       if (e.which === ESC_KEY) {
-        this.S('a.clearing-close').trigger('click').trigger('click.fndtn.clearing');
+        this.S('a.clearing-close').trigger('click.fndtn.clearing');
       }
     },
 
@@ -4761,37 +5109,55 @@ $('.calendar-widget').each(function() {
     // image loading and preloading
 
     load : function ($image) {
-      var href;
+      var href,
+          interchange,
+          closest_a;
 
       if ($image[0].nodeName === 'A') {
         href = $image.attr('href');
+        interchange = $image.data('clearing-interchange');
       } else {
-        href = $image.closest('a').attr('href');
+        closest_a = $image.closest('a');
+        href = closest_a.attr('href');
+        interchange = closest_a.data('clearing-interchange');
       }
 
       this.preload($image);
 
-      if (href) {
-        return href;
+      return {
+        'src': href ? href : $image.attr('src'),
+        'interchange': href ? interchange : $image.data('clearing-interchange')
       }
-      return $image.attr('src');
     },
 
     preload : function ($image) {
       this
-        .img($image.closest('li').next())
-        .img($image.closest('li').prev());
+        .img($image.closest('li').next(), 'next')
+        .img($image.closest('li').prev(), 'prev');
     },
 
-    img : function (img) {
+    img : function (img, sibling_type) {
       if (img.length) {
-        var new_img = new Image(),
-            new_a = this.S('a', img);
+        var preload_img = $('.clearing-preload-' + sibling_type),
+            new_a = this.S('a', img),
+            src,
+            interchange,
+            image;
 
         if (new_a.length) {
-          new_img.src = new_a.attr('href');
+          src = new_a.attr('href');
+          interchange = new_a.data('clearing-interchange');
         } else {
-          new_img.src = this.S('img', img).attr('src');
+          image = this.S('img', img);
+          src = image.attr('src');
+          interchange = image.data('clearing-interchange');
+        }
+
+        if (interchange) {
+          preload_img.attr('data-interchange', interchange);
+        } else {
+          preload_img.attr('src', src);
+          preload_img.attr('data-interchange', '');
         }
       }
       return this;
@@ -4827,7 +5193,7 @@ $('.calendar-widget').each(function() {
 
       if (target.length) {
         this.S('img', target)
-          .trigger('click', [current, target]).trigger('click.fndtn.clearing', [current, target])
+          .trigger('click.fndtn.clearing', [current, target])
           .trigger('change.fndtn.clearing');
       }
     },
@@ -4941,7 +5307,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       active_class : 'open',
@@ -4971,7 +5337,7 @@ $('.calendar-widget').each(function() {
           var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;
           if (!settings.is_hover || Modernizr.touch) {
             e.preventDefault();
-            if (S(this).parent('[data-reveal-id]')) {
+            if (S(this).parent('[data-reveal-id]').length) {
               e.stopPropagation();
             }
             self.toggle($(this));
@@ -5068,8 +5434,8 @@ $('.calendar-widget').each(function() {
 
     close : function (dropdown) {
       var self = this;
-      dropdown.each(function () {
-        var original_target = $('[' + self.attr_name() + '=' + dropdown[0].id + ']') || $('aria-controls=' + dropdown[0].id + ']');
+      dropdown.each(function (idx) {
+        var original_target = $('[' + self.attr_name() + '=' + dropdown[idx].id + ']') || $('aria-controls=' + dropdown[idx].id + ']');
         original_target.attr('aria-expanded', 'false');
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
@@ -5080,7 +5446,7 @@ $('.calendar-widget').each(function() {
             .removeClass(self.settings.active_class)
             .removeData('target');
 
-          self.S(this).trigger('closed').trigger('closed.fndtn.dropdown', [dropdown]);
+          self.S(this).trigger('closed.fndtn.dropdown', [dropdown]);
         }
       });
       dropdown.removeClass('f-open-' + this.attr_name(true));
@@ -5098,7 +5464,7 @@ $('.calendar-widget').each(function() {
         .css(dropdown
         .addClass(this.settings.active_class), target);
       dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
-      dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
+      dropdown.data('target', target.get(0)).trigger('opened.fndtn.dropdown', [dropdown, target]);
       dropdown.attr('aria-hidden', 'false');
       target.attr('aria-expanded', 'true');
       dropdown.focus();
@@ -5146,9 +5512,12 @@ $('.calendar-widget').each(function() {
 
     css : function (dropdown, target) {
       var left_offset = Math.max((target.width() - dropdown.width()) / 2, 8),
-          settings = target.data(this.attr_name(true) + '-init') || this.settings;
+          settings = target.data(this.attr_name(true) + '-init') || this.settings,
+          parentOverflow = dropdown.parent().css('overflow-y') || dropdown.parent().css('overflow');
 
       this.clear_idx();
+
+
 
       if (this.small()) {
         var p = this.dirs.bottom.call(dropdown, target, settings);
@@ -5161,7 +5530,19 @@ $('.calendar-widget').each(function() {
         });
 
         dropdown.css(Foundation.rtl ? 'right' : 'left', left_offset);
-      } else {
+      }
+      // detect if dropdown is in an overflow container
+      else if (parentOverflow !== 'visible') {
+        var offset = target[0].offsetTop + target[0].offsetHeight;
+
+        dropdown.attr('style', '').css({
+          position : 'absolute',
+          top : offset
+        });
+
+        dropdown.css(Foundation.rtl ? 'right' : 'left', left_offset);
+      }
+      else {
 
         this.style(dropdown, target, settings);
       }
@@ -5200,17 +5581,17 @@ $('.calendar-widget').each(function() {
         if (document.getElementsByClassName('row')[0]) {
           actualBodyWidth = document.getElementsByClassName('row')[0].clientWidth;
         } else {
-          actualBodyWidth = window.outerWidth;
+          actualBodyWidth = window.innerWidth;
         }
 
-        var actualMarginWidth = (window.outerWidth - actualBodyWidth) / 2;
+        var actualMarginWidth = (window.innerWidth - actualBodyWidth) / 2;
         var actualBoundary = actualBodyWidth;
 
         if (!this.hasClass('mega')) {
           //miss top
           if (t.offset().top <= this.outerHeight()) {
             p.missTop = true;
-            actualBoundary = window.outerWidth - actualMarginWidth;
+            actualBoundary = window.innerWidth - actualMarginWidth;
             p.leftRightFlag = true;
           }
 
@@ -5390,13 +5771,14 @@ $('.calendar-widget').each(function() {
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       use_tallest : true,
       before_height_change : $.noop,
       after_height_change : $.noop,
-      equalize_on_stack : false
+      equalize_on_stack : false,
+      act_on_hidden_el: false
     },
 
     init : function (scope, method, options) {
@@ -5413,28 +5795,38 @@ $('.calendar-widget').each(function() {
 
     equalize : function (equalizer) {
       var isStacked = false,
-          vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
-          settings = equalizer.data(this.attr_name(true) + '-init');
+          group = equalizer.data('equalizer'),
+          settings = equalizer.data(this.attr_name(true)+'-init') || this.settings,
+          vals,
+          firstTopOffset;
 
+      if (settings.act_on_hidden_el) {
+        vals = group ? equalizer.find('['+this.attr_name()+'-watch="'+group+'"]') : equalizer.find('['+this.attr_name()+'-watch]');
+      }
+      else {
+        vals = group ? equalizer.find('['+this.attr_name()+'-watch="'+group+'"]:visible') : equalizer.find('['+this.attr_name()+'-watch]:visible');
+      }
+      
       if (vals.length === 0) {
         return;
       }
-      var firstTopOffset = vals.first().offset().top;
+
       settings.before_height_change();
-      equalizer.trigger('before-height-change').trigger('before-height-change.fndth.equalizer');
+      equalizer.trigger('before-height-change.fndth.equalizer');
       vals.height('inherit');
-      vals.each(function () {
-        var el = $(this);
-        if (el.offset().top !== firstTopOffset) {
-          isStacked = true;
-        }
-      });
 
       if (settings.equalize_on_stack === false) {
+        firstTopOffset = vals.first().offset().top;
+        vals.each(function () {
+          if ($(this).offset().top !== firstTopOffset) {
+            isStacked = true;
+            return false;
+          }
+        });
         if (isStacked) {
           return;
         }
-      };
+      }
 
       var heights = vals.map(function () { return $(this).outerHeight(false) }).get();
 
@@ -5445,17 +5837,33 @@ $('.calendar-widget').each(function() {
         var min = Math.min.apply(null, heights);
         vals.css('height', min);
       }
+
       settings.after_height_change();
-      equalizer.trigger('after-height-change').trigger('after-height-change.fndtn.equalizer');
+      equalizer.trigger('after-height-change.fndtn.equalizer');
     },
 
     reflow : function () {
       var self = this;
 
       this.S('[' + this.attr_name() + ']', this.scope).each(function () {
-        var $eq_target = $(this);
+        var $eq_target = $(this),
+            media_query = $eq_target.data('equalizer-mq'),
+            ignore_media_query = true;
+
+        if (media_query) {
+          media_query = 'is_' + media_query.replace(/-/g, '_');
+          if (Foundation.utils.hasOwnProperty(media_query)) {
+            ignore_media_query = false;
+          }
+        }
+
         self.image_loaded(self.S('img', this), function () {
-          self.equalize($eq_target)
+          if (ignore_media_query || Foundation.utils[media_query]()) {
+            self.equalize($eq_target)
+          } else {
+            var vals = $eq_target.find('[' + self.attr_name() + '-watch]:visible');
+            vals.css('height', 'auto');
+          }
         });
       });
     }
@@ -5468,7 +5876,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     cache : {},
 
@@ -5512,14 +5920,14 @@ $('.calendar-widget').each(function() {
           //   console.log($(this).html(), a, b, c);
           // });
 
-          if (/IMG/.test(el[0].nodeName)) {
+          if (el !== null && /IMG/.test(el[0].nodeName)) {
             var orig_path = el[0].src;
 
             if (new RegExp(path, 'i').test(orig_path)) {
               return;
             }
 
-            el[0].src = path;
+            el.attr("src", path);
 
             return trigger(el[0].src);
           }
@@ -5552,8 +5960,7 @@ $('.calendar-widget').each(function() {
       this.data_attr = this.set_data_attr();
       $.extend(true, this.settings, method, options);
       this.bindings(method, options);
-      this.load('images');
-      this.load('nodes');
+      this.reflow();
     },
 
     get_media_hash : function () {
@@ -5591,11 +5998,10 @@ $('.calendar-widget').each(function() {
       for (var uuid in cache) {
         if (cache.hasOwnProperty(uuid)) {
           var passed = this.results(uuid, cache[uuid]);
-
           if (passed) {
             this.settings.directives[passed
               .scenario[1]].call(this, passed.el, passed.scenario[0], (function (passed) {
-                if (arguments[0] instanceof Array) { 
+                if (arguments[0] instanceof Array) {
                   var args = arguments[0];
                 } else {
                   var args = Array.prototype.slice.call(arguments, 0);
@@ -5705,7 +6111,7 @@ $('.calendar-widget').each(function() {
         this.object($(this['cached_' + type][i]));
       }
 
-      return $(window).trigger('resize').trigger('resize.fndtn.interchange');
+      return $(window).trigger('resize.fndtn.interchange');
     },
 
     convert_directive : function (directive) {
@@ -5722,19 +6128,25 @@ $('.calendar-widget').each(function() {
     parse_scenario : function (scenario) {
       // This logic had to be made more complex since some users were using commas in the url path
       // So we cannot simply just split on a comma
+
       var directive_match = scenario[0].match(/(.+),\s*(\w+)\s*$/),
-      media_query         = scenario[1];
+      // getting the mq has gotten a bit complicated since we started accounting for several use cases
+      // of URLs. For now we'll continue to match these scenarios, but we may consider having these scenarios
+      // as nested objects or arrays in F6.
+      // regex: match everything before close parenthesis for mq
+      media_query         = scenario[1].match(/(.*)\)/);
 
       if (directive_match) {
         var path  = directive_match[1],
         directive = directive_match[2];
+
       } else {
         var cached_split = scenario[0].split(/,\s*$/),
         path             = cached_split[0],
         directive        = '';
       }
 
-      return [this.trim(path), this.convert_directive(directive), this.trim(media_query)];
+      return [this.trim(path), this.convert_directive(directive), this.trim(media_query[1])];
     },
 
     object : function (el) {
@@ -5744,10 +6156,12 @@ $('.calendar-widget').each(function() {
 
       if (i > 0) {
         while (i--) {
-          var split = raw_arr[i].split(/\(([^\)]*?)(\))$/);
+          // split array between comma delimited content and mq
+          // regex: comma, optional space, open parenthesis
+          var scenario = raw_arr[i].split(/,\s?\(/);
 
-          if (split.length > 1) {
-            var params = this.parse_scenario(split);
+          if (scenario.length > 1) {
+            var params = this.parse_scenario(scenario);
             scenarios.push(params);
           }
         }
@@ -5765,7 +6179,6 @@ $('.calendar-widget').each(function() {
       }
 
       el.attr(this.add_namespace('data-uuid'), uuid);
-
       return this.cache[uuid] = scenarios;
     },
 
@@ -5825,7 +6238,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -6756,7 +7169,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       active_class : 'active',
@@ -6784,38 +7197,42 @@ $('.calendar-widget').each(function() {
 
       S(self.scope)
         .off('.magellan')
-        .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href^="#"]', function (e) {
-          e.preventDefault();
-          var expedition = $(this).closest('[' + self.attr_name() + ']'),
-              settings = expedition.data('magellan-expedition-init'),
-              hash = this.hash.split('#').join(''),
-              target = $('a[name="' + hash + '"]');
+        .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href*=#]', function (e) {
+          var sameHost = ((this.hostname === location.hostname) || !this.hostname),
+              samePath = self.filterPathname(location.pathname) === self.filterPathname(this.pathname),
+              testHash = this.hash.replace(/(:|\.|\/)/g, '\\$1'),
+              anchor = this;
 
-          if (target.length === 0) {
-            target = $('#' + hash);
+          if (sameHost && samePath && testHash) {
+            e.preventDefault();
+            var expedition = $(this).closest('[' + self.attr_name() + ']'),
+                settings = expedition.data('magellan-expedition-init'),
+                hash = this.hash.split('#').join(''),
+                target = $('a[name="' + hash + '"]');
 
-          }
+            if (target.length === 0) {
+              target = $('#' + hash);
 
-          // Account for expedition height if fixed position
-          var scroll_top = target.offset().top - settings.destination_threshold + 1;
-          if (settings.offset_by_height) {
-            scroll_top = scroll_top - expedition.outerHeight();
-          }
-
-          $('html, body').stop().animate({
-            'scrollTop' : scroll_top
-          }, settings.duration, settings.easing, function () {
-            if (history.pushState) {
-              history.pushState(null, null, '#' + hash);
-            } else {
-              location.hash = '#' + hash;
             }
-          });
+
+            // Account for expedition height if fixed position
+            var scroll_top = target.offset().top - settings.destination_threshold + 1;
+            if (settings.offset_by_height) {
+              scroll_top = scroll_top - expedition.outerHeight();
+            }
+            $('html, body').stop().animate({
+              'scrollTop' : scroll_top
+            }, settings.duration, settings.easing, function () {
+              if (history.pushState) {
+                        history.pushState(null, null, anchor.pathname + '#' + hash);
+              }
+                    else {
+                        location.hash = anchor.pathname + '#' + hash;
+                    }
+            });
+          }
         })
         .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay));
-
-      $(window)
-        .on('resize.fndtn.magellan', self.throttle(this.set_expedition_position.bind(this), settings.throttle_delay));
     },
 
     check_for_arrivals : function () {
@@ -6946,6 +7363,14 @@ $('.calendar-widget').each(function() {
       this.S(window).off('.magellan');
     },
 
+    filterPathname : function (pathname) {
+      pathname = pathname || '';
+      return pathname
+          .replace(/^\//,'')
+          .replace(/(?:index|default).[a-zA-Z]{3,4}$/,'')
+          .replace(/\/$/,'');
+    },
+
     reflow : function () {
       var self = this;
       // remove placeholder expeditions used for height calculation purposes
@@ -6960,7 +7385,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       open_method : 'move',
@@ -7067,13 +7492,13 @@ $('.calendar-widget').each(function() {
 
     show : function (class_name, $off_canvas) {
       $off_canvas = $off_canvas || this.get_wrapper();
-      $off_canvas.trigger('open').trigger('open.fndtn.offcanvas');
+      $off_canvas.trigger('open.fndtn.offcanvas');
       $off_canvas.addClass(class_name);
     },
 
     hide : function (class_name, $off_canvas) {
       $off_canvas = $off_canvas || this.get_wrapper();
-      $off_canvas.trigger('close').trigger('close.fndtn.offcanvas');
+      $off_canvas.trigger('close.fndtn.offcanvas');
       $off_canvas.removeClass(class_name);
     },
 
@@ -7516,7 +7941,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.orbit = {
     name : 'orbit',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       animation : 'slide',
@@ -7590,7 +8015,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     locked : false,
 
@@ -7607,6 +8032,7 @@ $('.calendar-widget').each(function() {
       opened : function(){},
       close : function(){},
       closed : function(){},
+      on_ajax_error: $.noop,
       bg : $('.reveal-modal-bg'),
       css : {
         open : {
@@ -7638,7 +8064,8 @@ $('.calendar-widget').each(function() {
 
           if (!self.locked) {
             var element = S(this),
-                ajax = element.data(self.data_attr('reveal-ajax'));
+                ajax = element.data(self.data_attr('reveal-ajax')),
+                replaceContentSel = element.data(self.data_attr('reveal-replace-content'));
 
             self.locked = true;
 
@@ -7646,8 +8073,7 @@ $('.calendar-widget').each(function() {
               self.open.call(self, element);
             } else {
               var url = ajax === true ? element.attr('href') : ajax;
-
-              self.open.call(self, element, {url : url});
+              self.open.call(self, element, {url : url}, { replaceContentSel : replaceContentSel });
             }
           }
         });
@@ -7668,7 +8094,7 @@ $('.calendar-widget').each(function() {
             }
 
             self.locked = true;
-            self.close.call(self, bg_clicked ? S('[' + self.attr_name() + '].open') : S(this).closest('[' + self.attr_name() + ']'));
+            self.close.call(self, bg_clicked ? S('[' + self.attr_name() + '].open:not(.toback)') : S(this).closest('[' + self.attr_name() + ']'));
           }
         });
 
@@ -7739,6 +8165,7 @@ $('.calendar-widget').each(function() {
       var settings = modal.data(self.attr_name(true) + '-init');
       settings = settings || this.settings;
 
+
       if (modal.hasClass('open') && target.attr('data-reveal-id') == modal.attr('id')) {
         return self.close(modal);
       }
@@ -7751,7 +8178,14 @@ $('.calendar-widget').each(function() {
             .data('offset', this.cache_offset(modal));
         }
 
+        modal.attr('tabindex','0').attr('aria-hidden','false');
+
         this.key_up_on(modal);    // PATCH #3: turning on key up capture only when a reveal window is open
+
+        // Prevent namespace event from triggering twice
+        modal.on('open.fndtn.reveal', function(e) {
+          if (e.namespace !== 'fndtn.reveal') return;
+        });
 
         modal.on('open.fndtn.reveal').trigger('open.fndtn.reveal');
 
@@ -7768,16 +8202,15 @@ $('.calendar-widget').each(function() {
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
           if (open_modal.length > 0) {
             if (settings.multiple_opened) {
-              this.to_back(open_modal);
+              self.to_back(open_modal);
             } else {
-              this.hide(open_modal, settings.css.close);
+              self.hide(open_modal, settings.css.close);
             }
           }
 
           this.show(modal, settings.css.open);
         } else {
           var old_success = typeof ajax_settings.success !== 'undefined' ? ajax_settings.success : null;
-
           $.extend(ajax_settings, {
             success : function (data, textStatus, jqXHR) {
               if ( $.isFunction(old_success) ) {
@@ -7787,20 +8220,32 @@ $('.calendar-widget').each(function() {
                 }
               }
 
-              modal.html(data);
+              if (typeof options !== 'undefined' && typeof options.replaceContentSel !== 'undefined') {
+                modal.find(options.replaceContentSel).html(data);
+              } else {
+                modal.html(data);
+              }
+
               self.S(modal).foundation('section', 'reflow');
               self.S(modal).children().foundation();
 
               if (open_modal.length > 0) {
                 if (settings.multiple_opened) {
-                  this.to_back(open_modal);
+                  self.to_back(open_modal);
                 } else {
-                  this.hide(open_modal, settings.css.close);
+                  self.hide(open_modal, settings.css.close);
                 }
               }
               self.show(modal, settings.css.open);
             }
           });
+
+          // check for if user initalized with error callback
+          if (settings.on_ajax_error !== $.noop) {
+            $.extend(ajax_settings, {
+              error : settings.on_ajax_error
+            });
+          }
 
           $.ajax(ajax_settings);
         }
@@ -7811,23 +8256,28 @@ $('.calendar-widget').each(function() {
     close : function (modal) {
       var modal = modal && modal.length ? modal : this.S(this.scope),
           open_modals = this.S('[' + this.attr_name() + '].open'),
-          settings = modal.data(this.attr_name(true) + '-init') || this.settings;
+          settings = modal.data(this.attr_name(true) + '-init') || this.settings,
+          self = this;
 
       if (open_modals.length > 0) {
+
+        modal.removeAttr('tabindex','0').attr('aria-hidden','true');
+
         this.locked = true;
         this.key_up_off(modal);   // PATCH #3: turning on key up capture only when a reveal window is open
-        modal.trigger('close').trigger('close.fndtn.reveal');
-        
+
+        modal.trigger('close.fndtn.reveal');
+
         if ((settings.multiple_opened && open_modals.length === 1) || !settings.multiple_opened || modal.length > 1) {
-          this.toggle_bg(modal, false);
-          this.to_front(modal);
+          self.toggle_bg(modal, false);
+          self.to_front(modal);
         }
-        
+
         if (settings.multiple_opened) {
-          this.hide(modal, settings.css.close, settings);
-          this.to_front($($.makeArray(open_modals).reverse()[1]));
+          self.hide(modal, settings.css.close, settings);
+          self.to_front($($.makeArray(open_modals).reverse()[1]));
         } else {
-          this.hide(open_modals, settings.css.close, settings);
+          self.hide(open_modals, settings.css.close, settings);
         }
       }
     },
@@ -7862,7 +8312,8 @@ $('.calendar-widget').each(function() {
       // is modal
       if (css) {
         var settings = el.data(this.attr_name(true) + '-init') || this.settings,
-            root_element = settings.root_element;
+            root_element = settings.root_element,
+            context = this;
 
         if (el.parent(root_element).length === 0) {
           var placeholder = el.wrap('<div style="display: none;" />').parent();
@@ -7890,11 +8341,11 @@ $('.calendar-widget').each(function() {
             return el
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
-                el.trigger('opened').trigger('opened.fndtn.reveal');
-              }.bind(this))
+                context.locked = false;
+                el.trigger('opened.fndtn.reveal');
+              })
               .addClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
         if (animData.fade) {
@@ -7905,14 +8356,14 @@ $('.calendar-widget').each(function() {
             return el
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
-                el.trigger('opened').trigger('opened.fndtn.reveal');
-              }.bind(this))
+                context.locked = false;
+                el.trigger('opened.fndtn.reveal');
+              })
               .addClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
-        return el.css(css).show().css({opacity : 1}).addClass('open').trigger('opened').trigger('opened.fndtn.reveal');
+        return el.css(css).show().css({opacity : 1}).addClass('open').trigger('opened.fndtn.reveal');
       }
 
       var settings = this.settings;
@@ -7926,11 +8377,11 @@ $('.calendar-widget').each(function() {
 
       return el.show();
     },
-    
+
     to_back : function(el) {
       el.addClass('toback');
     },
-    
+
     to_front : function(el) {
       el.removeClass('toback');
     },
@@ -7938,7 +8389,8 @@ $('.calendar-widget').each(function() {
     hide : function (el, css) {
       // is modal
       if (css) {
-        var settings = el.data(this.attr_name(true) + '-init');
+        var settings = el.data(this.attr_name(true) + '-init'),
+            context = this;
         settings = settings || this.settings;
 
         var animData = getAnimationData(settings.animation);
@@ -7954,11 +8406,11 @@ $('.calendar-widget').each(function() {
           return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
-                el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
-              }.bind(this))
+                context.locked = false;
+                el.css(css).trigger('closed.fndtn.reveal');
+              })
               .removeClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
         if (animData.fade) {
@@ -7967,14 +8419,14 @@ $('.calendar-widget').each(function() {
           return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
-                el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
-              }.bind(this))
+                context.locked = false;
+                el.css(css).trigger('closed.fndtn.reveal');
+              })
               .removeClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
-        return el.hide().css(css).removeClass('open').trigger('closed').trigger('closed.fndtn.reveal');
+        return el.hide().css(css).removeClass('open').trigger('closed.fndtn.reveal');
       }
 
       var settings = this.settings;
@@ -8024,7 +8476,7 @@ $('.calendar-widget').each(function() {
     },
 
     cache_offset : function (modal) {
-      var offset = modal.show().height() + parseInt(modal.css('top'), 10);
+      var offset = modal.show().height() + parseInt(modal.css('top'), 10) + modal.scrollY;
 
       modal.hide();
 
@@ -8062,7 +8514,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       start : 0,
@@ -8121,6 +8573,24 @@ $('.calendar-widget').each(function() {
         .on('resize.fndtn.slider', self.throttle(function (e) {
           self.reflow();
         }, 300));
+
+      // update slider value as users change input value
+      this.S('[' + this.attr_name() + ']').each(function () {
+        var slider = $(this),
+            handle = slider.children('.range-slider-handle')[0],
+            settings = self.initialize_settings(handle);
+
+        if (settings.display_selector != '') {
+          $(settings.display_selector).each(function(){
+            if (this.hasOwnProperty('value')) {
+              $(this).change(function(){
+                // is there a better way to do this?
+                slider.foundation("slider", "set_value", $(this).val());
+              });
+            }
+          });
+        }
+      });
     },
 
     get_cursor_position : function (e, xy) {
@@ -8197,11 +8667,11 @@ $('.calendar-widget').each(function() {
         $handle.siblings('.range-slider-active-segment').css('width', progress_bar_length + '%');
       }
 
-      $handle_parent.attr(this.attr_name(), value).trigger('change').trigger('change.fndtn.slider');
+      $handle_parent.attr(this.attr_name(), value).trigger('change.fndtn.slider');
 
       $hidden_inputs.val(value);
       if (settings.trigger_input_change) {
-          $hidden_inputs.trigger('change');
+          $hidden_inputs.trigger('change.fndtn.slider');
       }
 
       if (!$handle[0].hasAttribute('aria-valuemin')) {
@@ -8214,7 +8684,7 @@ $('.calendar-widget').each(function() {
 
       if (settings.display_selector != '') {
         $(settings.display_selector).each(function () {
-          if (this.hasOwnProperty('value')) {
+          if (this.hasAttribute('value')) {
             $(this).val(value);
           } else {
             $(this).text(value);
@@ -8281,7 +8751,7 @@ $('.calendar-widget').each(function() {
       }
 
       $.data(handle, 'bar', $(handle).parent());
-      $.data(handle, 'settings', settings);
+      return $.data(handle, 'settings', settings);
     },
 
     set_initial_position : function ($ele) {
@@ -8326,7 +8796,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       active_class : 'active',
@@ -8342,40 +8812,52 @@ $('.calendar-widget').each(function() {
       var self = this,
           S = this.S;
 
-      this.bindings(method, options);
+	  // Store the default active tabs which will be referenced when the
+	  // location hash is absent, as in the case of navigating the tabs and
+	  // returning to the first viewing via the browser Back button.
+	  S('[' + this.attr_name() + '] > .active > a', this.scope).each(function () {
+	    self.default_tab_hashes.push(this.hash);
+	  });
 
       // store the initial href, which is used to allow correct behaviour of the
       // browser back button when deep linking is turned on.
       self.entry_location = window.location.href;
 
+      this.bindings(method, options);
       this.handle_location_hash_change();
-
-      // Store the default active tabs which will be referenced when the
-      // location hash is absent, as in the case of navigating the tabs and
-      // returning to the first viewing via the browser Back button.
-      S('[' + this.attr_name() + '] > .active > a', this.scope).each(function () {
-        self.default_tab_hashes.push(this.hash);
-      });
     },
 
     events : function () {
       var self = this,
           S = this.S;
 
-      var usual_tab_behavior =  function (e) {
-          var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
+      var usual_tab_behavior =  function (e, target) {
+          var settings = S(target).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
           if (!settings.is_hover || Modernizr.touch) {
             e.preventDefault();
             e.stopPropagation();
-            self.toggle_active_tab(S(this).parent());
+            self.toggle_active_tab(S(target).parent());
           }
         };
 
       S(this.scope)
         .off('.tab')
+        // Key event: focus/tab key
+        .on('keydown.fndtn.tab', '[' + this.attr_name() + '] > * > a', function(e) {
+          var el = this;
+          var keyCode = e.keyCode || e.which;
+            // if user pressed tab key
+            if (keyCode == 9) { 
+              e.preventDefault();
+              // TODO: Change usual_tab_behavior into accessibility function?
+              usual_tab_behavior(e, el);
+            } 
+        })
         // Click event: tab title
-        .on('focus.fndtn.tab', '[' + this.attr_name() + '] > * > a', usual_tab_behavior )
-        .on('click.fndtn.tab', '[' + this.attr_name() + '] > * > a', usual_tab_behavior )
+        .on('click.fndtn.tab', '[' + this.attr_name() + '] > * > a', function(e) {
+          var el = this;
+          usual_tab_behavior(e, el);
+        })
         // Hover event: tab title
         .on('mouseenter.fndtn.tab', '[' + this.attr_name() + '] > * > a', function (e) {
           var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
@@ -8500,8 +8982,8 @@ $('.calendar-widget').each(function() {
           };
 
       // allow usage of data-tab-content attribute instead of href
-      if (S(this).data(this.data_attr('tab-content'))) {
-        target_hash = '#' + S(this).data(this.data_attr('tab-content')).split('#')[1];
+      if (anchor.data('tab-content')) {
+        target_hash = '#' + anchor.data('tab-content').split('#')[1];
         target = S(target_hash);
       }
 
@@ -8538,8 +9020,8 @@ $('.calendar-widget').each(function() {
       target.siblings().removeClass(settings.active_class).attr({'aria-hidden' : 'true',  tabindex : -1});
       target.addClass(settings.active_class).attr('aria-hidden', 'false').removeAttr('tabindex');
       settings.callback(tab);
-      target.triggerHandler('toggled', [tab]);
-      tabs.triggerHandler('toggled', [target]);
+      target.triggerHandler('toggled', [target]);
+      tabs.triggerHandler('toggled', [tab]);
 
       tab_link.off('keydown').on('keydown', interpret_keyup_action );
     },
@@ -8564,7 +9046,7 @@ $('.calendar-widget').each(function() {
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       additional_inheritable_classes : [],
@@ -8617,6 +9099,31 @@ $('.calendar-widget').each(function() {
 
       self.create(this.S(instance));
 
+      function _startShow(elt, $this, immediate) {
+        if (elt.timer) {
+          return;
+        }
+
+        if (immediate) {
+          elt.timer = null;
+          self.showTip($this);
+        } else {
+          elt.timer = setTimeout(function () {
+            elt.timer = null;
+            self.showTip($this);
+          }.bind(elt), self.settings.hover_delay);
+        }
+      }
+
+      function _startHide(elt, $this) {
+        if (elt.timer) {
+          clearTimeout(elt.timer);
+          elt.timer = null;
+        }
+
+        self.hide($this);
+      }
+
       $(this.scope)
         .off('.tooltip')
         .on('mouseenter.fndtn.tooltip mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip',
@@ -8632,7 +9139,7 @@ $('.calendar-widget').each(function() {
           if (/mouse/i.test(e.type) && self.ie_touch(e)) {
             return false;
           }
-
+          
           if ($this.hasClass('open')) {
             if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) {
               e.preventDefault();
@@ -8645,17 +9152,20 @@ $('.calendar-widget').each(function() {
               e.preventDefault();
               S(settings.tooltip_class + '.open').hide();
               is_touch = true;
+              // close other open tooltips on touch
+              if ($('.open[' + self.attr_name() + ']').length > 0) {
+               var prevOpen = S($('.open[' + self.attr_name() + ']')[0]);
+               self.hide(prevOpen);
+              }
             }
 
             if (/enter|over/i.test(e.type)) {
-              this.timer = setTimeout(function () {
-                var tip = self.showTip($this);
-              }.bind(this), self.settings.hover_delay);
+              _startShow(this, $this);
+
             } else if (e.type === 'mouseout' || e.type === 'mouseleave') {
-              clearTimeout(this.timer);
-              self.hide($this);
+              _startHide(this, $this);
             } else {
-              self.showTip($this);
+              _startShow(this, $this, true);
             }
           }
         })
@@ -8669,11 +9179,11 @@ $('.calendar-widget').each(function() {
           } else if ($(this).data('tooltip-open-event-type') == 'mouse' && /MSPointerDown|touchstart/i.test(e.type)) {
             self.convert_to_touch($(this));
           } else {
-            self.hide($(this));
+            _startHide(this, $(this));
           }
         })
         .on('DOMNodeRemoved DOMAttrModified', '[' + this.attr_name() + ']:not(a)', function (e) {
-          self.hide(S(this));
+          _startHide(this, S(this));
         });
     },
 
@@ -8703,17 +9213,16 @@ $('.calendar-widget').each(function() {
     },
 
     selector : function ($target) {
-      var id = $target.attr('id'),
-          dataSelector = $target.attr(this.attr_name()) || $target.attr('data-selector');
+      var dataSelector = $target.attr(this.attr_name()) || $target.attr('data-selector');
 
-      if ((id && id.length < 1 || !id) && typeof dataSelector != 'string') {
+      if (typeof dataSelector != 'string') {
         dataSelector = this.random_str(6);
         $target
           .attr('data-selector', dataSelector)
           .attr('aria-describedby', dataSelector);
       }
 
-      return (id && id.length > 0) ? id : dataSelector;
+      return dataSelector;
     },
 
     create : function ($target) {
@@ -8777,7 +9286,13 @@ $('.calendar-widget').each(function() {
           nub.addClass('rtl');
           left = target.offset().left + target.outerWidth() - tip.outerWidth();
         }
+
         objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
+        // reset nub from small styles, if they've been applied
+        if (nub.attr('style')) {
+          nub.removeAttr('style');
+        }
+        
         tip.removeClass('tip-override');
         if (classes && classes.indexOf('tip-top') > -1) {
           if (Foundation.rtl) {
@@ -8846,7 +9361,6 @@ $('.calendar-widget').each(function() {
 
     hide : function ($target) {
       var $tip = this.getTip($target);
-
       $tip.fadeOut(150, function () {
         $tip.find('.tap-to-close').remove();
         $tip.off('click.fndtn.tooltip.tapclose MSPointerDown.fndtn.tapclose');
@@ -8872,17 +9386,19 @@ $('.calendar-widget').each(function() {
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version : '5.5.1',
+    version : '5.5.2',
 
     settings : {
       index : 0,
+      start_offset : 0,
       sticky_class : 'sticky',
       custom_back_text : true,
       back_text : 'Back',
       mobile_show_parent_link : true,
       is_hover : true,
       scrolltop : true, // jump to top when sticky nav menu toggle is clicked
-      sticky_on : 'all'
+      sticky_on : 'all',
+      dropdown_autoclose: true
     },
 
     init : function (section, method, options) {
@@ -8933,24 +9449,20 @@ $('.calendar-widget').each(function() {
       var smallMatch = matchMedia(Foundation.media_queries.small).matches;
       var medMatch   = matchMedia(Foundation.media_queries.medium).matches;
       var lrgMatch   = matchMedia(Foundation.media_queries.large).matches;
-      
-       if (sticky && settings.sticky_on === 'all') {
-          return true;
-       }
-       if (sticky && this.small() && settings.sticky_on.indexOf('small') !== -1) {
-           if (smallMatch && !medMatch && !lrgMatch) { return true; }
-       }
-       if (sticky && this.medium() && settings.sticky_on.indexOf('medium') !== -1) {
-           if (smallMatch && medMatch && !lrgMatch) { return true; }
-       }
-       if (sticky && this.large() && settings.sticky_on.indexOf('large') !== -1) {
-           if (smallMatch && medMatch && lrgMatch) { return true; }
-       }
 
-       // fix for iOS browsers
-       if (sticky && navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+      if (sticky && settings.sticky_on === 'all') {
         return true;
-       }
+      }
+      if (sticky && this.small() && settings.sticky_on.indexOf('small') !== -1) {
+        if (smallMatch && !medMatch && !lrgMatch) { return true; }
+      }
+      if (sticky && this.medium() && settings.sticky_on.indexOf('medium') !== -1) {
+        if (smallMatch && medMatch && !lrgMatch) { return true; }
+      }
+      if (sticky && this.large() && settings.sticky_on.indexOf('large') !== -1) {
+        if (smallMatch && medMatch && lrgMatch) { return true; }
+      }
+
        return false;
     },
 
@@ -9034,11 +9546,19 @@ $('.calendar-widget').each(function() {
           e.preventDefault();
           self.toggle(this);
         })
-        .on('click.fndtn.topbar', '.top-bar .top-bar-section li a[href^="#"],[' + this.attr_name() + '] .top-bar-section li a[href^="#"]', function (e) {
-            var li = $(this).closest('li');
+        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.top-bar .top-bar-section li a[href^="#"],[' + this.attr_name() + '] .top-bar-section li a[href^="#"]', function (e) {
+            var li = $(this).closest('li'),
+                topbar = li.closest('[' + self.attr_name() + ']'),
+                settings = topbar.data(self.attr_name(true) + '-init');
+
+            if (settings.dropdown_autoclose && settings.is_hover) {
+              var hoverLi = $(this).closest('.hover');
+              hoverLi.removeClass('hover');
+            }
             if (self.breakpoint() && !li.hasClass('back') && !li.hasClass('has-dropdown')) {
               self.toggle();
             }
+
         })
         .on('click.fndtn.topbar', '[' + this.attr_name() + '] li.has-dropdown', function (e) {
           var li = S(this),
@@ -9107,7 +9627,7 @@ $('.calendar-widget').each(function() {
 
       S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
           self.resize.call(self);
-      }, 50)).trigger('resize').trigger('resize.fndtn.topbar').load(function () {
+      }, 50)).trigger('resize.fndtn.topbar').load(function () {
           // Ensure that the offset is calculated after all of the pages resources have loaded
           S(this).trigger('resize.fndtn.topbar');
       });
@@ -9240,7 +9760,7 @@ $('.calendar-widget').each(function() {
         if (!$dropdown.find('.title.back').length) {
 
           if (settings.mobile_show_parent_link == true && url) {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link hide-for-large-up"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link hide-for-medium-up"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
           } else {
             $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
           }
@@ -9292,8 +9812,8 @@ $('.calendar-widget').each(function() {
           $window = this.S(window),
           self = this;
 
-      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar, this.settings.sticky_topbar.parent(), this.settings)) {
-        var distance = this.settings.sticky_topbar.data('stickyoffset');
+      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar,this.settings.sticky_topbar.parent(), this.settings)) {
+        var distance = this.settings.sticky_topbar.data('stickyoffset') + this.settings.start_offset;
         if (!self.S(klass).hasClass('expanded')) {
           if ($window.scrollTop() > (distance)) {
             if (!self.S(klass).hasClass('fixed')) {
@@ -9937,7 +10457,7 @@ jQuery(document).ready(function($) {
     $('.slider').slick({
         centerMode: false,
         dots: false,
-        arrows: false,
+        arrows: true,
         slidesToShow: 3,
         autoplay: true,
         speed: 1500,
@@ -9970,9 +10490,10 @@ jQuery(document).ready(function($) {
 
     $('.event-card-slider').show();
     $('.event-card-slider').slick({
+            infinite: true,
             centerMode: false,
             dots: false,
-            arrows: false,
+            arrows: true,
             slidesToShow: 4,
             slidesToScroll: 4,
             autoplay: false,
@@ -9984,7 +10505,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    arrows: false
+                    arrows: true
                   }
                 },
                 {
@@ -9992,7 +10513,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    arrows: false
+                    arrows: true
                   }
                 },
                 {
@@ -10000,7 +10521,7 @@ jQuery(document).ready(function($) {
                   settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    arrows: false
+                    arrows: true
                   }
                 }
               ]

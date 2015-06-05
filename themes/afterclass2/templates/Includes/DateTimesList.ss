@@ -1,3 +1,4 @@
+
 <% with $StartDateTime %>
 	<a href="$Up.Link" class="date-link">
 		<time itemprop="startDate" datetime="$Format(c)">

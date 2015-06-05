@@ -285,7 +285,7 @@
             }
         }
         ul {
-            width: 100px;
+            
             font-size: 0.8em;
         }
         li.weekend {
@@ -341,7 +341,6 @@
         > li a#calendar-expand.active {}
         ul {
             position: absolute;
-            width: 58px;
             left: -9999px;
             z-index: 2000;
             background-color: #342836;
@@ -360,7 +359,7 @@
             display: inline-block;
         }
         li:hover ul {
-            left: auto;
+            
         }
         @media #{$small-up} {
             li a {

@@ -11,9 +11,9 @@
 					<% if First %>
 					<% else %>
 					<li class="$URLSegment">
-						<a href="$Link">$MenuTitle</a>
+						<a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" href="$Link">$MenuTitle</a>
 						<% if Children %>
-							<ul>
+							<ul id="drop1" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
 								<% loop Children %>
 									<li><a href="$Link" <% if RedirectionType = External %>class="external" target="_blank"<% end_if %> >$Title</a></li>
 								<% end_loop %>

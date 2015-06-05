@@ -216,7 +216,7 @@ $primary-color: $purple;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
-// $header-text-rendering: optimizeLegibility;
+ $header-text-rendering: auto;
 
 // We use these to control header font sizes
 // $h1-font-size: rem-calc(44);
@@ -329,18 +329,18 @@ $anchor-font-color: $gold;
 // 01. Accordion
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-accordion-classes: $include-html-classes;
+$include-html-accordion-classes: $include-html-classes;
 
-// $accordion-navigation-padding: rem-calc(16);
-// $accordion-navigation-bg-color: $silver  ;
-// $accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%);
-// $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
-// $accordion-navigation-font-color: $jet;
-// $accordion-navigation-font-size: rem-calc(16);
+$accordion-navigation-padding: rem-calc(16);
+$accordion-navigation-bg-color: #6C3B6A;
+$accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%);
+$accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
+$accordion-navigation-font-color: #FFFFFF;
+$accordion-navigation-font-size: rem-calc(16);
 // $accordion-navigation-font-family: $body-font-family;
 
 // $accordion-content-padding: $column-gutter/2;
-// $accordion-content-active-bg-color: $white;
+ $accordion-content-active-bg-color: #212123;
 
 // 02. Alert Boxes
 // - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -25,7 +25,7 @@
 						<h2>$Title</h2>
 						<div class="event-card-slider loading">
 							<% loop $EventList %>
-								<div class="event-card"><% include EventCard %></div>
+								<div class="event-card"><% include EventCardSlider %></div>
 							<% end_loop %>
 						</div>
 					</div>
