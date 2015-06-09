@@ -83,6 +83,7 @@ $(function() {
     		return this.element;
     	},
 
+
 		setMonth: function(month, year) {
     		this.month = month;
     		this.year = year;
@@ -211,9 +212,9 @@ $(function() {
 			var monthName = this.settings.calMonthsLabels[this.month]			
 			var html = '<table class="calendar-widget-table">';
 			html += '<thead>';
-			html += '<tr><th colspan="8">';
+			html += '<tr><th colspan="8"><a class="prev" href="javascript:void(0);"> &laquo; </a>';
 			html +=  '<a href="javascript:void(0);" class="show-month">'+monthName + "&nbsp;" + this.year + '</a>';
-			html += '</th></tr>';
+			html += '<a class="next" href="javascript:void(0);"> &raquo; </a></th></tr>';
 			html += '</thead>';
 			html += '<tbody>';
 			html += '<tr class="calendar-header">';
@@ -317,7 +318,6 @@ $(function() {
     });
 
 })( jQuery );
-
 (function($) {
     $.CalendarWidget.setOptions({
         startOnMonday: false,
