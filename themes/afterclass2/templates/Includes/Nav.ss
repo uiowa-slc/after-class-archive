@@ -11,13 +11,17 @@
 					<% if First %>
 					<% else %>
 					<li class="$URLSegment">
-						<a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" href="$Link">$MenuTitle</a>
-						<% if Children %>
-							<ul id="drop1" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
-								<% loop Children %>
-									<li><a href="$Link" <% if RedirectionType = External %>class="external" target="_blank"<% end_if %> >$Title</a></li>
-								<% end_loop %>
-							</ul>
+						<% if $URLSegment == "about-after-class" %>
+							<a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" href="$Link">$MenuTitle</a>
+								<% if Children %>
+									<ul id="drop1" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
+										<% loop Children %>
+											<li><a href="$Link" <% if RedirectionType = External %>class="external" target="_blank"<% end_if %> >$Title</a></li>
+										<% end_loop %>
+									</ul>
+								<% end_if %>
+								<% else %>
+									<a href="$Link">$MenuTitle</a>
 						<% end_if %>
 					</li>
 					<% end_if %>
