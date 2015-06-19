@@ -84,12 +84,12 @@
 									</ul>
 							<% end_if %>
 							
-							<% include EventSidebar %>
+							
 
 						</div>
 
 					</div><!-- end single-event-text-->
-
+					<% include EventSidebar %>
 				</div><!-- end single-event-details -->
 				<% if $RelatedEvents %>
 				<hr />

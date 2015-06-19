@@ -30,8 +30,13 @@
 						</div>
 					</div>
 				</div>
+			<% else %>
+
+				<% include TrendingCategories %>
 			<% end_if %>
 		<% end_loop %>
+	<% else %>
+		<% include TrendingCategories %>
 	<% end_if %>
 <% end_if %>
 
@@ -47,7 +52,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 

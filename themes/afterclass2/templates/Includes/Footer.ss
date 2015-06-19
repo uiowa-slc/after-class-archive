@@ -8,8 +8,9 @@
 			<% else %>
 				<p>The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom.</p>
 			<% end_if %>
-			<p>145 iowa memorial union<br>
-				cab@uiowa.edu
+			<p> 319-335-3132 <br>				
+				afterclass@uiowa.edu<br>
+
 			</p>
 			<p>$SiteConfig.Address
 				<% if $SiteConfig.PhoneNumber %>
@@ -31,9 +32,9 @@
 				</div>
 				<div class="small-6 columns">
  					<ul class="border-list">
-						<li><a href="https://www.facebook.com/uiowacab" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
-						<li><a href="https://twitter.com/uiowaCAB" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
-						<li><a href="https://plus.google.com/103390113054655160465" rel="publisher" target="_blank">Google+</a></li>
+						<li><a href="https://www.facebook.com/uistudentlife" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
+						<li><a href="https://twitter.com/uistudentlife" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -45,7 +46,7 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<hr>
-			<p>&copy; $Now.Year The University of Iowa. All Rights Reserved.</p>
+			<p>&copy; $Now.Year The University of Iowa. All Rights Reserved. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a></p>
 		</div>
 	</div>
 </footer>

@@ -1,4 +1,5 @@
-<div class="row">
+ 
+ <div class="row">
 	<div class="medium-8 columns">
 		<header id="secondary_header">
 			<h1> $Venue.Title </h1>
