@@ -71,9 +71,14 @@
 							</ul> --%>
 							<% if $Dates.Count > 1 %>
 								<h2 id="all-dates">All Dates</h2>
+									<% loop $Dates.Limit(3) %>
+										<% include DateTimesList %>
+										<br>														
+									<% end_loop %>
+								<% if $Dates.Count > 3 %>
 									<ul class="accordion" data-accordion role="tablist">
 										<li class="accordion-navigation">
-										  <a href="#panel1a" role="tab" id="panel1d-heading" aria-controls="panel1d">View Dates</a>
+										  <a href="#panel1a" role="tab" id="panel1d-heading" aria-controls="panel1d">View More Dates</a>
 											<div id="panel1a" class="content" role="tabpanel" aria-labelledby="panel1d-heading">
 												<% loop $Dates %>
 													<% include DateTimesList %>
@@ -82,6 +87,7 @@
 								    		</div>
 										</li>
 									</ul>
+								<% end_if %>
 							<% end_if %>
 							
 							

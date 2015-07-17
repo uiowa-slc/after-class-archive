@@ -75,6 +75,16 @@ img{ max-width: 100% !important; }
 p, h2, h3{ orphans: 3; widows: 3; }
 h2, h3{ page-break-after: avoid; }
 }
+.f-dropdown{ display: none; left: -9999px; list-style-type: none; list-style-position: initial; list-style-image: initial; margin-left: 0px; position: absolute; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(49, 45, 46); border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: rgb(49, 45, 46); border-right-color: rgb(49, 45, 46); border-bottom-color: rgb(49, 45, 46); border-left-color: rgb(49, 45, 46); font-size: 0.875rem; height: auto; max-height: none; width: 100%; z-index: 89; margin-top: 2px; max-width: 200px; background-position: initial initial; background-repeat: initial initial; }
+.f-dropdown > :first-child{ margin-top: 0px; }
+.f-dropdown > :last-child{ margin-bottom: 0px; }
+.f-dropdown::before{ border-top-style: inset; border-right-style: inset; border-left-style: inset; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-color: initial; content: ''; display: block; height: 0px; width: 0px; border-top-color: transparent; border-right-color: transparent; border-bottom-color: rgb(49, 45, 46); border-left-color: transparent; border-bottom-style: solid; position: absolute; top: -12px; left: 10px; z-index: 89; }
+.f-dropdown::after{ border-top-style: inset; border-right-style: inset; border-left-style: inset; border-top-width: 7px; border-right-width: 7px; border-bottom-width: 7px; border-left-width: 7px; border-color: initial; content: ''; display: block; height: 0px; width: 0px; border-top-color: transparent; border-right-color: transparent; border-bottom-color: rgb(49, 45, 46); border-left-color: transparent; border-bottom-style: solid; position: absolute; top: -14px; left: 9px; z-index: 88; }
+.f-dropdown li{ cursor: pointer; font-size: 0.875rem; line-height: 1.125rem; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
+.f-dropdown li a{ display: block; padding-top: 0.5rem; padding-right: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.5rem; color: rgb(85, 85, 85); }
+.f-dropdown.content{ display: none; left: -9999px; list-style-type: none; list-style-position: initial; list-style-image: initial; margin-left: 0px; position: absolute; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(49, 45, 46); border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: rgb(49, 45, 46); border-right-color: rgb(49, 45, 46); border-bottom-color: rgb(49, 45, 46); border-left-color: rgb(49, 45, 46); font-size: 0.875rem; height: auto; max-height: none; padding-top: 1.25rem; padding-right: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; width: 100%; z-index: 89; max-width: 200px; background-position: initial initial; background-repeat: initial initial; }
+.f-dropdown.content > :first-child{ margin-top: 0px; }
+.f-dropdown.content > :last-child{ margin-bottom: 0px; }
  .button{ -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: 'Open Sans', Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px; position: relative; text-align: center; text-decoration: none; display: inline-block; padding-top: 1rem; padding-right: 2rem; padding-bottom: 1.0625rem; padding-left: 2rem; font-size: 1rem; background-color: rgb(108, 59, 106); border-top-color: rgb(86, 47, 85); border-right-color: rgb(86, 47, 85); border-bottom-color: rgb(86, 47, 85); border-left-color: rgb(86, 47, 85); color: rgb(255, 255, 255); }
 @media only screen and (min-width: 40.0625em){
  .button{ display: inline-block; }
@@ -171,6 +181,7 @@ img{ max-width: 100% !important; }
 .event-card-list.large > li:nth-of-type(4n){ padding-left: 0.9375rem; padding-right: 0rem; }
 }
 .event-card{ overflow-x: hidden; overflow-y: hidden; }
+.event-card .button{ margin-bottom: 0px; }
 .event-card h3{ font-size: 1.3em; display: inline; color: rgb(230, 226, 223); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .event-card h3 a{ color: rgb(148, 214, 245); }
 .event-card p.dates-times{ display: inline; }
