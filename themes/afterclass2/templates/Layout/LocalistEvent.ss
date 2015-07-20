@@ -80,7 +80,7 @@
 										<li class="accordion-navigation">
 										  <a href="#panel1a" role="tab" id="panel1d-heading" aria-controls="panel1d">View More Dates</a>
 											<div id="panel1a" class="content" role="tabpanel" aria-labelledby="panel1d-heading">
-												<% loop $Dates %>
+												<% loop $Dates.Limit(1000,3) %>
 													<% include DateTimesList %>
 														<br>														
 												<% end_loop %>
