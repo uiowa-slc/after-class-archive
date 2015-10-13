@@ -7,6 +7,17 @@
     <title>$Title | 
   After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<script type="text/javascript">
+   var _cbe = _cbe || [];
+   (function(){ var u="https://uiowatrack.capturehighered.net/cbe/";
+   _cbe.push(["setSiteId", 11]);
+   _cbe.push(["setTrackerUrl", u]);
+   _cbe.push(["trackPageView"]);
+   var d=document, g=d.createElement("script"), 
+s=d.getElementsByTagName("script")[0]; 
+g.type="text/javascript"; g.defer=true; g.async=true; g.src=u;
+   s.parentNode.insertBefore(g,s); })();
+</script>
 </head>
 <body class="{$ClassName}">
 <% include DivisionBar %>
@@ -30,7 +41,7 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="{$ThemeDir}/build/build.src.js"></script>
+<script src="{$ThemeDir}/build/build.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-426753-41']);
