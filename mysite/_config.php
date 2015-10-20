@@ -34,6 +34,6 @@ HtmlEditorConfig::get('cms')->setOption('paste_text_sticky_default',true);
 
 FulltextSearchable::enable();
 
-/*if(Director::isLive()) {
+if(Director::isLive()) {
 	Director::forceSSL(array('/^Security/','/^admin/'));
-}*/
+}
