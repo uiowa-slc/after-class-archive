@@ -17,7 +17,7 @@
 #page_footer .row ul li {
     float: left;
     padding-right: 20px;
-    font-family: 'Doppio One', monospace;
+    font-family: $heading-font;
 }
 
 #page_footer .row ul li a {
@@ -47,19 +47,18 @@
         margin: 0;
     }
 
-    .email{
+    .email {
         float: left;
         width: 50%;
     }
-    .btn{
+
+    .btn {
         @media only screen and (min-width: 768px) {
             float: left;
             padding: 0.3em;
             margin-left: 10px;
         }
     }
-
-
 }
 
 .response {
@@ -73,7 +72,6 @@
     color: #ffe588;
 }
 
-
 .disability-statement {
     font-size: 0.9em;
     margin: 5px 0;
@@ -84,11 +82,13 @@
     #footer-social-media {
         margin-top: 20px;
     }
+
     #page_footer .row #ui_logo {
         float: left;
         padding-top: 14px;
         margin-right: 20px;
     }
+
     #page_footer .row #search_footer {
         position: absolute;
         right: 0;
@@ -97,22 +97,29 @@
         height: 25px;
         top: 15px;
     }
+
     #logo-container {}
+
     #logo-container a {
         display: block;
         margin: 5px 0;
     }
+
     .uiowa-logo {}
+
     #dsl-info {
         float: right;
     }
+
     #dsl-info {
         text-align: right;
     }
+
     #dsl-info p {
         margin-top: 5px;
         margin-bottom: 0;
     }
+
     #dsl-info a {
         color: #ffe588;
     }

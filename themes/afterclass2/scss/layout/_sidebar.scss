@@ -1,12 +1,12 @@
 .sidebar-sticky-content.stuck {
-    @media only screen and (min-width: 1280px){
+    @media only screen and (min-width: 1280px) {
         width: 426.65625px;
     }
 }
 
-.LocalistCalendar .sidebar-sticky-content.stuck{
-    @media only screen and (min-width: 1400px){
-        width: 479px; 
+.LocalistCalendar .sidebar-sticky-content.stuck {
+    @media only screen and (min-width: 1400px) {
+        width: 479px;
     }
 }
 
@@ -38,13 +38,12 @@
     color: #E6E2DF;
     border-bottom: 1px solid #444;
     padding: 15px 0;
-    font-family: 'Open Sans', sans;
+    font-family: $body-font;
     font-size: 1em;
 
-    .news-text p{
+    .news-text p {
         margin: 0;
     }
-
 }
 
 #the-news .news-entry:first-child {

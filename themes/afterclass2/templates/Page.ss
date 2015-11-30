@@ -6,7 +6,9 @@
 	<% include OpenGraph %>
     <title>$Title | 
   After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
-	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+	<meta name="viewport" content="initial-scale = 1.0"/>
+<script type="text/javascript" src="//use.typekit.net/mpp4cid.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script type="text/javascript">
    var _cbe = _cbe || [];
    (function(){ var u="https://uiowatrack.capturehighered.net/cbe/";

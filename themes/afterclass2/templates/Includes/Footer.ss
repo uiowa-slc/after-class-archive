@@ -1,7 +1,7 @@
 <footer id="page_footer">
 	<div class="row">
 		<div class="large-8 columns">
-			<div class="disability-statement"><p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:bret-gothe@uiowa.edu">Bret Gothe</a> in advance at 319-335-3132.</p></div>
+			<div class="disability-statement"><p>Individuals with disabilities are encouraged to attend all University of Iowa-sponsored events. If you are a person with a disability who requires an accommodation in order to participate in this program, please contact <a href="mailto:bret-gothe@uiowa.edu">Bret Gothe</a> in advance at 319-335-3132.  <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy information</a></p><p><a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a></p></div>
 			<ul>
 				<li><a href="{$BaseHref}events/">All Events</a></li>
 				<li><a href="{$BaseHref}add/">Submit an Event</a></li>
@@ -20,7 +20,7 @@
 				</div>
 				<p>Phone: 319-335-3059 (CSIL)<br />
 				<a href="mailto:afterclass@uiowa.edu">afterclass@uiowa.edu</a><br />
-				&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a href="http://studentlife.uiowa.edu/md/" target="_blank">Site designed by Student Life Marketing + Design</a> <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy information</a></p>
+				&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved.</p>
 			</div>
 		</div>
 	</div>

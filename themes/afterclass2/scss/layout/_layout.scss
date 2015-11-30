@@ -1,38 +1,40 @@
-b, strong{
+b, strong {
     font-weight: bold;
 }
+
 /* Some Division Bar Fixes */
 input.division-search-input[type="search"], input.division-search-input[type="search"]:focus {
     margin: 0 !important;
     height: auto !important;
-    background: white !important; 
+    background: white !important;
     color: black !important;
     padding: 0.3em !important;
 }
 
-.division-topbar{
+.division-topbar {
     background: none;
 }
+
 .container {
     margin: auto;
 }
 
-.row{
+.row {
     max-width: 1140px;
-    @media only screen and (min-width: 1300px) { 
-        max-width: 1280px;
 
+    @media only screen and (min-width: 1300px) {
+        max-width: 1280px;
     }
 }
 
-.LocalistCalendar .row{
-    @media only screen and (min-width: 1440px) { 
+.LocalistCalendar .row {
+    @media only screen and (min-width: 1440px) {
         max-width: 1400px;
     }
 }
 
-.LocalistCalendar .row{
-    @media only screen and (min-width: 1660px) { 
+.LocalistCalendar .row {
+    @media only screen and (min-width: 1660px) {
         max-width: 1600px;
     }
 }
@@ -40,13 +42,26 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 #right-column {
     margin-top: 0;
 }
-#right-column h2 img { width: 55.5% }
+
+#right-column h2 img {
+    width: 55.5%;
+}
+
 #left-column {
     margin-top: 0;
 }
-#left-column h2 img { width: 50% }
-#left-column h2 { text-transform: lowercase;}
-#left-column p.homepage-message { color: white }
+
+#left-column h2 img {
+    width: 50%;
+}
+
+#left-column h2 {
+    text-transform: uppercase;
+}
+
+#left-column p.homepage-message {
+    color: white;
+}
 
 #single-page-content {
     min-height: 200px;
@@ -57,11 +72,27 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     border-bottom: 1px solid #2E2E2E;
     color: #C1B5CE;
 }
-#single-page-content.category h2 { border-bottom: none }
-#single-page-content h3 { color: #7BACB9 }
-#single-page-content a { color: #d7b548 }
-#single-page-content a:hover { color: #d2af3c }
-#single-page-content img { padding: 10px; }
+
+#single-page-content.category h2 {
+    border-bottom: none;
+}
+
+#single-page-content h3 {
+    color: #7BACB9;
+}
+
+#single-page-content a {
+    color: #d7b548;
+}
+
+#single-page-content a:hover {
+    color: #d2af3c;
+}
+
+#single-page-content img {
+    padding: 10px;
+}
+
 #secondary_header h1 {
     padding: 5px 0;
     margin: 5px 0;
@@ -70,16 +101,23 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     text-transform: capitalize;
     line-height: 1;
 }
+
 #secondary_header h1 span {
     color: #555;
     font-size: 1.5em;
 }
 
-.hide { display: none }
+.hide {
+    display: none;
+}
 
-.email { width: 280px }
-.big-screen { display: none }
+.email {
+    width: 280px;
+}
 
+.big-screen {
+    display: none;
+}
 
 #facebook-like-box {
     overflow: hidden;
@@ -88,6 +126,7 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 #facebook-like-box * {
     width: 100% !important;
 }
+
 .addthis_button_facebook_like {
     margin-top: -2px;
     margin-right: 5px;
@@ -98,67 +137,75 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     margin: 0;
 }
 
-@media only screen and (min-width: 768px) { 
+@media only screen and (min-width: 768px) {
     .date-header {
         margin: 0.5em 0;
     }
-
 }
+
 /* Google Map Foundation Fixes */
 //.gm-style div div *{ -webkit-transform: none !important; }
-.map-container img, object, embed { max-width: none; }
+.map-container img, object, embed {
+    max-width: none;
+}
 
-#map_canvas embed { max-width: none; }
+#map_canvas embed {
+    max-width: none;
+}
 
-#map_canvas img { max-width: none; }
+#map_canvas img {
+    max-width: none;
+}
 
-#map_canvas object { max-width: none; }
+#map_canvas object {
+    max-width: none;
+}
 
 #status img {
     position: absolute;
     margin: 0 1em;
 }
 
-
-
 /* Feedback Image */
-#feedback-link { display: none }
-#feedback-link img { display: block }
+#feedback-link {
+    display: none;
+}
 
+#feedback-link img {
+    display: block;
+}
 
 .fancybox-wrap {
-	border: 1px solid #302E2E;
-	
+    border: 1px solid #302E2E;
 }
 
 .button {
-	padding: 0.35em 0.5em;
-	background: #0A8FC9;
-	border: none;
-	color: #FFF;
-	display: inline-block;
-	margin: 0.3em 0;
+    padding: 0.35em 0.5em;
+    background: #0A8FC9;
+    border: none;
+    color: #FFF;
+    display: inline-block;
+    margin: 0.3em 0;
     text-transform: uppercase;
     font-size: 0.8em;
-
 }
 
 .fbButton {
-	padding: 3px;
-	background: #3b5998;
-	border: none;
-	color: #FFF;
-	display: inline-block;
-	margin: 0.3em 0;
+    padding: 3px;
+    background: #3b5998;
+    border: none;
+    color: #FFF;
+    display: inline-block;
+    margin: 0.3em 0;
     text-transform: uppercase;
     font-size: 0.8em;
 }
 
-.button.get-directions{
+.button.get-directions {
     background: #23A767;
 }
 
-.button.tag{
+.button.tag {
     background: #4C3D69;
 }
 
@@ -168,38 +215,43 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     padding: 0;
 }
 
-
-#single-page-content a.button, a.button{ 
-	color: #fff;
+#single-page-content a.button, a.button {
+    color: #fff;
 }
+
 a.button:hover {
-	color: #ddd;
+    color: #ddd;
 }
-
-
 
 #status img {
-	position: absolute;
-	margin: 0 1em;
+    position: absolute;
+    margin: 0 1em;
 }
 
-@media only screen and (min-width: 768px) { 
+@media only screen and (min-width: 768px) {
+    .small-screen {
+        display: none;
+    }
 
-    .small-screen { display: none }
-    .big-screen { display: block }
+    .big-screen {
+        display: block;
+    }
+
     #left-column {
         float: left;
     }
 }
 
 @media only screen and (min-width: 960px) {
-    
-    #page_content { padding: 0; padding-bottom: 20px; }
-    
+    #page_content {
+        padding: 0;
+        padding-bottom: 20px;
+    }
+
     #secondary_header h1 {
         font-size: 2.5em;
-
     }
+
     #feedback-link {
         display: block;
         position: fixed;
@@ -207,25 +259,20 @@ a.button:hover {
         top: 300px;
         border: 1px solid #555;
     }
-    
+
     .addthis_toolbox {
-    	clear: both;
+        clear: both;
         margin: 3px 0;
         display: block;
     }
-
 }
 
-@media only screen and (min-width: 1024px) { 
-    body { font-size: 1em }
- 
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size: 1em;
+    }
 }
 
-
-@media only screen and (min-width: 1023px) { 
-    .button.more-dates{
-           
-        }
-  
+@media only screen and (min-width: 1023px) {
+    .button.more-dates {}
 }
-
