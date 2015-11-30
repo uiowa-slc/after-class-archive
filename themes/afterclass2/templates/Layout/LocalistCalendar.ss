@@ -3,7 +3,7 @@
 	<div class="marquee">
 	<% if $action == "index" %>
 		<% if $FeaturedEvents %>
-			<div class="slider">
+			<div class="slider js-flickity">
 				<% loop $FeaturedEvents %>
 					<div class="slide">
 						<% include HeroEvent %>
@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="large-12 event-card-list-container columns $FirstLast">
 						<h2>$Title</h2>
-						<div class="event-card-slider loading">
+						<div class="event-card-slider loading js-flickity">
 							<% loop $EventList %>
 								<div class="event-card"><% include EventCardSlider %></div>
 							<% end_loop %>

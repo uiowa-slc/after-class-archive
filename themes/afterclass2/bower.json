@@ -23,6 +23,7 @@
     "masonry": "~3.2.2",
     "slick-carousel": "*",
     "sticky-kit": "~1.1.1",
-    "stickymojo": "~1.0.0"
+    "stickymojo": "~1.0.0",
+    "flickity": "~1.1.1"
   }
 }

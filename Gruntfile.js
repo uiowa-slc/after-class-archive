@@ -34,9 +34,11 @@ module.exports = function(grunt) {
         'event_calendar/javascript/lang/calendar_en.js',
         'event_calendar/javascript/calendar_widget_init.js',
         '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
-        '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
+        //'<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
         '<%=globalConfig.themeDir %>/bower_components/sticky-kit/jquery.sticky-kit.js',
         '<%=globalConfig.themeDir %>/bower_components/stickymojo/stickyMojo.js',
+        '<%=globalConfig.themeDir %>/bower_components/flickity/dist/flickity.pkgd.js',
+
         //'<%=globalConfig.themeDir %>/bower_components/masonry/dist/masonry.pkgd.js',
         //'<%=globalConfig.themeDir %>/bower_components/imagesloaded/imagesloaded.pkgd.js',
         '<%=globalConfig.themeDir %>/bower_components/foundation/js/foundation.js',
