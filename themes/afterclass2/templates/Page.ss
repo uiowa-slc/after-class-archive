@@ -33,7 +33,7 @@ g.type="text/javascript"; g.defer=true; g.async=true; g.src=u;
             <div class="clear"></div>
           </div>
 <% end_if %>
-<div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>">
+<div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>" role="main">
   <div class="container clearfix">
     $Layout
    </div>

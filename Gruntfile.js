@@ -32,6 +32,7 @@ module.exports = function(grunt) {
         'event_calendar/javascript/calendar_widget.js',
         'event_calendar/javascript/lang/calendar_en.js',
         'event_calendar/javascript/calendar_widget_init.js',
+        '<%=globalConfig.themeDir %>/bower_components//jquery.fitvids/jquery.fitvids.js',
         '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
         '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
         '<%=globalConfig.themeDir %>/js/vendor/**/*.js',
