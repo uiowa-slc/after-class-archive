@@ -11,5 +11,12 @@
 <meta property="og:url" content="$AfterClassLink.ATT" />
 <% if $Image %>
 <meta property="og:image" content="$Image.URL.ATT" />
+<meta property="og:image:width" content="$Image.Width.ATT" />
+<meta property="og:image:height" content="$Image.Height.ATT" />
+
+<% else %>
+<meta property="og:image" content="{$absoluteBaseURL}{$ThemeDir}/images/ogposter.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <% end_if %>
 <meta name="author" content="Division of Student Life | The University of Iowa">
