@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f7539e8e545d94ae73afa54b5974e20",
-    "content-hash": "4c735b7e435365200e0de1683c4d2758",
+    "hash": "359d4ad2bb97d81538939bc294595cf6",
+    "content-hash": "b7b3455a634f747fd47e214e62c3e658",
     "packages": [
         {
             "name": "composer/installers",
@@ -747,16 +747,16 @@
         },
         {
             "name": "silverstripe/userforms",
-            "version": "dev-master",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "23cd591ae6ec9a081e2f89bce95b4ad0347801ac"
+                "reference": "8f2fac4c2bac5a377d59b03fb60737687eaf03b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/23cd591ae6ec9a081e2f89bce95b4ad0347801ac",
-                "reference": "23cd591ae6ec9a081e2f89bce95b4ad0347801ac",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/8f2fac4c2bac5a377d59b03fb60737687eaf03b1",
+                "reference": "8f2fac4c2bac5a377d59b03fb60737687eaf03b1",
                 "shasum": ""
             },
             "require": {
@@ -772,7 +772,7 @@
             "type": "silverstripe-module",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -806,7 +806,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2016-05-12 09:44:42"
+            "time": "2016-02-04 05:05:27"
         },
         {
             "name": "unclecheese/betterbuttons",

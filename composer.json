@@ -7,7 +7,7 @@
 		"silverstripe/framework": "3.3.*@stable",
 		"silverstripe-themes/simple": "*",
 		"md/event-calendar": "dev-master",
-		"silverstripe/userforms" : "*",
+		"silverstripe/userforms" : "3.*",
 		"unclecheese/betterbuttons" : "*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
