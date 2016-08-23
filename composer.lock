@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0200100d248e24c6562e2c19a87159dc",
-    "content-hash": "d66be3b0ad14991a1ab34f2a197941cd",
+    "hash": "04bc5b2ddb9f581c921f44244937cfe1",
+    "content-hash": "f544544c3be1ff690e5a1977502ca578",
     "packages": [
         {
             "name": "composer/installers",
@@ -253,16 +253,16 @@
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
-            "version": "dev-master",
+            "version": "1.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ryanwachtl/silverstripe-foundation-forms.git",
-                "reference": "6aa7fa8af131134806a8a8a6e74f8b5b0adf65b4"
+                "reference": "e2f80285ae3ec42026b339efd8e4b05fcb970c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/6aa7fa8af131134806a8a8a6e74f8b5b0adf65b4",
-                "reference": "6aa7fa8af131134806a8a8a6e74f8b5b0adf65b4",
+                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/e2f80285ae3ec42026b339efd8e4b05fcb970c6d",
+                "reference": "e2f80285ae3ec42026b339efd8e4b05fcb970c6d",
                 "shasum": ""
             },
             "require": {
@@ -273,7 +273,7 @@
             "extra": {
                 "installer-name": "foundationforms",
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -288,14 +288,14 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Add ZURB Foundation framework forms compatibility to SilverStripe 3",
+            "description": "Add Foundation framework forms compatibility to SilverStripe 3",
             "keywords": [
                 "Forms",
                 "foundation",
                 "silverstripe",
                 "zurb foundation"
             ],
-            "time": "2016-06-13 02:03:17"
+            "time": "2016-02-04 19:17:22"
         },
         {
             "name": "silverstripe-australia/gridfieldextensions",
