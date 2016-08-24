@@ -5,16 +5,16 @@
 		<a href="add/" class="button">Add Your Event</a>
 	</p>
 	<% cached %>
-		<p>
+<%-- 		<p>
 		<strong>Trending:</strong>
 		<% loop $TrendingTags.Limit(10) %>
-				<a href="$Link(false)" class="button tag">$Title.LimitCharacters(20)</a>
+				<a href="$Link" class="button tag">$Title.LimitCharacters(20)</a>
 		<% end_loop %>
-		</p>
+		</p> --%>
 	
-		<p><strong>By type:</strong>
+		<p><strong>Trending:</strong>
 		<% loop $TrendingTypes.Limit(10) %>
-			<a href = "$Link(false)" class="button tag">$Title.LimitCharacters(20)</a>
+			<a href = "$Link" class="button tag">$Title.LimitCharacters(20)</a>
 		<% end_loop %>
 	<% end_cached %>
 	
