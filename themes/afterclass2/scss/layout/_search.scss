@@ -1,11 +1,16 @@
-#SearchForm_SearchForm_action_results { display: none }
+#SearchForm_SearchForm_action_results {
+    display: none;
+}
+
 #Search {
     margin-top: 5px;
+
     /*margin-left: 15px;*/
 }
 
 #Search input {
     background: #333;
+    border-radius: 40px;
 }
 
 #SearchForm_SearchForm_Search {
@@ -16,10 +21,12 @@
     display: block;
     width: 100%;
 }
-#SearchForm_SearchForm_Search:hover{
+
+#SearchForm_SearchForm_Search:hover {
     cursor: pointer;
 }
-#SearchForm_SearchForm_Search:hover:focus{
+
+#SearchForm_SearchForm_Search:hover:focus {
     cursor: auto;
 }
 
@@ -28,6 +35,7 @@
     margin: 0;
     padding: 0;
 }
+
 #SearchResults li {
     margin: 10px 0;
     padding: 10px;
@@ -35,29 +43,26 @@
 
 /* Search that's in the page nav */
 #page_navigation #Search {
-    margin: 0
+    margin: 0;
 }
+
 #page_navigation #Search input {
-    background: none;
+    background: #222;
     box-shadow: none;
-    margin:0;
+    margin: 0;
     margin-top: 2px;
 }
 
-#page_navigation #Search input:focus {
-    
-}
+#page_navigation #Search input:focus {}
 
-
-@media only screen and (min-width: 480px) { 
- #SearchForm_SearchForm_Search {
+@media only screen and (min-width: 480px) {
+    #SearchForm_SearchForm_Search {
         background-image: none;
         margin-top: 3px;
     }
 }
 
-@media only screen and (min-width: 768px) { 
-
+@media only screen and (min-width: 768px) {
     #SearchForm_SearchForm_Search {
         background: none;
         width: 100%;

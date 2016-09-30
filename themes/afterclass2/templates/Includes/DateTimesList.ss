@@ -1,10 +1,13 @@
+<% if $StartDateTime %>
 <% with $StartDateTime %>
+	
 	<a href="$Up.Link" class="date-link">
 		<time itemprop="startDate" datetime="$Format(c)">
 			$Format(l), $Format(F) $Format(j)
 		</time>
-	</a> $Format("g:i A")
+	</a> <% if not $Up.AllDay %>$Format("g:i A")<% end_if %>
 <% end_with %>
+<% end_if %>
 <% if $EndTime %>
 	<% with $EndTime %>
 		- $Format("g:i A")
@@ -13,10 +16,10 @@
 <% if $EndDate %>
 	until
 	<% with $EndDate %>
-		
+			
 			<time itemprop="endDate" datetime="$Format(c)">
 				$Format(l), $Format(F) $Format(j)
 			</time>
-		 $Format("g:i A")
+		 <% if not $Up.AllDay %>$Format("g:i A")<% end_if %>
 	<% end_with %>
 <% end_if %>
