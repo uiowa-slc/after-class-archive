@@ -4,5 +4,4 @@
 	<a class="addthis_button_twitter"></a>    
 	<a class="addthis_button_google_plusone_share"></a>
 	<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact"></a>
-	<a href="$CalendarLink" class="fa fa-calendar" title="Save to iCal" target="_blank"></a>
 </div><!-- end addthis_toolbox -->

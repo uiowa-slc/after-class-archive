@@ -19,6 +19,7 @@
 								<div class="hero-event-specifics">
 									<div class="hero-event-when">
 										<% include HeroDateTimes %>
+										<li><a href="$CalendarLink" title="Save to iCal" target="_blank" download>Add this to calendar</a></li>
 									</div><!-- end hero-event-when -->
 									
 									<div class="hero-event-where">
