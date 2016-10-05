@@ -16,7 +16,7 @@
 						<p>
 							<% include HeroDateTimes %>
 						</p>
-							<li><a href="$CalendarLink" title="Save to iCal" target="_blank" download>Add this to calendar</a></li>
+							<ul><li><a href="$CalendarLink" title="Save to iCal" target="_blank" download>Add this to calendar</a></li></ul>
 
 						<p> <strong> Location: </strong>
 							<% if $Venue.Title || $Location %>
