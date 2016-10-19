@@ -18,7 +18,7 @@
 			<% if Email %><a href="mailto: $Email">$Email</a></p><% end_if %>
 			<% if LinkURL %><p><a class="button" href="$LinkURL" target="_blank">Visit Website &raquo; </a></p><% end_if %>
 			<% if WebsiteURL %><p><a class="button" href="$WebsiteURL" target="_blank">Visit the $Title Website</a></p>
-			<a class="button get-directions" href="http://www.google.com/maps?f=d&daddr=$Address" target="_blank">Get Directions</a></p><% end_if %>
+			<a class="button button--green" href="http://www.google.com/maps?f=d&daddr=$Address" target="_blank">Get Directions</a></p><% end_if %>
 			<% end_if %>
 			<div class="clear"></div>
 		</div><!-- end category-content -->

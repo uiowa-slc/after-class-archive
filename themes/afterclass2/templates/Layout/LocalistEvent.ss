@@ -16,7 +16,7 @@
 						<p>
 							<% include HeroDateTimes %>
 						</p>
-							<ul><li><a href="$CalendarLink" title="Save to iCal" target="_blank" download>Add this to calendar</a></li></ul>
+						<p></p>
 
 						<p> <strong> Location: </strong>
 							<% if $Venue.Title || $Location %>
@@ -38,9 +38,13 @@
 					    <% if $CancelReason %>
 							<p><strong>Note: $CancelReason</strong></p>
 						<% end_if %>
+						<p>
+						<a href="$CalendarLink" class="button button--green button--large" title="Save to iCal" target="_blank" download>Add this to calendar</a>
 						<% if $FacebookEventLink %>
-							<p><a href="$ParsedFacebookEventLink" class="fbButton" target="_blank">View Facebook Event</a></p>
+							<a href="$ParsedFacebookEventLink" class="button button--large button--facebook" target="_blank">View Facebook Event</a>
 						<% end_if %>
+						
+						</p>
 						<hr>
 						<div id="truncontent">
 							$Content
@@ -105,7 +109,7 @@
 							<% end_if %>
 							<p class="venue-nav">
 							<% if $Address %>
-								<a class="button get-directions" href="$DirectionsLink" target="_blank">Get Directions</a>
+								<a class="button button--green" href="$DirectionsLink" target="_blank">Get Directions</a>
 							<% end_if %>
 							<% if $WebsiteURL %>
 								<a class="button" href="$WebsiteURL">Venue website</a>
