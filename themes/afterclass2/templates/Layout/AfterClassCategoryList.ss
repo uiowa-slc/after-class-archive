@@ -25,7 +25,7 @@
 				</h2>
 						<% if Information %><p>$Information</p><% end_if %>
 						<p><a href="$Link" class="button">More Info</a>
-						<% if Address %><a href="$DirectionsLink" target="_blank" class="button get-directions">Get Directions</a><% end_if %>
+						<% if Address %><a href="$DirectionsLink" target="_blank" class="button button--green">Get Directions</a><% end_if %>
 						<% if LinkURL %><a href="$LinkURL" class="button">Visit Website</a><% end_if %></p>
 						<div class="clear"></div>
 						<% if Events %>

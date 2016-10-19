@@ -190,19 +190,21 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     font-size: 0.8em;
 }
 
-.fbButton {
-    padding: 3px;
+.button--facebook{
     background: #3b5998;
-    border: none;
-    color: #FFF;
-    display: inline-block;
-    margin: 0.3em 0;
-    text-transform: uppercase;
-    font-size: 0.8em;
+}
+
+.button--green{
+    background: #23A767;
 }
 
 .button.get-directions {
     background: #23A767;
+}
+
+.button--large{
+    font-size: 1em;
+    padding: 0.5 0.7em;
 }
 
 .button.tag {
