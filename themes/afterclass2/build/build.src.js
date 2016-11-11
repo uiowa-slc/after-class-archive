@@ -3169,7 +3169,7 @@ function initialize() {
 		var mapOptions = {
 		    zoom: 15,
 		    //disableDefaultUI: true,
-		    scrollwheel: true,
+		    scrollwheel: false,
 		    draggable: false,
 		    //panControl: true,
 		    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
