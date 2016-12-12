@@ -4,6 +4,7 @@
 	<% base_tag %>
 	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
 	<% include OpenGraph %>
+  <% include TwitterCard %>
     <title>$Title | 
   After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
 	<meta name="viewport" content="initial-scale = 1.0"/>
