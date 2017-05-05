@@ -20,3 +20,5 @@ SiteTree:
 LeftAndMain:
   extra_requirements_css:
     - 'mysite/css/usersubmitted.css'
+FilesystemPublisher:
+  - static_base_url: 'https://afterclass.uiowa.edu'
