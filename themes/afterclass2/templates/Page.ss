@@ -10,17 +10,6 @@
 	<meta name="viewport" content="initial-scale = 1.0"/>
 <script type="text/javascript" src="//use.typekit.net/mpp4cid.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<script type="text/javascript">
-   var _cbe = _cbe || [];
-   (function(){ var u="https://uiowatrack.capturehighered.net/cbe/";
-   _cbe.push(["setSiteId", 11]);
-   _cbe.push(["setTrackerUrl", u]);
-   _cbe.push(["trackPageView"]);
-   var d=document, g=d.createElement("script"), 
-s=d.getElementsByTagName("script")[0]; 
-g.type="text/javascript"; g.defer=true; g.async=true; g.src=u;
-   s.parentNode.insertBefore(g,s); })();
-</script>
 </head>
 <body class="{$ClassName}">
 <% include DivisionBar %>
