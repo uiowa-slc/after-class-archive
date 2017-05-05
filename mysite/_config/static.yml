@@ -1,0 +1,13 @@
+---
+Only:
+  environment: 'dev'
+---
+Director:
+  alternate_base_url: 'http://localhost:8888/after-class'
+---
+Except:
+  environment: 'dev'
+---
+Director:
+  alternate_base_url: 'https://afterclass.uiowa.edu'
+---

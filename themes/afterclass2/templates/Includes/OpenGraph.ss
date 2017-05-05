@@ -8,7 +8,11 @@
 <% else %>
 	<meta property="og:description" content="After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!" />
 <% end_if %>
+<% if $AfterClassLink %>
 <meta property="og:url" content="$AfterClassLink.ATT" />
+<% else %>
+<meta property="og:url" content="$AbsoluteLink.ATT" />
+<% end_if %>
 <% if $Image %>
 <meta property="og:image" content="$Image.URL.ATT" />
 <meta property="og:image:width" content="$Image.Width.ATT" />
