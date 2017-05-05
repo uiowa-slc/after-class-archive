@@ -37,7 +37,7 @@ FulltextSearchable::enable();
 if(Director::isLive()) {
 
 	Director::forceSSL(array('/^Security/'));
-	Config::inst()->update('Director', 'alternate_base_url', 'https://afterclass.uiowa.edu/');
+	Config::inst()->update('FilesystemPublisher', 'static_base_url', 'https://afterclass.uiowa.edu/');
 }elseif(Director::isDev()){
-	Config::inst()->update('Director', 'alternate_base_url', 'http://localhost:8888/after-class/');
+	Config::inst()->update('FilesystemPublisher', 'static_base_url', 'http://localhost:8888/after-class/fra');
 }
