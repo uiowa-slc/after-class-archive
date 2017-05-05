@@ -35,8 +35,6 @@ HtmlEditorConfig::get('cms')->setOption('paste_text_sticky_default',true);
 FulltextSearchable::enable();
 
 if(Director::isLive()) {
-
-	Director::forceSSL(array('/^Security/'));
 	Config::inst()->update('FilesystemPublisher', 'static_base_url', 'https://afterclass.uiowa.edu/');
 }elseif(Director::isDev()){
 	Config::inst()->update('FilesystemPublisher', 'static_base_url', 'http://localhost:8888/after-class/');
