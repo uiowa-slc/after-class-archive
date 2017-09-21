@@ -11,12 +11,14 @@
 		"unclecheese/betterbuttons" : "1.3.*",
 		"md/division-bar" : "*",
 		"md/rss-display" : "*",
-		"silverstripe/staticpublisher": "dev-master",
-		"silverstripe/spamprotection": "dev-master",
-		"silverstripe/mathspamprotection": "dev-master",
+		"silverstripe/staticpublisher": "*",
+		"silverstripe/spamprotection": "2.*",
+		"silverstripe/mathspamprotection": "*",
 		"rywa/silverstripe-foundation-forms" : "1.0.x-dev",
 		"md/ac-json-events" : "dev-master",
-		"silverstripe/activedirectory" : "3.*"
+		"silverstripe/activedirectory" : "3.*",
+		"md/division-analytics" : "1.*",
+		"md/uiowa-bar" : "*"
 
 	},
 	"config": {
@@ -27,6 +29,14 @@
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics"       
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"       
         },
          {
             "type": "vcs",

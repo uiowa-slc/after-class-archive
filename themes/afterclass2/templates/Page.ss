@@ -12,7 +12,7 @@
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="{$ClassName}">
-<% include DivisionBar %>
+<% include UiowaBar %>
 <%--<a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>--%>
 <% include Header %>
 <% if $ImageURL %>
