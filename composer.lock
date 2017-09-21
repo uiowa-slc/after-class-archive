@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar.git",
-                "reference": "8b464a7691b120afc3689ce188850e1174442e0c"
+                "reference": "752cfb8866d8ac2873a3e87a6d495b5ac7f62d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/uiowa-bar/zipball/8b464a7691b120afc3689ce188850e1174442e0c",
-                "reference": "8b464a7691b120afc3689ce188850e1174442e0c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/uiowa-bar/zipball/752cfb8866d8ac2873a3e87a6d495b5ac7f62d7f",
+                "reference": "752cfb8866d8ac2873a3e87a6d495b5ac7f62d7f",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +405,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar/issues"
             },
-            "time": "2017-09-21 21:38:32"
+            "time": "2017-09-21 21:42:12"
         },
         {
             "name": "nikic/php-parser",

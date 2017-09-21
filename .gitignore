@@ -60,3 +60,4 @@ queuedjobs/
 vendor/
 division-analytics/
 uiowa-bar/
+.DS_Store
