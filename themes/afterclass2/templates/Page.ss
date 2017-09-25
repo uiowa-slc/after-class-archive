@@ -13,7 +13,6 @@
 </head>
 <body class="{$ClassName}">
 <% include UiowaBar %>
-<%--<a href="{$BaseHref}feedback" class="fancybox.iframe" id="feedback-link"><img src="{$ThemeDir}/images/feedback.png" /></a>--%>
 <% include Header %>
 <% if $ImageURL %>
       <div class="hero-event-image-container hide-for-medium-up" style="background-image: url('<% if $ImageURL %>$ImageURL<% else %>{$ThemeDir}/images/placeholder.png<% end_if %>')">

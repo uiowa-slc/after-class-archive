@@ -4,8 +4,8 @@
 			<ul class="clearfix">
 				<li class="first" ><a href="{$BaseHref}">Calendar</a></li>
 				<li class= "nearby"><a href="nearby/" class="near-me-link">Nearby</a></li>
-				<% with Calendar %><li class="today"><a href="$Link("show/today")">Today</a></li><% end_with %>
-				<% with Calendar %><li class="weekend"><a href="$Link("show/weekend")">Weekend</a></li><% end_with %>
+				<li class="today"><a href="events/show/today">Today</a></li>
+				<li class="weekend"><a href="events/show/weekend">Weekend</a></li>
 				<li class="hide-for-large-up"><a href="{$Link}#" id="calendar-expand">Discover</a></li>
 				<li class= "suscribe"><a href="http://eepurl.com/vWmfP" class="subscribe-link" target="_blank">Subscribe</a></li>
 				<% loop Menu(1) %>
