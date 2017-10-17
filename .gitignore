@@ -29,8 +29,7 @@ googlesitemaps/
 assets/
 division-project/
 division-bar
-vendor/composer/
-vendor/autoload.php
+/vendor
 node_modules
 npm-debug.log
 tagfield/
@@ -47,8 +46,6 @@ mathspamprotection/
 foundationforms/
 ac-json-events/
 events.csv
-
-
 google48329bec7116363a.html
 gridfieldextensions/
 reports/
@@ -57,7 +54,6 @@ siteconfig/
 activedirectory/
 multivaluefield/
 queuedjobs/
-vendor/
 division-analytics/
 uiowa-bar/
 .DS_Store

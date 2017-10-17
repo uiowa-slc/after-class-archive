@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     sass: {
       dist: { 
         files: {
-          '<%=globalConfig.themeDir %>/css/master.css' : '<%=globalConfig.themeDir %>/scss/master.scss'
+          '<%=globalConfig.themeDir %>/css/main.css' : '<%=globalConfig.themeDir %>/scss/main.scss'
         },                  // Target
         options: {              // Target options
           style: 'compressed',
@@ -35,10 +35,10 @@ module.exports = function(grunt) {
         '<%=globalConfig.themeDir %>/bower_components//jquery.fitvids/jquery.fitvids.js',
         '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
         '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
-        '<%=globalConfig.themeDir %>/js/vendor/**/*.js',
-        '<%=globalConfig.themeDir %>/js/vendor/*.js',
+        '<%=globalConfig.themeDir %>/js/lib/**/*.js',
+        '<%=globalConfig.themeDir %>/js/lib/*.js',
         '<%=globalConfig.themeDir %>/js/*.js'],
-        dest: '<%=globalConfig.themeDir %>/build/build.src.js'
+        dest: '<%=globalConfig.themeDir %>/build/app.src.js'
       }
     },
 
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
       },
       my_target:{
         files:{
-        '<%=globalConfig.themeDir %>/build/build.js': ['<%=globalConfig.themeDir %>/build/build.src.js'],
+        '<%=globalConfig.themeDir %>/build/app.js': ['<%=globalConfig.themeDir %>/build/app.src.js'],
         }
       }
     },

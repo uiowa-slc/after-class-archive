@@ -2,7 +2,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<% base_tag %>
-	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
+	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/main.css" />
 	<% include OpenGraph %>
   <% include TwitterCard %>
     <title>$Title | 
@@ -32,7 +32,7 @@
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="{$ThemeDir}/build/build.js"></script>
+<script src="{$ThemeDir}/build/app.js"></script>
 $Analytics
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50be16233e8b8adc"></script>

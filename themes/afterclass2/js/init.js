@@ -4,9 +4,8 @@ jQuery(document).ready(function($) {
     // $("#calendar-expand").inner
     $("#canvas").height($("#page_header").height());
     $("#canvas").width($("#page_header").width() / 2);
-    $('.slider').slick({
-        dots: true,
-        arrows: false
+    $('.slider').flickity({
+
     });
 
     $("#calendar-expand").click(function() {
