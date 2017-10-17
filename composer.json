@@ -18,7 +18,8 @@
 		"md/ac-json-events" : "dev-master",
 		"silverstripe/activedirectory" : "3.*",
 		"md/division-analytics" : "1.*",
-		"md/uiowa-bar" : "*"
+		"md/uiowa-bar" : "*",
+		"thisisbd/silverstripe-maintenance-mode": "*"
 
 	},
 	"config": {
