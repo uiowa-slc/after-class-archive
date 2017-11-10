@@ -39,4 +39,5 @@ if(Director::isLive()) {
 }elseif(Director::isDev()){
 	Config::inst()->update('FilesystemPublisher', 'static_base_url', 'http://localhost:8888/after-class/');
 }
+Authenticator::unregister('MemberAuthenticator');
 Authenticator::set_default_authenticator('SAMLAuthenticator');
