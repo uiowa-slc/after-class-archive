@@ -13,11 +13,10 @@
 <% else %>
 <meta property="og:url" content="$AbsoluteLink.ATT" />
 <% end_if %>
-<% if $Image %>
+<% if $Image.URL %>
 <meta property="og:image" content="$Image.URL.ATT" />
 <meta property="og:image:width" content="$Image.Width.ATT" />
 <meta property="og:image:height" content="$Image.Height.ATT" />
-
 <% else %>
 <meta property="og:image" content="{$absoluteBaseURL}{$ThemeDir}/images/ogposter.jpg" />
 <meta property="og:image:width" content="1200" />

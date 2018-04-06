@@ -7,6 +7,8 @@
   <% include TwitterCard %>
     <title>$Title | 
   After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
+  <meta name="title" content="$Title">
+  <meta name="description" content="$Content.ATT"
 	<meta name="viewport" content="initial-scale = 1.0"/>
 <script type="text/javascript" src="//use.typekit.net/mpp4cid.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>

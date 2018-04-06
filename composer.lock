@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "0c420e1cd0e8a3a78e7a5e48b1d2ec2fded5d39e"
+                "reference": "5d15e4e9aab1da3a622678bdaaa4f7d57d150923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/0c420e1cd0e8a3a78e7a5e48b1d2ec2fded5d39e",
-                "reference": "0c420e1cd0e8a3a78e7a5e48b1d2ec2fded5d39e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/5d15e4e9aab1da3a622678bdaaa4f7d57d150923",
+                "reference": "5d15e4e9aab1da3a622678bdaaa4f7d57d150923",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2018-01-25T16:41:42+00:00"
+            "time": "2018-04-05T19:08:21+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "fba6b16591e59d06312bbc8a23fa8bea2af06f44"
+                "reference": "317c1da84e6285bd8316d4de337dbfc163640203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/fba6b16591e59d06312bbc8a23fa8bea2af06f44",
-                "reference": "fba6b16591e59d06312bbc8a23fa8bea2af06f44",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/317c1da84e6285bd8316d4de337dbfc163640203",
+                "reference": "317c1da84e6285bd8316d4de337dbfc163640203",
                 "shasum": ""
             },
             "require": {
@@ -239,7 +239,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2018-03-15T16:18:17+00:00"
+            "time": "2018-04-06T14:04:52+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -384,12 +384,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar.git",
-                "reference": "1acab266eba5dcc8a2dfbf8dd4809cb2b4fcc7fa"
+                "reference": "4000ed0114a053142ba0da480f8fe7adbb8d6031"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/uiowa-bar/zipball/1acab266eba5dcc8a2dfbf8dd4809cb2b4fcc7fa",
-                "reference": "1acab266eba5dcc8a2dfbf8dd4809cb2b4fcc7fa",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/uiowa-bar/zipball/4000ed0114a053142ba0da480f8fe7adbb8d6031",
+                "reference": "4000ed0114a053142ba0da480f8fe7adbb8d6031",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar/issues"
             },
-            "time": "2018-02-06T19:50:16+00:00"
+            "time": "2018-04-02T20:09:24+00:00"
         },
         {
             "name": "mustangostang/spyc",
