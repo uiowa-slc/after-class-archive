@@ -15,7 +15,7 @@
 		"silverstripe/spamprotection": "2.*",
 		"silverstripe/mathspamprotection": "*",
 		"rywa/silverstripe-foundation-forms" : "1.0.x-dev",
-		"md/ac-json-events" : "dev-master",
+		"md/ac-json-events" : "dev-ui-events-calendar",
 		"silverstripe/activedirectory" : "3.*",
 		"md/division-analytics" : "1.*",
 		"md/uiowa-bar" : "*",

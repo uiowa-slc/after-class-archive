@@ -19,7 +19,7 @@ class Page extends SiteTree {
 	}
 	
 	function allPagesToCache() {
-		$calendar = LocalistCalendar::get()->First();
+		$calendar = UiCalendar::get()->First();
 	    $calendarLink = $calendar->Link();
 
 	    $urls[] = $calendarLink;
@@ -76,7 +76,7 @@ class Page extends SiteTree {
 	    return $urls;
 	}
 	public function Calendar(){
-  		return LocalistCalendar::get()->First();
+  		return UiCalendar::get()->First();
   	}
 
 }
@@ -107,7 +107,7 @@ class Page_Controller extends ContentController {
 			"Term" => $term
 		);
 
-	    return $this->customise( $data )->renderWith( array( 'LocalistCalendar_search', 'Page' ) );
+	    return $this->customise( $data )->renderWith( array( 'UiCalendar_search', 'Page' ) );
 
 	}
 	function EditURL(){
