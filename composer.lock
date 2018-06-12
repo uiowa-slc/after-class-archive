@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "08253c03e2dad19b3480925ad612fd9432b7162f"
+                "reference": "0c10ad80181f827f95d4930f689175fd99c6a0ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/08253c03e2dad19b3480925ad612fd9432b7162f",
-                "reference": "08253c03e2dad19b3480925ad612fd9432b7162f",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/0c10ad80181f827f95d4930f689175fd99c6a0ab",
+                "reference": "0c10ad80181f827f95d4930f689175fd99c6a0ab",
                 "shasum": ""
             },
             "require": {
@@ -239,7 +239,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ui-events-calendar",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2018-06-11T19:51:31+00:00"
+            "time": "2018-06-12T21:15:19+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -994,12 +994,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-reports.git",
-                "reference": "d0751f2a59de43e86035da135901afa358ad6911"
+                "reference": "5ed3fe05922385326bb93dc76328d0ac965e15e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/d0751f2a59de43e86035da135901afa358ad6911",
-                "reference": "d0751f2a59de43e86035da135901afa358ad6911",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/5ed3fe05922385326bb93dc76328d0ac965e15e3",
+                "reference": "5ed3fe05922385326bb93dc76328d0ac965e15e3",
                 "shasum": ""
             },
             "require": {
@@ -1010,11 +1010,6 @@
                 "phpunit/phpunit": "^3 || ^4 || ^5"
             },
             "type": "silverstripe-module",
-            "extra": {
-                "branch-alias": {
-                    "3.x-dev": "3.7.x-dev"
-                }
-            },
             "autoload": {
                 "classmap": [
                     "code"
@@ -1041,7 +1036,7 @@
                 "reports",
                 "silverstripe"
             ],
-            "time": "2018-05-23T11:40:10+00:00"
+            "time": "2018-06-11T23:28:05+00:00"
         },
         {
             "name": "silverstripe/segment-field",
@@ -1088,12 +1083,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-siteconfig.git",
-                "reference": "e6879131548dadfcd69c56a11186c2d0f8483e88"
+                "reference": "6c4ab5282d847bd49d4f635732f1318fb907a019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/e6879131548dadfcd69c56a11186c2d0f8483e88",
-                "reference": "e6879131548dadfcd69c56a11186c2d0f8483e88",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/6c4ab5282d847bd49d4f635732f1318fb907a019",
+                "reference": "6c4ab5282d847bd49d4f635732f1318fb907a019",
                 "shasum": ""
             },
             "require": {
@@ -1104,10 +1099,7 @@
             },
             "type": "silverstripe-module",
             "extra": {
-                "installer-name": "siteconfig",
-                "branch-alias": {
-                    "3.x-dev": "3.7.x-dev"
-                }
+                "installer-name": "siteconfig"
             },
             "autoload": {
                 "classmap": [
@@ -1126,7 +1118,7 @@
                 "silverstripe",
                 "siteconfig"
             ],
-            "time": "2018-01-09T13:53:43+00:00"
+            "time": "2018-06-11T23:27:48+00:00"
         },
         {
             "name": "silverstripe/spamprotection",
