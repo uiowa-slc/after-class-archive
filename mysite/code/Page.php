@@ -55,11 +55,11 @@ class Page extends SiteTree {
 	  	}
 
 	  	/* Cache all Trending Tags */
-	  	$trendingTags = $calendar->TrendingTags();
+	  	// $trendingTags = $calendar->TrendingTags();
 
-	  	foreach($trendingTags as $trendingTag){
-	  		$urls[] = $trendingTag->Link();
-	  	}
+	  	// foreach($trendingTags as $trendingTag){
+	  	// 	$urls[] = $trendingTag->Link();
+	  	// }
 
 	    return $urls;
 	  }

@@ -42,12 +42,12 @@
 		
 								</div><!-- end hero-event-specifics -->
 							</div><!-- end hero-event-details -->
-							<p>
+<%-- 							<p>
 							<a href="$CalendarLink" class="button button--green button--large" title="Save to iCal" target="_blank" download>Add this to calendar</a>
 							<% if $FacebookEventLink %>
 								<a href="$ParsedFacebookEventLink" class="button button--large button--facebook" target="_blank">View Facebook Event</a>
 							<% end_if %>
-							</p>
+							</p> --%>
 							<% include AddThis %>
 					
 						<div class="clear"></div>	
