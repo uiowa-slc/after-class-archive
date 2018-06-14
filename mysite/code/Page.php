@@ -100,7 +100,7 @@ class Page_Controller extends ContentController {
 	function results($data, $form){
 		$term = $form->getSearchQuery();
 		$calendar = $this->Calendar();
-		$events = $calendar->EventList('200', null, null, null, null,null, 'true', false, $term);
+		$events = $calendar->EventList('year', null, null, null, null,null, 'true', false, $term);
 
 		$data = array( 
 			"Results" => $events,
