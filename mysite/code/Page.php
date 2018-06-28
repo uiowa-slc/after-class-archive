@@ -100,10 +100,12 @@ class Page_Controller extends ContentController {
 	function results($data, $form){
 		$term = $form->getSearchQuery();
 		$calendar = $this->Calendar();
-		$events = $calendar->EventList('year', null, null, null, null,null, 'true', false, $term);
+		$events = $calendar->EventList('year');
+		//print_r($events);
+		$results = $events->filterAny(array('EventTitle:PartialMatch' => $term, 'Content:PartialMatch' => $term));
 
 		$data = array( 
-			"Results" => $events,
+			"Results" => $results,
 			"Term" => $term
 		);
 
