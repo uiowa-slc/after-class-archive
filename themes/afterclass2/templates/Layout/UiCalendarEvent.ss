@@ -57,9 +57,9 @@
 								<% if $MoreInfoLink %>
 									<a href="$MoreInfoLink" class="button" target="_blank">Event Website</a>
 								<% end_if %>
-<%-- 								<% if $UiCalendarLink %>
-									<a href="$UiCalendarLink" class="button" target="_blank">View On events.uiowa.edu</a>
-								<% end_if %> --%>
+							<% if $UiCalendarLink %>
+									<a href="$UiCalendarLink" class="button" target="_blank">View on the UI events calendar</a>
+								<% end_if %>
 							</p>
 						<% end_if %>
 						<% include AddThis %>
