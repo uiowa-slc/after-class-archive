@@ -38,13 +38,13 @@
 					    <% if $CancelReason %>
 							<p><strong>Note: $CancelReason</strong></p>
 						<% end_if %>
-						<p>
+<%-- 						<p>
 						<a href="$CalendarLink" class="button button--green button--large" title="Save to iCal" target="_blank" download>Add this to calendar</a>
 						<% if $FacebookEventLink %>
 							<a href="$ParsedFacebookEventLink" class="button button--large button--facebook" target="_blank">View Facebook Event</a>
 						<% end_if %>
 						
-						</p>
+						</p> --%>
 						<hr>
 						<div id="truncontent">
 							$Content
@@ -52,13 +52,13 @@
 						</div>
 
 
-						<% if $MoreInfoLink || $LocalistLink %>
+						<% if $MoreInfoLink || $UiCalendarLink %>
 							<p>
 								<% if $MoreInfoLink %>
 									<a href="$MoreInfoLink" class="button" target="_blank">Event Website</a>
 								<% end_if %>
-								<% if $LocalistLink %>
-									<a href="$LocalistLink" class="button" target="_blank">View On events.uiowa.edu</a>
+							<% if $UiCalendarLink %>
+									<a href="$UiCalendarLink" class="button" target="_blank">View on the UI events calendar</a>
 								<% end_if %>
 							</p>
 						<% end_if %>
@@ -109,7 +109,7 @@
 							<% end_if %>
 							<p class="venue-nav">
 							<% if $Address %>
-								<a class="button button--green" href="$DirectionsLink" target="_blank">Get Directions</a>
+								<a class="button button--green" href="$DirectionsLink">Get Directions</a>
 							<% end_if %>
 							<% if $WebsiteURL %>
 								<a class="button" href="$WebsiteURL">Venue website</a>

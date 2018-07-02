@@ -19,7 +19,7 @@ class Page extends SiteTree {
 	}
 	
 	function allPagesToCache() {
-		$calendar = LocalistCalendar::get()->First();
+		$calendar = UiCalendar::get()->First();
 	    $calendarLink = $calendar->Link();
 
 	    $urls[] = $calendarLink;
@@ -55,11 +55,11 @@ class Page extends SiteTree {
 	  	}
 
 	  	/* Cache all Trending Tags */
-	  	$trendingTags = $calendar->TrendingTags();
+	  	// $trendingTags = $calendar->TrendingTags();
 
-	  	foreach($trendingTags as $trendingTag){
-	  		$urls[] = $trendingTag->Link();
-	  	}
+	  	// foreach($trendingTags as $trendingTag){
+	  	// 	$urls[] = $trendingTag->Link();
+	  	// }
 
 	    return $urls;
 	  }
@@ -76,7 +76,7 @@ class Page extends SiteTree {
 	    return $urls;
 	}
 	public function Calendar(){
-  		return LocalistCalendar::get()->First();
+  		return UiCalendar::get()->First();
   	}
 
 }
@@ -100,14 +100,16 @@ class Page_Controller extends ContentController {
 	function results($data, $form){
 		$term = $form->getSearchQuery();
 		$calendar = $this->Calendar();
-		$events = $calendar->EventList('200', null, null, null, null,null, 'true', false, $term);
+		$events = $calendar->EventList('year');
+		//print_r($events);
+		$results = $events->filterAny(array('EventTitle:PartialMatch' => $term, 'Content:PartialMatch' => $term));
 
 		$data = array( 
-			"Results" => $events,
+			"Results" => $results,
 			"Term" => $term
 		);
 
-	    return $this->customise( $data )->renderWith( array( 'LocalistCalendar_search', 'Page' ) );
+	    return $this->customise( $data )->renderWith( array( 'UiCalendar_search', 'Page' ) );
 
 	}
 	function EditURL(){

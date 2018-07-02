@@ -19,7 +19,7 @@
 
 <% if $action != "index" %>
 	<h1 class="date-header">$FilterHeader</h1>
-	<% if not $EventList %>
+	<% if not $FilterEventList %>
 		<p class="homepage-message">No events currently listed on this date. <a href="{$BaseHref}">Return home</a>, or check our <a href="{$BaseHref}events/categories/">categories</a>, <a href="{$BaseHref}events/venues">venues</a>, and <a href="{$BaseHref}events/sponsors/">sponsors</a> for full event listings.</p>
 	<% end_if %><!-- end if events -->
 <% end_if %>
@@ -30,9 +30,15 @@
 		<h2>What's up next</h2>
 	<% end_if %>
 	<div class="event-cards">
+		<% if $action == "index" %>
 		<% loop $EventList %>
 			<% include EventCard %>
 		<% end_loop %> <%-- end loop Upcoming Events --%>
+		<% else %>
+		<% loop $FilterEventList %>
+			<% include EventCard %>
+		<% end_loop %> <%-- end loop Upcoming Events --%>
+		<% end_if %>
 	</div> <!--end event-cards -->
 </div>
 	<!-- end event-card-list -->

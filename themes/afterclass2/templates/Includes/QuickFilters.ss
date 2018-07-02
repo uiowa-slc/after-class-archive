@@ -13,9 +13,9 @@
 		</p> --%>
 	
 		<p><strong>Trending:</strong>
-		<% loop $TrendingTypes.Limit(10) %>
+<%-- 		<% loop $TrendingTypes.Limit(10) %>
 			<a href = "$Link" class="button tag">$Title.LimitCharacters(20)</a>
-		<% end_loop %>
+		<% end_loop %> --%>
 	<% end_cached %>
 	
 	<%--<p><strong>Filter by:</strong>

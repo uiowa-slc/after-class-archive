@@ -1,7 +1,7 @@
 <div class="secondary-nav row-fluid">
-	<div class="secondary-search-form hide-for-large-up">
+<%-- 	<div class="secondary-search-form hide-for-large-up">
 		<% include Search %>
-	</div>
+	</div> --%>
 	<% with $Calendar %>
 		<div class="show-for-large-up">
 			 $CalendarWidget 
