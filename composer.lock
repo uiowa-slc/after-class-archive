@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e3370e448c9f9832e6a202fb0a980c6",
+    "content-hash": "aa2b55fbb0c77ae6fb4cc32ca695d0c8",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -211,16 +211,16 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-ui-events-calendar",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "0abaf284aa4a9682b7a920e3ccbd3e2537cd329f"
+                "reference": "3ee5b3871da5502a6ec1660b2da0b3b401684c7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/0abaf284aa4a9682b7a920e3ccbd3e2537cd329f",
-                "reference": "0abaf284aa4a9682b7a920e3ccbd3e2537cd329f",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3ee5b3871da5502a6ec1660b2da0b3b401684c7a",
+                "reference": "3ee5b3871da5502a6ec1660b2da0b3b401684c7a",
                 "shasum": ""
             },
             "require": {
@@ -236,10 +236,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ui-events-calendar",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2018-06-28T18:49:51+00:00"
+            "time": "2018-07-02T14:22:27+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -247,26 +247,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics.git",
-                "reference": "096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3"
+                "reference": "bb68b80e558ec8a8cf5d0ff47e67923083a21108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-analytics/zipball/096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3",
-                "reference": "096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-analytics/zipball/bb68b80e558ec8a8cf5d0ff47e67923083a21108",
+                "reference": "bb68b80e558ec8a8cf5d0ff47e67923083a21108",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "silverstripe/cms": "3.6.*@stable",
-                "silverstripe/framework": "3.6.*@stable"
+                "silverstripe/cms": "3.*@stable",
+                "silverstripe/framework": "3.*@stable"
             },
             "type": "silverstripe-module",
             "description": "The University of Iowa Division of Student Life Analytics",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/tree/master",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/tree/1",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/issues"
             },
-            "time": "2017-10-26T17:44:03+00:00"
+            "time": "2018-06-29T17:23:01+00:00"
         },
         {
             "name": "md/division-bar",
@@ -708,12 +708,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-themes/silverstripe-simple.git",
-                "reference": "5a6b34cd00a71047e905a8cb5d4b73713ca510c3"
+                "reference": "64ec4e16e08182f9b55f687afbb877efdf1cd03b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-themes/silverstripe-simple/zipball/5a6b34cd00a71047e905a8cb5d4b73713ca510c3",
-                "reference": "5a6b34cd00a71047e905a8cb5d4b73713ca510c3",
+                "url": "https://api.github.com/repos/silverstripe-themes/silverstripe-simple/zipball/64ec4e16e08182f9b55f687afbb877efdf1cd03b",
+                "reference": "64ec4e16e08182f9b55f687afbb877efdf1cd03b",
                 "shasum": ""
             },
             "require": {
@@ -723,7 +723,7 @@
             "type": "silverstripe-theme",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2.x-dev"
+                    "dev-master": "3.3.x-dev"
                 },
                 "expose": [
                     "css",
@@ -747,7 +747,7 @@
                 "silverstripe",
                 "theme"
             ],
-            "time": "2018-06-25T20:55:43+00:00"
+            "time": "2018-06-29T10:48:05+00:00"
         },
         {
             "name": "silverstripe/activedirectory",
@@ -1570,12 +1570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-ldap.git",
-                "reference": "ce85020edb5abc2459b33e0564e04bfef567dc4b"
+                "reference": "79f055b3d9cbf3b34280ad3c66a9fc54e149464f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-ldap/zipball/ce85020edb5abc2459b33e0564e04bfef567dc4b",
-                "reference": "ce85020edb5abc2459b33e0564e04bfef567dc4b",
+                "url": "https://api.github.com/repos/zendframework/zend-ldap/zipball/79f055b3d9cbf3b34280ad3c66a9fc54e149464f",
+                "reference": "79f055b3d9cbf3b34280ad3c66a9fc54e149464f",
                 "shasum": ""
             },
             "require": {
@@ -1615,7 +1615,7 @@
                 "ldap",
                 "zf"
             ],
-            "time": "2018-04-25T06:23:46+00:00"
+            "time": "2018-07-02T16:27:02+00:00"
         },
         {
             "name": "zendframework/zend-session",
