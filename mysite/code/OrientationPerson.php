@@ -1,17 +1,21 @@
 <?php
+
+use SilverStripe\Security\Permission;
+use SilverStripe\ORM\DataObject;
+
 /**
  * Defines the Orientation Data Collection Model & View Classes
  */
 class OrientationPerson extends DataObject {
    
 	private static $db = array(
-		"first_name" => "Varchar",
-		"last_name" => "Varchar",
-		"email" => "Varchar",
+		"first_name" => "Varchar(255)",
+		"last_name" => "Varchar(255)",
+		"email" => "Varchar(255)",
 		"facebook_id" => "Int",
-		"signup_source" => "Varchar"
+		"signup_source" => "Varchar(255)"
 		);
-	static $has_one = array(					 
+	private static $has_one = array(					 
 	);  
 	
 	private static $field_labels = array(
@@ -34,18 +38,3 @@ class OrientationPerson extends DataObject {
 		$fields = parent::getCMSFields();
 		return $fields;
    }}
-
-class OrientationPerson_Controller extends Page_Controller {
-	/*function index() {
-		
-	}
-	function new() {
-		
-	}*/
-	
-	function init() {
-		parent::init();	
-	}
-}
- 
-?>

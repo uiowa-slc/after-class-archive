@@ -1,13 +1,14 @@
 <?php
+
 class NearMePage extends Page {
 
-	public static $db = array(
+	private static $db = array(
 	);
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
 }
-class NearMePage_Controller extends Page_Controller {
+class NearMePage_Controller extends PageController {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -24,7 +25,7 @@ class NearMePage_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
+	private static $allowed_actions = array (
 	);
 
 	/*public function PlaceList2(){

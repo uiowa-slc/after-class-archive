@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Dev\BuildTask;
 class MakeRSSFeedTask extends BuildTask {
  
     protected $title = 'Generate RSS Feed';

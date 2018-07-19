@@ -1,14 +1,25 @@
 <?php
+
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Security\Permission;
+use SilverStripe\Control\Controller;
+use SilverStripe\View\Requirements;
+
 class HawkeyeCaucusPage extends Page {
 
-	public static $db = array(
+	private static $db = array(
 	);
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
 	
 }
-class HawkeyeCaucusPage_Controller extends Page_Controller {
+class HawkeyeCaucusPage_Controller extends PageController {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -25,13 +36,13 @@ class HawkeyeCaucusPage_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
-		"Form"
+	private static $allowed_actions = array (
+		Form::class
 	);
 	
-function Form() {
+	public function Form() {
 		//
-		$myForm = new Form($this, "Form", new FieldList(
+		$myForm = new Form($this, Form::class, new FieldList(
 			new TextField("first_name", "Your First Name"),
 			new TextField("last_name","Last Name"),
 			new TextField("email","Email Address"),
@@ -57,23 +68,22 @@ function Form() {
 		//$this->redirect($this->URLSegment.'/');
 	}
 	public function show() {
-	
-	if(Permission::check("ADMIN")){
-		if($this){
-			$mr = "first,last,email,signupsource,created<br />";
-			$records = HawkeyeCaucusPerson::get()->sort("DESC")->limit(3000);
-			foreach ($records as $record) {
-				if ($record->signup_source == $this->URLSegment) {
-					$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
+		if(Permission::check("ADMIN")){
+			if($this){
+				$mr = "first,last,email,signupsource,created<br />";
+				$records = HawkeyeCaucusPerson::get()->sort("DESC")->limit(3000);
+				foreach ($records as $record) {
+					if ($record->signup_source == $this->URLSegment) {
+						$mr = $mr . $record->first_name . "," . $record->last_name . "," . $record->email . "," . $record->signup_source . "," . $record->Created . "<br />";
+					}
 				}
+				return $mr;
 			}
-			return $mr;
+		}else {
+			Controller::curr()->redirect("home/");
+		
 		}
-	}else {
-		Controller::curr()->redirect("home/");
-	
 	}
-}
 
 
 	public function init() {
@@ -83,13 +93,5 @@ function Form() {
 		Requirements::block($themeFolder . '/css/layout.css');
 
 	}
-	
-	/*public function Form() {
-		$form = parent::Form();
-		
-		
-	
-	}*/
-	
 	
 }

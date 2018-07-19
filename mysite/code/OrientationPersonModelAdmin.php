@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Admin\ModelAdmin;
+
 class OrientationPersonModelAdmin extends ModelAdmin {
 
 

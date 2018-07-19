@@ -1,13 +1,23 @@
 <?php
+
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Control\Controller;
+use SilverStripe\Security\Permission;
+
 class Orientation2012Page extends Page {
 
-	public static $db = array(
+	private static $db = array(
 	);
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 
 }
-class Orientation2012Page_Controller extends Page_Controller {
+class Orientation2012PageController extends PageController {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -24,12 +34,12 @@ class Orientation2012Page_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array ( "Form", "SignupAction"
+	private static $allowed_actions = array ( Form::class, "SignupAction"
 	);
 
 	function Form() {
 		//
-		$myForm = new Form( $this, "Form", new FieldList(
+		$myForm = new Form( $this, Form::class, new FieldList(
 				new TextField( "first_name", "First Name" ),
 				new TextField( "last_name", "Last Name" ),
 				new TextField( "email", "Email Address" ),

@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Control\Director;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\Security;
+use SilverStripe\Dev\BuildTask;
 class EraseOldEventsBuildTask extends BuildTask {
  
     protected $title = 'Erase old events from the archive (DANGER)';

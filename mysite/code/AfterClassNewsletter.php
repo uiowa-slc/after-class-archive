@@ -1,9 +1,16 @@
 <?php
+
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Control\Director;
+use SilverStripe\CMS\Controllers\ContentController;
 /**
  * Defines the HomePage page type
  */
 class AfterClassNewsletter extends Page {
-	static $db = array(
+	private static $db = array(
 		'IntroText' => 'HTMLText',
 		'ImageHeading' => 'Text',
 		'ImageLink' => 'Text',
@@ -38,24 +45,24 @@ class AfterClassNewsletter extends Page {
 		
 		'BookstoreImageLink' => 'Text'
 	);
-	static $has_one = array(
-		'FeaturedEvent' => 'SiteTree',
-		'Event1' => 'SiteTree',
-		'Event2' => 'SiteTree',
-		'Event3' => 'SiteTree',
-		'Event4' => 'SiteTree',
-		'Event5' => 'SiteTree',
-		'Image' => 'Image',
-		'BookstoreImage' => 'Image'
+	private static $has_one = array(
+		'FeaturedEvent' => SiteTree::class,
+		'Event1' => SiteTree::class,
+		'Event2' => SiteTree::class,
+		'Event3' => SiteTree::class,
+		'Event4' => SiteTree::class,
+		'Event5' => SiteTree::class,
+		'Image' => Image::class,
+		'BookstoreImage' => Image::class
 	);
-	static $has_many = array (
+	private static $has_many = array (
 	);
 	
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		
 
-		$fields->addFieldToTab('Root.Main',new UploadField('Image','Flickr or Youtube Image 250 x 187'));
+		$fields->addFieldToTab('Root.Main',new UploadField(Image::class,'Flickr or Youtube Image 250 x 187'));
 		$fields->addFieldToTab('Root.Main',new TextField('ImageHeading','Flickr or Youtube area heading (Example: recent photos).') );
 		$fields->addFieldToTab('Root.Main',new TextField('ImageLink','Flickr or Youtube link.') );
 	/*	
@@ -95,21 +102,16 @@ NOTE:  Check Syntax
 */new UploadField('BookstoreImage','Bookstore ad Image 590 x 200'));
 		$fields->addFieldToTab('Root.Ad',new TextField('BookstoreImageLink','Bookstore ad link (with associatedid!!)') );
 		
-		$fields->addFieldToTab('Root.Events', new TreeDropdownField("FeaturedEventID", "Featured event.", "SiteTree"));
-		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event1ID", "Event 1", "SiteTree"));
-		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event2ID", "Event 2", "SiteTree"));
-		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event3ID", "Event 3", "SiteTree"));
-		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event4ID", "Event 4", "SiteTree"));
-		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event5ID", "Event 5", "SiteTree"));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("FeaturedEventID", "Featured event.", SiteTree::class));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event1ID", "Event 1", SiteTree::class));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event2ID", "Event 2", SiteTree::class));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event3ID", "Event 3", SiteTree::class));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event4ID", "Event 4", SiteTree::class));
+		$fields->addFieldToTab('Root.Events', new TreeDropdownField("Event5ID", "Event 5", SiteTree::class));
     	return $fields;
 	}
 	
 }
 
-class AfterClassNewsletter_Controller extends ContentController {
-	function init() {
-		parent::init();
-		$this->Content = str_replace('src="assets', 'src="'.Director::absoluteBaseURL().'/assets', $this->Content);
-	}
-}
+
 ?>
