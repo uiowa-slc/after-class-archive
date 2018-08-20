@@ -7,7 +7,7 @@
     opacity: 0;
 }
 
-.b-lazy.b-loaded {
+.b-lazy.b-loaded, .b-lazy.b-error {
     opacity: 1;
 }
 
