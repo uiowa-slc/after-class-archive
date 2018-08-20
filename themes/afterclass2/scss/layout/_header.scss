@@ -71,7 +71,6 @@
 }
 
 #page_navigation {
-    background-color: #312D2E;
 
     @media only screen and (min-width: 960px) {
         padding-top: 10px;
@@ -193,8 +192,9 @@
     text-decoration: none;
     display: block;
     font-weight: normal !important;
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-size: 0.8em;
+    font-family: $heading-font;
 }
 
 #page_navigation ul li.first a {

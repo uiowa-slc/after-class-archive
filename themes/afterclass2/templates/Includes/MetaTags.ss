@@ -1,6 +1,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<% if ClassName = LocalistEvent %>
+	<% if ClassName = UiCalendarEvent %>
 	<meta property="og:title" content="$Title"/>
 	<meta property="og:type" content="activity"/>
 	<meta property="og:image" content="$Image.URL"/>

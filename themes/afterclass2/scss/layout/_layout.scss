@@ -11,6 +11,10 @@ input.division-search-input[type="search"], input.division-search-input[type="se
     padding: 0.3em !important;
 }
 
+.upper{
+    text-transform: uppercase;
+}
+
 .division-topbar {
     background: none;
 }
@@ -208,7 +212,7 @@ input.division-search-input[type="search"], input.division-search-input[type="se
 }
 
 .button.tag {
-    background: #4C3D69;
+    background: #431e4c;
 }
 
 .button.more-dates {
