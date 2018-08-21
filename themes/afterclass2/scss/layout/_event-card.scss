@@ -129,7 +129,7 @@
 
 .event-card h3 a {
     color: #CDEBF3;
-    background: #1D1C1C;
+    background: $body-bg-color;
     padding: 0.1em 0;
     padding-right: 0.5em;
 }
@@ -178,6 +178,7 @@ a.event-header-category {
     height: 222px;
     background-position-x: 50%;
     background-position-y: 50%;
+    background-color: white;
 }
 
 .event-card-image img {
