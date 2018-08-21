@@ -1,3 +1,44 @@
+@charset "utf-8";
+
+
+@import "settings/division-settings";
+// Libraries
+@import "lib/fa/font-awesome";
+@import "lib/foundation/scss/foundation";
+
+
+
+
+@include foundation-grid;
+@include foundation-xy-grid-classes(
+  /* options
+  $base-grid: true,
+  $margin-grid: true,
+  $padding-grid: true,
+  $block-grid: true,
+  $collapse: true,
+  $offset: true,
+  $vertical-grid: true,
+  $frame-grid: true
+  */
+);
+
+@import "base/mixins";
+@import "base/main";
+@import "base/print";
+
+
+//Division Footer:
+@import "layouts/footer";
+
+
+
+
+//OLD BELOW
+
+
+
+
 @import "lib/flickity";
 
 @import "imports/_config";
@@ -15,14 +56,16 @@
 @import "layout/_layout";
 
 /* Calendar Module Styles */
-@import "../../../event_calendar/css/calendar.css";
+@import "../../../ac-json-events/css/calendar.css";
 @import "../../../uiowa-bar/scss/uiowa-bar";
 /* Specific Layouts */
 @import "layout/_calendar-widget";
 @import "layout/_category";
 @import "layout/_event-card";
 @import "layout/_event";
-@import "layout/_footer";
+
+@import "layout/footer";
+
 @import "layout/_form";
 @import "layout/_header";
 @import "layout/_hero-event";

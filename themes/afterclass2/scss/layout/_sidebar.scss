@@ -1,13 +1,7 @@
-.sidebar-sticky-content.stuck {
-    @media only screen and (min-width: 1280px) {
-        width: 426.65625px;
-    }
-}
-
-.LocalistCalendar .sidebar-sticky-content.stuck {
-    @media only screen and (min-width: 1400px) {
-        width: 479px;
-    }
+.sidebar-sticky-content{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 #the-news {}

@@ -19,6 +19,8 @@ module.exports = function(grunt) {
         options: {              // Target options
           style: 'compressed',
           sourcemap: 'true',
+          loadPath: ['division-project/src/scss']
+
         }
       }
     },
@@ -28,10 +30,10 @@ module.exports = function(grunt) {
       js:{
         src: [
         'division-bar/js/division-bar.js',
-        'event_calendar/javascript/calendar.js',
-        'event_calendar/javascript/calendar_widget.js',
-        'event_calendar/javascript/lang/calendar_en.js',
-        'event_calendar/javascript/calendar_widget_init.js',
+        'ac-json-events/javascript/calendar.js',
+        'ac-json-events/javascript/calendar_widget.js',
+        'ac-json-events/javascript/lang/calendar_en.js',
+        'ac-json-events/javascript/calendar_widget_init.js',
         '<%=globalConfig.themeDir %>/bower_components//jquery.fitvids/jquery.fitvids.js',
         '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
         '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
