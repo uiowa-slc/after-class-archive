@@ -31,7 +31,7 @@
 </div>
 <% include Footer %>
 
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyDlxxfI2I0FoEVIRBXjeuPyihyCl2FkTCY"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyDrwOxlXCSTCf6WWywio2KZfZkbpmya5X8"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="{$ThemeDir}/build/app.js"></script>
