@@ -68,7 +68,7 @@
 			display:block;
 		}
 		body,#bodyTable{
-			background-color:#47354c;
+			background-color:#3d1146;
 		}
 		#bodyCell{
 			border-top:0;
@@ -122,12 +122,12 @@
 			text-align:left;
 		}
 		#templatePreheader{
-			background-color:#47354c;
+			background-color:#3d1146;
 			border-top:0;
 			border-bottom:0;
 		}
 		#preheaderBackground{
-			background-color:#47354c;
+			background-color:#3d1146;
 			border-top:0;
 			border-bottom:0;
 		}
@@ -144,7 +144,7 @@
 			text-decoration:underline;
 		}
 		#templateHeader{
-			background-color:#47354c;
+			background-color:#3d1146;
 			border-top:0;
 			border-bottom:0;
 		}
@@ -166,12 +166,12 @@
 			text-decoration:underline;
 		}
 		#templateBody{
-			background-color:#221e24;
+			background-color:#140814;
 			border-top:0;
 			border-bottom:0;
 		}
 		#bodyBackground{
-			background-color:#221e24;
+			background-color:#140814;
 			border-top:0;
 			border-bottom:0;
 		}
@@ -188,12 +188,12 @@
 			text-decoration:underline;
 		}
 		#templateFooter{
-			background-color:#47354c;
+			background-color:#3d1146;
 			border-top:0;
 			border-bottom:0;
 		}
 		#footerBackground{
-			background-color:#47354c;
+			background-color:#3d1146;
 			border-top:0;
 			border-bottom:0;
 		}
@@ -406,9 +406,9 @@
 		}
 
 }</style></head>
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="margin: 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #47354c;height: 100% !important;width: 100% !important;">
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="margin: 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #3d1146;height: 100% !important;width: 100% !important;">
         <center>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;background-color: #47354c;height: 100% !important;width: 100% !important;">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;background-color: #3d1146;height: 100% !important;width: 100% !important;">
                 <tr>
                     <td align="center" valign="top" id="bodyCell" style="padding-bottom: 40px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;border-top: 0;height: 100% !important;width: 100% !important;">
                         <!-- BEGIN TEMPLATE // -->
@@ -416,13 +416,13 @@
                             <tr>
                                 <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                     <!-- BEGIN PREHEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #47354c;border-top: 0;border-bottom: 0;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #3d1146;border-top: 0;border-bottom: 0;">
                                         <tr>
                                             <td align="center" valign="top" style="padding-right: 10px;padding-left: 10px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                 <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                     <tr>
                                                         <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="preheaderBackground" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #47354c;border-top: 0;border-bottom: 0;">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="preheaderBackground" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #3d1146;border-top: 0;border-bottom: 0;">
                                                                 <tr>
                                                                     <td valign="top" class="preheaderContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnTextBlockOuter">
@@ -467,7 +467,7 @@
                             <tr>
                                 <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                     <!-- BEGIN HEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #47354c;border-top: 0;border-bottom: 0;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #3d1146;border-top: 0;border-bottom: 0;">
                                         <tr>
                                             <td align="center" valign="top" style="padding-right: 10px;padding-left: 10px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                 <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
@@ -484,7 +484,7 @@
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px;padding-left: 0px;padding-top: 0;padding-bottom: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 
                                     <a href="http://afterclass.uiowa.edu/" title="" class="" target="_blank" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                        <img align="left" alt="After Class - the best of ui's culture, events and nightlife" src="http://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/6cd1b582-2bef-4a71-bac4-a97995b34ade.jpg" width="600" style="max-width: 600px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
+                                        <img align="left" alt="After Class - the best of ui's culture, events and nightlife" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/e1234b79-cf37-41cf-bbb5-717076be7e87.jpg" width="600" style="max-width: 600px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
                                     </a>
                                 
                             </td>
@@ -508,13 +508,13 @@
                             <tr>
                                 <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                     <!-- BEGIN BODY // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #221e24;border-top: 0;border-bottom: 0;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #140814;border-top: 0;border-bottom: 0;">
                                         <tr>
                                             <td align="center" valign="top" style="padding-right: 10px;padding-left: 10px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                 <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                     <tr>
                                                         <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyBackground" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #221e24;border-top: 0;border-bottom: 0;">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyBackground" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #140814;border-top: 0;border-bottom: 0;">
                                                                 <tr>
                                                                     <td valign="top" class="bodyContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnImageBlockOuter">
@@ -525,7 +525,7 @@
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px;padding-left: 0px;padding-top: 0;padding-bottom: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 
                                     
-                                        <img align="left" alt="" src="http://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/c83c80a8-ecdd-4a4d-a7ab-3ae89a362e24.jpg" width="600" style="max-width: 600px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
+                                        <img align="left" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/455c5f58-c056-428a-b999-406f219b2eaa.jpg" width="600" style="max-width: 600px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
                                     
                                 
                             </td>
@@ -635,7 +635,7 @@
         
             
         	<a href="http://studentlife.uiowa.edu/" target="_blank">
-            <img alt="Division of Student Life" src="http://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/22502d90-f6d8-4948-b858-2ec137ac611a.jpg" width="370" style="max-width: 370px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
+            <img alt="Division of Student Life" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/3aed8315-8775-4896-84e7-16950bf5e8f3.jpg" width="370" style="max-width: 370px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
             </a>
         
         </td>
@@ -699,13 +699,13 @@
                             <tr>
                                 <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                     <!-- BEGIN FOOTER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #47354c;border-top: 0;border-bottom: 0;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #3d1146;border-top: 0;border-bottom: 0;">
                                         <tr>
                                             <td align="center" valign="top" style="padding-right: 10px;padding-left: 10px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                 <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                                     <tr>
                                                         <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="footerBackground" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #47354c;border-top: 0;border-bottom: 0;">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="footerBackground" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #3d1146;border-top: 0;border-bottom: 0;">
                                                                 <tr>
                                                                     <td valign="top" class="footerContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <tbody class="mcnFollowBlockOuter">
