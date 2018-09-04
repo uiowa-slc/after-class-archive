@@ -31,7 +31,7 @@
 	<% end_if %>
 	<div class="event-cards">
 		<% if $action == "index" %>
-		<% loop $EventList %>
+		<% loop $EventList("threemonths") %>
 			<% include EventCard %>
 		<% end_loop %> <%-- end loop Upcoming Events --%>
 		<% else %>
