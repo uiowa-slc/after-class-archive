@@ -13,7 +13,7 @@
         <% if $ActiveVenueList %>
         <p>See events at:
           <% loop $ActiveVenueList %>
-              <a href = "#{$Title}" class="button tag">$Title.LimitCharacters(20)</a>
+              <a href = "#{$ID}" class="button tag">$Title.LimitCharacters(20)</a>
           <% end_loop %>
         </p>
         <% else %>
@@ -23,7 +23,7 @@
 
       <div id="venuesWithEvents" >
       <% loop $ActiveVenueList %>
-        <div class="event-card-list venue large" id="$Title" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(40)">    
+        <div class="event-card-list venue large" id="$ID" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(40)">    
           <h2>$Title</h2>
             <% loop $Events %>
               <div data-title="$Title.limitCharacters(33)" data-link="$Link" data-image="$Image.URL" data-cost="$Cost" <% loop $Dates %> <% with $StartDateTime %> data-startdate="$Format(l), $Format(F) $Format(j)" data-starttime="$Format(g):$Format(i) $Format(A)" <% end_with %> <% end_loop %> "> 
