@@ -6,7 +6,7 @@
 	<% include OpenGraph %>
   <% include TwitterCard %>
     <title>$Title | 
-  After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
+  After Class: Student-focused events at the University of Iowa</title>
   <meta name="title" content="$Title">
   <meta name="description" content="$Content.ATT">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

@@ -22,8 +22,8 @@
 				</div><!-- end category-content -->
 				<h2>$FilterHeader</h2>
 				<div class="category-list">
-					<% if EventList %>
-					<% loop EventList %>
+					<% if FilterEventList %>
+					<% loop FilterEventList %>
 					<div class="event-cards">
 						<% include EventCard %>
 					</div>
