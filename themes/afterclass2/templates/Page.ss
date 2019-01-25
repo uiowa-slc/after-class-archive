@@ -27,7 +27,10 @@
 <div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>" role="main">
   <div class="container clearfix">
     $Layout
+
+    
    </div>
+
 </div>
 <% include Footer %>
 
