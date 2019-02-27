@@ -5,5 +5,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
   project: mysite
 SilverStripe\View\SSViewer:
   themes:
-    - afterclass2
+    - '$public'
+    - 'afterclass2'
+    - 'md/division-project'
     - '$default'
