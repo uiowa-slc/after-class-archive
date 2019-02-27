@@ -2,7 +2,7 @@
     background-image: url("../images/afterclass_illustration.jpg");
     background-position: 100px 0;
     background-size: contain;
-    background-color: #312D2E;
+    background-color: $body-bg-color;
     background-repeat: repeat-x;
 }
 
@@ -39,7 +39,6 @@
     left: 0;
     font-size: 1em;
     color: #d0c2d0;
-    text-transform: lowercase;
     background-repeat: no-repeat;
     padding: 0;
     text-shadow: 0px 1px 14px rgba(0, 0, 0, 0.8);
@@ -71,7 +70,6 @@
 }
 
 #page_navigation {
-    background-color: #312D2E;
 
     @media only screen and (min-width: 960px) {
         padding-top: 10px;
@@ -193,8 +191,9 @@
     text-decoration: none;
     display: block;
     font-weight: normal !important;
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-size: 0.8em;
+    font-family: $heading-font;
 }
 
 #page_navigation ul li.first a {

@@ -11,3 +11,5 @@ npm-debug.log
 .DS_Store
 .sass-cache
 node_modules/
+maintenance-mode/
+.phpintel

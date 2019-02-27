@@ -15,7 +15,7 @@
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
-				<a href="$Link"><div class="event-card-image b-lazy" data-src="$Image.URL" style="background-image: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+				<a href="$Link"><div class="event-card-image b-lazy" data-src="$Image.URL" src="{$ThemeDir}/images/placeholder.jpg" style="background-image: url({$ThemeDir}/images/placeholder.jpg)">
 					
 
 					

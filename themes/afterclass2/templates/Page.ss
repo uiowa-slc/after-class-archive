@@ -6,10 +6,10 @@
 	<% include OpenGraph %>
   <% include TwitterCard %>
     <title>$Title | 
-  After Class: the best source for University of Iowa events &amp; Iowa City events, culture, nightlife, and more!</title>
+  After Class: Student-focused events at the University of Iowa</title>
   <meta name="title" content="$Title">
   <meta name="description" content="$Content.ATT">
-	<meta name="viewport" content="initial-scale = 1.0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script type="text/javascript" src="//use.typekit.net/mpp4cid.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
@@ -27,11 +27,14 @@
 <div id="page_content" class="{$ClassName} <% if action %>$action<% end_if %>" role="main">
   <div class="container clearfix">
     $Layout
+
+    
    </div>
+
 </div>
 <% include Footer %>
 
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyB6ZQYL6TQGH7SLLvJRM9pQwOk5G6glKLE"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDrwOxlXCSTCf6WWywio2KZfZkbpmya5X8"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="{$ThemeDir}/build/app.js"></script>

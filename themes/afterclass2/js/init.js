@@ -18,7 +18,6 @@ jQuery(document).ready(function($) {
         return false;
     });
 
-     $('.sidebar-sticky-content').stickyMojo({footerID: '#page_footer', contentID: '#left-column'});
 
      var bLazy = new Blazy();
 

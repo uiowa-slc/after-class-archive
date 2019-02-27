@@ -63,6 +63,8 @@
 							</p>
 						<% end_if %>
 						<% include AddThis %>
+						<div>
+						<p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactPhone} or {$ContactEmail}</i></p></div>
 					</div><!-- end hero-event-text-->
 
 					<div class="hero-event-when">

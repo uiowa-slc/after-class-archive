@@ -25,7 +25,7 @@
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnShareContentContainer">
     <tbody><tr>
         <td align="center" style="padding-top:0; padding-left:9px; padding-bottom:0; padding-right:9px;">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnShareContent" style="border: 1px none #EEEEEE;background-color: #221E24;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnShareContent" style="border: 1px none #EEEEEE;background-color: #140814;">
                 <tbody><tr>
                     <td align="center" valign="top" class="mcnShareContentItemContainer" style="padding-top:9px; padding-right:9px; padding-left:9px;">
                         <table border="0" cellpadding="0" cellspacing="0">
