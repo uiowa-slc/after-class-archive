@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ddc4bd956580b6d2e0290a1dceb4851",
+    "content-hash": "c75102bcc350078c211939fe60fdebc0",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -447,16 +447,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "5a1677f19274b76ae93cfffa7626b935b7c37e51"
+                "reference": "4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/5a1677f19274b76ae93cfffa7626b935b7c37e51",
-                "reference": "5a1677f19274b76ae93cfffa7626b935b7c37e51",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c",
+                "reference": "4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +496,7 @@
                 "opengraph",
                 "twitter cards"
             ],
-            "time": "2019-02-13T09:06:53+00:00"
+            "time": "2019-02-25T15:07:28+00:00"
         },
         {
             "name": "gorriecoe/silverstripe-webfonts",
@@ -549,12 +549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "6c50a6299b2465053d317bd32845ede91db62393"
+                "reference": "fa745406c2f48210693ba05f11280a1473037b2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/6c50a6299b2465053d317bd32845ede91db62393",
-                "reference": "6c50a6299b2465053d317bd32845ede91db62393",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/fa745406c2f48210693ba05f11280a1473037b2f",
+                "reference": "fa745406c2f48210693ba05f11280a1473037b2f",
                 "shasum": ""
             },
             "require": {
@@ -607,7 +607,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2019-01-14T15:11:47+00:00"
+            "time": "2019-02-26T17:21:14+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1218,12 +1218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "37658a3fd811ce238ccfbb6cb7af29babc5bd897"
+                "reference": "b1b4876ba1ed07e5aef5af5ce9080e864983d733"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/37658a3fd811ce238ccfbb6cb7af29babc5bd897",
-                "reference": "37658a3fd811ce238ccfbb6cb7af29babc5bd897",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b1b4876ba1ed07e5aef5af5ce9080e864983d733",
+                "reference": "b1b4876ba1ed07e5aef5af5ce9080e864983d733",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ss4.x-ui",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2018-10-22T17:49:15+00:00"
+            "time": "2019-02-27T15:50:05+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -1278,12 +1278,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-project.git",
-                "reference": "52d53203ba40305e296324d01e9822ff177b857c"
+                "reference": "e91fc216ceefe0735b2c2b71c9248076e1fea021"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-project/zipball/52d53203ba40305e296324d01e9822ff177b857c",
-                "reference": "52d53203ba40305e296324d01e9822ff177b857c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-project/zipball/e91fc216ceefe0735b2c2b71c9248076e1fea021",
+                "reference": "e91fc216ceefe0735b2c2b71c9248076e1fea021",
                 "shasum": ""
             },
             "require": {
@@ -1330,7 +1330,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-project/tree/ss4.x",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-project/issues"
             },
-            "time": "2019-02-21T15:55:03+00:00"
+            "time": "2019-02-27T15:53:56+00:00"
         },
         {
             "name": "md/saml",
@@ -3748,12 +3748,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "38e5f4300cff5e70b714afd7cc658f5138514f94"
+                "reference": "c8bb4b4fcd4b62c24b60b295c4f9e146b0b51dc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/38e5f4300cff5e70b714afd7cc658f5138514f94",
-                "reference": "38e5f4300cff5e70b714afd7cc658f5138514f94",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/c8bb4b4fcd4b62c24b60b295c4f9e146b0b51dc1",
+                "reference": "c8bb4b4fcd4b62c24b60b295c4f9e146b0b51dc1",
                 "shasum": ""
             },
             "require": {
@@ -3810,7 +3810,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-01-16T13:27:11+00:00"
+            "time": "2019-02-27T08:20:51+00:00"
         },
         {
             "name": "symfony/config",
@@ -3818,12 +3818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "c9bc510c217075d42d4a927e285917d0c2001cf4"
+                "reference": "8229c0c9202a311479640648c58d67ea82e164e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/c9bc510c217075d42d4a927e285917d0c2001cf4",
-                "reference": "c9bc510c217075d42d4a927e285917d0c2001cf4",
+                "url": "https://api.github.com/repos/symfony/config/zipball/8229c0c9202a311479640648c58d67ea82e164e7",
+                "reference": "8229c0c9202a311479640648c58d67ea82e164e7",
                 "shasum": ""
             },
             "require": {
@@ -3874,7 +3874,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-30T11:33:42+00:00"
+            "time": "2019-02-27T08:20:51+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -3882,12 +3882,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "acf99758b1df8e9295e6b85aa69f294565c9fedb"
+                "reference": "4ec22fee45f077f59f38fc1375bf622602d7b9b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/acf99758b1df8e9295e6b85aa69f294565c9fedb",
-                "reference": "acf99758b1df8e9295e6b85aa69f294565c9fedb",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/4ec22fee45f077f59f38fc1375bf622602d7b9b8",
+                "reference": "4ec22fee45f077f59f38fc1375bf622602d7b9b8",
                 "shasum": ""
             },
             "require": {
@@ -3924,7 +3924,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-04T21:34:32+00:00"
+            "time": "2019-02-27T08:20:51+00:00"
         },
         {
             "name": "symfony/finder",
@@ -3932,12 +3932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "0cdf2925ad7d4f6dfc291f291775fbb0e17275fe"
+                "reference": "fcdde4aa38f48190ce70d782c166f23930084f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/0cdf2925ad7d4f6dfc291f291775fbb0e17275fe",
-                "reference": "0cdf2925ad7d4f6dfc291f291775fbb0e17275fe",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fcdde4aa38f48190ce70d782c166f23930084f9b",
+                "reference": "fcdde4aa38f48190ce70d782c166f23930084f9b",
                 "shasum": ""
             },
             "require": {
@@ -3973,7 +3973,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-20T09:38:23+00:00"
+            "time": "2019-02-22T14:44:53+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -4326,12 +4326,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "ba11776e9e6c15ad5759a07bffb15899bac75c2d"
+                "reference": "bc4bd12aed793415e62986943f0d9c21f7597ff5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/ba11776e9e6c15ad5759a07bffb15899bac75c2d",
-                "reference": "ba11776e9e6c15ad5759a07bffb15899bac75c2d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/bc4bd12aed793415e62986943f0d9c21f7597ff5",
+                "reference": "bc4bd12aed793415e62986943f0d9c21f7597ff5",
                 "shasum": ""
             },
             "require": {
@@ -4377,7 +4377,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T10:59:17+00:00"
+            "time": "2019-02-27T08:20:51+00:00"
         },
         {
             "name": "unclecheese/display-logic",
