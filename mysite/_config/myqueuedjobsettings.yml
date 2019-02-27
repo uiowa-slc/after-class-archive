@@ -6,3 +6,4 @@ After: '#queuedjobsettings'
 Symbiote\QueuedJobs\Services\QueuedJobService:
   # Accepts b, k, m, or b suffixes
   memory_limit: 2g
+  time_limit: 300
