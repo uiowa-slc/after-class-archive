@@ -7,3 +7,7 @@ SilverStripe\Core\Injector\Injector:
     class: SilverStripe\StaticPublishQueue\Publisher\FilesystemPublisher
     properties:
       fileExtension: html
+# Force memory limit to 256 megabytes
+Symbiote\QueuedJobs\Services\QueuedJobService\QueuedJobsService:
+  # Accepts b, k, m, or b suffixes
+  memory_limit: 2048m
