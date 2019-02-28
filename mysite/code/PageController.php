@@ -8,10 +8,6 @@ class PageController extends ContentController {
 
 	protected function init() {
 		parent::init();
-// print_r(Config::inst()->get('Symbiote\QueuedJobs\Services\QueuedJobService\QueuedJobsService', 'memory_limit'));
-
-
-		print_r(Symbiote\QueuedJobs\Services\QueuedJobService::config()->get('memory_limit'));
 		//Block all requirements because we're building them with grunt now.
 		// Requirements::block('event_calendar/css/calendar_widget.css');
 		// Requirements::block('event_calendar/css/calendar.css');
