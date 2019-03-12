@@ -29,6 +29,11 @@ class Page extends SiteTree {
 	    $urls[] = 'about/';
 	    $urls[] = 'nearby/';
 	    $urls[] = 'add/';
+		$newsletters = AfterClassNewsletter::get();
+		
+		foreach($newsletters as $newsletter){
+		 $urls[] = $newsletter->Link();	
+		}
 
 
 		$previousMonth = new DateTime();
