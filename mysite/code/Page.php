@@ -25,11 +25,11 @@ class Page extends SiteTree {
 	    $urls[] = $calendarLink;
 	    $urls[] = $calendarLink.'show/today';
 	    $urls[] = $calendarLink.'show/weekend';
-
+AfterClassNewsletter
 	    $urls[] = 'about/';
 	    $urls[] = 'nearby/';
 	    $urls[] = 'add/';
-		$newsletters = AfterClassNewsletter::get();
+		$newsletters = UiCalendarNewsletter::get();
 		
 		foreach($newsletters as $newsletter){
 		 $urls[] = $newsletter->Link();	
