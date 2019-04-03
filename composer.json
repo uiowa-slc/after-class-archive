@@ -22,6 +22,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-maintenance-mode"
         },
         {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c75102bcc350078c211939fe60fdebc0",
+    "content-hash": "db00d96f85a6473464f6560735286969",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -3214,13 +3214,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-staticpublishqueue.git",
-                "reference": "3bc83bf64dbb866500363994e87ee32023ab7375"
+                "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue.git",
+                "reference": "47fcc10af712ed99835e5d3fa2d3fa416c41e2f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-staticpublishqueue/zipball/3bc83bf64dbb866500363994e87ee32023ab7375",
-                "reference": "3bc83bf64dbb866500363994e87ee32023ab7375",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue/zipball/47fcc10af712ed99835e5d3fa2d3fa416c41e2f8",
+                "reference": "47fcc10af712ed99835e5d3fa2d3fa416c41e2f8",
                 "shasum": ""
             },
             "require": {
@@ -3249,7 +3249,6 @@
                     "includes/functions.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "includes/"
             ],
@@ -3271,7 +3270,10 @@
                 "static-caching",
                 "static-publishing"
             ],
-            "time": "2018-10-10T00:46:07+00:00"
+            "support": {
+                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue/tree/master"
+            },
+            "time": "2019-04-03T21:04:25+00:00"
         },
         {
             "name": "silverstripe/tagfield",

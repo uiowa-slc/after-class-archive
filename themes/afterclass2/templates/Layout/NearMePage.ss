@@ -26,7 +26,7 @@
         <div class="event-card-list venue large" id="$ID" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(40)">    
           <h2>$Title</h2>
             <% loop $Events %>
-              <div data-title="$Title.limitCharacters(33)" data-link="$Link" data-image="$Image.URL" data-cost="$Cost" <% loop $Dates %> <% with $StartDateTime %> data-startdate="$Format(EEEE), $Format(MMMM d)" data-starttime="$Format("g:i A")" <% end_with %> <% end_loop %> "> 
+              <div data-title="$Title.limitCharacters(33)" data-link="$Link" data-image="$Image.URL" data-cost="$Cost" <% loop $Dates %> <% with $StartDateTime %> data-startdate="$Format(EEEE), $Format(MMMM d)" data-starttime="$Format("h:mm a")" <% end_with %> <% end_loop %> "> 
                 <% include EventCard %> 
               </div>  
             <% end_loop %>
