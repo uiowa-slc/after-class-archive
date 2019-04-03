@@ -566,6 +566,8 @@
 <% include UiCalendarDivider %>
 <% include UiCalendarNewsletterShareButtons %>
 
+
+<% if $NonFeaturedRows.Count > 0 %>
 <!-- Start Nonfeatured Events -->
 <% if $MoreEventsTitle %>
 	<% with $MoreEventsTitle %>
@@ -575,7 +577,6 @@
 
 
 
-<% if $NonFeaturedRows %>
 	<% loop $NonFeaturedRows %>
 		<% include UiCalendarNewsletterNonFeaturedRowStart %>
 			<% if $Event1 %>

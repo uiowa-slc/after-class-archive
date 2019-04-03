@@ -1,8 +1,12 @@
+<% if $StartDateTime %>
 <% with $StartDateTime %>
+	
 		<time itemprop="startDate" datetime="$ISOFormat">
-			$Format(l), $Format(F) $Format(j) at $Format("g:i A")
+			$Format(EEEE), $Format(MMMM d)
 		</time>
+	 <% if not $Up.AllDay %>$Format("h:mm a")<% end_if %>
 <% end_with %>
+<% end_if %>
 <% if $EndTime %>
 	<% with $EndTime %>
 		- $Format("h:mm a")
@@ -11,8 +15,10 @@
 <% if $EndDate %>
 	until
 	<% with $EndDate %>
+			
 			<time itemprop="endDate" datetime="$ISOFormat">
-			$Format("h:mm a")on $Format(l), $Format(F) $Format(j)
+				$Format(EEEE), $Format(MMMM d)
 			</time>
+		 <% if not $Up.AllDay %>$Format("h:mm a")<% end_if %>
 	<% end_with %>
 <% end_if %>

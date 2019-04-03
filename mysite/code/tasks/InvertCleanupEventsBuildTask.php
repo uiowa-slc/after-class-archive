@@ -11,7 +11,7 @@ class InvertCleanupEventsBuildTask extends BuildTask {
  
     protected $description = 'Move current events out of the archive';
  
-    protected $enabled = true;
+    protected $enabled = false;
   function init() { 
       parent::init(); 
       // Unless called from the command line, all CliControllers need ADMIN privileges 

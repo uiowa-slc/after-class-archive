@@ -8,7 +8,7 @@ class CleanupEventsBuildTask extends BuildTask {
  
     protected $title = 'Cleanup Events';
     protected $description = 'Move outdated events to the archive.';
-    protected $enabled = true;
+    protected $enabled = false;
 
     function init() { 
           parent::init(); 

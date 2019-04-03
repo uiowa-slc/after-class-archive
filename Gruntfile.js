@@ -29,17 +29,15 @@ module.exports = function(grunt) {
     concat: {
       js:{
         src: [
-        'division-bar/js/division-bar.js',
-        'ac-json-events/javascript/calendar.js',
-        'ac-json-events/javascript/calendar_widget.js',
-        'ac-json-events/javascript/lang/calendar_en.js',
-        'ac-json-events/javascript/calendar_widget_init.js',
-        '<%=globalConfig.themeDir %>/bower_components//jquery.fitvids/jquery.fitvids.js',
-        '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
-        '<%=globalConfig.themeDir %>/bower_components/slick-carousel/slick/slick.js',
+        // 'division-bar/js/division-bar.js',
+        '<%=globalConfig.themeDir %>/js/calendar/calendar.js',
+        '<%=globalConfig.themeDir %>/js/calendar/calendar_widget.js',
+        '<%=globalConfig.themeDir %>/js/calendar/calendar_en.js',
+        '<%=globalConfig.themeDir %>/js/calendar/calendar_widget_init.js',
         '<%=globalConfig.themeDir %>/js/lib/**/*.js',
         '<%=globalConfig.themeDir %>/js/lib/*.js',
-        '<%=globalConfig.themeDir %>/js/*.js'],
+        '<%=globalConfig.themeDir %>/js/*.js'
+        ],
         dest: '<%=globalConfig.themeDir %>/build/app.src.js'
       }
     },

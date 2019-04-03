@@ -13,3 +13,6 @@ npm-debug.log
 node_modules/
 maintenance-mode/
 .phpintel
+/public/cache
+staticlog.log
+buildlog.log

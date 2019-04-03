@@ -3,6 +3,7 @@ use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Config\Config;
 use Symbiote\QueuedJobs\Services\QueuedJobService;
+use SilverStripe\Core\Cache\DefaultCacheFactory;
 
 class PageController extends ContentController {
 

@@ -54,9 +54,6 @@
 
 /* Global Layout Styles */
 @import "layout/_layout";
-
-/* Calendar Module Styles */
-@import "../../../ac-json-events/css/calendar.css";
 @import "../../../uiowa-bar/scss/uiowa-bar";
 /* Specific Layouts */
 @import "layout/_calendar-widget";
@@ -79,5 +76,3 @@
 /* Subsite Styles */
 @import "layout/_orientation";
 
-/* Division Bar */
-@import "../../../division-bar/css/_division-bar.css";

@@ -20,7 +20,7 @@
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0 9px 0 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #eeeeee;font-family: Helvetica;font-size: 14px;line-height: 150%;text-align: left;" width="564">
             <h2 class="null" style="margin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 26px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-align: left;color: #ffffff !important;"><a href="{$Event.AfterClassLink}" target="_blank" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">$Event.Title</a></h2>
-            $Summary
+            $Summary.RAW
 <ul>
 	<li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><% loop $Event.Dates.First %><% include UiCalendarDateLongNoLinks %><% end_loop %><% if $Event.Dates.Count > "1" %><a href="{$Event.AfterClassLink}" target="_blank">more dates</a><% end_if %></li>
 	<li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><% with $Event %><% include UiCalendarLocationLongNoLinks %><% end_with %></li>

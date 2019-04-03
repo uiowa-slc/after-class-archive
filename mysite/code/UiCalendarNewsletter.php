@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\TextField;
 class UiCalendarNewsletter extends Page {
 
 	private static $db = array(

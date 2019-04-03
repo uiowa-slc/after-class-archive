@@ -10,7 +10,7 @@ class EraseOldEventsBuildTask extends BuildTask {
  
     protected $description = 'ONLY run this if you\'re Dustin or you know what you\'re doing.';
  
-    protected $enabled = true;
+    protected $enabled = false;
   function init() { 
       parent::init(); 
       // Unless called from the command line, all CliControllers need ADMIN privileges 
