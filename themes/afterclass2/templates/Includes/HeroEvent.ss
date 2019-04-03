@@ -1,6 +1,6 @@
 <div class="feature-background-wrapper">
 	<div class="hero-event homepage" itemscope itemtype="http://data-vocabulary.org/Event">	
-					<% if $Image %>
+					<% if $Image.URL %>
 					<div class="hero-event-image-container" style="background-image: url('$Image.URL')">
 						<a href="$Link" class="img-shadow"></a>
 						<div class="clear"></div>
