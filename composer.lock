@@ -1218,12 +1218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "c04fcfb0175e07a2346280150b660aaeea915f51"
+                "reference": "4de16ee7fd4bfb086af4c05958e71c7c2d88698c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/c04fcfb0175e07a2346280150b660aaeea915f51",
-                "reference": "c04fcfb0175e07a2346280150b660aaeea915f51",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/4de16ee7fd4bfb086af4c05958e71c7c2d88698c",
+                "reference": "4de16ee7fd4bfb086af4c05958e71c7c2d88698c",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ss4.x-ui",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2019-03-29T16:17:51+00:00"
+            "time": "2019-04-05T19:02:08+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -3758,12 +3758,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symbiote/silverstripe-queuedjobs.git",
-                "reference": "95a1046dfcbbae6c4dd7af2b7c36934d28c9fbb6"
+                "reference": "d03d4c20085e888435e6146864697d61ab0bda17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/95a1046dfcbbae6c4dd7af2b7c36934d28c9fbb6",
-                "reference": "95a1046dfcbbae6c4dd7af2b7c36934d28c9fbb6",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/d03d4c20085e888435e6146864697d61ab0bda17",
+                "reference": "d03d4c20085e888435e6146864697d61ab0bda17",
                 "shasum": ""
             },
             "require": {
@@ -3809,7 +3809,7 @@
                 "jobs",
                 "silverstripe"
             ],
-            "time": "2019-03-05T05:02:10+00:00"
+            "time": "2019-04-04T21:47:16+00:00"
         },
         {
             "name": "symfony/cache",
