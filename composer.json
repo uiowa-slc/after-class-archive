@@ -11,26 +11,10 @@
         "process-timeout": 600
     },
     "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"
-        },
+     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-project"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-maintenance-mode"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
         },
         {
             "type": "vcs",
@@ -38,15 +22,15 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-maintenance-mode"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-event-calendar"
         },
         {
             "type": "vcs",
@@ -54,10 +38,15 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
         }
-    ],
+    ],   
     "extra": {
+        "resources-dir": "_resources",
         "project-files-installed": [
             ".env.example",
             "app/.htaccess",

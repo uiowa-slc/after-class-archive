@@ -2,6 +2,7 @@
 /.env
 /vendor/
 /themes/simple/
+/public/_resources/
 /resources/
 /public/resources/
 /public/assets/
