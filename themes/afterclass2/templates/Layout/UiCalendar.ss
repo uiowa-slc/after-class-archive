@@ -1,7 +1,7 @@
 <div class="row main-content">
 <div id="left-column" class="medium-8 columns">
 
-<% if $action == "index" %>
+<%--<% if $action == "index" %>
 	<% if $FeaturedEvents %>
 		<div class="slider">
 			<% loop $FeaturedEvents.Limit(3) %>
@@ -16,7 +16,7 @@
 		<% end_loop %>
 	<% end_if %> <!-- end if featured events -->
 <% end_if %>
-
+--%>
 <% if $action != "index" %>
 	<h1 class="date-header">$FilterHeader</h1>
 	<% if not $FilterEventList %>
@@ -26,9 +26,9 @@
 
 <div style="clear: both"></div>
 <div class="event-card-list">
-	<% if $action == "index" %>
+	<%--<% if $action == "index" %>
 		<h2>What's up next</h2>
-	<% end_if %>
+	<% end_if %>--%>
 	<div class="event-cards">
 		<% if $action == "index" %>
 		<% loop $EventList("threemonths") %>
