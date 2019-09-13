@@ -1,4 +1,4 @@
-<div class="row main-content">
+<div class="row expanded main-content">
 <div id="left-column" class="medium-8 columns">
 
 <%--<% if $action == "index" %>
