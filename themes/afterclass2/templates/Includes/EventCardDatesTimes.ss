@@ -15,9 +15,9 @@
 	<% if $Venue %>
 		<% with $Venue %>
 			<span> @ </span>
-				<span itemprop="location" itemscope>
-			<a href="$Link" class="tag button" ><span itemprop="name">$Title.LimitCharacters(25)</span></a>
-		</span>	
+				
+			<a href="$Link" class="tag button" ><span itemprop="location">$Title.LimitCharacters(25)</span></a>
+		
 		<% end_with %>
 	<% end_if %>	
 	<% if $Dates.Count > "1" %>
