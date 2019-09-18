@@ -3,7 +3,7 @@
 	<div class="hero-event-image-container hide-for-medium-up" style="background-image: url('$Image.URL')"></div>
 	<div class="medium-8 columns" id="left-column">
 		<div class="hero-event single" itemscope itemtype="http://data-vocabulary.org/Event">
-			<link itemprop="image" href="$Image.URL" /> 
+			
 			<div class="hero-event-image-container show-for-medium-up" style="background-image: url('$Image.URL')">
 				<div class="clear"></div>
 			</div><!-- end hero-event-image-container -->

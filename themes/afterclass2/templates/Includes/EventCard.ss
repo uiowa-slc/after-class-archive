@@ -16,7 +16,7 @@
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
-			<link itemprop="image" href="$Image.URL" /> 
+
 				<a href="$Link"><div class="event-card-image b-lazy" data-src="" src="{$ThemeDir}/images/placeholder.jpg" style="background-image: url({$ThemeDir}/images/placeholder.jpg)" item>
 					
 
