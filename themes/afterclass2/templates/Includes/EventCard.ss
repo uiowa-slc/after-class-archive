@@ -1,4 +1,5 @@
 	<div class="event-card $EvenOdd $FirstLast <% if Event.CancelReason %>canceled<% end_if %>" itemscope itemtype="http://data-vocabulary.org/Event">
+
 		<div class="event-card-header">
 			<h3 class="big-cell">
 				<a href="$Link" itemprop="url">
@@ -15,7 +16,8 @@
 			<div style="clear: both"></div>
 			</div>
 			<div style="clear: both"></div>
-				<a href="$Link"><div class="event-card-image b-lazy" data-src="$Image.URL" src="{$ThemeDir}/images/placeholder.jpg" style="background-image: url({$ThemeDir}/images/placeholder.jpg)">
+			<link itemprop="image" href="$Image.URL" /> 
+				<a href="$Link"><div class="event-card-image b-lazy" data-src="" src="{$ThemeDir}/images/placeholder.jpg" style="background-image: url({$ThemeDir}/images/placeholder.jpg)" item>
 					
 
 					
