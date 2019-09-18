@@ -15,7 +15,7 @@
 	<% if $Venue %>
 		<% with $Venue %>
 			<span> @ </span>
-				<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+				<span itemprop="location" itemscope>
 			<a href="$Link" class="tag button" ><span itemprop="name">$Title.LimitCharacters(25)</span></a>
 		</span>	
 		<% end_with %>
