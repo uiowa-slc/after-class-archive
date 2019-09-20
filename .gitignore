@@ -17,3 +17,4 @@ maintenance-mode/
 /public/cache
 staticlog.log
 buildlog.log
+/.tmp

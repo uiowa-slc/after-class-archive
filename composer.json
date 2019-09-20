@@ -74,11 +74,7 @@
             "web.config"
         ],
         "expose": [
-            "themes/afterclass2/build",
-            "themes/afterclass2/dist",
-            "themes/afterclass2/css",
-            "themes/afterclass2/fonts",
-            "themes/afterclass2/images"
+            "themes/afterclass/dist"
         ]
     }
 }
