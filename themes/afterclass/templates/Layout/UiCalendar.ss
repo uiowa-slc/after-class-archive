@@ -1,7 +1,7 @@
 <% include Header %>
 
 
-<div class="container-fluid">
+<div class="container-fluid page__background">
 	<div class="row">
 		<div class=" col-lg-12 content-container" role="main">
 			<article>
