@@ -1,5 +1,5 @@
 <header role="banner">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand " href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
       {$SiteConfig.Title}
   </a>

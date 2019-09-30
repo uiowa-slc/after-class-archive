@@ -1,4 +1,21 @@
 
+.navbar{
+    background-color:#262626;
+
+}
+.nav-link{
+    color:white;
+
+}
+.nav-link:focus, .nav-link:hover{
+    color:#a6a6a6;
+}
+.navbar-brand{
+    color:white;
+}
+.navbar-brand:focus, .navbar-brand:hover{
+    color:#a6a6a6;
+}
 .calendar__title{
     text-align: center;
 
@@ -25,5 +42,5 @@
 .header-graphic__img{
     width:100%;
     display:block;
-    margin-bottom:60px;
+    margin-bottom:30px;
 }
