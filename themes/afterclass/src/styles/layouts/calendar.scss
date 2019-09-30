@@ -1,14 +1,24 @@
-.page__background{
-    color:#FFCD00;
-    background-color:black;
+
+.calendar__title{
+    text-align: center;
+
+}
+.title__container{
+    margin:20px 0px;
 }
 .card{
-    background-color:#595959;
+    background-color:#262626;
+    margin: 10px 10px;
 }
 .card-title{
     padding:10px 10px;
+    text-align: left;
+    margin-top:10px;
 }
 .card-text{
     color:white;
-    padding:10px 20px;
+    padding:20px 20px;
+}
+.at{
+    color:$gold;
 }

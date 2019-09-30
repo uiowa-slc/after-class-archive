@@ -2,7 +2,7 @@
 		<a href="$Link"><img  class="card-img-top" src="$Image.URL" /></a>
 			<h3 class="card-title">
 				<a class="card-title" href="$Link" itemprop="url">
-					<span itemprop="summary">$Title.LimitCharacters(40)</span><% if Event.CancelReason %>
+					<span itemprop="summary">$Title</span><% if Event.CancelReason %>
 					<p>
 						Note: $CancelReason</p><% end_if %>
 				</a>
@@ -13,8 +13,8 @@
 				<% end_loop %>
 			<% end_if %>
 			
-			<% include EventCardDatesTimes %>
+			
 		
-			<p class="card-text">$SummaryContent.Summary(30) <a href="$Link">Continue reading</a></p>
+			<div class="card-text"><% include EventCardDatesTimes %>$SummaryContent.Summary(30) <a href="$Link">Continue reading</a></div>
 
 </div>

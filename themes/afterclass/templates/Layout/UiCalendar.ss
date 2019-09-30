@@ -3,10 +3,11 @@
 
 <div class="container-fluid page__background">
 	<div class="row">
-		<div class=" col-lg-12 content-container" role="main">
+		<div class=" col-lg-12 content-container title__container" role="main">
+			<div><img src="../dist/images/Op 1.jpg"></div>
 			<article>
-				<h1>$Title</h1>
-				<div class="content">$Content</div>
+				<h1 class="calendar__title">$Title</h1>
+				<div class="content calendar__title">$Content</div>
 				<%--<% include MagnificExample %> -- %>
 				<%-- <% include SlideshowExample %> --%>
 				<%-- <% include ContentExample %> --%>

@@ -14,7 +14,7 @@
 	<% end_if %>
 	<% if $Venue %>
 		<% with $Venue %>
-			<span> @ </span>
+			<span class="at"> @ </span>
 				
 			<a href="$Link"><span itemprop="location">$Title.LimitCharacters(25)</span></a>
 		
