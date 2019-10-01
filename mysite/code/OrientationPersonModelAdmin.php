@@ -10,7 +10,6 @@ class OrientationPersonModelAdmin extends ModelAdmin {
   private static $managed_models = array('OrientationPerson'); 
   private static $url_segment = 'orientation';
   private static $menu_title = 'Orientation Signups';
-  private static $menu_icon = 'themes/afterclass2/images/CMSicons/sponsor.png';
   public $showImportForm = false; 
   
   

@@ -1,46 +1,29 @@
 
-.navbar{
-    background-color:#262626;
 
-}
-.nav-link{
-    color:white;
-
-}
-.nav-link:focus, .nav-link:hover{
-    color:#a6a6a6;
-}
-.navbar-brand{
-    color:white;
-}
-.navbar-brand:focus, .navbar-brand:hover{
-    color:#a6a6a6;
-}
 .calendar__title{
     text-align: center;
 
 }
-.title__container{
-    margin:20px 0px;
+
+
+.card-img-top{
+    background: white;
 }
 .card{
     background-color:#262626;
-    margin: 10px 10px;
 }
 .card-title{
-    padding:10px 10px;
     text-align: left;
     margin-top:10px;
 }
+
+.card-subtitle{
+    color: #ccc;
+    a{
+        color: lighten($gold, 30);
+    }
+}
 .card-text{
     color:white;
-    padding:20px 20px;
 }
-.at{
-    color:$gold;
-}
-.header-graphic__img{
-    width:100%;
-    display:block;
-    margin-bottom:30px;
-}
+

@@ -9,6 +9,12 @@ $highlight: $gold;
 
 $link-color: $gold;
 
+
+// Your variable overrides
+$body-bg: #000;
+$body-color: #fff;
+
+
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
@@ -38,7 +44,7 @@ $container-max-widths: (
 // Fonts
 $enable-responsive-font-sizes: true;
 $font-family-base: "proxima-nova",sans-serif;
-$headings-font-family: "proxima-nova-alt-condensed",sans-serif;
+$headings-font-family: "proxima-nova-condensed",sans-serif;
 $font-size-base: 1.1rem;
 $headings-font-weight: 600;
 

@@ -47,7 +47,7 @@
 
 
     <% include Footer %>
-    $BetterNavigator
+    <%-- $BetterNavigator --%>
 
     <script src="{$ThemeDir}/dist/scripts/main.min.js"></script>
 

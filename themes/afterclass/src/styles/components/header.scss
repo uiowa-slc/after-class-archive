@@ -1,3 +1,26 @@
 .navbar{
     color:#262626;
+    background: #000;
+    text-transform: uppercase;
+    font-family: $headings-font-family;
+}
+
+.nav-link{
+    color:white;
+
+}
+
+.nav-link:focus, .nav-link:hover{
+    color:#a6a6a6;
+}
+.navbar-brand{
+    color:white;
+}
+.navbar-brand:focus, .navbar-brand:hover{
+    color:#a6a6a6;
+}
+.header-graphic__img{
+    width:100%;
+    display:block;
+    margin: 0;
 }

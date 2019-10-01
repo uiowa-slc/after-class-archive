@@ -1,7 +1,12 @@
  <div class="card" itemscope itemtype="http://data-vocabulary.org/Event">
+
+ 		<% if $Image.URL %>
 		<a href="$Link"><img  class="card-img-top" src="$Image.URL" /></a>
+		<% end_if %>
+
+		<div class="card-body">
 			<h3 class="card-title">
-				<a class="card-title" href="$Link" itemprop="url">
+				<a href="$Link" itemprop="url">
 					<span itemprop="summary">$Title</span><% if Event.CancelReason %>
 					<p>
 						Note: $CancelReason</p><% end_if %>
@@ -15,6 +20,9 @@
 			
 			
 		
-			<div class="card-text"><% include EventCardDatesTimes %>$SummaryContent.Summary(30) <a href="$Link">Continue reading</a></div>
+			<div class="card-text"><% include EventCardDatesTimes %>$SummaryContent.Summary(30)</div>
+
+			<a href="$Link" class="card-link">Continue Reading</a>
+		</div>
 
 </div>
