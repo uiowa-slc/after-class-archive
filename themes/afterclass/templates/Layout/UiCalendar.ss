@@ -1,6 +1,9 @@
 
 <% include Header %>
 
+<% if $action != "index" %>
+<h1 class="filter-header">$FilterHeader</h1>
+<% end_if %>
 
 	<div class="card-columns">
 		<% if $action == "index" %>
