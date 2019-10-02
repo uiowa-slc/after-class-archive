@@ -21,7 +21,7 @@
 		<% end_with %>
 	<% end_if %>	
 	<% if $Dates.Count > "1" %>
-		<a href="$Link">more dates</a> 
+		<a href="$Link"> | more dates</a> 
 	<% end_if %> 
 </p>
 

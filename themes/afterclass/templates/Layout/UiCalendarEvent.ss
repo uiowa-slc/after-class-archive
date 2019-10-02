@@ -1,7 +1,7 @@
 <% include Header %>
 
 
-<div class="container">
+<div class="container ptop-30">
 	<div class="row d-flex justify-content-center">
 		<div class="col-lg-8" role="main">
 			<article>
@@ -15,16 +15,27 @@
 				<% if $Tags %>
 					<p>Tagged as:
 					<% loop $Tags %>
-					<a href="$Link" class="btn btn-light">$Title</a>
+					<a href="$Link" class="btn btn-warning btn-sm">$Title</a>
 					<% end_loop %></p>
 			
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
-					<a href="$Link" class="btn btn-light">$Title</a>
+					<a href="$Link" class="btn btn-warning btn-sm">$Title</a>
 					<% end_loop %></p>
 			
+				<% end_if %>
+
+				<% if $MoreInfoLink || $UiCalendarLink %>
+					<p>
+						<% if $MoreInfoLink %>
+							<a href="$MoreInfoLink" class="btn btn-secondary" target="_blank">Event Website</a>
+						<% end_if %>
+					<% if $UiCalendarLink %>
+							<a href="$UiCalendarLink" class="btn btn-secondary" target="_blank">View on the UI events calendar</a>
+						<% end_if %>
+					</p>
 				<% end_if %>
 			<% if $ContactEmail %>
 			<hr />
