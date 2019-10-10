@@ -26,4 +26,15 @@
 .card-text{
     color:white;
 }
-
+// .card__banner-container{
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+// }
+.card__banner-img{
+    display: block;
+    position: absolute;
+    width: 10%;
+   right: 0;
+    filter: drop-shadow(0 0 20px #333);
+}

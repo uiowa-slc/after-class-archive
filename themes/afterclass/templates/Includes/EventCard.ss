@@ -1,10 +1,13 @@
  <div class="card" itemscope itemtype="http://data-vocabulary.org/Event">
+ 		
+ 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png">
 
  		<% if $Image.URL %>
 		<a href="$Link"><img  class="card-img-top" src="$Image.URL" /></a>
 		<% end_if %>
 
 		<div class="card-body">
+
 			<h3 class="card-title">
 				<a href="$Link" itemprop="url">
 					<span itemprop="summary">$Title</span><% if Event.CancelReason %>
