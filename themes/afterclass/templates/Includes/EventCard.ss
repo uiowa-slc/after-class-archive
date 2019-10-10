@@ -1,11 +1,21 @@
- <div class="card" itemscope itemtype="http://data-vocabulary.org/Event">
- 		
- 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png">
 
+ <div class="card event-card" itemscope itemtype="http://data-vocabulary.org/Event">
+ 	<% if $Dates.First.StartDateTime.Format(H) > 20 %>
+ 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
+ 	<% end_if %>
+ 	<%-- $Dates.First.StartDateTime.Format(H) --%>
+
+
+
+<%--  		<% if $Image.URL %>
+ 		<div class="event-card-image-container">
+			<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
+		</div>
+		<% end_if %> --%>
  		<% if $Image.URL %>
-		<a href="$Link"><img  class="card-img-top" src="$Image.URL" /></a>
+ 	
+		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
 		<% end_if %>
-
 		<div class="card-body">
 
 			<h3 class="card-title">

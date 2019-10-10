@@ -7,7 +7,7 @@
 			<% if $EndDate %>
 			 - 
 			<% with $EndDate %>
-				<time itemprop="endDate" datetime="$URLDatetime" class="$FirstLast">$Format(MMM d)</time>
+				<time itemprop="endDate" datetime="$URLDatetime" class="$FirstLast">$Format(MMM d h:mm)</time>
 			<% end_with %>
 			<% end_if %>
 		<% end_loop %>
