@@ -1,9 +1,14 @@
- <div class="card" itemscope itemtype="http://data-vocabulary.org/Event">
+ <div class="card event-card" itemscope itemtype="http://data-vocabulary.org/Event">
 
+<%--  		<% if $Image.URL %>
+ 		<div class="event-card-image-container">
+			<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
+		</div>
+		<% end_if %> --%>
  		<% if $Image.URL %>
-		<a href="$Link"><img  class="card-img-top" src="$Image.URL" /></a>
+ 	
+		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
 		<% end_if %>
-
 		<div class="card-body">
 			<h3 class="card-title">
 				<a href="$Link" itemprop="url">
