@@ -1,4 +1,4 @@
-<% include Header %>
+<% include HeaderSmall %>
 
 
 <div class="container ptop-30">
@@ -70,6 +70,9 @@
 			$PageComments
 		</div>
 		<div class="col-lg-4">
+			<% if $Dates.First.StartDateTime.Format(H) > 20 %>
+ 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
+ 		<% end_if %>
 			<img class="d-block w-100" src="$Image.URL" />
 		</div>
 	</div>
