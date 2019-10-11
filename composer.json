@@ -11,7 +11,7 @@
         "process-timeout": 600
     },
     "minimum-stability": "dev",
-     "repositories": [
+    "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-project"
@@ -38,13 +38,17 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/deploy-helper"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
         },
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
         }
-    ],   
+    ],
     "extra": {
         "resources-dir": "_resources",
         "project-files-installed": [
