@@ -12,9 +12,9 @@
 			<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
 		</div>
 		<% end_if %> --%>
- 		<% if $Image.URL %>
+ 		<% if $Image.RectangleURL %>
  	
-		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
+		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.RectangleURL" data-aspectratio="1.3333"  /></a>
 		<% end_if %>
 		<div class="card-body">
 
