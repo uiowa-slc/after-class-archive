@@ -401,6 +401,22 @@
         <!--*|IF:MC_PREVIEW_TEXT|*-->
         <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
         <!--*|END:IF|*-->
+
+
+
+        <!-- LOOP EXAMPLE -->
+        <h2>Loops</h2>
+        <% loop $FeaturedEvents %>
+        	$Link
+        	$Image.ThumbURL
+        	$Title
+        	<% include EventCardDatesTimes %>
+  
+        <% end_loop %>
+
+
+        
+
         <center>
             <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;background-color: #FAFAFA;">
                 <tr>
@@ -447,84 +463,17 @@
         <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
         
             
-
-            <img alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/3a730360-5465-4dad-b592-ae64c30339ec.jpg" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-            
-        
-        </td>
-    </tr>
-    <tr>
-        <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
-            <h2 class="null" style="text-align: left;display: block;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="color:#FFFFFF">The Rock-Cats | Tuesday</span></h2>
-
-<div style="text-align: left;"><br>
-Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. More...</div>
-
-        </td>
-    </tr>
-</tbody></table>
-
-
-
-
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageCardBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody class="mcnImageCardBlockOuter">
-        <tr>
-            <td class="mcnImageCardBlockInner" valign="top" style="padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                
-<table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnImageCardBottomContent" width="100%" style="background-color: #404040;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody><tr>
-        <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-        
-            
-
-            <img alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/5f58f364-ef96-438c-9912-c0e354cb07df.jpg" width="564" style="max-width: 619px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-            
-        
-        </td>
-    </tr>
-    <tr>
-        <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
-            <h2 class="null" style="text-align: left;display: block;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="color:#FFFFFF">Acrobatic Cat Stunts | Thursday</span></h2>
-
-<div style="text-align: left;"><br>
-Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. More...</div>
-
-        </td>
-    </tr>
-</tbody></table>
-
-
-
-
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageCardBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody class="mcnImageCardBlockOuter">
-        <tr>
-            <td class="mcnImageCardBlockInner" valign="top" style="padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                
-<table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnImageCardBottomContent" width="100%" style="background-color: #404040;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody><tr>
-        <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-        
+            <a href="https://afterclass.uiowa.edu" title="" class="" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
             
 
             <img alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/3a730360-5465-4dad-b592-ae64c30339ec.jpg" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-            
+            </a>
         
         </td>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
-            <h2 class="null" style="text-align: left;display: block;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="color:#FFFFFF">The Rock-Cats | Tuesday</span></h2>
-
-<div style="text-align: left;"><br>
-Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. More...</div>
+            <div style="text-align: left;">Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. <a href="https://afterclass.uiowa.edu" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">More...</a></div>
 
         </td>
     </tr>
@@ -546,9 +495,11 @@ Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo p
         <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
         
             
+            <a href="https://afterclass.uiowa.edu/" title="" class="" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            
 
             <img alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/5f58f364-ef96-438c-9912-c0e354cb07df.jpg" width="564" style="max-width: 619px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-            
+            </a>
         
         </td>
     </tr>
@@ -556,74 +507,7 @@ Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo p
         <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
             <h2 class="null" style="text-align: left;display: block;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="color:#FFFFFF">Acrobatic Cat Stunts | Thursday</span></h2>
 
-<div style="text-align: left;"><br>
-Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. More...</div>
-
-        </td>
-    </tr>
-</tbody></table>
-
-
-
-
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageCardBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody class="mcnImageCardBlockOuter">
-        <tr>
-            <td class="mcnImageCardBlockInner" valign="top" style="padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                
-<table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnImageCardBottomContent" width="100%" style="background-color: #404040;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody><tr>
-        <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-        
-            
-
-            <img alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/3a730360-5465-4dad-b592-ae64c30339ec.jpg" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-            
-        
-        </td>
-    </tr>
-    <tr>
-        <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
-            <h2 class="null" style="text-align: left;display: block;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="color:#FFFFFF">The Rock-Cats | Tuesday</span></h2>
-
-<div style="text-align: left;"><br>
-Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. More...</div>
-
-        </td>
-    </tr>
-</tbody></table>
-
-
-
-
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageCardBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody class="mcnImageCardBlockOuter">
-        <tr>
-            <td class="mcnImageCardBlockInner" valign="top" style="padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                
-<table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnImageCardBottomContent" width="100%" style="background-color: #404040;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-    <tbody><tr>
-        <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-        
-            
-
-            <img alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/5f58f364-ef96-438c-9912-c0e354cb07df.jpg" width="564" style="max-width: 619px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-            
-        
-        </td>
-    </tr>
-    <tr>
-        <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
-            <h2 class="null" style="text-align: left;display: block;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="color:#FFFFFF">Acrobatic Cat Stunts | Thursday</span></h2>
-
-<div style="text-align: left;"><br>
-Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. More...</div>
+<div style="text-align: left;">Pickled air plant hoodie kitsch semiotics celiac iPhone quinoa XOXO vegan echo park cloud bread woke austin. <a href="https://afterclass.uiowa.edu" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">More...</a></div>
 
         </td>
     </tr>
