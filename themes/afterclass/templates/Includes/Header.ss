@@ -20,7 +20,7 @@
 <header role="banner">
     <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand " href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
-      {$SiteConfig.Title}
+      <%-- {$SiteConfig.Title} --%><img class="brand-image" src="$ThemeDir/dist/images/Brandimage.png"/>
   </a>
 
   <div class="navbar-nav-scroll">

@@ -2,7 +2,7 @@
     <div class="row">
         <div class=" col-lg-12 content-container title__container" role="main">
 
-            <div class="header-graphic"><img class="header-graphic__img" src="$ThemeDir/dist/images/header2small.png"></div>
+           <%--  <div class="header-graphic"><img class="header-graphic__img" src="$ThemeDir/dist/images/header2small.png"></div> --%>
             <article>
                 <%-- <h1 class="calendar__title">$Title</h1>
                 <div class="content calendar__title">$Content</div> --%>
@@ -18,7 +18,7 @@
 <header role="banner">
     <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand " href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
-      {$SiteConfig.Title}
+      <%-- {$SiteConfig.Title} --%> <img class="brand-image" src="$ThemeDir/dist/images/Brandimage.png"/>
   </a>
 
   <div class="navbar-nav-scroll">
