@@ -35,13 +35,26 @@ class UiCalendarNewsletter extends Page {
 
 	);
 
-	private static $icon = 'ac-json-events/images/calendar-file.png';
+	private static $summary_fields = array(
+		'Title',
+		'Created'
 
+	);
+    private static $show_in_sitetree = false;
+    private static $allowed_children = [];
+
+    public function summaryFields()
+    {
+    	return array('Title', 'Created');
+    }
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$calendar = UiCalendar::getOrCreate();
 		$fields->removeByName('Content');
+		$fields->removeByName('Content');
 		$fields->removeByName('Metadata');
+		$fields->removeByName('LayoutType');
+		$fields->removeByName('BackgroundImage');
 		$events = $calendar->EventList();
 
 		if ($events->First()) {

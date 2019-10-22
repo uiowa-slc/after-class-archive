@@ -2,8 +2,8 @@
 
 
 <div class="container">
-	<div class="row">
-		<div class=" col-sm px-lg-0 content-container" role="main">
+	<div class="row justify-content-center">
+		<div class="col-sm col-lg-7 content-container pt-5" role="main">
 			<article>
 				<h1>$Title</h1>
 				<div class="content">$Content</div>
@@ -15,9 +15,6 @@
 			$PageComments
 
 		</div>
-		<% if $Menu(2) || $SideBarView.Widgets %>
-			<% include SideBar %>
-		<% end_if %>
 	</div>
 </div>
 

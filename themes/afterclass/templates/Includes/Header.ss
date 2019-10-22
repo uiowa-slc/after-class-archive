@@ -1,6 +1,6 @@
 
 
-<div class="container-fluid page__background">
+<div class="page__background">
     <div class="row">
         <div class=" col-lg-12 content-container title__container" role="main">
 

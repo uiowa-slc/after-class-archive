@@ -121,7 +121,6 @@ function scripts(){
       './themes/afterclass/src/scripts/app.js',
 
     ])
-      .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())
       .pipe($.babel())
       .pipe($.sourcemaps.write())

@@ -15,14 +15,14 @@
 				<% if $Tags %>
 					<p>Tagged as:
 					<% loop $Tags %>
-					<a href="$Link" class="btn btn-warning btn-sm">$Title</a>
+					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
 			
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
-					<a href="$Link" class="btn btn-warning btn-sm">$Title</a>
+					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
 			
 				<% end_if %>
@@ -30,10 +30,10 @@
 				<% if $MoreInfoLink || $UiCalendarLink %>
 					<p>
 						<% if $MoreInfoLink %>
-							<a href="$MoreInfoLink" class="btn btn-secondary" target="_blank">Event Website</a>
+							<a href="$MoreInfoLink" class="btn btn-secondary" target="_blank">Event Website <i class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 					<% if $UiCalendarLink %>
-							<a href="$UiCalendarLink" class="btn btn-secondary" target="_blank">View on the UI events calendar</a>
+							<a href="$UiCalendarLink" class="btn btn-secondary" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 					</p>
 				<% end_if %>
