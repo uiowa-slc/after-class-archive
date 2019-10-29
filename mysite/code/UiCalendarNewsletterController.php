@@ -6,8 +6,6 @@ class UiCalendarNewsletterController extends PageController {
 
 	public function FeaturedEvents(){
 		$calendar = UiCalendar::getOrCreate();
-		$feature = new UiCalendarNewsletterFeature();
-
 		$eventList = new ArrayList();
 
 
@@ -50,49 +48,49 @@ class UiCalendarNewsletterController extends PageController {
 		return $eventList;
 
 	}
-
-	public function Categories(){
-		$categories = new ArrayList();
+	public function NonFeaturedEvents(){
 		$calendar = UiCalendar::getOrCreate();
+		$eventList = new ArrayList();
 
-		for ($i = 1; $i <= 4; $i++) {
-			$catProperty = 'Category'.$i;
 
-			$catTitleProp = $catProperty.'Title';
-			$catEvent1Prop = $catProperty.'Event1ID';
-			$catEvent2Prop = $catProperty.'Event2ID';
 
-			$cat = new UiCalendarNewsletterCategory();
+		$event1 = $calendar->SingleEvent($this->NonFeaturedEvent1);
+		if($event1)
+		$eventList->push($event1);
 
-			$cat->CatTitle = $this->{$catTitleProp};
-			//print_r($catEvent1Prop);
-			$cat->Event1 = $calendar->SingleEvent($this->{$catEvent1Prop});
-			$cat->Event2 = $calendar->SingleEvent($this->{$catEvent2Prop});
+		$event2 = $calendar->SingleEvent($this->NonFeaturedEvent2);
 
-			$categories->push($cat);
-		}
+		if($event2)
+		$eventList->push($event2);
 
-		return $categories;
-	}
-	public function NonFeaturedRows(){
-		$rows = new ArrayList();
-		$calendar = UiCalendar::getOrCreate();
+		$event3 = $calendar->SingleEvent($this->NonFeaturedEvent3);
+		if($event3)
+		$eventList->push($event3);
 
-		for ($i = 1; $i <= 10; $i++) {
-			$rowProperty = 'NonFeaturedRow'.$i;
-			$rowEvent1Prop = $rowProperty.'Event1ID';
-			$rowEvent2Prop = $rowProperty.'Event2ID';
+		$event4 = $calendar->SingleEvent($this->NonFeaturedEvent4);
+		if($event4)
+		$eventList->push($event4);
 
-			$row = new UiCalendarNewsletterNonFeaturedRow();
+		$event5 = $calendar->SingleEvent($this->NonFeaturedEvent5);
+		if($event5)
+		$eventList->push($event5);
 
-			//print_r($catEvent1Prop);
-			$row->Event1 = $calendar->SingleEvent($this->{$rowEvent1Prop});
-			$row->Event2 = $calendar->SingleEvent($this->{$rowEvent2Prop});
+		$event6 = $calendar->SingleEvent($this->NonFeaturedEvent6);
+		if($event6)
+		$eventList->push($event6);
 
-			$rows->push($row);
-		}
+		$event7 = $calendar->SingleEvent($this->NonFeaturedEvent7);
+		if($event7)
+		$eventList->push($event7);
 
-		return $rows;
+		$event8 = $calendar->SingleEvent($this->NonFeaturedEvent8);
+		if($event8)
+		$eventList->push($event8);
+
+		// print_r($eventList);
+
+		return $eventList;
+
 	}
 
 }

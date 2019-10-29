@@ -11,9 +11,10 @@ $link-color: $gold;
 $brand-warning: $gold;
 
 // Your variable overrides
-$body-bg: #3a3a3a;
+$body-bg: #272727;
 $body-color: #fff;
 
+$fa-font-path:        "../webfonts";
 
 // Grid breakpoints
 //
@@ -40,6 +41,8 @@ $container-max-widths: (
   xl: 1300px
 );
 
+$navbar-brand-padding-y: 0;
+$navbar-padding-y: 0;
 
 // Fonts
 $enable-responsive-font-sizes: true;
@@ -61,4 +64,7 @@ $spacers: (
   7: ($spacer * 6),
   8: ($spacer * 9),
   9: ($spacer * 12)
-)
+);
+
+$list-group-bg: #222;
+$list-group-border-color: #333;

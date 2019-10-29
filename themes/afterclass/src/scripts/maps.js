@@ -101,8 +101,3 @@ function initialize() {
 	    }
 	});
 }
-
-window.onload = initialize();
-$(document).ready(function() {
-
-});

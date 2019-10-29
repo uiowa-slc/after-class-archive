@@ -48,7 +48,7 @@
 
     <% include Footer %>
     <%-- $BetterNavigator --%>
-
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDrwOxlXCSTCf6WWywio2KZfZkbpmya5X8"></script>
     <script src="{$ThemeDir}/dist/scripts/main.min.js"></script>
 
     $Analytics

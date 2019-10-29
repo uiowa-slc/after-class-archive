@@ -28,8 +28,9 @@
                 <% with $SiteConfig %>
                 <p>
                     <% if $Address1 || $PhoneNumber || $PhoneNumberAlt || $Fax || $EmailAddress %>
-                        $Title<br />
+                        <% if $Address1 %>
                         <span itemprop="streetAddress">$Address1</span>
+                        <% end_if %>
                         <% if $City %><br /><span itemprop="addressLocality">$City</span><% end_if %><% if $State %>, <span itemprop="addressRegion">$State</span><% end_if %><% if $Zipcode %> <span itemprop="postalCode">$Zipcode</span><% end_if %><br />
                         <% if $PhoneNumber %>
                             <br /><% if $PhoneLabel %>$PhoneLabel <% end_if %><span itemprop="telephone">$PhoneNumber</span>

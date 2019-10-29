@@ -23,8 +23,11 @@
 
   <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item mr-3"><a class="nav-link" href="events/interest/7491/">Late Night Programs</a></li>
+        <li class="nav-item mr-3"><a class="nav-link" href="events/show/today/">Today</a></li>
+        <li class="nav-item mr-3"><a class="nav-link" href="events/show/weekend/">Weekend</a></li>
         <% loop $Menu(1) %>
-            <li class="nav-item mr-lg-3 $LinkingMode nav-item<% if $isCurrent || $isSection %> active<% end_if %>"><a class="nav-link" href="$Link" title="$Title.XML">$MenuTitle.XML</a></li>
+            <li class="nav-item mr-3 $LinkingMode nav-item<% if $isCurrent || $isSection %> active<% end_if %>"><a class="nav-link" href="$Link" title="$Title.XML">$MenuTitle.XML</a></li>
         <% end_loop %>
     </ul>
   </div>

@@ -1,14 +1,49 @@
 <% include HeaderSmall %>
 
 
-<div class="container ptop-30">
-	<div class="row d-flex justify-content-center">
-		<div class="col-lg-8" role="main">
-			<article>
+<div class="container" role="main">
 
+	<div class="row d-flex ptop-30 justify-content-center">
+		<div class="col-lg-8">
+			<article>
 				<h1>$Title</h1>
-				<% include EventCardDatesTimes %>
-				<div class="content">$Content</div>
+				<% if $Dates.Count > 1 %><p><strong>Next Date:</strong><% end_if %>
+					<% if $Dates %>
+						<% loop $Dates.Limit(1) %>
+							<% include DateTimesList %>
+						<% end_loop %>
+					</p>
+					<% else %>
+							No upcoming dates.
+					<% end_if %>
+
+
+				
+				<p> <strong> Location: </strong>
+					<% if $Venue.Title || $Location %>
+						<% if $Location %> $Location <% end_if %>
+						<% if $Venue.Title %>
+							<% with $Venue %>
+								<% if $Link %>
+									<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
+								<% else %>
+									$Title
+								<% end_if %>
+							<% end_with %>
+						<% end_if %>
+					<% end_if %>
+				</p>
+
+				<div class="content pt-4">$Content</div>
+				<% if $Dates.Count > 1 %>
+					<h2>All dates for this event:</h2>
+					<ul>
+						<% loop $Dates %>
+							<li><% include DateTimesList %></li>
+						<% end_loop %>
+					</ul>
+				<% end_if %>
+
 				<% if $Sponsor %>
 						<p>Sponsored by: $Sponsor</strong></p>
 				<% end_if %>
@@ -41,12 +76,19 @@
 			<hr />
 			<p>Questions about this event?
 				<% if $ContactName %>
-					<a href="mailto:$ContactEmail" class="report-problem-link">Contact $ContactName</a>
+					<a href="mailto:$ContactEmail" class="report-problem-link">Contact {$ContactName}.</a>
 				<% else %>
-					<a href="mailto:$ContactEmail" class="report-problem-link">Email $ContactEmail</a>
+					<a href="mailto:$ContactEmail" class="report-problem-link">Email {$ContactEmail}.</a>
 				<% end_if %>
 				</a>
 			</p>
+				<% if $IsLateNight %>
+				<div class="late-night-feature">
+					<p><img class="late-night-feature__flag" src="{$ThemeDir}/dist/images/latenightbanner.png" alt="Late Night Programs Flag"/>This event is part of Late Night Programs, <a href="#">see more events tagged with Late Night Programs.</a></p>
+					<p class="late-night-feature__smalltext"><a href="#">Learn more about Late Night Programs</a></p>
+				</div>
+
+				<% end_if %>
 			<% end_if %>
 				<p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. 
 
@@ -70,12 +112,72 @@
 			$PageComments
 		</div>
 		<div class="col-lg-4">
-			<% if $Dates.First.StartDateTime.Format(H) > 20 %>
- 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
- 		<% end_if %>
-			<img class="d-block w-100" src="$Image.URL" />
+			<% if $IsLateNight %>
+		 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
+		 	<% end_if %>
+			<img class="d-block w-100 mb-2" src="$Image.URL" />
+			<% with $Venue %>
+				<% if $Address %>
+					<div class="map-container">
+						<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
+					</div>
+				<% end_if %>
+			<% end_with %>
+			<p class="venue-nav mt-2">
+				<% if $Venue.Title || $Location %>
+					<% if $Location %> $Location <% end_if %>
+					<% if $Venue.Title %>
+						<% with $Venue %>
+							<% if $Link %>
+								<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
+							<% else %>
+								$Title
+							<% end_if %>
+						<% end_with %>
+					<% end_if %>
+				<% end_if %>
+			</p>
+			<p class="venue-nav">
+				<% with $Venue %>
+					<% if $Address %>
+						<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i class="fas fa-external-link-alt"></i></a>
+					<% end_if %>
+				<% end_with %>
+			</p>
 		</div>
 	</div>
 
 </div>
+
+<% if $RelatedEvents %>
+	<div class="related-container">
+		<div class="container">
+			<div class="row pt-4">
+				<div class="col-lg-12">
+					<h2 class="text-center">Related Events</h2>
+					<div class="card-columns card-columns--constrained justify-content-center">
+						<% loop RelatedEvents %>
+							<% include EventCard %>
+						<% end_loop %> <%-- end loop Upcoming Events --%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% else_if $LocationRelatedEvents %>
+	<div class="related-container">
+		<div class="container">
+			<div class="row pt-4">
+				<div class="col-lg-12">
+					<h2 class="text-center">Events also located at {$Venue.Title}: </h2>
+					<div class="card-columns card-columns--constrained justify-content-center">
+						<% loop LocationRelatedEvents %>
+							<% include EventCard %>
+						<% end_loop %> <%-- end loop Upcoming Events --%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end_if %>
 

@@ -9,23 +9,28 @@
     text-align: left;
     margin-top:10px;
 }
-
 .card-subtitle{
     color: #ccc;
     a{
         color: lighten($gold, 30);
     }
 }
-
 .event-card{
-     display: block;
- position: relative;
- margin:10px 5px;
+    display: block;
+    position: relative;
+    margin:10px 5px;
+}
+
+.filter-header{
+    background-color:#FFCD00;
+    color:black;
+    padding:10px 15px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .event-card-image-container{
     padding-bottom: 55.3%;
-
     img{
          position: absolute;
          top: 0;
@@ -34,18 +39,11 @@
          height: 100%;
     }
 }
-// .card__banner-container{
-//     position: absolute;
-//     height: 100%;
-//     width: 100%;
-// }
+
 .card__banner-img{
     display: block;
     position: absolute;
     width: 10%;
     right: 0;
     filter: drop-shadow(0 0 20px #333);
-}
-.brand-image{
-    height:70px;
 }

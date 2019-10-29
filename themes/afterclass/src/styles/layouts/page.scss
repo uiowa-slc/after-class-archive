@@ -1,9 +1,4 @@
 
-.filter-header{
-	background-color:#FFCD00;
-	color:black;
-	padding:10px 15px;
-}
 .ptop-30{
 	padding-top: 30px;
 }
@@ -14,6 +9,15 @@
     margin-right:15px;
     filter: drop-shadow(0 0 20px #333);
 }
-.brand-image{
-	height:70px;
+.card-columns--constrained{
+	@include media-breakpoint-up(sm) {
+		column-count: 1;
+	}
+	@include media-breakpoint-up(lg) {
+		column-count: 3;
+	}
+}
+
+hr{
+	border-color: #666;
 }
