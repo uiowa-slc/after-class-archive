@@ -18,9 +18,9 @@
 					<% end_if %>
 
 
-				
+				<% if $Venue.Title || $Location %>
 				<p> <strong> Location: </strong>
-					<% if $Venue.Title || $Location %>
+					
 						<% if $Location %> $Location <% end_if %>
 						<% if $Venue.Title %>
 							<% with $Venue %>
@@ -31,9 +31,9 @@
 								<% end_if %>
 							<% end_with %>
 						<% end_if %>
-					<% end_if %>
+					
 				</p>
-
+				<% end_if %>
 				<div class="content pt-4">$Content</div>
 				<% if $Dates.Count > 1 %>
 					<h2>All dates for this event:</h2>
