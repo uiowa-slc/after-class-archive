@@ -1302,12 +1302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "d0146917f6e187c05c5d63ee25887cbfbd85970a"
+                "reference": "3266d49e70511b18fa6d8d4d84238c8c9fe71acf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/d0146917f6e187c05c5d63ee25887cbfbd85970a",
-                "reference": "d0146917f6e187c05c5d63ee25887cbfbd85970a",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3266d49e70511b18fa6d8d4d84238c8c9fe71acf",
+                "reference": "3266d49e70511b18fa6d8d4d84238c8c9fe71acf",
                 "shasum": ""
             },
             "require": {
@@ -1326,7 +1326,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ss4.x-ui",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2019-10-28T15:11:10+00:00"
+            "time": "2019-10-29T20:07:56+00:00"
         },
         {
             "name": "md/deploy-helper",
@@ -2153,12 +2153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-admin.git",
-                "reference": "d68229658e60f8754ffb27fe49ab45d84b8a1ad7"
+                "reference": "846e5fbdf3622e709b601b7323c39cab0dd8192c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-admin/zipball/d68229658e60f8754ffb27fe49ab45d84b8a1ad7",
-                "reference": "d68229658e60f8754ffb27fe49ab45d84b8a1ad7",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-admin/zipball/846e5fbdf3622e709b601b7323c39cab0dd8192c",
+                "reference": "846e5fbdf3622e709b601b7323c39cab0dd8192c",
                 "shasum": ""
             },
             "require": {
@@ -2203,7 +2203,7 @@
                 "admin",
                 "silverstripe"
             ],
-            "time": "2019-10-23T23:04:08+00:00"
+            "time": "2019-10-28T22:14:14+00:00"
         },
         {
             "name": "silverstripe/asset-admin",
@@ -4859,12 +4859,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-session.git",
-                "reference": "e08f54f06166bccb41ab3ec6c06ea64ad9d78901"
+                "reference": "5402eb9437b9cbfdc9ecdcbd28f019f62020981b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-session/zipball/e08f54f06166bccb41ab3ec6c06ea64ad9d78901",
-                "reference": "e08f54f06166bccb41ab3ec6c06ea64ad9d78901",
+                "url": "https://api.github.com/repos/zendframework/zend-session/zipball/5402eb9437b9cbfdc9ecdcbd28f019f62020981b",
+                "reference": "5402eb9437b9cbfdc9ecdcbd28f019f62020981b",
                 "shasum": ""
             },
             "require": {
@@ -4918,7 +4918,7 @@
                 "session",
                 "zf"
             ],
-            "time": "2019-09-20T12:55:49+00:00"
+            "time": "2019-10-28T19:44:08+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
