@@ -40,10 +40,10 @@
     <link rel="stylesheet" href="{$ThemeDir}/dist/styles/main.css">
   </head>
   <body class="{$ClassName}">
-  <% include UiowaBar %>
 
-  $Layout
-
+    <% include UiowaBar %>
+    
+      $Layout
 
 
     <% include Footer %>
