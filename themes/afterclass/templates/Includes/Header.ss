@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class=" col-lg-12 content-container title__container">
-                <div class="header-graphic"><img class="header-graphic__img" src="$ThemeDir/dist/images/header2.png"></div>
+                <div class="header-graphic"><a href="{$BaseUrl}" class="d-block"><img class="header-graphic__img" src="$ThemeDir/dist/images/header2.png"></a></div>
             </div>
         </div>
         <header role="banner">
@@ -10,9 +10,9 @@
             <nav class="navbar navbar-expand-lg navbar-dark">
 
               <!-- Navbar brand -->
-                <a class="navbar-brand " href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
+  <%--               <a class="navbar-brand " href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
                    <img class="brand-image" src="$ThemeDir/dist/images/brand.png"/>
-                </a>
+                </a> --%>
 
               <!-- Collapse button -->
               <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
