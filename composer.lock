@@ -629,16 +629,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.4.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "0895c932405407fd3a7368b6910c09a24d26db11"
+                "reference": "df36d8dae3979cf927d5bbbed6f0427f39aadfec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0895c932405407fd3a7368b6910c09a24d26db11",
-                "reference": "0895c932405407fd3a7368b6910c09a24d26db11",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/df36d8dae3979cf927d5bbbed6f0427f39aadfec",
+                "reference": "df36d8dae3979cf927d5bbbed6f0427f39aadfec",
                 "shasum": ""
             },
             "require": {
@@ -658,7 +658,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.3-dev"
+                    "dev-master": "6.5-dev"
                 }
             },
             "autoload": {
@@ -691,7 +691,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2019-10-23T15:58:00+00:00"
+            "time": "2019-10-30T11:22:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1302,12 +1302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "3266d49e70511b18fa6d8d4d84238c8c9fe71acf"
+                "reference": "2c2d45e7155ad0a37dc00880a3d504cc4c6eb5c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3266d49e70511b18fa6d8d4d84238c8c9fe71acf",
-                "reference": "3266d49e70511b18fa6d8d4d84238c8c9fe71acf",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/2c2d45e7155ad0a37dc00880a3d504cc4c6eb5c4",
+                "reference": "2c2d45e7155ad0a37dc00880a3d504cc4c6eb5c4",
                 "shasum": ""
             },
             "require": {
@@ -1326,7 +1326,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ss4.x-ui",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2019-10-29T20:07:56+00:00"
+            "time": "2019-10-30T14:05:11+00:00"
         },
         {
             "name": "md/deploy-helper",
@@ -1980,12 +1980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
+                "reference": "d477130b23d419404dbd4bfea1aa557b3236bbc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
-                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d477130b23d419404dbd4bfea1aa557b3236bbc7",
+                "reference": "d477130b23d419404dbd4bfea1aa557b3236bbc7",
                 "shasum": ""
             },
             "require": {
@@ -2019,7 +2019,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2019-10-25T08:06:51+00:00"
+            "time": "2019-10-30T09:18:31+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -2604,12 +2604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "0cf5d4cbe28de332cb29e8924f9ab80005f3946f"
+                "reference": "44b9e331f6a2dd9f01c91ce6b5e1f1e52837b012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/0cf5d4cbe28de332cb29e8924f9ab80005f3946f",
-                "reference": "0cf5d4cbe28de332cb29e8924f9ab80005f3946f",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/44b9e331f6a2dd9f01c91ce6b5e1f1e52837b012",
+                "reference": "44b9e331f6a2dd9f01c91ce6b5e1f1e52837b012",
                 "shasum": ""
             },
             "require": {
@@ -2713,7 +2713,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2019-10-18T02:58:13+00:00"
+            "time": "2019-10-29T21:37:32+00:00"
         },
         {
             "name": "silverstripe/googlesitemaps",
