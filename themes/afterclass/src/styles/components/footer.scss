@@ -5,7 +5,8 @@
 	background: #111;
 	color: #eee;
 	&__container {
-		padding: rem-calc(60 0);
+		padding-top: rem-calc(60);
+		padding-bottom: rem-calc(60);
 	}
 	&__info {
 		@include make-col-ready();

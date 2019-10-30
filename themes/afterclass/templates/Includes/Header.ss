@@ -24,6 +24,7 @@
               <div class="collapse navbar-collapse justify-content-center " id="basicExampleNav">
                 <!-- Links -->
                 <ul class="navbar-nav">
+                    <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/">Calendar</a></li>
                     <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/interest/7491/">Late Night</a></li>
                     <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/show/today/">Today</a></li>
                     <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/show/weekend/">Weekend</a></li>

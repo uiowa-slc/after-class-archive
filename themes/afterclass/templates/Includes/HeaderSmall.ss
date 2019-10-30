@@ -17,6 +17,7 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
+              <li class="nav-item mr-4"><a class="nav-link" href="events/">Calendar</a></li>
               <li class="nav-item mr-3"><a class="nav-link" href="events/interest/7491/">Late Night</a></li>
               <li class="nav-item mr-3"><a class="nav-link" href="events/show/today/">Today</a></li>
               <li class="nav-item mr-3"><a class="nav-link" href="events/show/weekend/">Weekend</a></li>
