@@ -67,9 +67,11 @@
 						<% if $MoreInfoLink %>
 							<a href="$MoreInfoLink" class="btn btn-secondary" target="_blank">Event Website <i class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
-					<% if $UiCalendarLink %>
-							<a href="$UiCalendarLink" class="btn btn-secondary" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
+
+						<% if $UiCalendarLink %>
+								<a href="$UiCalendarLink" class="btn btn-secondary" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
+						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i class="fas fa-calendar-alt"></i></a> --%>
 					</p>
 				<% end_if %>
 			<% if $ContactEmail %>
@@ -84,8 +86,8 @@
 			</p>
 				<% if $IsLateNight %>
 				<div class="late-night-feature">
-					<p><img class="late-night-feature__flag" src="{$ThemeDir}/dist/images/latenightbanner.png" alt="Late Night Programs Flag"/>This event is part of Late Night Programs, <a href="#">see more events tagged with Late Night Programs.</a></p>
-					<p class="late-night-feature__smalltext"><a href="#">Learn more about Late Night Programs</a></p>
+					<p><img class="late-night-feature__flag" src="{$ThemeDir}/dist/images/latenightbanner.png" alt="Late Night Programs Flag"/>This event is part of Late Night Programs, <a href="events/interest/7491/">see more events tagged as Late Night Programs.</a></p>
+					<%-- <p class="late-night-feature__smalltext"><a href="#">Learn more about Late Night Programs</a></p> --%>
 				</div>
 
 				<% end_if %>
@@ -115,7 +117,7 @@
 			<% if $IsLateNight %>
 		 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
 		 	<% end_if %>
-			<img class="d-block w-100 mb-2" src="$Image.URL" />
+			<img class="d-block w-100 mb-2" src="$Image.ThumbURL" alt="" role="presentation" />
 			<% with $Venue %>
 				<% if $Address %>
 					<div class="map-container">
