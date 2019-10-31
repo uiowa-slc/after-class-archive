@@ -2,7 +2,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class=" col-lg-12 content-container title__container">
-                <div class="header-graphic"><a href="{$BaseUrl}" class="d-block"><img class="header-graphic__img" src="$ThemeDir/dist/images/header2.png"></a></div>
+                <div class="header-graphic">
+                    <a href="{$BaseUrl}" class="d-block">
+
+                        <picture>
+                        <source srcset="$ThemeDir/dist/images/header2.png" media="(min-width: 667px)">
+                        <img class="lazyload header-graphic__img" src="$ThemeDir/dist/images/header-mobile.png" alt="After Class: UI Culture, arts, and entertainment." />
+                        </picture>
+                    </a>
+                </div>
             </div>
         </div>
         <header role="banner">
