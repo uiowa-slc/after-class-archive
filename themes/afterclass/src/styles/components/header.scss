@@ -18,7 +18,11 @@
     color:white;
 
     &--large{
-        font-size: 28px;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 28px;
+        }
+        
     }
 }
 
