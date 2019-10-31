@@ -1,6 +1,9 @@
 <div class="header__container">
     <div class="container-fluid">
-        <div class="row">
+
+
+
+        <div class="row d-none d-lg-block">
             <div class=" col-lg-12 content-container title__container">
                 <div class="header-graphic">
                     <a href="{$BaseUrl}" class="d-block">
@@ -13,9 +16,14 @@
                 </div>
             </div>
         </div>
+
+
         <header role="banner">
             <!--Navbar-->
             <nav class="navbar navbar-expand-lg navbar-dark">
+              <a class="navbar-brand d-lg-none" href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
+                 <img class="brand-image" src="$ThemeDir/dist/images/brand-full.png"/>
+              </a>
 
               <!-- Navbar brand -->
   <%--               <a class="navbar-brand " href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
@@ -23,10 +31,10 @@
                 </a> --%>
 
               <!-- Collapse button -->
-              <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon border-0"></span>
-              </button>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
               <!-- Collapsible content -->
               <div class="collapse navbar-collapse justify-content-center " id="basicExampleNav">
