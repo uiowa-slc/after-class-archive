@@ -18,8 +18,8 @@
 <meta property="og:image:width" content="480" />
 <meta property="og:image:height" content="320" />
 <% else %>
-<meta property="og:image" content="{$absoluteBaseURL}_resources/themes/afterclass/dist/images/header2.png" />
-<meta property="og:image:width" content="4583" />
-<meta property="og:image:height" content="1250" />
+<meta property="og:image" content="{$absoluteBaseURL}_resources/themes/afterclass/dist/images/og-default.png" />
+<meta property="og:image:width" content="2755" />
+<meta property="og:image:height" content="1442" />
 <% end_if %>
 <meta name="author" content="Division of Student Life | The University of Iowa">
