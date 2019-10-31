@@ -548,7 +548,7 @@
 }</style></head>
     <body>
         <!--*|IF:MC_PREVIEW_TEXT|*-->
-        <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
+        <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;"></span><!--<![endif]-->
         <!--*|END:IF|*-->
         <center>
             <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
@@ -574,7 +574,7 @@
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
                                 
                                     
-                                        <img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/f59e232d-260d-4966-861b-ad88164be8ce.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
+                                        <img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/ae18f67e-f5b5-4e76-a584-0724916399fe.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                     
                                 
                             </td>

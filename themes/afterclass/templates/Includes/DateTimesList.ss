@@ -3,9 +3,7 @@
 	
 	<a href="$Up.Link" class="date-link">
 		<time itemprop="startDate" datetime="$URLDatetime">
-			$Format(EEEE), $Format(MMMM d)
-		</time>
-	</a> <% if not $Up.AllDay %>$Format("h:mm a")<% end_if %>
+			$Format(EEEE), $Format(MMMM d)</time></a>,<% if not $Up.AllDay %> $Format("h:mm a")<% end_if %>
 <% end_with %>
 <% end_if %>
 <% if $EndTime %>
@@ -13,13 +11,11 @@
 		- $Format("h:mm a")
 	<% end_with %>
 <% end_if %>
-<% if $EndDate %>
+<% if $EndDateTime %>
 	until
-	<% with $EndDate %>
-			
+	<% with $EndDateTime %>
 			<time itemprop="endDate" datetime="$URLDatetime">
-				$Format(EEEE), $Format(MMMM d)
-			</time>
+				$Format(EEEE), $Format(MMMM d),</time>
 		 <% if not $Up.AllDay %>$Format("h:mm a")<% end_if %>
 	<% end_with %>
 <% end_if %>

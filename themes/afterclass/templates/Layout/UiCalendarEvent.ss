@@ -7,34 +7,37 @@
 		<div class="col-lg-8">
 			<article>
 				<h1>$Title</h1>
-				<% if $Dates.Count > 1 %><p><strong>Next Date:</strong><% end_if %>
-					<% if $Dates %>
-						<% loop $Dates.Limit(1) %>
-							<% include DateTimesList %>
-						<% end_loop %>
-					</p>
-					<% else %>
-							No upcoming dates.
-					<% end_if %>
 
-
-				<% if $Venue.Title || $Location %>
-				<p> <strong> Location: </strong>
-					
-						<% if $Location %> $Location <% end_if %>
-						<% if $Venue.Title %>
-							<% with $Venue %>
-								<% if $Link %>
-									<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
-								<% else %>
-									$Title
-								<% end_if %>
-							<% end_with %>
+				<% if $Dates || $Venue || $Location %>
+				<p>
+					<% if $Dates.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
+						<% if $Dates %>
+							<% loop $Dates.Limit(1) %>
+								<% include DateTimesList %>
+							<% end_loop %>
+							<br />
+						<% else %>
+								No upcoming dates. <br />
 						<% end_if %>
+
+
+					<% if $Venue.Title || $Location %>
+					<strong> Location: </strong>
+							<% if $Location %> $Location <% end_if %>
+							<% if $Venue.Title %>
+								<% with $Venue %>
+									<% if $Link %>
+										<a href="$Link" itemprop="location">$Title</a>
+									<% else %>
+										$Title
+									<% end_if %>
+								<% end_with %>
+							<% end_if %>
 					
-				</p>
+					<% end_if %>
+					</p>
 				<% end_if %>
-				<div class="content pt-4">$Content</div>
+				<div class="content">$Content</div>
 				<% if $Dates.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>
