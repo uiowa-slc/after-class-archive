@@ -17,7 +17,7 @@
               <!-- Collapse button -->
               <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon border-0"></span>
               </button>
 
               <!-- Collapsible content -->

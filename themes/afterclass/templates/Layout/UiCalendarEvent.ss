@@ -68,11 +68,11 @@
 				<% if $MoreInfoLink || $UiCalendarLink %>
 					<p>
 						<% if $MoreInfoLink %>
-							<a href="$MoreInfoLink" class="btn btn-secondary" target="_blank">Event Website <i class="fas fa-external-link-alt"></i></a>
+							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank">Event Website <i class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 
 						<% if $UiCalendarLink %>
-								<a href="$UiCalendarLink" class="btn btn-secondary" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
+								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i class="fas fa-calendar-alt"></i></a> --%>
 					</p>
