@@ -204,7 +204,7 @@
             /*@editable*/background-size:cover;
             /*@editable*/border-top:0;
             /*@editable*/border-bottom:0;
-            /*@editable*/padding-top:9px;
+            /*@editable*/padding-top:0;
             /*@editable*/padding-bottom:9px;
         }
     /*
@@ -225,7 +225,7 @@
     @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
     */
         #templatePreheader .mcnTextContent a,#templatePreheader .mcnTextContent p a{
-            /*@editable*/color:#656565;
+            /*@editable*/color:#fff;
             /*@editable*/font-weight:normal;
             /*@editable*/text-decoration:underline;
         }
@@ -242,7 +242,7 @@
             /*@editable*/background-size:cover;
             /*@editable*/border-top:0;
             /*@editable*/border-bottom:0;
-            /*@editable*/padding-top:9px;
+            /*@editable*/padding-top:0;
             /*@editable*/padding-bottom:0;
         }
     /*
@@ -339,7 +339,7 @@
     @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
     */
         #templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
-            /*@editable*/color:#656565;
+            /*@editable*/color:#fff;
             /*@editable*/font-weight:normal;
             /*@editable*/text-decoration:underline;
         }
@@ -574,7 +574,7 @@
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
                                 
                                     
-                                        <img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/d4564a45-ddac-4d8c-9fab-ad57ee93175d.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
+                                        <img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/df178f01-2b1b-47c8-96c0-7837ebdec62f.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                     
                                 
                             </td>
@@ -679,8 +679,9 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
-                            After Class is a Divison of Student Life initiative meant to bring you great opportunities to be entertained, get involved, and enjoy student life at Iowa.
+                            <p>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a></p>
+                            <p>
+                            After Class is a Divison of Student Life initiative meant to bring you great opportunities to be entertained, get involved, and enjoy student life at Iowa.</p>
                         </td>
                     </tr>
                 </tbody></table>
@@ -878,7 +879,7 @@
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
                         
                             <strong>Our mailing address is:</strong>&nbsp;<br>
-IMU Marketing + Design<br>
+Student Life Marketing + Design<br>
 286 Iowa Memorial Union<br>
 Iowa City,&nbsp;Iowa&nbsp;&nbsp;52242-1317
                         </td>
