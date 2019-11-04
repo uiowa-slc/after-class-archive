@@ -85,7 +85,7 @@ class UiCalendarNewsletter extends Page {
 			$event2Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event2Field );
 
-			$event3Field = new DropdownField( "Event3", "Event 1", $eventsArray);
+			$event3Field = new DropdownField( "Event3", "Event 3", $eventsArray);
 			$event3Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event3Field );
 
@@ -93,25 +93,22 @@ class UiCalendarNewsletter extends Page {
 			$event4Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event4Field );
 
-			$event5Field = new DropdownField( "Event5", "Event 5", $eventsArray);
+			$event5Field = new DropdownField( "Event5", "Event 6", $eventsArray);
 			$event5Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event5Field );
 
-			$event5Field = new DropdownField( "Event5", "Event 5", $eventsArray);
+			$event5Field = new DropdownField( "Event6", "Event 7", $eventsArray);
 			$event5Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event5Field );
 
-			$event6Field = new DropdownField( "Event6", "Event 6", $eventsArray);
+			$event6Field = new DropdownField( "Event7", "Event 8", $eventsArray);
 			$event6Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event6Field );
 
-			$event7Field = new DropdownField( "Event7", "Event 7", $eventsArray);
+			$event7Field = new DropdownField( "Event8", "Event 8", $eventsArray);
 			$event7Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event7Field );
 
-			$event8Field = new DropdownField( "Event8", "Event 8", $eventsArray);
-			$event8Field->setEmptyString( '(No Event)' );
-			$fields->addFieldToTab( 'Root.Main', $event8Field );
 
 			$nfEvent1Field = new DropdownField( "NonFeaturedEvent1", "Nonfeatured Event 1", $eventsArray);
 			$nfEvent1Field->setEmptyString( '(No Event)' );
