@@ -31,10 +31,14 @@ class UiCalendarNewsletter extends Page {
 
 	);
 
+	private static $default_sort = 'Created DESC';
+
 	private static $defaults = array (
 
 	);
+	private static $singular_name = 'Newsletter';
 
+	private static $plural_name = 'Newsletters';
 	private static $summary_fields = array(
 		'Title',
 		'Created'

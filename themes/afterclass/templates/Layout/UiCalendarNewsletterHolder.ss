@@ -8,7 +8,7 @@
 				<h1>$Title</h1>
 				<div class="content">$Content</div>
 				<ul>
-				<% loop $Children %>
+				<% loop $Children.Sort('Created DESC') %>
 					<li><a href="$Link">$Title - <small>Last Edited $LastEdited.Nice</small></a></li>
 				<% end_loop %>
 				</ul>

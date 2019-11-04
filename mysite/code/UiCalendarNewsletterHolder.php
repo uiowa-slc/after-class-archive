@@ -1,7 +1,7 @@
 <?php
 use SilverStripe\Lumberjack\Model\Lumberjack;
 use SilverStripe\Forms\FieldList; 
-
+use SilverStripe\Forms\GridField\GridFieldDataColumns;
 
 class UiCalendarNewsletterHolder extends Page {
 
@@ -16,9 +16,24 @@ class UiCalendarNewsletterHolder extends Page {
 		'UiCalendarNewsletter'
 	);
 
+	private static $singular_name = 'Newsletter Holder';
+
+	private static $plural_name = 'Newsletter Holders';
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->addFieldToTab('Root.Main', $fields->dataFieldByName('ChildPages'));
+
+		$grid = $fields->dataFieldByName('ChildPages');
+		$config = $grid->getConfig();
+        $dataColumns = $config->getComponentByType(GridFieldDataColumns::class);
+
+        $dataColumns->setDisplayFields([
+            'Title' => 'Title',
+            'Created' => 'Created'
+        ]);
+
+
+		$fields->addFieldToTab('Root.Main', $grid);
 
 		$fields->removeByName('Content');
 		$fields->removeByName('Content');
@@ -26,5 +41,13 @@ class UiCalendarNewsletterHolder extends Page {
 		$fields->removeByName('BackgroundImage');
 
 		return $fields;
+	}
+
+	public function getLumberjackPagesForGridfield($excluded = array()){
+        return UiCalendarNewsletter::get()->filter([
+            'ParentID' => $this->owner->ID,
+            'ClassName' => $excluded,
+        ])->sort('Created DESC');
+
 	}
 }
