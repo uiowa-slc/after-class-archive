@@ -93,15 +93,15 @@ class UiCalendarNewsletter extends Page {
 			$event4Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event4Field );
 
-			$event5Field = new DropdownField( "Event5", "Event 6", $eventsArray);
+			$event5Field = new DropdownField( "Event5", "Event 5", $eventsArray);
 			$event5Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event5Field );
 
-			$event5Field = new DropdownField( "Event6", "Event 7", $eventsArray);
+			$event5Field = new DropdownField( "Event6", "Event 6", $eventsArray);
 			$event5Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event5Field );
 
-			$event6Field = new DropdownField( "Event7", "Event 8", $eventsArray);
+			$event6Field = new DropdownField( "Event7", "Event 7", $eventsArray);
 			$event6Field->setEmptyString( '(No Event)' );
 			$fields->addFieldToTab( 'Root.Main', $event6Field );
 
