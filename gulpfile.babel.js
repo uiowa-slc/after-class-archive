@@ -87,10 +87,8 @@ function styles(){
     .pipe($.sass({
       precision: 10,
       includePaths: [
-        './themes/afterclass/src/bower_components/foundation/scss/',
         './vendor/md/uiowa-bar/scss',
         './node_modules/'
-
       ]
     }).on('error', $.sass.logError))
     .pipe(gulp.dest('.tmp/styles'))
@@ -116,8 +114,8 @@ function scripts(){
       './node_modules/@fortawesome/fontawesome-free/js/regular.js',
       './node_modules/lazysizes/lazysizes.js',
       './node_modules/lazysizes/plugins/aspectratio/ls.aspectratio.js',
-      './node_modules/flickity/dist/flickity.pkgd.js',
-      './node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+      // './node_modules/flickity/dist/flickity.pkgd.js',
+      // './node_modules/magnific-popup/dist/jquery.magnific-popup.js',
       './themes/afterclass/src/scripts/app.js',
 
     ])
