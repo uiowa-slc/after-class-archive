@@ -131,31 +131,6 @@ function scripts(){
       .pipe(gulp.dest('./themes/afterclass/dist/scripts'));
 };
 
-//Scan your HTML for assets & optimize them
-function html(){
-  return gulp.src('./themes/afterclass/src/templates/**/*.ss')
-    .pipe($.useref({
-      searchPath: '{.tmp,app}',
-      noAssets: true
-    }))
-
-    // Minify any HTML
-    .pipe($.if('*.ss', $.htmlmin({
-      removeComments: true,
-      collapseWhitespace: true,
-      collapseBooleanAttributes: false,
-      removeAttributeQuotes: false,
-      removeRedundantAttributes: true,
-      removeEmptyAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      removeOptionalTags: false
-    })))
-    // Output files
-    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
-    .pipe(gulp.dest('./themes/afterclass/templates/'));
-}
-
 
 // Clean output directory
 function clean(){
@@ -163,8 +138,7 @@ function clean(){
 }
 
 function watch(){
-  // gulp.watch(['./themes/afterclass/**/*.html'], reload);
-  // gulp.watch(['./themes/afterclass/src/templates/**/*.ss'], gulp.series(html));
+
   gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(styles));
   gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(lint, scripts));
   gulp.watch(['./themes/afterclass/src/images/**/*'], gulp.series(images));
