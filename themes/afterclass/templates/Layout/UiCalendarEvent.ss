@@ -23,7 +23,7 @@
 
 					<% if $Venue.Title || $Location %>
 					<strong> Location: </strong>
-							<% if $Location %> $Location <% end_if %>
+							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
 							<% if $Venue.Title %>
 								<% with $Venue %>
 									<% if $Link %>
