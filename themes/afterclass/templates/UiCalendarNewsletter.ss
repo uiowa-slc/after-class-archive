@@ -607,7 +607,7 @@
                                                         <tr>
                                                             <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
                                                                 <h2 class="null" style="display: block;margin: 0;padding: 0;color: #ffffff;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-align: left;"><a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">$Title</a></h2>
-                                                                <div><% include EventCardDatesTimesNoLinks %> $Content.Summary(50) | <a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">More...</a></div>
+                                                                <div><% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">More...</a></div>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -640,7 +640,7 @@
                                                                     <tbody><tr>
                                                                         <td valign="top" class="mcnTextContent" style="padding: 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;">
                                                                             <h2 class="null"><a href="{$AbsoluteLink}" target="_blank">$Title</a></h2>
-                                    <% include EventCardDatesTimesNoLinks %> $Content.Summary(50) | <a href="{$AbsoluteLink}"target="_blank">More...</a>
+                                    <% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}"target="_blank">More...</a>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody></table>
