@@ -1,17 +1,8 @@
 
  <div class="card event-card" itemscope itemtype="http://data-vocabulary.org/Event">
- 	<% if $Dates.First.StartDateTime.Format(H) > 20 %>
+ 	<% if $IsLateNight %>
  		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
  	<% end_if %>
- 	<%-- $Dates.First.StartDateTime.Format(H) --%>
-
-
-
-<%--  		<% if $Image.URL %>
- 		<div class="event-card-image-container">
-			<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.URL" /></a>
-		</div>
-		<% end_if %> --%>
  		<% if $Image.RectangleURL %>
  	
 		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.RectangleURL" data-aspectratio="1.3333"  /></a>
