@@ -1298,7 +1298,7 @@
         },
         {
             "name": "md/ac-json-events",
-            "version": "dev-ss4.x-ui",
+            "version": "3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
@@ -1388,12 +1388,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-project.git",
-                "reference": "5fd4b6369facf1ca37498c630df5f5ea7b6465d9"
+                "reference": "4e0219e5f305e31f7dd199e7be484ae468b2a2cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-project/zipball/5fd4b6369facf1ca37498c630df5f5ea7b6465d9",
-                "reference": "5fd4b6369facf1ca37498c630df5f5ea7b6465d9",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-project/zipball/4e0219e5f305e31f7dd199e7be484ae468b2a2cb",
+                "reference": "4e0219e5f305e31f7dd199e7be484ae468b2a2cb",
                 "shasum": ""
             },
             "require": {
@@ -1404,7 +1404,7 @@
                 "gorriecoe/silverstripe-webfonts": "*",
                 "jonom/focuspoint": "*",
                 "jonom/silverstripe-betternavigator": "4.*",
-                "md/ac-json-events": "dev-ss4.x-ui",
+                "md/ac-json-events": "3.*",
                 "md/deploy-helper": "*",
                 "md/division-analytics": "1.2.x",
                 "md/saml": "dev-md",
@@ -1439,7 +1439,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-project/tree/ss4.x",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-project/issues"
             },
-            "time": "2019-10-18T14:05:33+00:00"
+            "time": "2019-11-04T20:11:32+00:00"
         },
         {
             "name": "md/saml",
