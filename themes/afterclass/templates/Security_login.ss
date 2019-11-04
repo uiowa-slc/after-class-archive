@@ -11,7 +11,7 @@
     <% else %>
       <title>$Title - $SiteConfig.Title | The University of Iowa</title>
     <% end_if %>
-    $OpenGraph
+
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -46,6 +46,8 @@
     <% include SideBar %>
 <% end_if %>
 
+<% include Header %>
+<div class="container">
 <div class="col-sm content" role="main">
     <div class="row justify-content-md-center">
         <div class="col-md-8 col-lg-6">
@@ -55,7 +57,7 @@
     </div>
     $PageComments
 </div>
-
+</div>
 
     <% include Footer %>
     <%-- $BetterNavigator --%>
