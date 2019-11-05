@@ -1,7 +1,7 @@
 
  <div class="card event-card" itemscope itemtype="http://data-vocabulary.org/Event">
  	<% if $IsLateNight %>
- 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
+ 		<img class="card__banner-img" alt="Late Night Programs Flag" src="$ThemeDir/dist/images/latenightbanner.png" />
  	<% end_if %>
  		<% if $Image.URL %>
  	
