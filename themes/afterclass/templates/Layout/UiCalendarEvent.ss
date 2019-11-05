@@ -6,6 +6,12 @@
 	<div class="row d-flex ptop-30 justify-content-center">
 		<div class="col-lg-8">
 			<article>
+		 	<% if $Image.Orientation == "Wide" %>
+				<img class="d-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
+				<% else %>
+					<img class="float-right p-2 d-sm-block d-lg-none w-50 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
+			<% end_if %>
+
 				<h1>$Title</h1>
 
 				<% if $Dates || $Venue || $Location %>
@@ -116,40 +122,47 @@
 			$Form
 			$PageComments
 		</div>
+		<% if $Image.Orientation != "Wide" || $Venue.Title || $Location %>
 		<div class="col-lg-4">
-			<% if $IsLateNight %>
-		 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
-		 	<% end_if %>
-			<img class="d-block w-100 mb-2" src="$Image.ThumbURL" alt="" role="presentation" />
-			<% with $Venue %>
-				<% if $Address %>
-					<div class="map-container">
-						<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
-					</div>
+			<div class="sticky-side">
+			 	<% if $Image.Orientation != "Wide" %>
+					<% if $IsLateNight %>
+				 		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
+				 	<% end_if %>
+					<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
 				<% end_if %>
-			<% end_with %>
-			<p class="venue-nav mt-2">
-				<% if $Venue.Title || $Location %>
-					<% if $Location %> $Location <% end_if %>
-					<% if $Venue.Title %>
-						<% with $Venue %>
-							<% if $Link %>
-								<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
-							<% else %>
-								$Title
-							<% end_if %>
-						<% end_with %>
-					<% end_if %>
-				<% end_if %>
-			</p>
-			<p class="venue-nav">
 				<% with $Venue %>
 					<% if $Address %>
-						<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i class="fas fa-external-link-alt"></i></a>
+						<div class="map-container">
+							<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
+						</div>
 					<% end_if %>
 				<% end_with %>
-			</p>
+				<p class="venue-nav mt-2">
+					<% if $Venue.Title || $Location %>
+						<strong>Location: </strong>
+						<% if $Location %> $Location <% end_if %>
+						<% if $Venue.Title %>
+							<% with $Venue %>
+								<% if $Link %>
+									<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
+								<% else %>
+									$Title
+								<% end_if %>
+							<% end_with %>
+						<% end_if %>
+					<% end_if %>
+				</p>
+				<p class="venue-nav">
+					<% with $Venue %>
+						<% if $Address %>
+							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i class="fas fa-external-link-alt"></i></a>
+						<% end_if %>
+					<% end_with %>
+				</p>
+			</div>
 		</div>
+		<% end_if %>
 	</div>
 
 </div>

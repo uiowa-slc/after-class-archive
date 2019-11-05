@@ -1302,12 +1302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "ccded056e12650e07b301fbc8b4f9f684e2caa04"
+                "reference": "3b0d09e895fa140c324627baac20810ad04bdb29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/ccded056e12650e07b301fbc8b4f9f684e2caa04",
-                "reference": "ccded056e12650e07b301fbc8b4f9f684e2caa04",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3b0d09e895fa140c324627baac20810ad04bdb29",
+                "reference": "3b0d09e895fa140c324627baac20810ad04bdb29",
                 "shasum": ""
             },
             "require": {
@@ -1323,10 +1323,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3-imgsize",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2019-11-05T16:10:13+00:00"
+            "time": "2019-11-05T17:28:20+00:00"
         },
         {
             "name": "md/deploy-helper",
@@ -3228,16 +3228,16 @@
         },
         {
             "name": "silverstripe/spamprotection",
-            "version": "dev-master",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "362cce842d1caf0804161d41a600b9a1539a4507"
+                "reference": "e024613ede62f71f8431ebc86270272a38bd01e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/362cce842d1caf0804161d41a600b9a1539a4507",
-                "reference": "362cce842d1caf0804161d41a600b9a1539a4507",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/e024613ede62f71f8431ebc86270272a38bd01e4",
+                "reference": "e024613ede62f71f8431ebc86270272a38bd01e4",
                 "shasum": ""
             },
             "require": {
@@ -3279,7 +3279,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2019-11-05T03:33:37+00:00"
+            "time": "2019-05-09T22:13:46+00:00"
         },
         {
             "name": "silverstripe/staticpublishqueue",
