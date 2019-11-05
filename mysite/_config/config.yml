@@ -9,3 +9,5 @@ SilverStripe\View\SSViewer:
     - 'afterclass'
     - 'md/division-project'
     - '$default'
+UiCalendarImage:
+  cache: true

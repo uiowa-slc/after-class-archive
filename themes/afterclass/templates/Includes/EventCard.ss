@@ -3,9 +3,9 @@
  	<% if $IsLateNight %>
  		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
  	<% end_if %>
- 		<% if $Image.RectangleURL %>
+ 		<% if $Image.URL %>
  	
-		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.RectangleURL" data-aspectratio="1.3333"  /></a>
+		<a href="$Link"><img class="card-img-top lazyload" data-src="$Image.ThumbURL" data-aspectratio="$Image.Ratio"  /></a>
 		<% end_if %>
 		<div class="card-body">
 
