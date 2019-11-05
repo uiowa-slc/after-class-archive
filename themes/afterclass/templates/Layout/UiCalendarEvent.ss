@@ -8,7 +8,7 @@
 			<article>
 			 	<% if $Image.Orientation == "Wide" %>
 			 		<% if $IsLateNight %>
-				 		<img class="card__banner-img" alt="Late Night Programs Flag" src="$ThemeDir/dist/images/latenightbanner.png" />
+				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
 					<img class="d-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
 					<% else_if $Image %>
@@ -98,7 +98,7 @@
 			</p>
 				<% if $IsLateNight %>
 				<div class="late-night-feature">
-					<p><img class="late-night-feature__flag" src="{$ThemeDir}/dist/images/latenightbanner.png" alt="Late Night Programs Flag"/>This event is part of Late Night Programs, <a href="events/interest/7491/">see more events tagged as Late Night Programs.</a></p>
+					<p><img class="late-night-feature__flag" src="{$ThemeDir}/dist/images/latenightbanner.png" alt="Late Night Programs Flag" role="presentation"/>This event is part of Late Night Programs, <a href="events/interest/7491/">see more events tagged as Late Night Programs.</a></p>
 					<%-- <p class="late-night-feature__smalltext"><a href="#">Learn more about Late Night Programs</a></p> --%>
 				</div>
 
@@ -109,14 +109,14 @@
 				<% if $ContactName %>
 
 					<% if $ContactPhone && $ContactEmail %>
-						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactPhone} or {$ContactEmail}.
+						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at <a href="tel:{$ContactPhone}">{$ContactPhone}</a> or <a href="mailto:{$ContactEmail}">{$ContactEmail}</a>.
 					<% else_if $ContactEmail %>
-						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactEmail}.
+						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at <a href="mailto:{$ContactEmail}">{$ContactEmail}</a>.
 					<% else_if $ContactPhone %>
-						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactPhone}.
+						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at <a href="tel:{$ContactPhone}">{$ContactPhone}</a>.
 					<% end_if %>
 				<% else %>
-						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact Bret Gothe in advance at bret-gothe@uiowa.edu.
+						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.
 				<% end_if %>
 					
 				</i>
@@ -131,7 +131,7 @@
 
 			 	<% if $Image && $Image.Orientation != "Wide" %>
 					<% if $IsLateNight %>
-				 		<img class="card__banner-img" alt="Late Night Programs Flag" src="$ThemeDir/dist/images/latenightbanner.png" />
+				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
 					<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
 				<% end_if %>
