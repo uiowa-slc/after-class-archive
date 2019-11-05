@@ -32,17 +32,18 @@
 
 					<% if $Venue.Title || $Location %>
 					<strong> Location: </strong>
+						<span itemprop="location">
 							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
 							<% if $Venue.Title %>
 								<% with $Venue %>
 									<% if $Link %>
-										<a href="$Link" itemprop="location">$Title</a>
+										<a href="$Link">$Title</a>
 									<% else %>
 										$Title
 									<% end_if %>
 								<% end_with %>
 							<% end_if %>
-					
+						</span>
 					<% end_if %>
 					</p>
 				<% end_if %>

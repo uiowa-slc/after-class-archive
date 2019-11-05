@@ -2,23 +2,23 @@
 	<% if $Dates %>
 		<% loop $Dates.Limit(1) %>
 			<% with $StartDateTime %>
-				<a href="{$Up.Link}"><time itemprop="startDate" datetime="$URLDatetime">$Format("MMM d, h:mm a")</time></a>
+				<a href="{$Up.Link}"><span itemprop="startDate" datetime="$URLDatetime">$Format("MMM d, h:mm a")</span></a>
 			<% end_with %>
 			<% if $EndDate %>
 			 - 
 			<% with $EndDate %>
-				<time itemprop="endDate" datetime="$URLDatetime">$Format("MMM d, h:mm a")</time>
+				<span itemprop="endDate" datetime="$URLDatetime">$Format("MMM d, h:mm a")</span>
 			<% end_with %>
 			<% end_if %>
 		<% end_loop %>
 	<% end_if %>
 	<% if $Venue %>
 		<% with $Venue %>
-			<span class="at"> @ </span>
-				
+			 @
 			<a href="$Link"><span itemprop="location">$Title.LimitCharacters(25)</span></a>
-		
 		<% end_with %>
+	<% else_if $Location %>
+		@ <span itemprop="location">$Location</span>
 	<% end_if %>	
 	<% if $Dates.Count > "1" %>
 		<a href="$Link"> | more dates</a> 
