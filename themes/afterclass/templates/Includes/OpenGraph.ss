@@ -3,6 +3,11 @@
 <meta name="twitter:creator" content="@uistudentlife">
 <meta name="twitter:title" content="$Title.ATT">
 
+
+
+
+
+
 <meta property="og:site_name" content="$SiteConfig.Title.ATT" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="$Title.ATT" />
@@ -25,6 +30,7 @@
 <meta property="og:image:width" content="$Image.Width" />
 <meta property="og:image:height" content="$Image.Height" />
 <% else %>
+<meta name="twitter:image" content="{$absoluteBaseURL}_resources/themes/afterclass/dist/images/og-default.png">
 <meta property="og:image" content="{$absoluteBaseURL}_resources/themes/afterclass/dist/images/og-default.png" />
 <meta property="og:image:width" content="2755" />
 <meta property="og:image:height" content="1442" />
