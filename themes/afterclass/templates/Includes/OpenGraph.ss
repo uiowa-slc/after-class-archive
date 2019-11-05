@@ -15,8 +15,8 @@
 <% end_if %>
 <% if $Image.URL %>
 <meta property="og:image" content="$Image.URL" />
-<meta property="og:image:width" content="$Width" />
-<meta property="og:image:height" content="$Height" />
+<meta property="og:image:width" content="$Image.Width" />
+<meta property="og:image:height" content="$Image.Height" />
 <% else %>
 <meta property="og:image" content="{$absoluteBaseURL}_resources/themes/afterclass/dist/images/og-default.png" />
 <meta property="og:image:width" content="2755" />
