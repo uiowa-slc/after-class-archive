@@ -19,7 +19,7 @@
 		<% end_with %>
 	<% else_if $Location %>
 		@ <span itemprop="location">$Location</span>
-	<% end_if %>	
+	<% end_if %>
 	<% if $Dates.Count > "1" %>
 		<a href="$Link"> | more dates</a> 
 	<% end_if %> 
