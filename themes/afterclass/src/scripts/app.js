@@ -1,6 +1,4 @@
 
-
-
 function GetLocation(address) {
 	var geocoder = new google.maps.Geocoder();
 	geocoder.geocode({ 'address': address }, function (results, status) {
@@ -103,6 +101,28 @@ function initialize() {
 }
 
 window.onload = initialize();
+try {
+    Typekit.load({
+      loading: function() {
+        // JavaScript to execute when fonts start loading
+      },
+      active: function() {
+        $('.masonry-grid').isotope({ 
+            "layoutMode": "masonry", 
+            "itemSelector": ".masonry-grid-item",
+            "getSortData": { "name": ".name", "category": "[data-category]" }, 
+            "masonry": { 
+                "gutter" : 20 
+            } 
+         });        
+       },
+      inactive: function() {
+        // JavaScript to execute when fonts become inactive
+      }
+    })
+  } catch(e) {}
+
+  
 $(document).ready(function() {
 
 });

@@ -36,7 +36,8 @@
     <meta name="theme-color" content="#000000">
 
 
-    $TypeKitScript
+
+    <script type="text/javascript" src="http://use.typekit.com/ggu1mkb.js"></script>
     <link rel="stylesheet" href="{$ThemeDir}/dist/styles/main.css">
   </head>
   <body class="{$ClassName}">

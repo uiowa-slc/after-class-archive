@@ -8,7 +8,7 @@
 
 .navbar{
     color:#262626;
-    background: #141414;
+    background: #000;
     text-transform: uppercase;
     font-family: $headings-font-family;
     padding: 0;
@@ -20,9 +20,11 @@
     &--large{
 
         @include media-breakpoint-up(lg) {
-            font-size: 28px;
+            font-size: 21px;
         }
-        
+        @include media-breakpoint-up(xl) {
+            font-size: 28px;
+        }        
     }
 }
 

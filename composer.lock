@@ -1302,12 +1302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "3c7915fd55ff62159393baecaf0cbfb671a3277b"
+                "reference": "3b0d09e895fa140c324627baac20810ad04bdb29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3c7915fd55ff62159393baecaf0cbfb671a3277b",
-                "reference": "3c7915fd55ff62159393baecaf0cbfb671a3277b",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3b0d09e895fa140c324627baac20810ad04bdb29",
+                "reference": "3b0d09e895fa140c324627baac20810ad04bdb29",
                 "shasum": ""
             },
             "require": {
@@ -1323,10 +1323,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/ss4.x-ui",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2019-11-04T16:22:03+00:00"
+            "time": "2019-11-05T17:28:20+00:00"
         },
         {
             "name": "md/deploy-helper",
@@ -3228,16 +3228,16 @@
         },
         {
             "name": "silverstripe/spamprotection",
-            "version": "dev-master",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "f3fa9fe9fc1538ebe0f446ebea4fef4c9a9090c5"
+                "reference": "e024613ede62f71f8431ebc86270272a38bd01e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/f3fa9fe9fc1538ebe0f446ebea4fef4c9a9090c5",
-                "reference": "f3fa9fe9fc1538ebe0f446ebea4fef4c9a9090c5",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/e024613ede62f71f8431ebc86270272a38bd01e4",
+                "reference": "e024613ede62f71f8431ebc86270272a38bd01e4",
                 "shasum": ""
             },
             "require": {
@@ -3252,10 +3252,7 @@
             "extra": {
                 "expose": [
                     "images"
-                ],
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
+                ]
             },
             "autoload": {
                 "psr-4": {
@@ -3282,7 +3279,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2019-05-09T22:14:27+00:00"
+            "time": "2019-05-09T22:13:46+00:00"
         },
         {
             "name": "silverstripe/staticpublishqueue",
@@ -3653,12 +3650,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-widgets.git",
-                "reference": "7d2dd46159ffeef002e216c86979fec77c33d9af"
+                "reference": "7397888b1387602ddb13b5653fb077b52f7e79de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-widgets/zipball/7d2dd46159ffeef002e216c86979fec77c33d9af",
-                "reference": "7d2dd46159ffeef002e216c86979fec77c33d9af",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-widgets/zipball/7397888b1387602ddb13b5653fb077b52f7e79de",
+                "reference": "7397888b1387602ddb13b5653fb077b52f7e79de",
                 "shasum": ""
             },
             "require": {
@@ -3673,9 +3670,6 @@
             },
             "type": "silverstripe-vendormodule",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev"
-                },
                 "expose": [
                     "css",
                     "javascript"
@@ -3703,7 +3697,7 @@
                 "silverstripe",
                 "widgets"
             ],
-            "time": "2018-06-18T21:24:08+00:00"
+            "time": "2019-11-05T03:15:07+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

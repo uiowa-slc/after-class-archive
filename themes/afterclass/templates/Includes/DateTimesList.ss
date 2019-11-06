@@ -2,8 +2,8 @@
 <% with $StartDateTime %>
 	
 	<a href="$Up.Link" class="date-link">
-		<time itemprop="startDate" datetime="$URLDatetime">
-			$Format(EEEE), $Format(MMMM d)</time></a>,<% if not $Up.AllDay %> $Format("h:mm a")<% end_if %>
+		<span itemprop="startDate" datetime="$URLDatetime">
+			$Format(EEEE), $Format(MMMM d)</span></a><% if not $Up.AllDay %>,<% end_if %><% if not $Up.AllDay %> $Format("h:mm a")<% end_if %>
 <% end_with %>
 <% end_if %>
 <% if $EndTime %>

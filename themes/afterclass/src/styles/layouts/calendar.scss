@@ -61,22 +61,62 @@
     filter: drop-shadow(0 0 20px #333);
 }
 
-.masonry-grid-item{
+/* HOW THIS WORKS:;
+.grid-item {
+  width: calc(25% - 10px);
+}
+It should in fact be calc(25% - 7.5px). The formula for it would be
+
+//pseudocode to illustrate the idea. how you would do that dynamically whould be up to the language you choose (e.g. php, js...)
+$number_of_cols = 3; //for example
+$column_width = 100 / $number_of_cols; //a float value, e.g. 33.33333333 in this example
+$item_width_diff = $gutter * ($number_of_cols - 1) / $number_of_cols; //in this example: 10*2/3 = 6.6666666
+then in your css you would have
+
+.grid-item {
+  width: calc(25% - $item_width_diff);
+}*/
 
 
+.masonry-grid-sizer,
+.masonry-grid-item { 
     width:  100%;
     margin-top: 10px;
     margin-bottom: 10px;
     @include media-breakpoint-up(sm) {
-        width: 50%;
+        width: calc(50% - 10px);
     }
     @include media-breakpoint-up(md) {
-        width: 50%;
+       width: calc(50% - 10px);
     }
     @include media-breakpoint-up(lg) {
-        width: 33.3%;
+        width: calc(33.3% - 13.33px);
     }
     @include media-breakpoint-up(xl) {
-        width: 25%;
+        width: calc(25% - 15px);
     }
+
 }
+
+.masonry-gutter-sizer { width: 20px; }
+
+.masonry-grid-item{
+
+
+    // width:  100%;
+    // margin-top: 10px;
+    // margin-bottom: 10px;
+    // @include media-breakpoint-up(sm) {
+    //     width: 50%;
+    // }
+    // @include media-breakpoint-up(md) {
+    //     width: 50%;
+    // }
+    // @include media-breakpoint-up(lg) {
+    //     width: 33.3%;
+    // }
+    // @include media-breakpoint-up(xl) {
+    //     width: 25%;
+    // }
+}
+

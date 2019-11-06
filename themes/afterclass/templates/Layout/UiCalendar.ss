@@ -3,7 +3,7 @@
 	<% if $action != "index" %>
 		<h1 class="filter-header">$FilterHeader</h1>
 	<% end_if %>
-	<div class="masonry-grid" data-masonry='{ "itemSelector": ".masonry-grid-item", "percentPosition": true, "gutter": 20 }'>
+<div class="masonry-grid">
 		<% if $action == "index" %>
 			<% loop $EventList("threemonths") %>
 				<% include EventCard %>
