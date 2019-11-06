@@ -32,7 +32,12 @@ class UiCalendarNewsletterHolder extends Page {
             'Created' => 'Created'
         ]);
 
+		$list = $grid->getList();
 
+		$sortedList = $list->sort('Created DESC');
+
+		$grid->setList($sortedList);
+		
 		$fields->addFieldToTab('Root.Main', $grid);
 
 		$fields->removeByName('Content');
