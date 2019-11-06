@@ -1,5 +1,5 @@
 
- <div class="card event-card" itemscope itemtype="http://data-vocabulary.org/Event">
+ <div class="card masonry-grid-item" itemscope itemtype="http://data-vocabulary.org/Event">
  	<% if $Dates.First.StartDateTime.Format(H) > 20 %>
  		<img class="card__banner-img" src="$ThemeDir/dist/images/latenightbanner.png" />
  	<% end_if %>

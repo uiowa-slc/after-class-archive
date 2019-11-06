@@ -118,6 +118,7 @@ function scripts(){
       './node_modules/lazysizes/plugins/aspectratio/ls.aspectratio.js',
       './node_modules/flickity/dist/flickity.pkgd.js',
       './node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+      './node_modules/masonry-layout/dist/masonry.pkgd.js',
       './themes/afterclass/src/scripts/app.js',
 
     ])

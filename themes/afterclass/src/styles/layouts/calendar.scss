@@ -60,3 +60,23 @@
     right: 0;
     filter: drop-shadow(0 0 20px #333);
 }
+
+.masonry-grid-item{
+
+
+    width:  100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @include media-breakpoint-up(sm) {
+        width: 50%;
+    }
+    @include media-breakpoint-up(md) {
+        width: 50%;
+    }
+    @include media-breakpoint-up(lg) {
+        width: 33.3%;
+    }
+    @include media-breakpoint-up(xl) {
+        width: 25%;
+    }
+}
