@@ -37,7 +37,7 @@
 
 
 
-    <script type="text/javascript" src="http://use.typekit.com/ggu1mkb.js"></script>
+    <script type="text/javascript" src="https://use.typekit.com/ggu1mkb.js"></script>
     <link rel="stylesheet" href="{$ThemeDir}/dist/styles/main.css">
   </head>
   <body class="{$ClassName}">
