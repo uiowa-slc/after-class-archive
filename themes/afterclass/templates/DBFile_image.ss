@@ -1,1 +1,1 @@
-<img class="img-fluid w-100" src="$URL.ATT" alt="$Title.ATT" />
+<img class="img-fluid w-100" src="$URL.ATT" alt="$Title.ATT">

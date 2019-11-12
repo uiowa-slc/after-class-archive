@@ -1,11 +1,1 @@
-<% if $Posts %>
-	<ul class="list-group list-group-flush">
-		<% loop $Posts %>
-			<li class="list-group-item">
-				<a href="$Link" title="$Title">
-					<span class="text">$Title</span>
-				</a>
-			</li>
-		<% end_loop %>
-	</ul>
-<% end_if %>
+<% if $Posts %> <ul class="list-group list-group-flush"> <% loop $Posts %> <li class="list-group-item"><a href="$Link" title="$Title"><span class="text">$Title</span></a></li> <% end_loop %> </ul> <% end_if %>

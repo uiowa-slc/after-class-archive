@@ -9,13 +9,45 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
-
 // import {output as pagespeed} from 'psi';
 import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+// const rev = require('gulp-rev');
+// const revRewrite = require('gulp-rev-rewrite');
 
+console.log($);
+
+// Clean output directory
+function clean(){
+  return del(['.tmp', './themes/afterclass/dist/*', '!dist/.git'], {dot: true})
+}
+function cleanStyles(){
+  return del(['./themes/afterclass/dist/styles'], {dot: true})
+}
+
+function cleanScripts(){
+  return del(['./themes/afterclass/dist/scripts'], {dot: true})
+}
+
+// Step 1
+function revision() {
+  return gulp.src('./themes/afterclass/dist/**/*.{css,js}')
+    .pipe($.rev())
+    .pipe(gulp.dest('./themes/afterclass/dist/'))
+    .pipe($.rev.manifest())
+    .pipe(gulp.dest('./themes/afterclass/dist/'));
+}
+
+// Step 2
+function rewrite() {
+  const manifest = gulp.src('./themes/afterclass/dist/rev-manifest.json');
+
+  return gulp.src('./themes/afterclass/src/templates/*.ss')
+    .pipe($.revRewrite({ manifest }))
+    .pipe(gulp.dest('./themes/afterclass/templates'));
+}
 
 
 // Lint JavaScript
@@ -57,7 +89,6 @@ function copy(){
 
 // Compile and automatically prefix stylesheets
 function styles(){
-
     const AUTOPREFIXER_BROWSERS = [
       'ie >= 10',
       'ie_mob >= 10',
@@ -133,15 +164,36 @@ function scripts(){
 };
 
 
-// Clean output directory
-function clean(){
-  return del(['.tmp', './themes/afterclass/dist/*', '!dist/.git'], {dot: true})
+function html(){
+
+    const manifest = gulp.src('./themes/afterclass/dist/rev-manifest.json');
+
+    return gulp.src([
+      './themes/afterclass/src/templates/**/*.ss', 
+      '!./themes/afterclass/src/templates/SilverStripe/Forms/**', 
+      '!./themes/afterclass/src/templates/SilverStripe/UserForms/**']
+    )
+    // Minify any HTML
+    .pipe($.revRewrite({ manifest }))
+    .pipe($.if('*.ss', $.htmlmin({
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: false,
+        removeAttributeQuotes: false,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        removeOptionalTags: false,
+      })))
+    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
+    .pipe(gulp.dest('./themes/afterclass/templates/'));
 }
 
 function watch(){
-
-  gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(styles));
-  gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(lint, scripts));
+  gulp.watch(['./themes/afterclass/src/templates/**/*.ss'], gulp.series(html));
+  gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(cleanStyles, styles, revision, html));
+  gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(cleanScripts, lint, scripts, revision, html));
   gulp.watch(['./themes/afterclass/src/images/**/*'], gulp.series(images));
 }
 
@@ -149,4 +201,4 @@ function watch(){
 
 // Build production files, the default task
 gulp.task('default', gulp.series(clean, copy, gulp.parallel(styles,
-    lint, scripts, images,), watch));
+    lint, scripts, images), revision, html, watch));

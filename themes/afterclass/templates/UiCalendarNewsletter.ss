@@ -1,22 +1,11 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-    <head>
-        <!-- NAME: 1 COLUMN -->
-        <!--[if gte mso 15]>
+<!doctype html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><!--[if gte mso 15]>
         <xml>
             <o:OfficeDocumentSettings>
             <o:AllowPNG/>
             <o:PixelsPerInch>96</o:PixelsPerInch>
             </o:OfficeDocumentSettings>
         </xml>
-        <![endif]-->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>$Title | After Class | The University of Iowa</title>
-        
-    <style type="text/css">
-        p{
+        <![endif]--><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$Title | After Class | The University of Iowa</title><style>p{
             margin:10px 0;
             padding:0;
         }
@@ -545,369 +534,59 @@
             /*@editable*/line-height:150% !important;
         }
 
-}</style></head>
-    <body>
-        <!--*|IF:MC_PREVIEW_TEXT|*-->
-        <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;"></span><!--<![endif]-->
-        <!--*|END:IF|*-->
-        <center>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
-                <tr>
-                    <td align="center" valign="top" id="bodyCell">
-                        <!-- BEGIN TEMPLATE // -->
-                        <!--[if (gte mso 9)|(IE)]>
+}</style></head><body><!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;"></span><!--<![endif]--><center><table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable"><tr><td align="center" valign="top" id="bodyCell"><!--[if (gte mso 9)|(IE)]>
                         <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
                         <tr>
                         <td align="center" valign="top" width="600" style="width:600px;">
-                        <![endif]-->
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
-                            <tr>
-                                <td valign="top" id="templatePreheader"></td>
-                            </tr>
-                            <tr>
-                                <td valign="top" id="templateHeader"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="min-width:100%;">
-    <tbody class="mcnImageBlockOuter">
-            <tr>
-                <td valign="top" style="padding:0px" class="mcnImageBlockInner">
-                    <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
-                        <tbody><tr>
-                            <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                
-                                    
-                                        <img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/df178f01-2b1b-47c8-96c0-7837ebdec62f.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
-                                    
-                                
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </td>
-            </tr>
-    </tbody>
-</table></td>
-                            </tr>
-                            <tr>
-                                <td valign="top" id="templateBody">
-                                <% loop $FeaturedEvents %>
-                                <!-- event 1 -->
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageCardBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                    <tbody class="mcnImageCardBlockOuter">
-                                        <tr>
-                                            <td class="mcnImageCardBlockInner" valign="top" style="padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                <table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnImageCardBottomContent" width="100%" style="background-color: #404040;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                    <tbody>
-                                                        <% if $Image.ThumbURL %>
-                                                        <tr>
-                                                            <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                <a href="{$AbsoluteLink}" title="" class="" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                    <img alt="" src="$Image.ThumbURL" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <% end_if %>
-                                                        <tr>
-                                                            <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
-                                                                <h2 class="null" style="display: block;margin: 0;padding: 0;color: #ffffff;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-align: left;"><a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">$Title</a></h2>
-                                                                <div><% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">More...</a></div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <% end_loop %>
-
-                                <% loop $NonFeaturedEvents %>
-
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnBoxedTextBlock" style="min-width:100%;">
-                                        <!--[if gte mso 9]>
+                        <![endif]--><table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer"><tr><td valign="top" id="templatePreheader"></td></tr><tr><td valign="top" id="templateHeader"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="min-width:100%;"><tbody class="mcnImageBlockOuter"><tr><td valign="top" style="padding:0px" class="mcnImageBlockInner"><table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;"><tbody><tr><td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;"><img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/df178f01-2b1b-47c8-96c0-7837ebdec62f.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage"></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td valign="top" id="templateBody"> <% loop $FeaturedEvents %> <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageCardBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><tbody class="mcnImageCardBlockOuter"><tr><td class="mcnImageCardBlockInner" valign="top" style="padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnImageCardBottomContent" width="100%" style="background-color: #404040;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><tbody> <% if $Image.ThumbURL %> <tr><td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img alt="" src="$Image.ThumbURL" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage"></a></td></tr> <% end_if %> <tr><td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546"><h2 class="null" style="display: block;margin: 0;padding: 0;color: #ffffff;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-align: left;"><a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">$Title</a></h2><div><% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">More...</a></div></td></tr></tbody></table></td></tr></tbody></table> <% end_loop %> <% loop $NonFeaturedEvents %> <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnBoxedTextBlock" style="min-width:100%;"><!--[if gte mso 9]>
                                         <table align="center" border="0" cellspacing="0" cellpadding="0" width="100%">
-                                        <![endif]-->
-                                        <tbody class="mcnBoxedTextBlockOuter">
-                                            <tr>
-                                                <td valign="top" class="mcnBoxedTextBlockInner">
-                                                    
-                                                    <!--[if gte mso 9]>
+                                        <![endif]--><tbody class="mcnBoxedTextBlockOuter"><tr><td valign="top" class="mcnBoxedTextBlockInner"><!--[if gte mso 9]>
                                                     <td align="center" valign="top" ">
-                                                    <![endif]-->
-                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnBoxedTextContentContainer">
-                                                        <tbody><tr>
-                                                            
-                                                            <td style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:18px;">
-                                                            
-                                                                <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #404040;">
-                                                                    <tbody><tr>
-                                                                        <td valign="top" class="mcnTextContent" style="padding: 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;">
-                                                                            <h2 class="null"><a href="{$AbsoluteLink}" target="_blank">$Title</a></h2>
-                                    <% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}"target="_blank">More...</a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody></table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody></table>
-                                                    <!--[if gte mso 9]>
+                                                    <![endif]--><table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnBoxedTextContentContainer"><tbody><tr><td style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:18px;"><table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #404040;"><tbody><tr><td valign="top" class="mcnTextContent" style="padding: 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;"><h2 class="null"><a href="{$AbsoluteLink}" target="_blank">$Title</a></h2> <% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank">More...</a></td></tr></tbody></table></td></tr></tbody></table><!--[if gte mso 9]>
                                                     </td>
-                                                    <![endif]-->
-                                                    
-                                                    <!--[if gte mso 9]>
+                                                    <![endif]--><!--[if gte mso 9]>
                                                     </tr>
                                                     </table>
-                                                    <![endif]-->
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                <% end_loop %>
-</td>
-                            </tr>
-                            <tr>
-                                <td valign="top" id="templateFooter"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
-    <tbody class="mcnTextBlockOuter">
-        <tr>
-            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
-                <!--[if mso]>
+                                                    <![endif]--></td></tr></tbody></table> <% end_loop %> </td></tr><tr><td valign="top" id="templateFooter"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;"><tbody class="mcnTextBlockOuter"><tr><td valign="top" class="mcnTextBlockInner" style="padding-top:9px;"><!--[if mso]>
                 <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
                 <tr>
-                <![endif]-->
-                
-                <!--[if mso]>
+                <![endif]--><!--[if mso]>
                 <td valign="top" width="600" style="width:600px;">
-                <![endif]-->
-                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
-                        <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                            <p>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.</p>
-                            <p>
-                            After Class is a Divison of Student Life initiative meant to bring you great opportunities to be entertained, get involved, and enjoy student life at Iowa.</p>
-                        </td>
-                    </tr>
-                </tbody></table>
-                <!--[if mso]>
+                <![endif]--><table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer"><tbody><tr><td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;"><p>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.</p><p>After Class is a Divison of Student Life initiative meant to bring you great opportunities to be entertained, get involved, and enjoy student life at Iowa.</p></td></tr></tbody></table><!--[if mso]>
                 </td>
-                <![endif]-->
-                
-                <!--[if mso]>
+                <![endif]--><!--[if mso]>
                 </tr>
                 </table>
-                <![endif]-->
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
-    <tbody class="mcnButtonBlockOuter">
-        <tr>
-            <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
-                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;background-color: #FDCD08;">
-                    <tbody>
-                        <tr>
-                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, Verdana, sans-serif; font-size: 16px; padding: 18px;">
-                                <a class="mcnButton " title="Add Your Event" href="https://afterclass.uiowa.edu/add" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #080808;">Add Your Event</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowBlock" style="min-width:100%;">
-    <tbody class="mcnFollowBlockOuter">
-        <tr>
-            <td align="center" valign="top" style="padding:9px" class="mcnFollowBlockInner">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentContainer" style="min-width:100%;">
-    <tbody><tr>
-        <td align="center" style="padding-left:9px;padding-right:9px;">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnFollowContent">
-                <tbody><tr>
-                    <td align="center" valign="top" style="padding-top:9px; padding-right:9px; padding-left:9px;">
-                        <table align="center" border="0" cellpadding="0" cellspacing="0">
-                            <tbody><tr>
-                                <td align="center" valign="top">
-                                    <!--[if mso]>
+                <![endif]--></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;"><tbody class="mcnButtonBlockOuter"><tr><td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner"><table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;background-color: #FDCD08;"><tbody><tr><td align="center" valign="middle" class="mcnButtonContent" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, Verdana, sans-serif; font-size: 16px; padding: 18px;"><a class="mcnButton" title="Add Your Event" href="https://afterclass.uiowa.edu/add" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #080808;">Add Your Event</a></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowBlock" style="min-width:100%;"><tbody class="mcnFollowBlockOuter"><tr><td align="center" valign="top" style="padding:9px" class="mcnFollowBlockInner"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentContainer" style="min-width:100%;"><tbody><tr><td align="center" style="padding-left:9px;padding-right:9px;"><table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnFollowContent"><tbody><tr><td align="center" valign="top" style="padding-top:9px; padding-right:9px; padding-left:9px;"><table align="center" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td align="center" valign="top"><!--[if mso]>
                                     <table align="center" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
-                                    <![endif]-->
-                                    
-                                        <!--[if mso]>
+                                    <![endif]--><!--[if mso]>
                                         <td align="center" valign="top">
-                                        <![endif]-->
-                                        
-                                        
-                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
-                                                <tbody><tr>
-                                                    <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
-                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
-                                                            <tbody><tr>
-                                                                <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
-                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
-                                                                        <tbody><tr>
-                                                                            
-                                                                                <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
-                                                                                    <a href="https://twitter.com/uistudentlife" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-twitter-48.png" alt="Twitter" style="display:block;" height="24" width="24" class=""></a>
-                                                                                </td>
-                                                                            
-                                                                            
-                                                                        </tr>
-                                                                    </tbody></table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody></table>
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        
-                                        <!--[if mso]>
+                                        <![endif]--><table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"><tbody><tr><td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem"><tbody><tr><td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;"><table align="left" border="0" cellpadding="0" cellspacing="0" width=""><tbody><tr><td align="center" valign="middle" width="24" class="mcnFollowIconContent"><a href="https://twitter.com/uistudentlife" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-twitter-48.png" alt="Twitter" style="display:block;" height="24" width="24"></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><!--[if mso]>
                                         </td>
-                                        <![endif]-->
-                                    
-                                        <!--[if mso]>
+                                        <![endif]--><!--[if mso]>
                                         <td align="center" valign="top">
-                                        <![endif]-->
-                                        
-                                        
-                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
-                                                <tbody><tr>
-                                                    <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
-                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
-                                                            <tbody><tr>
-                                                                <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
-                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
-                                                                        <tbody><tr>
-                                                                            
-                                                                                <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
-                                                                                    <a href="https://www.facebook.com/uistudentlife" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-facebook-48.png" alt="Facebook" style="display:block;" height="24" width="24" class=""></a>
-                                                                                </td>
-                                                                            
-                                                                            
-                                                                        </tr>
-                                                                    </tbody></table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody></table>
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        
-                                        <!--[if mso]>
+                                        <![endif]--><table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"><tbody><tr><td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem"><tbody><tr><td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;"><table align="left" border="0" cellpadding="0" cellspacing="0" width=""><tbody><tr><td align="center" valign="middle" width="24" class="mcnFollowIconContent"><a href="https://www.facebook.com/uistudentlife" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-facebook-48.png" alt="Facebook" style="display:block;" height="24" width="24"></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><!--[if mso]>
                                         </td>
-                                        <![endif]-->
-                                    
-                                        <!--[if mso]>
+                                        <![endif]--><!--[if mso]>
                                         <td align="center" valign="top">
-                                        <![endif]-->
-                                        
-                                        
-                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
-                                                <tbody><tr>
-                                                    <td valign="top" style="padding-right:0; padding-bottom:9px;" class="mcnFollowContentItemContainer">
-                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
-                                                            <tbody><tr>
-                                                                <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
-                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
-                                                                        <tbody><tr>
-                                                                            
-                                                                                <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
-                                                                                    <a href="https://afterclass.uiowa.edu" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-link-48.png" alt="Website" style="display:block;" height="24" width="24" class=""></a>
-                                                                                </td>
-                                                                            
-                                                                            
-                                                                        </tr>
-                                                                    </tbody></table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody></table>
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        
-                                        <!--[if mso]>
+                                        <![endif]--><table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"><tbody><tr><td valign="top" style="padding-right:0; padding-bottom:9px;" class="mcnFollowContentItemContainer"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem"><tbody><tr><td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;"><table align="left" border="0" cellpadding="0" cellspacing="0" width=""><tbody><tr><td align="center" valign="middle" width="24" class="mcnFollowIconContent"><a href="https://afterclass.uiowa.edu" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-link-48.png" alt="Website" style="display:block;" height="24" width="24"></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><!--[if mso]>
                                         </td>
-                                        <![endif]-->
-                                    
-                                    <!--[if mso]>
+                                        <![endif]--><!--[if mso]>
                                     </tr>
                                     </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    </td>
-                </tr>
-            </tbody></table>
-        </td>
-    </tr>
-</tbody></table>
-
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
-    <tbody class="mcnDividerBlockOuter">
-        <tr>
-            <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 10px 18px 25px;">
-                <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top-width: 2px;border-top-style: solid;border-top-color: #464646;">
-                    <tbody><tr>
-                        <td>
-                            <span></span>
-                        </td>
-                    </tr>
-                </tbody></table>
-<!--            
-                <td class="mcnDividerBlockInner" style="padding: 18px;">
-                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
--->
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
-    <tbody class="mcnTextBlockOuter">
-        <tr>
-            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
-                <!--[if mso]>
+                                    <![endif]--></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;"><tbody class="mcnDividerBlockOuter"><tr><td class="mcnDividerBlockInner" style="min-width: 100%; padding: 10px 18px 25px;"><table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top-width: 2px;border-top-style: solid;border-top-color: #464646;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;"><tbody class="mcnTextBlockOuter"><tr><td valign="top" class="mcnTextBlockInner" style="padding-top:9px;"><!--[if mso]>
                 <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
                 <tr>
-                <![endif]-->
-                
-                <!--[if mso]>
+                <![endif]--><!--[if mso]>
                 <td valign="top" width="600" style="width:600px;">
-                <![endif]-->
-                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
-                        <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
-                            <strong>Our mailing address is:</strong>&nbsp;<br>
-Student Life Marketing + Design<br>
-286 Iowa Memorial Union<br>
-Iowa City,&nbsp;Iowa&nbsp;&nbsp;52242-1317
-                        </td>
-                    </tr>
-                </tbody></table>
-                <!--[if mso]>
+                <![endif]--><table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer"><tbody><tr><td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;"><strong>Our mailing address is:</strong>&nbsp;<br>Student Life Marketing + Design<br>286 Iowa Memorial Union<br>Iowa City,&nbsp;Iowa&nbsp;&nbsp;52242-1317</td></tr></tbody></table><!--[if mso]>
                 </td>
-                <![endif]-->
-                
-                <!--[if mso]>
+                <![endif]--><!--[if mso]>
                 </tr>
                 </table>
-                <![endif]-->
-            </td>
-        </tr>
-    </tbody>
-</table></td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
+                <![endif]--></td></tr></tbody></table></td></tr></table><!--[if (gte mso 9)|(IE)]>
                         </td>
                         </tr>
                         </table>
-                        <![endif]-->
-                        <!-- // END TEMPLATE -->
-                    </td>
-                </tr>
-            </table>
-        </center>
-    </body>
-</html>
+                        <![endif]--></td></tr></table></center></body></html>
