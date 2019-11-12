@@ -6,13 +6,14 @@
 	<div class="row d-flex ptop-30 justify-content-center">
 		<div class="col-lg-8">
 			<article>
+
 			 	<% if $Image.Orientation == "Wide" %>
 			 		<% if $IsLateNight %>
 				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
 					<img class="d-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
-					<% else_if $Image %>
-						<img class="float-right p-2 d-sm-block d-lg-none w-50 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
+				<% else_if $Image.URL %>
+					<img class="float-right p-2 d-sm-block d-lg-none w-50 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
 				<% end_if %>
 
 				<h1>$Title</h1>
@@ -130,7 +131,7 @@
 		<div class="col-lg-4">
 			<div class="sticky-side">
 
-			 	<% if $Image && $Image.Orientation != "Wide" %>
+			 	<% if $Image.URL && $Image.Orientation != "Wide" %>
 					<% if $IsLateNight %>
 				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
