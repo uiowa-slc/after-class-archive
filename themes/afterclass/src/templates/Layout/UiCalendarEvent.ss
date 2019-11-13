@@ -130,7 +130,7 @@
 		<div class="col-lg-4">
 			<div class="sticky-side">
 
-			 	<% if $Image && $Image.Orientation != "Wide" %>
+			 	<% if $Image.URL && $Image.Orientation != "Wide" %>
 					<% if $IsLateNight %>
 				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>

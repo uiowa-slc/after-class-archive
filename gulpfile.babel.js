@@ -46,6 +46,17 @@ function rewrite() {
 
   return gulp.src('./themes/afterclass/src/templates/*.ss')
     .pipe($.revRewrite({ manifest }))
+    .pipe($.if('*.ss', $.htmlmin({
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: false,
+        removeAttributeQuotes: false,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        removeOptionalTags: false,
+      })))
     .pipe(gulp.dest('./themes/afterclass/templates'));
 }
 
@@ -174,7 +185,6 @@ function html(){
       '!./themes/afterclass/src/templates/SilverStripe/UserForms/**']
     )
     // Minify any HTML
-    .pipe($.revRewrite({ manifest }))
     .pipe($.if('*.ss', $.htmlmin({
         removeComments: true,
         collapseWhitespace: true,
@@ -192,8 +202,8 @@ function html(){
 
 function watch(){
   gulp.watch(['./themes/afterclass/src/templates/**/*.ss'], gulp.series(html));
-  gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(cleanStyles, styles, revision, html));
-  gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(cleanScripts, lint, scripts, revision, html));
+  gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(cleanStyles, styles, revision, rewrite));
+  gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(cleanScripts, lint, scripts, revision, rewrite));
   gulp.watch(['./themes/afterclass/src/images/**/*'], gulp.series(images));
 }
 
@@ -201,4 +211,4 @@ function watch(){
 
 // Build production files, the default task
 gulp.task('default', gulp.series(clean, copy, gulp.parallel(styles,
-    lint, scripts, images), revision, html, watch));
+    lint, scripts, images), revision, html, rewrite, watch));
