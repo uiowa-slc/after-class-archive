@@ -30,8 +30,6 @@ function cleanStyles(){
 function cleanScripts(){
   return del(['./themes/afterclass/dist/scripts'], {dot: true})
 }
-
-// Step 1
 function revision() {
   return gulp.src('./themes/afterclass/dist/**/*.{css,js}')
     .pipe($.rev())
@@ -40,7 +38,23 @@ function revision() {
     .pipe(gulp.dest('./themes/afterclass/dist/'));
 }
 
-// Step 2
+function revStyles() {
+  return gulp.src('./themes/afterclass/dist/**/*.css')
+    .pipe($.rev())
+    .pipe(gulp.dest('./themes/afterclass/dist/'))
+    .pipe($.rev.manifest())
+    .pipe(gulp.dest('./themes/afterclass/dist/'));
+}
+
+// Step 1
+function revScripts() {
+  return gulp.src('./themes/afterclass/dist/**/*.js')
+    .pipe($.rev())
+    .pipe(gulp.dest('./themes/afterclass/dist/'))
+    .pipe($.rev.manifest())
+    .pipe(gulp.dest('./themes/afterclass/dist/'));
+}
+
 function rewrite() {
   const manifest = gulp.src('./themes/afterclass/dist/rev-manifest.json');
 
@@ -202,8 +216,8 @@ function html(){
 
 function watch(){
   gulp.watch(['./themes/afterclass/src/templates/**/*.ss'], gulp.series(html));
-  gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(cleanStyles, styles, revision, rewrite));
-  gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(cleanScripts, lint, scripts, revision, rewrite));
+  gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(cleanStyles, styles, revStyles, rewrite));
+  gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(cleanScripts, lint, scripts, revScripts, rewrite));
   gulp.watch(['./themes/afterclass/src/images/**/*'], gulp.series(images));
 }
 
