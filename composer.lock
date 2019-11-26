@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d8b4d4281be6a52969a3727a47d2bbc",
+    "content-hash": "086ab4de8da9eb6a0bc6ad937904c32f",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -1381,16 +1381,16 @@
         },
         {
             "name": "md/division-project",
-            "version": "dev-ss4.x",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-project.git",
-                "reference": "0484494af3304a213134ff329b1c3c709a82bebb"
+                "reference": "a1da10fcefcf0cf16e1c8efdcb2aa296267ef92d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-project/zipball/0484494af3304a213134ff329b1c3c709a82bebb",
-                "reference": "0484494af3304a213134ff329b1c3c709a82bebb",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-project/zipball/a1da10fcefcf0cf16e1c8efdcb2aa296267ef92d",
+                "reference": "a1da10fcefcf0cf16e1c8efdcb2aa296267ef92d",
                 "shasum": ""
             },
             "require": {
@@ -1433,10 +1433,10 @@
             },
             "description": "The University of Iowa Division of Student Life Project Code and Theme",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/division-project/tree/ss4.x",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/division-project/tree/2",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-project/issues"
             },
-            "time": "2019-11-15T17:51:46+00:00"
+            "time": "2019-11-26T17:02:08+00:00"
         },
         {
             "name": "md/saml",
@@ -1444,12 +1444,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml.git",
-                "reference": "9bbc43c0ce990335311b759ae57e2d3dfde9372b"
+                "reference": "6e816a618acfd49ad301f646e69d42af5e7ecfb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-saml/zipball/9bbc43c0ce990335311b759ae57e2d3dfde9372b",
-                "reference": "9bbc43c0ce990335311b759ae57e2d3dfde9372b",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-saml/zipball/6e816a618acfd49ad301f646e69d42af5e7ecfb7",
+                "reference": "6e816a618acfd49ad301f646e69d42af5e7ecfb7",
                 "shasum": ""
             },
             "require": {
@@ -1504,7 +1504,7 @@
             "support": {
                 "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml/tree/md"
             },
-            "time": "2019-05-23T14:41:38+00:00"
+            "time": "2019-11-26T16:15:31+00:00"
         },
         {
             "name": "md/silverstripe-maintenance-mode",
@@ -1729,16 +1729,16 @@
         },
         {
             "name": "onelogin/php-saml",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onelogin/php-saml.git",
-                "reference": "8ac96798a6e85627d7fae5a08b1a56487eea82dc"
+                "reference": "5fbf3486704ac9835b68184023ab54862c95f213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/onelogin/php-saml/zipball/8ac96798a6e85627d7fae5a08b1a56487eea82dc",
-                "reference": "8ac96798a6e85627d7fae5a08b1a56487eea82dc",
+                "url": "https://api.github.com/repos/onelogin/php-saml/zipball/5fbf3486704ac9835b68184023ab54862c95f213",
+                "reference": "5fbf3486704ac9835b68184023ab54862c95f213",
                 "shasum": ""
             },
             "require": {
@@ -1775,7 +1775,7 @@
                 "onelogin",
                 "saml"
             ],
-            "time": "2019-11-19T16:06:25+00:00"
+            "time": "2019-11-25T17:30:07+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3803,16 +3803,16 @@
         },
         {
             "name": "symbiote/silverstripe-queuedjobs",
-            "version": "4.4.1",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symbiote/silverstripe-queuedjobs.git",
-                "reference": "1729bb293dd27b9ce6da8cd56bd867d534a254bc"
+                "reference": "6358ae76cb371a7b77a4d27debf101c846a456e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/1729bb293dd27b9ce6da8cd56bd867d534a254bc",
-                "reference": "1729bb293dd27b9ce6da8cd56bd867d534a254bc",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/6358ae76cb371a7b77a4d27debf101c846a456e1",
+                "reference": "6358ae76cb371a7b77a4d27debf101c846a456e1",
                 "shasum": ""
             },
             "require": {
@@ -3853,7 +3853,7 @@
                 "jobs",
                 "silverstripe"
             ],
-            "time": "2019-06-05T21:32:53+00:00"
+            "time": "2019-11-25T23:03:01+00:00"
         },
         {
             "name": "symfony/cache",
@@ -4938,9 +4938,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "md/division-project": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

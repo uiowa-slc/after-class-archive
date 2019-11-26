@@ -3,15 +3,27 @@
 	<% if $action != "index" %>
 		<h1 class="filter-header">$FilterHeader</h1>
 	<% end_if %>
-<div class="masonry-grid">
 		<% if $action == "index" %>
-			<% loop $EventList("threemonths") %>
-				<% include EventCard %>
-			<% end_loop %> <%-- end loop Upcoming Events --%>
+			<% if $EventList("threemonths").Count > 0 %>
+				<div class="masonry-grid">
+					<% loop $EventList("threemonths") %>
+						<% include EventCard %>
+					<% end_loop %> <%-- end loop Upcoming Events --%>
+				</div>
+			<% else %>
+				<p class="text-center">There are currently no events listed on After Class. Please check back soon!</p>
+			<% end_if %>
+
 		<% else %>
-			<% loop $FilterEventList %>
-				<% include EventCard %>
-			<% end_loop %> <%-- end loop Upcoming Events --%>
+			<% if $FilterEventList.Count > 0 %>
+				<div class="masonry-grid">
+					<% loop $FilterEventList %>
+						<% include EventCard %>
+					<% end_loop %> <%-- end loop Upcoming Events --%>
+				</div>
+			<% else %>
+				<p class="text-center">There are currently no events listed in this category.</p>
+			<% end_if %>
 		<% end_if %>
 	</div>
 </div>
