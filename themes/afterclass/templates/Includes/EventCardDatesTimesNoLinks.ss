@@ -2,12 +2,12 @@
 	<% if $Dates %>
 		<% loop $Dates.Limit(1) %>
 			<% with $StartDateTime %>
-				<time itemprop="startDate" datetime="$URLDatetime">$Format("MMM d, h:mm a")</time>
+				<time itemprop="startDate" datetime="$Rfc3339">$Format("MMM d, h:mm a")</time>
 			<% end_with %>
 			<% if $EndDate %>
 			 - 
 			<% with $EndDate %>
-				<time itemprop="endDate" datetime="$URLDatetime">$Format("MMM d, h:mm a")</time>
+				<time itemprop="endDate" datetime="$Rfc3339">$Format("MMM d, h:mm a")</time>
 			<% end_with %>
 			<% end_if %>
 		<% end_loop %>
