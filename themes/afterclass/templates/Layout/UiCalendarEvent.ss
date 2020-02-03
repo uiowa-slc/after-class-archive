@@ -101,7 +101,7 @@
 				<% if $IsLateNight %>
 				<div class="late-night-feature">
 					<p><img class="late-night-feature__flag" src="{$ThemeDir}/dist/images/latenightbanner.png" alt="Late Night Programs Flag" role="presentation"/>This event is part of Late Night Programs, <a href="events/interest/7491/">see more events tagged as Late Night Programs.</a></p>
-					<%-- <p class="late-night-feature__smalltext"><a href="#">Learn more about Late Night Programs</a></p> --%>
+					<p class="late-night-feature__smalltext"><a href="https://getinvolved.uiowa.edu/campus-programs/latenight" target="_blank">Learn more about Late Night Programs</a></p>
 				</div>
 
 				<% end_if %>
