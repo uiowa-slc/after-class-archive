@@ -5,6 +5,7 @@
 .card__banner-img{
     display: block;
     position: absolute;
+    float: left;
     width: 10%;
     margin-right:15px;
     filter: drop-shadow(0 0 20px #333);
@@ -20,4 +21,8 @@
 
 hr{
 	border-color: #666;
+}
+.date-tile{
+	background-color: grey;
+	margin: 10px 10px;
 }
