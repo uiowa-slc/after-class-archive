@@ -1,15 +1,29 @@
 			<% if $Sponsor %>
 				<p>Sponsored by: $Sponsor</p>
 				<% end_if %>
+		
+		<div class="row d-flex ptop-60 justify-content-center">
+			<div class="col-md-12">
+				<h3>Tags</h3>
+			</div>
+		</div>
+
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-12">	
 				<% if $Tags %>
-					<p>Tags
+
 					<% loop $Tags %>
 					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
-					<% end_loop %></p>
+					<% end_loop %>
+			
+			</div>
+		</div>
 
-				<%--Need to put location tag on same line as others--%>
-				<p class="venue-nav mt-2">
-					<% if $Venue.Title %>
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-12">
+
+				<% if $Venue.Title %>
 						<% if $Venue.Title %>
 							<% with $Venue %>
 								<% if $Link %>
@@ -20,18 +34,33 @@
 							<% end_with %>
 						<% end_if %>
 					<% end_if %>
-				</p>
-			
 				<% end_if %>
-		
+			</div>
+		</div>
+
+
+		<div class="row d-flex ptop-30 justify-content-center">
+			<div class="col-md-12">
+				<h3>Categories</h3>
+			</div>
+		</div>
+
+
+			<div class="row d-flex justify-content-center">
+				<div class="col-md-12">
 				<% if $Types %>
-					<p>Categories
+					
 					<% loop $Types %>
 					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
-					<% end_loop %></p>
+					<% end_loop %>
 			
 				<% end_if %>
+				</div>
+			</div>
 
+
+			<div class="row d-flex ptop-30 justify-content-center">
+				<div class="col-md-12">
 				<% if $MoreInfoLink || $UiCalendarLink %>
 					<p>
 						<% if $MoreInfoLink %>
@@ -45,10 +74,14 @@
 					</p>
 				<% end_if %>
 
-		
+			</div>
+		</div>
 		
 			<% if $ContactEmail %>
-			<hr />
+			<hr/>
+
+	<div class="row d-flex ptop-30 justify-content-center">
+		<div class="col-md-12">
 			<p>Questions about this event?
 				<% if $ContactName %>
 					<a href="mailto:$ContactEmail" class="report-problem-link">Contact {$ContactName}.</a>
@@ -65,6 +98,7 @@
 
 				<% end_if %>
 			<% end_if %>
+
 				<p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events.
 
 				<% if $ContactName %>
@@ -80,3 +114,6 @@
 						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.
 				<% end_if %>
 			</i></p>
+
+		</div>
+	</div>

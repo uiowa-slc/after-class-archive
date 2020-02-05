@@ -4,7 +4,7 @@
 
 <div class="container" role="main">
 
-	<div class="row d-flex ptop-30 justify-content-center">
+	<div class="row d-flex ptop-60 justify-content-center">
 		<div class="col-lg-12">
 			
 			 <h1>$Title</h1>
@@ -14,7 +14,7 @@
 			 	
 		<div class="row d-flex ptop-30">
 
-			<div class="col-lg-4">
+			<div class="col-md-5">
 
 			 	<% if $Image.URL %>
 			 		
@@ -31,7 +31,7 @@
 
 			</div>
 
-			<div class="content col-lg-8"> $Content
+			<div class="content col-md-7"> $Content
 				
 			</div>
 		</div>
@@ -41,17 +41,17 @@
 				<div class="col-lg-8"></div> -->
 
 		
-		<div class="row d-flex ptop-30 justify-content-center">
+		<div class="row d-flex ptop-100 justify-content-center">
 			<div class="col-lg-12">
 				<h2>Dates</h2>
 			</div>
 		</div>
-		<div class="row d-flex ptop-30">
+		<div class="row d-flex">
 			
-					<% if $Dates.Count > 1 %>
+					<% if $Dates.Count > 0 %>
 					
 						<% loop $Dates.Limit(6) %>
-						<div class="date-tile col-lg-2">
+						<div class="date-tile col-md-2">
 
 							<p><% include DateTimesList %></p>
 
@@ -66,22 +66,22 @@
 			
 		</div>
 
-		<div class="row d-flex ptop-30 justify-content-center">
+		<div class="row d-flex ptop-100 justify-content-center">
 
-			<div class="col-lg-4">
+			<div class="col-md-10">
 				<% with $Venue %>
 					<% if $Address %>
 					<div class="map-header">
 						<h2> Location </h2>
 					</div>
 				</div>
-			<div class="col-lg-8">
+			<div class="col-md-2">
 
 				<p class="venue-nav">
 					<% with $Venue %>
-						<% if $Address %>
-							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions<i class="fas fa-external-link-alt"></i></a>
-						<% end_if %>
+						
+						<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions<i class="fas fa-external-link-alt"></i></a>
+		
 					<% end_with %>
 					</p>
 					</div>
@@ -89,7 +89,7 @@
 
 
 				<%-- This is broken--%>
-			<div class="row d-flex ptop-30 justify-content-center">
+			<div class="row d-flex justify-content-center">
 				
 				<div class="col-lg-12">
 						<div class="map-container">
@@ -97,7 +97,7 @@
 
 								data-link="$Link"
 							 <% if $Latitude && $Longitude %> 
-							 	data-lat="$Latitude" data-lng="$Longitude"  
+							 	data-lat="$Latitude" data-lng="$Longitude" %>  
 							 	
 							 	<% else %> 
 							 	

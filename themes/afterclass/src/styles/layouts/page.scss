@@ -2,6 +2,16 @@
 .ptop-30{
 	padding-top: 30px;
 }
+
+.ptop-60{
+	padding-top: 60px;
+}
+.ptop-80{
+	padding-top: 80px;
+}
+.ptop-100{
+	padding-top: 100px;
+}
 .card__banner-img{
     display: block;
     position: absolute;
@@ -23,6 +33,13 @@ hr{
 	border-color: #666;
 }
 .date-tile{
-	background-color: grey;
+	background-color: black;
+	font-weight: bold;
 	margin: 10px 10px;
+	padding-top:15px;
+	padding-left:15px;
+	color:lightgrey;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
