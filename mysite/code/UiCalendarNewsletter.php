@@ -8,6 +8,9 @@ class UiCalendarNewsletter extends Page {
 
 	private static $db = array(
 
+		'HeaderText' => 'HTMLText',
+		'FooterText' => 'HTMLText',
+
 		'Event1' => 'Int',
 		'Event2' => 'Int',
 		'Event3' => 'Int',
@@ -59,6 +62,13 @@ class UiCalendarNewsletter extends Page {
 		$fields->removeByName('Metadata');
 		$fields->removeByName('LayoutType');
 		$fields->removeByName('BackgroundImage');
+
+
+		//$fields->addFieldToTab('Root.Main', new TextField('HeaderText'));
+	$fields->addFieldToTab('Root.Main', HTMLEditorField::create('HeaderText')->setRows(3)->addExtraClass('stacked'));
+		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('FooterText')->setRows(3)->addExtraClass('stacked'));
+	
+
 		$events = $calendar->EventList();
 
 		if ($events->First()) {
