@@ -29,7 +29,7 @@ use SilverStripe\ORM\DataExtension;
 			$fields->removeByName('GeneralInterestFilterID');
 			$fields->removeByName('KeywordFilterID');
 			$fields->removeByName('LayoutType');
-			$fields->removeByName('Content');
+			// $fields->removeByName('Content');
 			$fields->removeByName('YoutubeBackgroundEmbed');
 
 			return $fields;

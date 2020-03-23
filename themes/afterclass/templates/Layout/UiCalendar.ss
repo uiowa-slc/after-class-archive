@@ -1,5 +1,10 @@
 <% include Header %>
 <div class="container-fluid">
+	<% if $Content %>
+	<div class="calendar-content">
+		$Content
+	</div>
+	<% end_if %>
 	<% if $action != "index" %>
 		<h1 class="filter-header">$FilterHeader</h1>
 	<% end_if %>
