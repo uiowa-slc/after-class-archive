@@ -1,6 +1,6 @@
 <% include Header %>
 <div class="container-fluid">
-	<% if $Content %>
+	<% if $action != "canceled" && $Content %>
 	<div class="calendar-content">
 		$Content
 	</div>
