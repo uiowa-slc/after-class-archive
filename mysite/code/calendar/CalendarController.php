@@ -7,6 +7,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
+use SilverStripe\Control\Email\Email;
 
 class CalendarController extends PageController{
 
@@ -80,22 +81,21 @@ class CalendarController extends PageController{
         ];
 
 
-        // $email = new Email(); 
+        $email = new Email(); 
          
-        // $email->setTo('dustin-quam@uiowa.edu'); 
-        // $email->setFrom($data['Email']); 
-        // $email->setSubject("Contact Message from {$data["Name"]}"); 
+        $email->setTo('dustin-quam@uiowa.edu'); 
+        $email->setFrom($data['Email']); 
+        $email->setSubject("[Social Calendar Submission] A link was submitted"); 
          
-        // $messageBody = " 
-        //     <p><strong>Name:</strong> {$data['Name']}</p> 
-        //     <p><strong>Message:</strong> {$data['Message']}</p> 
-        // "; 
-        // $email->setBody($messageBody); 
-        // $email->send(); 
-        // return [
-        //     'Content' => '<p>Thank you for your feedback.</p>',
-        //     'Form' => ''
-        // ];
+        $messageBody = " 
+            <p><strong>Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>
+        "; 
+        $email->setBody($messageBody); 
+        $email->send(); 
+        return [
+            'Content' => '<p>Thank you for your feedback.</p>',
+            'Form' => ''
+        ];
     }
 	public function ics() {
 		//echo 'hello';
