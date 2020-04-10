@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteRule ^(.*)$ public/$1
 php_value memory_limit 2G
+php_value error_reporting 2039
