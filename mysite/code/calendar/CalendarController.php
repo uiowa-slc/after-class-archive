@@ -75,10 +75,6 @@ class CalendarController extends PageController{
 
     	$newEvent->write();
 
-        return [
-            'Content' => '<p>Thank you for submitting your event!</p>',
-            'Form' => ''
-        ];
 
 
         $email = new Email(); 
@@ -93,9 +89,10 @@ class CalendarController extends PageController{
         $email->setBody($messageBody); 
         $email->send(); 
         return [
-            'Content' => '<p>Thank you for your feedback.</p>',
+            'Content' => '<p>Thank you for submitting your event!</p>',
             'Form' => ''
         ];
+
     }
 	public function ics() {
 		//echo 'hello';
