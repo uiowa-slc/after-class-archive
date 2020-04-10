@@ -9,3 +9,8 @@ SilverStripe\View\SSViewer:
     - 'afterclass'
     - 'md/division-project'
     - '$default'
+SilverStripe\Core\Injector\Injector:
+  Psr\SimpleCache\CacheInterface.socialCalendarCache:
+    factory: SilverStripe\Core\Cache\CacheFactory
+    constructor:
+      namespace: "socialCalendarCache"

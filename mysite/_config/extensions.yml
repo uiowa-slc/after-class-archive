@@ -1,3 +1,11 @@
-UiCalendar:
+---
+Name: after-class-extensions
+---
+iCalendar:
   extensions:
     - UiCalendarExtension
+Calendar:
+  extensions:
+    - SilverStripe\Lumberjack\Model\Lumberjack
+CalendarEvent:
+  show_in_sitetree: false

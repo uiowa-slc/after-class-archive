@@ -19,7 +19,14 @@ class Page extends SiteTree implements StaticallyPublishable {
 	private static $has_one = array(
 
 	);
+	public function getCMSFields(){
+		$fields = parent::getCMSFields();
 
+		
+
+		return $fields;
+
+	}
     public static function NewsletterFormShortCodeHandler($arguments,$caption= null,$parser = null) {
 		//get our template
 		$template = new SSViewer('NewsletterForm');

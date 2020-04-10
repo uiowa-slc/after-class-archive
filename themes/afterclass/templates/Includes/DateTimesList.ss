@@ -1,4 +1,4 @@
-<% if $StartDateTime %>
+<% if $StartDateTime != "" %>
 <% with $StartDateTime %>
 	
 	<a href="$Up.Link" class="date-link">
@@ -6,12 +6,12 @@
 			$Format(EEEE), $Format(MMMM d)</span></a><% if not $Up.AllDay %>,<% end_if %><% if not $Up.AllDay %> $Format("h:mm a")<% end_if %>
 <% end_with %>
 <% end_if %>
-<% if $EndTime %>
+<% if $EndTime != "" %>
 	<% with $EndTime %>
 		- $Format("h:mm a")
 	<% end_with %>
 <% end_if %>
-<% if $EndDateTime %>
+<% if $EndDateTime != "" %>
 	until
 	<% with $EndDateTime %>
 			<time itemprop="endDate" datetime="$Rfc3339">
