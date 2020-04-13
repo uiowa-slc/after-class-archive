@@ -79,13 +79,13 @@ class CalendarController extends PageController{
 
         $email = new Email(); 
          
-        $email->setTo('dustin-quam@uiowa.edu'); 
+        $email->setTo('dustin-quam@uiowa.edu, quamsta@gmail.com, imu-web@uiowa.edu'); 
         $email->setSubject("[Social Calendar Submission] A link was submitted"); 
-         
+         //TODO: Show some of the newly parsed link data in the email below:
         $messageBody = " 
-            <p><strong>Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a><br />
+            <p><strong>Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>
 
-            <a href=\"".$this->AbsoluteLink('add')."\">Publish or remove by editing this entry on After Class</a>
+            <p><a href=\"".$this->AbsoluteLink('add')."\">Publish or remove by editing this entry on After Class</a>
             </p>
 
         "; 
