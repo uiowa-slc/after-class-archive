@@ -8,8 +8,10 @@
 			<article>
 
 				<% if $SocialImageUrl %>
-					<img class="float-right p-2 d-sm-block d-lg-none w-50 mb-2 lazyload" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." data-aspectratio="1" />
+				<div class = "float-right p-2  w-50 mb-2 d-sm-block d-lg-none">
+					<img class="lazyload" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." data-aspectratio="1" />
 					<p><a href="$SocialAuthorUrl" target="_blank" rel="noopener">@$SocialAuthorName</a></p>
+				</div>
 				<% end_if %>
 
 				<h1>$Title</h1>
@@ -44,7 +46,7 @@
 					<% end_if %>
 					</p>
 				<% end_if %>
-				<div class="content">$Content</div>
+				<div class="content">$SocialCaption</div>
 				<% if $DateTimes.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>
@@ -102,7 +104,7 @@
 
 				<% end_if %>
 			<% end_if %>
-				<p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. 
+				<p style="border-top: solid 1px #666; margin-top: 10px; padding-top: 10px;"><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. 
 
 				<% if $ContactName %>
 
@@ -134,9 +136,9 @@
 				 	<% if $SocialImageUrl %>
 				 		<a class="d-block" href="$SocialLink" target="_blank" rel="noopener">
 							<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." />
-							<% if $SocialCaption %>
+<%-- 							<% if $SocialCaption %>
 							<p>$SocialCaption.LimitCharacters(100)</p>
-							<% end_if %>
+							<% end_if %> --%>
 							<p>@$SocialAuthorName</p>
 						</a>
 					<% end_if %>

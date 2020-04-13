@@ -1,16 +1,32 @@
-<div class="card masonry-grid-item" itemscope="" itemtype="http://data-vocabulary.org/Event">
-	<a href="https://afterclass.uiowa.edu/events/event/51411"><img class="card-img-top lazyload" src="https://scontent-ort2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92411816_1122502441440694_6526848001030778401_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com&_nc_cat=110&_nc_ohc=x8Ab-Lx4ljQAX9LW012&oh=0371bed7a22b950311887bc689017edc&oe=5EB9227F" 
- data-aspectratio="1"></a>
+<div class="card mb-3" itemscope="" itemtype="http://data-vocabulary.org/Event">
+
 	<div class="card-body">
-		<h3 class="card-title">
-			<a href="https://afterclass.uiowa.edu/events/event/51411" itemprop="url">
-				<span itemprop="summary">Koru Mindfulness for College Students -Session full</span>
-			</a>
-		</h3>
-		<div class="card-text"><p class="card-subtitle">
-			<a href="/events/show/2020-04-08"><span itemprop="startDate" datetime="2020-04-08T19:00:00-05:00">Apr 8, 7:00 PM</span></a>	
-			<a href="https://afterclass.uiowa.edu/events/event/51411"> | more dates</a>
-		</p>Koru Mindfulness®&nbsp;is an evidence-based curriculum specifically designed for teaching mindfulness, meditation, and stress management to college students and other young adults.</div>
+
+		<div class="row">
+
+			<div class="col-lg-5">
+				<h3 class="card-title">
+					<a href="$Link" itemprop="url">
+						<span itemprop="summary">$Title</span>
+					</a>
+				</h3>
+				<div class="card-text">
+					<% if $DateTimes %>
+						<% loop $DateTimes %>
+							<% include DateTimesList %>
+						<% end_loop %>
+					<% end_if %>
+					$SocialCaption.Summary(30)
+				</div>
+			</div>
+
+			<div class="col-lg-7">
+				<a href="$Link"><img class="d-block lazyload w-100" src="$SocialImageUrl" 
+ data-aspectratio="1"></a>
+			</div>
+
+		</div>
+
 	</div>
 </div>
 <%--  <div class="card masonry-grid-item" itemscope itemtype="http://data-vocabulary.org/Event">

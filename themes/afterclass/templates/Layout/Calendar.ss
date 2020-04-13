@@ -1,14 +1,14 @@
 <% include Header %>
-<div class="container-fluid">
+<div class="container" style="max-width: 800px;">
 	<div class="calendar-content">
 		$Content
 	</div>
 
-	<ul>
+	
 		<% loop $Children %>
-			<li><a href="$Link">$ID: - Social link is $SocialLink ; Social type is: $SocialType</a></li>
+			<% include SocialCard %>
 		<% end_loop %>
-	</ul>
+
 
 
 	</div>
