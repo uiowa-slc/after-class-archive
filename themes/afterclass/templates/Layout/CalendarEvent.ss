@@ -9,7 +9,7 @@
 
 				<% if $SocialImageUrl %>
 				<div class = "float-right p-2  w-50 mb-2 d-sm-block d-lg-none">
-					<img class="lazyload" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." data-aspectratio="1" />
+					<img class="lazyload w-100 d-block" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." data-aspectratio="1" />
 					<p><a href="$SocialAuthorUrl" target="_blank" rel="noopener">@$SocialAuthorName</a></p>
 				</div>
 				<% end_if %>
