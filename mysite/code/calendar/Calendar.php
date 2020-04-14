@@ -4,8 +4,14 @@ use SilverStripe\Lumberjack\Model\Lumberjack;
 use SilverStripe\Forms\FieldList; 
 use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\TagField\TagField;
+
 
 class Calendar extends Page {
+
+	private static $many_many = array(
+		'EmailRecipients' => 'CalendarEmailRecipient'
+	);
 
 	private static $allowed_children = array (
 		'CalendarEvent'
@@ -52,6 +58,13 @@ class Calendar extends Page {
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
+		$fields->removeByName('LayoutType');
+		$fields->removeByName('BackgroundImage');
+		$fields->removeByName('Blocks');
+		$fields->removeByName('MenuTitle');
+		$fields->removeByName('MetaData');
+		$fields->removeByName('Widgets');
+		$fields->removeByName('SocialMediaSharing');
 
 		$grid = $fields->dataFieldByName('ChildPages');
 		$config = $grid->getConfig();
@@ -78,6 +91,16 @@ class Calendar extends Page {
 		$contentField = $fields->dataFieldByName('Content');
 		$contentField->setRows(3);
 		// $fields->removeByName("Content");
+
+		$fields->addFieldToTab('Root.EmailRecipients', TagField::create(
+			'EmailRecipients',
+			'Notify these email addresses when events are submitted:',
+			CalendarEmailRecipient::get(),
+			$this->EmailRecipients(),
+			'EmailAddress'
+		)
+		->setShouldLazyLoad(false) // tags should be lazy loaded
+		->setCanCreate(true));
 
 		return $fields;
 	}
