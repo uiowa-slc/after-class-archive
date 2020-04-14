@@ -106,7 +106,7 @@ class CalendarController extends PageController{
 	        $messageBody = " 
 	            <p><strong>Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>
 
-	            <p><a href=\"admin/pages/edit/show/'".$newEvent->ID."\">Publish or remove by editing this entry on After Class</a>
+	            <p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">Publish or remove by editing this entry on After Class</a>
 	            </p>
 
 	        "; 
