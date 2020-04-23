@@ -1,6 +1,6 @@
 <div class="social-card mb-3" itemscope="" itemtype="http://data-vocabulary.org/Event">
 	<div class="social-card-body">
-		<a href="$SocialLink" target="_blank" rel="noopener"><img class="d-block lazyload w-100" src="$SocialImageUrl" 
+		<a href="$Link" target="_blank" rel="noopener"><img class="d-block lazyload w-100" src="$SocialImageUrl" 
 	data-aspectratio="1" style="border-radius: 4px;"></a>
 <%-- 		<h3 class="social-card-title" style="font-size: 18px;">
 			<a href="$Link" itemprop="url">
