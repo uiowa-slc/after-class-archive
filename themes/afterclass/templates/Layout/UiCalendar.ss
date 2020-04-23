@@ -27,7 +27,7 @@
 				<div class="social-carousel">
 					<% loop $SocialEventList %>
 						<div class="carousel-cell">
-							$SocialCardHTML
+							$SocialCardHTML("small")
 						</div>
 					<% end_loop %>
 				</div>
