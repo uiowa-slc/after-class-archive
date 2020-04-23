@@ -5,34 +5,54 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Forms\CheckboxField;
 
-	class UiCalendarExtension extends DataExtension {
-		private static $db = array(
+class UiCalendarExtension extends DataExtension {
+	private static $db = array(
+		'ShowSocialCalendar' => 'Boolean'
+
+	);
+	private static $has_one = array(
 		
 
-		);
-		private static $has_one = array(
-			
+	);
+	private static $belongs_many_many = array(
+	
+	);
 
-		);
-		private static $belongs_many_many = array(
-		
-		);
-
-		public function updateCMSFields(FieldList $fields){
+	public function updateCMSFields(FieldList $fields){
 
 
-			$fields->removeByName('BackgroundImage');
-			$fields->removeByName('EventTypeFilterID');
-			$fields->removeByName('DepartmentFilterID');
-			$fields->removeByName('VenueFilterID');
-			$fields->removeByName('GeneralInterestFilterID');
-			$fields->removeByName('KeywordFilterID');
-			$fields->removeByName('LayoutType');
-			// $fields->removeByName('Content');
-			$fields->removeByName('YoutubeBackgroundEmbed');
+		$fields->removeByName('BackgroundImage');
+		$fields->removeByName('EventTypeFilterID');
+		$fields->removeByName('DepartmentFilterID');
+		$fields->removeByName('VenueFilterID');
+		$fields->removeByName('GeneralInterestFilterID');
+		$fields->removeByName('KeywordFilterID');
+		$fields->removeByName('LayoutType');
+		// $fields->removeByName('Content');
+		$fields->removeByName('YoutubeBackgroundEmbed');
+		$fields->addFieldToTab('Root.Main' , new CheckboxField('ShowSocialCalendar','Show the social media calendar?'), 'Content');
+		return $fields;
 
-			return $fields;
+	}
+
+	public function SocialEventList(){
+		$eventList = new ArrayList();
+		$calendar = Calendar::get()->First();
+		if($calendar){
+			$eventList = $calendar->EventList();
+		}
+
+		// print_r($eventList);
+
+		return $eventList;
+	}
+
+	//Combines the event list
+	public function CombinedEventList(){
+
 
 	}
 

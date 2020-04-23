@@ -1,4 +1,5 @@
 <% include Header %>
+
 <div class="container" style="max-width: 800px;">
 
 	<% if $Action == "index" %>
@@ -8,9 +9,9 @@
 	<% end_if %>
 
 	
-		<% loop $Children %>
-			<% include SocialCard %>
-		<% end_loop %>
+	<% loop $EventList %>
+		$SocialCardHTML
+	<% end_loop %>
 
 
 

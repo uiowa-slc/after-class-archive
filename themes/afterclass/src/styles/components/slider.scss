@@ -1,0 +1,21 @@
+.social-carousel__container{
+	background: #111;
+	padding: 5px;
+}
+
+
+.carousel-cell {
+	width: 50%;
+
+	@include media-breakpoint-up(sm){
+		width: 50%;
+	}
+	@include media-breakpoint-up(md){
+		width: 33.3%;
+
+	}
+	@include media-breakpoint-up(lg) {
+	    width: 20%; /* half-width */
+	}
+	margin-right: 10px;
+}

@@ -19,15 +19,47 @@
 }
 .card-subtitle{
     color: #ccc;
+    font-size: 14px;
+    text-transform:uppercase;
+    font-family: $headings-font-family;
     a{
         color: lighten($gold, 30);
     }
+}
+
+.card-footer{
+
+
+
+}
+
+.fa-instagram{
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-twitter{
+    color: #00acee;
+}
+
+.event-footer{
+    font-size: 14px;
+    font-family: $headings-font-family;
+    a{
+        color: white;
+    }
+
 }
 .event-card{
     display: block;
     position: relative;
     margin:10px 5px;
 }
+
+
 .card-columns {
     @include media-breakpoint-up(sm) {
         column-count: 2;

@@ -18,3 +18,4 @@ maintenance-mode/
 staticlog.log
 buildlog.log
 /.tmp
+nocaptcha.yml

@@ -16,7 +16,9 @@ import pkg from './package.json';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-
+browserSync.init({
+    proxy: "http://localhost:8888/after-class",
+});
 
 // Lint JavaScript
 function lint(){
@@ -35,7 +37,8 @@ function images(){
       interlaced: true
     }))
     .pipe(gulp.dest('./themes/afterclass/dist/images'))
-    .pipe($.size({title: './themes/afterclass/dist/images'}));
+    .pipe($.size({title: './themes/afterclass/dist/images'}))
+    .pipe(browserSync.stream());
 }
 
 
@@ -96,7 +99,8 @@ function styles(){
     .pipe($.if('*.css', $.postcss(plugins)))
     .pipe($.size({title: 'styles'}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./themes/afterclass/dist/styles'));
+    .pipe(gulp.dest('./themes/afterclass/dist/styles'))
+    .pipe(browserSync.stream());
 };
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -114,9 +118,11 @@ function scripts(){
       './node_modules/@fortawesome/fontawesome-free/js/regular.js',
       './node_modules/lazysizes/lazysizes.js',
       './node_modules/lazysizes/plugins/aspectratio/ls.aspectratio.js',
-      // './node_modules/flickity/dist/flickity.pkgd.js',
+      './node_modules/flickity/dist/flickity.pkgd.js',
       './node_modules/magnific-popup/dist/jquery.magnific-popup.js',
       './node_modules/isotope-layout/dist/isotope.pkgd.js',
+      './node_modules/better-dom/dist/better-dom.js',
+      // './node_modules/better-dateinput-polyfill/dist/better-dateinput-polyfill.js',
       './themes/afterclass/src/scripts/app.js',
 
     ])
@@ -125,11 +131,12 @@ function scripts(){
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
       .pipe($.concat('main.min.js'))
-      .pipe($.uglify())
+      //.pipe($.uglify())
       // Output files
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('./themes/afterclass/dist/scripts'));
+      .pipe(gulp.dest('./themes/afterclass/dist/scripts'))
+      .pipe(browserSync.stream());
 };
 
 
@@ -139,7 +146,7 @@ function clean(){
 }
 
 function watch(){
-
+  gulp.watch(['./themes/afterclass/templates/**/*.ss'], gulp.series(reload));
   gulp.watch(['./themes/afterclass/src/styles/**/*.{scss,css}'], gulp.series(styles));
   gulp.watch(['./themes/afterclass/src/scripts/**/*.js'], gulp.series(lint, scripts));
   gulp.watch(['./themes/afterclass/src/images/**/*'], gulp.series(images));

@@ -8,15 +8,14 @@
 			<article>
 
 				<% if $SocialImageUrl %>
-				<div class = "float-right p-2  w-50 mb-2 d-sm-block d-lg-none">
-					<img class="lazyload w-100 d-block" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." data-aspectratio="1" />
-					<p><a href="$SocialAuthorUrl" target="_blank" rel="noopener">@$SocialAuthorName</a></p>
+				<div class = "p-2  w-50 mb-2 mr-auto ml-auto d-sm-block d-lg-none">
+					$SocialCardHTML("full")
 				</div>
 				<% end_if %>
 
 				<h1>$Title</h1>
 
-				<% if $DateTimes || $Venue || $Location %>
+				<% if $DateTimes || $Venue || $Location || $OnlineLocationUrl %>
 				<p>
 					<% if $DateTimes.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
 						<% if $DateTimes %>
@@ -29,7 +28,7 @@
 						<% end_if %>
 
 
-					<% if $Venue.Title || $Location %>
+					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
 					<strong> Location: </strong>
 						<span itemprop="location">
 							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
@@ -43,10 +42,17 @@
 								<% end_with %>
 							<% end_if %>
 						</span>
+	
 					<% end_if %>
 					</p>
+					<% if $OnlineLocationUrl %>
+							<p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link</a></p>
+						<% end_if %>
 				<% end_if %>
-				<div class="content">$SocialCaption</div>
+
+				<% if $SocialType == "Instagram" %>
+					<div class="content">$SocialCaption</div>
+				<% end_if %>
 				<% if $DateTimes.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>
@@ -129,20 +135,17 @@
 		<div class="col-lg-4">
 			<div class="sticky-side">
 
-			 	
+				<div class="d-none d-lg-block">
 					<% if $IsLateNight %>
 				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
-				 	<% if $SocialImageUrl %>
-				 		<a class="d-block" href="$SocialLink" target="_blank" rel="noopener">
-							<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$SocialImageUrl" alt="Poster for this event. Please read the event description for more information." />
-<%-- 							<% if $SocialCaption %>
-							<p>$SocialCaption.LimitCharacters(100)</p>
-							<% end_if %> --%>
-							<p>@$SocialAuthorName</p>
-						</a>
+				 	<% if $SocialLink %>
+				 		
+				 		$SocialCardHTML("small")
+
+					
 					<% end_if %>
-				
+				</div>
 				<% with $Venue %>
 					<% if $Address %>
 						<div class="map-container">

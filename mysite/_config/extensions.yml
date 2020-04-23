@@ -1,7 +1,7 @@
 ---
 Name: after-class-extensions
 ---
-iCalendar:
+UiCalendar:
   extensions:
     - UiCalendarExtension
 Calendar:

@@ -32,10 +32,12 @@
     <link rel="icon" type="image/png" href="$resourceURL('themes/afterclass/dist/favicons/favicon-192x192.png')" sizes="192x192">
     <link rel="mask-icon" href="$resourceURL('themes/afterclass/dist/favicons/safari-pinned-tab.svg')" color="#000000">
     <link rel="shortcut icon" href="$resourceURL('themes/afterclass/dist/favicons/favicon.ico')">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
     <meta name="msapplication-config" content="$resourceURL('themes/afterclass/dist/favicons/browserconfig.xml')">
     <meta name="theme-color" content="#000000">
 
-
+    <meta name="twitter:widgets:theme" content="dark">
+    <meta name="twitter:widgets:border-color" content="#000000">
 
     <script type="text/javascript" src="https://use.typekit.com/ggu1mkb.js"></script>
     <link rel="stylesheet" href="{$ThemeDir}/dist/styles/main.css">
@@ -50,7 +52,10 @@
     <% include Footer %>
     <%-- $BetterNavigator --%>
     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDrwOxlXCSTCf6WWywio2KZfZkbpmya5X8"></script>
+
+
     <script src="{$ThemeDir}/dist/scripts/main.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     $Analytics
   </body>

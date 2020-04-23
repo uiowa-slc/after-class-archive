@@ -13,29 +13,41 @@
         <header role="banner">
             <!--Navbar-->
             <nav class="navbar navbar-expand-lg navbar-dark">
-              <a class="navbar-brand d-lg-none" href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
-                 <img class="brand-image" src="$ThemeDir/dist/images/brand-full.png"/>
-              </a>
+                <a class="navbar-brand d-lg-none" href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
+                    <img class="brand-image" src="$ThemeDir/dist/images/brand-full.png"/>
+                </a>
                 <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                  aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Collapsible content -->
                 <div class="collapse navbar-collapse justify-content-center " id="basicExampleNav">
                     <!-- Links -->
                     <ul class="navbar-nav">
-                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/">Calendar</a></li>
-                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/interest/7491/">Late Night</a></li>
-                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/show/today/">Today</a></li>
-                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/show/weekend/">Weekend</a></li>
-                        <% loop $Menu(1) %>
-                            <% if not $First %>
-                                <li class="nav-item mr-4 $LinkingMode nav-item<% if $isCurrent || $isSection %> active<% end_if %>"><a class="nav-link nav-link--large" href="$Link" title="$Title.XML">$MenuTitle.XML</a></li>
-                            <% end_if %>
-                        <% end_loop %>
+                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/"><i class="fa fa-calendar"></i> Calendar</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/interest/7491/"><i class="fa fa-moon"></i> Late Night</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/today/"><i class="fa fa-clock"></i> Today</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/weekend/"><i class="fa fa-calendar-week"></i> Weekend</a></li>
+ 
+                        <li class="nav-item mr-3 link nav-item">
+                            <a class="nav-link nav-link--large" href="social-calendar/add/" title="Add Your Event">
+                                <i class="fa fa-plus-circle"></i>
+                            Add Your Event</a>
+                        </li>
+                        
+                        <li class="nav-item mr-3 link nav-item">
+                            <a class="nav-link nav-link--large" href="about-after-class/" title="About After Class">
+                            About</a>
+                        </li>
+                        
+                        <li class="nav-item mr-3 link nav-item">
+                            <a class="nav-link nav-link--large" href="https://md.studentlife.uiowa.edu/clients/event-promotion-best-practices" title="Promote">
+                            Promote</a>
+                        </li>
+
                     </ul>
                 </div>
-              <!-- Collapsible content -->
+                <!-- Collapsible content -->
             </nav>
         </header>
     </div>

@@ -1,0 +1,50 @@
+.alert p{
+	margin-bottom: 0;
+}
+
+label{
+	font-family: $headings-font-family;
+	font-weight: bold;
+
+	&.readonly{
+		font-size: 16px;
+		font-weight: normal;
+		color: #ccc;
+	}
+}
+
+form{
+	padding: 20px;
+	background: #333;
+	border-radius: 4px;
+}
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon, .ui-button:hover .ui-icon, .ui-button:focus .ui-icon{
+
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus{
+	background: #333;
+	border-color: #666;
+}
+.ui-widget-header{
+	border: none;
+	background: none;
+	color: #ccc;
+}
+
+.ui-widget-content{
+	background: #000;
+	border: none;
+}
+
+.ui-widget.ui-widget-content{
+	border: none;
+	color: white;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default{
+	background: #222;
+	border: none;
+	border-radius: 2px;
+	color: $yellow;
+}

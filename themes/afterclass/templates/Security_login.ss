@@ -50,7 +50,8 @@
 <div class="container">
 <div class="col-sm content" role="main">
     <div class="row justify-content-md-center">
-        <div class="col-md-8 col-lg-6">
+        <div class="col-md-8 col-lg-6 pt-5 pb-5">
+            <h1>$Title</h1>
             $Content
             $Form
         </div>

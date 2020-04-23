@@ -5,7 +5,10 @@ use SilverStripe\Core\Injector\Injector;
 class SocialParseHelper {
 
 	public static function getJson($url){
+
 		$safeUrl = SocialParseHelper::safe_filename($url);
+
+
 		$cache = Injector::inst()->get(CacheInterface::class . '.socialCalendarCache');
 
 		if (!$cache->has($safeUrl)) {
@@ -16,8 +19,11 @@ class SocialParseHelper {
 			$json = @file_get_contents($url);
 		    $cache->set($safeUrl, $json);
 		}else{
+
 			$json = $cache->get($safeUrl);
-		}			
+			
+		}		
+
 		return $json;
 	}
 

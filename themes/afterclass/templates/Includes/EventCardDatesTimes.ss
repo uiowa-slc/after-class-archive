@@ -1,4 +1,4 @@
-<p class="card-subtitle">
+<p class="card-subtitle text-uppercase">
 	<% if $Dates %>
 		<% loop $Dates.Limit(1) %>
 			<% with $StartDateTime %>

@@ -7,7 +7,6 @@ SilverStripe\View\SSViewer:
   themes:
     - '$public'
     - 'afterclass'
-    - 'md/division-project'
     - '$default'
 SilverStripe\Core\Injector\Injector:
   Psr\SimpleCache\CacheInterface.socialCalendarCache:

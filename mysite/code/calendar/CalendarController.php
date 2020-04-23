@@ -3,12 +3,19 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Control\HTTPResponse;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Security\Security;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Security\Permission;
 class CalendarController extends PageController{
 
 	private static $allowed_actions = array(
@@ -45,44 +52,108 @@ class CalendarController extends PageController{
 	}
 
 	public function AddForm(){ 
-
+		$exampleTimestamp = strtotime('+2 Weeks');
+		$exampleDateString = date('m-d-Y', $exampleTimestamp);
         $fields = new FieldList( 
-            new TextField('SocialLink')
+            new TextField('SocialLink', 'Social media link:'),
+            new LiteralField('SocialLinkInfo', '<label class="readonly">We currently support links from <i class="fab fa-twitter"></i> Twitter and <i class="fab fa-instagram"></i> Instagram </label>'),
+            DateField::create('Expires', 'Expiry date (optional):'),
+
+            new LabelField('ExpiresLabel', 'We\'ll show this post on After Class until the date above. Usually this would be the day after the event. If unsure, please leave this field blank.')
         ); 
         $actions = new FieldList( 
             new FormAction('submit', 'Submit') 
         ); 
-        return new Form($this, 'AddForm', $fields, $actions); 
+
+        $form = new Form($this, 'AddForm', $fields, $actions);
+
+
+		if (!Permission::check('CMS_ACCESS')) {
+		    $form->enableSpamProtection();
+		}
+
+        
+
+        return $form; 
     }
 
     public function submit($data, $form) { 
 
-    	$existingLinkCheck = CalendarEvent::get()->filter(array('SocialLink' => $data['SocialLink']))->First();
+    	$link = $data['SocialLink'];
 
-    	if($existingLinkCheck){
+    	$existingLinkCheck = CalendarEvent::get()->filter(array('SocialLink' => $link))->First();
+
+    	//commenting out so that i can submit duplicate links as much as I WANT TO.
+    	// if($existingLinkCheck){
+
+	    //    	$data = new ArrayData(array(
+	    //         	'Alert' => '<div class="alert alert-failure">Sorry, this social media link has already been submitted.</div>',
+	    //         	'Form' => ''
+	    //     ));
+
+	    //     return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
+
+    	// }
+
+
+    	//Check for invalid link:
+    	if (filter_var($link, FILTER_VALIDATE_URL) === false) {
+	       	$data = new ArrayData(array(
+	            	'Alert' => '<div class="alert alert-warning">Sorry, this is not a valid link.</div>',
+	            	'Form' => ''
+	        ));
+
+	        return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
+		}
+
+		//Check for invalid domain in link:
+		$parsedLink = parse_url($link);
+
+		$validDomains = array('instagram.com', 'www.instagram.com', 'twitter.com', 'www.twitter.com');
+		
+
+		if(!in_array($parsedLink['host'], $validDomains)){
 
 	       	$data = new ArrayData(array(
-	            	'Content' => '<p>Sorry, this social media link has already been submitted.</p>',
+	            	'Alert' => '<div class="alert alert-warning">Sorry, we are currently only accepting Instagram and Twitter posts.</div>',
 	            	'Form' => ''
 	        ));
 
 	        return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
 
-    	}
+		}
+
+		//print_r($parsedLink);
+
+
+
 
     	$newEvent = CalendarEvent::create();
     	$newEvent->ParentID = $this->ID;
 
+
     	$formData = $form->getData();
+
+    	//TODO better default title than "Untitled Event"
+    	//$newEvent->Title = '';
+
+    	// $newEvent->SocialLink = $formData['SocialLink'];
+    	// $newEvent->Expires = strtotime('Y-m-d', $formData['Expires']);
+
 
     	$form->saveInto($newEvent);
 
     	$newEvent->write();
 
+    	// print_r($formData);
+
+    	//parse dates after writing because we need the event id to create date objects
+    	//$newEvent->parseMagicalDate($formData['MagicalDate']);
+
     	$this->sendNotificationEmail($data, $newEvent);
 
     	$data = new ArrayData(array(
-            	'Content' => '<p>Thank you for submitting your event!</p>',
+    			'Alert' => '<div class="alert alert-success" role="alert">'.$this->SubmissionThanks.'</div>',
             	'Form' => ''
         ));
 
@@ -114,6 +185,7 @@ class CalendarController extends PageController{
 	        $email->send(); 
     	}
     }
+
 
 	public function ics() {
 		//echo 'hello';

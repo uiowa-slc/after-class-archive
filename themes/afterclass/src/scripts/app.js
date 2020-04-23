@@ -100,6 +100,16 @@ function initialize() {
 	});
 }
 
+$('.social-carousel').flickity({
+  // options
+  cellAlign: 'left',
+  contain: true,
+  freeScroll: true,
+  adaptiveHeight: true,
+  wrapAround: true,
+  pageDots: false
+});
+
 window.onload = initialize();
 try {
     Typekit.load({
@@ -122,7 +132,10 @@ try {
     })
   } catch(e) {}
 
+
+
   
 $(document).ready(function() {
-
+         // Find any date inputs and override their functionality
+         $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd'});
 });

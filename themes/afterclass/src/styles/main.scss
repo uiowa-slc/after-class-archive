@@ -42,11 +42,15 @@
 
 /* Plugins
 -------------------------------------------*/
-//@import "flickity/css/flickity";
+@import "flickity/css/flickity";
 // @import "magnific-popup/src/css/main";
 @import "fa/fontawesome";
 @import "fa/solid";
-// @import "fa/brands";
+@import "fa/brands";
+
+
+
+
 /* Division Top Bar
 --------------------------------------------*/
 @import "uiowa-bar";
@@ -60,7 +64,9 @@
 @import "components/footer";
 @import "components/map";
 @import "components/related";
-
+@import "components/slider";
+@import "components/social-card";
+@import "components/forms";
 
 @import "layouts/calendar";
 @import "layouts/page";

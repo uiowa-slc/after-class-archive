@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "animate.css": "^3.7.2",
     "aos": "^2",
+    "better-dateinput-polyfill": "^3.3.0",
+    "better-dom": "^4.1.0",
     "bootstrap": "^4.3.1",
     "flickity": "^2.2.1",
     "imagesloaded": "^4.1.4",
