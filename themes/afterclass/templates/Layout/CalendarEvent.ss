@@ -141,7 +141,7 @@
 				 	<% end_if %>
 				 	<% if $SocialLink %>
 				 		
-				 		$SocialCardHTML("small")
+				 		$SocialCardHTML("full")
 
 					
 					<% end_if %>
