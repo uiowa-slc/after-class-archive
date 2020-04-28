@@ -32,6 +32,7 @@
 						<% end_if %>
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
 					<br />
+					<% if $Location %> 
 					<strong> In Person Location: </strong>
 						<span itemprop="location">
 							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
@@ -45,9 +46,9 @@
 								<% end_with %>
 							<% end_if %>
 						</span>
-	
 					<% end_if %>
-					
+					<% end_if %>
+				
 
 						</p>
 				<% end_if %>
