@@ -55,7 +55,11 @@
 				<%-- only show the caption on insta posts, twitter just includes the embed again --%>
 				<% if $SocialType == "Instagram" %>
 					<div class="content">
-						$SocialCaption
+						<% if $Content %>
+							$Content 
+						<% else %>
+							$SocialCaption
+						<% end_if %>
 					</div>
 				<% end_if %>
 				<% if $DateTimes.Count > 1 %>
