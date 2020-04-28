@@ -131,7 +131,7 @@ function scripts(){
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
       .pipe($.concat('main.min.js'))
-      //.pipe($.uglify())
+      .pipe($.uglify())
       // Output files
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))
