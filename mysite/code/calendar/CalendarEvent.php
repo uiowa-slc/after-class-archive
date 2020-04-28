@@ -27,6 +27,8 @@ class CalendarEvent extends Page {
 
 		'Expires' => 'Date',
 
+		'WebsiteLink' => 'Text'
+
 
 	);
 	private static $icon_class = 'font-icon-p-event-alt';
@@ -83,8 +85,9 @@ class CalendarEvent extends Page {
 
 		$fields->addFieldToTab('Root.Main', new TextField('SocialLink'), 'Content');
 		$fields->addFieldToTab('Root.Main', new ReadonlyField('SocialCaption'), 'Content');
-		$fields->addFieldToTab('Root.Main', new TextField( 'Location', 'Event Location'), 'Content');
-		$fields->addFieldToTab('Root.Main', new TextField( 'OnlineLocationUrl', 'Online Event Link'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField( 'OnlineLocationUrl', 'Online location (Zoom, Skype) Link'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField( 'Location', 'In person location'), 'Content');
+		
 		
 
 		$fields->addFieldToTab('Root.DatesAndTimes', DateField::create('Expires')->setHTML5(false)->setDateFormat('yyyy-MM-dd'), 'Expires on the following date:');

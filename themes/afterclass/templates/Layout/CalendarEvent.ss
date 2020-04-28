@@ -27,9 +27,12 @@
 								No upcoming dates. <br />
 						<% end_if %>
 
-
+					<% if $OnlineLocationUrl %>
+							<a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link</a>
+						<% end_if %>
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
-					<strong> Location: </strong>
+					<br />
+					<strong> In Person Location: </strong>
 						<span itemprop="location">
 							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
 							<% if $Venue.Title %>
@@ -44,10 +47,9 @@
 						</span>
 	
 					<% end_if %>
-					</p>
-					<% if $OnlineLocationUrl %>
-							<p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link</a></p>
-						<% end_if %>
+					
+
+						</p>
 				<% end_if %>
 
 				<% if $SocialType == "Instagram" %>
