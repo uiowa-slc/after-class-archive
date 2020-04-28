@@ -58,7 +58,7 @@
 						<% if $Content %>
 							$Content 
 						<% else %>
-							$SocialCaption
+							<p>$SocialCaption</p>
 						<% end_if %>
 					</div>
 				<% end_if %>
