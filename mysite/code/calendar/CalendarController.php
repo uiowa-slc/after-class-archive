@@ -16,6 +16,10 @@ use SilverStripe\Security\Security;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Security\Permission;
+use SilverStripe\Core\Injector\Injector;
+use Psr\Log\LoggerInterface;
+
+
 class CalendarController extends PageController{
 
 	private static $allowed_actions = array(
@@ -52,27 +56,28 @@ class CalendarController extends PageController{
 	}
 
 	public function AddForm(){ 
+		//print_r(Page::get_extensions());
 		$exampleTimestamp = strtotime('+2 Weeks');
 		$exampleDateString = date('m-d-Y', $exampleTimestamp);
         $fields = new FieldList( 
             new TextField('SocialLink', 'Social media link:'),
-            new LiteralField('SocialLinkInfo', '<label class="readonly">We currently support links from <i class="fab fa-twitter"></i> Twitter and <i class="fab fa-instagram"></i> Instagram </label>'),
+            new LiteralField('SocialLinkInfo', '<label class="readonly">We currently support links from <i aria-hidden="true" class="fab fa-twitter"></i> Twitter and <i aria-hidden="true" class="fab fa-instagram"></i> Instagram </label>'),
             DateField::create('Expires', 'Expiry date (optional):'),
 
             new LabelField('ExpiresLabel', 'We\'ll show this post on After Class until the date above. Usually this would be the day after the event. If unsure, please leave this field blank.')
         ); 
         $actions = new FieldList( 
-            new FormAction('submit', 'Submit') 
+            new FormAction('submit', 'Submit')
         ); 
 
-        $form = new Form($this, 'AddForm', $fields, $actions);
+       $form = new Form($this, 'AddForm', $fields, $actions);
 
 
 		if (!Permission::check('CMS_ACCESS')) {
 		    $form->enableSpamProtection();
 		}
 
-        
+         
 
         return $form; 
     }
@@ -108,10 +113,8 @@ class CalendarController extends PageController{
 
 		//Check for invalid domain in link:
 		$parsedLink = parse_url($link);
-
 		$validDomains = array('instagram.com', 'www.instagram.com', 'twitter.com', 'www.twitter.com');
 		
-
 		if(!in_array($parsedLink['host'], $validDomains)){
 
 	       	$data = new ArrayData(array(
@@ -125,40 +128,23 @@ class CalendarController extends PageController{
 
 		//print_r($parsedLink);
 
-
-
-
     	$newEvent = CalendarEvent::create();
     	$newEvent->ParentID = $this->ID;
 
-
     	$formData = $form->getData();
-
-    	//TODO better default title than "Untitled Event"
-    	//$newEvent->Title = '';
-
-    	// $newEvent->SocialLink = $formData['SocialLink'];
-    	// $newEvent->Expires = strtotime('Y-m-d', $formData['Expires']);
-
-
     	$form->saveInto($newEvent);
 
-    	$newEvent->write();
+    	$newEvent->writeToStage('Stage');
 
+    	//Injector::inst()->get(LoggerInterface::class)->debug('Query executed: ' . $sql);
     	// print_r($formData);
 
-    	//parse dates after writing because we need the event id to create date objects
-    	//$newEvent->parseMagicalDate($formData['MagicalDate']);
-
     	$this->sendNotificationEmail($data, $newEvent);
-
     	$data = new ArrayData(array(
     			'Alert' => '<div class="alert alert-success" role="alert">'.$this->SubmissionThanks.'</div>',
             	'Form' => ''
         ));
-
         return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
-     
 
     }
 

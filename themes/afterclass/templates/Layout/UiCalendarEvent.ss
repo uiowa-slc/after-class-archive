@@ -79,13 +79,13 @@
 				<% if $MoreInfoLink || $UiCalendarLink %>
 					<p>
 						<% if $MoreInfoLink %>
-							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank">Event Website <i class="fas fa-external-link-alt"></i></a>
+							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank">Event Website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 
 						<% if $UiCalendarLink %>
-								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
+								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI events calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
-						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i class="fas fa-calendar-alt"></i></a> --%>
+						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i aria-hidden="true" class="fas fa-calendar-alt"></i></a> --%>
 					</p>
 				<% end_if %>
 			<% if $ContactEmail %>
@@ -135,7 +135,7 @@
 					<% if $IsLateNight %>
 				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
-					<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" />
+					<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" style="background-color: white;" />
 				<% end_if %>
 				<% with $Venue %>
 					<% if $Address %>
@@ -162,7 +162,7 @@
 				<p class="venue-nav">
 					<% with $Venue %>
 						<% if $Address %>
-							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i class="fas fa-external-link-alt"></i></a>
+							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 					<% end_with %>
 				</p>

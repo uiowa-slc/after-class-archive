@@ -3,15 +3,15 @@
 
 <div class="container" role="main">
 
-	<div class="row d-flex ptop-30 justify-content-center">
+	<div class="row ptop-30 justify-content-center">
 		<div class="col-lg-8">
 			<article>
 
-				<% if $SocialImageUrl %>
-				<div class = "p-2  w-50 mb-2 mr-auto ml-auto d-sm-block d-lg-none">
-					$SocialCardHTML("full")
+				
+				<div class = "p-2  w-50 mb-2 mr-auto ml-auto d-block">
+					$SocialCardHTML("external")
 				</div>
-				<% end_if %>
+		
 
 				<h1>$Title</h1>
 
@@ -80,16 +80,19 @@
 			
 				<% end_if %>
 
-				<% if $MoreInfoLink || $UiCalendarLink %>
+				<% if $MoreInfoLink || $UiCalendarLink || $SocialLink%>
 					<p>
 						<% if $MoreInfoLink %>
-							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank">Event Website <i class="fas fa-external-link-alt"></i></a>
+							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener">Event Website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 
 						<% if $UiCalendarLink %>
-								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI events calendar <i class="fas fa-external-link-alt"></i></a>
+								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener">View on the UI events calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
-						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i class="fas fa-calendar-alt"></i></a> --%>
+						<% if $SocialLink %>
+								<a href="$SocialLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener"><i aria-hidden="true" class="fab fa-$SocialType.Lowercase"></i> View on $SocialType <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+						<% end_if %>
+						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i aria-hidden="true" class="fas fa-calendar-alt"></i></a> --%>
 					</p>
 				<% end_if %>
 			<% if $ContactEmail %>
@@ -132,19 +135,13 @@
 			$PageComments
 		</div>
 		
-		<div class="col-lg-4">
+		<%-- <div class="col-lg-4">
 			<div class="sticky-side">
 
 				<div class="d-none d-lg-block">
 					<% if $IsLateNight %>
 				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
 				 	<% end_if %>
-				 	<% if $SocialLink %>
-				 		
-				 		$SocialCardHTML("full")
-
-					
-					<% end_if %>
 				</div>
 				<% with $Venue %>
 					<% if $Address %>
@@ -171,18 +168,30 @@
 				<p class="venue-nav">
 					<% with $Venue %>
 						<% if $Address %>
-							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i class="fas fa-external-link-alt"></i></a>
+							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 					<% end_with %>
 				</p>
 			</div>
-		</div>
+		</div> --%>
 	
 	</div>
 
 </div>
+<% with $Parent %>
+	<section class="social-carousel__container">
+		<h1 class="text-uppercase text-center" style="font-size: 22px; padding-top: 10px;">More From social media:</h1>
+		<div class="social-carousel">
+			<% loop $EventList %>
+				<div class="carousel-cell">
+					$SocialCardHTML("internal")
+				</div>
+			<% end_loop %>
+		</div>
+	</section>
+<% end_with %>
 
-<% if $RelatedEvents %>
+<%-- <% if $RelatedEvents %>
 	<div class="related-container">
 		<div class="container">
 			<div class="row pt-4">
@@ -191,7 +200,7 @@
 					<div class="masonry-grid">
 						<% loop RelatedEvents %>
 							<% include EventCard %>
-						<% end_loop %> <%-- end loop Upcoming Events --%>
+						<% end_loop %> 
 					</div>
 				</div>
 			</div>
@@ -206,11 +215,11 @@
 					<div class="masonry-grid">
 						<% loop LocationRelatedEvents %>
 							<% include EventCard %>
-						<% end_loop %> <%-- end loop Upcoming Events --%>
+						<% end_loop %> 
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-<% end_if %>
+<% end_if %> --%>
 

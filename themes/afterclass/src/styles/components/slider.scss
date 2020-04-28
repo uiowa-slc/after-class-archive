@@ -6,16 +6,33 @@
 
 .carousel-cell {
 	width: 50%;
+    &--twitter{
+    	width: 100%;
+    }
 
 	@include media-breakpoint-up(sm){
 		width: 50%;
 	}
 	@include media-breakpoint-up(md){
 		width: 33.3%;
+    &--twitter{
+    	width: 50%;
+    }
+
 
 	}
 	@include media-breakpoint-up(lg) {
-	    width: 20%; /* half-width */
+	    width: 25%; 
+
+	    &--twitter{
+	    	width: 33.3%;
+	    }
+
+
 	}
 	margin-right: 10px;
+}
+
+twitter-widget{
+	margin-top: 0 !important;
 }

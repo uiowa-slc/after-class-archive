@@ -100,15 +100,22 @@ function initialize() {
 	});
 }
 
-$('.social-carousel').flickity({
+var $carousel = $('.social-carousel').flickity({
   // options
   cellAlign: 'left',
   contain: true,
   freeScroll: true,
-  adaptiveHeight: true,
+  adaptiveHeight: false,
   wrapAround: true,
   pageDots: false
 });
+
+// twttr.events.bind(
+//   'rendered',
+//   function (event) {
+//   	$carousel.resize();
+//   }
+// );
 
 window.onload = initialize();
 try {
@@ -133,9 +140,12 @@ try {
   } catch(e) {}
 
 
-
-  
 $(document).ready(function() {
          // Find any date inputs and override their functionality
          $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd'});
+
+
+          
 });
+
+

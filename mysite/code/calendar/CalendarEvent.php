@@ -4,11 +4,12 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\SSViewer;
 use SilverStripe\ORM\ArrayList;
-
+use SilverStripe\View\ArrayData;
 class CalendarEvent extends Page {
 
 	private static $db = array (
@@ -19,6 +20,7 @@ class CalendarEvent extends Page {
 
 		'SocialLink' => 'Text',
 		'SocialImageUrl' => 'Text',
+		'SocialImageAlt' => 'Text',
 		'SocialAuthorName' => 'Text',
 		'SocialAuthorUrl' => 'Text',
 		'SocialCaption' => 'HTMLText',
@@ -54,7 +56,7 @@ class CalendarEvent extends Page {
 			$fields->addFieldToTab('Root.Main', new LiteralField('SocialImagePreview', $socialImagePrev), 'Content');
 
 		}
-
+		$fields->addFieldToTab('Root.Main', TextareaField::create('SocialImageAlt', 'Social Image Alt Text (required for Instagram posts)')->setRows(3), 'Content');
 		$events = UiCalendar::getOrCreate()->EventList();
 
 		if ($events && $events->First()) {
@@ -75,7 +77,7 @@ class CalendarEvent extends Page {
 
 			$featuredEvent1Field = new DropdownField("UiCalendarEventId", "Link this event to a Uiowa Calendar Event", $eventsArray);
 			$featuredEvent1Field->setEmptyString('(No Event)');
-			$fields->addFieldToTab('Root.Main', $featuredEvent1Field);
+			$fields->addFieldToTab('Root.Main', $featuredEvent1Field, 'Content');
 
 		}
 
@@ -126,9 +128,8 @@ class CalendarEvent extends Page {
 
 		switch($socialType){
 
-			//TODO: Standardize using oembed things:
+			//TODO: Condense this switch statement using oembed things:
 			case 'Instagram':
-
 				$json = SocialParseHelper::getJson('https://api.instagram.com/oembed?url='.$this->SocialLink);
 				$jsonDecoded = json_decode($json, true);
 
@@ -153,18 +154,20 @@ class CalendarEvent extends Page {
 			break;
 
 			case 'Twitter':
-			//print_r('https://publish.twitter.com/ombed?url='.$this->SocialLink);
-			$json = SocialParseHelper::getJson('https://publish.twitter.com/oembed?url='.$this->SocialLink);
-			$jsonDecoded = json_decode($json, true);
-			//print_r($jsonDecoded);
-			if(isset($jsonDecoded['author_url'])){
 
+				$json = SocialParseHelper::getJson('https://publish.twitter.com/oembed?url='.$this->SocialLink.'&omit_script=true');
+				$jsonDecoded = json_decode($json, true);
+				//print_r($jsonDecoded);
+				if(isset($jsonDecoded['author_url'])){
 					$this->SocialAuthorName = $jsonDecoded['author_name'];
 					$this->SocialAuthorUrl = $jsonDecoded['author_url'];
 					$this->SocialCaption = $jsonDecoded['html'];
-			}
 
-
+					if(!$this->Title){
+						$this->Title = "Post from ".$jsonDecoded['author_name'];
+						$this->URLSegment = $jsonDecoded['author_name'].'-'.date('m-d-Y');
+					}
+				}
 			break;
 
 			default:
@@ -227,11 +230,16 @@ class CalendarEvent extends Page {
 	}
 
 
-    public function SocialCardHTML($size = 'full'){
-    	$type = $this->SocialType();
+    public function SocialCardHTML($linkType = 'external'){
+    	$socialType = $this->SocialType();
+    	
 
-    	if($type){
-    		return $this->renderWith(array('Includes/SocialCard'.$type.'_'.$size, 'Includes/SocialCard'.$type));
+    	if($linkType == "external"){
+    		$data = new ArrayData(array('Link' => $this->SocialLink, 'LinkType'=> 'external'));
+    		return $this->customise($data)->renderWith(array('Includes/SocialCard'.$socialType.'_'.$linkType, 'Includes/SocialCard'.$socialType));
+
+    	}else{
+    		return $this->renderWith(array('Includes/SocialCard'.$socialType.'_'.$linkType, 'Includes/SocialCard'.$socialType));
     	}
     	
     	

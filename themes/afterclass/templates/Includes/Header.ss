@@ -24,15 +24,15 @@
                 <div class="collapse navbar-collapse justify-content-center " id="basicExampleNav">
                     <!-- Links -->
                     <ul class="navbar-nav">
-                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/"><i class="fa fa-calendar"></i> Calendar</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/interest/7491/"><i class="fa fa-moon"></i> Late Night</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/today/"><i class="fa fa-clock"></i> Today</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/weekend/"><i class="fa fa-calendar-week"></i> Weekend</a></li>
+                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/"><i aria-hidden="true" class="fa fa-calendar"></i> Calendar</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/interest/7491/"><i aria-hidden="true" class="fa fa-moon"></i> Late Night</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/today/"><i aria-hidden="true" class="fa fa-clock"></i> Today</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/weekend/"><i aria-hidden="true" class="fa fa-calendar-week"></i> Weekend</a></li>
  
                         <li class="nav-item mr-3 link nav-item">
                             <a class="nav-link nav-link--large" href="social-calendar/add/" title="Add Your Event">
-                                <i class="fa fa-plus-circle"></i>
-                            Add Your Event</a>
+                                <i aria-hidden="true" class="fa fa-plus-circle"></i>
+                            Add Your Post</a>
                         </li>
                         
                         <li class="nav-item mr-3 link nav-item">

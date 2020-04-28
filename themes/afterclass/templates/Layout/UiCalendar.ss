@@ -26,15 +26,15 @@
 				<h1 class="text-uppercase text-center" style="font-size: 22px; padding-top: 10px;">From social media:</h1>
 				<div class="social-carousel">
 					<% loop $SocialEventList %>
-						<div class="carousel-cell">
-							$SocialCardHTML("small")
+						<div class="carousel-cell carousel-cell--{$SocialType.Lowercase}">
+							$SocialCardHTML("internal")
 						</div>
 					<% end_loop %>
 				</div>
 			</section>
 		<% end_if %>
 
-
+		<h1 class="filter-header">From the <a href="https://events.uiowa.edu" target="_blank" rel="noopener">UI Events Calendar <i aria-hidden="true" style="font-size: 32px;" class="fa fa-external-link-alt"></i></a></h1>
 			<% if $EventList("threemonths").Count > 0 %>
 				<div class="masonry-grid">
 					<% loop $EventList("threemonths") %>
