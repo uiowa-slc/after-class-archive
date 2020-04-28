@@ -25,9 +25,12 @@ class CalendarEvent extends Page {
 		'SocialAuthorUrl' => 'Text',
 		'SocialCaption' => 'HTMLText',
 
+		'ContactName' => 'Text',
+		'ContactEmail' => 'Text',
+
 		'Expires' => 'Date',
 
-		'WebsiteLink' => 'Text'
+		'MoreInfoLink' => 'Text'
 
 
 	);
@@ -86,8 +89,11 @@ class CalendarEvent extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField('SocialLink'), 'Content');
 		$fields->addFieldToTab('Root.Main', new ReadonlyField('SocialCaption'), 'Content');
 		$fields->addFieldToTab('Root.Main', new TextField( 'OnlineLocationUrl', 'Online location (Zoom, Skype) Link'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField('MoreInfoLink', 'Event website or more information link'), 'Content');
 		$fields->addFieldToTab('Root.Main', new TextField( 'Location', 'In person location'), 'Content');
-		
+
+		$fields->addFieldToTab('Root.ContactInfo', new TextField('ContactName', 'Contact person\'s name'));
+		$fields->addFieldToTab('Root.ContactEmail', new TextField('ContactEmail', 'Contact person\'s email address'));
 		
 
 		$fields->addFieldToTab('Root.DatesAndTimes', DateField::create('Expires')->setHTML5(false)->setDateFormat('yyyy-MM-dd'), 'Expires on the following date:');

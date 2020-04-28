@@ -52,8 +52,11 @@
 						</p>
 				<% end_if %>
 
+				<%-- only show the caption on insta posts, twitter just includes the embed again --%>
 				<% if $SocialType == "Instagram" %>
-					<div class="content">$SocialCaption</div>
+					<div class="content">
+						$SocialCaption
+					</div>
 				<% end_if %>
 				<% if $DateTimes.Count > 1 %>
 					<h2>All dates for this event:</h2>
