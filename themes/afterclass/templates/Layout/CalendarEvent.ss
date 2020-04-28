@@ -24,7 +24,7 @@
 							<% end_loop %>
 							<br />
 						<% else %>
-								No upcoming dates. <br />
+								
 						<% end_if %>
 
 					<% if $OnlineLocationUrl %>
