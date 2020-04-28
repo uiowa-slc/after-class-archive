@@ -17,7 +17,7 @@
 
 				<% if $DateTimes || $Venue || $Location || $OnlineLocationUrl %>
 				<p>
-					<% if $DateTimes.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
+					<% if $DateTimes.Count > 1 %><strong>Next Date:</strong><% else_if $DateTimes.Count == 1 %><strong>Date:</strong> <% end_if %>
 						<% if $DateTimes %>
 							<% loop $DateTimes.Limit(1) %>
 								<% include DateTimesList %>
