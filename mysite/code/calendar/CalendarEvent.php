@@ -58,7 +58,7 @@ class CalendarEvent extends Page {
 			$fields->addFieldToTab('Root.Main', new LiteralField('SocialImagePreview', $socialImagePrev), 'Content');
 
 		}
-		$fields->addFieldToTab('Root.Main', TextareaField::create('SocialImageAlt', 'Social Image Alt Text (required for Instagram posts)')->setRows(3), 'Content');
+		$fields->addFieldToTab('Root.Main', TextareaField::create('SocialImageAlt', 'Social Image Alt Text (required if the caption/content does not contain the information image.)')->setRows(3)->addExtraClass('stacked'), 'Content');
 		$events = UiCalendar::getOrCreate()->EventList();
 
 		if ($events && $events->First()) {
