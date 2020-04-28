@@ -122,6 +122,7 @@ function scripts(){
       './node_modules/magnific-popup/dist/jquery.magnific-popup.js',
       './node_modules/isotope-layout/dist/isotope.pkgd.js',
       './node_modules/better-dom/dist/better-dom.js',
+      './themes/afterclass/src/scripts/lib/jquery-ui.js',
       // './node_modules/better-dateinput-polyfill/dist/better-dateinput-polyfill.js',
       './themes/afterclass/src/scripts/app.js',
 
