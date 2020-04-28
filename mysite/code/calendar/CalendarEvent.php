@@ -55,7 +55,7 @@ class CalendarEvent extends Page {
 		$fields->removeByName('MetaData');
 		$fields->removeByName('Widgets');
 		$fields->removeByName('SocialMediaSharing');
-		$fields->rename('Content', 'Content (overrides any social media caption if this is a social post)');
+		$fields->renameField('Content', 'Content (overrides any social media caption if this is a social post)');
 		if($this->SocialImageUrl){
 			$socialImagePrev =  '<p>Social image preview:</p>';
 			$socialImagePrev .= '<div style="max-width: 300px; background: white; margin-bottom: 10px; padding: 10px; border: 1px solid #eee"><a style="display: block;" target="_blank" rel="noopener" href="'.$this->SocialLink.'"><img style="display: block; width:100%;" src="'.$this->SocialImageUrl.'" />@'.$this->SocialAuthorName.'</a></div>';
