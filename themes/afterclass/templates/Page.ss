@@ -32,7 +32,6 @@
     <link rel="icon" type="image/png" href="$resourceURL('themes/afterclass/dist/favicons/favicon-192x192.png')" sizes="192x192">
     <link rel="mask-icon" href="$resourceURL('themes/afterclass/dist/favicons/safari-pinned-tab.svg')" color="#000000">
     <link rel="shortcut icon" href="$resourceURL('themes/afterclass/dist/favicons/favicon.ico')">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
     <meta name="msapplication-config" content="$resourceURL('themes/afterclass/dist/favicons/browserconfig.xml')">
     <meta name="theme-color" content="#000000">
 
