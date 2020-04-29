@@ -28,6 +28,9 @@ class CalendarEvent extends Page {
 		'ContactName' => 'Text',
 		'ContactEmail' => 'Text',
 
+		'SubmitterEmail' => 'Text',
+		'SubmittedViaForm' => 'Boolean',
+
 		'Expires' => 'Date',
 
 		'MoreInfoLink' => 'Text'
@@ -95,7 +98,7 @@ class CalendarEvent extends Page {
 
 		$fields->addFieldToTab('Root.ContactInfo', new TextField('ContactName', 'Contact person\'s name'));
 		$fields->addFieldToTab('Root.ContactInfo', new TextField('ContactEmail', 'Contact person\'s email address'));
-		
+		$fields->addFieldToTab('Root.ContactInfo', new TextField('SubmitterEmail', 'Submitter\'s email address'));
 
 		$fields->addFieldToTab('Root.DatesAndTimes', DateField::create('Expires')->setHTML5(false)->setDateFormat('yyyy-MM-dd'), 'Expires on the following date:');
 		$dateTimesConf = GridFieldConfig_RelationEditor::create();

@@ -56,22 +56,26 @@ class CalendarController extends PageController{
 	}
 
 	public function AddForm(){ 
-		//print_r(Page::get_extensions());
-		$exampleTimestamp = strtotime('+2 Weeks');
-		$exampleDateString = date('m-d-Y', $exampleTimestamp);
         $fields = new FieldList( 
             new TextField('SocialLink', 'Social media link:'),
             new LiteralField('SocialLinkInfo', '<label class="readonly">We currently support links from <i aria-hidden="true" class="fab fa-twitter"></i> Twitter and <i aria-hidden="true" class="fab fa-instagram"></i> Instagram </label>'),
             DateField::create('Expires', 'Expiry date (optional):'),
 
-            new LabelField('ExpiresLabel', 'We\'ll show this post on After Class until the date above. Usually this would be the day after the event. If unsure, please leave this field blank.')
+            new LabelField('ExpiresLabel', 'We\'ll show this post on After Class until the date above. Usually this would be the day after the event. If unsure, please leave this field blank.'),
+            $emailField = new EmailField('SubmitterEmail', "Your email address (optional, only used if we need to clarify anything regarding the event).")
         ); 
         $actions = new FieldList( 
             new FormAction('submit', 'Submit')
         ); 
 
-       $form = new Form($this, 'AddForm', $fields, $actions);
+        if ($member = Security::getCurrentUser()) {
+        	
+        	$emailField->setValue($member->Email);
+        	$emailField->setReadonly(true);
+        }
 
+       
+		$form = new Form($this, 'AddForm', $fields, $actions);
 
 		if (!Permission::check('CMS_ACCESS')) {
 		    $form->enableSpamProtection();
@@ -158,12 +162,21 @@ class CalendarController extends PageController{
 	    	$email = new Email(); 
 	         
 	        $email->setTo($recipient->EmailAddress); 
+	        $email->setReplyTo($newEvent->SubmitterEmail);
 	        $email->setSubject("[Social Calendar Submission] A link was submitted"); 
 	         //TODO: Show some of the newly parsed link data in the email below:
 	        $messageBody = " 
-	            <p><strong>Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>
 
-	            <p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">Publish or remove by editing this entry on After Class</a>
+	        	<p>The following link was submitted to the After Class submit-a-post form: </p>
+	            <p><strong>Social Media Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>
+	           ";
+
+	           if($newEvent->SubmitterEmail){
+	           	$messsageBody .= '<p>Link submitted by <a href="mailto:'.$SubmitterEmail.'>'.$SubmitterEmail.'</a>';
+	           }
+
+	          $messageBody.="
+	            <p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">You can either publish or remove this post by editing this entry on After Class &rarr;</a>
 	            </p>
 
 	        "; 

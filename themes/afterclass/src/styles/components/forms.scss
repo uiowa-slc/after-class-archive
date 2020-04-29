@@ -18,6 +18,10 @@ form{
 	background: #333;
 	border-radius: 4px;
 }
+
+.form-control:disabled, .form-control[readonly]{
+	background: #a8a8a8;
+}
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon, .ui-button:hover .ui-icon, .ui-button:focus .ui-icon{
 
 }
