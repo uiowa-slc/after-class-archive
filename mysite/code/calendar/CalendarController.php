@@ -172,7 +172,9 @@ class CalendarController extends PageController{
 			if($newEvent->SubmitterEmail != ''){
 				$messsageBody .= '<p>Link submitted by <a href="mailto:'.$SubmitterEmail.'>'.$SubmitterEmail.'</a>';
 			}
-
+			if($newEvent->Expires != ''){
+				$messsageBody .= '<p>Link expires on'.$newEvent->Expires.'</p>';
+			}
 			$messageBody.="
 				<p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">You can either publish or remove this post by editing this entry on After Class &rarr;</a>
 				</p>"; 
