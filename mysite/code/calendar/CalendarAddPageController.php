@@ -47,7 +47,7 @@ class CalendarAddPageController extends PageController{
 		$form = new Form($this, 'AddForm', $fields, $actions);
 
 		//Disable captcha if logged in or in dev mode:
-		if (!$member && Director::isLive()) {
+		if (!($member) && (Director::isLive())) {
 		    $form->enableSpamProtection();
 		}
          
