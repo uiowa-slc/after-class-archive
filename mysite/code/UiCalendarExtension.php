@@ -38,12 +38,14 @@ class UiCalendarExtension extends DataExtension {
 
 	}
 
-	public function SocialEventList(){
+	public function SocialEventList($sort = null){
 		$eventList = new ArrayList();
 		$calendar = Calendar::get()->First();
 		if($calendar){
 			$eventList = $calendar->EventList();
 		}
+		if($sort = "shuffled")
+			$eventList->shuffle();
 
 		// print_r($eventList);
 
