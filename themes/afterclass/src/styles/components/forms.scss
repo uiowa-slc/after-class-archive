@@ -28,6 +28,10 @@ form{
 	@extend .alert-warning;
 }
 
+.warning{
+	@extend .alert-warning;
+}
+
 .form-control:disabled, .form-control[readonly]{
 	background: #a8a8a8;
 }

@@ -71,7 +71,6 @@ class CalendarController extends PageController{
         if ($member = Security::getCurrentUser()) {
         	
         	$emailField->setValue($member->Email);
-        	$emailField->setReadonly(true);
         }
 
        
@@ -181,7 +180,7 @@ class CalendarController extends PageController{
 	        $email->setBody($messageBody); 
 	        // print_r($newEvent->SubmitterEmail);
 	        // print_r($newEvent->Expires);
-	        //print_r($messageBody);
+	        // print_r($messageBody);
 	        $email->send(); 
     	}
     }
