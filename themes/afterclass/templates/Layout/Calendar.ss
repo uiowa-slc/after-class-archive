@@ -1,6 +1,6 @@
 <% include Header %>
 
-<div class="container" style="max-width: 800px;">
+<div class="container" style="max-width: 500px;">
 
 	<% if $Action == "index" %>
 	<div class="calendar-content">

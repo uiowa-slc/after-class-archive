@@ -76,9 +76,12 @@ class Page extends SiteTree implements StaticallyPublishable {
      */
     public function urlsToCache()
     {
+    	$disallowedClasses = array(
+    		'SilverStripe\CMS\Model\RedirectorPage',
+    		'CalendarAddPage'
+    	);
     
-    	if($this->ClassName != 'SilverStripe\CMS\Model\RedirectorPage'){
-    	
+    	if(array_search($this->ClassName, $disallowedClasses)){
     		return [Director::absoluteURL($this->Link()) => 0];
     	}else{
     		return [];
