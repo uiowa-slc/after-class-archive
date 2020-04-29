@@ -169,16 +169,19 @@ class CalendarController extends PageController{
 	        	<p>The following link was submitted to the After Class submit-a-post form: </p>
 	            <p><strong>Social Media Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>";
 
-			if($newEvent->SubmitterEmail != ''){
-				$messsageBody .= '<p>Link submitted by <a href="mailto:'.$SubmitterEmail.'>'.$SubmitterEmail.'</a>';
+			if($newEvent->SubmitterEmail){
+				$messageBody .= '<p><strong>Link submitted by:</strong> <a href="mailto:'.$newEvent->SubmitterEmail.'">'.$newEvent->SubmitterEmail.'</a>';
 			}
-			if($newEvent->Expires != ''){
-				$messsageBody .= '<p>Link expires on'.$newEvent->Expires.'</p>';
+			if($newEvent->Expires){
+				$messageBody .= '<p><strong>Link expires on:</strong> '.$newEvent->obj('Expires')->Nice().'</p>';
 			}
 			$messageBody.="
 				<p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">You can either publish or remove this post by editing this entry on After Class &rarr;</a>
 				</p>"; 
 	        $email->setBody($messageBody); 
+	        // print_r($newEvent->SubmitterEmail);
+	        // print_r($newEvent->Expires);
+	        //print_r($messageBody);
 	        $email->send(); 
     	}
     }
