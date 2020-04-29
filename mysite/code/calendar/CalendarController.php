@@ -18,7 +18,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Security\Permission;
 use SilverStripe\Core\Injector\Injector;
 use Psr\Log\LoggerInterface;
-
+use SilverStripe\Control\Director;
 
 class CalendarController extends PageController{
 
@@ -76,7 +76,8 @@ class CalendarController extends PageController{
        
 		$form = new Form($this, 'AddForm', $fields, $actions);
 
-		if (!Permission::check('CMS_ACCESS')) {
+		//Disable captcha if logged in or in dev mode:
+		if ((!Permission::check('CMS_ACCESS')) || Director::isLive()) {
 		    $form->enableSpamProtection();
 		}
 
@@ -91,18 +92,19 @@ class CalendarController extends PageController{
 
     	$existingLinkCheck = CalendarEvent::get()->filter(array('SocialLink' => $link))->First();
 
-    	//commenting out so that i can submit duplicate links as much as I WANT TO.
-    	// if($existingLinkCheck){
+    	//Only check for existing links in live mode
+		if (Director::isLive()) {
+	    	if($existingLinkCheck){
 
-	    //    	$data = new ArrayData(array(
-	    //         	'Alert' => '<div class="alert alert-failure">Sorry, this social media link has already been submitted.</div>',
-	    //         	'Form' => ''
-	    //     ));
+		       	$data = new ArrayData(array(
+		            	'Alert' => '<div class="alert alert-failure">Sorry, this social media link has already been submitted.</div>',
+		            	'Form' => ''
+		        ));
 
-	    //     return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
+		        return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
 
-    	// }
-
+	    	}
+		}
 
     	//Check for invalid link:
     	if (filter_var($link, FILTER_VALIDATE_URL) === false) {
