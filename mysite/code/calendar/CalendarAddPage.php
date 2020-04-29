@@ -7,6 +7,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\TagField\TagField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\PaginatedList;
+
 class CalendarAddPage extends Page {
 
 	private static $db = array(
