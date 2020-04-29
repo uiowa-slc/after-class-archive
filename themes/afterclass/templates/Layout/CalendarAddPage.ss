@@ -1,35 +1,37 @@
 <% include HeaderSmall %>
 
-
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-sm col-lg-7 content-container pt-5" role="main">
+		<div class="col-lg-7 col-xl-6 content-container pt-5" role="main">
 			$Alert.RAW
 			<article>
-			
-			<h1>$Title</h1>
-		
-			
-			<div class="content">$SubmissionInfo</div>
-			<div class="mb-3">
-				$AddForm
-			</div>
+				<h1>$Title</h1>
 
-	
+				<% if $Calendar.SocialEventList && $Calendar.ShowSocialCalendar %>
+					<div class="content">$SubmissionInfo</div>
+					<div class="mb-5">
+						$AddForm
+					</div>
+				<% end_if %>
+
 				$Content
 
-				
-				
-				
-				<%--<% include MagnificExample %> -- %>
-				<%-- <% include SlideshowExample %> --%>
-				<%-- <% include ContentExample %> --%>
 			</article>
-
-			
-			$PageComments
-
 		</div>
+
+			<% if $Calendar.SocialEventList && $Calendar.ShowSocialCalendar %>
+				<div class="d-none d-lg-block col-lg-3 pt-5">
+					<div class="sticky-side">
+						<h2>Example post:</h2>		
+						<% loop $Calendar.SocialEventList(shuffled).First %>
+							<div class="">
+								$SocialCardHTML("internal")
+							</div>
+						<% end_loop %>
+					</div>
+				</div>
+			<% end_if %>
+
 	</div>
 </div>
 

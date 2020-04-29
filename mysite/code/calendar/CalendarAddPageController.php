@@ -36,7 +36,7 @@ class CalendarAddPageController extends PageController{
             $emailField = new EmailField('SubmitterEmail', "Your email address (optional, only used if we need to clarify anything regarding the event).")
         ); 
         $actions = new FieldList( 
-            new FormAction('submit', 'Submit')
+            FormAction::create('submit', 'Submit your post')->addExtraClass('btn-lg')
         ); 
 
         if ($member = Security::getCurrentUser()) {
@@ -69,7 +69,7 @@ class CalendarAddPageController extends PageController{
 		            	'Form' => ''
 		        ));
 
-		        return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
+		        return $this->customise($data)->render();
 
 	    	}
 		}
@@ -81,7 +81,7 @@ class CalendarAddPageController extends PageController{
 	            	'Form' => ''
 	        ));
 
-	        return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
+	        return $this->customise($data)->render();
 		}
 
 		//Check for invalid domain in link:
@@ -95,7 +95,7 @@ class CalendarAddPageController extends PageController{
 	            	'Form' => ''
 	        ));
 
-	        return $this->customise($data)->renderWith(array('Calendar_add', 'Page'));
+	        return $this->customise($data)->render();
 
 		}
 

@@ -56,6 +56,10 @@ class CalendarAddPage extends Page {
 		return $fields;
 	}
 
+	public function getCalendar(){
+		return Calendar::get()->First();
+	}
+
 
 
 }
