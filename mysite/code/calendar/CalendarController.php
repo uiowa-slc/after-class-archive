@@ -166,20 +166,16 @@ class CalendarController extends PageController{
 	        $email->setSubject("[Social Calendar Submission] A link was submitted"); 
 	         //TODO: Show some of the newly parsed link data in the email below:
 	        $messageBody = " 
-
 	        	<p>The following link was submitted to the After Class submit-a-post form: </p>
-	            <p><strong>Social Media Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>
-	           ";
+	            <p><strong>Social Media Link:</strong> <a href=\"{$data['SocialLink']}\">{$data['SocialLink']}</a></p>";
 
-	           if($newEvent->SubmitterEmail){
-	           	$messsageBody .= '<p>Link submitted by <a href="mailto:'.$SubmitterEmail.'>'.$SubmitterEmail.'</a>';
-	           }
+			if($newEvent->SubmitterEmail != ''){
+				$messsageBody .= '<p>Link submitted by <a href="mailto:'.$SubmitterEmail.'>'.$SubmitterEmail.'</a>';
+			}
 
-	          $messageBody.="
-	            <p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">You can either publish or remove this post by editing this entry on After Class &rarr;</a>
-	            </p>
-
-	        "; 
+			$messageBody.="
+				<p><a href=\"admin/pages/edit/show/".$newEvent->ID."\">You can either publish or remove this post by editing this entry on After Class &rarr;</a>
+				</p>"; 
 	        $email->setBody($messageBody); 
 	        $email->send(); 
     	}
