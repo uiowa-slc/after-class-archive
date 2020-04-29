@@ -61,9 +61,11 @@ class CalendarEvent extends Page {
 		$fields->renameField('Content', 'Content (overrides any social media caption if this is a social post)');
 		if($this->SocialImageUrl){
 			$socialImagePrev =  '<p>Social image preview:</p>';
-			$socialImagePrev .= '<div style="max-width: 300px; background: white; margin-bottom: 10px; padding: 10px; border: 1px solid #eee"><a style="display: block;" target="_blank" rel="noopener" href="'.$this->SocialLink.'"><img style="display: block; width:100%;" src="'.$this->SocialImageUrl.'" />@'.$this->SocialAuthorName.'</a></div>';
-			$fields->addFieldToTab('Root.Main', new LiteralField('SocialImagePreview', $socialImagePrev), 'Content');
+			$socialImagePrev .= '<div style="max-width: 400px; background: white; margin-bottom: 10px; padding: 10px; border: 1px solid #eee"><a style="display: block;" target="_blank" rel="noopener" href="'.$this->SocialLink.'"><img style="display: block; width:100%;" src="'.$this->SocialImageUrl.'" />@'.$this->SocialAuthorName.'</a></div>';
 
+			$fields->addFieldToTab('Root.Main', new LiteralField('SocialImagePreview', $socialImagePrev), 'Content');
+			$fields->addFieldToTab('Root.ContactInfo', new LiteralField('SocialImagePreviewContact', $socialImagePrev));
+			$fields->addFieldToTab('Root.DatesAndTimes', new LiteralField('SocialImagePreviewDatesTimes', $socialImagePrev));
 		}
 		$fields->addFieldToTab('Root.Main', TextareaField::create('SocialImageAlt', 'Social Image Alt Text (required if the caption/content does not contain the information within the image.)')->setRows(3)->addExtraClass('stacked'), 'Content');
 		$events = UiCalendar::getOrCreate()->EventList();
