@@ -22,7 +22,7 @@ class CalendarAddPage extends Page {
 		'SubmissionThanks' => 'Thanks for submitting your post!'
 	);
 
-	private static $icon_class = 'font-icon-block-form';
+	private static $icon_class = 'font-icon-box';
 
 
 	public function getCMSFields(){

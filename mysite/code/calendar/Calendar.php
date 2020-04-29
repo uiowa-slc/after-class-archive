@@ -10,16 +10,15 @@ use SilverStripe\ORM\PaginatedList;
 class Calendar extends Page {
 
 	private static $db = array(
-		'SubmissionInfo' => 'HTMLText',
-		'SubmissionThanks' => 'HTMLText'
+
 	);
 
 	private static $many_many = array(
-		'EmailRecipients' => 'CalendarEmailRecipient'
+
 	);
 
 	private static $defaults = array(
-		'SubmissionThanks' => 'Thanks for submitting your post!'
+
 	);
 
 	private static $allowed_children = array (
@@ -157,18 +156,6 @@ class Calendar extends Page {
 		$contentField->setRows(3);
 		// $fields->removeByName("Content");
 
-		$fields->addFieldToTab('Root.SubmissionsInfo', TagField::create(
-			'EmailRecipients',
-			'Notify these email addresses when events are submitted:',
-			CalendarEmailRecipient::get(),
-			$this->EmailRecipients(),
-			'EmailAddress'
-		)
-		->setShouldLazyLoad(false) // tags should be lazy loaded
-		->setCanCreate(true)->addExtraClass('stacked'));
-
-		$fields->addFieldToTab('Root.SubmissionsInfo', HTMLEditorField::create('SubmissionInfo', 'Show this info on the submission page:')->addExtraClass('stacked')->setRows(10));
-		$fields->addFieldToTab('Root.SubmissionsInfo', HTMLEditorField::create('SubmissionThanks', 'Show this upon a successful submission')->addExtraClass('stacked')->setRows(3));
 		return $fields;
 	}
 
