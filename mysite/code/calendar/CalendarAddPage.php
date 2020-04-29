@@ -25,7 +25,9 @@ class CalendarAddPage extends Page {
 
 	private static $icon_class = 'font-icon-box';
 
-
+    public function urlsToCache() {
+        return [];
+    }
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
