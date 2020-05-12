@@ -1317,16 +1317,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "20769eb63b684b7bbbdbdaed794033800de156ad"
+                "reference": "143fcceefbf7fd25eb3011b79f488c359b188fbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/20769eb63b684b7bbbdbdaed794033800de156ad",
-                "reference": "20769eb63b684b7bbbdbdaed794033800de156ad",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/143fcceefbf7fd25eb3011b79f488c359b188fbd",
+                "reference": "143fcceefbf7fd25eb3011b79f488c359b188fbd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
+                "quamsta/silverstripe-api-cacher": "*",
                 "silverstripe/cms": "4.*",
                 "silverstripe/framework": "4.*"
             },
@@ -1338,10 +1339,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3-silverstripe-cache-engine",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2020-04-01T20:02:44+00:00"
+            "time": "2020-05-12T20:22:43+00:00"
         },
         {
             "name": "md/deploy-helper",
