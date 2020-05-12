@@ -10,6 +10,8 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\SSViewer;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use quamsta\ApiCacher\FeedHelper;
+
 class CalendarEvent extends Page {
 
 	private static $db = array (
@@ -75,7 +77,7 @@ class CalendarEvent extends Page {
 
 			foreach($eventsArray as $eventKey => $eventVal){
 
-				
+
 				$eventObj = $events->filter(array('ID' => $eventKey))->First();
 
 				if($eventObj->Dates->First()){
@@ -145,8 +147,8 @@ class CalendarEvent extends Page {
 
 			//TODO: Condense this switch statement using oembed things:
 			case 'Instagram':
-				$json = SocialParseHelper::getJson('https://api.instagram.com/oembed?url='.$this->SocialLink);
-				$jsonDecoded = json_decode($json, true);
+				$jsonDecoded = FeedHelper::getJson('https://api.instagram.com/oembed?url='.$this->SocialLink);
+
 
 				//TODO: Find a better more common way between platforms way to ensure array is sane.
 				if(isset($jsonDecoded['author_url'])){
@@ -170,8 +172,7 @@ class CalendarEvent extends Page {
 
 			case 'Twitter':
 
-				$json = SocialParseHelper::getJson('https://publish.twitter.com/oembed?url='.$this->SocialLink.'&omit_script=true');
-				$jsonDecoded = json_decode($json, true);
+				$jsonDecoded = FeedHelper::getJson('https://publish.twitter.com/oembed?url='.$this->SocialLink.'&omit_script=true');
 				//print_r($jsonDecoded);
 				if(isset($jsonDecoded['author_url'])){
 					$this->SocialAuthorName = $jsonDecoded['author_name'];
@@ -188,7 +189,7 @@ class CalendarEvent extends Page {
 			default:
 			// do nothing or throw error or something.
 		}
-        
+
         parent::onBeforeWrite();
     }
 	private function parseFromSocial(){
@@ -241,13 +242,13 @@ class CalendarEvent extends Page {
             //print_r($dateObj->DateFormatted);
         }
 
-        return $datesArrayList;		
+        return $datesArrayList;
 	}
 
 
     public function SocialCardHTML($linkType = 'external'){
     	$socialType = $this->SocialType();
-    	
+
 
     	if($linkType == "external"){
     		$data = new ArrayData(array('Link' => $this->SocialLink, 'LinkType'=> 'external'));
@@ -256,8 +257,8 @@ class CalendarEvent extends Page {
     	}else{
     		return $this->renderWith(array('Includes/SocialCard'.$socialType.'_'.$linkType, 'Includes/SocialCard'.$socialType));
     	}
-    	
-    	
+
+
     }
 
 
