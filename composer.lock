@@ -543,16 +543,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v3.4.5",
+            "version": "v3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "2c73fb760da18c608d04d6c9de9c1295a2be6e10"
+                "reference": "fdf2039fd796e1f5ec6dee04254a8ed10293c63c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/2c73fb760da18c608d04d6c9de9c1295a2be6e10",
-                "reference": "2c73fb760da18c608d04d6c9de9c1295a2be6e10",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/fdf2039fd796e1f5ec6dee04254a8ed10293c63c",
+                "reference": "fdf2039fd796e1f5ec6dee04254a8ed10293c63c",
                 "shasum": ""
             },
             "require": {
@@ -593,7 +593,7 @@
                 "opengraph",
                 "twitter cards"
             ],
-            "time": "2020-05-30T22:27:02+00:00"
+            "time": "2020-06-08T18:29:58+00:00"
         },
         {
             "name": "gorriecoe/silverstripe-webfonts",
@@ -1333,12 +1333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "143fcceefbf7fd25eb3011b79f488c359b188fbd"
+                "reference": "8fac1636ccc3752d3eb3076823d216e63fe7f3a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/143fcceefbf7fd25eb3011b79f488c359b188fbd",
-                "reference": "143fcceefbf7fd25eb3011b79f488c359b188fbd",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/8fac1636ccc3752d3eb3076823d216e63fe7f3a3",
+                "reference": "8fac1636ccc3752d3eb3076823d216e63fe7f3a3",
                 "shasum": ""
             },
             "require": {
@@ -1355,10 +1355,10 @@
             },
             "description": "After Class JSON Display Module",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3-silverstripe-cache-engine",
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2020-05-12T20:22:43+00:00"
+            "time": "2020-06-11T13:01:33+00:00"
         },
         {
             "name": "md/deploy-helper",
@@ -1723,16 +1723,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.4.0",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120"
+                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
+                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
                 "shasum": ""
             },
             "require": {
@@ -1771,7 +1771,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-04-10T16:34:50+00:00"
+            "time": "2020-06-03T07:24:19+00:00"
         },
         {
             "name": "onelogin/php-saml",
