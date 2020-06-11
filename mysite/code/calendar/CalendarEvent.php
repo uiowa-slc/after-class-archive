@@ -147,8 +147,9 @@ class CalendarEvent extends Page {
 
 			//TODO: Condense this switch statement using oembed things:
 			case 'Instagram':
-				$jsonDecoded = FeedHelper::getJson('https://api.instagram.com/oembed?url='.$this->SocialLink);
+				$jsonDecoded = FeedHelper::getJson('https://api.instagram.com/oembed/?url='.$this->SocialLink);
 
+                //print_r($jsonDecoded);
 
 				//TODO: Find a better more common way between platforms way to ensure array is sane.
 				if(isset($jsonDecoded['author_url'])){
