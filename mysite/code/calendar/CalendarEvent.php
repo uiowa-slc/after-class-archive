@@ -217,12 +217,12 @@ class CalendarEvent extends Page {
             $date = str_replace( ',', '', $date );
 
             $dateParsedArray = date_parse($date);
-            print_r($dateParsedArray);
+            //print_r($dateParsedArray);
 
             $datestamp = strtotime($date);
 
 
-            print_r($datestamp);
+            //print_r($datestamp);
 
             $dateFormatted = date('Y-m-d', $datestamp);
 
@@ -276,7 +276,7 @@ class CalendarEvent extends Page {
 	    while($mediaid > 0){
 	        $remainder = $mediaid % 64;
 	        $mediaid = ($mediaid-$remainder) / 64;
-	        $shortcode = $alphabet{$remainder} . $shortcode;
+	        $shortcode = $alphabet[$remainder] . $shortcode;
 	    };
 
 	    return $shortcode;
