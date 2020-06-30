@@ -1333,12 +1333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "7e83277c86781be2913dbaa3453fa7ec007967f0"
+                "reference": "d340a0e61fc5b619bdc5d4489b738faa656247fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/7e83277c86781be2913dbaa3453fa7ec007967f0",
-                "reference": "7e83277c86781be2913dbaa3453fa7ec007967f0",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/d340a0e61fc5b619bdc5d4489b738faa656247fe",
+                "reference": "d340a0e61fc5b619bdc5d4489b738faa656247fe",
                 "shasum": ""
             },
             "require": {
@@ -1358,7 +1358,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2020-06-30T18:58:41+00:00"
+            "time": "2020-06-30T19:47:36+00:00"
         },
         {
             "name": "md/deploy-helper",
