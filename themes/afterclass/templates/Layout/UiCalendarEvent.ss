@@ -18,7 +18,7 @@
 
 				<h1>$Title</h1>
 
-				<% if $Dates || $Venue || $Location %>
+				<% if $Dates || $Venue || $Location || $OnlineLocationUrl %>
 				<p>
 					<% if $Dates.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
 						<% if $Dates %>
@@ -30,7 +30,9 @@
 								No upcoming dates. <br />
 						<% end_if %>
 
-
+                    <% if $OnlineLocationUrl %>
+                        <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+                    <% end_if %>
 					<% if $Venue.Title || $Location %>
 					<strong> Location: </strong>
 						<span itemprop="location">
@@ -66,14 +68,14 @@
 					<% loop $Tags %>
 					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
-			
+
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
 					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
-			
+
 				<% end_if %>
 
 				<% if $MoreInfoLink || $UiCalendarLink %>
@@ -106,7 +108,7 @@
 
 				<% end_if %>
 			<% end_if %>
-				<p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. 
+				<p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events.
 
 				<% if $ContactName %>
 
@@ -120,9 +122,9 @@
 				<% else %>
 						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.
 				<% end_if %>
-					
+
 				</i>
-					</p>		
+					</p>
 			</article>
 			$Form
 			$PageComments

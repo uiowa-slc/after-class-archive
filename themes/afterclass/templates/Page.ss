@@ -17,7 +17,7 @@
     <meta name="twitter:widgets:theme" content="dark">
     <meta name="twitter:widgets:border-color" content="#000000">
 
-    <script type="text/javascript" src="https://use.typekit.com/ggu1mkb.js"></script>
+    $GoogleFonts
     <link rel="stylesheet" href="{$ThemeDir}/dist/styles/main.css">
   </head>
   <body class="{$ClassName}">

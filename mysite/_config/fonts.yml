@@ -1,0 +1,7 @@
+---
+Name: mywebfonts
+---
+gorriecoe\Webfonts\View\Webfonts:
+  GoogleFonts:
+    - 'Roboto'
+    - 'Roboto Condensed'

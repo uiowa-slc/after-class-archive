@@ -4,7 +4,7 @@
     "type": "silverstripe-project",
     "require": {
         "php": ">=5.6.0",
-        "md/division-project": "2.*",
+        "md/bootstrap-project": "dev-main",
         "silverstripe/staticpublishqueue": "*"
     },
     "config": {
@@ -15,7 +15,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/division-project"
+            "url": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project"
         },
         {
             "type": "vcs",
@@ -27,24 +27,13 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"
         },
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
         },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/deploy-helper"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
-        },
+
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
@@ -56,6 +45,7 @@
             ".env.example",
             "app/.htaccess",
             "app/_config.php",
+            "app/_config/mimevalidator.yml",
             "app/_config/mysite.yml",
             "app/_config/theme.yml",
             "app/src/Page.php",

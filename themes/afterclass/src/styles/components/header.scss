@@ -9,7 +9,7 @@
 .navbar{
     color:#262626;
     background: #000;
-    text-transform: uppercase;
+
     font-family: $headings-font-family;
     padding: 0;
 }
@@ -24,7 +24,7 @@
         }
         @include media-breakpoint-up(xl) {
             font-size: 28px;
-        }        
+        }
     }
 
     .fa{

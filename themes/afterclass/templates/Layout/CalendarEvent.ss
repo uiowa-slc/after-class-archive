@@ -7,11 +7,11 @@
 		<div class="col-lg-8">
 			<article>
 
-				
+
 				<div class = "p-2  w-50 mb-2 mr-auto ml-auto d-block">
 					$SocialCardHTML("external")
 				</div>
-		
+
 
 				<h1>$Title</h1>
 
@@ -24,7 +24,7 @@
 							<% end_loop %>
 							<br />
 						<% else %>
-								
+
 						<% end_if %>
 
 					<% if $OnlineLocationUrl %>
@@ -32,7 +32,7 @@
 						<% end_if %>
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
 					<br />
-					<% if $Location %> 
+					<% if $Location %>
 					<strong> In Person Location: </strong>
 						<span itemprop="location">
 							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
@@ -48,7 +48,7 @@
 						</span>
 					<% end_if %>
 					<% end_if %>
-				
+
 
 						</p>
 				<% end_if %>
@@ -57,7 +57,7 @@
 				<% if $SocialType == "Instagram" %>
 					<div class="content">
 						<% if $Content %>
-							$Content 
+							$Content
 						<% else %>
 							<p>$SocialCaption</p>
 						<% end_if %>
@@ -80,14 +80,14 @@
 					<% loop $Tags %>
 					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
-			
+
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
 					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
-			
+
 				<% end_if %>
 
 				<% if $MoreInfoLink || $UiCalendarLink || $SocialLink%>
@@ -123,7 +123,7 @@
 
 				<% end_if %>
 			<% end_if %>
-				<p style="border-top: solid 1px #666; margin-top: 10px; padding-top: 10px;"><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. 
+				<p style="border-top: solid 1px #666; margin-top: 10px; padding-top: 10px;"><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events.
 
 				<% if $ContactName %>
 
@@ -137,14 +137,14 @@
 				<% else %>
 						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.
 				<% end_if %>
-					
+
 				</i>
-					</p>		
+					</p>
 			</article>
 			$Form
 			$PageComments
 		</div>
-		
+
 		<%-- <div class="col-lg-4">
 			<div class="sticky-side">
 
@@ -184,13 +184,13 @@
 				</p>
 			</div>
 		</div> --%>
-	
+
 	</div>
 
 </div>
 <% with $Parent %>
 	<section class="social-carousel__container">
-		<h1 class="text-uppercase text-center" style="font-size: 22px; padding-top: 10px;">More From social media:</h1>
+		<h1 class="text-center" style="font-size: 22px; padding-top: 10px;">More From social media:</h1>
 		<div class="social-carousel">
 			<% loop $EventList %>
 				<div class="carousel-cell">
@@ -210,7 +210,7 @@
 					<div class="masonry-grid">
 						<% loop RelatedEvents %>
 							<% include EventCard %>
-						<% end_loop %> 
+						<% end_loop %>
 					</div>
 				</div>
 			</div>
@@ -225,7 +225,7 @@
 					<div class="masonry-grid">
 						<% loop LocationRelatedEvents %>
 							<% include EventCard %>
-						<% end_loop %> 
+						<% end_loop %>
 					</div>
 				</div>
 			</div>

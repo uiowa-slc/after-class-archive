@@ -18,9 +18,9 @@ class PageController extends ContentController {
 		// Requirements::block('event_calendar/javascript/calendar_widget.js');
 		// Requirements::block('event_calendar/javascript/lang/calendar_en.js');
 		// Requirements::block('event_calendar/javascript/calendar_widget_init.js');
-	
+
  	}
-	
+
 	public function results($data, $form){
 		$term = $form->getSearchQuery();
 		$calendar = $this->Calendar();
@@ -28,7 +28,7 @@ class PageController extends ContentController {
 		//print_r($events);
 		$results = $events->filterAny(array('EventTitle:PartialMatch' => $term, 'Content:PartialMatch' => $term));
 
-		$data = array( 
+		$data = array(
 			"Results" => $results,
 			"Term" => $term
 		);

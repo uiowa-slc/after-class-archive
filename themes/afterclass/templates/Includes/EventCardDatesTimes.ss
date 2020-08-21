@@ -5,7 +5,7 @@
 				<a href="{$Up.Link}"><span itemprop="startDate" datetime="$Rfc3339">$Format("MMM d, h:mm a")</span></a>
 			<% end_with %>
 			<% if $EndDate %>
-			 - 
+			 -
 			<% with $EndDate %>
 				<span itemprop="endDate" datetime="$Rfc3339">$Format("MMM d, h:mm a")</span>
 			<% end_with %>
@@ -21,7 +21,7 @@
 		@ <span itemprop="location">$Location</span>
 	<% end_if %>
 	<% if $Dates.Count > "1" %>
-		<a href="$Link"> | more dates</a> 
-	<% end_if %> 
+		<a href="$Link"> | more dates</a>
+	<% end_if %>
 </p>
 

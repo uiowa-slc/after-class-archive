@@ -40,14 +40,17 @@
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/print";
 
+
+/* Mixins */
+@import "mixins/remcalc";
+
 /* Plugins
 -------------------------------------------*/
 @import "flickity/css/flickity";
-// @import "magnific-popup/src/css/main";
-@import "fa/fontawesome";
-@import "fa/solid";
-@import "fa/brands";
-
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/regular";
 
 @import "lib/jquery-ui";
 
@@ -57,12 +60,15 @@
 @import "uiowa-bar";
 
 
-@import "mixins/remcalc";
+/* Fonts */
+@import "base/fonts";
+
 
 /* Layout
 -------------------------------------------*/
 @import "components/header";
 @import "components/footer";
+@import "components/footer-theme";
 @import "components/map";
 @import "components/related";
 @import "components/slider";

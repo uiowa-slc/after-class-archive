@@ -23,7 +23,7 @@
 
 		<% if $SocialEventList && $ShowSocialCalendar %>
 			<section class="social-carousel__container">
-				<h1 class="text-uppercase text-center" style="font-size: 22px; padding-top: 10px;">From social media:</h1>
+				<h1 class="text-center" style="font-size: 22px; padding-top: 10px;">From social media:</h1>
 				<div class="social-carousel">
 					<% loop $SocialEventList(shuffled) %>
 						<div class="carousel-cell carousel-cell--{$SocialType.Lowercase}">

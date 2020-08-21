@@ -10,10 +10,10 @@ function GetLocation(address) {
 	  }
 	});
 }
-  
+
 function initialize() {
 	  // all map styles
-	var styles = [	 
+	var styles = [
 		{
 		    "stylers": [
 		      { "weight": 2.7 },
@@ -62,7 +62,7 @@ function initialize() {
 		var address = jQuery(this).data("address");
 		var venueLatLng;
 		var venue = this;
-		
+
 		var mapOptions = {
 		    zoom: 15,
 		    //disableDefaultUI: true,
@@ -91,7 +91,7 @@ function initialize() {
 			        place = results[0].geometry.location;
 			        var myOptions = {zoom: 16, center: place,mapTypeId: google.maps.MapTypeId.ROADMAP };
 			        var map = new google.maps.Map(document.getElementById("mini-map"),mapOptions);
-			        var geomarker = new google.maps.Marker({ map: map, position: place });  
+			        var geomarker = new google.maps.Marker({ map: map, position: place });
 					map.mapTypes.set('map_style', styledMap);
 					map.setMapTypeId('map_style');
 		      	}
@@ -110,42 +110,22 @@ var $carousel = $('.social-carousel').flickity({
   pageDots: false
 });
 
-// twttr.events.bind(
-//   'rendered',
-//   function (event) {
-//   	$carousel.resize();
-//   }
-// );
-
-window.onload = initialize();
-try {
-    Typekit.load({
-      loading: function() {
-        // JavaScript to execute when fonts start loading
-      },
-      active: function() {
-        $('.masonry-grid').isotope({ 
-            "layoutMode": "masonry", 
-            "itemSelector": ".masonry-grid-item",
-            "getSortData": { "name": ".name", "category": "[data-category]" }, 
-            "masonry": { 
-                "gutter" : 20 
-            } 
-         });        
-       },
-      inactive: function() {
-        // JavaScript to execute when fonts become inactive
-      }
-    })
-  } catch(e) {}
 
 
 $(document).ready(function() {
+        $('.masonry-grid').isotope({
+            "layoutMode": "masonry",
+            "itemSelector": ".masonry-grid-item",
+            "getSortData": { "name": ".name", "category": "[data-category]" },
+            "masonry": {
+                "gutter" : 20
+            }
+         });
          // Find any date inputs and override their functionality
          $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd'});
 
 
-          
+
 });
 
 
