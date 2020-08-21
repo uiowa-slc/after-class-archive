@@ -28,7 +28,7 @@
 						<% end_if %>
 
 					<% if $OnlineLocationUrl %>
-							<a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link</a>
+							<a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
 					<br />

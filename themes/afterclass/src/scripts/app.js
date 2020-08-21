@@ -128,4 +128,9 @@ $(document).ready(function() {
 
 });
 
+//resize grid when images are loaded
+$(document).on('lazyloaded', function(e){
+    $('.masonry-grid').isotope('layout');
+});
+
 

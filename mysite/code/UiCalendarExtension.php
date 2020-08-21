@@ -14,11 +14,11 @@ class UiCalendarExtension extends DataExtension {
 
 	);
 	private static $has_one = array(
-		
+
 
 	);
 	private static $belongs_many_many = array(
-	
+
 	);
 
 	public function updateCMSFields(FieldList $fields){
@@ -54,6 +54,32 @@ class UiCalendarExtension extends DataExtension {
 
 	//Combines the event list
 	public function CombinedEventList(){
+
+        $uiEvents = new ArrayList();
+        $socialEvents = new ArrayList();
+        $combinedEvents = new ArrayList();
+        $socialEventsNoDups = new ArrayList();
+        $duplicateEventIds = array();
+
+        $uiEvents = $this->owner->EventList("threemonths");
+
+        $socialEvents = $this->SocialEventList();
+
+
+        foreach($socialEvents as $socialEvent){
+            $id = $socialEvent->UiCalendarEventId;
+            $uiEventTest = $uiEvents->filter(array('ID' => $id))->First();
+            if($uiEventTest){
+                $duplicateEventIds[] = $id;
+            }
+        }
+        $socialEventsNoDups = $socialEvents->exclude(array('UiCalendarEventId' => $duplicateEventIds));
+
+
+        $combinedEvents->merge($socialEventsNoDups);
+        $combinedEvents->merge($uiEvents);
+
+        return $combinedEvents;
 
 
 	}

@@ -20,25 +20,16 @@
 	<% end_if %>
 <% if $action == "index" %>
 
-
-		<% if $SocialEventList && $ShowSocialCalendar %>
-			<section class="social-carousel__container">
-				<h1 class="text-center" style="font-size: 22px; padding-top: 10px;">From social media:</h1>
-				<div class="social-carousel">
-					<% loop $SocialEventList(shuffled) %>
-						<div class="carousel-cell carousel-cell--{$SocialType.Lowercase}">
-							$SocialCardHTML("internal")
-						</div>
-					<% end_loop %>
-				</div>
-			</section>
-		<% end_if %>
-
-		<h1 class="filter-header">From the <a href="https://events.uiowa.edu" target="_blank" rel="noopener">UI Events Calendar <i aria-hidden="true" style="font-size: 32px;" class="fa fa-external-link-alt"></i></a></h1>
-			<% if $EventList("threemonths").Count > 0 %>
+			<% if $CombinedEventList.Count > 0 %>
 				<div class="masonry-grid">
-					<% loop $EventList("threemonths") %>
-						<% include EventCard %>
+					<% loop $CombinedEventList %>
+                        <% if $ClassName == 'CalendarEvent' %>
+                        <div class="card masonry-grid-item" itemscope itemtype="http://data-vocabulary.org/Event">
+                            $SocialCardHTML("internal")
+                        </div>
+                        <% else_if $ClassName == 'UiCalendarEvent' %>
+						  <% include EventCard %>
+                        <% end_if %>
 					<% end_loop %> <%-- end loop Upcoming Events --%>
 				</div>
 			<% else %>
