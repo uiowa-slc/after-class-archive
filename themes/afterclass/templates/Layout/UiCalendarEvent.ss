@@ -181,3 +181,35 @@
 	</div>
 
 </div>
+
+<% if $RelatedEvents %>
+    <div class="related-container">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-lg-12">
+                    <h2 class="text-center">Related Events</h2>
+                    <div class="masonry-grid">
+                        <% loop RelatedEvents %>
+                            <% include EventCard %>
+                        <% end_loop %> <%-- end loop Upcoming Events --%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% else_if $LocationRelatedEvents %>
+    <div class="related-container">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-lg-12">
+                    <h2 class="text-center">Events also located at {$Venue.Title}: </h2>
+                    <div class="masonry-grid">
+                        <% loop LocationRelatedEvents %>
+                            <% include EventCard %>
+                        <% end_loop %> <%-- end loop Upcoming Events --%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end_if %>

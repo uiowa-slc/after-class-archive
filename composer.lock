@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7927d7fb387669bb68abc7b1a10e4f71",
+    "content-hash": "96aa1c69fbff5ff0a229501f3ff8eaf4",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -2773,6 +2773,61 @@
             "time": "2020-05-28T16:17:27+00:00"
         },
         {
+            "name": "silverstripe/spamprotection",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
+                "reference": "dce36b8fe7ce65f0c073014e1d3a8f5dd7e019db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/dce36b8fe7ce65f0c073014e1d3a8f5dd7e019db",
+                "reference": "dce36b8fe7ce65f0c073014e1d3a8f5dd7e019db",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/versioned": "^1.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "images"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\SpamProtection\\": "code/",
+                    "SilverStripe\\SpamProtection\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Saophalkun Ponlu",
+                    "email": "phalkunz@silverstripe.com"
+                },
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io"
+                }
+            ],
+            "description": "Spam protection module for SilverStripe.",
+            "keywords": [
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2019-11-20T08:18:27+00:00"
+        },
+        {
             "name": "silverstripe/staticpublishqueue",
             "version": "4.0.0-beta.1",
             "source": {
@@ -3969,6 +4024,60 @@
                 }
             ],
             "time": "2020-07-23T09:37:51+00:00"
+        },
+        {
+            "name": "undefinedoffset/silverstripe-nocaptcha",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UndefinedOffset/silverstripe-nocaptcha.git",
+                "reference": "fc0e6129a3bfca5cf4ccf79dbb40cce8ced8c3bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UndefinedOffset/silverstripe-nocaptcha/zipball/fc0e6129a3bfca5cf4ccf79dbb40cce8ced8c3bb",
+                "reference": "fc0e6129a3bfca5cf4ccf79dbb40cce8ced8c3bb",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0",
+                "silverstripe/spamprotection": "~3.0",
+                "silverstripe/vendor-plugin": "^1.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "javascript"
+                ],
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "UndefinedOffset\\NoCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ed Chipman",
+                    "homepage": "http://www.edchipman.ca",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A spam protector and form field using the new Google's reCAPTCHA 2 aka No Captcha",
+            "keywords": [
+                "nocaptcha",
+                "recaptcha",
+                "recaptcha2",
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2019-09-16T20:00:32+00:00"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
