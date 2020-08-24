@@ -18,8 +18,10 @@
 
 				<h1>$Title</h1>
 
-				<% if $Dates || $Venue || $Location || $OnlineLocationUrl %>
-				<p>
+				<% if $Dates || $Venue || $Location || $OnlineLocationUrl || $isOnline %>
+	               <% if $isOnline %>
+                    <strong>Location:</strong> Online <i class="fas fa-laptop-house"></i><br />
+                    <% end_if %>
 					<% if $Dates.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
 						<% if $Dates %>
 							<% loop $Dates.Limit(1) %>
@@ -31,23 +33,25 @@
 						<% end_if %>
 
                     <% if $OnlineLocationUrl %>
-                        <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+                        <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">$OnlineLocationButtonText <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
                     <% end_if %>
-					<% if $Venue.Title || $Location %>
-					<strong> Location: </strong>
-						<span itemprop="location">
-							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
-							<% if $Venue.Title %>
-								<% with $Venue %>
-									<% if $Link %>
-										<a href="$Link">$Title</a>
-									<% else %>
-										$Title
-									<% end_if %>
-								<% end_with %>
-							<% end_if %>
-						</span>
-					<% end_if %>
+                    <% if not $isOnline %>
+    					<% if $Venue.Title || $Location %>
+    					<strong> Location: </strong>
+    						<span itemprop="location">
+    							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
+    							<% if $Venue.Title %>
+    								<% with $Venue %>
+    									<% if $Link %>
+    										<a href="$Link">$Title</a>
+    									<% else %>
+    										$Title
+    									<% end_if %>
+    								<% end_with %>
+    							<% end_if %>
+    						</span>
+    					<% end_if %>
+                    <% end_if %>
 					</p>
 				<% end_if %>
 				<div class="content">$Content</div>
@@ -139,71 +143,41 @@
 				 	<% end_if %>
 					<img class="d-none d-lg-block w-100 mb-2 lazyload" data-src="$Image.URL" alt="Poster for this event. Please read the event description for more information." data-aspectratio="$Image.Ratio" style="background-color: white;" />
 				<% end_if %>
-				<% with $Venue %>
-					<% if $Address %>
-						<div class="map-container">
-							<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
-						</div>
-					<% end_if %>
-				<% end_with %>
-				<p class="venue-nav mt-2">
-					<% if $Venue.Title || $Location %>
-						<strong>Location: </strong>
-						<% if $Location %> $Location <% end_if %>
-						<% if $Venue.Title %>
-							<% with $Venue %>
-								<% if $Link %>
-									<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
-								<% else %>
-									$Title
-								<% end_if %>
-							<% end_with %>
-						<% end_if %>
-					<% end_if %>
-				</p>
-				<p class="venue-nav">
-					<% with $Venue %>
-						<% if $Address %>
-							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-						<% end_if %>
-					<% end_with %>
-				</p>
+                <%--don't show location info for events that are only online --%>
+                <% if not $isOnline %>
+    				<% with $Venue %>
+    					<% if $Address %>
+    						<div class="map-container">
+    							<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
+    						</div>
+    					<% end_if %>
+    				<% end_with %>
+    				<p class="venue-nav mt-2">
+    					<% if $Venue.Title || $Location %>
+    						<strong>Location: </strong>
+    						<% if $Location %> $Location <% end_if %>
+    						<% if $Venue.Title %>
+    							<% with $Venue %>
+    								<% if $Link %>
+    									<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
+    								<% else %>
+    									$Title
+    								<% end_if %>
+    							<% end_with %>
+    						<% end_if %>
+    					<% end_if %>
+    				</p>
+    				<p class="venue-nav">
+    					<% with $Venue %>
+    						<% if $Address %>
+    							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+    						<% end_if %>
+    					<% end_with %>
+    				</p>
+                    <% end_if %><%--end if not $isOnline --%>
 			</div>
 		</div>
 		<% end_if %>
 	</div>
 
 </div>
-
-<% if $RelatedEvents %>
-	<div class="related-container">
-		<div class="container">
-			<div class="row pt-4">
-				<div class="col-lg-12">
-					<h2 class="text-center">Related Events</h2>
-					<div class="masonry-grid">
-						<% loop RelatedEvents %>
-							<% include EventCard %>
-						<% end_loop %> <%-- end loop Upcoming Events --%>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<% else_if $LocationRelatedEvents %>
-	<div class="related-container">
-		<div class="container">
-			<div class="row pt-4">
-				<div class="col-lg-12">
-					<h2 class="text-center">Events also located at {$Venue.Title}: </h2>
-					<div class="masonry-grid">
-						<% loop LocationRelatedEvents %>
-							<% include EventCard %>
-						<% end_loop %> <%-- end loop Upcoming Events --%>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<% end_if %>
-
