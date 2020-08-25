@@ -34,7 +34,7 @@
                         <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">$OnlineLocationButtonText <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
                     <% end_if %>
                    <% if $isOnline %>
-                    <strong>Location:</strong> Online <i class="fas fa-laptop-house"></i><br />
+                    <strong>Location:</strong> Online <i aria-hidden="true" class="fas fa-laptop-house"></i><br />
                     <% else %>
 
     					<% if $Venue.Title || $Location %>

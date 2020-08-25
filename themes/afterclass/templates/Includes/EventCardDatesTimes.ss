@@ -26,7 +26,7 @@
     		<a href="$Link"> | more dates</a>
     	<% end_if %>
     <% else %>
-        Online Event <i class="fas fa-laptop-house"></i>
+        Online Event <i aria-hidden="true" class="fas fa-laptop-house"></i>
     <% end_if %>
 </p>
 
