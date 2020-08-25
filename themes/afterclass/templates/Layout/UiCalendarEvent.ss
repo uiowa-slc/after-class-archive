@@ -19,9 +19,7 @@
 				<h1>$Title</h1>
 
 				<% if $Dates || $Venue || $Location || $OnlineLocationUrl || $isOnline %>
-	               <% if $isOnline %>
-                    <strong>Location:</strong> Online <i class="fas fa-laptop-house"></i><br />
-                    <% end_if %>
+
 					<% if $Dates.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
 						<% if $Dates %>
 							<% loop $Dates.Limit(1) %>
@@ -35,7 +33,10 @@
                     <% if $OnlineLocationUrl %>
                         <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">$OnlineLocationButtonText <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
                     <% end_if %>
-                    <% if not $isOnline %>
+                   <% if $isOnline %>
+                    <strong>Location:</strong> Online <i class="fas fa-laptop-house"></i><br />
+                    <% else %>
+
     					<% if $Venue.Title || $Location %>
     					<strong> Location: </strong>
     						<span itemprop="location">
