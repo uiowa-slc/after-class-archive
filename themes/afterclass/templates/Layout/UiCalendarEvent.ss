@@ -20,7 +20,7 @@
 
 				<% if $Dates || $Venue || $Location || $OnlineLocationUrl || $isOnline %>
 
-					<% if $Dates.Count > 1 %><strong>Next Date:</strong><% else %><strong>Date:</strong> <% end_if %>
+					<p class="m-0"><% if $Dates.Count > 1 %><strong>Next date:</strong><% else %><strong>Date:</strong> <% end_if %>
 						<% if $Dates %>
 							<% loop $Dates.Limit(1) %>
 								<% include DateTimesList %>
@@ -29,10 +29,8 @@
 						<% else %>
 								No upcoming dates. <br />
 						<% end_if %>
-
-                    <% if $OnlineLocationUrl %>
-                        <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">$OnlineLocationButtonText <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-                    <% end_if %>
+                        </p>
+                    <p>
                    <% if $isOnline %>
                     <strong>Location:</strong> Online <i aria-hidden="true" class="fas fa-laptop-house"></i><br />
                     <% else %>
@@ -55,7 +53,17 @@
                     <% end_if %>
 					</p>
 				<% end_if %>
+                    <% if $OnlineLocationUrl %>
+                        <% if $OnlineLocationType == "Zoom" %>
+                            <p><a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom meeting link <i aria-hidden="true" class="fas fa-video"></i></a></p>
+                        <% else %>
+                            <p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online meeting link<i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
+                        <% end_if %>
+                    <% end_if %>
 				<div class="content">$Content</div>
+                <% if $MoreInfoLink %>
+                    <p><a href="$MoreInfoLink" class="btn btn-primary mb-2" target="_blank">Event website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
+                <% end_if %>
 				<% if $Dates.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>
@@ -83,14 +91,10 @@
 
 				<% end_if %>
 
-				<% if $MoreInfoLink || $UiCalendarLink %>
+				<% if $UiCalendarLink %>
 					<p>
-						<% if $MoreInfoLink %>
-							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank">Event Website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-						<% end_if %>
-
 						<% if $UiCalendarLink %>
-								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI events calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+							<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI Events Calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i aria-hidden="true" class="fas fa-calendar-alt"></i></a> --%>
 					</p>

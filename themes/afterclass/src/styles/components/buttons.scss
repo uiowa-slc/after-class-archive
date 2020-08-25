@@ -1,0 +1,10 @@
+.btn-zoom{
+    background-color: #00558C;
+    color: white;
+    border: none;
+
+    &:hover{
+        background-color: darken(#00558C, 20);
+        color: #eee;
+    }
+}
