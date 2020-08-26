@@ -113,16 +113,26 @@ var $carousel = $('.social-carousel').flickity({
 
 
 $(document).ready(function() {
-        $('.masonry-grid').isotope({
-            "layoutMode": "masonry",
-            "itemSelector": ".masonry-grid-item",
-            "getSortData": { "name": ".name", "category": "[data-category]" },
-            "masonry": {
-                "gutter" : 20
-            }
-         });
-         // Find any date inputs and override their functionality
-         $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd'});
+    initialize();
+    if($( ".masonry-grid" ).length){
+
+
+            $('.masonry-grid').isotope({
+                "layoutMode": "masonry",
+                "itemSelector": ".masonry-grid-item",
+                "getSortData": { "name": ".name", "category": "[data-category]" },
+                "masonry": {
+                    "gutter" : 20
+                }
+             });
+
+
+
+
+    }
+
+     // Find any date inputs and override their functionality
+     $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd'});
 
 
 
@@ -130,7 +140,9 @@ $(document).ready(function() {
 
 //resize grid when images are loaded
 $(document).on('lazyloaded', function(e){
-    $('.masonry-grid').isotope('layout');
+    if($( ".masonry-grid" ).length){
+        $('.masonry-grid').isotope('layout');
+    }
 });
 
 
