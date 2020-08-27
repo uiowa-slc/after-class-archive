@@ -41,8 +41,6 @@
 @import "bootstrap/scss/print";
 
 
-/* Mixins */
-@import "mixins/remcalc";
 
 /* Plugins
 -------------------------------------------*/
@@ -60,14 +58,27 @@
 @import "uiowa-bar";
 
 
+/* Bootstrap Project Files (footer, remcalc, login) can be included individually.
+ (located in vendor/md/bootstrap-project/client/styles/)
+--------------------------------------------*/
+// @import "mixins/remcalc";
+// @import "components/footer";
+// @import "layouts/login";
+
+@import "bootstrap-project";
+
+
+
+/* Theme
+-------------------------------------------*/
+
 /* Fonts */
 @import "base/fonts";
 
 
-/* Layout
--------------------------------------------*/
+
 @import "components/header";
-@import "components/footer";
+
 @import "components/footer-theme";
 @import "components/map";
 @import "components/related";
