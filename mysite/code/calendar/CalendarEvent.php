@@ -245,7 +245,31 @@ class CalendarEvent extends Page {
 
         return $datesArrayList;
 	}
+    public function OnlineLocationType(){
+        $url = $this->OnlineLocationUrl;
+        $locationType = 'Other';
+        if($url){
+            $domain = $this->parseDomain($url);
+            if($domain){
+               if(strpos($domain, 'zoom.us'))
+                $locationType = 'Zoom';
+            }
+        }
+        return $locationType;
+    }
+    public function ParsedTitle(){
+        //print_r($this);
+        $title = $this->getField('Title');
 
+
+
+        if($this->startsWith($title, 'Post from')){
+            $newTitle = 'Post from <a href="'.$this->SocialAuthorUrl.'" target="_blank" rel="noopener">@'.$this->SocialAuthorName.'</a>';
+            return $newTitle;
+        }
+
+        return $title;
+    }
 
     public function SocialCardHTML($linkType = 'external'){
     	$socialType = $this->SocialType();
@@ -262,6 +286,10 @@ class CalendarEvent extends Page {
 
     }
 
+    private function startsWith ($string, $startString){
+        $len = strlen($startString);
+        return (substr($string, 0, $len) === $startString);
+    }
 
 	private function mediaid_to_shortcode($mediaid){
 
@@ -283,4 +311,12 @@ class CalendarEvent extends Page {
 
 	}
 
+
+    private function parseDomain($url){
+        $parsedUrl = parse_url($url);
+        if(isset($parsedUrl["host"])){
+           $host = $parsedUrl["host"];
+           return $host;
+        }
+    }
 }

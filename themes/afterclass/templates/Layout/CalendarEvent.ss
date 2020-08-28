@@ -13,7 +13,7 @@
 				</div>
 
 
-				<h1>$Title</h1>
+				<h1>$ParsedTitle.RAW</h1>
 
 				<% if $DateTimes || $Venue || $Location || $OnlineLocationUrl %>
 				<p>
@@ -27,13 +27,18 @@
 
 						<% end_if %>
 
-					<% if $OnlineLocationUrl %>
-							<a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online Meeting Link <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-						<% end_if %>
+                    <% if $OnlineLocationUrl %>
+                        <% if $OnlineLocationType == "Zoom" %>
+                            <p><a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom meeting link <i aria-hidden="true" class="fas fa-video"></i></a></p>
+                        <% else %>
+                            <p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online meeting link<i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
+                        <% end_if %>
+                    <% end_if %>
+
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
 					<br />
 					<% if $Location %>
-					<strong> In Person Location: </strong>
+					<strong>Location: </strong>
 						<span itemprop="location">
 							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
 							<% if $Venue.Title %>
