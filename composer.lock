@@ -620,16 +620,16 @@
         },
         {
             "name": "jonom/silverstripe-betternavigator",
-            "version": "5.0.1",
+            "version": "5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonom/silverstripe-betternavigator.git",
-                "reference": "da6e75c1b12f31cd980b358367dd71bad9813e05"
+                "reference": "02e84d7b997897a39cb09c8c25fccdd348fa9eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonom/silverstripe-betternavigator/zipball/da6e75c1b12f31cd980b358367dd71bad9813e05",
-                "reference": "da6e75c1b12f31cd980b358367dd71bad9813e05",
+                "url": "https://api.github.com/repos/jonom/silverstripe-betternavigator/zipball/02e84d7b997897a39cb09c8c25fccdd348fa9eaf",
+                "reference": "02e84d7b997897a39cb09c8c25fccdd348fa9eaf",
                 "shasum": ""
             },
             "require": {
@@ -666,7 +666,17 @@
                 "navigator",
                 "silverstripe"
             ],
-            "time": "2019-09-04T18:01:10+00:00"
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/jmnz",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/jonom",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-27T18:43:54+00:00"
         },
         {
             "name": "league/csv",
@@ -959,12 +969,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project.git",
-                "reference": "727ad5c74fcfd56cd9b6d528384e39ab01b2a1d2"
+                "reference": "4216ba149e22875360ed35d51f61a207aee96feb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/727ad5c74fcfd56cd9b6d528384e39ab01b2a1d2",
-                "reference": "727ad5c74fcfd56cd9b6d528384e39ab01b2a1d2",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/4216ba149e22875360ed35d51f61a207aee96feb",
+                "reference": "4216ba149e22875360ed35d51f61a207aee96feb",
                 "shasum": ""
             },
             "require": {
@@ -994,7 +1004,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/tree/main",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/issues"
             },
-            "time": "2020-08-27T17:41:39+00:00"
+            "time": "2020-08-28T19:38:24+00:00"
         },
         {
             "name": "md/deploy-helper",
