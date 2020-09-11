@@ -923,9 +923,9 @@
                                 <% end_if %>
                                 <% loop $FeaturedEvents %>
                                     <% if $ClassName == "UiCalendarEvent" %>
-                                        <% include NewsletterFeaturedEvent %>
+                                        <% include AfterClassNewsletterFeaturedEvent %>
                                     <% else %>
-                                        <% include NewsletterFeaturedSocialPost %>
+                                        <% include AfterClassNewsletterFeaturedSocialPost %>
                                     <% end_if %>
                                 <!-- event 1 -->
 

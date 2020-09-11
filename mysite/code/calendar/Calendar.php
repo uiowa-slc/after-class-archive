@@ -1,7 +1,7 @@
 <?php
 use SilverStripe\ORM\DataList;
 use SilverStripe\Lumberjack\Model\Lumberjack;
-use SilverStripe\Forms\FieldList; 
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\TagField\TagField;
@@ -31,18 +31,18 @@ class Calendar extends Page {
 	private static $language = "EN";
 
 	public function EventDateTimesList($start = null, $end = null, $filter = null, $limit = null, $announcement_filter = null) {
-		
+
 		$list = new ArrayList();
 
 		$children = $this->AllChildren();
 		$ids = $children->column('ID');
-		
+
 		$relation = 'EventID';
 		$eventClass = 'CalendarEvent';
 
-		// if(!CalendarDateTime::get()->First()){
-		// 	return $list;4
-		// }
+		if(!CalendarDateTime::get()->First()){
+			return $list;
+		}
 
 		$list = CalendarDateTime::get()
 			->filter(array(
@@ -91,14 +91,14 @@ class Calendar extends Page {
 
 
 		$eventDateTimes = $this->EventDateTimesList();
-		
+
 
 		foreach($eventDateTimes as $eventDateTime){
 			$events->push($eventDateTime->Event());
 		}
 		$curDate = date("Y-m-d");
 		$eventsWithFutureExpiry = CalendarEvent::get()->filter(array('Expires:GreaterThan' => $curDate));
-		
+
 
 
 		//$eventsWithFutureExpiry = CalendarEvent::get();
@@ -143,7 +143,7 @@ class Calendar extends Page {
 		$grid->setList($sortedList);
 		$grid->setTitle('Events');
 		$grid->setName('Events');
-		
+
 		$fields->addFieldToTab('Root.Main', $grid);
 
 		$fields->removeByName("ChildPages");

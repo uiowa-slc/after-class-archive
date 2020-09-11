@@ -64,9 +64,10 @@ class UiCalendarExtension extends DataExtension {
         $uiEvents = $this->owner->EventList("threemonths");
 
         $socialEvents = $this->SocialEventList();
-
+        // print_r('hey');
 
         foreach($socialEvents as $socialEvent){
+
             $id = $socialEvent->UiCalendarEventId;
             $uiEventTest = $uiEvents->filter(array('ID' => $id))->First();
             if($uiEventTest){
