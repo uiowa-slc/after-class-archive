@@ -57,7 +57,7 @@
                         <% if $OnlineLocationType == "Zoom" %>
                             <p><a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom meeting link <i aria-hidden="true" class="fas fa-video"></i></a></p>
                         <% else %>
-                            <p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online meeting link<i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
+                            <p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online meeting link <i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
                         <% end_if %>
                     <% end_if %>
 				<div class="content">$Content</div>
