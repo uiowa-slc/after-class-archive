@@ -1,0 +1,28 @@
+#Form_AddForm_PublishNow_Holder {
+
+    .description {
+        display: block;
+        @extend .alert;
+        @extend .alert-warning;
+    }
+}
+
+.alert {
+    p {
+        margin: 0;
+    }
+
+}
+
+#Form_AddForm {
+    .message {
+        display: block;
+        @extend .alert;
+
+
+    }
+
+    .error {
+        @extend .alert-warning
+    }
+}
