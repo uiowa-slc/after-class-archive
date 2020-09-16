@@ -19,23 +19,24 @@
             <li class="nav-item mr-3"><a class="nav-link" href="events/interest/7491/"><i aria-hidden="true" class="fa fa-moon"></i> Late Night</a></li>
             <li class="nav-item mr-3"><a class="nav-link" href="events/show/today/"><i aria-hidden="true" class="fa fa-clock"></i> Today</a></li>
             <li class="nav-item mr-3"><a class="nav-link" href="events/show/weekend/"><i aria-hidden="true" class="fa fa-calendar-week"></i> Weekend</a></li>
-            
+
             <li class="nav-item mr-3 link nav-item">
               <a class="nav-link" href="add" title="Add Your Event">
                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
+              Add Your Event</a>
+            </li>
+            <li class="nav-item mr-3 link nav-item">
+              <a class="nav-link" href="add-social" title="Promote">
+                <i aria-hidden="true" class="fa fa-plus-circle"></i>
               Add Your Post</a>
             </li>
-
             <li class="nav-item mr-3 link nav-item">
               <a class="nav-link" href="about-after-class/" title="About After Class">
               About</a>
             </li>
-            
 
-            <li class="nav-item mr-3 link nav-item">
-              <a class="nav-link" href="https://md.studentlife.uiowa.edu/clients/event-promotion-best-practices" title="Promote">
-              Promote</a>
-            </li>
+
+
 
           </ul>
         </div>

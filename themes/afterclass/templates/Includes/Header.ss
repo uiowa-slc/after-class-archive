@@ -1,6 +1,6 @@
 <div class="header__container">
     <div class="container-fluid">
-        
+
         <div class="row d-none d-lg-block">
             <div class=" col-lg-12 content-container title__container">
                 <div class="header-graphic">
@@ -28,22 +28,23 @@
                         <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/interest/7491/"><i aria-hidden="true" class="fa fa-moon"></i> Late Night</a></li>
                         <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/today/"><i aria-hidden="true" class="fa fa-clock"></i> Today</a></li>
                         <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/weekend/"><i aria-hidden="true" class="fa fa-calendar-week"></i> Weekend</a></li>
- 
+
                         <li class="nav-item mr-3 link nav-item">
                             <a class="nav-link nav-link--large" href="add/" title="Add Your Event">
                                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
+                            Add Your Event</a>
+                        </li>
+                                          <li class="nav-item mr-3 link nav-item">
+                            <a class="nav-link nav-link--large" href="add-social/" title="Promote">
+                                <i aria-hidden="true" class="fa fa-plus-circle"></i>
                             Add Your Post</a>
                         </li>
-                        
                         <li class="nav-item mr-3 link nav-item">
                             <a class="nav-link nav-link--large" href="about-after-class/" title="About After Class">
                             About</a>
                         </li>
-                        
-                        <li class="nav-item mr-3 link nav-item">
-                            <a class="nav-link nav-link--large" href="https://md.studentlife.uiowa.edu/clients/event-promotion-best-practices" title="Promote">
-                            Promote</a>
-                        </li>
+
+
 
                     </ul>
                 </div>
