@@ -19,3 +19,4 @@ staticlog.log
 buildlog.log
 /.tmp
 nocaptcha.yml
+oauth2.yml
