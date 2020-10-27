@@ -26,6 +26,7 @@ class CalendarEvent extends Page {
 		'SocialAuthorName' => 'Text',
 		'SocialAuthorUrl' => 'Text',
 		'SocialCaption' => 'HTMLText',
+		'SocialEmbedHTML' => 'HTMLText',
 
 		'ContactName' => 'Text',
 		'ContactEmail' => 'Text',
@@ -148,8 +149,8 @@ class CalendarEvent extends Page {
 			if (!$instaAccessToken) {
 				break;
 			}
-			//https://graph.facebook.com/v8.0/instagram_oembed?url=https://www.instagram.com/p/CG0DQgCnwV9/&maxwidth=800&fields=thumbnail_url,author_name,provider_name,provider_url&access_token=127918570561161|cM2WW0IQgNG3TbOu9u1UrHVGoiM
-			$jsonDecoded = FeedHelper::getJson('https://graph.facebook.com/v8.0/instagram_oembed?url=' . $this->SocialLink . '&maxwidth=800&fields=thumbnail_url,author_name,provider_name,provider_url&access_token=' . $instaAccessToken);
+
+			$jsonDecoded = FeedHelper::getJson('https://graph.facebook.com/v8.0/instagram_oembed?url=' . $this->SocialLink . '&maxwidth=800&fields=thumbnail_url,author_name,html,provider_name,provider_url&access_token=' . $instaAccessToken);
 
 			//print_r($jsonDecoded);
 
@@ -163,7 +164,7 @@ class CalendarEvent extends Page {
 				$this->SocialAuthorName = $jsonDecoded['author_name'];
 				$this->SocialAuthorUrl = 'https://instagram.com/' . $jsonDecoded['author_name'];
 
-				//$this->SocialCaption = $jsonDecoded['title'];
+				$this->SocialEmbedHTML = $jsonDecoded['html'];
 
 				if (!$this->Title) {
 					$this->Title = "Post from " . $jsonDecoded['author_name'];
@@ -181,7 +182,7 @@ class CalendarEvent extends Page {
 				$this->SocialAuthorName = $jsonDecoded['author_name'];
 				$this->SocialAuthorUrl = $jsonDecoded['author_url'];
 				$this->SocialCaption = $jsonDecoded['html'];
-
+				//$this->SocialHTML = $jsonDecoded['html']
 				if (!$this->Title) {
 					$this->Title = "Post from " . $jsonDecoded['author_name'];
 					$this->URLSegment = $jsonDecoded['author_name'] . '-' . date('m-d-Y');

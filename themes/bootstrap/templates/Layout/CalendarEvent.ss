@@ -7,12 +7,15 @@
 		<div class="col-lg-8">
 			<article>
 
+                <% if $SocialEmbedHTML %>
+                    $SocialEmbedHTML
+                <% else %>
 
-				<div class = "p-2  w-50 mb-2 mr-auto ml-auto d-block">
-					$SocialCardHTML("external")
-				</div>
+    				<div class = "p-2  w-50 mb-2 mr-auto ml-auto d-block">
+    					$SocialCardHTML("external")
+    				</div>
 
-
+                <% end_if %>
 				<h1>$ParsedTitle.RAW</h1>
 
 				<% if $DateTimes || $Venue || $Location || $OnlineLocationUrl %>

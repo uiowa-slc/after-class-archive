@@ -73,7 +73,7 @@
       "web.config"
     ],
     "expose": [
-      "themes/afterclass/dist"
+      "themes/bootstrap/dist"
     ]
   }
 }
