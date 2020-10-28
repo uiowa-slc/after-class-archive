@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96aa1c69fbff5ff0a229501f3ff8eaf4",
+    "content-hash": "562a8c41b885c16ee7998fb2230fa368",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -321,16 +321,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v3.4.8",
+            "version": "v3.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "96aab555e399769b9d12c3c362a4232563ccbe76"
+                "reference": "43da4ebcae61f4acf44e1b89436c2912a4b38f60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/96aab555e399769b9d12c3c362a4232563ccbe76",
-                "reference": "96aab555e399769b9d12c3c362a4232563ccbe76",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/43da4ebcae61f4acf44e1b89436c2912a4b38f60",
+                "reference": "43da4ebcae61f4acf44e1b89436c2912a4b38f60",
                 "shasum": ""
             },
             "require": {
@@ -371,7 +371,7 @@
                 "opengraph",
                 "twitter cards"
             ],
-            "time": "2020-07-03T15:04:01+00:00"
+            "time": "2020-10-27T21:42:10+00:00"
         },
         {
             "name": "gorriecoe/silverstripe-webfonts",
@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project.git",
-                "reference": "7984916ee3fc10db654dd6297ac8a7b4abba234e"
+                "reference": "79e8198f4a0d1a22e4575944d08aaa082c2e03ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/7984916ee3fc10db654dd6297ac8a7b4abba234e",
-                "reference": "7984916ee3fc10db654dd6297ac8a7b4abba234e",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/79e8198f4a0d1a22e4575944d08aaa082c2e03ff",
+                "reference": "79e8198f4a0d1a22e4575944d08aaa082c2e03ff",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1071,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/tree/main",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/issues"
             },
-            "time": "2020-10-23T22:15:57+00:00"
+            "time": "2020-10-28T18:04:51+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -3281,16 +3281,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v3.4.45",
+            "version": "v3.4.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "01f4cc9de5aa1a49cce75280680c8a78907bb55e"
+                "reference": "a7a14c4832760bd1fbd31be2859ffedc9b6ff813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/01f4cc9de5aa1a49cce75280680c8a78907bb55e",
-                "reference": "01f4cc9de5aa1a49cce75280680c8a78907bb55e",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/a7a14c4832760bd1fbd31be2859ffedc9b6ff813",
+                "reference": "a7a14c4832760bd1fbd31be2859ffedc9b6ff813",
                 "shasum": ""
             },
             "require": {
@@ -3314,11 +3314,6 @@
                 "predis/predis": "^1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Cache\\": ""
@@ -3361,20 +3356,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-02T16:06:40+00:00"
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.45",
+            "version": "v3.4.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "d061a451ff6bc170c5454f4ac9b41ad2179e3960"
+                "reference": "bc6b3fd3930d4b53a60b42fe2ed6fc466b75f03f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/d061a451ff6bc170c5454f4ac9b41ad2179e3960",
-                "reference": "d061a451ff6bc170c5454f4ac9b41ad2179e3960",
+                "url": "https://api.github.com/repos/symfony/config/zipball/bc6b3fd3930d4b53a60b42fe2ed6fc466b75f03f",
+                "reference": "bc6b3fd3930d4b53a60b42fe2ed6fc466b75f03f",
                 "shasum": ""
             },
             "require": {
@@ -3396,11 +3391,6 @@
                 "symfony/yaml": "To use the yaml reference dumper"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Config\\": ""
@@ -3439,20 +3429,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-02T16:06:40+00:00"
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.4.15",
+            "version": "v4.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "ebc51494739d3b081ea543ed7c462fa73a4f74db"
+                "reference": "e74b873395b7213d44d1397bd4a605cd1632a68a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ebc51494739d3b081ea543ed7c462fa73a4f74db",
-                "reference": "ebc51494739d3b081ea543ed7c462fa73a4f74db",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/e74b873395b7213d44d1397bd4a605cd1632a68a",
+                "reference": "e74b873395b7213d44d1397bd4a605cd1632a68a",
                 "shasum": ""
             },
             "require": {
@@ -3460,11 +3450,6 @@
                 "symfony/polyfill-ctype": "~1.8"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Filesystem\\": ""
@@ -3503,31 +3488,26 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-27T13:54:16+00:00"
+            "time": "2020-10-24T11:50:19+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.45",
+            "version": "v3.4.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "52140652ed31cee3dabd0c481b5577201fa769b4"
+                "reference": "4e1da3c110c52d868f8a9153b7de3ebc381fba78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/52140652ed31cee3dabd0c481b5577201fa769b4",
-                "reference": "52140652ed31cee3dabd0c481b5577201fa769b4",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/4e1da3c110c52d868f8a9153b7de3ebc381fba78",
+                "reference": "4e1da3c110c52d868f8a9153b7de3ebc381fba78",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Finder\\": ""
@@ -3566,7 +3546,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-02T16:06:40+00:00"
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -3926,16 +3906,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.45",
+            "version": "v3.4.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "ec3c2ac4d881a4684c1f0317d2107f1a4152bad9"
+                "reference": "88289caa3c166321883f67fe5130188ebbb47094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/ec3c2ac4d881a4684c1f0317d2107f1a4152bad9",
-                "reference": "ec3c2ac4d881a4684c1f0317d2107f1a4152bad9",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/88289caa3c166321883f67fe5130188ebbb47094",
+                "reference": "88289caa3c166321883f67fe5130188ebbb47094",
                 "shasum": ""
             },
             "require": {
@@ -3952,11 +3932,6 @@
                 "symfony/console": "For validating YAML files using the lint command"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Yaml\\": ""
@@ -3995,7 +3970,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-18T15:58:55+00:00"
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "undefinedoffset/silverstripe-nocaptcha",
