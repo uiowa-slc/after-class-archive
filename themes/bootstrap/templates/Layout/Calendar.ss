@@ -1,6 +1,6 @@
 <% include Header %>
 
-<div class="container" style="max-width: 500px;">
+<div class="container" id="content" style="max-width: 500px;">
 
 	<% if $Action == "index" %>
 	<div class="calendar-content">
@@ -8,7 +8,7 @@
 	</div>
 	<% end_if %>
 
-	
+
 	<% loop $EventList %>
 		$SocialCardHTML
 	<% end_loop %>

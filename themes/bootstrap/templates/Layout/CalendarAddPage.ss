@@ -1,6 +1,6 @@
 <% include HeaderSmall %>
 
-<div class="container">
+<div class="container" id="alert">
 	<div class="row justify-content-center">
 		<div class="col-lg-7 col-xl-6 content-container pt-5" role="main">
 			$Alert.RAW
@@ -22,7 +22,7 @@
 			<% if $Calendar.SocialEventList && $Calendar.ShowSocialCalendar %>
 				<div class="d-none d-lg-block col-lg-3 pt-5">
 					<div class="sticky-side">
-						<h2>Example post:</h2>		
+						<h2>Example post:</h2>
 						<% loop $Calendar.SocialEventList(shuffled).First %>
 							<div class="">
 								$SocialCardHTML("internal")
