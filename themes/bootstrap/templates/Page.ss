@@ -28,7 +28,8 @@
     $Layout
     <% include Footer %>
     $BetterNavigator
-    <% include FooterScripts %>
+
+    <% require javascript("https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDrwOxlXCSTCf6WWywio2KZfZkbpmya5X8") %>
     <% require javascript("themes/bootstrap/dist/scripts/main.min.js") %>
     $Analytics
 </body>
