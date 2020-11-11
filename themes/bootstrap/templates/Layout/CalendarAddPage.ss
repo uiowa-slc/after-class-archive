@@ -7,7 +7,7 @@
 			<article>
 				<h1>$Title</h1>
 
-				<% if $Calendar.SocialEventList && $Calendar.ShowSocialCalendar %>
+				<% if $Calendar.ShowSocialCalendar %>
 					<div class="content">$SubmissionInfo</div>
 					<div class="mb-5">
 						$AddForm
