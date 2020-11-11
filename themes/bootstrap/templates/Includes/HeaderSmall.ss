@@ -1,5 +1,5 @@
 <div class="header__container">
-  <div class="container-fluid">
+  <div class="container">
     <header role="banner">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <!-- Navbar brand -->

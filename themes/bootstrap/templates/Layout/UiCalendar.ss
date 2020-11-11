@@ -6,7 +6,7 @@
 <% end_if %>
 
 
-<div class="container-fluid" id="content">
+<div class="container-fluid content-container" id="content">
 	<% if $action != "canceled" && $Content %>
 	<div class="calendar-content">
 		$Content

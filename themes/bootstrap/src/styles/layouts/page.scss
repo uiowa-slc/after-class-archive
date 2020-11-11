@@ -1,27 +1,33 @@
-
-.ptop-30{
-	padding-top: 30px;
+.ptop-30 {
+    padding-top: 30px;
 }
-.card__banner-img{
+
+.card__banner-img {
     display: block;
     position: absolute;
     width: 10%;
-    margin-right:15px;
+    margin-right: 15px;
     filter: drop-shadow(0 0 20px #333);
 }
-.card-columns--constrained{
-	@include media-breakpoint-up(sm) {
-		column-count: 1;
-	}
-	@include media-breakpoint-up(lg) {
-		column-count: 3;
-	}
+
+.card-columns--constrained {
+    @include media-breakpoint-up(sm) {
+        column-count: 1;
+    }
+
+    @include media-breakpoint-up(lg) {
+        column-count: 3;
+    }
 }
 
-h3{
-	color: #ccc;
+h3 {
+    color: #ccc;
 }
 
-hr{
-	border-color: #666;
+hr {
+    border-color: #666;
+}
+
+.content-container h1 {
+    font-family: 'Zilla Slab', sans;
 }

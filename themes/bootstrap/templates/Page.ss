@@ -24,7 +24,7 @@
 
 <body class="{$ClassName}">
     <a class="sr-only sr-only-focusable" href="{$Link}#content">Skip to main content</a>
-    <% include UiowaBar %>
+    <% include IowaBar %>
     $Layout
     <% include Footer %>
     $BetterNavigator

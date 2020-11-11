@@ -1,62 +1,68 @@
-.calendar-content{
+.calendar-content {
 
     max-width: 900px;
     text-align: center;
     margin: 10px auto;
-    p{
+
+    p {
         margin-bottom: 0;
     }
 }
-.card-img-top{
+
+.card-img-top {
     background: white;
 }
-.card{
-    background-color:#363636;
+
+.card {
+    background-color: #000;
+    border: 1px solid #333;
 }
-.card-title{
+
+.card-title {
     text-align: left;
-    margin-top:10px;
+    margin-top: 10px;
+    font-family: 'Zilla Slab', sans;
 }
-.card-subtitle{
+
+.card-subtitle {
     color: #ccc;
     font-size: 14px;
 
     font-family: $headings-font-family;
-    a{
+
+    a {
         color: lighten($gold, 30);
     }
 }
 
-.card-footer{
+.card-footer {}
 
-
-
-}
-
-.fa-instagram{
+.fa-instagram {
     background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.fa-twitter{
+.fa-twitter {
     color: #00acee;
 }
 
-.event-footer{
+.event-footer {
     font-size: 14px;
     font-family: $headings-font-family;
-    a{
+
+    a {
         color: white;
     }
 
 }
-.event-card{
+
+.event-card {
     display: block;
     position: relative;
-    margin:10px 5px;
+    margin: 10px 5px;
 }
 
 
@@ -64,36 +70,41 @@
     @include media-breakpoint-up(sm) {
         column-count: 2;
     }
+
     @include media-breakpoint-up(md) {
         column-count: 2;
     }
+
     @include media-breakpoint-up(lg) {
         column-count: 3;
     }
+
     @include media-breakpoint-up(xl) {
         column-count: 4;
     }
 }
-.filter-header{
+
+.filter-header {
     color: white;
-    padding:10px 15px;
+    padding: 10px 15px;
     text-align: center;
 
     margin-top: 15px;
 }
 
-.event-card-image-container{
+.event-card-image-container {
     padding-bottom: 55.3%;
-    img{
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }
 
-.card__banner-img{
+.card__banner-img {
     display: block;
     position: absolute;
     width: 10%;
@@ -120,27 +131,33 @@ then in your css you would have
 
 .masonry-grid-sizer,
 .masonry-grid-item {
-    width:  100%;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
+
     @include media-breakpoint-up(sm) {
         width: calc(50% - 10px);
     }
+
     @include media-breakpoint-up(md) {
-       width: calc(50% - 10px);
+        width: calc(50% - 10px);
     }
+
     @include media-breakpoint-up(lg) {
         width: calc(33.3% - 13.33px);
     }
+
     @include media-breakpoint-up(xl) {
         width: calc(25% - 15px);
     }
 
 }
 
-.masonry-gutter-sizer { width: 20px; }
+.masonry-gutter-sizer {
+    width: 20px;
+}
 
-.masonry-grid-item{
+.masonry-grid-item {
 
 
     // width:  100%;
@@ -159,4 +176,3 @@ then in your css you would have
     //     width: 25%;
     // }
 }
-

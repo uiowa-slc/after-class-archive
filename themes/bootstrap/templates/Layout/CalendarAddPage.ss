@@ -1,6 +1,6 @@
 <% include HeaderSmall %>
 
-<div class="container" id="alert">
+<div class="container content-container" id="alert">
 	<div class="row justify-content-center">
 		<div class="col-lg-7 col-xl-6 content-container pt-5" role="main">
 			$Alert.RAW

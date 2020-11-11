@@ -1,7 +1,7 @@
 <% include HeaderSmall %>
 
 
-<div class="container" role="main" id="content">
+<div class="container content-container " role="main" id="content">
 
 	<div class="row d-flex ptop-30 justify-content-center">
 		<div class="col-lg-8">
