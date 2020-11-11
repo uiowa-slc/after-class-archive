@@ -24,22 +24,22 @@
                 <div class="collapse navbar-collapse justify-content-center " id="basicExampleNav">
                     <!-- Links -->
                     <ul class="navbar-nav">
-                        <li class="nav-item mr-4"><a class="nav-link nav-link--large" href="events/"><i aria-hidden="true" class="fa fa-calendar"></i> Calendar</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/interest/7491/"><i aria-hidden="true" class="fa fa-moon"></i> Late Night</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/today/"><i aria-hidden="true" class="fa fa-clock"></i> Today</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link nav-link--large" href="events/show/weekend/"><i aria-hidden="true" class="fa fa-calendar-week"></i> Weekend</a></li>
+                        <li class="nav-item mr-lg-4"><a class="nav-link nav-link--large" href="events/"><i aria-hidden="true" class="fa fa-calendar"></i> Calendar</a></li>
+                        <li class="nav-item mr-lg-3"><a class="nav-link nav-link--large" href="events/interest/7491/"><i aria-hidden="true" class="fa fa-moon"></i> Late Night</a></li>
+                        <li class="nav-item mr-lg-3"><a class="nav-link nav-link--large" href="events/show/today/"><i aria-hidden="true" class="fa fa-clock"></i> Today</a></li>
+                        <li class="nav-item mr-lg-3"><a class="nav-link nav-link--large" href="events/show/weekend/"><i aria-hidden="true" class="fa fa-calendar-week"></i> Weekend</a></li>
 
-                        <li class="nav-item mr-3 link nav-item">
+                        <li class="nav-item mr-lg-3 link nav-item">
                             <a class="nav-link nav-link--large" href="add/" title="Add Your Event">
                                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
                             Add Your Event</a>
                         </li>
-                                          <li class="nav-item mr-3 link nav-item">
+                                          <li class="nav-item mr-lg-3 link nav-item">
                             <a class="nav-link nav-link--large" href="add-social/" title="Promote">
                                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
                             Add Your Post</a>
                         </li>
-                        <li class="nav-item mr-3 link nav-item">
+                        <li class="nav-item mr-lg-3 link nav-item">
                             <a class="nav-link nav-link--large" href="about-after-class/" title="About After Class">
                             About</a>
                         </li>

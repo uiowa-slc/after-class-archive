@@ -197,6 +197,7 @@
 	</div>
 
 </div>
+<%--
 <% with $Parent %>
 	<section class="social-carousel__container">
 		<h1 class="text-center" style="font-size: 22px; padding-top: 10px;">More From social media:</h1>
@@ -209,6 +210,8 @@
 		</div>
 	</section>
 <% end_with %>
+
+-%>
 
 <%-- <% if $RelatedEvents %>
 	<div class="related-container">
