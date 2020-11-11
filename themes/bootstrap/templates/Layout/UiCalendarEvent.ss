@@ -4,7 +4,7 @@
 <div class="container content-container " role="main" id="content">
 
 	<div class="row d-flex ptop-30 justify-content-center">
-		<div class="col-lg-8">
+		<div class="col-lg-6">
 			<article>
 
 			 	<% if $Image.Orientation == "Wide" %>
@@ -17,11 +17,12 @@
 				<% end_if %>
 
 				<h1>$Title</h1>
-
+                <div class="event-details">
 				<% if $Dates || $Venue || $Location || $OnlineLocationUrl || $isOnline %>
 
 					<p class="m-0"><% if $Dates.Count > 1 %><strong>Next date:</strong><% else %><strong>Date:</strong> <% end_if %>
 						<% if $Dates %>
+                        <i aria-hidden="true" class="far fa-calendar-alt"></i>
 							<% loop $Dates.Limit(1) %>
 								<% include DateTimesList %>
 							<% end_loop %>
@@ -32,7 +33,7 @@
                         </p>
                     <p>
                    <% if $isOnline %>
-                    <strong>Location:</strong> Online <i aria-hidden="true" class="fas fa-laptop-house"></i><br />
+                    <strong>Location: </strong><i aria-hidden="true" class="fas fa-laptop"></i>Virtual Event<br />
                     <% else %>
 
     					<% if $Venue.Title || $Location %>
@@ -53,17 +54,23 @@
                     <% end_if %>
 					</p>
 				<% end_if %>
-                    <% if $OnlineLocationUrl %>
+                <p>
+                    <% if $OnlineLocationUrl || $MoreInfoLink %>
                         <% if $OnlineLocationType == "Zoom" %>
-                            <p><a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a></p>
+                                <a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a>
                         <% else %>
-                            <p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online event link <i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
+                                <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Virtual event link <i aria-hidden="true" class="fas fa-laptop-house"></i></a>
+                        <% end_if %>
+
+                        <% if $MoreInfoLink %>
+                            <a href="$MoreInfoLink" class="btn btn-outline-primary" target="_blank">Event website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
                         <% end_if %>
                     <% end_if %>
+                </p>
+
+                </div>
 				<div class="content">$Content</div>
-                <% if $MoreInfoLink %>
-                    <p><a href="$MoreInfoLink" class="btn btn-primary mb-2" target="_blank">Event website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
-                <% end_if %>
+                <div class="event-details">
 				<% if $Dates.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>
@@ -79,22 +86,22 @@
 				<% if $Tags %>
 					<p>Tagged as:
 					<% loop $Tags %>
-					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
+					<a href="$Link" class="btn btn-outline-white btn-sm mb-0">$Title</a>
 					<% end_loop %></p>
 
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
-					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
+					<a href="$Link" class="btn btn-outline-white btn-sm mb-0">$Title</a>
 					<% end_loop %></p>
 
 				<% end_if %>
-
+            </div>
 				<% if $UiCalendarLink %>
 					<p>
 						<% if $UiCalendarLink %>
-							<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank">View on the UI Events Calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+							<a href="$UiCalendarLink" class="btn btn-outline-white mb-2" target="_blank">View on the UI Events Calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
 						<% end_if %>
 						<%-- <a class="btn btn-secondary" href="$CalendarLink">Add to your calendar <i aria-hidden="true" class="fas fa-calendar-alt"></i></a> --%>
 					</p>

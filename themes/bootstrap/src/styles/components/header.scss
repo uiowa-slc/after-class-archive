@@ -17,8 +17,9 @@
 .nav-link {
     color: white;
 
-    font-size: 22px;
-
+    @include media-breakpoint-up(xl) {
+        font-size: 22px;
+    }
 
 
     &--large {

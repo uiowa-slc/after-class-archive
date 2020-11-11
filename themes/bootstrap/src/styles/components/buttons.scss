@@ -1,9 +1,166 @@
-.btn-zoom{
+/* Buttons
+Class names to use in template
+normal: "button"
+black: "button black"
+large: "button large"
+hollow: "button hollow", "button hollow black"
+clear: "button clear", "button clear black"
+/*
+
+/* Foundation button changes */
+.btn {
+    font-size: 14px;
+    letter-spacing: .04rem;
+    position: relative;
+    text-transform: uppercase;
+
+    &.btn-sm {
+        font-size: 12px;
+        border-radius: $border-radius;
+    }
+
+    //used in TopicHolder "browse by" tags:
+    &--no-caps {
+        text-transform: none;
+    }
+
+    &.large {
+        font-family: $headings-font-family;
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+
+    & svg {
+        margin-left: rem-calc(5); // adds margin to icons
+        color: #fff;
+        /* sets icon color to white */
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $black;
+        transform-origin: center;
+        transform: translate(-50%, 0) scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:focus {
+        text-decoration: underline !important;
+    }
+}
+
+.btn:hover::after,
+.btn:focus::after {
+    transform: translate(-50%, 0) scaleX(1);
+}
+
+// Black button
+.btn.black {
+    & svg {
+        color: $highlight; // Icon
+    }
+
+    &::after {
+        background-color: $highlight; // Hover animation
+    }
+}
+
+// Hollow styles
+.btn-outline-primary {
+    color: $body-color;
+
+    & svg {
+        color: $highlight; // Icon
+    }
+
+    &::after {
+        background-color: $highlight; // Hover animation
+    }
+
+    &:hover,
+    &:focus {
+        color: $body-color;
+        border-color: #999;
+        background: $body-bg;
+    }
+
+    &.black {
+        & svg {
+            color: $black; // Icon
+        }
+    }
+}
+
+// Clear Styles - No border
+.btn.clear {
+    color: $black;
+    border: none;
+
+    & svg {
+        color: $highlight; // Icon
+    }
+
+    &::after {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        color: $black;
+        text-decoration: underline;
+
+        & svg {
+            color: $black;
+        }
+    }
+
+    &.black {
+        & svg {
+            color: $black; // Icon
+        }
+    }
+}
+
+/* fallback style to prevent odd coloring in weird/malformed TinyMCE-made buttons. */
+.btn a {
+    text-decoration: none !important;
+    color: $black;
+}
+
+.main-content__text .btn {
+    text-decoration: none;
+}
+
+
+//Used in TopicHolder "browse by" tags:
+.btn--flex-full {
+    display: flex;
+    height: 100%;
+}
+
+// .btn--skinny {
+//     padding: 5px;
+
+//     @include breakpoint(large) {
+//         padding: 10px;
+//     }
+// }
+
+
+
+
+
+.btn-zoom {
     background-color: #00558C;
     color: white;
     border: none;
 
-    &:hover{
+    &:hover {
         background-color: darken(#00558C, 20);
         color: #eee;
     }

@@ -29,14 +29,18 @@
 						<% else %>
 
 						<% end_if %>
-
-                    <% if $OnlineLocationUrl %>
-                        <% if $OnlineLocationType == "Zoom" %>
-                            <p><a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a></p>
-                        <% else %>
-                            <p><a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online event link<i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
-                        <% end_if %>
-                    <% end_if %>
+                        <p>
+                            <% if $OnlineLocationUrl %>
+                                <% if $OnlineLocationType == "Zoom" %>
+                                    <a class="btn btn-outline-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a></p>
+                                <% else %>
+                                    <a class="btn btn-outline-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online event link<i aria-hidden="true" class="fas fa-laptop-house"></i></a></p>
+                                <% end_if %>
+                            <% end_if %>
+                            <% if $MoreInfoLink %>
+                                    <a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener">Event Website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+                            <% end_if %>
+                        </p>
 
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
 					<br />
@@ -69,6 +73,8 @@
 						<% end_if %>
 					</div>
 				<% end_if %>
+
+                <div class="event-details">
 				<% if $DateTimes.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>
@@ -84,23 +90,20 @@
 				<% if $Tags %>
 					<p>Tagged as:
 					<% loop $Tags %>
-					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
+					<a href="$Link" class="btn btn-outline-primary btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
 
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
-					<a href="$Link" class="btn btn-warning btn-sm mb-2">$Title</a>
+					<a href="$Link" class="btn black btn-outline-primary btn-sm mb-2">$Title</a>
 					<% end_loop %></p>
 
 				<% end_if %>
-
-				<% if $MoreInfoLink || $UiCalendarLink || $SocialLink%>
+            </div>
+				<% if $UiCalendarLink || $SocialLink%>
 					<p>
-						<% if $MoreInfoLink %>
-							<a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener">Event Website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-						<% end_if %>
 
 						<% if $UiCalendarLink %>
 								<a href="$UiCalendarLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener">View on the UI events calendar <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>

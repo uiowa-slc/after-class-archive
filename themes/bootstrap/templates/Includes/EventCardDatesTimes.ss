@@ -1,6 +1,8 @@
 <p class="card-subtitle text-uppercase">
 
 	<% if $Dates %>
+    <span class="d-inline-block mr-2">
+    <i aria-hidden="true" class="far fa-calendar-alt"></i>
 		<% loop $Dates.Limit(1) %>
 			<% with $StartDateTime %>
 				<a href="{$Up.Link}"><span itemprop="startDate" datetime="$Rfc3339">$Format("MMM d, h:mm a")</span></a>
@@ -12,6 +14,7 @@
 			<% end_with %>
 			<% end_if %>
 		<% end_loop %>
+    </span>
 	<% end_if %>
     <% if not $isOnline %>
     	<% if $Venue %>
@@ -23,10 +26,10 @@
     		@ <span itemprop="location">$Location</span>
     	<% end_if %>
     	<% if $Dates.Count > "1" %>
-    		<a href="$Link"> | more dates</a>
+    		<a href="$Link"> more dates</a>
     	<% end_if %>
     <% else %>
-        Online Event <i aria-hidden="true" class="fas fa-laptop-house"></i>
+        <i aria-hidden="true" class="fas fa-laptop"></i> Virtual Event
     <% end_if %>
 </p>
 
