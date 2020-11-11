@@ -4,7 +4,7 @@
 <div class="container content-container " role="main" id="content">
 
 	<div class="row d-flex ptop-30 justify-content-center">
-		<div class="col-lg-6">
+		<div class="<% if $Image.Orientation == "Wide" %>col-lg-7<% else_if not $Image.URL %>col-lg-7<% else %>col-lg-6<% end_if %>">
 			<article>
 
 			 	<% if $Image.Orientation == "Wide" %>
@@ -145,6 +145,7 @@
 			$Form
 			$PageComments
 		</div>
+        <% if $Image.URL  %>
 		<% if $Image.Orientation != "Wide" || $Venue.Title || $Location %>
 		<div class="col-lg-4">
 			<div class="sticky-side">
@@ -190,6 +191,7 @@
 			</div>
 		</div>
 		<% end_if %>
+        <% end_if %>
 	</div>
 
 </div>
