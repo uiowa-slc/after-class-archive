@@ -154,94 +154,9 @@
 			$PageComments
 		</div>
 
-		<%-- <div class="col-lg-4">
-			<div class="sticky-side">
-
-				<div class="d-none d-lg-block">
-					<% if $IsLateNight %>
-				 		<img class="card__banner-img" alt="Late Night Programs Flag" role="presentation" src="$ThemeDir/dist/images/latenightbanner.png" />
-				 	<% end_if %>
-				</div>
-				<% with $Venue %>
-					<% if $Address %>
-						<div class="map-container">
-							<div id="mini-map" style="width: 100%; height: 100%" data-link="$Link" <% if $Latitude && $Longitude %> data-lat="$Latitude" data-lng="$Longitude" <% else %> data-address="$Address" <% end_if %> data-title="$Title.LimitCharacters(20)"></div>
-						</div>
-					<% end_if %>
-				<% end_with %>
-				<p class="venue-nav mt-2">
-					<% if $Venue.Title || $Location %>
-						<strong>Location: </strong>
-						<% if $Location %> $Location <% end_if %>
-						<% if $Venue.Title %>
-							<% with $Venue %>
-								<% if $Link %>
-									<a href="$Link" class="btn btn-warning btn-sm" itemprop="location">$Title</a>
-								<% else %>
-									$Title
-								<% end_if %>
-							<% end_with %>
-						<% end_if %>
-					<% end_if %>
-				</p>
-				<p class="venue-nav">
-					<% with $Venue %>
-						<% if $Address %>
-							<a class="btn btn-secondary mt-2" target="_blank" href="$DirectionsLink">Get Directions <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-						<% end_if %>
-					<% end_with %>
-				</p>
-			</div>
-		</div> --%>
 
 	</div>
 
 </div>
-<%--
-<% with $Parent %>
-	<section class="social-carousel__container">
-		<h1 class="text-center" style="font-size: 22px; padding-top: 10px;">More From social media:</h1>
-		<div class="social-carousel">
-			<% loop $EventList %>
-				<div class="carousel-cell">
-					$SocialCardHTML("internal")
-				</div>
-			<% end_loop %>
-		</div>
-	</section>
-<% end_with %>
 
--%>
-
-<%-- <% if $RelatedEvents %>
-	<div class="related-container">
-		<div class="container">
-			<div class="row pt-4">
-				<div class="col-lg-12">
-					<h2 class="text-center">Related Events</h2>
-					<div class="masonry-grid">
-						<% loop RelatedEvents %>
-							<% include EventCard %>
-						<% end_loop %>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<% else_if $LocationRelatedEvents %>
-	<div class="related-container">
-		<div class="container">
-			<div class="row pt-4">
-				<div class="col-lg-12">
-					<h2 class="text-center">Events also located at {$Venue.Title}: </h2>
-					<div class="masonry-grid">
-						<% loop LocationRelatedEvents %>
-							<% include EventCard %>
-						<% end_loop %>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<% end_if %> --%>
 

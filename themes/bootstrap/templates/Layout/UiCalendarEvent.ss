@@ -227,3 +227,4 @@
         </div>
     </div>
 <% end_if %>
+<% include InstaFeed %>

@@ -49,3 +49,4 @@
 		<% end_if %>
 	</div>
 </div>
+<% include InstaFeed %>
