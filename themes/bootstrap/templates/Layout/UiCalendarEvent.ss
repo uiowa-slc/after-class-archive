@@ -26,11 +26,14 @@
 							<% loop $Dates.Limit(1) %>
 								<% include DateTimesList %>
 							<% end_loop %>
+                             <% if $Dates.Count > 1 %><a href="{$Link}#all-dates" class="btn btn-outline-white btn-sm">More Dates</a><% end_if %>
 							<br />
 						<% else %>
 								No upcoming dates. <br />
 						<% end_if %>
-                        </p>
+
+                    </p>
+
                     <p>
                    <% if $isOnline %>
                     <strong>Location: </strong><i aria-hidden="true" class="fas fa-laptop"></i>Virtual Event<br />
@@ -70,7 +73,7 @@
 
                 </div>
 				<div class="content">$Content</div>
-                <div class="event-details">
+                <div class="event-details" id="all-dates">
 				<% if $Dates.Count > 1 %>
 					<h2>All dates for this event:</h2>
 					<ul>

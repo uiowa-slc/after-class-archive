@@ -78,13 +78,14 @@
 
     .fa {
         color: $gold;
-        display: none;
 
-        @include media-breakpoint-up(xl) {
-            display: inline-block;
+
+        @include media-breakpoint-up(sm) {
+            // display: none;
+
         }
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lg) {
             display: inline-block;
         }
 
