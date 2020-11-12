@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project.git",
-                "reference": "86023892353d4c94054e87f120bf8fee495d9351"
+                "reference": "009302635d06c4ecce641bc854f80b1ad1bec457"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/86023892353d4c94054e87f120bf8fee495d9351",
-                "reference": "86023892353d4c94054e87f120bf8fee495d9351",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/009302635d06c4ecce641bc854f80b1ad1bec457",
+                "reference": "009302635d06c4ecce641bc854f80b1ad1bec457",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1071,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/tree/iowa-bar",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/issues"
             },
-            "time": "2020-11-11T21:56:10+00:00"
+            "time": "2020-11-12T14:46:52+00:00"
         },
         {
             "name": "md/division-analytics",
