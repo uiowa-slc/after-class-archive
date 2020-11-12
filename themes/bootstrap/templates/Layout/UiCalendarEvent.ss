@@ -3,7 +3,7 @@
 
 <div class="container content-container " role="main" id="content">
 
-	<div class="row d-flex ptop-30 justify-content-center">
+	<div class="row d-flex <% if $Image.Orientation != "Wide" %>pt-4<% end_if %> justify-content-center">
 		<div class="<% if $Image.Orientation == "Wide" %>col-lg-7<% else_if not $Image.URL %>col-lg-7<% else %>col-lg-6<% end_if %>">
 			<article>
 
