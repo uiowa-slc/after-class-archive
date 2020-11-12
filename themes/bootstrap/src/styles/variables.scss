@@ -18,8 +18,9 @@ $gray-900: #151515;
 $black: #000;
 $white: #fff;
 
+$gray: #63666A;
 $light: $gray-100;
-$dark: $gray-900;
+$dark: #000;
 
 $theme-colors: ();
 $theme-colors: map-merge(("gold": $gold, "white": $white), $theme-colors);

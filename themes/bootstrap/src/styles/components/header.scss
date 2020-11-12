@@ -1,8 +1,15 @@
 .header__container {
 
 
-    background: #000;
+    /*background: #000;
     border-bottom: 4px solid $gold;
+
+    &--small {
+        border-bottom: 4px solid #63666A;
+    }
+
+    */
+
 }
 
 
@@ -10,31 +17,76 @@
     color: #262626;
     background: #000;
 
-    font-family: $headings-font-family;
-    padding: 20px 0;
+
+    //padding: 15px 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item:after,
+.nav-item-active:after {
+    @include media-breakpoint-up(lg) {
+        background-color: $gray;
+        display: block;
+        width: 0;
+        height: 5px;
+        position: absolute;
+        bottom: 0;
+        content: "";
+        z-index: 1;
+        transition: .3s;
+    }
+}
+
+.nav-item:hover:after,
+.nav-item-active:after {
+    @include media-breakpoint-up(lg) {
+        background-color: $gray;
+        display: block;
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        bottom: 0;
+        content: "";
+        z-index: 1;
+    }
 }
 
 .nav-link {
+    padding: 20px 0;
     color: white;
+    font-weight: bold;
 
     @include media-breakpoint-up(xl) {
-        font-size: 22px;
+        font-size: 16px;
     }
 
 
     &--large {
 
         @include media-breakpoint-up(lg) {
-            font-size: 21px;
+            font-size: 18px;
         }
 
         @include media-breakpoint-up(xl) {
-            font-size: 28px;
+            font-size: 24px;
         }
     }
 
     .fa {
         color: $gold;
+        display: none;
+
+        @include media-breakpoint-up(xl) {
+            display: inline-block;
+        }
+
+        @include media-breakpoint-up(xl) {
+            display: inline-block;
+        }
+
     }
 }
 

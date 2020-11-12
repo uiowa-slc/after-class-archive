@@ -1003,12 +1003,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "a37b08148d73d034609d0d4fbdd7e83a9e88b5d0"
+                "reference": "1432199ed338bfeece1716aeae307e60c397d213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/a37b08148d73d034609d0d4fbdd7e83a9e88b5d0",
-                "reference": "a37b08148d73d034609d0d4fbdd7e83a9e88b5d0",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/1432199ed338bfeece1716aeae307e60c397d213",
+                "reference": "1432199ed338bfeece1716aeae307e60c397d213",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2020-10-20T13:52:01+00:00"
+            "time": "2020-11-12T14:19:12+00:00"
         },
         {
             "name": "md/bootstrap-project",
