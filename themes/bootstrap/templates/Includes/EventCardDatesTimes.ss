@@ -5,7 +5,7 @@
     <i aria-hidden="true" class="far fa-calendar-alt"></i>
 		<% loop $Dates.Limit(1) %>
 			<% with $StartDateTime %>
-				<a href="{$Up.Link}"><span itemprop="startDate" datetime="$Rfc3339">$Format("MMM d, h:mm a")</span></a>
+				<a href="{$Up.Link}"><span itemprop="startDate" datetime="$Rfc3339">$Format("EEE, MMM d, h:mm a")</span></a>
 			<% end_with %>
 			<% if $EndDate %>
 			 -
