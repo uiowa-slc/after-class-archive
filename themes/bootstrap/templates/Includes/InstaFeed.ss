@@ -1,5 +1,5 @@
     <!-- Instagram Feed -->
-<%--     <section class="instafeed py-5" aria-labelledby="instagramid">
+    <section class="instafeed py-5" aria-labelledby="instagramid">
         <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -11,4 +11,4 @@
         </div>
     </div>
     </section>
- --%>
+
