@@ -395,7 +395,7 @@
     #templateHeader .mcnTextContent a,
     #templateHeader .mcnTextContent p a {
         /*@editable*/
-        color: #007C89;
+        color: #FFCD00;
         /*@editable*/
         font-weight: normal;
         /*@editable*/
@@ -409,7 +409,7 @@
     */
     #templateBody {
         /*@editable*/
-        background-color: #353535;
+        background-color: #000;
         /*@editable*/
         background-image: none;
         /*@editable*/
@@ -455,7 +455,7 @@
     #templateBody .mcnTextContent a,
     #templateBody .mcnTextContent p a {
         /*@editable*/
-        color: #ffffff;
+        color: #FFCD00;
         /*@editable*/
         font-weight: normal;
         /*@editable*/
@@ -469,7 +469,7 @@
     */
     #templateFooter {
         /*@editable*/
-        background-color: #222222;
+        background-color: #000;
         /*@editable*/
         background-image: none;
         /*@editable*/
@@ -852,6 +852,65 @@
     <!--<![endif]-->
     <!--*|END:IF|*-->
     <center>
+        <div style="background:#FFCD00;background-color:#FFCD00;margin:0px auto;max-width:798px;">
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFCD00;background-color:#FFCD00;width:100%;">
+                          <tbody>
+                            <tr>
+                              <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+                                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+        <tr>
+      <![endif]-->
+                                <!-- UI Logo -->
+                                <!--[if mso | IE]>
+            <td
+               class="" style="vertical-align:middle;width:534.66px;"
+            >
+          <![endif]-->
+                                <div class="mj-column-per-67 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="vertical-align:middle;padding:0px 0px;">
+                                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                            <tbody><tr>
+                                              <td align="left" style="font-size:0px;padding:15px 25px;word-break:break-word;">
+                                                <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">
+                                                  <div class="header-logo">
+                                                    <a href="https://www.uiowa.edu"><img src="https://dispatch-cdn.its.uiowa.edu/images/ui/Block-IOWA-BLACK-nomargin.png" alt="The University of Iowa" width="160" style="padding: 0px; width: 160;"></a>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody></table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <!--[if mso | IE]>
+            </td>
+          <![endif]-->
+                                <!-- College/Department Branding -->
+                                <!--[if mso | IE]>
+            <td
+               class="" style="vertical-align:middle;width:263.34px;"
+            >
+          <![endif]-->
+
+                                <!--[if mso | IE]>
+            </td>
+
+        </tr>
+
+                  </table>
+                <![endif]-->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
         <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
             <tr>
                 <td align="center" valign="top" id="bodyCell">
@@ -875,7 +934,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                                                <img align="center" alt="" src="https://gallery.mailchimp.com/c61b1cddac92babd42d7d628e/images/df178f01-2b1b-47c8-96c0-7837ebdec62f.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
+                                                                <img align="center" alt="" src="https://mcusercontent.com/c61b1cddac92babd42d7d628e/images/82b8744f-9a06-47a9-af03-3cbf9e71bd22.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -945,7 +1004,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:18px;">
-                                                                <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #404040;">
+                                                                <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #000;">
                                                                     <tbody>
                                                                         <tr>
                                                                             <td valign="top" class="mcnTextContent" style="padding: 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;">
@@ -1045,7 +1104,7 @@
                                     <tbody class="mcnButtonBlockOuter">
                                         <tr>
                                             <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
-                                                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;background-color: #FDCD08;">
+                                                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;background-color: #FFCD00;text-transform: uppercase">
                                                     <tbody>
                                                         <tr>
                                                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, Verdana, sans-serif; font-size: 16px; padding: 18px;">
@@ -1220,24 +1279,7 @@
                 <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
                 <tr>
                 <![endif]-->
-                                                <!--[if mso]>
-                <td valign="top" width="600" style="width:600px;">
-                <![endif]-->
-                                                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                                                                <strong>Our mailing address is:</strong>&nbsp;<br>
-                                                                Student Life Marketing + Design<br>
-                                                                286 Iowa Memorial Union<br>
-                                                                Iowa City,&nbsp;Iowa&nbsp;&nbsp;52242-1317
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--[if mso]>
-                </td>
-                <![endif]-->
+
                                                 <!--[if mso]>
                 </tr>
                 </table>
@@ -1258,6 +1300,89 @@
                 </td>
             </tr>
         </table>
+
+        <div style="background:#000000;background-color:#000000;margin:0px auto;max-width:798px;">
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#000000;background-color:#000000;width:100%;">
+                          <tbody>
+                            <tr>
+                              <td style="direction:ltr;font-size:0px;padding:0;padding-bottom:0;padding-top:0;text-align:center;">
+                                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+        <tr>
+
+            <td
+               class="" style="vertical-align:top;width:798px;"
+            >
+          <![endif]-->
+                                <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="vertical-align:top;padding:0px 0px;">
+                                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                            <tbody><tr>
+                                              <td align="center" style="font-size:0px;padding:30px 0px 15px 0px;word-break:break-word;">
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td style="width:120px;">
+                                                        <a href="https://link.uiowa.edu/l/b3c1f98f-545d-44f6-a2e2-5f2535beccf4?m=3a65f0e7-6b90-41fe-873b-f44f6b346fac&amp;c=d.vpsc&amp;i=202011" target="_blank">
+                                                          <img alt="The University of Iowa" height="auto" src="https://dispatch-cdn.its.uiowa.edu/images/ui/Block-IOWA-GOLD-ffcd00-nomargin.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="120">
+                                                        </a>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td align="center" class="footer" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-bottom:0px;word-break:break-word;">
+                                                <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:12px;line-height:20px;text-align:center;color:#ffffff;">
+                                                  <mj-raw>
+                                                  </mj-raw>
+                                                  <mj-raw>
+
+                                                  </mj-raw>
+
+                                                  <mj-raw>
+
+                                                  </mj-raw>
+                                                  <mj-raw>
+                                                  </mj-raw>
+                                                  <p>
+                                                  </p>
+                                                  <p>
+                                                     <a style="color: #fff; text-decoration: underline;" href="https://opsmanual.uiowa.edu/community-policies/nondiscrimination-statement">Nondiscrimination Statement</a>
+                                                  </p>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                              <tr>
+                                                <td align="center" class="footer" style="font-size:0px;padding:10px 25px;padding-top:0px;word-break:break-word;">
+                                                  <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;">
+                                                    <p></p>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                          </tbody></table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <!--[if mso | IE]>
+            </td>
+
+        </tr>
+
+                  </table>
+                <![endif]-->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
     </center>
 </body>
 
