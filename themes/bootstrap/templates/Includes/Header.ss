@@ -1,5 +1,5 @@
 <div class="header__container">
-    <div class="container-xl">
+    <div class="">
 
         <div class="row d-none d-lg-block">
             <div class=" col-lg-12 content-container title__container">
