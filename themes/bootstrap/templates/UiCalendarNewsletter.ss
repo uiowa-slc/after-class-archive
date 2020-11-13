@@ -1133,9 +1133,9 @@
           <![endif]-->
                                   <div class="mj-column-px-400 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                                     <div style="text-align: center;">
-                                        <a href="https://link.uiowa.edu/l/c4847b83-7d36-4130-ba17-6d396c84609a?m=2b9a4b04-c972-4293-99b7-7bf4684257cc&amp;c=d.studentlife&amp;i=202011"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_facebook_blk.png" alt="Facebook" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
-                                        <a href="https://link.uiowa.edu/l/6a7e43f7-5496-433d-9cfa-99027e507bf0?m=2b9a4b04-c972-4293-99b7-7bf4684257cc&amp;c=d.studentlife&amp;i=202011"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_twitter_blk.png" alt="Twitter" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
-                                        <a href="https://link.uiowa.edu/l/51029101-e291-4dff-a584-96d58a243834?m=2b9a4b04-c972-4293-99b7-7bf4684257cc&amp;c=d.studentlife&amp;i=202011"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_instagram_blk.png" alt="Instagram" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
+                                        <a href="https://www.facebook.com/uistudentlife"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_facebook_blk.png" alt="Facebook" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
+                                        <a href="https://twitter.com/uistudentlife"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_twitter_blk.png" alt="Twitter" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
+                                        <a href="https://www.instagram.com/uistudentlife/"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_instagram_blk.png" alt="Instagram" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
 
 
 
