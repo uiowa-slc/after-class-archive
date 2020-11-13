@@ -57,7 +57,7 @@
 
 .nav-link {
     padding: 20px 0;
-    color: white;
+    color: $body-color;
     font-weight: bold;
 
     @include media-breakpoint-up(xl) {
