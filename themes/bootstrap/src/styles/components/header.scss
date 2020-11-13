@@ -56,12 +56,18 @@
 
 
 .nav-link {
-    padding: 20px 0;
+
     color: $body-color;
     font-weight: bold;
+    font-size: 18px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 16px;
+        padding: 20px 0;
+    }
 
     @include media-breakpoint-up(xl) {
-        font-size: 16px;
+        font-size: 18px;
     }
 
 
