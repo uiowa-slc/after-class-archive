@@ -852,7 +852,7 @@
     <!--<![endif]-->
     <!--*|END:IF|*-->
     <center>
-        <div style="background:#FFCD00;background-color:#FFCD00;margin:0px auto;max-width:798px;">
+        <div style="background:#FFCD00;background-color:#FFCD00;margin:0px auto;">
                         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFCD00;background-color:#FFCD00;width:100%;">
                           <tbody>
                             <tr>
@@ -1009,7 +1009,9 @@
                                                                         <tr>
                                                                             <td valign="top" class="mcnTextContent" style="padding: 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;">
                                                                                 <h2 class="null"><a href="{$AbsoluteLink}" target="_blank">$Title</a></h2>
-                                                                                <% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank">More...</a>
+                                                                                <% include NewsletterDateTimesVenue %>
+
+                                                                                 $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank">More...</a>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>

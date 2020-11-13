@@ -16,8 +16,10 @@
                         <tr>
                             <td class="mcnTextContent" valign="top" style="padding: 9px 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width="546">
                                 <h2 class="null" style="display: block;margin: 0;padding: 0;color: #ffffff;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-align: left;"><a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #FFCD00;font-weight: normal;text-decoration: underline;">$Title</a></h2>
-                                <div>
-                                    <% include EventCardDatesTimesNoLinks %> $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #FFCD00;font-weight: normal;text-decoration: underline;">More...</a></div>
+                                    <% include NewsletterDateTimesVenue %>
+
+                                     $Content.Summary(50) <a href="{$AbsoluteLink}" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #FFCD00;font-weight: normal;text-decoration: underline;">More...</a>
+                                </div>
                                 </td>
                             </tr>
                         </tbody>

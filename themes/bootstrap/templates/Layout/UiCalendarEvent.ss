@@ -55,18 +55,20 @@
     						</span>
     					<% end_if %>
                     <% end_if %>
+
+
 					</p>
 				<% end_if %>
                 <p>
                     <% if $OnlineLocationUrl || $MoreInfoLink %>
                         <% if $OnlineLocationType == "Zoom" %>
-                                <a class="btn btn-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a>
+                                <a class="btn btn-primary btn-zoom mb-1" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a>
                         <% else %>
-                                <a class="btn btn-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Virtual event link <i aria-hidden="true" class="fas fa-laptop-house"></i></a>
+                                <a class="btn btn-primary mb-1" href="$OnlineLocationUrl" rel="noopener" target="_blank">Virtual event link <i aria-hidden="true" class="fas fa-laptop-house"></i></a>
                         <% end_if %>
 
                         <% if $MoreInfoLink %>
-                            <a href="$MoreInfoLink" class="btn btn-outline-primary" target="_blank">Event website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
+                            <a href="$MoreInfoLink" class="btn btn-outline-primary mb-1" target="_blank">Event website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
                         <% end_if %>
                     <% end_if %>
                 </p>
@@ -89,14 +91,14 @@
 				<% if $Tags %>
 					<p>Tagged as:
 					<% loop $Tags %>
-					<a href="$Link" class="btn btn-outline-white btn-sm mb-0">$Title</a>
+					<a href="$Link" class="btn btn-outline-white btn-sm mb-1">$Title</a>
 					<% end_loop %></p>
 
 				<% end_if %>
 				<% if $Types %>
 					<p>Categorized under:
 					<% loop $Types %>
-					<a href="$Link" class="btn btn-outline-white btn-sm mb-0">$Title</a>
+					<a href="$Link" class="btn btn-outline-white btn-sm mb-1">$Title</a>
 					<% end_loop %></p>
 
 				<% end_if %>
