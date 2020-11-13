@@ -1104,11 +1104,11 @@
                                     <tbody class="mcnButtonBlockOuter">
                                         <tr>
                                             <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
-                                                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;background-color: #FFCD00;text-transform: uppercase">
+                                                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;background-color: #000; border: 1px solid #FFCD00; text-transform: uppercase">
                                                     <tbody>
                                                         <tr>
                                                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, Verdana, sans-serif; font-size: 16px; padding: 18px;">
-                                                                <a class="mcnButton " title="Add Your Event" href="https://afterclass.uiowa.edu/add" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #080808;">Add Your Event</a>
+                                                                <a class="mcnButton " title="Add Your Event" href="https://afterclass.uiowa.edu/add" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #fff;">Add Your Event</a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -1117,160 +1117,45 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowBlock" style="min-width:100%;">
-                                    <tbody class="mcnFollowBlockOuter">
-                                        <tr>
-                                            <td align="center" valign="top" style="padding:9px" class="mcnFollowBlockInner">
-                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentContainer" style="min-width:100%;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="center" style="padding-left:9px;padding-right:9px;">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnFollowContent">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td align="center" valign="top" style="padding-top:9px; padding-right:9px; padding-left:9px;">
-                                                                                <table align="center" border="0" cellpadding="0" cellspacing="0">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td align="center" valign="top">
-                                                                                                <!--[if mso]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                    <![endif]-->
-                                                                                                <!--[if mso]>
-                                        <td align="center" valign="top">
-                                        <![endif]-->
-                                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
-                                                                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
-                                                                                                                    <tbody>
-                                                                                                                        <tr>
-                                                                                                                            <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
-                                                                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
-                                                                                                                                    <tbody>
-                                                                                                                                        <tr>
-                                                                                                                                            <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
-                                                                                                                                                <a href="https://twitter.com/uistudentlife" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-twitter-48.png" alt="Twitter" style="display:block;" height="24" width="24" class=""></a>
-                                                                                                                                            </td>
-                                                                                                                                        </tr>
-                                                                                                                                    </tbody>
-                                                                                                                                </table>
-                                                                                                                            </td>
-                                                                                                                        </tr>
-                                                                                                                    </tbody>
-                                                                                                                </table>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                                <!--[if mso]>
-                                        </td>
-                                        <![endif]-->
-                                                                                                <!--[if mso]>
-                                        <td align="center" valign="top">
-                                        <![endif]-->
-                                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
-                                                                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
-                                                                                                                    <tbody>
-                                                                                                                        <tr>
-                                                                                                                            <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
-                                                                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
-                                                                                                                                    <tbody>
-                                                                                                                                        <tr>
-                                                                                                                                            <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
-                                                                                                                                                <a href="https://www.facebook.com/uistudentlife" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-facebook-48.png" alt="Facebook" style="display:block;" height="24" width="24" class=""></a>
-                                                                                                                                            </td>
-                                                                                                                                        </tr>
-                                                                                                                                    </tbody>
-                                                                                                                                </table>
-                                                                                                                            </td>
-                                                                                                                        </tr>
-                                                                                                                    </tbody>
-                                                                                                                </table>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                                <!--[if mso]>
-                                        </td>
-                                        <![endif]-->
-                                                                                                <!--[if mso]>
-                                        <td align="center" valign="top">
-                                        <![endif]-->
-                                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <td valign="top" style="padding-right:0; padding-bottom:9px;" class="mcnFollowContentItemContainer">
-                                                                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
-                                                                                                                    <tbody>
-                                                                                                                        <tr>
-                                                                                                                            <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
-                                                                                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
-                                                                                                                                    <tbody>
-                                                                                                                                        <tr>
-                                                                                                                                            <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
-                                                                                                                                                <a href="https://afterclass.uiowa.edu" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-link-48.png" alt="Website" style="display:block;" height="24" width="24" class=""></a>
-                                                                                                                                            </td>
-                                                                                                                                        </tr>
-                                                                                                                                    </tbody>
-                                                                                                                                </table>
-                                                                                                                            </td>
-                                                                                                                        </tr>
-                                                                                                                    </tbody>
-                                                                                                                </table>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                                <!--[if mso]>
-                                        </td>
-                                        <![endif]-->
-                                                                                                <!--[if mso]>
-                                    </tr>
+                                <div style="background:#FFCD00;background-color:#FFCD00;margin:0px auto;max-width:798px;">
+                          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFCD00;background-color:#FFCD00;width:100%;">
+                            <tbody>
+                              <tr>
+                                <td style="direction:ltr;font-size:0px;padding:5px 0px;text-align:center;">
+                                  <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+        <tr>
+
+            <td
+               class="" style="vertical-align:top;width:400px;"
+            >
+          <![endif]-->
+                                  <div class="mj-column-px-400 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                                    <div style="text-align: center;">
+                                        <a href="https://link.uiowa.edu/l/c4847b83-7d36-4130-ba17-6d396c84609a?m=2b9a4b04-c972-4293-99b7-7bf4684257cc&amp;c=d.studentlife&amp;i=202011"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_facebook_blk.png" alt="Facebook" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
+                                        <a href="https://link.uiowa.edu/l/6a7e43f7-5496-433d-9cfa-99027e507bf0?m=2b9a4b04-c972-4293-99b7-7bf4684257cc&amp;c=d.studentlife&amp;i=202011"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_twitter_blk.png" alt="Twitter" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
+                                        <a href="https://link.uiowa.edu/l/51029101-e291-4dff-a584-96d58a243834?m=2b9a4b04-c972-4293-99b7-7bf4684257cc&amp;c=d.studentlife&amp;i=202011"><img src="https://dispatch-cdn.its.uiowa.edu/dispatch/client/icons_instagram_blk.png" alt="Instagram" style="padding: 0 10px 0 10px;" width="30" height="30"></a>&nbsp;
+
+
+
+                                      </div><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+
                                     </table>
-                                    <![endif]-->
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
-                                    <tbody class="mcnDividerBlockOuter">
-                                        <tr>
-                                            <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 10px 18px 25px;">
-                                                <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top-width: 2px;border-top-style: solid;border-top-color: #464646;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <span></span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--
-                <td class="mcnDividerBlockInner" style="padding: 18px;">
-                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
--->
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                  </div>
+                                  <!--[if mso | IE]>
+            </td>
+
+        </tr>
+
+                  </table>
+                <![endif]-->
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
                                     <tbody class="mcnTextBlockOuter">
                                         <tr>
