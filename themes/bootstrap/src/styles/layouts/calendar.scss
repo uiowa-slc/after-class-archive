@@ -108,9 +108,15 @@
 .card__banner-img {
     display: block;
     position: absolute;
-    width: 10%;
+    width: 5%;
     right: 0;
-    filter: drop-shadow(0 0 20px #333);
+    // filter: drop-shadow(0 0 20px #333);
+
+
+    @include media-breakpoint-up(lg) {
+        width: 10%;
+
+    }
 }
 
 /* HOW THIS WORKS:;
