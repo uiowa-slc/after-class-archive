@@ -2,23 +2,6 @@
     padding-top: 30px;
 }
 
-.card__banner-img {
-    display: block;
-    position: absolute;
-    width: 10%;
-    margin-right: 15px;
-    filter: drop-shadow(0 0 20px #333);
-}
-
-.card-columns--constrained {
-    @include media-breakpoint-up(sm) {
-        column-count: 1;
-    }
-
-    @include media-breakpoint-up(lg) {
-        column-count: 3;
-    }
-}
 
 h3 {
     color: #ccc;
