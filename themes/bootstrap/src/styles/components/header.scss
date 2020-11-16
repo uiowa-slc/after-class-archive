@@ -17,6 +17,9 @@
     color: #262626;
     background: #000;
 
+    padding-top: 10px;
+    padding-bottom: 10px;
+
     .nav-item:after,
     .nav-item-active:after {
         @include media-breakpoint-up(lg) {
