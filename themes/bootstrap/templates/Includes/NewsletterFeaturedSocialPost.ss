@@ -8,7 +8,7 @@
                         <tr>
                             <td class="mcnImageCardBottomImageContent" align="left" valign="top" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 <a href="{$SocialLink}" title="" class="" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                    <img alt="<% if $SocialImageAlt %>{$SocialImageAlt}<% else %>Social Post from {$SocialAuthorName}. Click for details.<% end_if %>" src="$SocialImageUrl" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
+                                    <img alt="<% if $SocialImageAlt %>{$SocialImageAlt}<% else %>{$SocialType} post from {$SocialAuthorName}. Click for details.<% end_if %>" src="$SocialImageUrl" width="564" style="max-width: 600px;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class="mcnImage">
                                 </a>
                             </td>
                         </tr>

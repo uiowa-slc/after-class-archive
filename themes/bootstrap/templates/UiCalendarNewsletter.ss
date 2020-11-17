@@ -1086,7 +1086,7 @@
                                                             <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
                                                                 <p>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.</p>
                                                                 <p>
-                                                                    After Class is a Divison of Student Life initiative meant to bring you great opportunities to be entertained, get involved, and enjoy student life at Iowa.</p>
+                                                                    After Class is a Divison of Student Life initiative meant to help students get involved, stay informed, and enjoy student life at Iowa.</p>
                                                             </td>
                                                         </tr>
                                                     </tbody>
