@@ -61,16 +61,19 @@
 				<% end_if %>
                 <p>
                     <% if $OnlineLocationUrl || $MoreInfoLink %>
-                        <% if $OnlineLocationType == "Zoom" %>
-                                <a class="btn btn-primary btn-zoom mb-1" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a>
-                        <% else %>
-                                <a class="btn btn-primary mb-1" href="$OnlineLocationUrl" rel="noopener" target="_blank">Virtual event link <i aria-hidden="true" class="fas fa-laptop-house"></i></a>
-                        <% end_if %>
 
+                        <% if $OnlineLocationUrl %>
+                            <% if $OnlineLocationType == "Zoom" %>
+                                    <a class="btn btn-primary btn-zoom mb-1" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a>
+                            <% else %>
+                                    <a class="btn btn-primary mb-1" href="$OnlineLocationUrl" rel="noopener" target="_blank">Virtual event link <i aria-hidden="true" class="fas fa-laptop-house"></i></a>
+                            <% end_if %>
+                        <% end_if %>
                         <% if $MoreInfoLink %>
                             <a href="$MoreInfoLink" class="btn btn-outline-primary mb-1" target="_blank">Event website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
                         <% end_if %>
                     <% end_if %>
+
                 </p>
 
                 </div>

@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project.git",
-                "reference": "115f27531a60cc73c997cdb29e64239792fdce1d"
+                "reference": "3f9af962809fca0e81f8aa07259d48b6fc6bbac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/115f27531a60cc73c997cdb29e64239792fdce1d",
-                "reference": "115f27531a60cc73c997cdb29e64239792fdce1d",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/bootstrap-project/zipball/3f9af962809fca0e81f8aa07259d48b6fc6bbac3",
+                "reference": "3f9af962809fca0e81f8aa07259d48b6fc6bbac3",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1071,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/tree/main",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project/issues"
             },
-            "time": "2020-11-13T14:57:13+00:00"
+            "time": "2020-11-20T22:07:10+00:00"
         },
         {
             "name": "md/division-analytics",
@@ -1984,16 +1984,16 @@
         },
         {
             "name": "silverstripe/blog",
-            "version": "3.5.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-blog.git",
-                "reference": "92eb4f5da0e5f5e443330ab0ab4f4173d892107b"
+                "reference": "a07c2bb9cac5f314bd76592219d470bfcda1540e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-blog/zipball/92eb4f5da0e5f5e443330ab0ab4f4173d892107b",
-                "reference": "92eb4f5da0e5f5e443330ab0ab4f4173d892107b",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-blog/zipball/a07c2bb9cac5f314bd76592219d470bfcda1540e",
+                "reference": "a07c2bb9cac5f314bd76592219d470bfcda1540e",
                 "shasum": ""
             },
             "require": {
@@ -2043,7 +2043,7 @@
                 "news",
                 "silverstripe"
             ],
-            "time": "2020-06-12T02:24:02+00:00"
+            "time": "2020-11-17T23:56:01+00:00"
         },
         {
             "name": "silverstripe/campaign-admin",
@@ -2944,16 +2944,16 @@
         },
         {
             "name": "silverstripe/tagfield",
-            "version": "2.4.3",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-tagfield.git",
-                "reference": "66aa1af72a4678132e3b14ed88d886d22450ea89"
+                "reference": "eef72506e15921464e8e1ef0f6ca2df8150694e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-tagfield/zipball/66aa1af72a4678132e3b14ed88d886d22450ea89",
-                "reference": "66aa1af72a4678132e3b14ed88d886d22450ea89",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-tagfield/zipball/eef72506e15921464e8e1ef0f6ca2df8150694e8",
+                "reference": "eef72506e15921464e8e1ef0f6ca2df8150694e8",
                 "shasum": ""
             },
             "require": {
@@ -2961,11 +2961,14 @@
                 "silverstripe/versioned": "^1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7",
+                "sminnee/phpunit": "^5.7",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "type": "silverstripe-vendormodule",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                },
                 "expose": [
                     "client/dist"
                 ]
@@ -2993,7 +2996,7 @@
                 "silverstripe",
                 "tag"
             ],
-            "time": "2020-07-06T23:55:48+00:00"
+            "time": "2020-11-11T04:45:54+00:00"
         },
         {
             "name": "silverstripe/vendor-plugin",
@@ -3221,16 +3224,16 @@
         },
         {
             "name": "symbiote/silverstripe-queuedjobs",
-            "version": "4.6.1",
+            "version": "4.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symbiote/silverstripe-queuedjobs.git",
-                "reference": "a9763da7dafa57e12612efbc0a1fb660c9106b3b"
+                "reference": "9ca4b4a7581c29afb799a053c14ac6cca0c4e838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/a9763da7dafa57e12612efbc0a1fb660c9106b3b",
-                "reference": "a9763da7dafa57e12612efbc0a1fb660c9106b3b",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/9ca4b4a7581c29afb799a053c14ac6cca0c4e838",
+                "reference": "9ca4b4a7581c29afb799a053c14ac6cca0c4e838",
                 "shasum": ""
             },
             "require": {
@@ -3277,7 +3280,7 @@
                 "jobs",
                 "silverstripe"
             ],
-            "time": "2020-11-05T20:55:01+00:00"
+            "time": "2020-11-19T20:49:38+00:00"
         },
         {
             "name": "symfony/cache",
