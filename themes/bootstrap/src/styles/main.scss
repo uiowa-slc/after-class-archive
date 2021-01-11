@@ -65,9 +65,20 @@
 // @import "components/footer";
 // @import "layouts/login";
 
-@import "bootstrap-project";
-@import "uids";
+/* bootstrap-project files (footer, remcalc, sidebar, login styles) can be included individually.
+ (located in vendor/md/bootstrap-project/client/styles/)
+--------------------------------------------*/
+@import "../../../../vendor/md/bootstrap-project/client/styles/mixins/remcalc";
+@import "../../../../vendor/md/bootstrap-project/client/styles/components/footer";
+@import "../../../../vendor/md/bootstrap-project/client/styles/components/breadcrumbs";
+@import "../../../../vendor/md/bootstrap-project/client/styles/global/type";
+@import "../../../../vendor/md/bootstrap-project/client/styles/components/sidebar";
 
+@import "../../../../vendor/md/bootstrap-project/client/styles/layouts/login";
+
+//UIDS:
+@import "../../../../vendor/md/bootstrap-project/client/styles/uids/iowa-bar";
+@import "../../../../vendor/md/bootstrap-project/client/styles/uids/buttons";
 
 /* Theme
 -------------------------------------------*/
