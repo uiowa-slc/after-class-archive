@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "562a8c41b885c16ee7998fb2230fa368",
+    "content-hash": "9e70e0cc5e3f63454dce50a29f69df7b",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -1158,12 +1158,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "f7f9ba2933dc178c9297623ac65d92f0385d27c8"
+                "reference": "466ac96e5d94694e576629568985a1c2814386cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/f7f9ba2933dc178c9297623ac65d92f0385d27c8",
-                "reference": "f7f9ba2933dc178c9297623ac65d92f0385d27c8",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/466ac96e5d94694e576629568985a1c2814386cb",
+                "reference": "466ac96e5d94694e576629568985a1c2814386cb",
                 "shasum": ""
             },
             "require": {
@@ -1183,7 +1183,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2021-01-05T22:40:42+00:00"
+            "time": "2021-01-26T22:05:11+00:00"
         },
         {
             "name": "md/bootstrap-project",
