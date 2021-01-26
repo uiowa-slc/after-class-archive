@@ -16,12 +16,12 @@
                 <a class="navbar-brand d-lg-none" href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
                     <img class="brand-image" src="$ThemeDir/dist/images/brand-full.png"/>
                 </a>
-                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Collapsible content -->
-                <div class="collapse navbar-collapse justify-content-center " id="basicExampleNav">
+                <div class="collapse navbar-collapse justify-content-center " id="mainNav">
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item mr-lg-4"><a class="nav-link nav-link--large" href="events/"><i aria-hidden="true" class="fa fa-calendar"></i> Calendar</a></li>

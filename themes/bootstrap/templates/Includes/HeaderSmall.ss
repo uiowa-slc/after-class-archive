@@ -7,12 +7,12 @@
           <img class="brand-image" src="$ThemeDir/dist/images/brand-full.png"/>
         </a>
         <!-- Collapse button -->
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
+        <div class="collapse navbar-collapse" id="mainNav">
           <!-- Links -->
           <ul class="navbar-nav mr-xl-auto">
             <li class="nav-item mr-xl-4 <% if $ClassName == "UiCalendar" && $Action == "index" %>nav-item-active<% end_if %>"><a class="nav-link" href="events/"><i aria-hidden="true" class="fa fa-calendar"></i> Calendar</a></li>
