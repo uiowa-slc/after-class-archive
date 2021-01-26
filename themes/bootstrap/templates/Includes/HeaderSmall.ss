@@ -1,7 +1,7 @@
 <div class="header__container header__container--small">
   <div class="">
     <header role="banner">
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-main navbar-expand-lg navbar-dark">
         <!-- Navbar brand -->
         <a class="navbar-brand mr-xl-5" href="{$BaseUrl}" aria-label="{$SiteConfig.Title}">
           <img class="brand-image" src="$ThemeDir/dist/images/brand-full.png"/>
