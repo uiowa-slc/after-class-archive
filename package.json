@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "start": "cd vendor/md/bootstrap-project && npm install && gulp",
-    "build": "cd vendor/md/bootstrap-project && npm gulp build"
+    "build": "cd vendor/md/bootstrap-project && npm install && gulp build"
   },
   "dependencies": {
     "isotope-layout": "^3.0.6",
