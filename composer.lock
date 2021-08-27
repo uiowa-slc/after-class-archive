@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e70e0cc5e3f63454dce50a29f69df7b",
+    "content-hash": "e434bca85727ee471f6deae310c4ce90",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -859,16 +859,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "f3ad69181b8afed2c9edf7be5a2918144ff4ea32"
+                "reference": "18634df356bfd4119fe3d6156bdb990c414c14ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f3ad69181b8afed2c9edf7be5a2918144ff4ea32",
-                "reference": "f3ad69181b8afed2c9edf7be5a2918144ff4ea32",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/18634df356bfd4119fe3d6156bdb990c414c14ea",
+                "reference": "18634df356bfd4119fe3d6156bdb990c414c14ea",
                 "shasum": ""
             },
             "require": {
@@ -941,7 +941,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/1.1.4"
+                "source": "https://github.com/thephpleague/flysystem/tree/1.1.5"
             },
             "funding": [
                 {
@@ -949,7 +949,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-06-23T21:56:05+00:00"
+            "time": "2021-08-17T13:49:42+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -3267,30 +3267,31 @@
         },
         {
             "name": "silverstripe/staticpublishqueue",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-staticpublishqueue.git",
-                "reference": "0820f1e2e455dfc2164e23fe9942316ebfb511b0"
+                "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue.git",
+                "reference": "facafda10f4783038211c5a12ed993e4b91c6609"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-staticpublishqueue/zipball/0820f1e2e455dfc2164e23fe9942316ebfb511b0",
-                "reference": "0820f1e2e455dfc2164e23fe9942316ebfb511b0",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue/zipball/facafda10f4783038211c5a12ed993e4b91c6609",
+                "reference": "facafda10f4783038211c5a12ed993e4b91c6609",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1",
                 "silverstripe/cms": "^4",
                 "silverstripe/config": "^1",
-                "silverstripe/framework": "^4.0.2",
-                "silverstripe/versioned": "^1.0.2",
+                "silverstripe/framework": "^4.6",
+                "silverstripe/versioned": "^1.6",
                 "symbiote/silverstripe-queuedjobs": "^4.5"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7",
                 "squizlabs/php_codesniffer": "^3"
             },
+            "default-branch": true,
             "type": "silverstripe-vendormodule",
             "extra": {
                 "branch-alias": {
@@ -3306,10 +3307,17 @@
                     "includes/functions.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "includes/"
             ],
+            "scripts": {
+                "lint": [
+                    "phpcs -s src/ tests/php/"
+                ],
+                "lint-clean": [
+                    "phpcbf src/ tests/php/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -3329,10 +3337,9 @@
                 "static-publishing"
             ],
             "support": {
-                "issues": "https://github.com/silverstripe/silverstripe-staticpublishqueue/issues",
-                "source": "https://github.com/silverstripe/silverstripe-staticpublishqueue/tree/5.0.0"
+                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue/tree/master"
             },
-            "time": "2021-05-20T23:23:19+00:00"
+            "time": "2021-08-26T21:28:31+00:00"
         },
         {
             "name": "silverstripe/tagfield",
@@ -3679,16 +3686,16 @@
         },
         {
             "name": "symbiote/silverstripe-queuedjobs",
-            "version": "4.7.0",
+            "version": "4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symbiote/silverstripe-queuedjobs.git",
-                "reference": "cff68756613cb98c3c3200e5689caa12d3798336"
+                "reference": "6f936a707b47e95816e9bcfdbb19cb3da20aec6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/cff68756613cb98c3c3200e5689caa12d3798336",
-                "reference": "cff68756613cb98c3c3200e5689caa12d3798336",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/6f936a707b47e95816e9bcfdbb19cb3da20aec6e",
+                "reference": "6f936a707b47e95816e9bcfdbb19cb3da20aec6e",
                 "shasum": ""
             },
             "require": {
@@ -3740,9 +3747,9 @@
             ],
             "support": {
                 "issues": "https://github.com/symbiote/silverstripe-queuedjobs/issues",
-                "source": "https://github.com/symbiote/silverstripe-queuedjobs/tree/4.7.0"
+                "source": "https://github.com/symbiote/silverstripe-queuedjobs/tree/4.8.0"
             },
-            "time": "2021-03-14T22:46:00+00:00"
+            "time": "2021-08-05T23:22:27+00:00"
         },
         {
             "name": "symfony/cache",
@@ -4833,16 +4840,16 @@
         },
         {
             "name": "undefinedoffset/silverstripe-nocaptcha",
-            "version": "2.1.0",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UndefinedOffset/silverstripe-nocaptcha.git",
-                "reference": "655e1448ba575e0a7a6410ae101236908d363c73"
+                "reference": "bac4c581825a4541045a178441986541496ecc77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/silverstripe-nocaptcha/zipball/655e1448ba575e0a7a6410ae101236908d363c73",
-                "reference": "655e1448ba575e0a7a6410ae101236908d363c73",
+                "url": "https://api.github.com/repos/UndefinedOffset/silverstripe-nocaptcha/zipball/bac4c581825a4541045a178441986541496ecc77",
+                "reference": "bac4c581825a4541045a178441986541496ecc77",
                 "shasum": ""
             },
             "require": {
@@ -4875,7 +4882,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A spam protector and form field using the new Google's reCAPTCHA 2 aka No Captcha",
+            "description": "A spam protector and form field using Google's reCAPTCHA v2 or optionally a foundation v3 implementation",
             "keywords": [
                 "nocaptcha",
                 "recaptcha",
@@ -4885,9 +4892,9 @@
             ],
             "support": {
                 "issues": "https://github.com/undefinedoffset/silverstripe-nocaptcha/issues",
-                "source": "https://github.com/UndefinedOffset/silverstripe-nocaptcha/tree/2.1.0"
+                "source": "https://github.com/UndefinedOffset/silverstripe-nocaptcha/tree/2.1.2"
             },
-            "time": "2020-09-09T12:32:34+00:00"
+            "time": "2021-08-24T14:13:36+00:00"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
@@ -5264,7 +5271,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "md/bootstrap-project": 20
+        "md/bootstrap-project": 20,
+        "silverstripe/staticpublishqueue": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -5272,5 +5280,5 @@
         "php": ">=5.6.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
