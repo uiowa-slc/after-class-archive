@@ -34,11 +34,11 @@
                                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
                             Add Your Event</a>
                         </li>
-                                          <li class="nav-item mr-lg-3 link nav-item">
+<%--                                           <li class="nav-item mr-lg-3 link nav-item">
                             <a class="nav-link nav-link--large" href="add-social/" title="Promote">
                                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
                             Add Your Post</a>
-                        </li>
+                        </li> --%>
                         <li class="nav-item mr-lg-3 link nav-item">
                             <a class="nav-link nav-link--large" href="about-after-class/" title="About After Class">
                             About</a>
