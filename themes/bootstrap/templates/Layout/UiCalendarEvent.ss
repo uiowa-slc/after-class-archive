@@ -206,10 +206,10 @@
 
 <% if $RelatedEvents %>
     <div class="related-container">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row pt-4">
                 <div class="col-lg-12">
-                    <h2 class="text-center">Related Events</h2>
+                    <h2 class="text-center">More events</h2>
                     <div class="masonry-grid">
                         <% loop RelatedEvents %>
                             <% include EventCard %>
@@ -221,7 +221,7 @@
     </div>
 <% else_if $LocationRelatedEvents %>
     <div class="related-container">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row pt-4">
                 <div class="col-lg-12">
                     <h2 class="text-center">Events also located at {$Venue.Title}: </h2>
