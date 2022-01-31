@@ -25,18 +25,11 @@
                 <i aria-hidden="true" class="fa fa-plus-circle"></i>
               Add Event</a>
             </li>
-<%--             <li class="nav-item mr-xl-3 link nav-item <% if $ID == "62" %>nav-item-active<% end_if %>">
-              <a class="nav-link" href="add-social" title="Add Post">
-                <i aria-hidden="true" class="fa fa-plus-circle"></i>
-              Add Post</a>
-            </li> --%>
+
             <li class="nav-item mr-xl-3 link <% if $ID == "56" %>nav-item-active<% end_if %>">
               <a class="nav-link " href="about-after-class/" title="About After Class">
               About</a>
             </li>
-
-
-
 
           </ul>
         </div>

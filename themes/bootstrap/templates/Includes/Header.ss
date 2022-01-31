@@ -50,6 +50,15 @@
                 </div>
                 <!-- Collapsible content -->
             </nav>
+            <% with $Calendar %>
+            <div class="trending__container">
+                <p class="trending__tags"><span class="btn mb-2">Trending:</span>
+                <% loop $TrendingTagsAndTypes %>
+                    <a href="$Link" class="btn btn-outline-primary mb-2">$Title</a>
+                <% end_loop %>
+                </p>
+            </div>
+            <% end_with %>
         </header>
     </div>
 </div>
