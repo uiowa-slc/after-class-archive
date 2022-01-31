@@ -41,7 +41,7 @@
                         </li> --%>
                         <li class="nav-item mr-lg-3 link nav-item">
                             <a class="nav-link nav-link--large" href="about-after-class/" title="About After Class">
-                            About</a>
+                                <i class="fas fa-info-circle"></i> About</a>
                         </li>
 
 

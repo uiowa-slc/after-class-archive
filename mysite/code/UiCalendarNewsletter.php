@@ -126,10 +126,10 @@ class UiCalendarNewsletter extends Page {
             $eventField->setEmptyString( '(No Event)' );
             $fields->addFieldToTab( 'Root.Main', $eventField );
 
-
-            $socialPostField = new DropdownField( "SocialPost".$i, "Social ".$i, $socialPostsArray);
-            $socialPostField->setEmptyString( '(No Event)' );
-            $fields->addFieldToTab( 'Root.Main', $socialPostField );
+            // Remove social fields for now since they  don't work
+            // $socialPostField = new DropdownField( "SocialPost".$i, "Social ".$i, $socialPostsArray);
+            // $socialPostField->setEmptyString( '(No Event)' );
+            // $fields->addFieldToTab( 'Root.Main', $socialPostField );
 
         }
 
