@@ -1,12 +1,21 @@
 .trending__container{
     overflow-x: scroll;
     max-width: 3000px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
-
+.trending__container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
 .trending__tags{
     width: 2500px;
 
     // @include media-breakpoint-up(sm){
 
     // }
+}
+.container {
+    overflow-y: scroll;
+
 }
