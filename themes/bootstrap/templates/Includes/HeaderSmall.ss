@@ -36,5 +36,6 @@
         <!-- Collapsible content -->
       </nav>
     </header>
+    <% include Trending %>
   </div>
 </div>
