@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item mr-xl-3 link <% if $ID == "56" %>nav-item-active<% end_if %>">
-              <a class="nav-link " href="about-after-class/" title="About After Class">
+              <a class="nav-link " href="about-after-class/" title="About After Class"> <i class="fas fa-info-circle"></i>
               About</a>
             </li>
 
