@@ -1317,12 +1317,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "4a1690b106132c0397ebf189b62984e1ee1665b0"
+                "reference": "2e2a9bdef7ae65f932d7bd39d0ad4f85b01e2790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/4a1690b106132c0397ebf189b62984e1ee1665b0",
-                "reference": "4a1690b106132c0397ebf189b62984e1ee1665b0",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/2e2a9bdef7ae65f932d7bd39d0ad4f85b01e2790",
+                "reference": "2e2a9bdef7ae65f932d7bd39d0ad4f85b01e2790",
                 "shasum": ""
             },
             "require": {
@@ -1342,7 +1342,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/3",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2022-01-31T19:29:53+00:00"
+            "time": "2022-02-01T16:20:02+00:00"
         },
         {
             "name": "md/bootstrap-project",
@@ -2622,16 +2622,16 @@
         },
         {
             "name": "silverstripe/cms",
-            "version": "4.9.1",
+            "version": "4.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "480baa6ef8f6373071065eb62d6eb6a8805afac9"
+                "reference": "ca086142b4600d3b71c8c068840430745c6cb14a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/480baa6ef8f6373071065eb62d6eb6a8805afac9",
-                "reference": "480baa6ef8f6373071065eb62d6eb6a8805afac9",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/ca086142b4600d3b71c8c068840430745c6cb14a",
+                "reference": "ca086142b4600d3b71c8c068840430745c6cb14a",
                 "shasum": ""
             },
             "require": {
@@ -2687,9 +2687,9 @@
             ],
             "support": {
                 "issues": "https://github.com/silverstripe/silverstripe-cms/issues",
-                "source": "https://github.com/silverstripe/silverstripe-cms/tree/4.9.1"
+                "source": "https://github.com/silverstripe/silverstripe-cms/tree/4.9.2"
             },
-            "time": "2021-11-04T01:59:14+00:00"
+            "time": "2022-01-25T09:16:28+00:00"
         },
         {
             "name": "silverstripe/config",
