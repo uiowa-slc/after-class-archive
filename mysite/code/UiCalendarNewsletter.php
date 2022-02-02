@@ -45,10 +45,10 @@ class UiCalendarNewsletter extends Page {
 
     private static $default_sort = 'Created DESC';
     private static $defaults = array (
-
+        "Priority" => "-1"
     );
-    private static $singular_name = 'Social Newsletter';
-    private static $plural_name = 'Social Newsletters';
+    private static $singular_name = 'Newsletter';
+    private static $plural_name = 'Newsletter';
     private static $summary_fields = array(
         'Title',
         'Created'
