@@ -55,4 +55,10 @@ class UiCalendarNewsletterHolder extends Page {
         ])->sort('Created DESC');
 
 	}
+
+    //Don't cache newsletter holders
+
+    public function urlsToCache() {
+        return [];
+    }
 }

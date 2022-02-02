@@ -172,4 +172,8 @@ class UiCalendarNewsletter extends Page {
         return $fields;
     }
 
+    //Don't cache newsletters
+    public function urlsToCache() {
+        return [];
+    }
 }

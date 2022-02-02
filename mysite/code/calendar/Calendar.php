@@ -167,4 +167,10 @@ class Calendar extends Page {
 
 	// }
 
+    //Don't cache
+
+    public function urlsToCache() {
+        return [];
+    }
+
 }

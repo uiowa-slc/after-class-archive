@@ -63,5 +63,4 @@ class CalendarAddPage extends Page {
 	}
 
 
-
 }

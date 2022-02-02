@@ -314,4 +314,8 @@ class CalendarEvent extends Page {
 			return $host;
 		}
 	}
+
+    public function urlsToCache() {
+        return [];
+    }
 }
