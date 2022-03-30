@@ -4,7 +4,7 @@
 <div class="container content-container" role="main" id="content">
 
 	<div class="row ptop-30 justify-content-center">
-		<div class="col-lg-8">
+		<div class="col-lg-9">
 			<article>
 
                 <% if $SocialEmbedHTML %>
@@ -19,51 +19,34 @@
 				<h1>$ParsedTitle.RAW</h1>
 
 				<% if $DateTimes || $Venue || $Location || $OnlineLocationUrl %>
-				<p>
-					<% if $DateTimes.Count > 1 %><strong>Next Date:</strong><% else_if $DateTimes.Count == 1 %><strong>Date:</strong> <% end_if %>
-						<% if $DateTimes %>
-							<% loop $DateTimes.Limit(1) %>
-								<% include DateTimesList %>
-							<% end_loop %>
-
-							<br />
-						<% else %>
-
-						<% end_if %>
-                        <p>
-                            <% if $OnlineLocationUrl %>
-                                <% if $OnlineLocationType == "Zoom" %>
-                                    <a class="btn btn-outline-primary btn-zoom" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a></p>
-                                <% else %>
-                                    <a class="btn btn-outline-primary" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online event link<i aria-hidden="true" class="fas fa-laptop-house"></i></a></p>
-                                <% end_if %>
-                            <% end_if %>
-                            <% if $MoreInfoLink %>
-                                    <a href="$MoreInfoLink" class="btn btn-secondary mb-2" target="_blank" rel="noopener">Event Website <i aria-hidden="true" class="fas fa-external-link-alt"></i></a>
-                            <% end_if %>
-                        </p>
-
+                    <% if $DateTimes.Count > 1 %><strong>Next Date:</strong><% else_if $DateTimes.Count == 1 %><strong>Date:</strong> <% end_if %>
+                        <% if $DateTimes %>
+                            <% loop $DateTimes.Limit(1) %>
+                                <% include DateTimesList %>
+                            <% end_loop %>
+                            <br />
+                        <% end_if %>
 					<% if $Venue.Title || $Location || $OnlineLocationUrl %>
-					<br />
-					<% if $Location %>
-					<strong>Location: </strong>
-						<span itemprop="location">
-							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
-							<% if $Venue.Title %>
-								<% with $Venue %>
-									<% if $Link %>
-										<a href="$Link">$Title</a>
-									<% else %>
-										$Title
-									<% end_if %>
-								<% end_with %>
-							<% end_if %>
-						</span>
-					<% end_if %>
+    					<br />
+    					<% if $Location %>
+    					<strong>Location: </strong>
+    						<span itemprop="location">
+    							<% if $Location %> $Location<% if $Venue.Title %>,<% end_if %> <% end_if %>
+    							<% if $Venue.Title %>
+    								<% with $Venue %>
+    									<% if $Link %>
+    										<a href="$Link">$Title</a>
+    									<% else %>
+    										$Title
+    									<% end_if %>
+    								<% end_with %>
+    							<% end_if %>
+    						</span>
+    					<% end_if %>
 					<% end_if %>
 
 
-						</p>
+
 				<% end_if %>
 
 				<%-- only show the caption on insta posts, twitter just includes the embed again --%>
@@ -86,7 +69,7 @@
 				<% end_if %>
 
 				<% if $Sponsor %>
-						<p>Sponsored by: $Sponsor</strong></p>
+						<p>Sponsored by: $Sponsor</p>
 				<% end_if %>
 				<% if $Tags %>
 					<p>Tagged as:
@@ -123,7 +106,7 @@
 				<% else %>
 					<a href="mailto:$ContactEmail" class="report-problem-link">Email {$ContactEmail}.</a>
 				<% end_if %>
-				</a>
+
 			</p>
 				<% if $IsLateNight %>
 				<div class="late-night-feature">
@@ -133,7 +116,7 @@
 
 				<% end_if %>
 			<% end_if %>
-				<p style="border-top: solid 1px #666; margin-top: 10px; padding-top: 10px;"><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events.
+				<p style="border-top: solid 1px #666;" class="mt-3 pt-3">Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events.
 
 				<% if $ContactName %>
 
@@ -148,7 +131,7 @@
 						If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact the Office of the Vice President for Student Life in advance at <a href="tel:319-335-3557">319-335-3557</a> or <a href="mailto:vp-student-life@uiowa.edu">vp-student-life@uiowa.edu</a>.
 				<% end_if %>
 
-				</i>
+
 					</p>
 			</article>
 			$Form

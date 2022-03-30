@@ -117,7 +117,7 @@ $(document).ready(function() {
     if($( ".masonry-grid" ).length){
 
 
-            $('.masonry-grid').isotope({
+        var $grid = $('.masonry-grid').isotope({
                 "layoutMode": "masonry",
                 "itemSelector": ".masonry-grid-item",
                 "getSortData": { "name": ".name", "category": "[data-category]" },
@@ -127,7 +127,9 @@ $(document).ready(function() {
              });
 
 
-
+        // $grid.on( 'arrangeComplete', function( event, filteredItems ) {
+        //   console.log( filteredItems.length );
+        // });
 
     }
 

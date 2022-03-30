@@ -4,7 +4,7 @@
 <div class="container content-container " role="main" id="content">
 
 	<div class="row d-flex <% if $Image.Orientation != "Wide" %>pt-4 pt-xl-5<% end_if %> justify-content-center">
-		<div class="<% if $Image.Orientation == "Wide" %>col-lg-8 col-xl-7<% else_if not $Image.URL %>col-lg-8 col-xl-7<% else %>col-lg-6<% end_if %>">
+		<div class="col-lg-7 col-xl-8">
 			<article>
 
 			 	<% if $Image.Orientation == "Wide" %>
@@ -89,7 +89,7 @@
 				<% end_if %>
 
 				<% if $Sponsor %>
-						<p>Sponsored by: $Sponsor</strong></p>
+						<p>Sponsored by: $Sponsor</p>
 				<% end_if %>
 				<% if $Tags %>
 					<p>Tagged as:
@@ -122,7 +122,7 @@
 				<% else %>
 					<a href="mailto:$ContactEmail" class="report-problem-link">Email {$ContactEmail}.</a>
 				<% end_if %>
-				</a>
+
 			</p>
 				<% if $IsLateNight %>
 				<div class="late-night-feature">
@@ -155,7 +155,7 @@
 		</div>
         <% if $Image.URL  %>
 		<% if $Image.Orientation != "Wide" || $Venue.Title || $Location %>
-		<div class="col-lg-4">
+		<div class="col-lg-5 col-xl-4">
 			<div class="sticky-side">
 
 			 	<% if $Image.URL && $Image.Orientation != "Wide" %>
