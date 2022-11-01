@@ -16,31 +16,31 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/bootstrap-project"
+            "url": "https://github.com/uiowa-slc/bootstrap-project"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics"
+            "url": "https://github.com/uiowa-slc/division-analytics"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-maintenance-mode"
+            "url": "https://github.com/uiowa-slc/silverstripe-maintenance-mode"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"
+            "url": "https://github.com/uiowa-slc/uiowa-bar"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
+            "url": "https://github.com/uiowa-slc/ac-json-events"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
+            "url": "https://github.com/uiowa-slc/silverstripe-saml"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-staticpublishqueue"
+            "url": "https://github.com/uiowa-slc/silverstripe-staticpublishqueue"
         }
     ],
     "extra": {
